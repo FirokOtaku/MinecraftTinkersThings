@@ -1,2 +1,4 @@
-*
-!src/*
+
+!changelog.md
+!readme.md
+!src
