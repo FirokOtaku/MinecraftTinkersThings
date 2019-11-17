@@ -1,0 +1,18 @@
+[
+  {
+    "modid": "mtim",
+    "name": "MoreTinkersMaterials",
+    "description": "A mod adding several materials to Tinkers' Construct",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "github.com/351768593",
+    "updateUrl": "",
+    "authorList": [
+      "Firok"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
