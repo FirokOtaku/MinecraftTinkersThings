@@ -1,4 +1,16 @@
+logs
+.gradle
+.idea
+build
+gradle
+out
+run
 
+gradlew
+gradlew.bat
+*.iml
+
+!materials.md
 !changelog.md
 !readme.md
 !src
