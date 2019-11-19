@@ -1,7 +1,7 @@
 package firok.mtim.common;
 
 import firok.mtim.MoreTinkersMaterials;
-import firok.mtim.util.Colors;
+import firok.mtim.util.Keys;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -11,9 +11,12 @@ import slimeknights.tconstruct.smeltery.block.BlockMolten;
 
 import java.lang.reflect.Field;
 
+import static firok.mtim.util.Keys.*;
+
 public class Fluids
 {
-	public static FluidMolten moltenRoyalAlloy=$("royal_alloy", Colors.Gold);
+	public static FluidMolten moltenRoyalAlloy=$(nameRoyalAlloy, colorRoyalAlloy);
+	public static FluidMolten moltenStellar=$(nameStellar, colorStellar);
 
 	public static void register()
 	{
@@ -32,8 +35,8 @@ public class Fluids
 					FluidRegistry.addBucketForFluid(fluid);
 
 					BlockMolten block=new BlockMolten(fluid);
-					block.setUnlocalizedName("molten_"+fluid.getName());
-					block.setRegistryName(MoreTinkersMaterials.MOD_ID,"molten_"+ fluid.getName());
+					block.setUnlocalizedName(Keys.prefMolten+ fluid.getName());
+					block.setRegistryName(MoreTinkersMaterials.MOD_ID, Keys.prefMolten+ fluid.getName());
 
 					ForgeRegistries.BLOCKS.register(block);
 					ForgeRegistries.ITEMS.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));

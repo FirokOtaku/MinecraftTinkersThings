@@ -12,13 +12,14 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface Reg
 {
+	String value() default "";
 	/**
 	 * texture name
 	 */
-	String tn();
+	String tn() default "";
 
 	/**
 	 * unlocalized name
 	 */
-	String un();
+	String un() default "";
 }

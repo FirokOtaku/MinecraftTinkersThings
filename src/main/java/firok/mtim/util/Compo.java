@@ -12,7 +12,7 @@ public @interface Compo
 	String name();
 	String item() default "";
 	String[] items() default {};
-	String fluid();
+	String fluid() default "";
 	boolean craftable() default true;
 	boolean castatble() default true;
 }

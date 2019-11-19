@@ -1,15 +1,18 @@
 package firok.mtim.common;
 
+import firok.mtim.util.Keys;
 import firok.mtim.util.Reg;
 import net.minecraft.item.Item;
+
+import static firok.mtim.util.Keys.*;
 
 @SuppressWarnings("all")
 public class Items
 {
 	// 原材料 - 怪物掉落
-	@Reg(tn="spider_leg",un="spider_leg")
+	@Reg(nameSpiderLeg)
 	public static final Item spiderLeg; // 蛛腿
-	@Reg(tn="hard_spider_leg",un="hard_spider_leg")
+	@Reg(nameHardSpiderLeg)
 	public static final Item hardSpiderLeg; // 坚硬蛛腿
 	static
 	{
@@ -18,9 +21,9 @@ public class Items
 	}
 
 	// 原材料 - 各种
-	@Reg(tn="cinnabar",un="cinnabar")
+	@Reg(nameCinnabar)
 	public static final Item cinnabar; // 辰砂
-	@Reg(tn="ink_powder",un="ink_powder")
+	@Reg(nameInkPowder)
 	public static final Item inkPowder; // 墨粉
 	static
 	{
@@ -29,13 +32,13 @@ public class Items
 	}
 
 	// 原材料 - 矿
-	@Reg(tn="sky_crystal",un="sky_crystal")
+	@Reg(nameSkyCrystal)
 	public static final Item skyCrystal; // 天空水晶
-	@Reg(tn="storm_crystal",un="storm_crystal")
+	@Reg(nameStormCrystal)
 	public static final Item stormCrystal; // 风暴水晶
-	@Reg(tn="phantom_crystal",un="phantom_crystal")
+	@Reg(namePhantomCrystal)
 	public static final Item phantomCrystal; // 异象水晶
-	@Reg(tn="anti_grav_crystal",un="anti_grav_crystal")
+	@Reg(nameAntiGravCrystal)
 	public static final Item antiGravCrystal; // 反重力水晶
 	static
 	{
@@ -46,9 +49,9 @@ public class Items
 	}
 
 	// 原材料 - 金属锭
-	@Reg(tn="ingot_stellar",un="ingot_stellar")
+	@Reg(Keys.ingotStellar)
 	public static final Item ingotStellar; // 恒星金属锭
-	@Reg(tn="ingot_royal_alloy",un="ingot_royal_alloy")
+	@Reg(Keys.ingotRoyalAlloy)
 	public static final Item ingotRoyalAlloy; // 皇家合金锭
 	static
 	{
