@@ -17,6 +17,9 @@ public interface Keys
 	String nameStormCrystal="storm_crystal";
 	String namePhantomCrystal="phantom_crystal";
 	String nameAntiGravCrystal="anti_grav_crystal";
+	String nameGlass= "glass";
+	String nameConsolidatedGlass= "consolidated_glass";
+	String nameBrokenIce="broken_ice";
 
 	String moltenRoyalAlloy=prefMolten+nameRoyalAlloy;
 	String moltenStellar=prefMolten+nameStellar;
@@ -35,4 +38,18 @@ public interface Keys
 	int colorRoyalAlloy=Colors.Yellow;
 	int colorSpiderLeg =Colors.IndianRed;
 	int colorHardSpiderLeg=Colors.IndianRed;
+	int colorCinnabar=Colors.Silver;
+	int colorGlass=Colors.WhiteSmoke;
+	int colorConsolidatedGlass=Colors.WhiteSmoke;
+	int colorBrokenIce=Colors.Snow;
+
+	String nameTraitIcy="icy";
+	String nameTraitLuxurious="luxurious";
+	String nameTraitRadiant="radiant";
+	String nameTraitSwitching="switching";
+
+	int colorTraitIcy=Colors.Snow;
+	int colorTraitLuxurious=Colors.Gold;
+	int colorTraitRadiant=Colors.Coral;
+	int colorTraitSwitching=Colors.SeaGreen;
 }

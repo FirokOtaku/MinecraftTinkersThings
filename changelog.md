@@ -1,5 +1,14 @@
 # 变更日志 Changelog
 
+## 0.1.4 _2019-11-20 10:00_
+
+* 增加材料 added materials
+  * 蛛腿 spider leg
+  * 坚硬蛛腿 hard spider leg
+  * 碎冰 broken ice
+* 增加部件属性 add traits
+  * 冰冷 icy
+
 ## 0.1.3 _2019-11-19 22:30_
 
 * 增加方块和物品注册器 added register of blocks and items

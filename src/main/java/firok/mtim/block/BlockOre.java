@@ -14,6 +14,7 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
+@SuppressWarnings("all")
 public class BlockOre extends Block
 {
 	private Item itemDropped;

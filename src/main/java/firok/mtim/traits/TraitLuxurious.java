@@ -1,9 +1,11 @@
 package firok.mtim.traits;
 
-import firok.mtim.util.Colors;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
+
+import static firok.mtim.util.Keys.colorTraitLuxurious;
+import static firok.mtim.util.Keys.nameTraitLuxurious;
 
 /**
  * 奢华
@@ -11,7 +13,7 @@ import slimeknights.tconstruct.library.traits.AbstractTrait;
 public class TraitLuxurious extends AbstractTrait
 {
 	public TraitLuxurious() {
-		super("luxurious", Colors.Gold);
+		super(nameTraitLuxurious,colorTraitLuxurious);
 	}
 
 	@Override

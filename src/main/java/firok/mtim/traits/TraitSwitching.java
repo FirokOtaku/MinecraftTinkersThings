@@ -1,10 +1,11 @@
 package firok.mtim.traits;
 
-import firok.mtim.util.Colors;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
+import static firok.mtim.util.Keys.colorTraitSwitching;
+import static firok.mtim.util.Keys.nameTraitSwitching;
 /**
  * 换位
  */
@@ -12,7 +13,7 @@ public class TraitSwitching extends AbstractTrait
 {
 	public TraitSwitching()
 	{
-		super("switching", Colors.Beige);
+		super(nameTraitSwitching,colorTraitSwitching);
 	}
 
 	@Override

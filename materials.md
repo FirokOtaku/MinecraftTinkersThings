@@ -24,6 +24,8 @@
 -|金属|天堂金属|paradise metal|
 -|木石|蛛腿|spider leg|剧毒|掉落物
 -|木石|坚硬蛛腿|hard spider leg|剧毒|掉落物
+-|木石|玻璃|glass|脆弱 廉价 轻便|采集
+-|木石|强化玻璃|consolidated glass|廉价 轻便 快|合成
 
 ## 修饰符列表
 
