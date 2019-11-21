@@ -17,6 +17,7 @@ public class Fluids
 {
 	public static FluidMolten moltenRoyalAlloy=$(nameRoyalAlloy, colorRoyalAlloy);
 	public static FluidMolten moltenStellar=$(nameStellar, colorStellar);
+	public static FluidMolten moltenCinnabar=$(nameCinnabar, colorCinnabar);
 
 	public static void register()
 	{

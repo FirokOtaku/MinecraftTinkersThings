@@ -1,26 +1,28 @@
 package firok.mtim.common;
 
 import firok.mtim.MoreTinkersMaterials;
-import firok.mtim.util.Reg;
+import firok.mtim.util.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
-import net.minecraftforge.registries.IForgeRegistryEntry;
+import slimeknights.tconstruct.library.MaterialIntegration;
+import slimeknights.tconstruct.library.TinkerRegistry;
+import slimeknights.tconstruct.library.materials.*;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
-@Mod.EventBusSubscriber
+import static firok.mtim.MoreTinkersMaterials.log;
+
 public class RegistryHandler
 {
-	@SubscribeEvent
-	public static void registerItems(RegistryEvent.Register<Item> event)
+	public static void registerItems(IForgeRegistry<Item> registry)
 	{
 		int countItem=0,countItemBlock=0;
-		IForgeRegistry<Item> registry=event.getRegistry();
 		Field[] fieldsItems=Items.class.getDeclaredFields();
 		for(Field field:fieldsItems)
 		{
@@ -84,10 +86,8 @@ public class RegistryHandler
 		MoreTinkersMaterials.log(String.format("register items: item[%d/%d] item_block[%d/%d]",countItem,fieldsItems.length,countItemBlock,fieldsBlocks.length) );
 	}
 
-	@SubscribeEvent
-	public static void registerBlocks(RegistryEvent.Register<Block> event)
+	public static void registerBlocks(IForgeRegistry<Block> registry)
 	{
-		IForgeRegistry<Block> registry=event.getRegistry();
 		Field[] fields=Blocks.class.getDeclaredFields();
 		int countBlock=0;
 		for(Field field:fields)
@@ -121,26 +121,128 @@ public class RegistryHandler
 		MoreTinkersMaterials.log(String.format("register blocks: block[%d/%d]",countBlock,fields.length) );
 	}
 
-	private static class RegHelper<T extends IForgeRegistryEntry<T>>
+	private static List<MaterialIntegration> listIntegration=new ArrayList<>(20);
+	public static void registerMaterials()
 	{
-		IForgeRegistry<T> registry;
-		public RegHelper(IForgeRegistry<T> registry)
-		{
-			this.registry=registry;
-		}
-		public boolean reg(IForgeRegistryEntry<T> regEntry)
+		Field[] fields=TCMaterials.class.getDeclaredFields();
+		for(Field field:fields)
 		{
 			try
 			{
-				;
+				if(field.getType().equals(Material.class))
+				{
+					Object obj=field.get(null);
+					Material material=(Material)obj;
+					Compo compo=field.getAnnotation(Compo.class);
 
-				return true;
+					// 检查是否已经注册
+					if(compo==null||material==null|| TinkerRegistry.getMaterial(material.identifier)!=Material.UNKNOWN) continue;
+
+					String name = compo.name();
+
+					log("registering material:"+name);
+
+					Fluid fluid = compo.fluid().length()>0? FluidRegistry.getFluid(compo.fluid()):null;
+
+					if(material!=null)
+					{
+//						boolean craftable=compo.craftable(),castable=compo.castatble();
+//						material.setFluid(fluid).setCastable(castable).setCraftable(craftable);
+
+						// 代表物品
+						{
+							String nameItemRepresent=compo.item();
+							if(nameItemRepresent.length()>0)
+							{
+								Item itemRepresent= Item.getByNameOrId(nameItemRepresent);
+								log("found represent item:"+itemRepresent);
+								if(itemRepresent!=null)
+								{
+									log("register represent item.");
+									material.setRepresentativeItem(itemRepresent);
+									material.addItem(itemRepresent);
+								}
+							}
+							else
+							{
+								log("not given represent item.");
+							}
+						}
+						// 注册物品
+						{
+							String[] nameItems=compo.items();
+							if(nameItems.length>0)
+							{
+								for(String nameItem:nameItems)
+								{
+									Item item= Item.getByNameOrId(nameItem);
+									log("found extra item:"+item);
+									if(item!=null) material.addItem(item);
+								}
+							}
+						}
+
+						// 顶端
+						{
+							CompoHead compoHead=field.getAnnotation(CompoHead.class);
+							if(compoHead!=null)
+							{
+								HeadMaterialStats statHead=new HeadMaterialStats(compoHead.durability(), compoHead.miningspeed(), compoHead.attack(), compoHead.harvestLevel());
+								TinkerRegistry.addMaterialStats(material,statHead);
+							}
+						}
+						// 连接
+						{
+							CompoHandle compoHandle=field.getAnnotation(CompoHandle.class);
+							if(compoHandle!=null)
+							{
+								HandleMaterialStats statHandle=new HandleMaterialStats(compoHandle.modifier(), compoHandle.durability());
+								TinkerRegistry.addMaterialStats(material,statHandle);
+							}
+						}
+						// 其它
+						{
+							CompoExtra compoExtra=field.getAnnotation(CompoExtra.class);
+							if(compoExtra!=null)
+							{
+								ExtraMaterialStats statExtra=new ExtraMaterialStats(compoExtra.extraDurability());
+								TinkerRegistry.addMaterialStats(material,statExtra);
+							}
+						}
+						// 弓
+						{
+							CompoBow compoBow=field.getAnnotation(CompoBow.class);
+							if(compoBow!=null)
+							{
+								BowMaterialStats statBow=new BowMaterialStats(compoBow.drawspeed(), compoBow.range(), compoBow.bonusDamage());
+								TinkerRegistry.addMaterialStats(material,statBow);
+							}
+						}
+					}
+
+					MaterialIntegration integration = new MaterialIntegration(material, fluid, name);
+					integration.preInit();
+					if(fluid!=null){
+						TinkerRegistry.integrate(material,fluid);
+					}
+					else
+					{
+						TinkerRegistry.integrate(material);
+					}
+					listIntegration.add(integration);
+				}
 			}
 			catch (Exception e)
 			{
 				e.printStackTrace();
-				return false;
 			}
+		}
+	}
+	public static void integrateMaterials()
+	{
+		for(MaterialIntegration inte:listIntegration)
+		{
+			inte.integrate();
 		}
 	}
 }

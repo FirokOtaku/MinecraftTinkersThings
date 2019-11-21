@@ -1,11 +1,14 @@
 package firok.mtim.util;
 
+import firok.mtim.MoreTinkersMaterials;
+
 public interface Keys
 {
 	String prefMolten="molten_";
 	String prefBlock="block_";
 	String prefOre="ore_";
 	String prefIngot="ingot_";
+	String prefRL= MoreTinkersMaterials.MOD_ID+':';
 
 	String nameRoyalAlloy="royal_alloy";
 	String nameStellar="stellar";
@@ -23,6 +26,7 @@ public interface Keys
 
 	String moltenRoyalAlloy=prefMolten+nameRoyalAlloy;
 	String moltenStellar=prefMolten+nameStellar;
+	String moltenCinnabar=prefMolten+nameCinnabar;
 
 	String blockStellar=prefBlock+nameStellar;
 	String blockInkPowder=prefBlock+nameInkPowder;

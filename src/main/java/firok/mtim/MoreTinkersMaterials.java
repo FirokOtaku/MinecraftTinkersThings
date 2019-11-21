@@ -2,16 +2,21 @@ package firok.mtim;
 
 import firok.mtim.common.Alloys;
 import firok.mtim.common.Fluids;
-import firok.mtim.common.TCMaterials;
+import firok.mtim.common.RegistryHandler;
 import firok.mtim.common.Traits;
 import firok.mtim.world.WorldGen;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
+import slimeknights.tconstruct.library.TinkerRegistry;
+import slimeknights.tconstruct.library.materials.Material;
+
+import java.util.Collection;
 
 @Mod(
 		modid = MoreTinkersMaterials.MOD_ID,
@@ -24,7 +29,7 @@ public class MoreTinkersMaterials
 
 	public static final String MOD_ID = "mtim";
 	public static final String MOD_NAME = "MoreTinkersMaterials";
-	public static final String VERSION = "1.12.2-0.1.4";
+	public static final String VERSION = "1.12.2-0.1.5";
 
 	@Mod.Instance(MOD_ID)
 	public static MoreTinkersMaterials INSTANCE;
@@ -35,10 +40,6 @@ public class MoreTinkersMaterials
 		logger.log(Level.INFO,content);
 	}
 
-	/**
-	 * This is the first initialization event. Register tile entities here.
-	 * The registry events below will have fired prior to entry to this method.
-	 */
 	@Mod.EventHandler
 	public void preinit(FMLPreInitializationEvent event)
 	{
@@ -46,19 +47,14 @@ public class MoreTinkersMaterials
 		Fluids.register();
 		Traits.register();
 
-		//
-		//  Blocks.register(false);
-		//  Blocks.registerItems();
-		//  Items.register();
-		//
+		RegistryHandler.registerBlocks(ForgeRegistries.BLOCKS);
+		RegistryHandler.registerItems(ForgeRegistries.ITEMS);
+
 		//  proxy.initConfig();
 		//
-		TCMaterials.packMaterials();
+		RegistryHandler.registerMaterials();
 	}
 
-	/**
-	 * This is the second initialization event. Register custom recipes
-	 */
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event)
 	{
@@ -80,8 +76,10 @@ public class MoreTinkersMaterials
 		//  for (MaterialIntegration m : integrateList) {
 		//      m.integrate();
 		//  }
-		TCMaterials.integrateAll();
+		RegistryHandler.integrateMaterials();
 	}
+
+	static Collection<Material> materials=null;
 
 	/**
 	 * This is the final initialization event. Register actions from other mods here
@@ -90,7 +88,14 @@ public class MoreTinkersMaterials
 	public void postinit(FMLPostInitializationEvent event)
 	{
 //		proxy.registerBookPages();
+		materials=TinkerRegistry.getAllMaterials();
 	}
 
 
+	public static void main(String...args)
+	{
+		System.out.println(Integer.class.isAssignableFrom(Object.class));
+		System.out.println(Integer.class.isAssignableFrom(Integer.class));
+		System.out.println(Object.class.isAssignableFrom(Integer.class));
+	}
 }

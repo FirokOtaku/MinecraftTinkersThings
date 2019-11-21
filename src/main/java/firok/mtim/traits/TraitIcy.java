@@ -42,9 +42,9 @@ public class TraitIcy extends AbstractTrait
 
 				float amount = temp>0.15f?
 						( 6.5f * (temp-0.15f) ): // damage 0~12
-						( 6.15f * (temp-0.15f) ); // heal 0~4
+						( 6.15f * (0.15f-temp) ); // heal 0~4
 
-				if(temp>0)
+				if(temp>0) // fixme low 这里的方法说不定可以合并 因为底层实现看起来差不多
 				{
 					ToolHelper.damageTool(tool,(int)amount,enlb);
 				}

@@ -1,5 +1,13 @@
 # 变更日志 Changelog
 
+## 0.1.5 _2019-11-21 22:30_
+
+* 增加事件监听器 added event listeners
+  * 现在冰块被破坏时会掉落碎冰 now ice block will drop broken ice when broken
+* 增加液体 added fluids
+  * 熔融辰砂 molten cinnabar
+* 修改注册方块和物品的方式 adjusted the way of registering blocks and items
+
 ## 0.1.4 _2019-11-20 10:00_
 
 * 增加材料 added materials
