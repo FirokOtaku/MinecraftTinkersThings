@@ -7,12 +7,20 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
 import slimeknights.tconstruct.library.MaterialIntegration;
 import slimeknights.tconstruct.library.TinkerRegistry;
+import slimeknights.tconstruct.library.fluid.FluidMolten;
 import slimeknights.tconstruct.library.materials.*;
+import slimeknights.tconstruct.library.tools.ToolCore;
+import slimeknights.tconstruct.library.tools.ToolPart;
+import slimeknights.tconstruct.library.traits.AbstractTrait;
+import slimeknights.tconstruct.smeltery.block.BlockMolten;
+import slimeknights.tconstruct.tools.AbstractToolPulse;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +28,64 @@ import static firok.mtim.MoreTinkersMaterials.log;
 
 public class RegistryHandler
 {
+	public static void registerFluids()
+	{
+		Field[] fields=Fluids.class.getDeclaredFields();
+		for(Field field:fields)
+		{
+			try
+			{
+				Object obj=field.get(null);
+				if(obj instanceof FluidMolten)
+				{
+					FluidMolten fluid=(FluidMolten)obj;
+					MoreTinkersMaterials.log("注册流体:"+fluid.getName());
+
+					FluidRegistry.registerFluid(fluid);
+					FluidRegistry.addBucketForFluid(fluid);
+
+					BlockMolten block=new BlockMolten(fluid);
+					block.setUnlocalizedName(Keys.prefMolten+ fluid.getName());
+					block.setRegistryName(MoreTinkersMaterials.MOD_ID, Keys.prefMolten+ fluid.getName());
+
+					ForgeRegistries.BLOCKS.register(block);
+					ForgeRegistries.ITEMS.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
+					// fixme low // TAIGA.proxy.registerFluidModels(fluid);
+				}
+				MoreTinkersMaterials.log("注册流体成功");
+			}
+			catch (Exception e)
+			{
+				MoreTinkersMaterials.log("注册流体失败");
+				e.printStackTrace();
+			}
+		}
+	}
+	public static void registerTraits()
+	{
+		Field[] fields=Traits.class.getDeclaredFields();
+		MoreTinkersMaterials.log("register traits...");
+		for(Field field:fields)
+		{
+			try
+			{
+				Object obj=field.get(null);
+
+				if(obj instanceof AbstractTrait)
+				{
+					AbstractTrait trait=(AbstractTrait)obj;
+//					String name=field.getName();
+
+					TinkerRegistry.addTrait(trait);
+				}
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
+
 	public static void registerItems(IForgeRegistry<Item> registry)
 	{
 		int countItem=0,countItemBlock=0;
@@ -243,6 +309,58 @@ public class RegistryHandler
 		for(MaterialIntegration inte:listIntegration)
 		{
 			inte.integrate();
+		}
+	}
+
+
+
+
+
+	public static void registerToolParts(IForgeRegistry<Item> registry)
+	{
+		}
+	public static void registerTools(IForgeRegistry<Item> registry)
+	{
+	}
+	public static void registerToolCraftings()
+	{
+		;
+	}
+
+	static Method method_registerTool=null,method_registerToolPart=null;
+	{
+		try
+		{
+			method_registerTool = AbstractToolPulse.class.getDeclaredMethod("registerTool",IForgeRegistry.class, ToolCore.class,String.class);
+			method_registerToolPart = AbstractToolPulse.class.getDeclaredMethod("registerToolPart",IForgeRegistry.class,ToolPart.class,String.class,Item.class);
+		}
+		catch (Exception e)
+		{
+			throw new RuntimeException("[mtim] fail to reflect the inner methods of Tinkers' Construct.");
+		}
+	}
+	static ToolPart registerToolPart(IForgeRegistry<Item> registry, ToolPart part, String name)
+	{
+		try
+		{
+			method_registerToolPart.setAccessible(true);
+			return (ToolPart) method_registerToolPart.invoke(null,registry,part,name);
+		}
+		catch (Exception e)
+		{
+			throw new RuntimeException("[mtim] fail to invoke the inner methods of Tinkers' Construct. (registerToolPart)");
+		}
+	}
+	static ToolCore registerTool(IForgeRegistry<Item> registry, ToolCore core, String name)
+	{
+		try
+		{
+			method_registerTool.setAccessible(true);
+			return (ToolCore)method_registerTool.invoke(null,registry,core,name);
+		}
+		catch (Exception e)
+		{
+			throw new RuntimeException("[mtim] fail to invoke the inner methods of Tinkers' Construct. (registerTool)");
 		}
 	}
 }

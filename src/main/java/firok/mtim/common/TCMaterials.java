@@ -12,6 +12,42 @@ import static slimeknights.tconstruct.tools.TinkerTraits.lightweight;
 
 public class TCMaterials
 {
+	@Compo(name=nameImmersedSilver,fluid=nameImmersedSilver)
+	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
+	@CompoHandle(modifier = 0.8f, durability = 100)
+	@CompoExtra(extraDurability = 100)
+	public static Material immersedSilver=new Material(nameImmersedSilver, colorImmersedSilver);
+
+
+	@Compo(name=nameMithril,fluid=nameMithril)
+	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
+	@CompoHandle(modifier = 0.8f, durability = 100)
+	@CompoExtra(extraDurability = 100)
+	public static Material mithril=new Material(nameMithril, colorMithril);
+
+	@Compo(name=nameAdamantine,fluid=nameAdamantine)
+	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
+	@CompoHandle(modifier = 0.8f, durability = 100)
+	@CompoExtra(extraDurability = 100)
+	public static Material adamantine=new Material(nameAdamantine, colorAdamantine);
+
+	@Compo(name=nameBlackrock,fluid=nameBlackrock)
+	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
+	@CompoHandle(modifier = 0.8f, durability = 100)
+	@CompoExtra(extraDurability = 100)
+	public static Material blackrock=new Material(nameBlackrock, colorBlackrock);
+
+	@Compo(name=nameInertWitherium,fluid=nameInertWitherium)
+	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
+	@CompoHandle(modifier = 0.8f, durability = 100)
+	@CompoExtra(extraDurability = 100)
+	public static Material inertWitherium=new Material(nameInertWitherium, colorInertWitherium);
+
+	@Compo(name=nameWitherium,fluid=nameWitherium)
+	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
+	@CompoHandle(modifier = 0.8f, durability = 100)
+	@CompoExtra(extraDurability = 100)
+	public static Material witherium=new Material(nameWitherium, colorWitherium);
 
 	@Compo(name=nameRoyalAlloy,fluid=nameRoyalAlloy)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)

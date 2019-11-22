@@ -1,10 +1,9 @@
 package firok.mtim;
 
 import firok.mtim.common.Alloys;
-import firok.mtim.common.Fluids;
 import firok.mtim.common.RegistryHandler;
-import firok.mtim.common.Traits;
 import firok.mtim.world.WorldGen;
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -29,7 +28,12 @@ public class MoreTinkersMaterials
 
 	public static final String MOD_ID = "mtim";
 	public static final String MOD_NAME = "MoreTinkersMaterials";
-	public static final String VERSION = "1.12.2-0.1.5";
+	public static final String VERSION = "1.12.2-0.1.6";
+
+
+	{
+//		TConstruct.pulseManager.registerPulse(new PulseTools()); // register tools pulse
+	}
 
 	@Mod.Instance(MOD_ID)
 	public static MoreTinkersMaterials INSTANCE;
@@ -44,8 +48,8 @@ public class MoreTinkersMaterials
 	public void preinit(FMLPreInitializationEvent event)
 	{
 		logger = event.getModLog();
-		Fluids.register();
-		Traits.register();
+		RegistryHandler.registerFluids();
+		RegistryHandler.registerTraits();
 
 		RegistryHandler.registerBlocks(ForgeRegistries.BLOCKS);
 		RegistryHandler.registerItems(ForgeRegistries.ITEMS);
@@ -53,6 +57,18 @@ public class MoreTinkersMaterials
 		//  proxy.initConfig();
 		//
 		RegistryHandler.registerMaterials();
+	}
+
+	public static void tell(Object content)
+	{
+		try
+		{
+			Minecraft.getMinecraft().player.sendChatMessage(String.valueOf(content));
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 	@Mod.EventHandler
@@ -94,8 +110,7 @@ public class MoreTinkersMaterials
 
 	public static void main(String...args)
 	{
-		System.out.println(Integer.class.isAssignableFrom(Object.class));
-		System.out.println(Integer.class.isAssignableFrom(Integer.class));
-		System.out.println(Object.class.isAssignableFrom(Integer.class));
+
+		;
 	}
 }

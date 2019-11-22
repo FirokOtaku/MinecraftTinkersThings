@@ -18,7 +18,7 @@ public class Alloys
 				);
 	}
 
-	static void registerAlloy(FluidStack output,FluidStack...inputs)
+	private static void registerAlloy(FluidStack output,FluidStack...inputs)
 	{
 		if(output!=null && inputs!=null && inputs.length>=2)
 		{

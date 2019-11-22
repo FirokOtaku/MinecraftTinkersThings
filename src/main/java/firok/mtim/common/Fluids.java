@@ -1,15 +1,7 @@
 package firok.mtim.common;
 
-import firok.mtim.MoreTinkersMaterials;
-import firok.mtim.util.Keys;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import slimeknights.tconstruct.library.fluid.FluidMolten;
-import slimeknights.tconstruct.smeltery.block.BlockMolten;
-
-import java.lang.reflect.Field;
 
 import static firok.mtim.util.Keys.*;
 
@@ -18,40 +10,11 @@ public class Fluids
 	public static FluidMolten moltenRoyalAlloy=$(nameRoyalAlloy, colorRoyalAlloy);
 	public static FluidMolten moltenStellar=$(nameStellar, colorStellar);
 	public static FluidMolten moltenCinnabar=$(nameCinnabar, colorCinnabar);
-
-	public static void register()
-	{
-		Field[] fields=Fluids.class.getDeclaredFields();
-		for(Field field:fields)
-		{
-			try
-			{
-				Object obj=field.get(null);
-				if(obj instanceof FluidMolten)
-				{
-					FluidMolten fluid=(FluidMolten)obj;
-					MoreTinkersMaterials.log("注册流体:"+fluid.getName());
-
-					FluidRegistry.registerFluid(fluid);
-					FluidRegistry.addBucketForFluid(fluid);
-
-					BlockMolten block=new BlockMolten(fluid);
-					block.setUnlocalizedName(Keys.prefMolten+ fluid.getName());
-					block.setRegistryName(MoreTinkersMaterials.MOD_ID, Keys.prefMolten+ fluid.getName());
-
-					ForgeRegistries.BLOCKS.register(block);
-					ForgeRegistries.ITEMS.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
-					// fixme low // TAIGA.proxy.registerFluidModels(fluid);
-				}
-				MoreTinkersMaterials.log("注册流体成功");
-			}
-			catch (Exception e)
-			{
-				MoreTinkersMaterials.log("注册流体失败");
-				e.printStackTrace();
-			}
-		}
-	}
+	public static FluidMolten moltenImmersedSilver=$(nameImmersedSilver, colorImmersedSilver);
+	public static FluidMolten moltenMithril=$(nameMithril, colorMithril);
+	public static FluidMolten moltenAdamantine=$(nameAdamantine, colorAdamantine);
+	public static FluidMolten moltenInertWitherium=$(nameInertWitherium, colorInertWitherium);
+	public static FluidMolten moltenWitherium=$(nameWitherium, colorWitherium);
 
 	static FluidMolten $(String name,int color)
 	{

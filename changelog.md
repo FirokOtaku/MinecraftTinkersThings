@@ -1,5 +1,40 @@
 # 变更日志 Changelog
 
+## 0.1.6 _2019-11-22 19:00_
+
+* 增加材料 added materials
+  * 沉银 immersed silver
+  * 秘银 mithril
+  * 精金 adamantine
+  * 黑石 blackrock
+  * 惰性凋零锭 inert witherium
+  * 凋零锭 witherium
+* 增加方块和物品 added blocks and items
+  * 沉银矿 immersed silver ore block 
+  * 沉银块 immersed silver block
+  * 沉银锭 immersed silver ingot item
+  * 秘银矿 mithril ore block
+  * 秘银块 mithril block
+  * 秘银锭 mithril ingot
+  * 精金矿 adamantine ore block
+  * 精金块 adamantine block
+  * 精金锭 adamantine ingot item
+  * 黑石矿 blackrock ore block
+  * 黑石块 blackrock block
+  * 黑石 blackrock item
+  * 惰性凋零矿 inert witherium ore
+  * 惰性凋零锭 inert witherium ingot item
+  * 惰性凋零块 inert witherium block
+  * 凋零矿 witherium ore
+  * 凋零块 witherium block
+  * 凋零锭 witherium ingot item
+* 增加液体 added fluids
+  * 熔融沉银 molten immersed silver
+  * 熔融秘银 molten mithril
+  * 熔融精金 molten adamantine
+  * 熔融惰性凋零 molten inert witherium
+  * 熔融凋零 molten witherium
+
 ## 0.1.5 _2019-11-21 22:30_
 
 * 增加事件监听器 added event listeners

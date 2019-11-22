@@ -32,10 +32,22 @@ public class Items
 	public static final Item phantomCrystal = new Item(); // 异象水晶
 	@Reg(nameAntiGravCrystal)
 	public static final Item antiGravCrystal = new Item(); // 反重力水晶
+	@Reg(nameBlackrock)
+	public static final Item blackrock = new Item(); // 黑石
 
 	// 原材料 - 金属锭
 	@Reg(Keys.ingotStellar)
 	public static final Item ingotStellar = new Item(); // 恒星金属锭
 	@Reg(Keys.ingotRoyalAlloy)
 	public static final Item ingotRoyalAlloy = new Item(); // 皇家合金锭
+	@Reg(Keys.ingotImmersedSilver)
+	public static final Item ingotImmersedSilver = new Item(); // 沉银锭
+	@Reg(Keys.ingotMithril)
+	public static final Item ingotMithril = new Item(); // 秘银锭
+	@Reg(Keys.ingotAdamantine)
+	public static final Item ingotAdamantine = new Item(); // 精金锭
+	@Reg(Keys.ingotInertWitherium)
+	public static final Item ingotInertWitherium = new Item(); // 惰性凋零锭
+	@Reg(Keys.ingotWitherium)
+	public static final Item ingotWitherium = new Item(); // 凋零锭
 }
