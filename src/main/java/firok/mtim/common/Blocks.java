@@ -6,6 +6,7 @@ import firok.mtim.util.Keys;
 import firok.mtim.util.Reg;
 import firok.mtim.util.RegOre;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 
 @SuppressWarnings("all")
 public class Blocks
@@ -42,8 +43,8 @@ public class Blocks
 	public static final Block blockCinnabar = new BlockCompressed(); // 辰砂块
 	@Reg(Keys.blockInkPowder)
 	public static final Block blockInkPowder = new BlockCompressed(); // 墨粉块
-	@Reg(Keys.blockStellar)
-	public static final Block blockStellar = new BlockCompressed(); // 恒星金属块
+	@Reg(Keys.blockStellarium)
+	public static final Block blockStellarium = new BlockCompressed(); // 恒星金属块
 	@Reg(Keys.blockImmersedSilver)
 	public static final Block blockImmersedSilver = new BlockCompressed(); // 沉银块
 	@Reg(Keys.blockMithril)
@@ -57,4 +58,6 @@ public class Blocks
 	@Reg(Keys.blockWitherium)
 	public static final Block blockWitherium = new BlockCompressed(); // 凋零块
 
+	@Reg(Keys.blockStellariumObsidian)
+	public static final Block blockStellariumObsidian = new Block(Material.ROCK); // 恒星黑曜石
 }

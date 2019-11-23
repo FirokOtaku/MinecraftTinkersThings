@@ -10,6 +10,7 @@ import static slimeknights.tconstruct.library.materials.MaterialTypes.HEAD;
 import static slimeknights.tconstruct.tools.TinkerTraits.cheap;
 import static slimeknights.tconstruct.tools.TinkerTraits.lightweight;
 
+@SuppressWarnings("unused")
 public class TCMaterials
 {
 	@Compo(name=nameImmersedSilver,fluid=nameImmersedSilver)
@@ -57,11 +58,11 @@ public class TCMaterials
 			.addTrait(luxurious)
 			.addTrait(TinkerTraits.magnetic2);
 
-	@Compo(name=nameStellar,fluid=nameStellar)
+	@Compo(name= nameStellarium,fluid= nameStellarium)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 	@CompoHandle(modifier = 0.8f, durability = 100)
 	@CompoExtra(extraDurability = 100)
-	public static Material stellar=new Material(nameStellar, colorStellar)
+	public static Material stellarium=new Material(nameStellarium, colorStellarium)
 			.addTrait(radiant);
 
 	@Compo(name=nameSpiderLeg)

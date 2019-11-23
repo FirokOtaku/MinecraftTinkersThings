@@ -36,8 +36,8 @@ public class Items
 	public static final Item blackrock = new Item(); // 黑石
 
 	// 原材料 - 金属锭
-	@Reg(Keys.ingotStellar)
-	public static final Item ingotStellar = new Item(); // 恒星金属锭
+	@Reg(Keys.ingotStellarium)
+	public static final Item ingotStellarium = new Item(); // 恒星金属锭
 	@Reg(Keys.ingotRoyalAlloy)
 	public static final Item ingotRoyalAlloy = new Item(); // 皇家合金锭
 	@Reg(Keys.ingotImmersedSilver)

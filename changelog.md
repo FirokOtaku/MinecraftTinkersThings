@@ -1,5 +1,10 @@
 # 变更日志 Changelog
 
+## 0.1.7 _2019-11-23 22:00_
+
+* 增加方块 added blocks
+  * 恒星黑曜石 stellarium obsidian
+
 ## 0.1.6 _2019-11-22 19:00_
 
 * 增加材料 added materials
@@ -62,7 +67,7 @@
   * 辉耀 radiant
   * 换位 switching
 * 增加液体 added fluids
-  * 熔融恒星金属 molten stellar
+  * 熔融恒星金属 molten stellarium
 * 增加常量管理类 added class for managing constants
 * 增加实体选择器管理类 added class for managing entity-selectors
 * 增加断言管理类 added class for managing predicates
@@ -75,7 +80,7 @@
 * 增加方块和物品 added blocks and items
   * 辰砂块 cinnabar block
   * 墨粉块 ink block
-  * 恒星金属块 stellar metal block
+  * 恒星金属块 stellarium metal block
   * 反重力水晶 anti-grav crystal item
 * 增加世界生成器 added world generator
 
@@ -88,7 +93,7 @@
   * 墨粉 ink powder item
   * 辰砂矿石 cinnabar ore block
   * 辰砂 cinnabar item
-  * 恒星金属矿石 stellar ore block
+  * 恒星金属矿石 stellarium ore block
   * 恒星金属锭 stellar ingot
 
 ## 0.1.0 _2019-11-18 20:30_

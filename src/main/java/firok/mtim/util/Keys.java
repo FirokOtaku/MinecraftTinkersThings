@@ -11,7 +11,7 @@ public interface Keys
 	String prefRL= MoreTinkersMaterials.MOD_ID+':';
 
 	String nameRoyalAlloy="royal_alloy";
-	String nameStellar="stellar";
+	String nameStellarium ="stellarium";
 	String nameInkPowder="ink_powder";
 	String nameCinnabar="cinnabar";
 	String nameSpiderLeg="spider_leg";
@@ -29,9 +29,10 @@ public interface Keys
 	String nameBlackrock="blackrock";
 	String nameInertWitherium="inert_witherium";
 	String nameWitherium="witherium";
+	String nameStellariumObsidian="stellarium_obsidian";
 
 	String moltenRoyalAlloy=prefMolten+nameRoyalAlloy;
-	String moltenStellar=prefMolten+nameStellar;
+	String moltenStellarium=prefMolten+nameStellarium;
 	String moltenCinnabar=prefMolten+nameCinnabar;
 	String moltenImmersedSilver=prefMolten+nameImmersedSilver;
 	String moltenMithril=prefMolten+nameMithril;
@@ -39,7 +40,7 @@ public interface Keys
 	String moltenInertWitherium=prefMolten+nameInertWitherium;
 	String moltenWitherium=prefMolten+nameWitherium;
 
-	String blockStellar=prefBlock+nameStellar;
+	String blockStellarium=prefBlock+ nameStellarium;
 	String blockInkPowder=prefBlock+nameInkPowder;
 	String blockCinnabar=prefBlock+nameCinnabar;
 	String blockImmersedSilver=prefBlock+nameImmersedSilver;
@@ -48,6 +49,7 @@ public interface Keys
 	String blockBlackrock=prefBlock+nameBlackrock;
 	String blockInertWitherium=prefBlock+nameInertWitherium;
 	String blockWitherium=prefBlock+nameWitherium;
+	String blockStellariumObsidian=prefBlock+nameStellariumObsidian;
 
 	String oreCinnabar=prefOre+nameCinnabar;
 	String oreInkPowder=prefOre+nameInkPowder;
@@ -58,7 +60,7 @@ public interface Keys
 	String oreInertWitherium=prefOre+nameInertWitherium;
 	String oreWitherium=prefOre+nameWitherium;
 
-	String ingotStellar=prefIngot+nameStellar;
+	String ingotStellarium=prefIngot+nameStellarium;
 	String ingotRoyalAlloy=prefIngot+nameRoyalAlloy;
 	String ingotImmersedSilver=prefIngot+nameImmersedSilver;
 	String ingotMithril=prefIngot+nameMithril;
@@ -66,7 +68,7 @@ public interface Keys
 	String ingotInertWitherium=prefIngot+nameInertWitherium;
 	String ingotWitherium=prefIngot+nameWitherium;
 
-	int colorStellar=Colors.Tomato;
+	int colorStellarium=Colors.Tomato;
 	int colorRoyalAlloy=Colors.Yellow;
 	int colorSpiderLeg =Colors.IndianRed;
 	int colorHardSpiderLeg=Colors.IndianRed;
