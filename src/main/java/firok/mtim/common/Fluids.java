@@ -5,10 +5,11 @@ import slimeknights.tconstruct.library.fluid.FluidMolten;
 
 import static firok.mtim.util.Keys.*;
 
+@SuppressWarnings("unused")
 public class Fluids
 {
 	public static FluidMolten moltenRoyalAlloy=$(nameRoyalAlloy, colorRoyalAlloy);
-	public static FluidMolten moltenStellar=$(nameStellar, colorStellar);
+	public static FluidMolten moltenStellarium=$(nameStellarium, colorStellarium);
 	public static FluidMolten moltenCinnabar=$(nameCinnabar, colorCinnabar);
 	public static FluidMolten moltenImmersedSilver=$(nameImmersedSilver, colorImmersedSilver);
 	public static FluidMolten moltenMithril=$(nameMithril, colorMithril);

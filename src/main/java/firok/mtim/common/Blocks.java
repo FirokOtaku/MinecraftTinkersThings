@@ -1,7 +1,6 @@
 package firok.mtim.common;
 
-import firok.mtim.block.BlockCompressed;
-import firok.mtim.block.BlockOre;
+import firok.mtim.block.*;
 import firok.mtim.util.Keys;
 import firok.mtim.util.Reg;
 import firok.mtim.util.RegOre;
@@ -60,4 +59,12 @@ public class Blocks
 
 	@Reg(Keys.blockStellariumObsidian)
 	public static final Block blockStellariumObsidian = new Block(Material.ROCK); // 恒星黑曜石
+
+	// 植物
+	@Reg(Keys.saplingHura)
+	public static final Block blockSaplingHura = new BlockSaplings();
+	@Reg(Keys.logHura)
+	public static final Block blockLogHura = new BlockWood();
+	@Reg(Keys.leafHura)
+	public static final Block blockLeafHura = new BlockLeaf(blockSaplingHura,60);
 }
