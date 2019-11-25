@@ -1,9 +1,12 @@
 # 变更日志 Changelog
 
+## 0.1.8.1 _2019-11-25 23:30_
+
 ## 0.1.8 _2019-11-24 20:00_
 
 * 增加方块 added blocks
   * 胡拉木原木 hura log block
+  * 胡拉木树叶 hura leaves block
   * 胡拉木树苗 hura sapling block
 
 ## 0.1.7 _2019-11-23 22:00_
