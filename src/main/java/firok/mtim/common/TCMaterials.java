@@ -7,8 +7,7 @@ import slimeknights.tconstruct.tools.TinkerTraits;
 import static firok.mtim.common.Traits.*;
 import static firok.mtim.util.Keys.*;
 import static slimeknights.tconstruct.library.materials.MaterialTypes.HEAD;
-import static slimeknights.tconstruct.tools.TinkerTraits.cheap;
-import static slimeknights.tconstruct.tools.TinkerTraits.lightweight;
+import static slimeknights.tconstruct.tools.TinkerTraits.*;
 
 @SuppressWarnings("unused")
 public class TCMaterials
@@ -108,6 +107,19 @@ public class TCMaterials
 	public static Material brokenIce=new Material(nameBrokenIce,colorBrokenIce)
 			.addTrait(cheap)
 			.addTrait(icy);
+
+	@Compo(name= nameShell, item=nameShell,castatble = false,craftable = true)
+	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
+	@CompoHandle(modifier = 0.8f, durability = 100)
+	@CompoExtra(extraDurability = 100)
+	public static Material shell=new Material(nameShell,colorShell)
+			.addTrait(sharp);
+
+	@Compo(name= nameRuby, item=nameRuby,castatble = false,craftable = true)
+	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
+	@CompoHandle(modifier = 0.8f, durability = 100)
+	@CompoExtra(extraDurability = 100)
+	public static Material ruby=new Material(nameRuby,colorRuby);
 
 	public static Material cloud=new Material("cloud", Colors.Silver);
 	public static Material cloudStorm=new Material("cloud_storm", Colors.DarkBlue);

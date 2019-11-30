@@ -36,6 +36,10 @@ public class Blocks
 	public static final BlockOre oreInertWitherium = new BlockOre(); // 惰性凋零矿
 	@Reg(Keys.oreWitherium)
 	public static final BlockOre oreWitherium = new BlockOre(); // 凋零矿
+	@Reg(Keys.oreRuby)
+	public static final BlockOre oreRuby = new BlockOre(Items.ruby,1,1,1,6,10); // 红宝石矿
+	@Reg(Keys.oreShell)
+	public static final BlockOreShell oreShell = new BlockOreShell(Items.shell,3,6,1,4,6); // 散贝壳方块
 
 	// 矿块
 	@Reg(Keys.blockCinnabar)

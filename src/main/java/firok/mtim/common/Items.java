@@ -21,7 +21,9 @@ public class Items
 	@Reg(nameInkPowder)
 	public static final Item inkPowder = new Item(); // 墨粉
 	@Reg(nameBrokenIce)
-	public static final Item brokenIce=new Item(); // 碎冰
+	public static final Item brokenIce = new Item(); // 碎冰
+	@Reg(nameShell)
+	public static final Item shell = new Item(); // 贝壳
 
 	// 原材料 - 矿
 	@Reg(nameSkyCrystal)
@@ -34,6 +36,8 @@ public class Items
 	public static final Item antiGravCrystal = new Item(); // 反重力水晶
 	@Reg(nameBlackrock)
 	public static final Item blackrock = new Item(); // 黑石
+	@Reg(nameRuby)
+	public static final Item ruby = new Item(); // 红宝石
 
 	// 原材料 - 金属锭
 	@Reg(Keys.ingotStellarium)

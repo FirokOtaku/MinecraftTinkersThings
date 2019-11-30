@@ -1,5 +1,16 @@
 # 变更日志 Changelog
 
+## 0.1.9.0 _2019-11-30 00:00_
+
+* 增加方块和物品 added blocks and items
+  * 散贝壳方块 shell block
+  * 贝壳 shell item
+  * 红宝石矿 ruby ore block
+  * 红宝石 ruby item
+* 增加材料 added materials
+  * 贝壳 shell
+  * 红宝石 ruby
+
 ## 0.1.8.1 _2019-11-25 23:30_
 
 ## 0.1.8 _2019-11-24 20:00_

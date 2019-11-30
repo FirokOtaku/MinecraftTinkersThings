@@ -35,12 +35,16 @@ public interface Keys
 	String nameInertWitherium="inert_witherium";
 	String nameWitherium="witherium";
 	String nameStellariumObsidian="stellarium_obsidian";
+	String nameShell="shell";
+	String nameRuby="ruby";
 
 	// 植物
 	String nameHura="hura";
 	String logHura=prefLog+nameHura;
 	String leafHura=prefLeaf+nameHura;
 	String saplingHura=prefSapling+nameHura;
+	String nameHuraFruit="hura_fruit";
+
 
 	// 液体
 	String moltenRoyalAlloy=prefMolten+nameRoyalAlloy;
@@ -63,6 +67,7 @@ public interface Keys
 	String blockInertWitherium=prefBlock+nameInertWitherium;
 	String blockWitherium=prefBlock+nameWitherium;
 	String blockStellariumObsidian=prefBlock+nameStellariumObsidian;
+	String blockRuby=prefBlock+nameRuby;
 
 	// 原矿
 	String oreCinnabar=prefOre+nameCinnabar;
@@ -73,6 +78,8 @@ public interface Keys
 	String oreBlackrock=prefOre+nameBlackrock;
 	String oreInertWitherium=prefOre+nameInertWitherium;
 	String oreWitherium=prefOre+nameWitherium;
+	String oreShell=prefOre+nameShell;
+	String oreRuby=prefOre+nameRuby;
 
 	// 矿锭
 	String ingotStellarium=prefIngot+nameStellarium;
@@ -98,6 +105,8 @@ public interface Keys
 	int colorBlackrock=Colors.DarkRed;
 	int colorInertWitherium=Colors.DarkGray;
 	int colorWitherium=Colors.DimGray;
+	int colorShell=Colors.Coral;
+	int colorRuby=Colors.OrangeRed;
 
 	// 属性
 	String nameTraitIcy="icy";
