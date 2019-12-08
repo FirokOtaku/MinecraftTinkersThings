@@ -1,8 +1,8 @@
 [
   {
-    "modid": "mtim",
-    "name": "MoreTinkersMaterials",
-    "description": "A mod adding several materials to Tinkers' Construct",
+    "modid": "tiths",
+    "name": "MinecraftTinkersThings",
+    "description": "A mod adding several things to Tinkers' Construct",
     "version": "${version}",
     "mcversion": "${mcversion}",
     "url": "github.com/351768593",

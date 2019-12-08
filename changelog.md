@@ -1,6 +1,20 @@
 # 变更日志 Changelog
 
-## 0.1.9.0 _2019-11-30 00:00_
+## 0.2.2.0 _2019-12-08 19:00_
+
+* 增加方块和物品 added blocks and items
+  * 钢玉矿方块 corundum ore block
+  * 钢玉 corundum item
+* 增加材料 added materials
+  * 钢玉 corundum
+* 增加部件属性 add traits
+    * 群簇 clustering
+
+## 0.2.1.0 _2019-12-01 09:00_
+
+* 模组改名为**[TITHS] Tinkers' Things** mod name changed into **[TITHS]Tinkers' Things**
+
+## 0.1.9.0 _2019-11-30 22:00_
 
 * 增加方块和物品 added blocks and items
   * 散贝壳方块 shell block

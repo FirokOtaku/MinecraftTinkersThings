@@ -1,0 +1,86 @@
+# tiths
+item.tiths.1.name=1
+
+## items
+
+### mob drops
+item.tiths.spider_leg.name=Spider Leg
+item.tiths.hard_spider_leg.name=Hard Spider Leg
+
+### materials
+item.tiths.cinnabar.name=Cinnabar
+item.tiths.ink_powder.name=Ink Powder
+item.tiths.broken_ice.name=Broken Ice
+item.tiths.shell.name=Shell
+
+### ore
+item.tiths.sky_crystal.name=Sky Crystal
+item.tiths.storm_crystal.name=Storm Crystal
+item.tiths.phantom_crystal.name=Phantom Crystal
+item.tiths.anti_grav_crystal.name=Anti Gravity Crystal
+item.tiths.blackrock.name=Black Rock
+item.tiths.ruby.name=Ruby
+
+### metal
+item.tiths.ingot_stellarium.name=Stellarium Ingot
+item.tiths.ingot_royal_alloy.name=Royal Alloy Ingot
+item.tiths.ingot_immersed_silver.name=Immersed Silver Ingot
+item.tiths.ingot_mithril.name=Mithril Ingot
+item.tiths.ingot_adamantine.name=Adamantine Ingot
+item.tiths.ingot_inert_witherium.name=Inert Witherium Ingot
+item.tiths.ingot_witherium.name=Ingot Witherium
+
+### plant
+item.tiths.hura_fruit.name=Hura Fruit
+
+#item.tiths..name=
+#item.tiths..name=
+#item.tiths..name=
+
+
+
+## blocks
+tile.tiths.ore_cinnabar.name=Cinnabar Ore
+tile.tiths.ore_ink_powder.name=Ink Powder Ore
+tile.tiths.ore_immersed_silver.name=Immersed Silver Ore
+tile.tiths.ore_mithril.name=Mithril Ore
+tile.tiths.ore_adamantine.name=Adamantine Ore
+tile.tiths.ore_blackrock.name=Black Rock Ore
+tile.tiths.ore_inert_witherium.name=Inert Witherium Ore
+tile.tiths.ore_witherium.name=Witherium Ore
+tile.tiths.ore_ruby.name=Ruby Ore
+tile.tiths.ore_shell.name=Shells
+
+tile.tiths.block_cinnabar.name=Cinnabar Block
+tile.tiths.block_ink_powder.name=Ink Powder Block
+tile.tiths.block_immersed_silver.name=Immersed Silver Block
+tile.tiths.block_mithril.name=Mithril Block
+tile.tiths.block_adamantine.name=Adamantine Block
+tile.tiths.block_blackrock.name=Black Rock Block
+tile.tiths.block_inert_witherium.name=Inert Witherium Block
+tile.tiths.block_witherium.name=Witherium Block
+tile.tiths.block_ruby.name=Ruby Block
+#tile.tiths.block_shell.name=Shells
+tile.tiths.block_stellarium_obsidian.name=Stellarium Obsidian Block
+
+### plant
+tile.sapling_hura.name=Hura Sapling
+tile.log_hura.name=Hura Log
+tile.leaf_hura.name=Hura Leaf
+
+
+## material
+material.immersed_silver.name=Immersed Silver
+material.mithril.name=Mithril
+material.adamantine.name=Adamantine
+material.blackrock.name=Black Rock
+material.inert_witherium.name=Inert Witherium
+material.witherium.name=Witherium
+material.royal_alloy.name=Royal Alloy
+material.stellarium.name=Stellarium
+material.spider_leg.name=Spider Leg
+material.hard_spider_leg.name=Hard Spider Leg
+material.glass.name=Glass
+material.broken_ice.name=Broken Ice
+material.shell.name=Shell
+material.ruby.name=Ruby
