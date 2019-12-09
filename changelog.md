@@ -1,5 +1,16 @@
 # 变更日志 Changelog
 
+## 0.2.3.0 _2019-12-09 16:30_
+
+* 增加方块和物品 added blocks and items
+  * 钢玉块 corundum block
+  * 金红石矿 rutile ore block
+  * 红宝石块 ruby block
+  * 钛锭 titanium ingot item
+  * 钛块 titanium block
+* 增加材料 added materials
+  * 钛 titanium
+
 ## 0.2.2.0 _2019-12-08 19:00_
 
 * 增加方块和物品 added blocks and items

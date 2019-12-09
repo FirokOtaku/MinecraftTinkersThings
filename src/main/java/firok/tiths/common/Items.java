@@ -56,6 +56,8 @@ public class Items
 	public static final Item ingotInertWitherium = new Item(); // 惰性凋零锭
 	@Reg(Keys.ingotWitherium)
 	public static final Item ingotWitherium = new Item(); // 凋零锭
+	@Reg(Keys.ingotTitanium)
+	public static final Item ingotTitanium = new Item(); // 钛锭
 
 	// 植物
 	@Reg(Keys.nameHuraFruit)

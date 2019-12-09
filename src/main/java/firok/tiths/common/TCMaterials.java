@@ -128,6 +128,14 @@ public class TCMaterials
 	public static Material corundum=new Material(nameCorundum,colorCorundum)
 			.addTrait(clustering);
 
+	@Compo(name= nameTitanium, item=nameTitanium,castatble = true,craftable = false)
+	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
+	@CompoHandle(modifier = 0.8f, durability = 100)
+	@CompoExtra(extraDurability = 100)
+	public static Material titanium=new Material(nameTitanium,colorTitanium)
+			.addTrait(sharp)
+			.addTrait(lightweight);
+
 	public static Material cloud=new Material("cloud", Colors.Silver);
 	public static Material cloudStorm=new Material("cloud_storm", Colors.DarkBlue);
 	public static Material skyCrystal=new Material("sky_crystal", Colors.Aqua);

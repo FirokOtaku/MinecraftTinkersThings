@@ -38,6 +38,8 @@ public interface Keys
 	String nameShell="shell";
 	String nameRuby="ruby";
 	String nameCorundum="corundum";
+	String nameRutile="rutile";
+	String nameTitanium="titanium";
 
 	// 植物
 	String nameHura="hura";
@@ -56,6 +58,7 @@ public interface Keys
 	String moltenAdamantine=prefMolten+nameAdamantine;
 	String moltenInertWitherium=prefMolten+nameInertWitherium;
 	String moltenWitherium=prefMolten+nameWitherium;
+	String moltenTitanium=prefMolten+nameTitanium;
 
 	// 矿块
 	String blockStellarium=prefBlock+ nameStellarium;
@@ -70,6 +73,7 @@ public interface Keys
 	String blockStellariumObsidian=prefBlock+nameStellariumObsidian;
 	String blockRuby=prefBlock+nameRuby;
 	String blockCorundum=prefBlock+nameCorundum;
+	String blockTitanium=prefBlock+nameTitanium;
 
 	// 原矿
 	String oreCinnabar=prefOre+nameCinnabar;
@@ -83,6 +87,7 @@ public interface Keys
 	String oreShell=prefOre+nameShell;
 	String oreRuby=prefOre+nameRuby;
 	String oreCorundum=prefOre+nameCorundum;
+	String oreRutile=prefOre+"rutile";
 
 	// 矿锭
 	String ingotStellarium=prefIngot+nameStellarium;
@@ -92,6 +97,7 @@ public interface Keys
 	String ingotAdamantine=prefIngot+nameAdamantine;
 	String ingotInertWitherium=prefIngot+nameInertWitherium;
 	String ingotWitherium=prefIngot+nameWitherium;
+	String ingotTitanium=prefIngot+nameTitanium;
 
 	// 材料颜色
 	int colorStellarium=Colors.Tomato;
@@ -111,6 +117,7 @@ public interface Keys
 	int colorShell=Colors.Coral;
 	int colorRuby=Colors.OrangeRed;
 	int colorCorundum=Colors.DarkRed;
+	int colorTitanium=Colors.Silver;
 
 	// 属性
 	String nameTraitIcy="icy";

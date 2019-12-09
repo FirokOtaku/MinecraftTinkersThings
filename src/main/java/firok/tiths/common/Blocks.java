@@ -42,7 +42,9 @@ public class Blocks
 	@Reg(Keys.oreShell)
 	public static final BlockOreShell oreShell = new BlockOreShell(Items.shell,3,6,1,4,6); // 散贝壳方块
 	@Reg(Keys.oreCorundum)
-	public static final BlockOre oreCorundum = new BlockOre(Items.corundum,1,1,1,2,4);
+	public static final BlockOre oreCorundum = new BlockOre(Items.corundum,1,1,1,2,4); // 刚玉矿
+	@Reg(Keys.oreRutile)
+	public static final BlockOre oreTitanium = new BlockOre(); // 金红石矿
 
 	// 矿块
 	@Reg(Keys.blockCinnabar)
@@ -63,6 +65,12 @@ public class Blocks
 	public static final Block blockInertWitherium = new BlockCompressed(); // 惰性凋零块
 	@Reg(Keys.blockWitherium)
 	public static final Block blockWitherium = new BlockCompressed(); // 凋零块
+	@Reg(Keys.blockCorundum)
+	public static final Block blockCorumdum = new BlockCompressed(); // 钢玉块
+	@Reg(Keys.blockRuby)
+	public static final Block blockRuby = new BlockCompressed(); // 红宝石块
+	@Reg(Keys.blockTitanium)
+	public static final Block blockTitanium = new BlockCompressed(); // 钛块
 
 	@Reg(Keys.blockStellariumObsidian)
 	public static final Block blockStellariumObsidian = new Block(Material.ROCK); // 恒星黑曜石
