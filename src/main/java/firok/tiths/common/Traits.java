@@ -10,4 +10,5 @@ public class Traits
 	public static final AbstractTrait switching=new TraitSwitching(); // 换位
 	public static final AbstractTrait icy=new TraitIcy(); // 冰冷
 	public static final AbstractTrait clustering=new TraitClustering(); // 群簇
+	public static final AbstractTrait starDashing=new TraitStarDashing(); // 星绽
 }

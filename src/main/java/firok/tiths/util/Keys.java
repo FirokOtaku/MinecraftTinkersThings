@@ -41,6 +41,9 @@ public interface Keys
 	String nameRutile="rutile";
 	String nameTitanium="titanium";
 
+	String nameHardener="hardener";
+	String namePolisher="polisher";
+
 	// 植物
 	String nameHura="hura";
 	String logHura=prefLog+nameHura;
@@ -125,6 +128,10 @@ public interface Keys
 	String nameTraitRadiant="radiant";
 	String nameTraitSwitching="switching";
 	String nameTraitClustering="clustering";
+	String nameTraitHardened="hardened";
+	String nameTraitPolished="polished";
+	String nameTraitBrittle="brittle";
+	String nameTraitStarDashing="star_dashing";
 
 	// 属性颜色
 	int colorTraitIcy=Colors.Snow;
@@ -132,4 +139,8 @@ public interface Keys
 	int colorTraitRadiant=Colors.Coral;
 	int colorTraitSwitching=Colors.SeaGreen;
 	int colorTraitClustering=Colors.Ivory;
+	int colorTraitHardened=Colors.SlateGray;
+	int colorTraitPolished=Colors.Gray;
+	int colorTraitBrittle=Colors.Gray;
+	int colorTraitStarDashing=Colors.LightYellow;
 }

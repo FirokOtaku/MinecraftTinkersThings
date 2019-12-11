@@ -1,5 +1,17 @@
 # 变更日志 Changelog
 
+## 0.2.4.0 _2019-12-11 23:00_
+
+* 增加物品 added items
+  * 硬化剂 hardener
+  * 磨石 polisher
+* 增加属性 added traits
+  * 硬化 hardened
+  * 打磨 polished
+  * 星绽 star dashing
+* 增加实体 added entities
+  * 星绽粒子 dashing star projectile
+
 ## 0.2.3.0 _2019-12-09 16:30_
 
 * 增加方块和物品 added blocks and items

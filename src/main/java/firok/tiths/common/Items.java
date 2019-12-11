@@ -62,4 +62,11 @@ public class Items
 	// 植物
 	@Reg(Keys.nameHuraFruit)
 	public static final Item huraFruit = new Item(); // 胡拉果实
+
+	// 匠魂工具
+	@Reg(nameHardener)
+	public static final Item hardener = new Item(); // 硬化剂
+	@Reg(namePolisher)
+	public static final Item polisher = new Item(); // 磨石
+
 }
