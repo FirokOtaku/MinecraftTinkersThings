@@ -40,6 +40,12 @@ public interface Keys
 	String nameCorundum="corundum";
 	String nameRutile="rutile";
 	String nameTitanium="titanium";
+	String namePolarium="polarium";
+	String nameHalleium="halleium";
+	String nameAltairium="altairium";
+	String nameCocoa="cocoa";
+	String nameWeepingPumpkin="weeping_pumpkin";
+	String nameBloodPumpkin="blood_pumpkin";
 
 	String nameHardener="hardener";
 	String namePolisher="polisher";
@@ -62,6 +68,10 @@ public interface Keys
 	String moltenInertWitherium=prefMolten+nameInertWitherium;
 	String moltenWitherium=prefMolten+nameWitherium;
 	String moltenTitanium=prefMolten+nameTitanium;
+	String moltenPolarium=prefMolten+namePolarium;
+	String moltenHalleium=prefMolten+nameHalleium;
+	String moltenAltairium=prefMolten+nameAltairium;
+	String moltenCocoa=prefMolten+nameCocoa;
 
 	// 矿块
 	String blockStellarium=prefBlock+ nameStellarium;
@@ -77,6 +87,13 @@ public interface Keys
 	String blockRuby=prefBlock+nameRuby;
 	String blockCorundum=prefBlock+nameCorundum;
 	String blockTitanium=prefBlock+nameTitanium;
+	String blockPolarium=prefBlock+namePolarium;
+	String blockHalleium=prefBlock+nameHalleium;
+	String blockAltairium=prefBlock+nameAltairium;
+	String blockCocoa=prefBlock+nameCocoa;
+
+	String blockBloodPumpkin=prefBlock+nameBloodPumpkin;
+	String blockWeepingPumpkin=prefBlock+nameWeepingPumpkin;
 
 	// 原矿
 	String oreCinnabar=prefOre+nameCinnabar;
@@ -90,7 +107,10 @@ public interface Keys
 	String oreShell=prefOre+nameShell;
 	String oreRuby=prefOre+nameRuby;
 	String oreCorundum=prefOre+nameCorundum;
-	String oreRutile=prefOre+"rutile";
+	String oreRutile=prefOre+nameRutile;
+	String orePolarium=prefOre+namePolarium;
+	String oreHalleium=prefOre+nameHalleium;
+	String oreAltairium=prefOre+nameAltairium;
 
 	// 矿锭
 	String ingotStellarium=prefIngot+nameStellarium;
@@ -101,6 +121,10 @@ public interface Keys
 	String ingotInertWitherium=prefIngot+nameInertWitherium;
 	String ingotWitherium=prefIngot+nameWitherium;
 	String ingotTitanium=prefIngot+nameTitanium;
+	String ingotPolarium=prefIngot+namePolarium;
+	String ingotHalleium=prefIngot+nameHalleium;
+	String ingotAltairium=prefIngot+nameAltairium;
+	String ingotCocoa=prefIngot+nameCocoa;
 
 	// 材料颜色
 	int colorStellarium=Colors.Tomato;
@@ -121,6 +145,10 @@ public interface Keys
 	int colorRuby=Colors.OrangeRed;
 	int colorCorundum=Colors.DarkRed;
 	int colorTitanium=Colors.Silver;
+	int colorPolarium=Colors.MidnightBlue;
+	int colorHalleium=Colors.MediumPurple;
+	int colorAltairium=Colors.FloralWhite;
+	int colorCocoa=Colors.Chocolate;
 
 	// 属性
 	String nameTraitIcy="icy";

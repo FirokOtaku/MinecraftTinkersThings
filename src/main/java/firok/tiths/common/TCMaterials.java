@@ -29,7 +29,8 @@ public class TCMaterials
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 	@CompoHandle(modifier = 0.8f, durability = 100)
 	@CompoExtra(extraDurability = 100)
-	public static Material adamantine=new Material(nameAdamantine, colorAdamantine);
+	public static Material adamantine=new Material(nameAdamantine, colorAdamantine)
+			.addTrait(starDashing);
 
 	@Compo(name=nameBlackrock,fluid=nameBlackrock)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
@@ -135,6 +136,30 @@ public class TCMaterials
 	public static Material titanium=new Material(nameTitanium,colorTitanium)
 			.addTrait(sharp)
 			.addTrait(lightweight);
+
+	@Compo(name= namePolarium, item=namePolarium,castatble = true,craftable = false)
+	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
+	@CompoHandle(modifier = 0.8f, durability = 100)
+	@CompoExtra(extraDurability = 100)
+	public static Material polarium=new Material(namePolarium,colorPolarium);
+
+	@Compo(name= nameHalleium, item=nameHalleium,castatble = true,craftable = false)
+	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
+	@CompoHandle(modifier = 0.8f, durability = 100)
+	@CompoExtra(extraDurability = 100)
+	public static Material halleium=new Material(nameHalleium,colorHalleium);
+
+	@Compo(name= nameAltairium, item=nameAltairium,castatble = true,craftable = false)
+	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
+	@CompoHandle(modifier = 0.8f, durability = 100)
+	@CompoExtra(extraDurability = 100)
+	public static Material altairium=new Material(nameAltairium,colorAltairium);
+
+	@Compo(name= nameCocoa, item=nameCocoa,castatble = true,craftable = false)
+	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
+	@CompoHandle(modifier = 0.8f, durability = 100)
+	@CompoExtra(extraDurability = 100)
+	public static Material cocoa=new Material(nameCocoa,colorCocoa);
 
 	public static Material cloud=new Material("cloud", Colors.Silver);
 	public static Material cloudStorm=new Material("cloud_storm", Colors.DarkBlue);

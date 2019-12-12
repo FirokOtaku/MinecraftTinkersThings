@@ -1,5 +1,32 @@
 # 变更日志 Changelog
 
+## 0.2.5.0 _2019-12-12 14:30_
+
+* 增加方块和物品 added blocks and items
+  * 勾陈矿 polarium ore block
+  * 勾陈锭 polarium ingot item
+  * 勾陈块 polarium block
+  * 哈雷矿 halleium ore block
+  * 哈雷锭 halleium ingot item
+  * 哈雷块 halleium block
+  * 河鼓矿 altairium ore block
+  * 河鼓锭 altairium ingot item
+  * 河鼓块 altairium block
+  * 可可锭 cocoa ingot
+  * 可可块 cocoa block
+  * 血南瓜 blood pumpkin
+  * 哭泣南瓜 weeping pumpkin
+* 增加液体 added fluids
+  * 熔融勾陈 molten polarium
+  * 熔融哈雷 molten halleium
+  * 熔融河鼓 molten altairium
+  * 熔融可可 molten cocoa
+* 增加材料 added materials
+  * 勾陈 polarium
+  * 哈雷 halleium
+  * 河鼓 altairium
+  * 可可 cocoa
+
 ## 0.2.4.0 _2019-12-11 23:00_
 
 * 增加物品 added items
@@ -31,7 +58,7 @@
 * 增加材料 added materials
   * 钢玉 corundum
 * 增加部件属性 add traits
-    * 群簇 clustering
+  * 群簇 clustering
 
 ## 0.2.1.0 _2019-12-01 09:00_
 
@@ -72,7 +99,7 @@
   * 惰性凋零锭 inert witherium
   * 凋零锭 witherium
 * 增加方块和物品 added blocks and items
-  * 沉银矿 immersed silver ore block 
+  * 沉银矿 immersed silver ore block
   * 沉银块 immersed silver block
   * 沉银锭 immersed silver ingot item
   * 秘银矿 mithril ore block

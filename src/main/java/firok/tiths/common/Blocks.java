@@ -45,6 +45,12 @@ public class Blocks
 	public static final BlockOre oreCorundum = new BlockOre(Items.corundum,1,1,1,2,4); // 刚玉矿
 	@Reg(Keys.oreRutile)
 	public static final BlockOre oreTitanium = new BlockOre(); // 金红石矿
+	@Reg(Keys.orePolarium)
+	public static final BlockOre orePolarium = new BlockOre(); // 勾陈矿
+	@Reg(Keys.oreHalleium)
+	public static final BlockOre oreHalleium = new BlockOre(); // 哈雷矿
+	@Reg(Keys.oreAltairium)
+	public static final BlockOre oreAltairium = new BlockOre(); // 河鼓矿
 
 	// 矿块
 	@Reg(Keys.blockCinnabar)
@@ -71,9 +77,21 @@ public class Blocks
 	public static final Block blockRuby = new BlockCompressed(); // 红宝石块
 	@Reg(Keys.blockTitanium)
 	public static final Block blockTitanium = new BlockCompressed(); // 钛块
+	@Reg(Keys.blockPolarium)
+	public static final Block blockPolarium = new BlockCompressed(); // 勾陈块
+	@Reg(Keys.blockHalleium)
+	public static final Block blockHalleium = new BlockCompressed(); // 哈雷块
+	@Reg(Keys.blockAltairium)
+	public static final Block blockAltairium = new BlockCompressed(); // 河鼓块
+	@Reg(Keys.blockCocoa)
+	public static final Block blockCocoa = new BlockCompressed(); // 可可块
 
 	@Reg(Keys.blockStellariumObsidian)
 	public static final Block blockStellariumObsidian = new Block(Material.ROCK); // 恒星黑曜石
+	@Reg(Keys.blockBloodPumpkin)
+	public static final Block blockBloodPumpkin = new Block(Material.WOOD); // 血南瓜
+	@Reg(Keys.blockWeepingPumpkin)
+	public static final Block blockWeepingPumpkin = new Block(Material.WOOD); // 哭泣的南瓜
 
 	// 植物
 	@Reg(Keys.saplingHura)

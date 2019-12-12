@@ -58,6 +58,14 @@ public class Items
 	public static final Item ingotWitherium = new Item(); // 凋零锭
 	@Reg(Keys.ingotTitanium)
 	public static final Item ingotTitanium = new Item(); // 钛锭
+	@Reg(Keys.ingotPolarium)
+	public static final Item ingotPolarium = new Item(); // 勾陈锭
+	@Reg(Keys.ingotHalleium)
+	public static final Item ingotHalleium = new Item(); // 哈雷锭
+	@Reg(Keys.ingotAltairium)
+	public static final Item ingotAltairium = new Item(); // 河鼓锭
+	@Reg(Keys.ingotCocoa)
+	public static final Item ingotCocoa = new Item(); // 可可锭
 
 	// 植物
 	@Reg(Keys.nameHuraFruit)

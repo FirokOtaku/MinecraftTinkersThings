@@ -28,6 +28,10 @@
 -|木石|强化玻璃|consolidated glass|廉价 轻便 动力|合成
 -|木石|刚玉|corundum|群簇|采集
 -|金属|钛|titanium|锋利 轻便|采集
+-|金属||polarium||采集
+-|金属||halleium||采集
+-|金属||altairium||采集
+-|金属|可可|cocoa|美味|采集
 
 ## 修饰符列表
 

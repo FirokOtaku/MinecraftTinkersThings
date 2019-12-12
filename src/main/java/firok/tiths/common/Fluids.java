@@ -16,6 +16,10 @@ public class Fluids
 	public static FluidMolten moltenAdamantine=$(nameAdamantine, colorAdamantine);
 	public static FluidMolten moltenInertWitherium=$(nameInertWitherium, colorInertWitherium);
 	public static FluidMolten moltenWitherium=$(nameWitherium, colorWitherium);
+	public static FluidMolten moltenPolarium=$(namePolarium, colorPolarium);
+	public static FluidMolten moltenHalleium=$(nameHalleium, colorHalleium);
+	public static FluidMolten moltenAltairium=$(nameAltairium, colorAltairium);
+	public static FluidMolten moltenCocoa=$(nameCocoa, colorCocoa);
 
 	static FluidMolten $(String name,int color)
 	{
