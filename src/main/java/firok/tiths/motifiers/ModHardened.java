@@ -6,8 +6,8 @@ import slimeknights.tconstruct.library.tools.ToolNBT;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.tools.modifiers.ToolModifier;
 
-import static firok.tiths.util.Keys.colorTraitHardened;
-import static firok.tiths.util.Keys.nameTraitHardened;
+import static firok.tiths.common.Keys.colorTraitHardened;
+import static firok.tiths.common.Keys.nameTraitHardened;
 
 // 硬化
 public class ModHardened extends ToolModifier

@@ -6,8 +6,8 @@ import slimeknights.tconstruct.library.tools.ToolNBT;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.tools.modifiers.ToolModifier;
 
-import static firok.tiths.util.Keys.colorTraitPolished;
-import static firok.tiths.util.Keys.nameTraitPolished;
+import static firok.tiths.common.Keys.colorTraitPolished;
+import static firok.tiths.common.Keys.nameTraitPolished;
 
 // 打磨
 public class ModPolished extends ToolModifier

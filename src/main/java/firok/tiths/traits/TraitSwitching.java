@@ -4,8 +4,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-import static firok.tiths.util.Keys.colorTraitSwitching;
-import static firok.tiths.util.Keys.nameTraitSwitching;
+import static firok.tiths.common.Keys.colorTraitSwitching;
+import static firok.tiths.common.Keys.nameTraitSwitching;
 /**
  * 换位
  */

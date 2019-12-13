@@ -11,4 +11,6 @@ public class Traits
 	public static final AbstractTrait icy=new TraitIcy(); // 冰冷
 	public static final AbstractTrait clustering=new TraitClustering(); // 群簇
 	public static final AbstractTrait starDashing=new TraitStarDashing(); // 星绽
+	public static final AbstractTrait soluble=new TraitSoluble(); // 可溶
+	public static final AbstractTrait birefringent=new TraitBirefringent(); // 双折
 }

@@ -10,8 +10,8 @@ import net.minecraft.world.World;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
-import static firok.tiths.util.Keys.colorTraitIcy;
-import static firok.tiths.util.Keys.nameTraitIcy;
+import static firok.tiths.common.Keys.colorTraitIcy;
+import static firok.tiths.common.Keys.nameTraitIcy;
 import static firok.tiths.util.Predicates.canTick;
 
 public class TraitIcy extends AbstractTrait

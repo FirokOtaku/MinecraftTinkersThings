@@ -8,8 +8,8 @@ import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 
-import static firok.tiths.util.Keys.colorTraitClustering;
-import static firok.tiths.util.Keys.nameTraitClustering;
+import static firok.tiths.common.Keys.colorTraitClustering;
+import static firok.tiths.common.Keys.nameTraitClustering;
 
 // 群簇
 public class TraitClustering extends AbstractTrait

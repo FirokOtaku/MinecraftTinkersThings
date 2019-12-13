@@ -4,8 +4,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-import static firok.tiths.util.Keys.colorTraitLuxurious;
-import static firok.tiths.util.Keys.nameTraitLuxurious;
+import static firok.tiths.common.Keys.colorTraitLuxurious;
+import static firok.tiths.common.Keys.nameTraitLuxurious;
 
 /**
  * 奢华

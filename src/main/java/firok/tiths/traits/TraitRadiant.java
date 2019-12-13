@@ -27,8 +27,8 @@ import slimeknights.tconstruct.tools.TinkerTraits;
 import java.util.List;
 import java.util.ListIterator;
 
-import static firok.tiths.util.Keys.colorTraitRadiant;
-import static firok.tiths.util.Keys.nameTraitRadiant;
+import static firok.tiths.common.Keys.colorTraitRadiant;
+import static firok.tiths.common.Keys.nameTraitRadiant;
 import static firok.tiths.util.Predicates.canTick;
 
 /**
@@ -55,11 +55,20 @@ public class TraitRadiant extends AbstractTrait
 					),
 					Selectors.mobAlive
 			);
-			if(ens.size()<=0) return;
-			for(Entity en:ens)
-			{
-				en.setFire(5);
-			}
+			if(ens.size()>0)
+				for(Entity en:ens)
+				{
+					en.setFire(5);
+				}
+		}
+
+		if(isSelected && world.isRemote && canTick(world,4,1))
+		{
+			world.spawnParticle(EnumParticleTypes.FLAME,
+					entity.posX + random.nextDouble(),
+					entity.posY + random.nextDouble(),
+					entity.posZ + random.nextDouble(),
+					0.0D, 0.0D, 0.0D);
 		}
 
 

@@ -1,5 +1,29 @@
 # 变更日志 Changelog
 
+## 0.2.6.0 _2019-12-13 15:30_
+
+* 增加方块和物品 added blocks and items
+  * 血木原木 block log block
+  * 血木树叶 blood leaf block
+  * 血木树苗 blood sapling block
+  * 血沙 blood sand block
+  * 硝石矿 nitre ore block
+  * 硝石 nitre item
+  * 硝石块 nitre block
+  * 叶蜡石矿 pyrophyllite ore block
+  * 叶蜡石 pyrophyllite item
+  * 叶蜡石块 pyrophyllite block
+  * 冰洲石矿 iceland spar ore block
+  * 冰洲石 iceland spar item
+  * 冰洲石块 iceland spar block
+* 增加材料 added materials
+  * 硝石 nitre
+  * 叶蜡石 pyrophyllite
+  * 冰洲石 iceland spar
+* 增加属性 added traits
+  * 可溶 soluble
+  * 双折 birefringent
+
 ## 0.2.5.0 _2019-12-12 14:30_
 
 * 增加方块和物品 added blocks and items

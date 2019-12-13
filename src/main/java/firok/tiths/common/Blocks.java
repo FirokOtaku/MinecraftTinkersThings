@@ -43,6 +43,12 @@ public class Blocks
 	public static final BlockOreShell oreShell = new BlockOreShell(Items.shell,3,6,1,4,6); // 散贝壳方块
 	@Reg(Keys.oreCorundum)
 	public static final BlockOre oreCorundum = new BlockOre(Items.corundum,1,1,1,2,4); // 刚玉矿
+	@Reg(Keys.oreNitre)
+	public static final BlockOre oreNitre = new BlockOre(Items.nitre,3,5,1,3,5); // 硝石矿
+	@Reg(Keys.orePyrophyllite)
+	public static final BlockOre orePyrophyllite = new BlockOre(Items.pyrophyllite,3,5,1,3,5); // 叶蜡石矿
+	@Reg(Keys.oreIcelandSpar)
+	public static final BlockOre oreIcelandSpar = new BlockOre(Items.icelandSpar,3,5,1,3,5); // 冰洲石矿
 	@Reg(Keys.oreRutile)
 	public static final BlockOre oreTitanium = new BlockOre(); // 金红石矿
 	@Reg(Keys.orePolarium)
@@ -73,6 +79,12 @@ public class Blocks
 	public static final Block blockWitherium = new BlockCompressed(); // 凋零块
 	@Reg(Keys.blockCorundum)
 	public static final Block blockCorumdum = new BlockCompressed(); // 钢玉块
+	@Reg(Keys.blockNitre)
+	public static final Block blockNitre = new BlockCompressed(); // 硝石块
+	@Reg(Keys.blockPyrophyllite)
+	public static final Block blockPyrophyllite = new BlockCompressed(); // 叶蜡石块
+	@Reg(Keys.blockIcelandSpar)
+	public static final Block blockIcelandSpar = new BlockCompressed(); // 冰洲石块
 	@Reg(Keys.blockRuby)
 	public static final Block blockRuby = new BlockCompressed(); // 红宝石块
 	@Reg(Keys.blockTitanium)
@@ -92,6 +104,8 @@ public class Blocks
 	public static final Block blockBloodPumpkin = new Block(Material.WOOD); // 血南瓜
 	@Reg(Keys.blockWeepingPumpkin)
 	public static final Block blockWeepingPumpkin = new Block(Material.WOOD); // 哭泣的南瓜
+	@Reg(Keys.blockBloodSand)
+	public static final Block blockBloodSand = new BlockBloodSand(); // 血沙
 
 	// 植物
 	@Reg(Keys.saplingHura)
@@ -100,4 +114,11 @@ public class Blocks
 	public static final Block blockLogHura = new BlockWood();
 	@Reg(Keys.leafHura)
 	public static final Block blockLeafHura = new BlockLeaf(blockSaplingHura,60);
+
+	@Reg(Keys.saplingBlood)
+	public static final Block blockSaplingBlood = new BlockSapling();
+	@Reg(Keys.logBlood)
+	public static final Block blockLogBlood = new BlockWood();
+	@Reg(Keys.leafBlood)
+	public static final Block blockLeafBlood = new BlockLeaf(blockSaplingBlood,50);
 }

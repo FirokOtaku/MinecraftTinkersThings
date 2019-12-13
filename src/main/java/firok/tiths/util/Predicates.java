@@ -5,6 +5,8 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
+import java.util.Random;
+
 public final class Predicates
 {
 	private Predicates(){}
@@ -16,6 +18,15 @@ public final class Predicates
 	public static boolean canTick(World world,int interval,int offset)
 	{
 		return canTick(world.getTotalWorldTime(),interval,offset);
+	}
+
+	public static boolean canTrigger(World world,float rate)
+	{
+		return canTrigger(world.rand,rate);
+	}
+	public static boolean canTrigger(Random rand,float rate)
+	{
+		return rand.nextFloat()>rate;
 	}
 
 	public static boolean canOreGenWorld(IBlockState state)

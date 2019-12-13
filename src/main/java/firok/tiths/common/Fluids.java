@@ -3,7 +3,7 @@ package firok.tiths.common;
 import net.minecraft.util.ResourceLocation;
 import slimeknights.tconstruct.library.fluid.FluidMolten;
 
-import static firok.tiths.util.Keys.*;
+import static firok.tiths.common.Keys.*;
 
 @SuppressWarnings("unused")
 public class Fluids

@@ -1,10 +1,9 @@
 package firok.tiths.common;
 
-import firok.tiths.util.Keys;
 import firok.tiths.util.Reg;
 import net.minecraft.item.Item;
 
-import static firok.tiths.util.Keys.*;
+import static firok.tiths.common.Keys.*;
 
 @SuppressWarnings("all")
 public class Items
@@ -40,6 +39,12 @@ public class Items
 	public static final Item ruby = new Item(); // 红宝石
 	@Reg(nameCorundum)
 	public static final Item corundum = new Item(); // 钢玉
+	@Reg(nameNitre)
+	public static final Item nitre = new Item(); // 硝石
+	@Reg(namePyrophyllite)
+	public static final Item pyrophyllite = new Item(); // 叶蜡石
+	@Reg(nameIcelandSpar)
+	public static final Item icelandSpar = new Item(); // 冰洲石
 
 	// 原材料 - 金属锭
 	@Reg(Keys.ingotStellarium)

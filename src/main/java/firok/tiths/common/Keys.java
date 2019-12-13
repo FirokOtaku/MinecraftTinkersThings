@@ -1,6 +1,7 @@
-package firok.tiths.util;
+package firok.tiths.common;
 
 import firok.tiths.TinkersThings;
+import firok.tiths.util.Colors;
 
 public interface Keys
 {
@@ -12,6 +13,7 @@ public interface Keys
 	String prefLog="log_";
 	String prefLeaf="leaf_";
 	String prefSapling="sapling_";
+	String prefLogic="logic_";
 	String prefRL= TinkersThings.MOD_ID+':';
 
 	// 材料
@@ -37,7 +39,11 @@ public interface Keys
 	String nameStellariumObsidian="stellarium_obsidian";
 	String nameShell="shell";
 	String nameRuby="ruby";
+	String nameSpinel="spinel";
 	String nameCorundum="corundum";
+	String nameNitre="nitre";
+	String namePyrophyllite="pyrophyllite";
+	String nameIcelandSpar="iceland_spar";
 	String nameRutile="rutile";
 	String nameTitanium="titanium";
 	String namePolarium="polarium";
@@ -46,6 +52,7 @@ public interface Keys
 	String nameCocoa="cocoa";
 	String nameWeepingPumpkin="weeping_pumpkin";
 	String nameBloodPumpkin="blood_pumpkin";
+	String nameBloodSand="blood_sand";
 
 	String nameHardener="hardener";
 	String namePolisher="polisher";
@@ -56,6 +63,10 @@ public interface Keys
 	String leafHura=prefLeaf+nameHura;
 	String saplingHura=prefSapling+nameHura;
 	String nameHuraFruit="hura_fruit";
+	String nameBlood="blood";
+	String logBlood=prefLog+nameBlood;
+	String leafBlood=prefLeaf+nameBlood;
+	String saplingBlood=prefSapling+nameBlood;
 
 
 	// 液体
@@ -73,6 +84,9 @@ public interface Keys
 	String moltenAltairium=prefMolten+nameAltairium;
 	String moltenCocoa=prefMolten+nameCocoa;
 
+	// 逻辑用方块
+	String blockLogicSearing=prefLogic+"searing";
+
 	// 矿块
 	String blockStellarium=prefBlock+ nameStellarium;
 	String blockInkPowder=prefBlock+nameInkPowder;
@@ -85,7 +99,11 @@ public interface Keys
 	String blockWitherium=prefBlock+nameWitherium;
 	String blockStellariumObsidian=prefBlock+nameStellariumObsidian;
 	String blockRuby=prefBlock+nameRuby;
+	String blockSpinel=prefBlock+nameSpinel;
 	String blockCorundum=prefBlock+nameCorundum;
+	String blockNitre=prefBlock+nameNitre;
+	String blockPyrophyllite=prefBlock+namePyrophyllite;
+	String blockIcelandSpar=prefBlock+nameIcelandSpar;
 	String blockTitanium=prefBlock+nameTitanium;
 	String blockPolarium=prefBlock+namePolarium;
 	String blockHalleium=prefBlock+nameHalleium;
@@ -94,6 +112,7 @@ public interface Keys
 
 	String blockBloodPumpkin=prefBlock+nameBloodPumpkin;
 	String blockWeepingPumpkin=prefBlock+nameWeepingPumpkin;
+	String blockBloodSand=prefBlock+nameBloodSand;
 
 	// 原矿
 	String oreCinnabar=prefOre+nameCinnabar;
@@ -106,7 +125,11 @@ public interface Keys
 	String oreWitherium=prefOre+nameWitherium;
 	String oreShell=prefOre+nameShell;
 	String oreRuby=prefOre+nameRuby;
+	String oreSpinel=prefOre+nameSpinel;
 	String oreCorundum=prefOre+nameCorundum;
+	String oreNitre=prefOre+nameNitre;
+	String orePyrophyllite=prefOre+namePyrophyllite;
+	String oreIcelandSpar=prefOre+nameIcelandSpar;
 	String oreRutile=prefOre+nameRutile;
 	String orePolarium=prefOre+namePolarium;
 	String oreHalleium=prefOre+nameHalleium;
@@ -127,7 +150,7 @@ public interface Keys
 	String ingotCocoa=prefIngot+nameCocoa;
 
 	// 材料颜色
-	int colorStellarium=Colors.Tomato;
+	int colorStellarium= Colors.Tomato;
 	int colorRoyalAlloy=Colors.Yellow;
 	int colorSpiderLeg =Colors.IndianRed;
 	int colorHardSpiderLeg=Colors.IndianRed;
@@ -144,6 +167,9 @@ public interface Keys
 	int colorShell=Colors.Coral;
 	int colorRuby=Colors.OrangeRed;
 	int colorCorundum=Colors.DarkRed;
+	int colorNitre=Colors.LightGray;
+	int colorPyrophyllite=Colors.LimeGreen;
+	int colorIcelandSpar=Colors.White;
 	int colorTitanium=Colors.Silver;
 	int colorPolarium=Colors.MidnightBlue;
 	int colorHalleium=Colors.MediumPurple;
@@ -160,6 +186,8 @@ public interface Keys
 	String nameTraitPolished="polished";
 	String nameTraitBrittle="brittle";
 	String nameTraitStarDashing="star_dashing";
+	String nameTraitSoluble="soluble";
+	String nameTraitBirefringent="birefringent";
 
 	// 属性颜色
 	int colorTraitIcy=Colors.Snow;
@@ -171,4 +199,6 @@ public interface Keys
 	int colorTraitPolished=Colors.Gray;
 	int colorTraitBrittle=Colors.Gray;
 	int colorTraitStarDashing=Colors.LightYellow;
+	int colorTraitSoluble=Colors.RoyalBlue;
+	int colorTraitBirefringent=Colors.HoneyDew;
 }

@@ -5,8 +5,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-import static firok.tiths.util.Keys.colorTraitStarDashing;
-import static firok.tiths.util.Keys.nameTraitStarDashing;
+import static firok.tiths.common.Keys.colorTraitStarDashing;
+import static firok.tiths.common.Keys.nameTraitStarDashing;
 
 // 星绽
 public class TraitStarDashing extends AbstractTrait
