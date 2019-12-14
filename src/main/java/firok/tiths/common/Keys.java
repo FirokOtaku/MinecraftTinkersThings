@@ -27,8 +27,8 @@ public interface Keys
 	String nameStormCrystal="storm_crystal";
 	String namePhantomCrystal="phantom_crystal";
 	String nameAntiGravCrystal="anti_grav_crystal";
-	String nameGlass= "glass";
-	String nameConsolidatedGlass= "consolidated_glass";
+	String nameGlass="glass";
+	String nameConsolidatedGlass="consolidated_glass";
 	String nameBrokenIce="broken_ice";
 	String nameImmersedSilver="immersed_silver";
 	String nameMithril="mithril";
@@ -40,6 +40,8 @@ public interface Keys
 	String nameShell="shell";
 	String nameRuby="ruby";
 	String nameSpinel="spinel";
+	String nameTalcum="talcum";
+	String nameTourmaline="tourmaline";
 	String nameCorundum="corundum";
 	String nameNitre="nitre";
 	String namePyrophyllite="pyrophyllite";
@@ -100,6 +102,8 @@ public interface Keys
 	String blockStellariumObsidian=prefBlock+nameStellariumObsidian;
 	String blockRuby=prefBlock+nameRuby;
 	String blockSpinel=prefBlock+nameSpinel;
+	String blockTalcum=prefBlock+nameTalcum;
+	String blockTourmaline=prefBlock+nameTourmaline;
 	String blockCorundum=prefBlock+nameCorundum;
 	String blockNitre=prefBlock+nameNitre;
 	String blockPyrophyllite=prefBlock+namePyrophyllite;
@@ -113,6 +117,7 @@ public interface Keys
 	String blockBloodPumpkin=prefBlock+nameBloodPumpkin;
 	String blockWeepingPumpkin=prefBlock+nameWeepingPumpkin;
 	String blockBloodSand=prefBlock+nameBloodSand;
+	String blockConsolidatedGlass=prefBlock+nameConsolidatedGlass;
 
 	// 原矿
 	String oreCinnabar=prefOre+nameCinnabar;
@@ -126,6 +131,8 @@ public interface Keys
 	String oreShell=prefOre+nameShell;
 	String oreRuby=prefOre+nameRuby;
 	String oreSpinel=prefOre+nameSpinel;
+	String oreTalcum=prefOre+nameTalcum;
+	String oreTourmaline=prefOre+nameTourmaline;
 	String oreCorundum=prefOre+nameCorundum;
 	String oreNitre=prefOre+nameNitre;
 	String orePyrophyllite=prefOre+namePyrophyllite;
@@ -166,6 +173,9 @@ public interface Keys
 	int colorWitherium=Colors.DimGray;
 	int colorShell=Colors.Coral;
 	int colorRuby=Colors.OrangeRed;
+	int colorSpinel=Colors.OrangeRed;
+	int colorTalcum=Colors.FloralWhite;
+	int colorTourmaline=Colors.DarkBlue;
 	int colorCorundum=Colors.DarkRed;
 	int colorNitre=Colors.LightGray;
 	int colorPyrophyllite=Colors.LimeGreen;
@@ -188,6 +198,8 @@ public interface Keys
 	String nameTraitStarDashing="star_dashing";
 	String nameTraitSoluble="soluble";
 	String nameTraitBirefringent="birefringent";
+	String nameTraitPyroelectric="pyroelectric";
+	String nameTraitShaking="shaking";
 
 	// 属性颜色
 	int colorTraitIcy=Colors.Snow;
@@ -201,4 +213,6 @@ public interface Keys
 	int colorTraitStarDashing=Colors.LightYellow;
 	int colorTraitSoluble=Colors.RoyalBlue;
 	int colorTraitBirefringent=Colors.HoneyDew;
+	int colorTraitPyroelectric=Colors.LightSkyBlue;
+	int colorTraitShaking=Colors.Fuchsia;
 }

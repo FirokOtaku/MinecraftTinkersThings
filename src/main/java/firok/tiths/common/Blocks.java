@@ -49,6 +49,12 @@ public class Blocks
 	public static final BlockOre orePyrophyllite = new BlockOre(Items.pyrophyllite,3,5,1,3,5); // 叶蜡石矿
 	@Reg(Keys.oreIcelandSpar)
 	public static final BlockOre oreIcelandSpar = new BlockOre(Items.icelandSpar,3,5,1,3,5); // 冰洲石矿
+	@Reg(Keys.oreSpinel)
+	public static final BlockOre oreSpinel = new BlockOre(Items.spinel,1,1,1,3,5);
+	@Reg(Keys.oreTalcum)
+	public static final BlockOre oreTalcum = new BlockOre(Items.talcum,3,5,1,3,5);
+	@Reg(Keys.oreTourmaline)
+	public static final BlockOre oreTourmaline = new BlockOre(Items.tourmaline, 2,4,1,2,4);
 	@Reg(Keys.oreRutile)
 	public static final BlockOre oreTitanium = new BlockOre(); // 金红石矿
 	@Reg(Keys.orePolarium)
@@ -85,6 +91,12 @@ public class Blocks
 	public static final Block blockPyrophyllite = new BlockCompressed(); // 叶蜡石块
 	@Reg(Keys.blockIcelandSpar)
 	public static final Block blockIcelandSpar = new BlockCompressed(); // 冰洲石块
+	@Reg(Keys.blockSpinel)
+	public static final Block blockSpinel = new BlockCompressed(); // 尖晶石块
+	@Reg(Keys.blockTalcum)
+	public static final Block blockTalcum = new BlockCompressed(); // 滑石块
+	@Reg(Keys.blockTourmaline)
+	public static final Block blockTourmaline = new BlockCompressed(); // 电气石块
 	@Reg(Keys.blockRuby)
 	public static final Block blockRuby = new BlockCompressed(); // 红宝石块
 	@Reg(Keys.blockTitanium)
@@ -106,6 +118,8 @@ public class Blocks
 	public static final Block blockWeepingPumpkin = new Block(Material.WOOD); // 哭泣的南瓜
 	@Reg(Keys.blockBloodSand)
 	public static final Block blockBloodSand = new BlockBloodSand(); // 血沙
+	@Reg(Keys.blockConsolidatedGlass)
+	public static final Block blockConsolidatedGlass = new BlockCompressed(); // 强化玻璃
 
 	// 植物
 	@Reg(Keys.saplingHura)

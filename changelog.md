@@ -1,9 +1,35 @@
 # 变更日志 Changelog
 
+## 0.2.7.0 _2019-12-14 15:00_
+
+* 增加方块和物品 added blocks and items
+  * 尖晶石矿 spinel ore block
+  * 尖晶石 spinel item
+  * 尖晶石块 spinel block
+  * 滑石矿 talcum ore block
+  * 滑石 talcum
+  * 滑石块 talcum block
+  * 电气石矿 tourmaline ore block
+  * 电气石 tourmaline item
+  * 电气石块 tourmaline block
+  * 强化玻璃 consolidated glass block
+* 增加材料 added materials
+  * 尖晶石 spinel
+  * 滑石 talcum
+  * 电气石 tourmaline
+  * 玻璃 glass
+  * 强化玻璃 consolidated glass
+* 增加属性 added traits
+  * 热释电 pyroelectric
+  * 撼击 shaking
+* 增加液体 added fluids
+  * 熔融钛 molten titanium
+* 修改注册匠魂材料的方式 adjusted the way of registering materials
+
 ## 0.2.6.0 _2019-12-13 15:30_
 
 * 增加方块和物品 added blocks and items
-  * 血木原木 block log block
+  * 血木原木 blood log block
   * 血木树叶 blood leaf block
   * 血木树苗 blood sapling block
   * 血沙 blood sand block

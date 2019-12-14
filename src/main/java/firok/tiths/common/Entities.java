@@ -4,6 +4,7 @@ import firok.tiths.entity.projectile.ProjectileDashingStar;
 import firok.tiths.entity.projectile.ProjectileJavelin;
 import firok.tiths.util.RegEntity;
 
+@SuppressWarnings("all")
 public class Entities
 {
 	@RegEntity(network=250)

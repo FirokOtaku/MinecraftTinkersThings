@@ -3,6 +3,7 @@ package firok.tiths.common;
 import firok.tiths.traits.*;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
+@SuppressWarnings("all")
 public class Traits
 {
 	public static final AbstractTrait luxurious=new TraitLuxurious(); // 奢华
@@ -13,4 +14,6 @@ public class Traits
 	public static final AbstractTrait starDashing=new TraitStarDashing(); // 星绽
 	public static final AbstractTrait soluble=new TraitSoluble(); // 可溶
 	public static final AbstractTrait birefringent=new TraitBirefringent(); // 双折
+	public static final AbstractTrait pyroelectric=new TraitPyroelectric(); // 热释电
+	public static final AbstractTrait shaking=new TraitShaking(); // 撼击
 }

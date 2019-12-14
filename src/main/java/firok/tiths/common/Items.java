@@ -45,6 +45,12 @@ public class Items
 	public static final Item pyrophyllite = new Item(); // 叶蜡石
 	@Reg(nameIcelandSpar)
 	public static final Item icelandSpar = new Item(); // 冰洲石
+	@Reg(nameSpinel)
+	public static final Item spinel = new Item(); // 尖晶石
+	@Reg(nameTalcum)
+	public static final Item talcum = new Item(); // 滑石
+	@Reg(nameTourmaline)
+	public static final Item tourmaline = new Item(); // 电气石
 
 	// 原材料 - 金属锭
 	@Reg(Keys.ingotStellarium)

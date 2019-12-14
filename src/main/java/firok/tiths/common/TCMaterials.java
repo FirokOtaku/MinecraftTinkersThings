@@ -2,6 +2,7 @@ package firok.tiths.common;
 
 import firok.tiths.util.*;
 import slimeknights.tconstruct.library.materials.Material;
+import slimeknights.tconstruct.shared.TinkerFluids;
 import slimeknights.tconstruct.tools.TinkerTraits;
 
 import static firok.tiths.common.Keys.*;
@@ -9,181 +10,223 @@ import static firok.tiths.common.Traits.*;
 import static slimeknights.tconstruct.library.materials.MaterialTypes.HEAD;
 import static slimeknights.tconstruct.tools.TinkerTraits.*;
 
-@SuppressWarnings("unused")
+@SuppressWarnings("all")
 public class TCMaterials
 {
-	@Compo(name=nameImmersedSilver,fluid=nameImmersedSilver)
+	@Compo(nameImmersedSilver)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 	@CompoHandle(modifier = 0.8f, durability = 100)
 	@CompoExtra(extraDurability = 100)
-	public static final Material immersedSilver=new Material(nameImmersedSilver, colorImmersedSilver);
+	public static final Material immersedSilver=new Material(nameImmersedSilver, colorImmersedSilver)
+			.setFluid(Fluids.moltenImmersedSilver);
 
-
-	@Compo(name=nameMithril,fluid=nameMithril)
+	@Compo(nameMithril)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 	@CompoHandle(modifier = 0.8f, durability = 100)
 	@CompoExtra(extraDurability = 100)
-	public static final Material mithril=new Material(nameMithril, colorMithril);
+	public static final Material mithril=new Material(nameMithril, colorMithril)
+			.setFluid(Fluids.moltenMithril);
 
-	@Compo(name=nameAdamantine,fluid=nameAdamantine)
+	@Compo(nameAdamantine)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 	@CompoHandle(modifier = 0.8f, durability = 100)
 	@CompoExtra(extraDurability = 100)
 	public static final Material adamantine=new Material(nameAdamantine, colorAdamantine)
-			.addTrait(starDashing);
+			.setFluid(Fluids.moltenAdamantine);
 
-	@Compo(name=nameBlackrock,fluid=nameBlackrock)
+	@Compo(nameBlackrock)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 	@CompoHandle(modifier = 0.8f, durability = 100)
 	@CompoExtra(extraDurability = 100)
-	public static final Material blackrock=new Material(nameBlackrock, colorBlackrock);
+	public static final Material blackrock=new $Material(nameBlackrock, colorBlackrock)
+			.addCraftableIngot(Items.blackrock);
 
-	@Compo(name=nameInertWitherium,fluid=nameInertWitherium)
+	@Compo(nameInertWitherium)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 	@CompoHandle(modifier = 0.8f, durability = 100)
 	@CompoExtra(extraDurability = 100)
-	public static final Material inertWitherium=new Material(nameInertWitherium, colorInertWitherium);
+	public static final Material inertWitherium=new Material(nameInertWitherium, colorInertWitherium)
+			.setFluid(Fluids.moltenInertWitherium);
 
-	@Compo(name=nameWitherium,fluid=nameWitherium)
+	@Compo(nameWitherium)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 	@CompoHandle(modifier = 0.8f, durability = 100)
 	@CompoExtra(extraDurability = 100)
-	public static final Material witherium=new Material(nameWitherium, colorWitherium);
+	public static final Material witherium=new Material(nameWitherium, colorWitherium)
+			.setFluid(Fluids.moltenWitherium);
 
-	@Compo(name=nameRoyalAlloy,fluid=nameRoyalAlloy)
+	@Compo(nameRoyalAlloy)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 	@CompoHandle(modifier = 0.8f, durability = 100)
 	@CompoExtra(extraDurability = 100)
 	public static final Material royalAlloy=new Material(nameRoyalAlloy, colorRoyalAlloy)
+			.setFluid(Fluids.moltenRoyalAlloy)
 			.addTrait(luxurious)
-			.addTrait(TinkerTraits.magnetic2);
+			.addTrait(magnetic2);
 
-	@Compo(name= nameStellarium,fluid= nameStellarium)
+	@Compo(nameStellarium)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 	@CompoHandle(modifier = 0.8f, durability = 100)
 	@CompoExtra(extraDurability = 100)
 	public static final Material stellarium=new Material(nameStellarium, colorStellarium)
+			.setFluid(Fluids.moltenStellarium)
 			.addTrait(radiant);
 
-	@Compo(name=nameSpiderLeg)
+	@Compo(nameSpiderLeg)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 	@CompoExtra(extraDurability = 100)
-	public static final Material spiderLeg=new Material(nameSpiderLeg, colorSpiderLeg)
+	public static final Material spiderLeg=new $Material(nameSpiderLeg, colorSpiderLeg)
+			.addCraftableIngot(Items.spiderLeg)
 			.addTrait(TinkerTraits.sharp)
 			.addTrait(TinkerTraits.poisonous);
 
-	@Compo(name=nameHardSpiderLeg)
+	@Compo(nameHardSpiderLeg)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 	@CompoExtra(extraDurability = 100)
-	public static final Material hardSpiderLeg=new Material(nameHardSpiderLeg, colorHardSpiderLeg)
+	public static final Material hardSpiderLeg=new $Material(nameHardSpiderLeg, colorHardSpiderLeg)
+			.addCraftableIngot(Items.hardSpiderLeg)
 			.addTrait(TinkerTraits.sharp);
 
-	@Compo(name=nameCinnabar,fluid=nameCinnabar)
+	@Compo(nameCinnabar)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 	@CompoHandle(modifier = 0.8f, durability = 100)
 	@CompoExtra(extraDurability = 100)
 	public static final Material cinnabar=new Material(nameCinnabar,colorCinnabar)
+			.setFluid(Fluids.moltenCinnabar)
 			.addTrait(TinkerTraits.poisonous, HEAD);
 
-//	@Compo(name= nameGlass, item="glass",fluid="glass")
-//	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
-//	@CompoHandle(modifier = 0.8f, durability = 100)
-//	@CompoExtra(extraDurability = 100)
-//	public static Material glass=new Material(nameGlass, colorGlass)
-//			.addTrait(cheapskate)
-//			.addTrait(lightweight);
-
-	@Compo(name= nameGlass) // , item="consolidated_glass"
+	@Compo(nameGlass)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 	@CompoHandle(modifier = 0.8f, durability = 100)
 	@CompoExtra(extraDurability = 100)
-	public static final Material consolidatedGlass=new Material(nameConsolidatedGlass, colorConsolidatedGlass)
+	public static Material glass=new Material(nameGlass, colorGlass)
+			.setFluid(TinkerFluids.glass)
+			.addTrait(cheapskate)
+			.addTrait(lightweight);
+
+	@Compo(nameConsolidatedGlass)
+	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
+	@CompoHandle(modifier = 0.8f, durability = 100)
+	@CompoExtra(extraDurability = 100)
+	public static final Material consolidatedGlass=new $Material(nameConsolidatedGlass, colorConsolidatedGlass)
+			.addCraftableIngot(Blocks.blockConsolidatedGlass)
 			.addTrait(cheap)
 			.addTrait(lightweight);
 
-	@Compo(name= nameBrokenIce, item=nameBrokenIce,castatble = false, craftable = true)
+	@Compo(nameBrokenIce)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 	@CompoHandle(modifier = 0.8f, durability = 100)
 	@CompoExtra(extraDurability = 100)
-	public static final Material brokenIce=new Material(nameBrokenIce,colorBrokenIce)
+	public static final Material brokenIce=new $Material(nameBrokenIce,colorBrokenIce)
+			.addCraftableItem(Items.brokenIce,4,Material.VALUE_Ingot)
 			.addTrait(cheap)
 			.addTrait(icy);
 
-	@Compo(name= nameShell, item=nameShell,castatble = false,craftable = true)
+	@Compo(nameShell)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 	@CompoHandle(modifier = 0.8f, durability = 100)
 	@CompoExtra(extraDurability = 100)
-	public static final Material shell=new Material(nameShell,colorShell)
+	public static final Material shell=new $Material(nameShell,colorShell)
+			.addCraftableIngot(Items.shell)
 			.addTrait(sharp);
 
-	@Compo(name= nameRuby, item=nameRuby,castatble = false,craftable = true)
+	@Compo(nameRuby)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 	@CompoHandle(modifier = 0.8f, durability = 100)
 	@CompoExtra(extraDurability = 100)
-	public static final Material ruby=new Material(nameRuby,colorRuby);
+	public static final Material ruby=new $Material(nameRuby,colorRuby)
+			.addCraftableIngot(Items.ruby);
 
-	@Compo(name= nameCorundum, item=nameCorundum,castatble = false,craftable = true)
+	@Compo(nameCorundum)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 	@CompoHandle(modifier = 0.8f, durability = 100)
 	@CompoExtra(extraDurability = 100)
-	public static final Material corundum=new Material(nameCorundum,colorCorundum)
+	public static final Material corundum=new $Material(nameCorundum,colorCorundum)
+			.addCraftableIngot(Items.corundum)
 			.addTrait(clustering);
 
-	@Compo(name= nameTitanium, item=nameTitanium,castatble = true,craftable = false)
+	@Compo(nameTitanium)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 	@CompoHandle(modifier = 0.8f, durability = 100)
 	@CompoExtra(extraDurability = 100)
 	public static final Material titanium=new Material(nameTitanium,colorTitanium)
+			.setFluid(Fluids.moltenTitanium)
 			.addTrait(sharp)
 			.addTrait(lightweight);
 
-	@Compo(name= namePolarium, item=namePolarium,castatble = true,craftable = false)
+	@Compo(namePolarium)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 	@CompoHandle(modifier = 0.8f, durability = 100)
 	@CompoExtra(extraDurability = 100)
-	public static final Material polarium=new Material(namePolarium,colorPolarium);
+	public static final Material polarium=new Material(namePolarium,colorPolarium)
+			.setFluid(Fluids.moltenPolarium);
 
-	@Compo(name= nameHalleium, item=nameHalleium,castatble = true,craftable = false)
+	@Compo(nameHalleium)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 	@CompoHandle(modifier = 0.8f, durability = 100)
 	@CompoExtra(extraDurability = 100)
-	public static final Material halleium=new Material(nameHalleium,colorHalleium);
+	public static final Material halleium=new Material(nameHalleium,colorHalleium)
+			.setFluid(Fluids.moltenHalleium);
 
-	@Compo(name= nameAltairium, item=nameAltairium,castatble = true,craftable = false)
+	@Compo(nameAltairium)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 	@CompoHandle(modifier = 0.8f, durability = 100)
 	@CompoExtra(extraDurability = 100)
-	public static final Material altairium=new Material(nameAltairium,colorAltairium);
+	public static final Material altairium=new Material(nameAltairium,colorAltairium)
+			.setFluid(Fluids.moltenAltairium);
 
-	@Compo(name= nameCocoa, item=nameCocoa,castatble = true,craftable = false)
+	@Compo(nameCocoa)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 	@CompoHandle(modifier = 0.8f, durability = 100)
 	@CompoExtra(extraDurability = 100)
-	public static final Material cocoa=new Material(nameCocoa,colorCocoa);
+	public static final Material cocoa=new Material(nameCocoa,colorCocoa)
+			.setFluid(Fluids.moltenCocoa);
 
-	@Compo(name= nameNitre, item=nameNitre,castatble = false,craftable = true)
+	@Compo(nameNitre)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 	@CompoHandle(modifier = 0.8f, durability = 100)
 	@CompoExtra(extraDurability = 100)
-	public static final Material nitre=new Material(nameNitre,colorNitre)
+	public static final Material nitre=new $Material(nameNitre,colorNitre)
+			.addCraftableIngot(Items.nitre)
 			.addTrait(soluble);
-	static
-	{
-		nitre.addItem(Items.nitre);
-	}
 
-	@Compo(name= nameIcelandSpar, item=nameIcelandSpar,castatble = false,craftable = true)
+	@Compo(nameIcelandSpar)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 	@CompoHandle(modifier = 0.8f, durability = 100)
 	@CompoExtra(extraDurability = 100)
-	public static final Material icelandSpar=new Material(nameIcelandSpar,colorIcelandSpar)
+	public static final Material icelandSpar=new $Material(nameIcelandSpar,colorIcelandSpar)
+			.addCraftableIngot(Items.icelandSpar)
 			.addTrait(birefringent);
 
-	@Compo(name= namePyrophyllite, item=namePyrophyllite,castatble = false,craftable = true)
+	@Compo(namePyrophyllite)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 	@CompoHandle(modifier = 0.8f, durability = 100)
 	@CompoExtra(extraDurability = 100)
-	public static final Material pyrophyllite=new Material(namePyrophyllite,colorPyrophyllite);
+	public static final Material pyrophyllite=new $Material(namePyrophyllite,colorPyrophyllite)
+			.addCraftableIngot(Items.pyrophyllite);
+
+	@Compo(nameSpinel)
+	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
+	@CompoHandle(modifier = 0.8f, durability = 100)
+	@CompoExtra(extraDurability = 100)
+	public static final Material spinel=new $Material(nameSpinel,colorSpinel)
+			.addCraftableIngot(Items.spinel)
+			.addTrait(shaking);
+
+	@Compo(nameTalcum)
+	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
+	@CompoHandle(modifier = 0.8f, durability = 100)
+	@CompoExtra(extraDurability = 100)
+	public static final Material talcum=new $Material(nameTalcum,colorTalcum)
+			.addCraftableIngot(Items.talcum);
+
+	@Compo(nameTourmaline)
+	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
+	@CompoHandle(modifier = 0.8f, durability = 100)
+	@CompoExtra(extraDurability = 100)
+	public static final Material tourmaline=new $Material(nameTourmaline,colorTourmaline)
+			.addCraftableIngot(Items.tourmaline)
+			.addTrait(pyroelectric);
 
 	public static Material cloud=new Material("cloud", Colors.Silver);
 	public static Material cloudStorm=new Material("cloud_storm", Colors.DarkBlue);

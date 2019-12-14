@@ -8,18 +8,19 @@ import static firok.tiths.common.Keys.*;
 @SuppressWarnings("unused")
 public class Fluids
 {
-	public static FluidMolten moltenRoyalAlloy=$(nameRoyalAlloy, colorRoyalAlloy);
-	public static FluidMolten moltenStellarium=$(nameStellarium, colorStellarium);
-	public static FluidMolten moltenCinnabar=$(nameCinnabar, colorCinnabar);
-	public static FluidMolten moltenImmersedSilver=$(nameImmersedSilver, colorImmersedSilver);
-	public static FluidMolten moltenMithril=$(nameMithril, colorMithril);
-	public static FluidMolten moltenAdamantine=$(nameAdamantine, colorAdamantine);
-	public static FluidMolten moltenInertWitherium=$(nameInertWitherium, colorInertWitherium);
-	public static FluidMolten moltenWitherium=$(nameWitherium, colorWitherium);
-	public static FluidMolten moltenPolarium=$(namePolarium, colorPolarium);
-	public static FluidMolten moltenHalleium=$(nameHalleium, colorHalleium);
-	public static FluidMolten moltenAltairium=$(nameAltairium, colorAltairium);
-	public static FluidMolten moltenCocoa=$(nameCocoa, colorCocoa);
+	public static final FluidMolten moltenRoyalAlloy=$(nameRoyalAlloy, colorRoyalAlloy);
+	public static final FluidMolten moltenStellarium=$(nameStellarium, colorStellarium);
+	public static final FluidMolten moltenCinnabar=$(nameCinnabar, colorCinnabar);
+	public static final FluidMolten moltenImmersedSilver=$(nameImmersedSilver, colorImmersedSilver);
+	public static final FluidMolten moltenMithril=$(nameMithril, colorMithril);
+	public static final FluidMolten moltenAdamantine=$(nameAdamantine, colorAdamantine);
+	public static final FluidMolten moltenInertWitherium=$(nameInertWitherium, colorInertWitherium);
+	public static final FluidMolten moltenWitherium=$(nameWitherium, colorWitherium);
+	public static final FluidMolten moltenPolarium=$(namePolarium, colorPolarium);
+	public static final FluidMolten moltenHalleium=$(nameHalleium, colorHalleium);
+	public static final FluidMolten moltenAltairium=$(nameAltairium, colorAltairium);
+	public static final FluidMolten moltenCocoa=$(nameCocoa, colorCocoa);
+	public static final FluidMolten moltenTitanium=$(nameTitanium, colorTitanium);
 
 	static FluidMolten $(String name,int color)
 	{

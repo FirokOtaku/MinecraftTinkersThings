@@ -9,10 +9,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface Compo
 {
-	String name();
-	String item() default "";
-	String[] items() default {};
-	String fluid() default "";
-	boolean craftable() default true;
-	boolean castatble() default true;
+	String value();
 }

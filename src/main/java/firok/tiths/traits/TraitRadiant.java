@@ -70,8 +70,16 @@ public class TraitRadiant extends AbstractTrait
 					entity.posZ + random.nextDouble(),
 					0.0D, 0.0D, 0.0D);
 		}
+	}
 
-
+	@Override
+	public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
+	{
+		super.afterHit(tool, player, target, damageDealt, wasCritical, wasHit);
+		if(wasHit && player.isServerWorld() && target.isEntityAlive())
+		{
+			target.setFire(10);
+		}
 	}
 
 	@Override

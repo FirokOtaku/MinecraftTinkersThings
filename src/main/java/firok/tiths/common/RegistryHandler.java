@@ -6,11 +6,13 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraftforge.fluids.Fluid;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 import slimeknights.tconstruct.library.MaterialIntegration;
 import slimeknights.tconstruct.library.TinkerRegistry;
@@ -18,6 +20,7 @@ import slimeknights.tconstruct.library.fluid.FluidMolten;
 import slimeknights.tconstruct.library.materials.*;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.smeltery.block.BlockMolten;
+import slimeknights.tconstruct.tools.modifiers.ToolModifier;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -203,49 +206,48 @@ public class RegistryHandler
 					// 检查是否已经注册
 					if(compo==null||material==null|| TinkerRegistry.getMaterial(material.identifier)!=Material.UNKNOWN) continue;
 
-					String name = compo.name();
+					String name = compo.value();
 
 					log("registering material:"+name);
 
-					Fluid fluid = compo.fluid().length()>0? FluidRegistry.getFluid(compo.fluid()):null;
+//					Fluid fluid = compo.fluid().length()>0? FluidRegistry.getFluid(compo.fluid()):null;
 
 					if(material!=null)
 					{
 //						boolean craftable=compo.craftable(),castable=compo.castatble();
 //						material.setFluid(fluid).setCastable(castable).setCraftable(craftable);
-
 						// 代表物品
-						{
-							String nameItemRepresent=compo.item();
-							if(nameItemRepresent.length()>0)
-							{
-								Item itemRepresent= Item.getByNameOrId(nameItemRepresent);
-								log("found represent item:"+itemRepresent);
-								if(itemRepresent!=null)
-								{
-									log("register represent item.");
-									material.setRepresentativeItem(itemRepresent);
-									material.addItem(itemRepresent);
-								}
-							}
-							else
-							{
-								log("not given represent item.");
-							}
-						}
-						// 注册物品
-						{
-							String[] nameItems=compo.items();
-							if(nameItems.length>0)
-							{
-								for(String nameItem:nameItems)
-								{
-									Item item= Item.getByNameOrId(nameItem);
-									log("found extra item:"+item);
-									if(item!=null) material.addItem(item);
-								}
-							}
-						}
+//						{
+//							String nameItemRepresent=compo.item();
+//							if(nameItemRepresent.length()>0)
+//							{
+//								Item itemRepresent= Item.getByNameOrId(nameItemRepresent);
+//								log("found represent item:"+itemRepresent);
+//								if(itemRepresent!=null)
+//								{
+//									log("register represent item.");
+//									material.setRepresentativeItem(itemRepresent);
+//									material.addItem(itemRepresent);
+//								}
+//							}
+//							else
+//							{
+//								log("not given represent item.");
+//							}
+//						}
+//						// 注册物品
+//						{
+//							String[] nameItems=compo.items();
+//							if(nameItems.length>0)
+//							{
+//								for(String nameItem:nameItems)
+//								{
+//									Item item= Item.getByNameOrId(nameItem);
+//									log("found extra item:"+item);
+//									if(item!=null) material.addItem(item);
+//								}
+//							}
+//						}
 
 						// 顶端
 						{
@@ -285,15 +287,19 @@ public class RegistryHandler
 						}
 					}
 
-					MaterialIntegration integration = new MaterialIntegration(material, fluid, name);
+					MaterialIntegration integration = new MaterialIntegration(material);
 					integration.preInit();
-					if(fluid!=null){
-						TinkerRegistry.integrate(material,fluid);
-					}
-					else
-					{
-						TinkerRegistry.integrate(material);
-					}
+					TinkerRegistry.integrate(material);
+
+//					MaterialIntegration integration = new MaterialIntegration(material, fluid, name);
+//					integration.preInit();
+//					if(fluid!=null){
+//						TinkerRegistry.integrate(material,fluid);
+//					}
+//					else
+//					{
+//						TinkerRegistry.integrate(material);
+//					}
 					listIntegration.add(integration);
 				}
 			}
