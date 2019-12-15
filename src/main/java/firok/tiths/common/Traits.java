@@ -16,4 +16,6 @@ public class Traits
 	public static final AbstractTrait birefringent=new TraitBirefringent(); // 双折
 	public static final AbstractTrait pyroelectric=new TraitPyroelectric(); // 热释电
 	public static final AbstractTrait shaking=new TraitShaking(); // 撼击
+	public static final AbstractTrait inky=new TraitInky(); // 墨染
+	static{inky.addItem(Items.inkySlime);}
 }

@@ -87,5 +87,6 @@ public class Items
 	public static final Item hardener = new Item(); // 硬化剂
 	@Reg(namePolisher)
 	public static final Item polisher = new Item(); // 磨石
-
+	@Reg(nameInkySlime)
+	public static final Item inkySlime = new Item(); // 墨染粘液
 }

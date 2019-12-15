@@ -1,5 +1,13 @@
 # 变更日志 Changelog
 
+## 0.2.8.0 _2019-12-15 16:30_
+
+* 增加合成表注册器 added crafting recipes register
+* 增加物品 added items
+  * 墨染粘液球 inky slime item
+* 增加属性 added traits
+  * 墨染 inky
+
 ## 0.2.7.0 _2019-12-14 15:00_
 
 * 增加方块和物品 added blocks and items

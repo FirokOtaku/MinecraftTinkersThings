@@ -187,6 +187,7 @@ public interface Keys
 	int colorCocoa=Colors.Chocolate;
 
 	// 属性
+	String nameTraitInky="inky";
 	String nameTraitIcy="icy";
 	String nameTraitLuxurious="luxurious";
 	String nameTraitRadiant="radiant";
@@ -202,6 +203,7 @@ public interface Keys
 	String nameTraitShaking="shaking";
 
 	// 属性颜色
+	int colorTraitInky=Colors.Black;
 	int colorTraitIcy=Colors.Snow;
 	int colorTraitLuxurious=Colors.Gold;
 	int colorTraitRadiant=Colors.Coral;
