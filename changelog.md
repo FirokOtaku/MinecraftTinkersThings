@@ -1,5 +1,17 @@
 # 变更日志 Changelog
 
+## 0.2.9.0 _2019-12-16 16:00_
+
+* 增加方块和物品 added blocks and items
+  * 霍斯矿 hothium ore block
+  * 霍斯锭 hothium ingot item
+  * 霍斯块 hothium block
+* 增加液体 added fluids
+  * 熔融霍斯 molten hothium
+* 增加属性 added traits
+  * 极寒 freezing
+  * 反重力 anti-gravity
+
 ## 0.2.8.0 _2019-12-15 16:30_
 
 * 增加合成表注册器 added crafting recipes register

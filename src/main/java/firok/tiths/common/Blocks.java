@@ -63,6 +63,8 @@ public class Blocks
 	public static final BlockOre oreHalleium = new BlockOre(); // 哈雷矿
 	@Reg(Keys.oreAltairium)
 	public static final BlockOre oreAltairium = new BlockOre(); // 河鼓矿
+	@Reg(Keys.oreHothium)
+	public static final BlockOre oreHothium = new BlockOre(); // 霍斯矿
 
 	// 矿块
 	@Reg(Keys.blockCinnabar)
@@ -107,6 +109,8 @@ public class Blocks
 	public static final Block blockHalleium = new BlockCompressed(); // 哈雷块
 	@Reg(Keys.blockAltairium)
 	public static final Block blockAltairium = new BlockCompressed(); // 河鼓块
+	@Reg(Keys.blockHothium)
+	public static final Block blockHothium = new BlockCompressed(); // 霍斯块
 	@Reg(Keys.blockCocoa)
 	public static final Block blockCocoa = new BlockCompressed(); // 可可块
 

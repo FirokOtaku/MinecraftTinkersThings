@@ -75,6 +75,8 @@ public class Items
 	public static final Item ingotHalleium = new Item(); // 哈雷锭
 	@Reg(Keys.ingotAltairium)
 	public static final Item ingotAltairium = new Item(); // 河鼓锭
+	@Reg(Keys.ingotHothium)
+	public static final Item ingotHothium = new Item(); // 霍斯锭
 	@Reg(Keys.ingotCocoa)
 	public static final Item ingotCocoa = new Item(); // 可可锭
 

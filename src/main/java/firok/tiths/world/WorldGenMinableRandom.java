@@ -2,6 +2,7 @@ package firok.tiths.world;
 
 import com.google.common.base.Predicate;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -32,7 +33,7 @@ public class WorldGenMinableRandom
 		short posY=(short)(minY + (maxY-minY)*rand.nextFloat() );
 		int countGenerated=0;
 
-		tell(String.format("starting gen at [%d,%d,%d] with [%d]",posX,posY,posZ,numberOfBlocks));
+//		tell(String.format("starting gen at [%d,%d,%d] with [%d]",posX,posY,posZ,numberOfBlocks));
 
 		float factor = rand.nextFloat() * 3.1415927F;
 		double rangeMinX = ((float)(posX + 8) + MathHelper.sin(factor) * (float)numberOfBlocks / 8.0F);
@@ -72,7 +73,7 @@ public class WorldGenMinableRandom
 									if (state.getBlock().isReplaceableOreGen(state, world, blockpos, this.predicate)) {
 										world.setBlockState(blockpos, this.oreBlock, 2);
 										countGenerated++;
-										tell(String.format("gen block[%s] at [%d,%d,%d]",state,blockpos.getX(),blockpos.getY(),blockpos.getZ()));
+//										tell(String.format("gen block[%s] at [%d,%d,%d]",state,blockpos.getX(),blockpos.getY(),blockpos.getZ()));
 									}
 								}
 							}
@@ -80,7 +81,17 @@ public class WorldGenMinableRandom
 					}
 				}
 			}
-			if(countGenerated>0) tell(String.format("gen total:[%d]",countGenerated));
+//			if(countGenerated>0) tell(String.format("gen total:[%d]",countGenerated));
+			boolean enableDebugGen= true; // 测试用的 在所有矿物地表生成一根黑曜石柱子
+			if(countGenerated>0&& enableDebugGen)
+			{
+				int x=(int)(rangeMaxX+rangeMinX)/2,z=(int)(rangeMaxZ+rangeMinZ)/2;
+				BlockPos posTop=world.getTopSolidOrLiquidBlock(new BlockPos(x,0,z));
+				for(int temp=1;temp<=5;temp++)
+				{
+					world.setBlockState(posTop.up(temp), Blocks.OBSIDIAN.getDefaultState());
+				}
+			}
 		}
 
 		return true;

@@ -19,6 +19,7 @@ public interface Keys
 	// 材料
 	String nameRoyalAlloy="royal_alloy";
 	String nameStellarium ="stellarium";
+	String nameHothium="hothium";
 	String nameInkPowder="ink_powder";
 	String nameCinnabar="cinnabar";
 	String nameSpiderLeg="spider_leg";
@@ -74,6 +75,7 @@ public interface Keys
 	// 液体
 	String moltenRoyalAlloy=prefMolten+nameRoyalAlloy;
 	String moltenStellarium=prefMolten+nameStellarium;
+	String moltenHothium=prefMolten+nameHothium;
 	String moltenCinnabar=prefMolten+nameCinnabar;
 	String moltenImmersedSilver=prefMolten+nameImmersedSilver;
 	String moltenMithril=prefMolten+nameMithril;
@@ -90,7 +92,8 @@ public interface Keys
 	String blockLogicSearing=prefLogic+"searing";
 
 	// 矿块
-	String blockStellarium=prefBlock+ nameStellarium;
+	String blockStellarium=prefBlock+nameStellarium;
+	String blockHothium=prefBlock+nameHothium;
 	String blockInkPowder=prefBlock+nameInkPowder;
 	String blockCinnabar=prefBlock+nameCinnabar;
 	String blockImmersedSilver=prefBlock+nameImmersedSilver;
@@ -121,6 +124,7 @@ public interface Keys
 
 	// 原矿
 	String oreCinnabar=prefOre+nameCinnabar;
+	String oreHothium=prefOre+nameHothium;
 	String oreInkPowder=prefOre+nameInkPowder;
 	String oreImmersedSilver=prefOre+nameImmersedSilver;
 	String oreMithril=prefOre+nameMithril;
@@ -144,6 +148,7 @@ public interface Keys
 
 	// 矿锭
 	String ingotStellarium=prefIngot+nameStellarium;
+	String ingotHothium=prefIngot+nameHothium;
 	String ingotRoyalAlloy=prefIngot+nameRoyalAlloy;
 	String ingotImmersedSilver=prefIngot+nameImmersedSilver;
 	String ingotMithril=prefIngot+nameMithril;
@@ -157,7 +162,8 @@ public interface Keys
 	String ingotCocoa=prefIngot+nameCocoa;
 
 	// 材料颜色
-	int colorStellarium= Colors.Tomato;
+	int colorStellarium=Colors.Tomato;
+	int colorHothium=Colors.DeepSkyBlue;
 	int colorRoyalAlloy=Colors.Yellow;
 	int colorSpiderLeg =Colors.IndianRed;
 	int colorHardSpiderLeg=Colors.IndianRed;
@@ -191,6 +197,7 @@ public interface Keys
 	String nameTraitIcy="icy";
 	String nameTraitLuxurious="luxurious";
 	String nameTraitRadiant="radiant";
+	String nameTraitExtremeFreezing="extreme_freezing";
 	String nameTraitSwitching="switching";
 	String nameTraitClustering="clustering";
 	String nameTraitHardened="hardened";
@@ -201,12 +208,14 @@ public interface Keys
 	String nameTraitBirefringent="birefringent";
 	String nameTraitPyroelectric="pyroelectric";
 	String nameTraitShaking="shaking";
+	String nameTraitAntiGrav="anti_grav";
 
 	// 属性颜色
 	int colorTraitInky=Colors.Black;
 	int colorTraitIcy=Colors.Snow;
 	int colorTraitLuxurious=Colors.Gold;
 	int colorTraitRadiant=Colors.Coral;
+	int colorTraitExtremeFreezing=Colors.DarkSlateBlue;
 	int colorTraitSwitching=Colors.SeaGreen;
 	int colorTraitClustering=Colors.Ivory;
 	int colorTraitHardened=Colors.SlateGray;
@@ -217,4 +226,5 @@ public interface Keys
 	int colorTraitBirefringent=Colors.HoneyDew;
 	int colorTraitPyroelectric=Colors.LightSkyBlue;
 	int colorTraitShaking=Colors.Fuchsia;
+	int colorTraitAntiGrav=Colors.LightGoldenRodYellow;
 }

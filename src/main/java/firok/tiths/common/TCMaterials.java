@@ -72,6 +72,14 @@ public class TCMaterials
 			.setFluid(Fluids.moltenStellarium)
 			.addTrait(radiant);
 
+	@Compo(nameHothium)
+	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
+	@CompoHandle(modifier = 0.8f, durability = 100)
+	@CompoExtra(extraDurability = 100)
+	public static final Material hothium=new Material(nameHothium, colorHothium)
+			.setFluid(Fluids.moltenHothium)
+			.addTrait(Traits.extremeFreezing);
+
 	@Compo(nameSpiderLeg)
 	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 	@CompoExtra(extraDurability = 100)

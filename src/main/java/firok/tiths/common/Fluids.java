@@ -10,6 +10,7 @@ public class Fluids
 {
 	public static final FluidMolten moltenRoyalAlloy=$(nameRoyalAlloy, colorRoyalAlloy);
 	public static final FluidMolten moltenStellarium=$(nameStellarium, colorStellarium);
+	public static final FluidMolten moltenHothium=$(nameHothium, colorHothium);
 	public static final FluidMolten moltenCinnabar=$(nameCinnabar, colorCinnabar);
 	public static final FluidMolten moltenImmersedSilver=$(nameImmersedSilver, colorImmersedSilver);
 	public static final FluidMolten moltenMithril=$(nameMithril, colorMithril);
