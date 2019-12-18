@@ -3,6 +3,8 @@ package firok.tiths.util;
 import net.minecraft.block.BlockStone;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -18,6 +20,17 @@ public final class Predicates
 	public static boolean canTick(World world,int interval,int offset)
 	{
 		return canTick(world.getTotalWorldTime(),interval,offset);
+	}
+
+	static final Item blockStone=Item.getItemFromBlock(Blocks.STONE);
+	static final Item blockCobbleStone=Item.getItemFromBlock(Blocks.COBBLESTONE);
+	public static boolean isStone(ItemStack stack)
+	{
+		Item item;
+		return stack != null &&
+				stack != ItemStack.EMPTY &&
+				((item = stack.getItem()) == blockStone ||
+						item == blockCobbleStone);
 	}
 
 	public static boolean canTrigger(World world,float rate)

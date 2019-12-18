@@ -1,5 +1,10 @@
 # 变更日志 Changelog
 
+## 0.2.10.0 _2019-12-18 16:00_
+
+* 增加属性 added traits
+  * 石之相变 stone phasing
+
 ## 0.2.9.0 _2019-12-16 16:00_
 
 * 增加方块和物品 added blocks and items

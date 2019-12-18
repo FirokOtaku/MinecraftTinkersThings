@@ -18,6 +18,7 @@ public class Traits
 	public static final AbstractTrait shaking=new TraitShaking(); // 撼击
 	public static final AbstractTrait inky=new TraitInky(); // 墨染
 	static{inky.addItem(Items.inkySlime);}
-	public static final AbstractTrait extremeFreezing =new TraitExtremeFreezing(); // 极寒
+	public static final AbstractTrait extremeFreezing=new TraitExtremeFreezing(); // 极寒
 	public static final AbstractTrait antiGrav=new TraitAntiGrav(); // 反重力
+	public static final AbstractTrait stonePhasing=new TraitStonePhasing(); // 石之相变
 }

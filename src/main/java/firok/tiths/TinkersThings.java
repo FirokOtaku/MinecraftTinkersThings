@@ -29,7 +29,7 @@ public class TinkersThings
 
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "TinkersThings";
-	public static final String VERSION = "1.12.2-0.2.9.0";
+	public static final String VERSION = "1.12.2-0.2.10.0";
 
 
 	{
@@ -88,6 +88,7 @@ public class TinkersThings
 
 		//  Blocks.register(true);
 		//
+		Craftings.registerAllCraftings();
 		Alloys.registerAlloys();
 //		TCMaterials.packMaterials();
 		//

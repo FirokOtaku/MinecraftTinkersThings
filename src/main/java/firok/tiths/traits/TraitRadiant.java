@@ -30,6 +30,7 @@ import java.util.ListIterator;
 import static firok.tiths.common.Keys.colorTraitRadiant;
 import static firok.tiths.common.Keys.nameTraitRadiant;
 import static firok.tiths.util.Predicates.canTick;
+import static firok.tiths.util.Predicates.isStone;
 
 /**
  * 辉耀
@@ -93,8 +94,7 @@ public class TraitRadiant extends AbstractTrait
 				&& !toolmod.getIdentifier().equals(TinkerModifiers.modSilktouch.getIdentifier());
 	}
 
-	static final Item blockStoneBrick=Item.getItemFromBlock(Blocks.STONEBRICK);
-	static final Item blockCobbleStone=Item.getItemFromBlock(Blocks.COBBLESTONE);
+
 
 	@Override
 	public void blockHarvestDrops(ItemStack tool, BlockEvent.HarvestDropsEvent event) {
@@ -104,8 +104,7 @@ public class TraitRadiant extends AbstractTrait
 			while(iter.hasNext()) {
 				ItemStack drop = iter.next();
 
-				Item itemDropped=drop.getItem();
-				if(blockStoneBrick.equals(itemDropped)||blockCobbleStone.equals(itemDropped))
+				if(isStone(drop))
 				{
 					ItemStack stackSearedBrick=TinkerCommons.searedBrick.copy();
 					stackSearedBrick.setCount(drop.getCount());

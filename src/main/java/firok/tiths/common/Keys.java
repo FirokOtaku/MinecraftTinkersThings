@@ -209,6 +209,7 @@ public interface Keys
 	String nameTraitPyroelectric="pyroelectric";
 	String nameTraitShaking="shaking";
 	String nameTraitAntiGrav="anti_grav";
+	String nameTraitStonePhasing="stone_phasing";
 
 	// 属性颜色
 	int colorTraitInky=Colors.Black;
@@ -227,4 +228,5 @@ public interface Keys
 	int colorTraitPyroelectric=Colors.LightSkyBlue;
 	int colorTraitShaking=Colors.Fuchsia;
 	int colorTraitAntiGrav=Colors.LightGoldenRodYellow;
+	int colorTraitStonePhasing=Colors.Lime;
 }
