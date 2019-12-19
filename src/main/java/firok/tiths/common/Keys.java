@@ -210,6 +210,7 @@ public interface Keys
 	String nameTraitShaking="shaking";
 	String nameTraitAntiGrav="anti_grav";
 	String nameTraitStonePhasing="stone_phasing";
+	String nameTraitTreasureDetecting="treasure_detecting";
 
 	// 属性颜色
 	int colorTraitInky=Colors.Black;
@@ -229,4 +230,5 @@ public interface Keys
 	int colorTraitShaking=Colors.Fuchsia;
 	int colorTraitAntiGrav=Colors.LightGoldenRodYellow;
 	int colorTraitStonePhasing=Colors.Lime;
+	int colorTraitTreasureDetecting=Colors.DarkGoldenRod;
 }

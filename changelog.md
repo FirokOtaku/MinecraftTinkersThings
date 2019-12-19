@@ -1,5 +1,10 @@
 # 变更日志 Changelog
 
+## 0.2.11.0 _2019-12-19 10:00_
+
+* 增加属性 added traits
+  * 宝藏感知 treasure detecting
+
 ## 0.2.10.0 _2019-12-18 16:00_
 
 * 增加属性 added traits

@@ -1,5 +1,6 @@
 package firok.tiths.util;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockStone;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -32,6 +33,19 @@ public final class Predicates
 				((item = stack.getItem()) == blockStone ||
 						item == blockCobbleStone);
 	}
+	public static boolean isStone(IBlockState state)
+	{
+		return state!=null&&isStone(state.getBlock());
+	}
+	public static boolean isStone(Item item)
+	{
+		return item!=null && (item == blockStone || item == blockCobbleStone);
+	}
+	public static boolean isStone(Block block)
+	{
+		return block!=null && (block == Blocks.STONE || block == Blocks.COBBLESTONE);
+	}
+
 
 	public static boolean canTrigger(World world,float rate)
 	{
@@ -39,7 +53,7 @@ public final class Predicates
 	}
 	public static boolean canTrigger(Random rand,float rate)
 	{
-		return rand.nextFloat()>rate;
+		return rand.nextDouble()>rate;
 	}
 
 	public static boolean canOreGenWorld(IBlockState state)

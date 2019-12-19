@@ -21,4 +21,5 @@ public class Traits
 	public static final AbstractTrait extremeFreezing=new TraitExtremeFreezing(); // 极寒
 	public static final AbstractTrait antiGrav=new TraitAntiGrav(); // 反重力
 	public static final AbstractTrait stonePhasing=new TraitStonePhasing(); // 石之相变
+	public static final AbstractTrait treasureDetecting=new TraitTreasureDetecting(); // 宝藏感知
 }
