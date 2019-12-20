@@ -211,6 +211,8 @@ public interface Keys
 	String nameTraitAntiGrav="anti_grav";
 	String nameTraitStonePhasing="stone_phasing";
 	String nameTraitTreasureDetecting="treasure_detecting";
+	String nameTraitCreaky="creaky";
+	String nameTraitUndeadCalling="undead_calling";
 
 	// 属性颜色
 	int colorTraitInky=Colors.Black;
@@ -231,4 +233,6 @@ public interface Keys
 	int colorTraitAntiGrav=Colors.LightGoldenRodYellow;
 	int colorTraitStonePhasing=Colors.Lime;
 	int colorTraitTreasureDetecting=Colors.DarkGoldenRod;
+	int colorTraitCreaky=Colors.DarkSlateGray;
+	int colorTraitUndeadCalling=Colors.MidnightBlue;
 }

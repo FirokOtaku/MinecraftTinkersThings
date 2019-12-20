@@ -49,7 +49,7 @@ public class TraitTreasureDetecting extends AbstractTrait
 			}
 			if(check)
 			{
-				Actions.generateTreasureRoom(world,new BlockPos(cx+1,cy+1,cz+1));
+				Actions.CauseGeneratingTreasureRoom(world,new BlockPos(cx+1,cy+1,cz+1));
 			}
 		}
 	}

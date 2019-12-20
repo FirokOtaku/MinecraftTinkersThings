@@ -1,5 +1,11 @@
 # 变更日志 Changelog
 
+## 0.2.12.0 _2019-12-20 00:00_
+
+* 增加属性 added traits
+  * 喀嚓 creaky
+  * 亡灵呼唤 undead calling
+
 ## 0.2.11.0 _2019-12-19 10:00_
 
 * 增加属性 added traits

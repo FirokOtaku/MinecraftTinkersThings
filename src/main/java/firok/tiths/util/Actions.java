@@ -2,7 +2,13 @@ package firok.tiths.util;
 
 import firok.tiths.TinkersThings;
 import firok.tiths.entity.projectile.ProjectileDashingStar;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.EntitySilverfish;
+import net.minecraft.entity.monster.EntitySkeleton;
+import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntityChest;
@@ -11,6 +17,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTableList;
+
+import java.util.Random;
 
 // 所有的行为封装
 public class Actions
@@ -71,7 +79,57 @@ public class Actions
 		}
 	}
 
-	// 创建一次星绽
+	// 亡灵呼唤 - 触发召唤
+	public static void CauseSpawningUndead(EntityLivingBase player) {
+		try
+		{
+			World world=player.world;
+			Random rand=world.rand;
+			// 寻找召唤位置
+			final int cx=(int)player.posX,cy=(int)player.posY,cz=(int)player.posZ;
+			int tx=cx+rand.nextInt(18)-9,tz=cz+rand.nextInt(18)-9;
+
+			EntityMob entity=rand.nextBoolean()?new EntityZombie(world):new EntitySkeleton(world);
+
+			byte countAir=0;
+			FOR_FIND_LOCATION_SPAWN:for(int ty=cy+5;ty>cy-5;ty--)
+			{
+				BlockPos posTemp=new BlockPos(tx,ty,tz);
+				IBlockState state=world.getBlockState(posTemp);
+				if(state.getBlock() == Blocks.AIR)
+				{
+					countAir++;
+				}
+				else // is not air
+				{
+					if(countAir>=3 && state.canEntitySpawn(entity))
+					{
+						entity.setPosition(posTemp.getX(),posTemp.getY()+2.5,posTemp.getZ());
+						entity.setLastAttackedEntity(player);
+						entity.playLivingSound();
+						world.spawnEntity(entity);
+						break FOR_FIND_LOCATION_SPAWN;
+					}
+
+					countAir=0;
+				}
+			}
+		}catch(Exception e){}
+	}
+	// 喀嚓 - 触发召唤
+	public static void CauseSpawningSilverfish(EntityLivingBase player, double x, double y, double z, World world)
+	{
+		try
+		{
+			EntitySilverfish entity = new EntitySilverfish(world);
+			entity.setPosition(x, y, z);
+			world.spawnEntity(entity);
+			entity.setLastAttackedEntity(player);
+			entity.playLivingSound();
+		}catch(Exception e){}
+	}
+
+	// 星绽 - 创建粒子
 	public static ProjectileDashingStar CauseStarDashing(World world,double fromX,double fromY,double fromZ,double toX,double toY,double toZ,float speed,float damage)
 	{
 		TinkersThings.log("gen star..."+System.currentTimeMillis());
