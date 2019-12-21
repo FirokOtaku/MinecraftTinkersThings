@@ -53,6 +53,8 @@ public interface Keys
 	String nameHalleium="halleium";
 	String nameAltairium="altairium";
 	String nameCocoa="cocoa";
+	String nameHotBread="hot_bread";
+	String nameHotFish="hot_fish";
 	String nameWeepingPumpkin="weeping_pumpkin";
 	String nameBloodPumpkin="blood_pumpkin";
 	String nameBloodSand="blood_sand";
@@ -193,6 +195,7 @@ public interface Keys
 	int colorCocoa=Colors.Chocolate;
 
 	// 属性
+	String nameTraitMaiming="maiming";
 	String nameTraitInky="inky";
 	String nameTraitIcy="icy";
 	String nameTraitLuxurious="luxurious";
@@ -215,6 +218,7 @@ public interface Keys
 	String nameTraitUndeadCalling="undead_calling";
 
 	// 属性颜色
+	int colorTraitMaiming=Colors.PaleVioletRed;
 	int colorTraitInky=Colors.Black;
 	int colorTraitIcy=Colors.Snow;
 	int colorTraitLuxurious=Colors.Gold;

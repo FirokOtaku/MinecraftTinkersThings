@@ -3,6 +3,7 @@ package firok.tiths.common;
 import firok.tiths.util.Reg;
 import net.minecraft.item.Item;
 
+import firok.tiths.item.ItemHotFood;
 import static firok.tiths.common.Keys.*;
 
 @SuppressWarnings("all")
@@ -83,6 +84,12 @@ public class Items
 	// 植物
 	@Reg(Keys.nameHuraFruit)
 	public static final Item huraFruit = new Item(); // 胡拉果实
+
+	// 食物
+	@Reg(nameHotBread)
+	public static final Item hotBread = new ItemHotFood(4,0.4f,false); // 灼热面包
+	@Reg(nameHotFish)
+	public static final Item hotFish = new ItemHotFood(6,0.5f,false); // 灼热鱼
 
 	// 匠魂工具
 	@Reg(nameHardener)

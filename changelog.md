@@ -1,6 +1,14 @@
 # 变更日志 Changelog
 
-## 0.2.12.0 _2019-12-20 00:00_
+## 0.2.13.0 _2019-12-21 22:30_
+
+* 增加属性 added traits
+  * 致残 maiming
+* 增加物品 added items
+  * 灼热鱼 hot fish item
+  * 灼热面包 hot bread item
+
+## 0.2.12.0 _2019-12-20 17:30_
 
 * 增加属性 added traits
   * 喀嚓 creaky

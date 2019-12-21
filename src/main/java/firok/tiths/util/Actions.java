@@ -25,7 +25,8 @@ public class Actions
 {
 	private Actions(){}
 
-	public static void generateTreasureRoom(World world,BlockPos pos)
+	// 生成一个宝藏屋
+	public static void CauseGeneratingTreasureRoom(World world, BlockPos pos)
 	{
 		final int cx=pos.getX(),cy=pos.getY(),cz=pos.getZ();
 		final int mx=5,my=5,mz=5;

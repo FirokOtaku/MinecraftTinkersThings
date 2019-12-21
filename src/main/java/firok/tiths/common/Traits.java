@@ -6,6 +6,7 @@ import slimeknights.tconstruct.library.traits.AbstractTrait;
 @SuppressWarnings("all")
 public class Traits
 {
+	public static final AbstractTrait maiming=new TraitMaiming(); // 致残
 	public static final AbstractTrait luxurious=new TraitLuxurious(); // 奢华
 	public static final AbstractTrait radiant=new TraitRadiant(); // 辉耀
 	public static final AbstractTrait switching=new TraitSwitching(); // 换位

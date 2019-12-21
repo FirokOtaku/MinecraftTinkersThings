@@ -8,7 +8,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import static firok.tiths.common.DamageSources.SanDamage;
-import static firok.tiths.util.Predicates.canTick;
 
 // 血沙
 public class BlockBloodSand extends BlockSoulSand
@@ -21,7 +20,7 @@ public class BlockBloodSand extends BlockSoulSand
 		if(!world.isRemote && entity instanceof EntityLivingBase && entity.isEntityAlive())
 		{
 			EntityLivingBase enlb=(EntityLivingBase)entity;
-			if(canTick(world,20,1)) enlb.attackEntityFrom(SanDamage,2);
+			enlb.attackEntityFrom(SanDamage,2);
 		}
 	}
 }
