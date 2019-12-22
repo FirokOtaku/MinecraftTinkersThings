@@ -73,6 +73,8 @@ public class Blocks
 	public static final Block blockInkPowder = new BlockCompressed(); // 墨粉块
 	@Reg(Keys.blockStellarium)
 	public static final Block blockStellarium = new BlockCompressed(); // 恒星金属块
+	@Reg(Keys.blockRoyalAlloy)
+	public static final Block blockRoyalAlloy = new BlockCompressed(); // 皇家合金块
 	@Reg(Keys.blockImmersedSilver)
 	public static final Block blockImmersedSilver = new BlockCompressed(); // 沉银块
 	@Reg(Keys.blockMithril)

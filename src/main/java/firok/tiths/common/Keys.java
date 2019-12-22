@@ -10,6 +10,7 @@ public interface Keys
 	String prefBlock="block_";
 	String prefOre="ore_";
 	String prefIngot="ingot_";
+	String prefNugget="nugget_";
 	String prefLog="log_";
 	String prefLeaf="leaf_";
 	String prefSapling="sapling_";
@@ -95,6 +96,7 @@ public interface Keys
 
 	// 矿块
 	String blockStellarium=prefBlock+nameStellarium;
+	String blockRoyalAlloy=prefBlock+nameRoyalAlloy;
 	String blockHothium=prefBlock+nameHothium;
 	String blockInkPowder=prefBlock+nameInkPowder;
 	String blockCinnabar=prefBlock+nameCinnabar;
@@ -162,6 +164,21 @@ public interface Keys
 	String ingotHalleium=prefIngot+nameHalleium;
 	String ingotAltairium=prefIngot+nameAltairium;
 	String ingotCocoa=prefIngot+nameCocoa;
+
+	// 矿粒
+	String nuggetStellarium=prefNugget+nameStellarium;
+	String nuggetHothium=prefNugget+nameHothium;
+	String nuggetRoyalAlloy=prefNugget+nameRoyalAlloy;
+	String nuggetImmersedSilver=prefNugget+nameImmersedSilver;
+	String nuggetMithril=prefNugget+nameMithril;
+	String nuggetAdamantine=prefNugget+nameAdamantine;
+	String nuggetInertWitherium=prefNugget+nameInertWitherium;
+	String nuggetWitherium=prefNugget+nameWitherium;
+	String nuggetTitanium=prefNugget+nameTitanium;
+	String nuggetPolarium=prefNugget+namePolarium;
+	String nuggetHalleium=prefNugget+nameHalleium;
+	String nuggetAltairum=prefNugget+nameAltairium;
+	String nuggetCocoa=prefNugget+nameCocoa;
 
 	// 材料颜色
 	int colorStellarium=Colors.Tomato;

@@ -1,5 +1,23 @@
 # 变更日志 Changelog
 
+## 0.2.15.0 _2019-12-22 16:30_
+
+* 增加方块和物品 added blocks and items
+  * 皇家合金块 royal alloy block
+  * 恒星金属粒 stellarium nugget item
+  * 皇家合金粒 royal alloy nugget item
+  * 沉银粒 immersed silver nugget item
+  * 秘银粒 mithril nugget item
+  * 精金粒 adamantine nugget item
+  * 惰性凋零粒 inert witherium nugget item
+  * 凋零粒 witherium nugget item
+  * 钛粒 titanium nugget item
+  * 勾陈粒 polarium nugget item
+  * 哈雷粒 halleium nugget item
+  * 河鼓粒 altairium nugget item
+  * 霍斯粒 hothium nugget item
+  * 可可粒 cocoa nugget item
+
 ## 0.2.14.0 _2019-12-22 12:00_
 
 * 增加属性 added traits

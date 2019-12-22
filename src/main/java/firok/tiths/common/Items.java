@@ -53,6 +53,34 @@ public class Items
 	@Reg(nameTourmaline)
 	public static final Item tourmaline = new Item(); // 电气石
 
+	// 金属粒
+	@Reg(Keys.nuggetStellarium)
+	public static final Item nuggetStellarium = new Item(); // 恒星金属粒
+	@Reg(Keys.nuggetRoyalAlloy)
+	public static final Item nuggetRoyalAlloy = new Item(); // 皇家合金粒
+	@Reg(Keys.nuggetImmersedSilver)
+	public static final Item nuggetImmersedSilver = new Item(); // 沉银粒
+	@Reg(Keys.nuggetMithril)
+	public static final Item nuggetMithril = new Item(); // 秘银粒
+	@Reg(Keys.nuggetAdamantine)
+	public static final Item nuggetAdamantine = new Item(); // 精金粒
+	@Reg(Keys.nuggetInertWitherium)
+	public static final Item nuggetInertWitherium =new Item(); // 惰性凋零粒
+	@Reg(Keys.nuggetWitherium)
+	public static final Item nuggetWitherium = new Item(); // 凋零粒
+	@Reg(Keys.nuggetTitanium)
+	public static final Item nuggetTitanium = new Item(); // 钛粒
+	@Reg(Keys.nuggetPolarium)
+	public static final Item nuggetPolarium = new Item(); // 勾陈粒
+	@Reg(Keys.nuggetHalleium)
+	public static final Item nuggetHalleium = new Item(); // 哈雷粒
+	@Reg(Keys.nuggetAltairum)
+	public static final Item nuggetAltairium = new Item(); // 河鼓粒
+	@Reg(Keys.nuggetHothium)
+	public static final Item nuggetHothium = new Item(); // 霍斯粒
+	@Reg(Keys.nuggetCocoa)
+	public static final Item nuggetCocoa = new Item(); // 可可粒
+
 	// 原材料 - 金属锭
 	@Reg(Keys.ingotStellarium)
 	public static final Item ingotStellarium = new Item(); // 恒星金属锭
