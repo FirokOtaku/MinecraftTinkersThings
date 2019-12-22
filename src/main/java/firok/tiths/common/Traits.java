@@ -8,6 +8,7 @@ public class Traits
 {
 	public static final AbstractTrait maiming=new TraitMaiming(); // 致残
 	public static final AbstractTrait luxurious=new TraitLuxurious(); // 奢华
+	public static final AbstractTrait retrospective=new TraitRetrospective(); // 后知
 	public static final AbstractTrait radiant=new TraitRadiant(); // 辉耀
 	public static final AbstractTrait switching=new TraitSwitching(); // 换位
 	public static final AbstractTrait icy=new TraitIcy(); // 冰冷

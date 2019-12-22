@@ -197,6 +197,7 @@ public interface Keys
 	// 属性
 	String nameTraitMaiming="maiming";
 	String nameTraitInky="inky";
+	String nameTraitRetrospective="retrospective";
 	String nameTraitIcy="icy";
 	String nameTraitLuxurious="luxurious";
 	String nameTraitRadiant="radiant";
@@ -220,6 +221,7 @@ public interface Keys
 	// 属性颜色
 	int colorTraitMaiming=Colors.PaleVioletRed;
 	int colorTraitInky=Colors.Black;
+	int colorTraitRetrospective=Colors.LightYellow;
 	int colorTraitIcy=Colors.Snow;
 	int colorTraitLuxurious=Colors.Gold;
 	int colorTraitRadiant=Colors.Coral;

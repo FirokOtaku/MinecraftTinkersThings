@@ -1,5 +1,10 @@
 # 变更日志 Changelog
 
+## 0.2.14.0 _2019-12-22 12:00_
+
+* 增加属性 added traits
+  * 后知 retrospective
+
 ## 0.2.13.0 _2019-12-21 22:30_
 
 * 增加属性 added traits
