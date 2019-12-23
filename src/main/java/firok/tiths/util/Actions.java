@@ -157,4 +157,18 @@ public class Actions
 		}
 		return star;
 	}
+
+	public static double PI_2=Math.PI/2,PI_4=Math.PI/4;
+	public static void CauseGatewayTeleport(Entity entity,float distance)
+	{
+		final World world=entity.world;
+		final double px=entity.posX,pz=entity.posZ;
+		final long lpx=(long)px,lpz=(long)pz;
+		final int byt= (lpx%2==0?0:1) | (lpz%2==0?0:2);
+		final float angle = (float)( -PI_4 + (byt* PI_2) + (world.rand.nextDouble()*PI_2) );
+		final float distanceX=MathHelper.sin(angle)*distance;
+		final float distanceZ=MathHelper.cos(angle)*distance;
+		final BlockPos posTop=world.getTopSolidOrLiquidBlock(new BlockPos((int)distanceX+px,0,(int)distanceZ+pz));
+		entity.setPosition(posTop.getX(),posTop.getY()+2,posTop.getZ());
+	}
 }

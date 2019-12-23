@@ -1,5 +1,8 @@
 package firok.tiths.common;
 
+import firok.tiths.item.ItemDebug;
+import firok.tiths.item.ItemGatewayGem;
+import firok.tiths.item.ItemRecord;
 import firok.tiths.util.Reg;
 import net.minecraft.item.Item;
 
@@ -9,6 +12,10 @@ import static firok.tiths.common.Keys.*;
 @SuppressWarnings("all")
 public class Items
 {
+
+	@Reg("debug")
+	public static final Item debug = new ItemDebug(); // 调试工具
+
 	// 原材料 - 怪物掉落
 	@Reg(nameSpiderLeg)
 	public static final Item spiderLeg = new Item(); // 蛛腿
@@ -57,7 +64,7 @@ public class Items
 	@Reg(Keys.nuggetStellarium)
 	public static final Item nuggetStellarium = new Item(); // 恒星金属粒
 	@Reg(Keys.nuggetRoyalAlloy)
-	public static final Item nuggetRoyalAlloy = new Item(); // 皇家合金粒
+	public static final Item nuggetRoyalAlloy = new Item(); // 奢华合金粒
 	@Reg(Keys.nuggetImmersedSilver)
 	public static final Item nuggetImmersedSilver = new Item(); // 沉银粒
 	@Reg(Keys.nuggetMithril)
@@ -74,10 +81,12 @@ public class Items
 	public static final Item nuggetPolarium = new Item(); // 勾陈粒
 	@Reg(Keys.nuggetHalleium)
 	public static final Item nuggetHalleium = new Item(); // 哈雷粒
-	@Reg(Keys.nuggetAltairum)
+	@Reg(Keys.nuggetAltairium)
 	public static final Item nuggetAltairium = new Item(); // 河鼓粒
 	@Reg(Keys.nuggetHothium)
 	public static final Item nuggetHothium = new Item(); // 霍斯粒
+	@Reg(Keys.nuggetTonium)
+	public static final Item nuggetTonium = new Item(); // 钝金粒
 	@Reg(Keys.nuggetCocoa)
 	public static final Item nuggetCocoa = new Item(); // 可可粒
 
@@ -85,7 +94,7 @@ public class Items
 	@Reg(Keys.ingotStellarium)
 	public static final Item ingotStellarium = new Item(); // 恒星金属锭
 	@Reg(Keys.ingotRoyalAlloy)
-	public static final Item ingotRoyalAlloy = new Item(); // 皇家合金锭
+	public static final Item ingotRoyalAlloy = new Item(); // 奢华合金锭
 	@Reg(Keys.ingotImmersedSilver)
 	public static final Item ingotImmersedSilver = new Item(); // 沉银锭
 	@Reg(Keys.ingotMithril)
@@ -106,6 +115,8 @@ public class Items
 	public static final Item ingotAltairium = new Item(); // 河鼓锭
 	@Reg(Keys.ingotHothium)
 	public static final Item ingotHothium = new Item(); // 霍斯锭
+	@Reg(Keys.ingotTonium)
+	public static final Item ingotTonium = new Item(); // 钝金锭
 	@Reg(Keys.ingotCocoa)
 	public static final Item ingotCocoa = new Item(); // 可可锭
 
@@ -119,6 +130,10 @@ public class Items
 	@Reg(nameHotFish)
 	public static final Item hotFish = new ItemHotFood(6,0.5f,false); // 灼热鱼
 
+	// 唱片
+	@Reg("record1")
+	public static final Item record1 = new ItemRecord("record1",SoundEvents.record1);
+
 	// 匠魂工具
 	@Reg(nameHardener)
 	public static final Item hardener = new Item(); // 硬化剂
@@ -126,4 +141,10 @@ public class Items
 	public static final Item polisher = new Item(); // 磨石
 	@Reg(nameInkySlime)
 	public static final Item inkySlime = new Item(); // 墨染粘液
+
+	// 消耗品
+	@Reg(nameGatewayGem)
+	public static final Item gatewayGem = new ItemGatewayGem(); // 折跃之石
+
+	public static void trigger(){}
 }

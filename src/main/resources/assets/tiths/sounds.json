@@ -1,0 +1,9 @@
+{
+  "record1": {
+    "category": "music",
+    "subtitle": "tiths.sound.a_new_sound",
+    "sounds": [
+      "tiths:records/record1"
+    ]
+  }
+}

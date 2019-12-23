@@ -1,11 +1,31 @@
 # 变更日志 Changelog
 
+## 0.2.16.0 _2019-12-23 09:00_
+
+* 增加方块和物品 added blocks and items
+  * 调试工具 debug item
+  * 钝金矿 tonium ore block
+  * 钝金锭 tonium ingot item
+  * 钝金粒 tonium nugget item
+  * 钝金块 tonium block
+  * 折跃之石 gateway gem item
+* 增加液体 added fluids
+  * 熔融钝金 molten tonium
+* 增加材料 added materials
+  * 钝金 tonium
+* 增加属性 added traits
+  * 压制 repressing
+* 增加状态效果 added potion effects
+  * 沉重 heavy
+* 为部分方块和物品增加材质贴图 added textures to some blocks and items
+* 增加调试用音效 added sounds for testing
+
 ## 0.2.15.0 _2019-12-22 16:30_
 
 * 增加方块和物品 added blocks and items
-  * 皇家合金块 royal alloy block
+  * 奢华合金块 royal alloy block
   * 恒星金属粒 stellarium nugget item
-  * 皇家合金粒 royal alloy nugget item
+  * 奢华合金粒 royal alloy nugget item
   * 沉银粒 immersed silver nugget item
   * 秘银粒 mithril nugget item
   * 精金粒 adamantine nugget item
@@ -277,7 +297,7 @@
 
 * 增加匠魂材料的注册管理器 added registry handler of TC contents
 * 增加液体 added fluids
-  * 熔融皇家合金 molten royal alloy
+  * 熔融奢华合金 molten royal alloy
 * 增加方块和物品 added blocks and items
   * 辰砂块 cinnabar block
   * 墨粉块 ink block

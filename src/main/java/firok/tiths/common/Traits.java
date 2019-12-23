@@ -26,4 +26,5 @@ public class Traits
 	public static final AbstractTrait treasureDetecting=new TraitTreasureDetecting(); // 宝藏感知
 	public static final AbstractTrait creaky=new TraitCreaky(); // 喀嚓
 	public static final AbstractTrait undeadCalling=new TraitUndeadCalling(); // 亡灵呼唤
+	public static final AbstractTrait repressing=new TraitRepressing(); // 压制
 }

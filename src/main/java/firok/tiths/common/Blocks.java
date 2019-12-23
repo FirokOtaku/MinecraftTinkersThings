@@ -65,6 +65,8 @@ public class Blocks
 	public static final BlockOre oreAltairium = new BlockOre(); // 河鼓矿
 	@Reg(Keys.oreHothium)
 	public static final BlockOre oreHothium = new BlockOre(); // 霍斯矿
+	@Reg(Keys.oreTonium)
+	public static final BlockOre oreTonium = new BlockOre(); // 钝金矿
 
 	// 矿块
 	@Reg(Keys.blockCinnabar)
@@ -74,7 +76,7 @@ public class Blocks
 	@Reg(Keys.blockStellarium)
 	public static final Block blockStellarium = new BlockCompressed(); // 恒星金属块
 	@Reg(Keys.blockRoyalAlloy)
-	public static final Block blockRoyalAlloy = new BlockCompressed(); // 皇家合金块
+	public static final Block blockRoyalAlloy = new BlockCompressed(); // 奢华合金块
 	@Reg(Keys.blockImmersedSilver)
 	public static final Block blockImmersedSilver = new BlockCompressed(); // 沉银块
 	@Reg(Keys.blockMithril)
@@ -113,6 +115,8 @@ public class Blocks
 	public static final Block blockAltairium = new BlockCompressed(); // 河鼓块
 	@Reg(Keys.blockHothium)
 	public static final Block blockHothium = new BlockCompressed(); // 霍斯块
+	@Reg(Keys.blockTonium)
+	public static final Block blockTonium = new BlockCompressed(); // 钝金块
 	@Reg(Keys.blockCocoa)
 	public static final Block blockCocoa = new BlockCompressed(); // 可可块
 

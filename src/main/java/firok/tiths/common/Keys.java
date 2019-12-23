@@ -21,6 +21,7 @@ public interface Keys
 	String nameRoyalAlloy="royal_alloy";
 	String nameStellarium ="stellarium";
 	String nameHothium="hothium";
+	String nameTonium="tonium";
 	String nameInkPowder="ink_powder";
 	String nameCinnabar="cinnabar";
 	String nameSpiderLeg="spider_leg";
@@ -59,6 +60,10 @@ public interface Keys
 	String nameWeepingPumpkin="weeping_pumpkin";
 	String nameBloodPumpkin="blood_pumpkin";
 	String nameBloodSand="blood_sand";
+	String nameInkySlime="inky_slime";
+	String nameGatewayGem="gateway_gem";
+	String nameRoyalPaper="royal_paper";
+	String nameRoyalBook="royal_book";
 
 	String nameHardener="hardener";
 	String namePolisher="polisher";
@@ -79,6 +84,7 @@ public interface Keys
 	String moltenRoyalAlloy=prefMolten+nameRoyalAlloy;
 	String moltenStellarium=prefMolten+nameStellarium;
 	String moltenHothium=prefMolten+nameHothium;
+	String moltenTonium=prefMolten+nameTonium;
 	String moltenCinnabar=prefMolten+nameCinnabar;
 	String moltenImmersedSilver=prefMolten+nameImmersedSilver;
 	String moltenMithril=prefMolten+nameMithril;
@@ -98,6 +104,7 @@ public interface Keys
 	String blockStellarium=prefBlock+nameStellarium;
 	String blockRoyalAlloy=prefBlock+nameRoyalAlloy;
 	String blockHothium=prefBlock+nameHothium;
+	String blockTonium=prefBlock+nameTonium;
 	String blockInkPowder=prefBlock+nameInkPowder;
 	String blockCinnabar=prefBlock+nameCinnabar;
 	String blockImmersedSilver=prefBlock+nameImmersedSilver;
@@ -129,6 +136,7 @@ public interface Keys
 	// 原矿
 	String oreCinnabar=prefOre+nameCinnabar;
 	String oreHothium=prefOre+nameHothium;
+	String oreTonium=prefOre+nameTonium;
 	String oreInkPowder=prefOre+nameInkPowder;
 	String oreImmersedSilver=prefOre+nameImmersedSilver;
 	String oreMithril=prefOre+nameMithril;
@@ -153,6 +161,7 @@ public interface Keys
 	// 矿锭
 	String ingotStellarium=prefIngot+nameStellarium;
 	String ingotHothium=prefIngot+nameHothium;
+	String ingotTonium=prefIngot+nameTonium;
 	String ingotRoyalAlloy=prefIngot+nameRoyalAlloy;
 	String ingotImmersedSilver=prefIngot+nameImmersedSilver;
 	String ingotMithril=prefIngot+nameMithril;
@@ -168,6 +177,7 @@ public interface Keys
 	// 矿粒
 	String nuggetStellarium=prefNugget+nameStellarium;
 	String nuggetHothium=prefNugget+nameHothium;
+	String nuggetTonium=prefNugget+nameTonium;
 	String nuggetRoyalAlloy=prefNugget+nameRoyalAlloy;
 	String nuggetImmersedSilver=prefNugget+nameImmersedSilver;
 	String nuggetMithril=prefNugget+nameMithril;
@@ -177,12 +187,13 @@ public interface Keys
 	String nuggetTitanium=prefNugget+nameTitanium;
 	String nuggetPolarium=prefNugget+namePolarium;
 	String nuggetHalleium=prefNugget+nameHalleium;
-	String nuggetAltairum=prefNugget+nameAltairium;
+	String nuggetAltairium=prefNugget+nameAltairium;
 	String nuggetCocoa=prefNugget+nameCocoa;
 
 	// 材料颜色
 	int colorStellarium=Colors.Tomato;
 	int colorHothium=Colors.DeepSkyBlue;
+	int colorTonium=Colors.DarkSeaGreen;
 	int colorRoyalAlloy=Colors.Yellow;
 	int colorSpiderLeg =Colors.IndianRed;
 	int colorHardSpiderLeg=Colors.IndianRed;
@@ -234,6 +245,7 @@ public interface Keys
 	String nameTraitTreasureDetecting="treasure_detecting";
 	String nameTraitCreaky="creaky";
 	String nameTraitUndeadCalling="undead_calling";
+	String nameTraitRepressing="repressing";
 
 	// 属性颜色
 	int colorTraitMaiming=Colors.PaleVioletRed;
@@ -258,4 +270,8 @@ public interface Keys
 	int colorTraitTreasureDetecting=Colors.DarkGoldenRod;
 	int colorTraitCreaky=Colors.DarkSlateGray;
 	int colorTraitUndeadCalling=Colors.MidnightBlue;
+	int colorTraitRepressing=Colors.DarkSeaGreen;
+
+	// 状态效果颜色
+	int colorPotionHeavy=Colors.DarkSeaGreen;
 }

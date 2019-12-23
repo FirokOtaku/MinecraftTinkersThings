@@ -12,7 +12,7 @@ public class Alloys
 	public static void registerAlloys()
 	{
 		TinkersThings.log("register alloys...");
-		// 皇家合金
+		// 奢华合金
 		registerAlloy(
 				new FluidStack(Fluids.moltenRoyalAlloy, VALUE_Ingot*3),
 				new FluidStack(TinkerFluids.iron,VALUE_Ingot*2),

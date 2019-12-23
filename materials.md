@@ -2,42 +2,43 @@
 
 图标|进度
 -|-
-✔|已可正常使用
-⭕|已实现
+✔|已添加世界生成 已可正常采集/使用
+⭕|已实现 仅创造模式使用
 🖊|仍在实现代码
 📕|仍在构思
 
 ## 材料列表
 
-进度|类型|名称|英文|修饰符|来源|描述
--|-|-|-|-|-|-
--|金属|皇家合金|royal alloy|奢华 磁引|2铁+1金=合金|--
--|木石|云|cloud|柔软|采集
--|木石|雷暴云|cloud|柔软 雷鸣|采集
--|木石|天空水晶|sky crystal|轻便|采集
--|木石|风暴水晶|storm crystal|轻便 雷鸣|采集
--|木石|异象水晶|phantom crystal||采集
--|木石|反重力水晶|anti grav crystal|反重力|采集
--|金属|辰砂|cinnabar|剧毒|采集
--|木石|破碎基岩|broken bedrock|耐久3|采集
--|木石|怨灵沙||怨气|血+灵魂沙=浇筑
--|金属|天堂金属|paradise metal|
--|木石|蛛腿|spider leg|剧毒|掉落物
--|木石|坚硬蛛腿|hard spider leg|剧毒|掉落物
--|木石|玻璃|glass|脆弱 廉价 轻便|采集
--|木石|强化玻璃|consolidated glass|廉价 轻便 动力|合成
--|木石|刚玉|corundum|群簇|采集
--|金属|钛|titanium|锋利 轻便|采集
--|金属||polarium||采集
--|金属||halleium||采集
--|金属||altairium||采集
--|金属|可可|cocoa|美味|采集
--|木石|硝石|nitre|可溶|采集
--|木石|叶蜡石|pyrophyllite||采集
--|木石|藻绿石|algae|生态 吝啬|采集
--|木石|冰洲石|iceland spar|双折|采集
--|木石|尖晶石|spinel||采集
--|木石|电气石|talcum|热释电|采集
+进度|类型|名称|英文|修饰符|来源|描述|颜色
+-|-|-|-|-|-|-|-
+⭕|金属|奢华合金|royal alloy|奢华 磁引|2铁+1金=合金|--
+📕|木石|云|cloud|柔软|采集
+📕|木石|雷暴云|thunder cloud|柔软 雷鸣|采集
+📕|木石|天空水晶|sky crystal|轻便|采集
+📕|木石|雷暴水晶|thunder crystal|轻便 雷鸣|采集
+📕|木石|异象水晶|phantom crystal||采集
+📕|木石|反重力水晶|anti grav crystal|反重力|采集
+⭕|金属|辰砂|cinnabar|剧毒|采集||Silver
+📕|木石|破碎基岩|broken bedrock|耐久3|采集
+🖊|木石|血沙|blood sand|_未命名1_|血+灵魂沙=浇筑
+📕|金属|天堂金属|paradium|
+⭕|木石|蛛腿|spider leg|剧毒|掉落物
+⭕|木石|坚硬蛛腿|hard spider leg|剧毒|掉落物
+📕|木石|玻璃|glass|脆弱 廉价 轻便|采集
+📕|木石|强化玻璃|consolidated glass|廉价 轻便 动力|合成
+⭕|木石|刚玉|corundum|群簇|采集
+⭕|金属|钛|titanium|锋利 轻便|采集||LightSteelBlue
+⭕|金属|勾陈|polarium||采集||LightSkyBlue
+⭕|金属|哈雷|halleium||采集||MediumSlateBlue
+⭕|金属|河鼓|altairium||采集
+⭕|金属|可可|cocoa|美味|采集||Chocolate
+⭕|木石|硝石|nitre|可溶|采集
+⭕|木石|叶蜡石|pyrophyllite||采集||LightGreen
+⭕|木石|藻绿石|algae|生态 吝啬|采集
+⭕|木石|冰洲石|iceland spar|双折|采集
+⭕|木石|尖晶石|spinel||采集
+⭕|木石|电气石|talcum|热释电|采集
+⭕|金属|钝金|tonium|压制|采集
 
 ## 修饰符列表
 
@@ -66,3 +67,5 @@
 -|被动(采集)|宝藏感知|treasure detecting|小几率在周围生成宝藏屋
 -|被动(采集 攻击)|喀嚓|creaky|小几率在周围生成蠹虫
 -|被动(采集 攻击)|亡灵呼唤|undead calling|小几率在周围生成僵尸或骷髅
+-|被动(攻击)|_未命名1_||攻击时恢复耐久 给目标施加debuff
+-|被动(攻击)|压制|repressing|给目标施加沉重debuff

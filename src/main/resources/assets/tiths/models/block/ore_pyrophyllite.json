@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "tiths:blocks/ore_pyrophyllite",
+    "down": "tiths:blocks/ore_pyrophyllite",
+    "up": "tiths:blocks/ore_pyrophyllite",
+    "north": "tiths:blocks/ore_pyrophyllite",
+    "south": "tiths:blocks/ore_pyrophyllite",
+    "west": "tiths:blocks/ore_pyrophyllite",
+    "east": "tiths:blocks/ore_pyrophyllite"
+  }
+}

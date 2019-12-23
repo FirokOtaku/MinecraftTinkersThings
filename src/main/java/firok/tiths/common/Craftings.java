@@ -103,7 +103,7 @@ public class Craftings
 						new FluidStack(TinkerFluids.blood, Material.VALUE_Ingot*1),
 						true, false));
 
-		// 皇家纸张
+		// 奢华纸张
 		registerTableCasting(
 				new CastingRecipe(
 						new ItemStack(Items.royalPaper),

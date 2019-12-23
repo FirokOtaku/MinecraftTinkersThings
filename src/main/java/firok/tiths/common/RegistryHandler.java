@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.potion.Potion;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -188,6 +189,19 @@ public class RegistryHandler
 		}
 		TinkersThings.log(String.format("register blocks: block[%d/%d]",countBlock,fields.length) );
 	}
+	public static void registerTileEntities()
+	{
+		for(Field field:TileEntities.class.getDeclaredFields())
+		{
+			Class classField=field.getType();
+			if(!TileEntity.class.isAssignableFrom(classField)) continue;
+			String name=field.getName();
+			GameRegistry.registerTileEntity(
+					classField,
+					new ResourceLocation(TinkersThings.MOD_ID, name)
+			);
+		}
+	}
 
 	private static List<MaterialIntegration> listIntegration=new ArrayList<>(20);
 	public static void registerMaterials()
@@ -338,7 +352,30 @@ public class RegistryHandler
 		}
 	}
 
+	public static void registerPotions(IForgeRegistry<Potion> registry)
+	{
+		for(Field field:Potions.class.getDeclaredFields())
+		{
+			try
+			{
+				Object obj=field.get(null);
+				if(obj instanceof Potion)
+				{
+					Potion potion=(Potion)obj;
+					String name=field.getName();
 
+					potion.setPotionName("effect."+name);
+					potion.setRegistryName(name);
+
+					registry.register(potion);
+				}
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
 
 
 

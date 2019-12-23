@@ -30,7 +30,7 @@ public class TinkersThings
 
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "TinkersThings";
-	public static final String VERSION = "1.12.2-0.2.15.0";
+	public static final String VERSION = "1.12.2-0.2.16.0";
 
 
 	{
@@ -52,13 +52,17 @@ public class TinkersThings
 		logger = event.getModLog();
 		RegistryHandler.registerFluids();
 
+		Items.trigger();
 		RegistryHandler.registerBlocks(ForgeRegistries.BLOCKS);
+		RegistryHandler.registerTileEntities();
 		RegistryHandler.registerItems(ForgeRegistries.ITEMS);
 		RegistryHandler.registerEntities(ForgeRegistries.ENTITIES);
 
 		RegistryHandler.registerTraits();
 		RegistryHandler.registerModifiers();
 		Modifiers.log();
+
+		RegistryHandler.registerPotions(ForgeRegistries.POTIONS);
 
 		//  proxy.initConfig();
 		//
