@@ -11,6 +11,10 @@ import net.minecraft.block.material.Material;
 @SuppressWarnings("all")
 public class Blocks
 {
+	// 算不上矿石的自然生成方块
+	@Reg(Keys.blockMeteorolite)
+	public static final BlockOre blockMeteorolite = new BlockOre(); // 陨石
+
 	// 矿石
 	@Reg(Keys.oreCinnabar)
 	@RegOre(

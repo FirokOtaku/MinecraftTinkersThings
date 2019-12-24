@@ -30,7 +30,7 @@ public class TinkersThings
 
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "TinkersThings";
-	public static final String VERSION = "1.12.2-0.2.16.0";
+	public static final String VERSION = "1.12.2-0.2.17.0";
 
 
 	{
@@ -59,7 +59,7 @@ public class TinkersThings
 		RegistryHandler.registerEntities(ForgeRegistries.ENTITIES);
 
 		RegistryHandler.registerTraits();
-		RegistryHandler.registerModifiers();
+//		RegistryHandler.registerModifiers();
 		Modifiers.log();
 
 		RegistryHandler.registerPotions(ForgeRegistries.POTIONS);

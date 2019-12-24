@@ -64,6 +64,7 @@ public interface Keys
 	String nameGatewayGem="gateway_gem";
 	String nameRoyalPaper="royal_paper";
 	String nameRoyalBook="royal_book";
+	String nameMeteorolite="meteorolite";
 
 	String nameHardener="hardener";
 	String namePolisher="polisher";
@@ -128,6 +129,7 @@ public interface Keys
 	String blockAltairium=prefBlock+nameAltairium;
 	String blockCocoa=prefBlock+nameCocoa;
 
+	String blockMeteorolite=prefBlock+nameMeteorolite;
 	String blockBloodPumpkin=prefBlock+nameBloodPumpkin;
 	String blockWeepingPumpkin=prefBlock+nameWeepingPumpkin;
 	String blockBloodSand=prefBlock+nameBloodSand;
@@ -191,6 +193,7 @@ public interface Keys
 	String nuggetCocoa=prefNugget+nameCocoa;
 
 	// 材料颜色
+	int colorMeteorolite=Colors.DarkOliveGreen;
 	int colorStellarium=Colors.Tomato;
 	int colorHothium=Colors.DeepSkyBlue;
 	int colorTonium=Colors.DarkSeaGreen;
@@ -274,4 +277,12 @@ public interface Keys
 
 	// 状态效果颜色
 	int colorPotionHeavy=Colors.DarkSeaGreen;
+
+	// 唱片
+	String recordTinkersEfforts="record_tinkers_efforts";
+	String recordTinkersWill="record_tinkers_will";
+
+	// 唱片资源键
+	String soundTinkersEfforts="tinkers_efforts";
+	String soundTinkersWill="tinkers_will";
 }

@@ -88,6 +88,32 @@ public class RegistryHandler
 			}
 		}
 	}
+//	public static void registerModifiers()
+//	{
+//		Field[] fields=Modifiers.class.getDeclaredFields();
+//		if(true) return;
+//
+//
+//		TinkersThings.log("register modifiers...");
+//		for(Field field:fields)
+//		{
+//			try
+//			{
+//				Object obj=field.get(null);
+//
+//				if(obj instanceof ToolModifier)
+//				{
+//					ToolModifier modifier=(ToolModifier)obj;
+//
+//					TinkerRegistry.registerModifier(modifier);
+//				}
+//			}
+//			catch (Exception e)
+//			{
+//				e.printStackTrace();
+//			}
+//		}
+//	}
 
 	public static void registerItems(IForgeRegistry<Item> registry)
 	{

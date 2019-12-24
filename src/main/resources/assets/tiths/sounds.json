@@ -1,9 +1,16 @@
 {
-  "record1": {
-    "category": "music",
-    "subtitle": "tiths.sound.a_new_sound",
+  "tinkers_efforts": {
+    "category": "record",
+    "subtitle": "tiths.sound.tinkers_efforts",
     "sounds": [
-      "tiths:records/record1"
+      "tiths:records/tinkers_efforts"
+    ]
+  },
+  "tinkers_will": {
+    "category": "record",
+    "subtitle": "tiths.sound.tinkers_will",
+    "sounds": [
+      "tiths:records/tinkers_will"
     ]
   }
 }

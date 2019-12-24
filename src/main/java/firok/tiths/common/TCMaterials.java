@@ -244,6 +244,13 @@ public class TCMaterials
 			.setFluid(Fluids.moltenTonium)
 			.addTrait(repressing);
 
+	@Compo(nameMeteorolite)
+	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
+	@CompoHandle(modifier = 0.8f, durability = 100)
+	@CompoExtra(extraDurability = 100)
+	public static final Material meteorolite=new $Material(nameMeteorolite,colorMeteorolite)
+			.addCraftableIngot(Blocks.blockMeteorolite);
+
 	public static Material cloud=new Material("cloud", Colors.Silver);
 	public static Material cloudStorm=new Material("cloud_storm", Colors.DarkBlue);
 	public static Material skyCrystal=new Material("sky_crystal", Colors.Aqua);

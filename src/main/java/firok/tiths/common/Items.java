@@ -131,8 +131,10 @@ public class Items
 	public static final Item hotFish = new ItemHotFood(6,0.5f,false); // 灼热鱼
 
 	// 唱片
-	@Reg("record1")
-	public static final Item record1 = new ItemRecord("record1",SoundEvents.record1);
+	@Reg(Keys.recordTinkersEfforts)
+	public static final Item recordTinkersEfforts = new ItemRecord(Keys.recordTinkersEfforts,SoundEvents.recordTinkersEfforts);
+	@Reg(Keys.recordTinkersWill)
+	public static final Item recordTinkersWill = new ItemRecord(Keys.recordTinkersWill,SoundEvents.recordTinkersWill);
 
 	// 匠魂工具
 	@Reg(nameHardener)

@@ -1,5 +1,14 @@
 # 变更日志 Changelog
 
+## 0.2.17.0 _2019-12-24 00:00_
+
+* 增加方块和物品 added blocks and items
+  * 陨石块 meteorolite block
+  * 唱片 Tinkers' Will record
+  * 唱片 Tinkers' Efforts record
+* 增加材质 added materials
+  * 陨石 meteorolite
+
 ## 0.2.16.0 _2019-12-23 09:00_
 
 * 增加方块和物品 added blocks and items
