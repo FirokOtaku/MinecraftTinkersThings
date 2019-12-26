@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "tiths:blocks/ore_iceland_spar",
+    "down": "tiths:blocks/ore_iceland_spar",
+    "up": "tiths:blocks/ore_iceland_spar",
+    "north": "tiths:blocks/ore_iceland_spar",
+    "south": "tiths:blocks/ore_iceland_spar",
+    "west": "tiths:blocks/ore_iceland_spar",
+    "east": "tiths:blocks/ore_iceland_spar"
+  }
+}

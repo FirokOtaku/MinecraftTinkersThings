@@ -1,6 +1,10 @@
 # 变更日志 Changelog
 
-## 0.2.17.0 _2019-12-24 00:00_
+## 0.2.18.0 _2019-12-26 08:30_
+
+* 为部分方块和物品增加材质贴图 added textures to some blocks and items
+
+## 0.2.17.0 _2019-12-24 09:30_
 
 * 增加方块和物品 added blocks and items
   * 陨石块 meteorolite block

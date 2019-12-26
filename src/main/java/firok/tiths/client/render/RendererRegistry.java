@@ -6,11 +6,8 @@ import firok.tiths.common.Blocks;
 import firok.tiths.common.Items;
 import firok.tiths.entity.projectile.ProjectileJavelin;
 import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.client.renderer.block.statemap.IStateMapper;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -32,13 +29,12 @@ public class RendererRegistry
 			try
 			{
 				Object obj=field.get(null);
-				if(obj instanceof Item && !(obj instanceof ItemBlock))
+				if(obj instanceof Item)
 				{
 					Item item=(Item)field.get(null);
-					ModelLoader.setCustomModelResourceLocation(
-							item, 0,
-							new ModelResourceLocation(item.getRegistryName(),"inventory")
-					);
+					ModelResourceLocation mrl=new ModelResourceLocation(item.getRegistryName(),"inventory");
+					ModelLoader.setCustomModelResourceLocation(item, 0,mrl);
+					TinkersThings.log("registered item texture: "+mrl.toString());
 				}
 			}
 			catch (Exception e)
@@ -56,10 +52,9 @@ public class RendererRegistry
 				{
 					Block block=(Block)obj;
 					Item item=Item.getItemFromBlock(block);
-					ModelLoader.setCustomModelResourceLocation(
-							item,0,
-							new ModelResourceLocation(item.getRegistryName(),"inventory")
-					);
+					ModelResourceLocation mrl=new ModelResourceLocation(item.getRegistryName(),"normal");
+					ModelLoader.setCustomModelResourceLocation(item,0,mrl);
+					TinkersThings.log("registered block texture: "+mrl.toString());
 				}
 			}
 			catch (Exception e)
