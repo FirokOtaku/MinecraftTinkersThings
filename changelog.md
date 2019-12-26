@@ -1,5 +1,9 @@
 # 变更日志 Changelog
 
+## 0.2.18.1 _2019-12-26 11:30_
+
+* 为部分方块和物品增加材质贴图 added textures to some blocks and items
+
 ## 0.2.18.0 _2019-12-26 08:30_
 
 * 为部分方块和物品增加材质贴图 added textures to some blocks and items

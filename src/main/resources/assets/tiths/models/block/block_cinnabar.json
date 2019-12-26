@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "tiths:blocks/block_cinnabar",
+    "down": "tiths:blocks/block_cinnabar",
+    "up": "tiths:blocks/block_cinnabar",
+    "north": "tiths:blocks/block_cinnabar",
+    "south": "tiths:blocks/block_cinnabar",
+    "west": "tiths:blocks/block_cinnabar",
+    "east": "tiths:blocks/block_cinnabar"
+  }
+}

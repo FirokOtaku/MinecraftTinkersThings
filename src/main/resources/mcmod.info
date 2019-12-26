@@ -5,7 +5,7 @@
     "description": "A mod adding several things to Tinkers' Construct",
     "version": "${version}",
     "mcversion": "${mcversion}",
-    "url": "github.com/351768593",
+    "url": "https://github.com/351768593/MinecraftTinkersThings",
     "updateUrl": "",
     "authorList": [
       "Firok"
