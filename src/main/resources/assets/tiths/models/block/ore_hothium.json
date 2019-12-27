@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "tiths:blocks/ore_hothium",
+    "down": "tiths:blocks/ore_hothium",
+    "up": "tiths:blocks/ore_hothium",
+    "north": "tiths:blocks/ore_hothium",
+    "south": "tiths:blocks/ore_hothium",
+    "west": "tiths:blocks/ore_hothium",
+    "east": "tiths:blocks/ore_hothium"
+  }
+}

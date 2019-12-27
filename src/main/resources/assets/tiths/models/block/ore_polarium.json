@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "tiths:blocks/ore_polarium",
+    "down": "tiths:blocks/ore_polarium",
+    "up": "tiths:blocks/ore_polarium",
+    "north": "tiths:blocks/ore_polarium",
+    "south": "tiths:blocks/ore_polarium",
+    "west": "tiths:blocks/ore_polarium",
+    "east": "tiths:blocks/ore_polarium"
+  }
+}
