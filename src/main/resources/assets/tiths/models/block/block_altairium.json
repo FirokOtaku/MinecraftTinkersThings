@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "tiths:blocks/block_altairium",
+    "down": "tiths:blocks/block_altairium",
+    "up": "tiths:blocks/block_altairium",
+    "north": "tiths:blocks/block_altairium",
+    "south": "tiths:blocks/block_altairium",
+    "west": "tiths:blocks/block_altairium",
+    "east": "tiths:blocks/block_altairium"
+  }
+}
