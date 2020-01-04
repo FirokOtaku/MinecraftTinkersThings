@@ -6,6 +6,8 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -46,6 +48,22 @@ public final class Predicates
 		return block!=null && (block == Blocks.STONE || block == Blocks.COBBLESTONE);
 	}
 
+//	public static boolean canReplaceWithOre(IBlockState state, IBlockAccess world, BlockPos pos)
+//	{
+//		return state!=null && canReplaceWithOre(state.getBlock(), world, pos);
+//	}
+//	public static boolean canReplaceWithOre(Block block, IBlockAccess world, BlockPos pos)
+//	{
+//		return block!=null && (
+//			block==Blocks.AIR ||
+//			block==Blocks.STONE ||
+//			block==Blocks.COBBLESTONE ||
+//			block==Blocks.DIRT ||
+//			block==Blocks.SAND ||
+//			block==Blocks.GRASS ||
+//			(world!=null && pos !=null && block.isReplaceable(world,pos))
+//		);
+//	}
 
 	public static boolean canTrigger(World world,float rate)
 	{
@@ -53,12 +71,27 @@ public final class Predicates
 	}
 	public static boolean canTrigger(Random rand,float rate)
 	{
-		return rand.nextDouble()>rate;
+		return rand.nextDouble()<rate;
 	}
 
 	public static boolean canOreGenWorld(IBlockState state)
 	{
-		return state!=null && state.getBlock()==Blocks.STONE && state.getValue(BlockStone.VARIANT).isNatural();
+		if(state==null) return false;
+		Block block=state.getBlock();
+
+		return block==Blocks.STONE && state.getValue(BlockStone.VARIANT).isNatural();
+	}
+	public static boolean canMeteoGen(IBlockState state)
+	{
+		if(state==null) return false;
+		Block block=state.getBlock();
+
+		return block == Blocks.AIR ||
+				block == Blocks.STONE ||
+				block == Blocks.COBBLESTONE ||
+				block == Blocks.DIRT ||
+				block == Blocks.SAND ||
+				block == Blocks.GRASS;
 	}
 	public static boolean canOreGenNether(IBlockState state)
 	{

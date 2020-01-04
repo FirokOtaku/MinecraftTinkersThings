@@ -65,6 +65,20 @@ public class Craftings
 						RecipeMatch.of(new ItemStack(net.minecraft.init.Blocks.PUMPKIN)),
 						new FluidStack(TinkerFluids.blood, Material.VALUE_Ingot*8),
 						true, false));
+		// 凝结血沙
+		registerBasinCasting(
+				new CastingRecipe(
+						new ItemStack(Blocks.blockCoagulatedBloodSand),
+						RecipeMatch.of(new ItemStack(Blocks.blockBloodSand)),
+						new FluidStack(TinkerFluids.glass, Material.VALUE_Block),
+						true, false));
+		// 强化玻璃
+		registerBasinCasting(
+				new CastingRecipe(
+						new ItemStack(Blocks.blockConsolidatedGlass),
+						RecipeMatch.of(new ItemStack(net.minecraft.init.Blocks.IRON_BARS)),
+						new FluidStack(TinkerFluids.glass, Material.VALUE_Block),
+						true, false));
 	}
 	// 铸造台合成表
 	private static void registerTableCastings()

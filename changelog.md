@@ -1,5 +1,9 @@
 # 变更日志 Changelog
 
+## 0.2.19.0 _2020-01-04 14:30_
+
+* 重写世界生成的方式, 现在各种矿石可以正常在世界中生成 rewrote the way of world-generating which enable generating ores
+
 ## 0.2.18.4 _2020-01-03 11:30_
 
 * 为部分方块和物品增加材质贴图 added textures to some blocks and items

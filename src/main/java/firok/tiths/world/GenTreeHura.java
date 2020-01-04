@@ -14,10 +14,9 @@ public class GenTreeHura
 	final static int minHeight=4;
 	final static IBlockState stateLog= Blocks.blockLogHura.getDefaultState();
 	final static IBlockState stateLeaf= Blocks.blockLeafHura.getDefaultState();
-	public static boolean generate(World world, BlockPos pos)
+	public static boolean generate(World world, Random rand, BlockPos pos)
 	{
 		int posX=pos.getX(),posY=pos.getY(),posZ=pos.getZ();
-		Random rand=world.rand;
 		int height=MathHelper.getInt(rand,minHeight,maxHeight);
 
 		world.setBlockState(new BlockPos(posX,posY+height,posZ),stateLeaf);

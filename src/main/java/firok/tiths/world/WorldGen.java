@@ -1,15 +1,19 @@
 package firok.tiths.world;
 
-import firok.tiths.TinkersThings;
 import firok.tiths.common.Blocks;
+import firok.tiths.util.GenMeteoWorld;
+import firok.tiths.util.GenOreWorld;
 import firok.tiths.util.Predicates;
-import firok.tiths.util.RegOre;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -19,66 +23,118 @@ import java.util.Random;
 public class WorldGen implements IWorldGenerator
 {
 	private static WorldGen instance;
-	public static WorldGen getInstance() {
-		if (instance == null)
-			instance = new WorldGen();
+	public static WorldGen getInstance()
+	{
+		if(instance==null) new WorldGen();
 		return instance;
 	}
 
-	private List<WorldGenMinableRandom> genWorld=new ArrayList<>();
-	private List<WorldGenMinableRandom> genNether=new ArrayList<>();
-	private List<WorldGenMinableRandom> genEnd=new ArrayList<>();
-	private List<WorldGenMinableRandom> genOther=new ArrayList<>();
-
+	private static List<IChunkGen> gensWorld=new ArrayList<>();
 	public WorldGen()
 	{
-		Field[] fields=Blocks.class.getDeclaredFields();
-		for(Field field:fields)
+		MinecraftForge.ORE_GEN_BUS.register(this);
+		// 开始读取Blocks里面的注解
+		for(Field field: Blocks.class.getDeclaredFields())
 		{
 			try
 			{
-				RegOre regOre=field.getAnnotation(RegOre.class);
-				if(regOre==null) continue;
+				Object obj=field.get(null);
+				if(!(obj instanceof Block)) continue;
 
-				IBlockState state=((Block)field.get(null)).getDefaultState();
+				Block block=(Block) obj;
+				GenOreWorld genOreWorld=field.getAnnotation(GenOreWorld.class);
+				GenMeteoWorld genMeteoWorld= field.getAnnotation(GenMeteoWorld.class);
 
-				if(regOre.minWorldAmount()>0) genWorld.add(new WorldGenMinableRandom(state,regOre.minWorldAmount(),regOre.maxWorldAmount(),regOre.minWorldY(),regOre.maxWorldY(), Predicates::canOreGenWorld));
-				if(regOre.minEndAmount()>0) genEnd.add(new WorldGenMinableRandom(state,regOre.minEndAmount(),regOre.maxEndAmount(),regOre.minEndY(),regOre.maxEndY(), Predicates::canOreGenEnd));
-				if(regOre.minNetherAmount()>0) genNether.add(new WorldGenMinableRandom(state,regOre.minNetherAmount(),regOre.maxNetherAmount(),regOre.minNetherY(),regOre.maxNetherY(), Predicates::canOreGenNether));
-				if(regOre.minOtherAmount()>0) genOther.add(new WorldGenMinableRandom(state,regOre.minOtherAmount(),regOre.maxOtherAmount(),regOre.minOtherY(),regOre.maxOtherY(), Predicates::canOreGenOther));
+				if(genOreWorld!=null) // 主世界矿物
+				{
+					WorldGenMinableCustom gen=createOreGenWorld(block.getDefaultState(),genOreWorld);
+					gensWorld.add(gen);
+				}
+				if(genMeteoWorld!=null) // 主世界陨石
+				{
+					WorldGenMeteorolite gen=createMeteoGenWorld(block.getDefaultState(),genMeteoWorld);
+					gensWorld.add(gen);
+				}
 			}
 			catch (Exception e)
 			{
-				TinkersThings.log("register world gen error:"+field);
 				e.printStackTrace();
 			}
 		}
+
+		// 陨石
+
+		instance=this;
 	}
 
-	@Override
-	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator,
-	                     IChunkProvider chunkProvider) {
-		int x = chunkX * 16;
-		int z = chunkZ * 16;
-		switch (world.provider.getDimension()) {
-			case -1:
-//				nether(random, x, z, world);
-				for (WorldGenMinableRandom gen : genNether) gen.generate(world, random, x, z);
-				break;
-			case 0:
-//				world(random, x, z, world);
-				for (WorldGenMinableRandom gen : genWorld) gen.generate(world, random, x, z);
-				break;
-			case 1:
-//				end(random, x, z, world);
-				for (WorldGenMinableRandom gen : genEnd) gen.generate(world, random, x, z);
-				break;
-			default:
-				for (WorldGenMinableRandom gen : genOther) gen.generate(world, random, x, z);
-//				if (!blackList.contains(world.provider.getDimension()))
-//					other(random, x, z, world);
-				break;
+	public WorldGenMinableCustom createOreGenWorld(IBlockState state, GenOreWorld gen)
+	{
+		return new WorldGenMinableCustom(
+				state,
+				gen.times(),
+				gen.timeRate(),
+				gen.size(),
+				gen.minY(),
+				gen.maxY(),
+				Predicates::canOreGenWorld
+				);
+	}
+	public WorldGenMeteorolite createMeteoGenWorld(IBlockState state, GenMeteoWorld gen)
+	{
+		return new WorldGenMeteorolite(
+				state,
+				gen.rateOre(),
+				gen.rateChunk()
+		);
+	}
+
+	@SubscribeEvent
+	public void onOreGenPre(OreGenEvent.Pre event){
+		BlockPos posEvent=event.getPos();
+
+//		System.out.println(String.format("on ore gen pre {%s}",posEvent));
+		gen(event.getWorld(),posEvent.getX(),posEvent.getZ(),event.getRand());
+	}
+
+	int preChunkX=Integer.MIN_VALUE, preChunkZ =Integer.MIN_VALUE;
+	World preWorld=null;
+	public void gen(World world,int chunkX,int chunkZ,Random rand) // note event传进来的是区块顶点坐标
+	{
+		if(preWorld==world&&preChunkX==chunkX&&preChunkZ==chunkZ)
+		{
+			return;
+		}
+
+		preWorld=world;
+		preChunkX=chunkX;
+		preChunkZ=chunkZ;
+
+//		System.out.println(String.format("gen chunkX,chunkZ{%d,%d}",chunkX,chunkZ));
+		int dim=world.provider.getDimension();
+		SWITCH_GEN_AT_WORLD:switch(dim) // 维度id 主世界0 下界-1 末地1
+		{
+			case -1: // 下界
+			case 0: // 主世界
+			{
+				for(IChunkGen genWorld:gensWorld)
+				{
+					genWorld.gen(world,chunkX,chunkZ,rand);
+				}
+				break SWITCH_GEN_AT_WORLD;
+			}
+			case 1: // 末地
+			default: // mod世界
 		}
 	}
 
+//	@SubscribeEvent
+//	public void onOreGenGenerateMinable(OreGenEvent.GenerateMinable event){
+//		;
+//	}
+
+	@Override
+	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
+	{
+		gen(world,chunkX,chunkZ,random);
+	}
 }

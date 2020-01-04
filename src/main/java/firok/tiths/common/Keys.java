@@ -60,6 +60,7 @@ public interface Keys
 	String nameWeepingPumpkin="weeping_pumpkin";
 	String nameBloodPumpkin="blood_pumpkin";
 	String nameBloodSand="blood_sand";
+	String nameCoagulatedBloodSand="coagulated_blood_sand";
 	String nameInkySlime="inky_slime";
 	String nameGatewayGem="gateway_gem";
 	String nameRoyalPaper="royal_paper";
@@ -68,6 +69,7 @@ public interface Keys
 
 	String nameHardener="hardener";
 	String namePolisher="polisher";
+	String nameDriller="driller";
 
 	// 植物
 	String nameHura="hura";
@@ -134,6 +136,9 @@ public interface Keys
 	String blockWeepingPumpkin=prefBlock+nameWeepingPumpkin;
 	String blockBloodSand=prefBlock+nameBloodSand;
 	String blockConsolidatedGlass=prefBlock+nameConsolidatedGlass;
+	String blockCoagulatedBloodSand=prefBlock+nameCoagulatedBloodSand;
+
+	String blockRoyalEnchantmentTable=prefBlock+"royal_enchantment_table";
 
 	// 原矿
 	String oreCinnabar=prefOre+nameCinnabar;

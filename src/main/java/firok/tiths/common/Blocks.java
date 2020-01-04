@@ -1,11 +1,13 @@
 package firok.tiths.common;
 
 import firok.tiths.block.*;
-import firok.tiths.util.Keys;
+import firok.tiths.block.logic.BlockLogicSearing;
+import firok.tiths.util.GenMeteoWorld;
+import firok.tiths.util.GenOreWorld;
 import firok.tiths.util.Reg;
-import firok.tiths.util.RegOre;
 import firok.tiths.world.GenTreeHura;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockEnchantmentTable;
 import net.minecraft.block.material.Material;
 
 @SuppressWarnings("all")
@@ -13,63 +15,76 @@ public class Blocks
 {
 	// 算不上矿石的自然生成方块
 	@Reg(Keys.blockMeteorolite)
+	@GenMeteoWorld
 	public static final BlockOre blockMeteorolite = new BlockOre(); // 陨石
 
 	// 矿石
 	@Reg(Keys.oreCinnabar)
-	@RegOre(
-			minWorldAmount = 8,maxWorldAmount = 15
-	)
+	@GenOreWorld(times=4,minY=30,maxY=70,size=10)
 	public static final BlockOre oreCinnabar = new BlockOre(Items.cinnabar,1,5,2,3,5); // 辰砂矿石
 	@Reg(Keys.oreInkPowder)
-	@RegOre(
-			minWorldAmount = 8,maxWorldAmount = 15
-	)
+	@GenOreWorld(times=6,minY=60,maxY=120,size=8)
 	public static final BlockOre oreInkPowder = new BlockOre(Items.inkPowder,4,8,2,2,7); // 墨粉矿石
 	@Reg(Keys.oreImmersedSilver)
-	@RegOre(
-			minWorldAmount = 8,maxWorldAmount = 20
-	)
 	public static final BlockOre oreImmersedSilver = new BlockOre(); // 沉银矿石
 	@Reg(Keys.oreMithril)
+	@GenOreWorld(minY=10,maxY=40,size=4)
 	public static final BlockOre oreMithril = new BlockOre(); // 秘银矿石
 	@Reg(Keys.oreAdamantine)
+	@GenOreWorld(minY=10,maxY=40,size=4)
 	public static final BlockOre oreAdamantine = new BlockOre(); // 精金矿石
 	@Reg(Keys.oreBlackrock)
+	@GenOreWorld(times=6,minY=30,maxY=150,size=20)
 	public static final BlockOre oreBlackrock = new BlockOre(Items.blackrock,2,4,2,1,6); // 黑石矿石
 	@Reg(Keys.oreInertWitherium)
+	@GenOreWorld(times=3,size=5)
 	public static final BlockOre oreInertWitherium = new BlockOre(); // 惰性凋零矿
 	@Reg(Keys.oreWitherium)
 	public static final BlockOre oreWitherium = new BlockOre(); // 凋零矿
 	@Reg(Keys.oreRuby)
+	@GenOreWorld(minY=10,maxY=60,size=5)
 	public static final BlockOre oreRuby = new BlockOre(Items.ruby,1,1,1,6,10); // 红宝石矿
 	@Reg(Keys.oreShell)
 	public static final BlockOreShell oreShell = new BlockOreShell(Items.shell,3,6,1,4,6); // 散贝壳方块
 	@Reg(Keys.oreCorundum)
+	@GenOreWorld(minY=15,maxY=80,size=8)
 	public static final BlockOre oreCorundum = new BlockOre(Items.corundum,1,1,1,2,4); // 刚玉矿
 	@Reg(Keys.oreNitre)
+	@GenOreWorld
 	public static final BlockOre oreNitre = new BlockOre(Items.nitre,3,5,1,3,5); // 硝石矿
 	@Reg(Keys.orePyrophyllite)
+	@GenOreWorld(times=3,minY=40,maxY=70,size=8)
 	public static final BlockOre orePyrophyllite = new BlockOre(Items.pyrophyllite,3,5,1,3,5); // 叶蜡石矿
 	@Reg(Keys.oreIcelandSpar)
+	@GenOreWorld(times=3,minY=40,maxY=70,size=8)
 	public static final BlockOre oreIcelandSpar = new BlockOre(Items.icelandSpar,3,5,1,3,5); // 冰洲石矿
 	@Reg(Keys.oreSpinel)
+	@GenOreWorld(minY=10,maxY=60,size=5)
 	public static final BlockOre oreSpinel = new BlockOre(Items.spinel,1,1,1,3,5);
 	@Reg(Keys.oreTalcum)
+	@GenOreWorld(minY=20,maxY=60,size=10)
 	public static final BlockOre oreTalcum = new BlockOre(Items.talcum,3,5,1,3,5);
 	@Reg(Keys.oreTourmaline)
+	@GenOreWorld(minY=20,maxY=60,size=10)
 	public static final BlockOre oreTourmaline = new BlockOre(Items.tourmaline, 2,4,1,2,4);
 	@Reg(Keys.oreRutile)
+	@GenOreWorld(minY=20,maxY=60,size=8)
 	public static final BlockOre oreTitanium = new BlockOre(); // 金红石矿
+
 	@Reg(Keys.orePolarium)
+	@GenMeteoWorld
 	public static final BlockOre orePolarium = new BlockOre(); // 勾陈矿
 	@Reg(Keys.oreHalleium)
+	@GenMeteoWorld
 	public static final BlockOre oreHalleium = new BlockOre(); // 哈雷矿
 	@Reg(Keys.oreAltairium)
+	@GenMeteoWorld
 	public static final BlockOre oreAltairium = new BlockOre(); // 河鼓矿
 	@Reg(Keys.oreHothium)
+	@GenMeteoWorld
 	public static final BlockOre oreHothium = new BlockOre(); // 霍斯矿
 	@Reg(Keys.oreTonium)
+	@GenMeteoWorld
 	public static final BlockOre oreTonium = new BlockOre(); // 钝金矿
 
 	// 矿块
