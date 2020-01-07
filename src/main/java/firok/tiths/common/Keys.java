@@ -82,24 +82,6 @@ public interface Keys
 	String leafBlood=prefLeaf+nameBlood;
 	String saplingBlood=prefSapling+nameBlood;
 
-
-	// 液体
-	String moltenRoyalAlloy=prefMolten+nameRoyalAlloy;
-	String moltenStellarium=prefMolten+nameStellarium;
-	String moltenHothium=prefMolten+nameHothium;
-	String moltenTonium=prefMolten+nameTonium;
-	String moltenCinnabar=prefMolten+nameCinnabar;
-	String moltenImmersedSilver=prefMolten+nameImmersedSilver;
-	String moltenMithril=prefMolten+nameMithril;
-	String moltenAdamantine=prefMolten+nameAdamantine;
-	String moltenInertWitherium=prefMolten+nameInertWitherium;
-	String moltenWitherium=prefMolten+nameWitherium;
-	String moltenTitanium=prefMolten+nameTitanium;
-	String moltenPolarium=prefMolten+namePolarium;
-	String moltenHalleium=prefMolten+nameHalleium;
-	String moltenAltairium=prefMolten+nameAltairium;
-	String moltenCocoa=prefMolten+nameCocoa;
-
 	// 逻辑用方块
 	String blockLogicSearing=prefLogic+"searing";
 
@@ -200,6 +182,7 @@ public interface Keys
 	// 材料颜色
 	int colorMeteorolite=Colors.DarkOliveGreen;
 	int colorStellarium=Colors.Tomato;
+	int colorStellariumObsidian=Colors.DarkRed;
 	int colorHothium=Colors.DeepSkyBlue;
 	int colorTonium=Colors.DarkSeaGreen;
 	int colorRoyalAlloy=Colors.Yellow;
@@ -254,6 +237,8 @@ public interface Keys
 	String nameTraitCreaky="creaky";
 	String nameTraitUndeadCalling="undead_calling";
 	String nameTraitRepressing="repressing";
+	String nameTraitDrilled="drilled";
+	String nameTraitPhantasmic="phantasmic";
 
 	// 属性颜色
 	int colorTraitMaiming=Colors.PaleVioletRed;
@@ -279,6 +264,8 @@ public interface Keys
 	int colorTraitCreaky=Colors.DarkSlateGray;
 	int colorTraitUndeadCalling=Colors.MidnightBlue;
 	int colorTraitRepressing=Colors.DarkSeaGreen;
+	int colorTraitDrilled=Colors.PaleVioletRed;
+	int colorTraitPhantasmic=Colors.CadetBlue;
 
 	// 状态效果颜色
 	int colorPotionHeavy=Colors.DarkSeaGreen;

@@ -1,5 +1,16 @@
 # 变更日志 Changelog
 
+## 0.2.20.0 _2020-01-07 16:00_
+
+* 添加语言文件 added lang files
+* 增加部分合成表 added some recipes
+* 调整部分材料属性 adjusted attribution of some materials
+* 细节改进 minor improvements
+* 增加物品 added items
+  * 打孔器 driller
+* 增加属性 added traits
+  * 打孔 drilled
+
 ## 0.2.19.0 _2020-01-04 14:30_
 
 * 重写世界生成的方式, 现在各种矿石可以正常在世界中生成 rewrote the way of world-generating which enable generating ores

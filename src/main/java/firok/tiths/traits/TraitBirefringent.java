@@ -24,6 +24,7 @@ public class TraitBirefringent extends AbstractTrait
 		super.afterHit(tool, player, target, damageDealt, wasCritical, wasHit);
 		if(wasHit && player.isServerWorld() && target.isEntityAlive() && canTrigger(player.world,0.3f))
 		{
+			target.hurtResistantTime=0;
 			target.attackEntityFrom(BirefringentDamage,damageDealt);
 		}
 	}

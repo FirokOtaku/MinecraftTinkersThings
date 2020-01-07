@@ -143,6 +143,8 @@ public class Items
 	public static final Item polisher = new Item(); // 磨石
 	@Reg(nameInkySlime)
 	public static final Item inkySlime = new Item(); // 墨染粘液
+	@Reg(nameDriller)
+	public static final Item driller = new Item(); // 打孔器
 
 	// 消耗品
 	@Reg(nameGatewayGem)

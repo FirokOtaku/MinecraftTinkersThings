@@ -3,8 +3,11 @@ package firok.tiths.traits;
 import firok.tiths.common.Potions;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
+import slimeknights.tconstruct.library.tools.ToolNBT;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
+import slimeknights.tconstruct.library.utils.TagUtil;
 
 import static firok.tiths.common.Keys.colorTraitRepressing;
 import static firok.tiths.common.Keys.nameTraitRepressing;
@@ -24,5 +27,15 @@ public class TraitRepressing extends AbstractTrait
 		{
 			target.addPotionEffect(new PotionEffect(Potions.heavy,80,0));
 		}
+	}
+
+	@Override
+	public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag)
+	{
+		super.applyEffect(rootCompound, modifierTag);
+		ToolNBT data = TagUtil.getToolStats(rootCompound);
+		data.speed*=0.85f;
+		data.attackSpeedMultiplier*=0.75f;
+		TagUtil.setToolTag(rootCompound, data.get());
 	}
 }

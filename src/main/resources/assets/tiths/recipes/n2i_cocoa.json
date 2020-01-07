@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "tiths:nugget_to_ingot",
+  "result": { "item": "tiths:ingot_cocoa", "count": 1 },
+  "ingredients": [
+    { "item": "tiths:nugget_cocoa" },
+    { "item": "tiths:nugget_cocoa" },
+    { "item": "tiths:nugget_cocoa" },
+
+    { "item": "tiths:nugget_cocoa" },
+    { "item": "tiths:nugget_cocoa" },
+    { "item": "tiths:nugget_cocoa" },
+
+    { "item": "tiths:nugget_cocoa" },
+    { "item": "tiths:nugget_cocoa" },
+    { "item": "tiths:nugget_cocoa" }
+  ]
+}

@@ -1,7 +1,7 @@
 [
   {
     "modid": "tiths",
-    "name": "MinecraftTinkersThings",
+    "name": "Tinkers Things",
     "description": "A mod adding several things to Tinkers' Construct",
     "version": "${version}",
     "mcversion": "${mcversion}",

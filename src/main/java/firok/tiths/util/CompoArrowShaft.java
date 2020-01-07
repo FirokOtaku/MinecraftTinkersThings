@@ -6,13 +6,12 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 弓臂属性
+ * 箭杆属性
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface CompoBow
+public @interface CompoArrowShaft
 {
-	float drawSpeed(); // 拉弓速度
-	float range(); // 射程系数
-	float bonusDamage(); // 额外伤害
+	float modifier(); // 品质系数
+	int bonusAmmo(); // 额外弹药
 }

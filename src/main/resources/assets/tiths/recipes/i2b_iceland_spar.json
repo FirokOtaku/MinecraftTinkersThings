@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "tiths:ingot_to_block",
+  "result": { "item": "tiths:block_iceland_spar", "count": 1 },
+  "ingredients": [
+    { "item": "tiths:iceland_spar" },
+    { "item": "tiths:iceland_spar" },
+    { "item": "tiths:iceland_spar" },
+
+    { "item": "tiths:iceland_spar" },
+    { "item": "tiths:iceland_spar" },
+    { "item": "tiths:iceland_spar" },
+
+    { "item": "tiths:iceland_spar" },
+    { "item": "tiths:iceland_spar" },
+    { "item": "tiths:iceland_spar" }
+  ]
+}

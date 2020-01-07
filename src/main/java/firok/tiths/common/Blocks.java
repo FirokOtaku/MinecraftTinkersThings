@@ -26,15 +26,16 @@ public class Blocks
 	@GenOreWorld(times=6,minY=60,maxY=120,size=8)
 	public static final BlockOre oreInkPowder = new BlockOre(Items.inkPowder,4,8,2,2,7); // 墨粉矿石
 	@Reg(Keys.oreImmersedSilver)
+	@GenOreWorld(times=4,size=5,minY = 30,maxY = 80)
 	public static final BlockOre oreImmersedSilver = new BlockOre(); // 沉银矿石
 	@Reg(Keys.oreMithril)
-	@GenOreWorld(minY=10,maxY=40,size=4)
+	@GenOreWorld(times=3,timeRate = 0.5f,size=6,minY = 10,maxY = 50)
 	public static final BlockOre oreMithril = new BlockOre(); // 秘银矿石
 	@Reg(Keys.oreAdamantine)
-	@GenOreWorld(minY=10,maxY=40,size=4)
+	@GenOreWorld(times=3,timeRate = 0.5f,size=6,minY = 10,maxY = 50)
 	public static final BlockOre oreAdamantine = new BlockOre(); // 精金矿石
 	@Reg(Keys.oreBlackrock)
-	@GenOreWorld(times=6,minY=30,maxY=150,size=20)
+	@GenOreWorld(times=9,size=6,minY=10,maxY=150)
 	public static final BlockOre oreBlackrock = new BlockOre(Items.blackrock,2,4,2,1,6); // 黑石矿石
 	@Reg(Keys.oreInertWitherium)
 	@GenOreWorld(times=3,size=5)
@@ -42,33 +43,33 @@ public class Blocks
 	@Reg(Keys.oreWitherium)
 	public static final BlockOre oreWitherium = new BlockOre(); // 凋零矿
 	@Reg(Keys.oreRuby)
-	@GenOreWorld(minY=10,maxY=60,size=5)
+	@GenOreWorld(times = 5,timeRate = 0.6f,size = 4,minY = 10,maxY = 60)
 	public static final BlockOre oreRuby = new BlockOre(Items.ruby,1,1,1,6,10); // 红宝石矿
 	@Reg(Keys.oreShell)
 	public static final BlockOreShell oreShell = new BlockOreShell(Items.shell,3,6,1,4,6); // 散贝壳方块
 	@Reg(Keys.oreCorundum)
-	@GenOreWorld(minY=15,maxY=80,size=8)
+	@GenOreWorld(times = 5,timeRate = 0.8f,size = 4,minY = 10,maxY = 80)
 	public static final BlockOre oreCorundum = new BlockOre(Items.corundum,1,1,1,2,4); // 刚玉矿
 	@Reg(Keys.oreNitre)
-	@GenOreWorld
+	@GenOreWorld(times=6,timeRate=0.6f,size=9,minY=35,maxY=120)
 	public static final BlockOre oreNitre = new BlockOre(Items.nitre,3,5,1,3,5); // 硝石矿
 	@Reg(Keys.orePyrophyllite)
 	@GenOreWorld(times=3,minY=40,maxY=70,size=8)
 	public static final BlockOre orePyrophyllite = new BlockOre(Items.pyrophyllite,3,5,1,3,5); // 叶蜡石矿
 	@Reg(Keys.oreIcelandSpar)
-	@GenOreWorld(times=3,minY=40,maxY=70,size=8)
+	@GenOreWorld(times=4,size=6,minY = 40,maxY = 80)
 	public static final BlockOre oreIcelandSpar = new BlockOre(Items.icelandSpar,3,5,1,3,5); // 冰洲石矿
 	@Reg(Keys.oreSpinel)
-	@GenOreWorld(minY=10,maxY=60,size=5)
+	@GenOreWorld(times=5,timeRate = 0.6f,size=4,minY=10,maxY=60)
 	public static final BlockOre oreSpinel = new BlockOre(Items.spinel,1,1,1,3,5);
 	@Reg(Keys.oreTalcum)
-	@GenOreWorld(minY=20,maxY=60,size=10)
+	@GenOreWorld(times=2,size=15,minY = 30,maxY = 90)
 	public static final BlockOre oreTalcum = new BlockOre(Items.talcum,3,5,1,3,5);
 	@Reg(Keys.oreTourmaline)
-	@GenOreWorld(minY=20,maxY=60,size=10)
+	@GenOreWorld(times=3,timeRate=0.8f,size=8,minY=50,maxY=120)
 	public static final BlockOre oreTourmaline = new BlockOre(Items.tourmaline, 2,4,1,2,4);
 	@Reg(Keys.oreRutile)
-	@GenOreWorld(minY=20,maxY=60,size=8)
+	@GenOreWorld(times=4,timeRate = 0.5f,size = 6,minY = 30,maxY = 60)
 	public static final BlockOre oreTitanium = new BlockOre(); // 金红石矿
 
 	@Reg(Keys.orePolarium)
@@ -149,6 +150,12 @@ public class Blocks
 	public static final Block blockBloodSand = new BlockBloodSand(); // 血沙
 	@Reg(Keys.blockConsolidatedGlass)
 	public static final Block blockConsolidatedGlass = new BlockCompressed(); // 强化玻璃
+	@Reg(Keys.blockCoagulatedBloodSand)
+	public static final Block blockCoagulatedBloodSand = new BlockCompressed(); // 凝结血沙
+
+	// 一些装饰用方块
+	@Reg(Keys.blockRoyalEnchantmentTable)
+	public static final Block blockRoyalEnchantmentTable = new BlockEnchantmentTable(){}; // todo
 
 	// 植物
 	@Reg(Keys.saplingHura)

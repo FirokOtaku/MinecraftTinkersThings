@@ -9,6 +9,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.potion.Potion;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
@@ -17,20 +18,21 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 import slimeknights.tconstruct.library.MaterialIntegration;
 import slimeknights.tconstruct.library.TinkerRegistry;
-import slimeknights.tconstruct.library.fluid.FluidMolten;
 import slimeknights.tconstruct.library.materials.*;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.smeltery.block.BlockMolten;
-import slimeknights.tconstruct.tools.modifiers.ToolModifier;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static firok.tiths.TinkersThings.log;
 
 public class RegistryHandler
 {
+	public static final Map<BlockMolten,ItemBlock> mapFluidBlock2Item=new HashMap<>();
 	public static void registerFluids()
 	{
 		Field[] fields=Fluids.class.getDeclaredFields();
@@ -39,20 +41,26 @@ public class RegistryHandler
 			try
 			{
 				Object obj=field.get(null);
-				if(obj instanceof FluidMolten)
+				if(obj instanceof Fluid)
 				{
-					FluidMolten fluid=(FluidMolten)obj;
+					Fluid fluid=(Fluid)obj;
 					TinkersThings.log("注册流体:"+fluid.getName());
 
 					FluidRegistry.registerFluid(fluid);
 					FluidRegistry.addBucketForFluid(fluid);
 
-					BlockMolten block=new BlockMolten(fluid);
-					block.setUnlocalizedName(Keys.prefMolten+ fluid.getName());
-					block.setRegistryName(TinkersThings.MOD_ID, Keys.prefMolten+ fluid.getName());
+					BlockMolten blockMolten=new BlockMolten(fluid);
+					blockMolten.setUnlocalizedName(Keys.prefMolten+ fluid.getName());
+					blockMolten.setRegistryName(TinkersThings.MOD_ID, Keys.prefMolten+ fluid.getName());
+					fluid.setBlock(blockMolten);
 
-					ForgeRegistries.BLOCKS.register(block);
-					ForgeRegistries.ITEMS.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
+					ItemBlock itemBlockMolten=new ItemBlock(blockMolten);
+					itemBlockMolten.setRegistryName(blockMolten.getRegistryName());
+
+					mapFluidBlock2Item.put(blockMolten,itemBlockMolten);
+
+					ForgeRegistries.BLOCKS.register(blockMolten);
+					ForgeRegistries.ITEMS.register(itemBlockMolten);
 					// fixme low // TAIGA.proxy.registerFluidModels(fluid);
 				}
 				TinkersThings.log("注册流体成功");
@@ -237,93 +245,76 @@ public class RegistryHandler
 		{
 			try
 			{
-				if(field.getType().equals(Material.class))
+				Object obj=field.get(null);
+				if(obj instanceof Material)
 				{
-					Object obj=field.get(null);
 					Material material=(Material)obj;
 					Compo compo=field.getAnnotation(Compo.class);
 
 					// 检查是否已经注册
-					if(compo==null||material==null|| TinkerRegistry.getMaterial(material.identifier)!=Material.UNKNOWN) continue;
+					if(compo==null||TinkerRegistry.getMaterial(material.identifier)!=Material.UNKNOWN) continue;
 
-					String name = compo.value();
-
-					log("registering material:"+name);
-
-//					Fluid fluid = compo.fluid().length()>0? FluidRegistry.getFluid(compo.fluid()):null;
-
-					if(material!=null)
+					// 顶端
 					{
-//						boolean craftable=compo.craftable(),castable=compo.castatble();
-//						material.setFluid(fluid).setCastable(castable).setCraftable(craftable);
-						// 代表物品
-//						{
-//							String nameItemRepresent=compo.item();
-//							if(nameItemRepresent.length()>0)
-//							{
-//								Item itemRepresent= Item.getByNameOrId(nameItemRepresent);
-//								log("found represent item:"+itemRepresent);
-//								if(itemRepresent!=null)
-//								{
-//									log("register represent item.");
-//									material.setRepresentativeItem(itemRepresent);
-//									material.addItem(itemRepresent);
-//								}
-//							}
-//							else
-//							{
-//								log("not given represent item.");
-//							}
-//						}
-//						// 注册物品
-//						{
-//							String[] nameItems=compo.items();
-//							if(nameItems.length>0)
-//							{
-//								for(String nameItem:nameItems)
-//								{
-//									Item item= Item.getByNameOrId(nameItem);
-//									log("found extra item:"+item);
-//									if(item!=null) material.addItem(item);
-//								}
-//							}
-//						}
-
-						// 顶端
+						CompoHead compoHead=field.getAnnotation(CompoHead.class);
+						if(compoHead!=null)
 						{
-							CompoHead compoHead=field.getAnnotation(CompoHead.class);
-							if(compoHead!=null)
-							{
-								HeadMaterialStats statHead=new HeadMaterialStats(compoHead.durability(), compoHead.miningspeed(), compoHead.attack(), compoHead.harvestLevel());
-								TinkerRegistry.addMaterialStats(material,statHead);
-							}
+							HeadMaterialStats statHead=new HeadMaterialStats(compoHead.durability(), compoHead.miningspeed(), compoHead.attack(), compoHead.harvestLevel());
+							TinkerRegistry.addMaterialStats(material,statHead);
 						}
-						// 连接
+					}
+					// 连接
+					{
+						CompoHandle compoHandle=field.getAnnotation(CompoHandle.class);
+						if(compoHandle!=null)
 						{
-							CompoHandle compoHandle=field.getAnnotation(CompoHandle.class);
-							if(compoHandle!=null)
-							{
-								HandleMaterialStats statHandle=new HandleMaterialStats(compoHandle.modifier(), compoHandle.durability());
-								TinkerRegistry.addMaterialStats(material,statHandle);
-							}
+							HandleMaterialStats statHandle=new HandleMaterialStats(compoHandle.modifier(), compoHandle.durability());
+							TinkerRegistry.addMaterialStats(material,statHandle);
 						}
-						// 其它
+					}
+					// 其它
+					{
+						CompoExtra compoExtra=field.getAnnotation(CompoExtra.class);
+						if(compoExtra!=null)
 						{
-							CompoExtra compoExtra=field.getAnnotation(CompoExtra.class);
-							if(compoExtra!=null)
-							{
-								ExtraMaterialStats statExtra=new ExtraMaterialStats(compoExtra.extraDurability());
-								TinkerRegistry.addMaterialStats(material,statExtra);
-							}
+							ExtraMaterialStats statExtra=new ExtraMaterialStats(compoExtra.extraDurability());
+							TinkerRegistry.addMaterialStats(material,statExtra);
 						}
-						// 弓
+					}
+					// 弓臂
+					{
+						CompoBow compoBow=field.getAnnotation(CompoBow.class);
+						if(compoBow!=null)
 						{
-							CompoBow compoBow=field.getAnnotation(CompoBow.class);
-							if(compoBow!=null)
-							{
-								BowMaterialStats statBow=new BowMaterialStats(compoBow.drawspeed(), compoBow.range(), compoBow.bonusDamage());
-								TinkerRegistry.addMaterialStats(material,statBow);
-							}
+							BowMaterialStats statBow=new BowMaterialStats(compoBow.drawSpeed(), compoBow.range(), compoBow.bonusDamage());
+							TinkerRegistry.addMaterialStats(material,statBow);
+						}
+					}
+					// 弓弦
+					{
+						CompoBowString compoBowString=field.getAnnotation(CompoBowString.class);
+						if(compoBowString!=null)
+						{
+							BowStringMaterialStats statBowString=new BowStringMaterialStats(compoBowString.modifier());
+							TinkerRegistry.addMaterialStats(material,statBowString);
+						}
+					}
+					// 箭杆
+					{
+						CompoArrowShaft compoArrowShaft=field.getAnnotation(CompoArrowShaft.class);
+						if(compoArrowShaft!=null)
+						{
+							ArrowShaftMaterialStats statArrowShaft=new ArrowShaftMaterialStats(compoArrowShaft.modifier(),compoArrowShaft.bonusAmmo());
+							TinkerRegistry.addMaterialStats(material,statArrowShaft);
+						}
+					}
+					// 箭羽
+					{
+						CompoFletching compoFletching=field.getAnnotation(CompoFletching.class);
+						if(compoFletching!=null)
+						{
+							FletchingMaterialStats statFletching=new FletchingMaterialStats(compoFletching.accuracy(),compoFletching.modifier());
+							TinkerRegistry.addMaterialStats(material,statFletching);
 						}
 					}
 
@@ -401,16 +392,5 @@ public class RegistryHandler
 				e.printStackTrace();
 			}
 		}
-	}
-
-
-
-	public static void registerToolParts(IForgeRegistry<Item> registry)
-	{}
-	public static void registerTools(IForgeRegistry<Item> registry)
-	{
-	}
-	public static void registerToolCraftings()
-	{
 	}
 }

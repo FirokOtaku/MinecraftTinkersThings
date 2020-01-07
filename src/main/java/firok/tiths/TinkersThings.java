@@ -1,9 +1,6 @@
 package firok.tiths;
 
-import firok.tiths.common.Alloys;
-import firok.tiths.common.Craftings;
-import firok.tiths.common.Modifiers;
-import firok.tiths.common.RegistryHandler;
+import firok.tiths.common.*;
 import firok.tiths.world.WorldGen;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.Mod;
@@ -18,6 +15,7 @@ import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.Material;
 
 import java.util.Collection;
+import java.util.Random;
 
 @Mod(
 		modid = TinkersThings.MOD_ID,
@@ -29,8 +27,8 @@ public class TinkersThings
 {
 
 	public static final String MOD_ID = "tiths";
-	public static final String MOD_NAME = "TinkersThings";
-	public static final String VERSION = "1.12.2-0.2.19.0";
+	public static final String MOD_NAME = "Tinkers Things";
+	public static final String VERSION = "1.12.2-0.2.20.0";
 
 
 	{
@@ -39,6 +37,11 @@ public class TinkersThings
 
 	@Mod.Instance(MOD_ID)
 	public static TinkersThings INSTANCE;
+
+	/**
+	 * 一些客户端效果用的random
+	 */
+	public static Random randClient;
 
 	private static Logger logger;
 	public static void log(String content)
@@ -91,18 +94,11 @@ public class TinkersThings
 		GameRegistry.registerWorldGenerator(WorldGen.getInstance(), 100);
 		//  // GameRegistry.registerFuelHandler(new FuelHandler());  Registeres fuels' burn times
 
-		//  Blocks.register(true);
-		//
 		Craftings.registerAllCraftings();
 		Alloys.registerAlloys();
 //		TCMaterials.packMaterials();
 		//
 		//  SmeltingRegistry.register(); // Registers smelting recipes
-		//  CraftingRegistry.register(); // Registers crafting recipes
-		//
-		//  for (MaterialIntegration m : integrateList) {
-		//      m.integrate();
-		//  }
 		RegistryHandler.integrateMaterials();
 	}
 

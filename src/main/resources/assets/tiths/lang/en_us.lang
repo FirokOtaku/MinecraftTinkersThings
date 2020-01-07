@@ -1,86 +1,232 @@
-# tiths
-item.tiths.1.name=1
+# tiths lang file
+
+## ores
+tile.tiths.ore_cinnabar.name=Cinnabar Ore
+tile.tiths.ore_ink_powder.name=Ink Powder Ore
+tile.tiths.ore_blackrock.name=Blackrock Ore
+tile.tiths.ore_ruby.name=Ruby Ore
+tile.tiths.ore_shell.name=Shell Ore
+tile.tiths.ore_corundum.name=Corundum Ore
+tile.tiths.ore_nitre.name=Nitre Ore
+tile.tiths.ore_pyrophyllite.name=Pyrophyllite Ore
+tile.tiths.ore_iceland_spar.name=Iceland Spar Ore
+tile.tiths.ore_spinel.name=Spinel Ore
+tile.tiths.ore_talcum.name=Talcum Ore
+tile.tiths.ore_tourmaline.name=Tourmaline Ore
+tile.tiths.ore_immersed_silver.name=Immersed Silver Ore
+tile.tiths.ore_mithril.name=Mithril Ore
+tile.tiths.ore_adamantine.name=Adamantine Ore
+tile.tiths.ore_inert_witherium.name=Inert Witherium Ore
+tile.tiths.ore_witherium.name=Witherium Ore
+tile.tiths.ore_rutile.name=Rutile Ore
+tile.tiths.ore_polarium.name=Polarium Ore
+tile.tiths.ore_halleium.name=Halleium Ore
+tile.tiths.ore_altairium.name=Altairium Ore
+tile.tiths.ore_hothium.name=Hothium Ore
+tile.tiths.ore_tonium.name=Tonium Ore
+
+
+## blocks
+tile.tiths.block_blood_sand.name=Blood Sand
+tile.tiths.block_meteorolite.name=Meteorolite
+tile.tiths.block_cinnabar.name=Block of Cinnabar
+tile.tiths.block_ink_powder.name=Block of Ink Powder
+tile.tiths.block_stellarium.name=Block of Stellarium
+tile.tiths.block_royal_alloy.name=Block of Royal Alloy
+tile.tiths.block_immersed_silver.name=Block of Immersed Silver
+tile.tiths.block_mithril.name=Block of Mithril
+tile.tiths.block_adamantine.name=Block of Adamantine
+tile.tiths.block_blackrock.name=Block of Blackrock
+tile.tiths.block_inert_witherium.name=Block of Inert Witherium
+tile.tiths.block_witherium.name=Block of Witherium
+tile.tiths.block_corundum.name=Block of Corundum
+tile.tiths.block_nitre.name=Block of Nitre
+tile.tiths.block_pyrophyllite.name=Block of Pyrophyllite
+tile.tiths.block_iceland_spar.name=Block of Iceland Spar
+tile.tiths.block_spinel.name=Block of Spinel
+tile.tiths.block_talcum.name=Block of Talcum
+tile.tiths.block_tourmaline.name=Block of Tourmaline
+tile.tiths.block_ruby.name=Block of Ruby
+tile.tiths.block_titanium.name=Block of Titanium
+tile.tiths.block_polarium.name=Block of Polarium
+tile.tiths.block_halleium.name=Block of Halleium
+tile.tiths.block_altairium.name=Block of Altairium
+tile.tiths.block_hothium.name=Block of Hothium
+tile.tiths.block_tonium.name=Block of Tonium
+tile.tiths.block_cocoa.name=Block of Cocoa
+tile.tiths.block_stellarium_obsidian.name=Stellarium Obsidian
+tile.tiths.block_blood_pumpkin.name=Blood Pumpkin
+tile.tiths.block_weeping_pumpkin.name=Weeping Pumpkin
+tile.tiths.block_consolidated_glass.name=Consolidated Glass
+tile.tiths.block_coagulated_blood_sand.name=Coagulated Blood Sand
+
+## fluids
+fluid.royal_alloy.name=Molten Royal Alloy
+fluid.stellarium.name=Molten Stellarium
+fluid.hothium.name=Molten Hothium
+fluid.cinnabar.name=Molten Cinnabar
+fluid.immersed_silver.name=Molten Immersed Silver
+fluid.mithril.name=Molten Mithril
+fluid.adamantine.name=Molten Adamantine
+fluid.inert_witherium.name=Molten Inert Witherium
+fluid.witherium.name=Molten Witherium
+fluid.polarium.name=Molten Polarium
+fluid.halleium.name=Molten Halleium
+fluid.altairium.name=Molten Altairium
+fluid.cocoa.name=Molten Cocoa
+fluid.titanium.name=Molten Titanium
+fluid.tonium.name=Molten Tonium
 
 ## items
-
-### mob drops
+item.tiths.hot_bread.name=Hot Bread
+item.tiths.hot_fish.name=Hot Fish
+item.tiths.debug.name=Debug Tool
 item.tiths.spider_leg.name=Spider Leg
 item.tiths.hard_spider_leg.name=Hard Spider Leg
-
-### materials
 item.tiths.cinnabar.name=Cinnabar
 item.tiths.ink_powder.name=Ink Powder
 item.tiths.broken_ice.name=Broken Ice
 item.tiths.shell.name=Shell
-
-### ore
 item.tiths.sky_crystal.name=Sky Crystal
 item.tiths.storm_crystal.name=Storm Crystal
 item.tiths.phantom_crystal.name=Phantom Crystal
-item.tiths.anti_grav_crystal.name=Anti Gravity Crystal
-item.tiths.blackrock.name=Black Rock
+item.tiths.anti_grav_crystal.name=Anti Grav Crystal
+item.tiths.blackrock.name=Blackrock
 item.tiths.ruby.name=Ruby
-
-### metal
+item.tiths.corundum.name=Corundum
+item.tiths.nitre.name=Nitre
+item.tiths.pyrophyllite.name=Pyrophyllite
+item.tiths.iceland_spar.name=Iceland Spar
+item.tiths.spinel.name=Spinel
+item.tiths.talcum.name=Talcum
+item.tiths.tourmaline.name=Tourmaline
+## nugget
+item.tiths.nugget_stellarium.name=Stellarium Nugget
+item.tiths.nugget_royal_alloy.name=Royal Alloy Nugget
+item.tiths.nugget_immersed_silver.name=Immersed Silver Nugget
+item.tiths.nugget_mithril.name=Mithril Nugget
+item.tiths.nugget_adamantine.name=Adamantine Nugget
+item.tiths.nugget_inert_witherium.name=Inert Witherium Nugget
+item.tiths.nugget_witherium.name=Witherium Nugget
+item.tiths.nugget_titanium.name=Titanium Nugget
+item.tiths.nugget_polarium.name=Polarium Nugget
+item.tiths.nugget_halleium.name=Halleium Nugget
+item.tiths.nugget_altairium.name=Altairium Nugget
+item.tiths.nugget_hothium.name=Hothium Nugget
+item.tiths.nugget_tonium.name=Tonium Nugget
+item.tiths.nugget_cocoa.name=Cocoa Nugget
+## ingot
 item.tiths.ingot_stellarium.name=Stellarium Ingot
 item.tiths.ingot_royal_alloy.name=Royal Alloy Ingot
 item.tiths.ingot_immersed_silver.name=Immersed Silver Ingot
 item.tiths.ingot_mithril.name=Mithril Ingot
 item.tiths.ingot_adamantine.name=Adamantine Ingot
 item.tiths.ingot_inert_witherium.name=Inert Witherium Ingot
-item.tiths.ingot_witherium.name=Ingot Witherium
+item.tiths.ingot_witherium.name=Witherium Ingot
+item.tiths.ingot_titanium.name=Titanium Ingot
+item.tiths.ingot_polarium.name=Polarium Ingot
+item.tiths.ingot_halleium.name=Halleium Ingot
+item.tiths.ingot_altairium.name=Altairium Ingot
+item.tiths.ingot_hothium.name=Hothium Ingot
+item.tiths.ingot_tonium.name=Tonium Ingot
+item.tiths.ingot_cocoa.name=Cocoa Ingot
 
-### plant
-item.tiths.hura_fruit.name=Hura Fruit
+## other item
+item.tiths.hardener.name=Hardener
+item.tiths.polisher.name=Polisher
+item.tiths.inky_slime.name=Inky Slime
+item.tiths.driller.name=Driller
 
-#item.tiths..name=
-#item.tiths..name=
-#item.tiths..name=
+## consumables
+item.tiths.gateway_gem.name=Gateway Gem
 
+## records
+item.tiths.record_tinkers_efforts.name=Music Disc
+item.record.record_tinkers_efforts.desc=Record - Tinkers' Efforts
+item.tiths.record_tinkers_will.name=Music Disc
+item.record.record_tinkers_will.desc=Record - Tinkers' Will
 
-
-## blocks
-tile.tiths.ore_cinnabar.name=Cinnabar Ore
-tile.tiths.ore_ink_powder.name=Ink Powder Ore
-tile.tiths.ore_immersed_silver.name=Immersed Silver Ore
-tile.tiths.ore_mithril.name=Mithril Ore
-tile.tiths.ore_adamantine.name=Adamantine Ore
-tile.tiths.ore_blackrock.name=Black Rock Ore
-tile.tiths.ore_inert_witherium.name=Inert Witherium Ore
-tile.tiths.ore_witherium.name=Witherium Ore
-tile.tiths.ore_ruby.name=Ruby Ore
-tile.tiths.ore_shell.name=Shells
-
-tile.tiths.block_cinnabar.name=Cinnabar Block
-tile.tiths.block_ink_powder.name=Ink Powder Block
-tile.tiths.block_immersed_silver.name=Immersed Silver Block
-tile.tiths.block_mithril.name=Mithril Block
-tile.tiths.block_adamantine.name=Adamantine Block
-tile.tiths.block_blackrock.name=Black Rock Block
-tile.tiths.block_inert_witherium.name=Inert Witherium Block
-tile.tiths.block_witherium.name=Witherium Block
-tile.tiths.block_ruby.name=Ruby Block
-#tile.tiths.block_shell.name=Shells
-tile.tiths.block_stellarium_obsidian.name=Stellarium Obsidian Block
-
-### plant
-tile.sapling_hura.name=Hura Sapling
-tile.log_hura.name=Hura Log
-tile.leaf_hura.name=Hura Leaf
-
-
-## material
-material.immersed_silver.name=Immersed Silver
+## materials
+material.immersed_silver.name=Immsered Silver
 material.mithril.name=Mithril
 material.adamantine.name=Adamantine
-material.blackrock.name=Black Rock
+material.blackrock.name=Blackrock
 material.inert_witherium.name=Inert Witherium
 material.witherium.name=Witherium
 material.royal_alloy.name=Royal Alloy
 material.stellarium.name=Stellarium
+material.hothium.name=Hothium
 material.spider_leg.name=Spider Leg
 material.hard_spider_leg.name=Hard Spider Leg
+material.cinnabar.name=Cinnabar
 material.glass.name=Glass
+material.consolidated_glass.name=Consolidated Glass
 material.broken_ice.name=Broken Ice
 material.shell.name=Shell
 material.ruby.name=Ruby
+material.corundum.name=Corundum
+material.titanium.name=Titanium
+material.polarium.name=Polarium
+material.halleium.name=Halleium
+material.altairium.name=Altairium
+material.cocoa.name=Cocoa
+material.nitre.name=Nitre
+material.iceland_spar.name=Iceland Spar
+material.talcum.name=Talcum
+material.pyrophyllite.name=Pyrophyllite
+material.spinel.name=Spinel
+material.tourmaline.name=Tourmaline
+material.tonium.name=Tonium
+material.meteorolite.name=Meteorolite
+
+## modifiers
+modifier.maiming.name=
+modifier.maiming.desc=
+modifier.inky.name=
+modifier.inky.desc=
+modifier.retrospective.name=
+modifier.retrospective.desc=
+modifier.icy.name=
+modifier.icy.desc=
+modifier.luxurious.name=
+modifier.luxurious.desc=
+modifier.radiant.name=
+modifier.radiant.desc=
+modifier.extreme_freezing.name=
+modifier.extreme_freezing.desc=
+modifier.switching.name=
+modifier.switching.desc=
+modifier.clustering.name=
+modifier.clustering.desc=
+modifier.hardened.name=
+modifier.hardened.desc=
+modifier.polished.name=
+modifier.polished.desc=
+modifier.brittle.name=
+modifier.brittle.desc=
+modifier.star_dashing.name=
+modifier.star_dashing.desc=
+modifier.soluble.name=
+modifier.soluble.desc=
+modifier.birefringent.name=
+modifier.birefringent.desc=
+modifier.pyroelectric.name=
+modifier.pyroelectric.desc=
+modifier.shaking.name=
+modifier.shaking.desc=
+modifier.anti_grav.name=
+modifier.anti_grav.desc=
+modifier.stone_phasing.name=
+modifier.stone_phasing.desc=
+modifier.treasure_detecting.name=
+modifier.treasure_detecting.desc=
+modifier.creaky.name=
+modifier.creaky.desc=
+modifier.undead_calling.name=
+modifier.undead_calling.desc=
+modifier.repressing.name=
+modifier.repressing.desc=
+modifier.drilled.name=
+modifier.drilled.desc=
+modifier.phantasmic.name=
+modifier.phantasmic.desc=

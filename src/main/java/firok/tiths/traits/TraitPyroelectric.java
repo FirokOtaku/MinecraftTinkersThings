@@ -48,6 +48,7 @@ public class TraitPyroelectric extends AbstractTrait
 			for(Entity entity:list)
 			{
 				EntityLivingBase mob=(EntityLivingBase)entity;
+				mob.hurtResistantTime=0;
 				mob.attackEntityFrom(PyroelectricDamage,damage);
 			}
 		}

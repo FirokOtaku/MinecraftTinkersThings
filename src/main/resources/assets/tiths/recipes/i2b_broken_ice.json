@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "tiths:ingot_to_block",
+  "result": { "item": "minecraft:ice", "count": 1 },
+  "ingredients": [
+    { "item": "tiths:broken_ice" },
+    { "item": "tiths:broken_ice" },
+    { "item": "tiths:broken_ice" },
+
+    { "item": "tiths:broken_ice" }
+  ]
+}
