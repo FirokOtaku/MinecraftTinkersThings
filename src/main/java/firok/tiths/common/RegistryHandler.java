@@ -11,6 +11,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -62,6 +63,15 @@ public class RegistryHandler
 					ForgeRegistries.BLOCKS.register(blockMolten);
 					ForgeRegistries.ITEMS.register(itemBlockMolten);
 					// fixme low // TAIGA.proxy.registerFluidModels(fluid);
+
+					// 注册匠魂燃料
+					{
+						RegSmelteryFuel regSmelteryFuel=field.getAnnotation(RegSmelteryFuel.class);
+						if(regSmelteryFuel!=null)
+						{
+							TinkerRegistry.registerSmelteryFuel(new FluidStack(fluid,regSmelteryFuel.amount()),regSmelteryFuel.duration());
+						}
+					}
 				}
 				TinkersThings.log("注册流体成功");
 			}

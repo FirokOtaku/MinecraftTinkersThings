@@ -134,8 +134,9 @@ item.tiths.ingot_cocoa.name=可可锭
 ## other item
 item.tiths.hardener.name=硬化剂
 item.tiths.polisher.name=打磨剂
-item.tiths.inky_slime.name=墨染史莱姆
+item.tiths.inky_slime.name=墨染粘液
 item.tiths.driller.name=打孔器
+item.tiths.phasing_gem.name=相变之石
 
 ## consumables
 item.tiths.gateway_gem.name=折跃之石
@@ -184,7 +185,7 @@ material.meteorolite.name=陨石
 modifier.maiming.name=致残
 modifier.maiming.desc=§o你凭什么和我打?§r\n减速并虚弱敌人
 modifier.inky.name=墨染
-modifier.inky.desc=§o黑乎乎的§r\n使目标失明
+modifier.inky.desc=§o黑乎乎的§r\n使敌人失明
 modifier.retrospective.name=后知
 modifier.retrospective.desc=§o这样可能更好§r\n你的工具会慢慢在使用时提升属性
 modifier.icy.name=冰冷
@@ -219,8 +220,9 @@ modifier.anti_grav.name=反重力
 modifier.anti_grav.desc=§o轻飘飘的§r\n使目标漂浮
 modifier.stone_phasing.name=石之相变
 modifier.stone_phasing.desc=§o相位转移§r\n可以储存石头, 右键放出
+modifier.stone_phasing.tooltip=储存数量:
 modifier.treasure_detecting.name=宝藏感知
-modifier.treasure_detecting.desc=§o周围有什么?§r\n使用时几率在周围发现宝藏屋
+modifier.treasure_detecting.desc=§o有点东西§r\n使用时几率在周围发现宝藏屋
 modifier.creaky.name=喀嚓
 modifier.creaky.desc=§o不讨喜的小家伙们§r\n咔嚓咔嚓
 modifier.undead_calling.name=亡灵呼唤

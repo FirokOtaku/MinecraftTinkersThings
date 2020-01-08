@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import firok.tiths.TinkersThings;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.event.world.BlockEvent;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
@@ -36,8 +37,11 @@ public class TraitStonePhasing extends AbstractTrait
 				iter.remove();
 				NBTTagCompound nbt=tool.hasTagCompound()?tool.getTagCompound():new NBTTagCompound();
 				int origin=nbt.hasKey(NBTKey)?nbt.getInteger(NBTKey):0;
-				nbt.setInteger(NBTKey,origin+1);
-				tool.setTagCompound(nbt);
+				if(origin<150)
+				{
+					nbt.setInteger(NBTKey,origin+1);
+					tool.setTagCompound(nbt);
+				}
 			}
 		}
 	}
@@ -45,10 +49,9 @@ public class TraitStonePhasing extends AbstractTrait
 	@Override
 	public List<String> getExtraInfo(ItemStack tool, NBTTagCompound modifierTag)
 	{
-		// I18n.translateToLocal(this.getUnlocalizedName()); // fixme
 		NBTTagCompound nbt;
 		int amount=tool.hasTagCompound()?((nbt=tool.getTagCompound()).hasKey(NBTKey)?nbt.getInteger(NBTKey):0):0;
-		return ImmutableList.of("STONE_STORED"+amount);
+		return ImmutableList.of(I18n.translateToLocal("modifier.stone_phasing.tooltip")+amount);
 	}
 
 

@@ -33,14 +33,14 @@ public class Items
 	public static final Item shell = new Item(); // 贝壳
 
 	// 原材料 - 矿
-	@Reg(nameSkyCrystal)
-	public static final Item skyCrystal = new Item(); // 天空水晶
-	@Reg(nameStormCrystal)
-	public static final Item stormCrystal = new Item(); // 风暴水晶
-	@Reg(namePhantomCrystal)
-	public static final Item phantomCrystal = new Item(); // 异象水晶
-	@Reg(nameAntiGravCrystal)
-	public static final Item antiGravCrystal = new Item(); // 反重力水晶
+//	@Reg(nameSkyCrystal)
+//	public static final Item skyCrystal = new Item(); // 天空水晶
+//	@Reg(nameStormCrystal)
+//	public static final Item stormCrystal = new Item(); // 风暴水晶
+//	@Reg(namePhantomCrystal)
+//	public static final Item phantomCrystal = new Item(); // 异象水晶
+//	@Reg(nameAntiGravCrystal)
+//	public static final Item antiGravCrystal = new Item(); // 反重力水晶
 	@Reg(nameBlackrock)
 	public static final Item blackrock = new Item(); // 黑石
 	@Reg(nameRuby)
@@ -120,9 +120,15 @@ public class Items
 	@Reg(Keys.ingotCocoa)
 	public static final Item ingotCocoa = new Item(); // 可可锭
 
+	// 单纯的原材料
+//	@Reg(nameRoyalPaper)
+//	public static final Item royalPaper = new Item(); // 奢华纸张
+//	@Reg(nameRoyalBook)
+//	public static final Item royalBook = new Item(); // 奢华书本
+
 	// 植物
-	@Reg(Keys.nameHuraFruit)
-	public static final Item huraFruit = new Item(); // 胡拉果实
+//	@Reg(Keys.nameHuraFruit)
+//	public static final Item huraFruit = new Item(); // 胡拉果实
 
 	// 食物
 	@Reg(nameHotBread)
@@ -135,6 +141,8 @@ public class Items
 	public static final Item recordTinkersEfforts = new ItemRecord(Keys.recordTinkersEfforts,SoundEvents.recordTinkersEfforts);
 	@Reg(Keys.recordTinkersWill)
 	public static final Item recordTinkersWill = new ItemRecord(Keys.recordTinkersWill,SoundEvents.recordTinkersWill);
+//	public static final Item recordTinkersImagination = new ItemRecord(Keys.recordTinkersImagination,null);
+//	public static final Item recordTinkersEnemy = new ItemRecord(Keys.recordTinkersEnemy,null;)
 
 	// 匠魂工具
 	@Reg(nameHardener)
@@ -145,10 +153,14 @@ public class Items
 	public static final Item inkySlime = new Item(); // 墨染粘液
 	@Reg(nameDriller)
 	public static final Item driller = new Item(); // 打孔器
+//	@Reg(nameEnderGem)
+	public static final Item enderGem = new Item(); // 末影之石
+	@Reg(namePhasingGem)
+	public static final Item phasingGem = new Item(); // 相变之石
 
 	// 消耗品
-	@Reg(nameGatewayGem)
-	public static final Item gatewayGem = new ItemGatewayGem(); // 折跃之石
+//	@Reg(nameGatewayGem)
+	public static final Item gatewayGem = new ItemGatewayGem(4); // 折跃之石
 
 	public static void trigger(){}
 }

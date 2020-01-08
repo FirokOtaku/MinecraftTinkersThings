@@ -4,6 +4,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import slimeknights.tconstruct.library.modifiers.ModifierAspect;
 import slimeknights.tconstruct.library.tools.ToolNBT;
 import slimeknights.tconstruct.library.utils.TagUtil;
+import slimeknights.tconstruct.library.utils.Tags;
 import slimeknights.tconstruct.tools.modifiers.ToolModifier;
 
 import static firok.tiths.common.Keys.colorTraitHardened;
@@ -22,11 +23,20 @@ public class ModHardened extends ToolModifier
 	@Override
 	public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag)
 	{
-		ToolNBT data = TagUtil.getToolStats(rootCompound);
-		data.attack+=1.25f;
-		data.durability+=65;
-		data.speed*=0.95f;
-		data.attackSpeedMultiplier*=0.95f;
-		TagUtil.setToolTag(rootCompound, data.get());
+		NBTTagCompound tag = TagUtil.getToolTag(rootCompound);
+		float attack=tag.getFloat(Tags.ATTACK);
+		float speed=tag.getFloat(Tags.ATTACKSPEEDMULTIPLIER);
+		float mineSpeed=tag.getFloat(Tags.MININGSPEED);
+		int durability=tag.getInteger(Tags.DURABILITY);
+
+		attack+=1.25f;
+		speed*=0.95f;
+		mineSpeed*=0.95f;
+		durability+=65;
+
+		tag.setFloat(Tags.ATTACK, attack);
+		tag.setFloat(Tags.ATTACKSPEEDMULTIPLIER, speed);
+		tag.setFloat(Tags.MININGSPEED, mineSpeed);
+		tag.setInteger(Tags.DURABILITY,durability);
 	}
 }

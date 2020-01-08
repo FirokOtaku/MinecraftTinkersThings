@@ -8,6 +8,7 @@ import net.minecraft.potion.PotionEffect;
 import slimeknights.tconstruct.library.tools.ToolNBT;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
+import slimeknights.tconstruct.library.utils.Tags;
 
 import static firok.tiths.common.Keys.colorTraitShaking;
 import static firok.tiths.common.Keys.nameTraitShaking;
@@ -38,9 +39,14 @@ public class TraitShaking extends AbstractTrait
 	public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag)
 	{
 		super.applyEffect(rootCompound, modifierTag);
-		ToolNBT data = TagUtil.getToolStats(rootCompound);
-		data.speed*=0.85f;
-		data.attackSpeedMultiplier*=0.85f;
-		TagUtil.setToolTag(rootCompound, data.get());
+		NBTTagCompound tag = TagUtil.getToolTag(rootCompound);
+		float speed=tag.getFloat(Tags.ATTACKSPEEDMULTIPLIER);
+		float mineSpeed=tag.getFloat(Tags.MININGSPEED);
+
+		speed*=0.85f;
+		mineSpeed*=0.85f;
+
+		tag.setFloat(Tags.ATTACKSPEEDMULTIPLIER, speed);
+		tag.setFloat(Tags.MININGSPEED, mineSpeed);
 	}
 }

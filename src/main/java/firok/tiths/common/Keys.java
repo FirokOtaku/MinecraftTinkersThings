@@ -70,6 +70,8 @@ public interface Keys
 	String nameHardener="hardener";
 	String namePolisher="polisher";
 	String nameDriller="driller";
+	String nameEnderGem="ender_gem";
+	String namePhasingGem="phasing_gem";
 
 	// 植物
 	String nameHura="hura";
@@ -238,6 +240,7 @@ public interface Keys
 	String nameTraitUndeadCalling="undead_calling";
 	String nameTraitRepressing="repressing";
 	String nameTraitDrilled="drilled";
+	String nameTraitWrapping="wrapping";
 	String nameTraitPhantasmic="phantasmic";
 
 	// 属性颜色
@@ -265,6 +268,7 @@ public interface Keys
 	int colorTraitUndeadCalling=Colors.MidnightBlue;
 	int colorTraitRepressing=Colors.DarkSeaGreen;
 	int colorTraitDrilled=Colors.PaleVioletRed;
+	int colorTraitWrapping=Colors.MediumSpringGreen;
 	int colorTraitPhantasmic=Colors.CadetBlue;
 
 	// 状态效果颜色

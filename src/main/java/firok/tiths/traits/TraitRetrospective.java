@@ -20,6 +20,7 @@ import static firok.tiths.common.Keys.nameTraitRetrospective;
 import static firok.tiths.util.Predicates.canTrigger;
 
 // 后知
+// fixme 升级次数问题
 public class TraitRetrospective extends AbstractTrait
 {
 	public static final int maxTimesImproving=100;

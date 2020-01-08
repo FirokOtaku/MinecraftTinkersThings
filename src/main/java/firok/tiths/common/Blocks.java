@@ -2,6 +2,7 @@ package firok.tiths.common;
 
 import firok.tiths.block.*;
 import firok.tiths.block.logic.BlockLogicSearing;
+import firok.tiths.indev.BlockOreShell;
 import firok.tiths.util.GenMeteoWorld;
 import firok.tiths.util.GenOreWorld;
 import firok.tiths.util.Reg;
@@ -45,8 +46,8 @@ public class Blocks
 	@Reg(Keys.oreRuby)
 	@GenOreWorld(times = 5,timeRate = 0.6f,size = 4,minY = 10,maxY = 60)
 	public static final BlockOre oreRuby = new BlockOre(Items.ruby,1,1,1,6,10); // 红宝石矿
-	@Reg(Keys.oreShell)
-	public static final BlockOreShell oreShell = new BlockOreShell(Items.shell,3,6,1,4,6); // 散贝壳方块
+//	@Reg(Keys.oreShell)
+//	public static final BlockOreShell oreShell = new BlockOreShell(Items.shell,3,6,1,4,6); // 散贝壳方块
 	@Reg(Keys.oreCorundum)
 	@GenOreWorld(times = 5,timeRate = 0.8f,size = 4,minY = 10,maxY = 80)
 	public static final BlockOre oreCorundum = new BlockOre(Items.corundum,1,1,1,2,4); // 刚玉矿
@@ -142,10 +143,10 @@ public class Blocks
 
 	@Reg(Keys.blockStellariumObsidian)
 	public static final Block blockStellariumObsidian = new Block(Material.ROCK); // 恒星黑曜石
-	@Reg(Keys.blockBloodPumpkin)
-	public static final Block blockBloodPumpkin = new Block(Material.WOOD); // 血南瓜
-	@Reg(Keys.blockWeepingPumpkin)
-	public static final Block blockWeepingPumpkin = new Block(Material.WOOD); // 哭泣的南瓜
+//	@Reg(Keys.blockBloodPumpkin)
+//	public static final Block blockBloodPumpkin = new Block(Material.WOOD); // 血南瓜
+//	@Reg(Keys.blockWeepingPumpkin)
+//	public static final Block blockWeepingPumpkin = new Block(Material.WOOD); // 哭泣的南瓜
 	@Reg(Keys.blockBloodSand)
 	public static final Block blockBloodSand = new BlockBloodSand(); // 血沙
 	@Reg(Keys.blockConsolidatedGlass)
@@ -154,21 +155,25 @@ public class Blocks
 	public static final Block blockCoagulatedBloodSand = new BlockCompressed(); // 凝结血沙
 
 	// 一些装饰用方块
-	@Reg(Keys.blockRoyalEnchantmentTable)
-	public static final Block blockRoyalEnchantmentTable = new BlockEnchantmentTable(){}; // todo
+//	@Reg(Keys.blockRoyalEnchantmentTable)
+//	public static final Block blockRoyalEnchantmentTable = new BlockEnchantmentTable(){}; // todo
 
 	// 植物
-	@Reg(Keys.saplingHura)
-	public static final Block blockSaplingHura = new BlockSapling(GenTreeHura::generate,3);
-	@Reg(Keys.logHura)
-	public static final Block blockLogHura = new BlockWood();
-	@Reg(Keys.leafHura)
-	public static final Block blockLeafHura = new BlockLeaf(blockSaplingHura,60);
+//	@Reg(Keys.saplingHura)
+//	public static final Block blockSaplingHura = new BlockSapling(GenTreeHura::generate,3);
+//	@Reg(Keys.logHura)
+//	public static final Block blockLogHura = new BlockWood();
+//	@Reg(Keys.leafHura)
+//	public static final Block blockLeafHura = new BlockLeaf(blockSaplingHura,60);
 
-	@Reg(Keys.saplingBlood)
-	public static final Block blockSaplingBlood = new BlockSapling();
-	@Reg(Keys.logBlood)
-	public static final Block blockLogBlood = new BlockWood();
-	@Reg(Keys.leafBlood)
-	public static final Block blockLeafBlood = new BlockLeaf(blockSaplingBlood,50);
+//	@Reg(Keys.saplingBlood)
+//	public static final Block blockSaplingBlood = new BlockSapling();
+//	@Reg(Keys.logBlood)
+//	public static final Block blockLogBlood = new BlockWood();
+//	@Reg(Keys.leafBlood)
+//	public static final Block blockLeafBlood = new BlockLeaf(blockSaplingBlood,50);
+
+	// 逻辑方块
+//	@Reg(Keys.blockLogicSearing)
+//	public static final Block logicSearing = new BlockLogicSearing(); // 逻辑 - 焦黑窖
 }

@@ -27,8 +27,6 @@ public class Craftings
 		registerBindings();
 		registerBasinCastings();
 		registerTableCastings();
-		registerShapelessCraftings();
-		registerShapedCraftings();
 	}
 
 	// 原矿 矿块 矿锭 矿粒 之间的合成关系
@@ -58,12 +56,19 @@ public class Craftings
 						RecipeMatch.of(new ItemStack(net.minecraft.init.Blocks.OBSIDIAN)),
 						new FluidStack(Fluids.moltenStellarium, Material.VALUE_Ingot*4),
 				true, false));
-		// 血南瓜
+//		// 血南瓜
+//		registerBasinCasting(
+//				new CastingRecipe(
+//						new ItemStack(Blocks.blockBloodPumpkin),
+//						RecipeMatch.of(new ItemStack(net.minecraft.init.Blocks.PUMPKIN)),
+//						new FluidStack(TinkerFluids.blood, Material.VALUE_Ingot*8),
+//						true, false));
+		// 血沙
 		registerBasinCasting(
 				new CastingRecipe(
-						new ItemStack(Blocks.blockBloodPumpkin),
-						RecipeMatch.of(new ItemStack(net.minecraft.init.Blocks.PUMPKIN)),
-						new FluidStack(TinkerFluids.blood, Material.VALUE_Ingot*8),
+						new ItemStack(Blocks.blockBloodSand),
+						RecipeMatch.of(new ItemStack(net.minecraft.init.Blocks.SOUL_SAND)),
+						new FluidStack(TinkerFluids.blood, Material.VALUE_Ingot * 4),
 						true, false));
 		// 凝结血沙
 		registerBasinCasting(
@@ -97,6 +102,13 @@ public class Craftings
 						RecipeMatch.of(new ItemStack(net.minecraft.init.Items.DYE,1,EnumDyeColor.BLACK.getDyeDamage())),
 						new FluidStack(TinkerFluids.purpleSlime, Material.VALUE_Ingot*2),
 						true, false));
+		// 末影之石
+		registerTableCasting(
+				new CastingRecipe(
+						new ItemStack(Items.enderGem),
+						RecipeMatch.of(new ItemStack(net.minecraft.init.Items.ENDER_PEARL)),
+						new FluidStack(TinkerFluids.emerald, Material.VALUE_Ingot*1),
+						true, false));
 		// 岩浆膏
 		registerTableCasting(
 				new CastingRecipe(
@@ -118,12 +130,12 @@ public class Craftings
 						true, false));
 
 		// 奢华纸张
-		registerTableCasting(
-				new CastingRecipe(
-						new ItemStack(Items.royalPaper),
-						RecipeMatch.of(new ItemStack(net.minecraft.init.Items.PAPER)),
-						new FluidStack(Fluids.moltenRoyalAlloy, Material.VALUE_Nugget*1),
-						true, false));
+//		registerTableCasting(
+//				new CastingRecipe(
+//						new ItemStack(Items.royalPaper),
+//						RecipeMatch.of(new ItemStack(net.minecraft.init.Items.PAPER)),
+//						new FluidStack(Fluids.moltenRoyalAlloy, Material.VALUE_Nugget*1),
+//						true, false));
 
 		// 灼热面包
 		registerTableCasting(
@@ -139,16 +151,6 @@ public class Craftings
 						RecipeMatch.of(new ItemStack(net.minecraft.init.Items.FISH)),
 						new FluidStack(FluidRegistry.LAVA, Material.VALUE_Nugget*1),
 						true, false));
-	}
-	// 无序合成
-	private static void registerShapelessCraftings()
-	{
-		// 哭泣南瓜
-	}
-	// 有序合成
-	private static void registerShapedCraftings()
-	{
-		;
 	}
 
 	private static void createBinding(

@@ -1,5 +1,6 @@
 package firok.tiths.common;
 
+import firok.tiths.util.RegSmelteryFuel;
 import net.minecraft.util.ResourceLocation;
 import slimeknights.tconstruct.library.fluid.FluidMolten;
 
@@ -9,6 +10,7 @@ import static firok.tiths.common.Keys.*;
 public class Fluids
 {
 	public static final FluidMolten moltenRoyalAlloy=$(nameRoyalAlloy, colorRoyalAlloy);
+	@RegSmelteryFuel(amount=10,duration=400)
 	public static final FluidMolten moltenStellarium=$(nameStellarium, colorStellarium);
 	public static final FluidMolten moltenHothium=$(nameHothium, colorHothium);
 	public static final FluidMolten moltenCinnabar=$(nameCinnabar, colorCinnabar);
@@ -35,10 +37,10 @@ public class Fluids
 				new ResourceLocation("tconstruct:blocks/fluids/molten_metal"),
 				new ResourceLocation("tconstruct:blocks/fluids/molten_metal_flow")
 				);
-		fluid.setTemperature(temp);
-		fluid.setLuminosity(lumen);
-		fluid.setViscosity(visc);
-		fluid.setDensity(dens);
+		fluid.setTemperature(temp); // 温度
+		fluid.setLuminosity(lumen); // 亮度
+		fluid.setViscosity(visc); // 黏度
+		fluid.setDensity(dens); // 密度
 		return fluid;
 	}
 }

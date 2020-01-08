@@ -1,5 +1,15 @@
 # 变更日志 Changelog
 
+## 0.2.21.0 _2020-01-08 15:30_
+
+* 移除部分无用方块和物品 removed some useless blocks and items
+* 为部分方块和物品增加材质贴图 added textures to some blocks and items
+* 增加部分合成表 added some recipes
+* 调整部分材料属性 adjusted attribution of some materials
+* 细节改进 minor improvements
+* 增加物品 added items
+  * 相变之石 phasing gem
+
 ## 0.2.20.0 _2020-01-07 16:00_
 
 * 添加语言文件 added lang files
@@ -13,7 +23,7 @@
 
 ## 0.2.19.0 _2020-01-04 14:30_
 
-* 重写世界生成的方式, 现在各种矿石可以正常在世界中生成 rewrote the way of world-generating which enable generating ores
+* 重写世界生成的方式, 现在各种矿石可以正常在世界中生成 rewrote world-generation which enable generating ores
 
 ## 0.2.18.4 _2020-01-03 11:30_
 
