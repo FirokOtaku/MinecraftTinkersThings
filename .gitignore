@@ -9,6 +9,7 @@ run
 gradlew
 gradlew.bat
 *.iml
+temp
 
 !materials.md
 !changelog.md

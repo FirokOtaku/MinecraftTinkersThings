@@ -180,10 +180,12 @@ material.spinel.name=尖晶石
 material.tourmaline.name=电气石
 material.tonium.name=钝金
 material.meteorolite.name=陨石
+material.stellarium_obsidian.name=恒星黑曜石
+material.coagulated_blood_sand.name=凝固血沙
 
 ## modifiers
 modifier.maiming.name=致残
-modifier.maiming.desc=§o你凭什么和我打?§r\n减速并虚弱敌人
+modifier.maiming.desc=§o凭什么和我打?§r\n减速并虚弱敌人
 modifier.inky.name=墨染
 modifier.inky.desc=§o黑乎乎的§r\n使敌人失明
 modifier.retrospective.name=后知
@@ -207,7 +209,7 @@ modifier.polished.desc=降低耐久和攻击力, 增加速度
 modifier.brittle.name=脆化
 modifier.brittle.desc=提升速度和攻击力, 大幅降低耐久消耗
 modifier.star_dashing.name=星绽
-modifier.star_dashing.desc=攻击时向周围释放火焰粒子
+modifier.star_dashing.desc=攻击时向周围释放火焰
 modifier.soluble.name=可溶
 modifier.soluble.desc=§o停下来啊!§r\n在水中拿着会快速降低耐久
 modifier.birefringent.name=双折
@@ -233,4 +235,8 @@ modifier.drilled.name=打孔
 modifier.drilled.desc=损失攻击力和最大耐久增加一个强化槽
 modifier.phantasmic.name=异象
 modifier.phantasmic.desc=§o只有我能看见?§r\n到底是什么?
+modifier.hemolytic.name=溶血
+modifier.hemolytic.desc=§o饮血§r\n造成伤害时恢复耐久
 
+## potions
+effect.heavy=沉重

@@ -21,14 +21,14 @@ import java.util.Random;
 		modid = TinkersThings.MOD_ID,
 		name = TinkersThings.MOD_NAME,
 		version = TinkersThings.VERSION,
-		dependencies = "required-after:tconstruct@[1.12.2-2.13.0.171,);required-after:mantle@[1.12-1.3.3.56,)"
+		dependencies = "required-after:tconstruct@[1.12.2-2.13.0.171,);required-after:mantle@[1.12-1.3.3.56,);after:baubles@[1.5.2,)"
 )
 public class TinkersThings
 {
 
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers Things";
-	public static final String VERSION = "1.12.2-0.2.21.0";
+	public static final String VERSION = "1.12.2-0.2.22.0";
 
 
 	{

@@ -21,7 +21,7 @@
 📕|木石|反重力水晶|anti grav crystal|反重力|采集
 ⭕|金属|辰砂|cinnabar|剧毒|采集||Silver
 📕|木石|破碎基岩|broken bedrock|耐久3|采集
-🖊|木石|血沙|blood sand|_未命名1_|血+灵魂沙=浇筑
+🖊|木石|凝固血沙|coagulated blood sand|溶血|血+灵魂沙=浇筑
 📕|金属|天堂金属|paradium|
 ⭕|木石|蛛腿|spider leg|剧毒|掉落物
 ⭕|木石|坚硬蛛腿|hard spider leg|剧毒|掉落物
@@ -76,6 +76,6 @@
 -|被动(采集)|宝藏感知|treasure detecting|小几率在周围生成宝藏屋
 -|被动(采集 攻击)|喀嚓|creaky|小几率在周围生成蠹虫
 -|被动(采集 攻击)|亡灵呼唤|undead calling|小几率在周围生成僵尸或骷髅
--|被动(攻击)|_未命名1_||攻击时恢复耐久 给目标施加debuff
+-|被动(攻击)|溶血|hemolytic|增加攻击伤害 攻击时恢复耐久
 -|被动(攻击)|压制|repressing|给目标施加沉重debuff
 -|被动|冰冷|icy|给目标施加缓慢debuff 寒冷环境下慢慢恢复耐久 炎热环境下慢慢损失耐久

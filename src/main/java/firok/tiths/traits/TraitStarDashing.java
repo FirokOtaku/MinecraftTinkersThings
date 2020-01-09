@@ -23,7 +23,8 @@ public class TraitStarDashing extends AbstractTrait
 
 		if(player.isServerWorld())
 		{
-			Actions.CauseStarDashing(player,target,0.2f,3);
+//			Actions.CauseStarDashing(player,target,0.2f,3);
+			Actions.CauseStarDashing(player.world,player.posX,player.posY,player.posZ,6,0.2f,3);
 		}
 	}
 }

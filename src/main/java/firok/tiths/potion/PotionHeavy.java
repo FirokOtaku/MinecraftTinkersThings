@@ -1,16 +1,21 @@
 package firok.tiths.potion;
 
+import firok.tiths.TinkersThings;
 import firok.tiths.common.Keys;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Gui;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.ResourceLocation;
 
 // 沉重
-public class PotionHeavy extends Potion
+public class PotionHeavy extends BasePotion
 {
 	public PotionHeavy()
 	{
-		super(true, Keys.colorPotionHeavy);
+		super(new ResourceLocation(TinkersThings.MOD_ID,"textures/potions/heavy.png"),true, Keys.colorPotionHeavy);
 	}
 
 	@Override

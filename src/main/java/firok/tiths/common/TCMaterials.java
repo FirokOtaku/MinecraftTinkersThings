@@ -89,7 +89,6 @@ public class TCMaterials
 
 	@Compo(nameStellarium)
 	@CompoHead(durability = 210,miningspeed = 9.5f,attack = 8.5f,harvestLevel = 4)
-	@CompoHandle(modifier = 0.95f, durability = -450)
 	@CompoExtra(extraDurability = 0)
 	@CompoBow(drawSpeed = 0.9f,range = 0.7f,bonusDamage = 5)
 	@CompoArrowShaft(modifier = 0.65f,bonusAmmo = 0)
@@ -119,8 +118,7 @@ public class TCMaterials
 			.addTrait(Traits.extremeFreezing);
 
 	@Compo(nameSpiderLeg)
-	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
-	@CompoExtra(extraDurability = 100)
+	@CompoHead(durability = 45,miningspeed = 0.5f,attack = 3,harvestLevel = 0)
 	public static final Material spiderLeg=new $Material(nameSpiderLeg, colorSpiderLeg)
 			.setIconItem(Items.spiderLeg)
 			.addCraftableIngot(Items.spiderLeg)
@@ -128,31 +126,21 @@ public class TCMaterials
 			.addTrait(TinkerTraits.poisonous);
 
 	@Compo(nameHardSpiderLeg)
-	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
-	@CompoExtra(extraDurability = 100)
+	@CompoHead(durability = 75,miningspeed = 0.9f,attack = 4.5f,harvestLevel = 0)
+	@CompoHandle(modifier = 0.25f,durability = 30)
 	public static final Material hardSpiderLeg=new $Material(nameHardSpiderLeg, colorHardSpiderLeg)
 			.setIconItem(Items.hardSpiderLeg)
 			.addCraftableIngot(Items.hardSpiderLeg)
 			.addTrait(TinkerTraits.sharp);
 
-	@Compo(nameCinnabar)
-	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
-	@CompoHandle(modifier = 0.8f, durability = 100)
-	@CompoExtra(extraDurability = 100)
-	public static final Material cinnabar=new $Material(nameCinnabar,colorCinnabar)
-			.setIconItem(Items.cinnabar)
-			.setFluid(Fluids.moltenCinnabar)
-			.addTrait(TinkerTraits.poisonous, HEAD);
-
-//	@Compo(nameGlass)
+//	@Compo(nameCinnabar)
 //	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
 //	@CompoHandle(modifier = 0.8f, durability = 100)
 //	@CompoExtra(extraDurability = 100)
-//	public static Material glass=new $Material(nameGlass, colorGlass)
-//			.setIconItem(net.minecraft.init.Blocks.GLASS)
-//			.setFluid(TinkerFluids.glass)
-//			.addTrait(cheapskate)
-//			.addTrait(lightweight);
+//	public static final Material cinnabar=new $Material(nameCinnabar,colorCinnabar)
+//			.setIconItem(Items.cinnabar)
+//			.setFluid(Fluids.moltenCinnabar)
+//			.addTrait(TinkerTraits.poisonous, HEAD);
 
 	@Compo(nameConsolidatedGlass)
 	@CompoHead(durability = 60,miningspeed = 3.5f,attack = 5.5f,harvestLevel = 0)
@@ -163,6 +151,14 @@ public class TCMaterials
 			.addCraftableIngot(Blocks.blockConsolidatedGlass)
 			.addTrait(cheap)
 			.addTrait(lightweight);
+
+	@Compo(nameCoagulatedBloodSand)
+	@CompoHead(durability = 45,miningspeed = 2.5f,attack = 2.8f,harvestLevel = 0)
+	@CompoExtra(extraDurability = -95)
+	public static final Material coagulatedBloodSand=new $Material(nameCoagulatedBloodSand, colorCoagulatedBloodSand)
+			.setIconItem(Blocks.blockCoagulatedBloodSand)
+			.addCraftableIngot(Blocks.blockCoagulatedBloodSand)
+			.addTrait(hemolytic);
 
 	@Compo(nameBrokenIce)
 	@CompoHead(durability = 20,miningspeed = 1,attack = 1.8f,harvestLevel = 0)
@@ -297,7 +293,6 @@ public class TCMaterials
 
 	@Compo(nameTalcum)
 	@CompoHead(durability = 140,miningspeed = 3.5f,attack = 3.5f,harvestLevel = 1)
-	@CompoHandle(modifier = 0.85f, durability = -80)
 	@CompoExtra(extraDurability = 190)
 	public static final Material talcum=new $Material(nameTalcum,colorTalcum)
 			.setIconItem(Items.talcum)

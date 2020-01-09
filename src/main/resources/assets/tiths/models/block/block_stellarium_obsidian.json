@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "tiths:blocks/block_stellarium_obsidian",
+    "down": "tiths:blocks/block_stellarium_obsidian",
+    "up": "tiths:blocks/block_stellarium_obsidian",
+    "north": "tiths:blocks/block_stellarium_obsidian",
+    "south": "tiths:blocks/block_stellarium_obsidian",
+    "west": "tiths:blocks/block_stellarium_obsidian",
+    "east": "tiths:blocks/block_stellarium_obsidian"
+  }
+}

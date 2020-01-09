@@ -1,5 +1,13 @@
 # 变更日志 Changelog
 
+## 0.2.22.0 _2020-01-09 00:00_
+
+* 为部分方块和物品增加材质贴图 added textures to some blocks and items
+* 调整部分材料属性 adjusted attribution of some materials
+* 细节改进 minor improvements
+* 增加属性 added traits
+  * 溶血 hemolytic
+
 ## 0.2.21.0 _2020-01-08 15:30_
 
 * 移除部分无用方块和物品 removed some useless blocks and items

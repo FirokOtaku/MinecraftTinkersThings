@@ -29,8 +29,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static firok.tiths.TinkersThings.log;
-
 public class RegistryHandler
 {
 	public static final Map<BlockMolten,ItemBlock> mapFluidBlock2Item=new HashMap<>();
@@ -45,7 +43,7 @@ public class RegistryHandler
 				if(obj instanceof Fluid)
 				{
 					Fluid fluid=(Fluid)obj;
-					TinkersThings.log("注册流体:"+fluid.getName());
+//					TinkersThings.log("registering fluid:"+fluid.getName());
 
 					FluidRegistry.registerFluid(fluid);
 					FluidRegistry.addBucketForFluid(fluid);
@@ -73,11 +71,11 @@ public class RegistryHandler
 						}
 					}
 				}
-				TinkersThings.log("注册流体成功");
+//				TinkersThings.log("注册流体成功");
 			}
 			catch (Exception e)
 			{
-				TinkersThings.log("注册流体失败");
+				TinkersThings.log("error when registering fluid");
 				e.printStackTrace();
 			}
 		}
@@ -231,7 +229,7 @@ public class RegistryHandler
 				e.printStackTrace();
 			}
 		}
-		TinkersThings.log(String.format("register blocks: block[%d/%d]",countBlock,fields.length) );
+//		TinkersThings.log(String.format("register blocks: block[%d/%d]",countBlock,fields.length) );
 	}
 	public static void registerTileEntities()
 	{

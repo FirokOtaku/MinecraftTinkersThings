@@ -179,6 +179,8 @@ material.spinel.name=Spinel
 material.tourmaline.name=Tourmaline
 material.tonium.name=Tonium
 material.meteorolite.name=Meteorolite
+material.stellarium_obsidian.name=Stellarium Obsidian
+material.coagulated_blood_sand.name=Coagulated Blood Sand
 
 ## modifiers
 modifier.maiming.name=Maiming
@@ -232,3 +234,8 @@ modifier.drilled.name=Drilled
 modifier.drilled.desc=
 modifier.phantasmic.name=Phantasmic
 modifier.phantasmic.desc=
+modifier.hemolytic.name=Hemolytic
+modifier.hemolytic.desc=
+
+## potions
+effect.heavy=Heavy

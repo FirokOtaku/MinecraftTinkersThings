@@ -1,6 +1,7 @@
 package firok.tiths.util;
 
 import firok.tiths.TinkersThings;
+import firok.tiths.common.Potions;
 import firok.tiths.entity.projectile.ProjectileDashingStar;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -11,6 +12,7 @@ import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
@@ -133,7 +135,7 @@ public class Actions
 	// 星绽 - 创建粒子
 	public static ProjectileDashingStar CauseStarDashing(World world,double fromX,double fromY,double fromZ,double toX,double toY,double toZ,float speed,float damage)
 	{
-		TinkersThings.log("gen star..."+System.currentTimeMillis());
+//		TinkersThings.log("gen star..."+System.currentTimeMillis());
 		ProjectileDashingStar star=new ProjectileDashingStar(world,fromX,fromY,fromZ);
 
 		double mod= (fromX-toX)*(fromX-toX)+(fromY-toY)*(fromY-toY)+(fromZ-toZ)*(fromZ-toZ);
@@ -157,8 +159,36 @@ public class Actions
 		}
 		return star;
 	}
+	private static final float OffsetY=0.866f;
+	private static final float OffsetY2=1.732f;
+	public static ProjectileDashingStar[] CauseStarDashing(final World world,final double centerX,final double centerY,final double centerZ,final int amount,final float speed,final float damage)
+	{
+		ProjectileDashingStar[] ret=new ProjectileDashingStar[amount];
+		Random rand=world.rand;
 
-	public static double PI_2=Math.PI/2,PI_4=Math.PI/4;
+		for(int i=0;i<amount;i++)
+		{
+			double fromY= centerY-OffsetY+rand.nextDouble()*OffsetY2;
+			double toY= fromY-OffsetY+rand.nextDouble()*OffsetY2;
+
+			float rotXZ=rand.nextFloat()*2*(float)PI; // 从中心点到第一圈的角度
+			float rotXZ2=rotXZ- (float)PI_6 +rand.nextFloat()*2*(float)PI_6; // 从第一圈向外的角度
+
+			double fromX=centerX+ MathHelper.cos(rotXZ)*2;
+			double fromZ=centerZ+ MathHelper.sin(rotXZ)*2;
+
+			double toX=fromX+ MathHelper.cos(rotXZ2);
+			double toZ=fromZ+ MathHelper.sin(rotXZ2);
+
+			ret[i]=CauseStarDashing(world,fromX,fromY,fromZ,toX,toY,toZ,speed,damage);
+
+			world.spawnEntity(ret[i]);
+		}
+
+		return ret;
+	}
+
+	public static final double PI_2=Math.PI/2,PI_4=Math.PI/4,PI_6=Math.PI/6,PI=Math.PI;
 	public static void CauseGatewayTeleport(Entity entity,float distance)
 	{
 		final World world=entity.world;
