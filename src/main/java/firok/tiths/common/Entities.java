@@ -7,8 +7,8 @@ import firok.tiths.util.RegEntity;
 @SuppressWarnings("all")
 public class Entities
 {
-	@RegEntity(network=250)
-	public static ProjectileJavelin projectile_javelin;
+//	@RegEntity(network=250)
+//	public static ProjectileJavelin projectile_javelin;
 	@RegEntity(network=251)
 	public static ProjectileDashingStar projectile_dashing_star;
 }

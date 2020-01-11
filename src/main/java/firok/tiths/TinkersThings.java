@@ -21,19 +21,14 @@ import java.util.Random;
 		modid = TinkersThings.MOD_ID,
 		name = TinkersThings.MOD_NAME,
 		version = TinkersThings.VERSION,
-		dependencies = "required-after:tconstruct@[1.12.2-2.13.0.171,);required-after:mantle@[1.12-1.3.3.56,);after:baubles@[1.5.2,)"
+		dependencies = "required-after:tconstruct@[1.12.2-2.13.0.171,);required-after:mantle@[1.12-1.3.3.55,);after:baubles@[1.5.2,)"
 )
 public class TinkersThings
 {
 
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers Things";
-	public static final String VERSION = "1.12.2-0.2.22.0";
-
-
-	{
-//		TConstruct.pulseManager.registerPulse(new PulseTools()); // register tools pulse
-	}
+	public static final String VERSION = "1.12.2-0.2.23.0";
 
 	@Mod.Instance(MOD_ID)
 	public static TinkersThings INSTANCE;
@@ -56,16 +51,16 @@ public class TinkersThings
 		RegistryHandler.registerFluids();
 
 		Items.trigger();
-		RegistryHandler.registerBlocks(ForgeRegistries.BLOCKS);
-		RegistryHandler.registerTileEntities();
-		RegistryHandler.registerItems(ForgeRegistries.ITEMS);
-		RegistryHandler.registerEntities(ForgeRegistries.ENTITIES);
+		RegistryHandler.registerBlocks();
+//		RegistryHandler.registerTileEntities();
+		RegistryHandler.registerItems();
+		RegistryHandler.registerEntities();
+//		RegistryHandler.registerVillagers();
 
 		RegistryHandler.registerTraits();
-//		RegistryHandler.registerModifiers();
 		Modifiers.log();
 
-		RegistryHandler.registerPotions(ForgeRegistries.POTIONS);
+		RegistryHandler.registerPotions();
 
 		//  proxy.initConfig();
 		//
@@ -78,10 +73,7 @@ public class TinkersThings
 		{
 			Minecraft.getMinecraft().player.sendChatMessage(String.valueOf(content));
 		}
-		catch (Exception e)
-		{
-//			e.printStackTrace();
-		}
+		catch (Exception e){}
 	}
 
 	@Mod.EventHandler

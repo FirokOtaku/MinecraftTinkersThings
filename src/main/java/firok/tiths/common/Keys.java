@@ -217,6 +217,7 @@ public interface Keys
 
 	// 属性
 	String nameTraitMaiming="maiming";
+	String nameTraitWithering="withering";
 	String nameTraitInky="inky";
 	String nameTraitRetrospective="retrospective";
 	String nameTraitIcy="icy";
@@ -275,6 +276,7 @@ public interface Keys
 
 	// 状态效果颜色
 	int colorPotionHeavy=Colors.DarkSeaGreen;
+	int colorPotionDisappear=Colors.Black;
 
 	// 唱片
 	String recordTinkersEfforts="record_tinkers_efforts";

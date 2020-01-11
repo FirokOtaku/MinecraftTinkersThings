@@ -237,6 +237,8 @@ modifier.phantasmic.name=异象
 modifier.phantasmic.desc=§o只有我能看见?§r\n到底是什么?
 modifier.hemolytic.name=溶血
 modifier.hemolytic.desc=§o饮血§r\n造成伤害时恢复耐久
+modifier.withering.name=凋零
+modifier.withering.desc=§o你的生命在流逝§r\n使目标虚弱并凋零
 
 ## potions
 effect.heavy=沉重

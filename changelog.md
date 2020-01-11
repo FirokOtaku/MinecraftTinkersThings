@@ -1,5 +1,11 @@
 # 变更日志 Changelog
 
+## 0.2.23.0 _2020-01-11 00:00_
+
+* 增加部分合成表 added some recipes
+* 增加属性 added traits
+  * 凋零 withering
+
 ## 0.2.22.0 _2020-01-09 00:00_
 
 * 为部分方块和物品增加材质贴图 added textures to some blocks and items

@@ -12,10 +12,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fml.common.registry.EntityEntry;
-import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.*;
+import net.minecraftforge.fml.common.registry.VillagerRegistry.VillagerProfession;
 import net.minecraftforge.registries.IForgeRegistry;
 import slimeknights.tconstruct.library.MaterialIntegration;
 import slimeknights.tconstruct.library.TinkerRegistry;
@@ -83,7 +81,7 @@ public class RegistryHandler
 	public static void registerTraits()
 	{
 		Field[] fields=Traits.class.getDeclaredFields();
-		TinkersThings.log("register traits...");
+//		TinkersThings.log("register traits...");
 		for(Field field:fields)
 		{
 			try
@@ -131,9 +129,10 @@ public class RegistryHandler
 //		}
 //	}
 
-	public static void registerItems(IForgeRegistry<Item> registry)
+	public static void registerItems()
 	{
-		int countItem=0,countItemBlock=0;
+		IForgeRegistry<Item> registry=ForgeRegistries.ITEMS;
+//		int countItem=0,countItemBlock=0;
 		Field[] fieldsItems=Items.class.getDeclaredFields();
 		for(Field field:fieldsItems)
 		{
@@ -156,7 +155,7 @@ public class RegistryHandler
 
 					registry.register(item);
 				}
-				countItem++;
+//				countItem++;
 			}
 			catch (Exception e)
 			{
@@ -194,13 +193,14 @@ public class RegistryHandler
 			}
 		}
 
-		TinkersThings.log(String.format("register items: item[%d/%d] item_block[%d/%d]",countItem,fieldsItems.length,countItemBlock,fieldsBlocks.length) );
+//		TinkersThings.log(String.format("register items: item[%d/%d] item_block[%d/%d]",countItem,fieldsItems.length,countItemBlock,fieldsBlocks.length) );
 	}
 
-	public static void registerBlocks(IForgeRegistry<Block> registry)
+	public static void registerBlocks()
 	{
+		IForgeRegistry<Block> registry=ForgeRegistries.BLOCKS;
 		Field[] fields=Blocks.class.getDeclaredFields();
-		int countBlock=0;
+//		int countBlock=0;
 		for(Field field:fields)
 		{
 			try
@@ -222,7 +222,7 @@ public class RegistryHandler
 
 					registry.register(block);
 				}
-				countBlock++;
+//				countBlock++;
 			}
 			catch (Exception e)
 			{
@@ -356,8 +356,9 @@ public class RegistryHandler
 		}
 	}
 
-	public static void registerEntities(IForgeRegistry<EntityEntry> registry)
+	public static void registerEntities()
 	{
+		IForgeRegistry<EntityEntry> registry=ForgeRegistries.ENTITIES;
 		for(Field field:Entities.class.getDeclaredFields())
 		{
 			Class classField=field.getType();

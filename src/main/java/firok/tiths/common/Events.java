@@ -4,9 +4,11 @@ package firok.tiths.common;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.boss.EntityWither;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityCaveSpider;
 import net.minecraft.entity.monster.EntitySpider;
+import net.minecraft.entity.monster.EntityWitherSkeleton;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
@@ -90,6 +92,14 @@ public class Events
 			{
 				stack2drop=new ItemStack(canTrigger(rand,0.3f)?Items.hardSpiderLeg:Items.spiderLeg,1+rand.nextInt(1));
 			}
+		}
+		else if(living instanceof EntityWitherSkeleton) // 凋灵骷髅
+		{
+			stack2drop=new ItemStack(Items.ingotInertWitherium,4+rand.nextInt(6));
+		}
+		else if(living instanceof EntityWither) // 凋灵
+		{
+			stack2drop=new ItemStack(Items.ingotWitherium,6+rand.nextInt(8));
 		}
 
 		// 掉落物品

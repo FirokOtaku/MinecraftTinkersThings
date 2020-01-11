@@ -64,7 +64,8 @@ public class TCMaterials
 	@CompoArrowShaft(modifier = 0.35f,bonusAmmo = 90)
 	public static final Material inertWitherium=new $Material(nameInertWitherium, colorInertWitherium)
 			.setIconItem(Items.ingotInertWitherium)
-			.setFluid(Fluids.moltenInertWitherium);
+			.setFluid(Fluids.moltenInertWitherium)
+			.addTrait(withering);
 
 	@Compo(nameWitherium)
 	@CompoHead(durability = 690,miningspeed = 4.8f,attack = 9.4f,harvestLevel = 3)
@@ -74,7 +75,8 @@ public class TCMaterials
 	@CompoArrowShaft(modifier = 0.45f,bonusAmmo = 25)
 	public static final Material witherium=new $Material(nameWitherium, colorWitherium)
 			.setIconItem(Items.ingotWitherium)
-			.setFluid(Fluids.moltenWitherium);
+			.setFluid(Fluids.moltenWitherium)
+			.addTrait(withering);
 
 
 	@Compo(nameRoyalAlloy)

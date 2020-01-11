@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "tiths:ingot_to_nugget",
+  "result": { "item": "tiths:nugget_halleium", "count": 9 },
+  "ingredients": [
+    { "item": "tiths:ingot_halleium" }
+  ]
+}
