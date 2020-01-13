@@ -22,4 +22,9 @@ public @interface Reg
 	 * unlocalized name
 	 */
 	String un() default "";
+
+	/**
+	 * ore dic name
+	 */
+	String[] od() default {};
 }

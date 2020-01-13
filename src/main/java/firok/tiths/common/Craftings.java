@@ -95,6 +95,12 @@ public class Craftings
 						RecipeMatch.of(new ItemStack(net.minecraft.init.Items.DYE,1, EnumDyeColor.WHITE.getDyeDamage())),
 						new FluidStack(TinkerFluids.blueslime, Material.VALUE_Ingot*2),
 						true, false));
+		registerTableCasting(
+				new CastingRecipe(
+						new ItemStack(Items.polisher),
+						RecipeMatch.of(new ItemStack(net.minecraft.init.Items.DYE,1, EnumDyeColor.WHITE.getDyeDamage())),
+						new FluidStack(TinkerFluids.purpleSlime, Material.VALUE_Ingot*2),
+						true, false));
 		// 墨染粘液
 		registerTableCasting(
 				new CastingRecipe(

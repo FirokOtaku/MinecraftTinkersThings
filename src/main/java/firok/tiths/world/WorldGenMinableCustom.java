@@ -47,7 +47,7 @@ public class WorldGenMinableCustom implements IChunkGen
 			final int posZ=chunkZ+4+rand.nextInt(12);
 
 			// 生成测试用的黑曜石
-			world.setBlockState(world.getTopSolidOrLiquidBlock(new BlockPos(posX,posY,posZ)),Blocks.OBSIDIAN.getDefaultState());
+//			world.setBlockState(world.getTopSolidOrLiquidBlock(new BlockPos(posX,posY,posZ)),Blocks.OBSIDIAN.getDefaultState());
 
 			final float radius = rand.nextFloat() * 3.1415927F; // 半径
 

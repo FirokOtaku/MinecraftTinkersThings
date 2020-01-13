@@ -15,12 +15,12 @@ import net.minecraft.block.material.Material;
 public class Blocks
 {
 	// 算不上矿石的自然生成方块
-	@Reg(Keys.blockMeteorolite)
+	@Reg(value=Keys.blockMeteorolite,od={"meteorolite"})
 	@GenMeteoWorld
 	public static final BlockOre blockMeteorolite = new BlockOre(); // 陨石
 
 	// 矿石
-	@Reg(Keys.oreCinnabar)
+	@Reg(value=Keys.oreCinnabar,od={"oreCinnabar","oreQuicksilver","oreMercury"})
 	@GenOreWorld(times=4,minY=30,maxY=70,size=10)
 	public static final BlockOre oreCinnabar = new BlockOre(Items.cinnabar,1,5,2,3,5); // 辰砂矿石
 	@Reg(Keys.oreInkPowder)
@@ -29,10 +29,10 @@ public class Blocks
 	@Reg(Keys.oreImmersedSilver)
 	@GenOreWorld(times=4,size=5,minY = 30,maxY = 80)
 	public static final BlockOre oreImmersedSilver = new BlockOre(); // 沉银矿石
-	@Reg(Keys.oreMithril)
+	@Reg(value=Keys.oreMithril,od={"oreMithril"})
 	@GenOreWorld(times=3,timeRate = 0.5f,size=6,minY = 10,maxY = 50)
 	public static final BlockOre oreMithril = new BlockOre(); // 秘银矿石
-	@Reg(Keys.oreAdamantine)
+	@Reg(value=Keys.oreAdamantine,od={"oreAdamantine"})
 	@GenOreWorld(times=3,timeRate = 0.5f,size=6,minY = 10,maxY = 50)
 	public static final BlockOre oreAdamantine = new BlockOre(); // 精金矿石
 	@Reg(Keys.oreBlackrock)
@@ -43,7 +43,7 @@ public class Blocks
 	public static final BlockOre oreInertWitherium = new BlockOre(); // 惰性凋零矿
 	@Reg(Keys.oreWitherium)
 	public static final BlockOre oreWitherium = new BlockOre(); // 凋零矿
-	@Reg(Keys.oreRuby)
+	@Reg(value=Keys.oreRuby,od={"oreRuby"})
 	@GenOreWorld(times = 5,timeRate = 0.6f,size = 4,minY = 10,maxY = 60)
 	public static final BlockOre oreRuby = new BlockOre(Items.ruby,1,1,1,6,10); // 红宝石矿
 //	@Reg(Keys.oreShell)
@@ -60,7 +60,7 @@ public class Blocks
 	@Reg(Keys.oreIcelandSpar)
 	@GenOreWorld(times=4,size=6,minY = 40,maxY = 80)
 	public static final BlockOre oreIcelandSpar = new BlockOre(Items.icelandSpar,3,5,1,3,5); // 冰洲石矿
-	@Reg(Keys.oreSpinel)
+	@Reg(value=Keys.oreSpinel,od={"oreSpinel"})
 	@GenOreWorld(times=5,timeRate = 0.6f,size=4,minY=10,maxY=60)
 	public static final BlockOre oreSpinel = new BlockOre(Items.spinel,1,1,1,3,5);
 	@Reg(Keys.oreTalcum)

@@ -1,16 +1,21 @@
 # 变更日志 Changelog
 
-## 0.2.24.0 _2020-01-13 00:00_
+## 0.2.25.0 _2020-01-14 15:00_
+
+* 增加矿物词典支持 added ore-dictionary support
+* 增加部分合成表 added some recipes
+
+## 0.2.24.0 _2020-01-13 08:30_
 
 * 调整材料属性 adjusted attributions of materials
 
-## 0.2.23.0 _2020-01-11 00:00_
+## 0.2.23.0 _2020-01-11 14:30_
 
 * 增加部分合成表 added some recipes
 * 增加属性 added traits
   * 凋零 withering
 
-## 0.2.22.0 _2020-01-09 00:00_
+## 0.2.22.0 _2020-01-09 16:30_
 
 * 为部分方块和物品增加材质贴图 added textures to some blocks and items
 * 调整部分材料属性 adjusted attribution of some materials

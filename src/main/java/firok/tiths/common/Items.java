@@ -23,9 +23,9 @@ public class Items
 	public static final Item hardSpiderLeg = new Item(); // 坚硬蛛腿
 
 	// 原材料 - 各种
-	@Reg(nameCinnabar)
+	@Reg(value=nameCinnabar,od={"cinnabar","quicksilver","mercury"})
 	public static final Item cinnabar = new Item(); // 辰砂
-	@Reg(nameInkPowder)
+	@Reg(value=nameInkPowder,od={"dye","dyeBlack"})
 	public static final Item inkPowder = new Item(); // 墨粉
 	@Reg(nameBrokenIce)
 	public static final Item brokenIce = new Item(); // 碎冰
@@ -41,19 +41,19 @@ public class Items
 //	public static final Item phantomCrystal = new Item(); // 异象水晶
 //	@Reg(nameAntiGravCrystal)
 //	public static final Item antiGravCrystal = new Item(); // 反重力水晶
-	@Reg(nameBlackrock)
+	@Reg(value=nameBlackrock,od={"stone"})
 	public static final Item blackrock = new Item(); // 黑石
-	@Reg(nameRuby)
+	@Reg(value=nameRuby,od={"gem","gemRuby","ruby"})
 	public static final Item ruby = new Item(); // 红宝石
 	@Reg(nameCorundum)
 	public static final Item corundum = new Item(); // 钢玉
-	@Reg(nameNitre)
+	@Reg(value=nameNitre)
 	public static final Item nitre = new Item(); // 硝石
 	@Reg(namePyrophyllite)
 	public static final Item pyrophyllite = new Item(); // 叶蜡石
 	@Reg(nameIcelandSpar)
 	public static final Item icelandSpar = new Item(); // 冰洲石
-	@Reg(nameSpinel)
+	@Reg(value=nameSpinel,od={"gem","gemSpinel","spinel"})
 	public static final Item spinel = new Item(); // 尖晶石
 	@Reg(nameTalcum)
 	public static final Item talcum = new Item(); // 滑石
@@ -67,15 +67,15 @@ public class Items
 	public static final Item nuggetRoyalAlloy = new Item(); // 奢华合金粒
 	@Reg(Keys.nuggetImmersedSilver)
 	public static final Item nuggetImmersedSilver = new Item(); // 沉银粒
-	@Reg(Keys.nuggetMithril)
+	@Reg(value=Keys.nuggetMithril,od={"nuggetMithril"})
 	public static final Item nuggetMithril = new Item(); // 秘银粒
-	@Reg(Keys.nuggetAdamantine)
+	@Reg(value=Keys.nuggetAdamantine,od={"nuggetAdamantine"})
 	public static final Item nuggetAdamantine = new Item(); // 精金粒
 	@Reg(Keys.nuggetInertWitherium)
 	public static final Item nuggetInertWitherium =new Item(); // 惰性凋零粒
 	@Reg(Keys.nuggetWitherium)
 	public static final Item nuggetWitherium = new Item(); // 凋零粒
-	@Reg(Keys.nuggetTitanium)
+	@Reg(value=Keys.nuggetTitanium,od={"nuggetTitanium"})
 	public static final Item nuggetTitanium = new Item(); // 钛粒
 	@Reg(Keys.nuggetPolarium)
 	public static final Item nuggetPolarium = new Item(); // 勾陈粒
@@ -97,15 +97,15 @@ public class Items
 	public static final Item ingotRoyalAlloy = new Item(); // 奢华合金锭
 	@Reg(Keys.ingotImmersedSilver)
 	public static final Item ingotImmersedSilver = new Item(); // 沉银锭
-	@Reg(Keys.ingotMithril)
+	@Reg(value=Keys.ingotMithril,od={"ingotMithril"})
 	public static final Item ingotMithril = new Item(); // 秘银锭
-	@Reg(Keys.ingotAdamantine)
+	@Reg(value=Keys.ingotAdamantine,od={"ingotAdamantine"})
 	public static final Item ingotAdamantine = new Item(); // 精金锭
 	@Reg(Keys.ingotInertWitherium)
 	public static final Item ingotInertWitherium = new Item(); // 惰性凋零锭
 	@Reg(Keys.ingotWitherium)
 	public static final Item ingotWitherium = new Item(); // 凋零锭
-	@Reg(Keys.ingotTitanium)
+	@Reg(value=Keys.ingotTitanium,od={"ingotTitanium"})
 	public static final Item ingotTitanium = new Item(); // 钛锭
 	@Reg(Keys.ingotPolarium)
 	public static final Item ingotPolarium = new Item(); // 勾陈锭
@@ -137,9 +137,9 @@ public class Items
 	public static final Item hotFish = new ItemHotFood(6,0.5f,false); // 灼热鱼
 
 	// 唱片
-	@Reg(Keys.recordTinkersEfforts)
+	@Reg(value=Keys.recordTinkersEfforts,od={"record"})
 	public static final Item recordTinkersEfforts = new ItemRecord(Keys.recordTinkersEfforts,SoundEvents.recordTinkersEfforts);
-	@Reg(Keys.recordTinkersWill)
+	@Reg(value=Keys.recordTinkersWill,od={"record"})
 	public static final Item recordTinkersWill = new ItemRecord(Keys.recordTinkersWill,SoundEvents.recordTinkersWill);
 //	public static final Item recordTinkersImagination = new ItemRecord(Keys.recordTinkersImagination,null);
 //	public static final Item recordTinkersEnemy = new ItemRecord(Keys.recordTinkersEnemy,null;)
@@ -155,7 +155,7 @@ public class Items
 	public static final Item driller = new Item(); // 打孔器
 //	@Reg(nameEnderGem)
 	public static final Item enderGem = new Item(); // 末影之石
-	@Reg(namePhasingGem)
+	@Reg(value=namePhasingGem,od={"gem"})
 	public static final Item phasingGem = new Item(); // 相变之石
 
 	// 消耗品
