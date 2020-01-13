@@ -185,7 +185,7 @@ public class RegistryHandler
 
 					registry.register(itemBlock);
 				}
-				countItemBlock++;
+//				countItemBlock++;
 			}
 			catch (Exception e)
 			{

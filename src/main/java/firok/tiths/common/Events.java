@@ -113,11 +113,11 @@ public class Events
 	@SubscribeEvent
 	public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event)
 	{
+		World world=event.getWorld();
+		if(world.isRemote) return;
+
 		try
 		{
-			World world=event.getWorld();
-			if(world.isRemote) return;
-
 			// 石之相变
 			Entity entity=event.getEntity();
 			if(entity instanceof EntityPlayer)

@@ -13,8 +13,8 @@ import static slimeknights.tconstruct.tools.TinkerTraits.*;
 public class TCMaterials
 {
 	@Compo(nameImmersedSilver)
-	@CompoHead(durability = 350,miningspeed = 4.5f,attack = 6.5f,harvestLevel = 2)
-	@CompoHandle(modifier = 1.2f, durability = 85)
+	@CompoHead(durability = 365,miningspeed = 4.47f,attack = 6.6f,harvestLevel = 2)
+	@CompoHandle(modifier = 1.22f, durability = 87)
 	@CompoExtra(extraDurability = 250)
 	@CompoBow(drawSpeed = 1.15f,range = 0.95f,bonusDamage = 2.5f)
 	@CompoArrowShaft(modifier = 0.85f,bonusAmmo = 15)
@@ -24,9 +24,9 @@ public class TCMaterials
 			.addTrait(insatiable);
 
 	@Compo(nameMithril)
-	@CompoHead(durability = 590,miningspeed = 6.5f,attack = 4.2f,harvestLevel = 4)
+	@CompoHead(durability = 598,miningspeed = 6.74f,attack = 4.24f,harvestLevel = 4)
 	@CompoHandle(modifier = 0.8f, durability = -80)
-	@CompoExtra(extraDurability = 200)
+	@CompoExtra(extraDurability = 207)
 	@CompoBow(drawSpeed = 1.65f, range=1.05f, bonusDamage = 2)
 	@CompoArrowShaft(modifier = 1.65f,bonusAmmo = 25)
 	public static final Material mithril=new $Material(nameMithril, colorMithril)
@@ -35,8 +35,8 @@ public class TCMaterials
 			.addTrait(lightweight);
 
 	@Compo(nameAdamantine)
-	@CompoHead(durability = 680,miningspeed = 14.5f,attack = 5,harvestLevel = 4)
-	@CompoHandle(modifier = 0.75f, durability = -150)
+	@CompoHead(durability = 683,miningspeed = 14.43f,attack = 5.42f,harvestLevel = 4)
+	@CompoHandle(modifier = 0.79f, durability = -150)
 	@CompoExtra(extraDurability = 350)
 	@CompoBow(drawSpeed = 0.8f, range = 1.45f, bonusDamage = 3.5f)
 	@CompoArrowShaft(modifier = 1.55f,bonusAmmo = 35)
@@ -47,8 +47,8 @@ public class TCMaterials
 			.addTrait(stonebound);
 
 	@Compo(nameBlackrock)
-	@CompoHead(durability = 150,miningspeed = 5f,attack = 3.5f,harvestLevel = 1)
-	@CompoHandle(modifier = 0.8f, durability = -20)
+	@CompoHead(durability = 152,miningspeed = 4.36f,attack = 3.52f,harvestLevel = 1)
+	@CompoHandle(modifier = 0.82f, durability = -20)
 	@CompoExtra(extraDurability = 25)
 	public static final Material blackrock=new $Material(nameBlackrock, colorBlackrock)
 			.setIconItem(Items.blackrock)
@@ -68,7 +68,7 @@ public class TCMaterials
 			.addTrait(withering);
 
 	@Compo(nameWitherium)
-	@CompoHead(durability = 690,miningspeed = 4.8f,attack = 9.4f,harvestLevel = 3)
+	@CompoHead(durability = 691,miningspeed = 4.88f,attack = 9.46f,harvestLevel = 3)
 	@CompoHandle(modifier = 0.95f, durability = 140)
 	@CompoExtra(extraDurability = 40)
 	@CompoBow(drawSpeed = 1.25f,range = 1.1f,bonusDamage = 2.5f)
@@ -80,8 +80,8 @@ public class TCMaterials
 
 
 	@Compo(nameRoyalAlloy)
-	@CompoHead(durability = 136,miningspeed = 9f,attack = 2.8f,harvestLevel = 2)
-	@CompoHandle(modifier = 0.65f, durability = 45)
+	@CompoHead(durability = 136,miningspeed = 8.79f,attack = 2.83f,harvestLevel = 2)
+	@CompoHandle(modifier = 0.63f, durability = 45)
 	@CompoExtra(extraDurability = 45)
 	public static final Material royalAlloy=new $Material(nameRoyalAlloy, colorRoyalAlloy)
 			.setIconItem(Items.ingotRoyalAlloy)
@@ -90,9 +90,9 @@ public class TCMaterials
 			.addTrait(magnetic2);
 
 	@Compo(nameStellarium)
-	@CompoHead(durability = 210,miningspeed = 9.5f,attack = 8.5f,harvestLevel = 4)
+	@CompoHead(durability = 211,miningspeed = 9.55f,attack = 8.54f,harvestLevel = 4)
 	@CompoExtra(extraDurability = 0)
-	@CompoBow(drawSpeed = 0.9f,range = 0.7f,bonusDamage = 5)
+	@CompoBow(drawSpeed = 0.9f,range = 0.68f,bonusDamage = 5)
 	@CompoArrowShaft(modifier = 0.65f,bonusAmmo = 0)
 	public static final Material stellarium=new $Material(nameStellarium, colorStellarium)
 			.setIconItem(Items.ingotStellarium)
@@ -100,7 +100,7 @@ public class TCMaterials
 			.addTrait(radiant);
 
 	@Compo(nameStellariumObsidian)
-	@CompoHead(durability = 540,miningspeed = 6.5f,attack = 7.5f,harvestLevel = 4)
+	@CompoHead(durability = 540,miningspeed = 6.3f,attack = 7.4f,harvestLevel = 4)
 	@CompoHandle(modifier = 1,durability = -250)
 	@CompoExtra(extraDurability = 20)
 	@CompoArrowShaft(modifier = 0.55f,bonusAmmo = 10)
@@ -110,7 +110,7 @@ public class TCMaterials
 			.addTrait(radiant);
 
 	@Compo(nameHothium)
-	@CompoHead(durability = 760,miningspeed = 6.5f,attack = 7,harvestLevel = 4)
+	@CompoHead(durability = 760,miningspeed = 6.2f,attack = 7.6f,harvestLevel = 4)
 	@CompoHandle(modifier = 0.85f, durability = 145)
 	@CompoExtra(extraDurability = 45)
 	@CompoBow(drawSpeed = 0.95f,range=1.2f,bonusDamage = 3.5f)
@@ -120,7 +120,7 @@ public class TCMaterials
 			.addTrait(Traits.extremeFreezing);
 
 	@Compo(nameSpiderLeg)
-	@CompoHead(durability = 45,miningspeed = 0.5f,attack = 3,harvestLevel = 0)
+	@CompoHead(durability = 45,miningspeed = 0.55f,attack = 3.1f,harvestLevel = 0)
 	public static final Material spiderLeg=new $Material(nameSpiderLeg, colorSpiderLeg)
 			.setIconItem(Items.spiderLeg)
 			.addCraftableIngot(Items.spiderLeg)
@@ -145,7 +145,7 @@ public class TCMaterials
 //			.addTrait(TinkerTraits.poisonous, HEAD);
 
 	@Compo(nameConsolidatedGlass)
-	@CompoHead(durability = 60,miningspeed = 3.5f,attack = 5.5f,harvestLevel = 0)
+	@CompoHead(durability = 60,miningspeed = 3.8f,attack = 5.6f,harvestLevel = 0)
 	@CompoExtra(extraDurability = -50)
 	@CompoArrowShaft(modifier = 0.55f,bonusAmmo = 0)
 	public static final Material consolidatedGlass=new $Material(nameConsolidatedGlass, colorConsolidatedGlass)
@@ -155,7 +155,7 @@ public class TCMaterials
 			.addTrait(lightweight);
 
 	@Compo(nameCoagulatedBloodSand)
-	@CompoHead(durability = 45,miningspeed = 2.5f,attack = 2.8f,harvestLevel = 0)
+	@CompoHead(durability = 45,miningspeed = 2.43f,attack = 2.79f,harvestLevel = 0)
 	@CompoExtra(extraDurability = -95)
 	public static final Material coagulatedBloodSand=new $Material(nameCoagulatedBloodSand, colorCoagulatedBloodSand)
 			.setIconItem(Blocks.blockCoagulatedBloodSand)
@@ -163,8 +163,8 @@ public class TCMaterials
 			.addTrait(hemolytic);
 
 	@Compo(nameBrokenIce)
-	@CompoHead(durability = 20,miningspeed = 1,attack = 1.8f,harvestLevel = 0)
-	@CompoHandle(modifier = 0.6f, durability = 10)
+	@CompoHead(durability = 20,miningspeed = 1.6f,attack = 1.8f,harvestLevel = 0)
+	@CompoHandle(modifier = 0.54f, durability = 10)
 	@CompoExtra(extraDurability = 15)
 	public static final Material brokenIce=new $Material(nameBrokenIce,colorBrokenIce)
 			.setIconItem(Items.brokenIce)
@@ -173,16 +173,16 @@ public class TCMaterials
 			.addTrait(icy);
 
 	@Compo(nameShell)
-	@CompoHead(durability = 100,miningspeed = 0.5f,attack = 1,harvestLevel = 1)
-	@CompoHandle(modifier = 0.8f, durability = 100)
-	@CompoExtra(extraDurability = 100)
+	@CompoHead(durability = 64,miningspeed = 4.2f,attack = 5.7f,harvestLevel = 1)
+	@CompoHandle(modifier = 0.69f, durability = 121)
+	@CompoExtra(extraDurability = 23)
 	public static final Material shell=new $Material(nameShell,colorShell)
 			.setIconItem(Items.shell)
 			.addCraftableIngot(Items.shell)
 			.addTrait(sharp);
 
 	@Compo(nameRuby)
-	@CompoHead(durability = 1450,miningspeed = 7.5f,attack = 7,harvestLevel = 3)
+	@CompoHead(durability = 1440,miningspeed = 7.68f,attack = 7.4f,harvestLevel = 3)
 	@CompoHandle(modifier = 1.3f, durability = 50)
 	@CompoExtra(extraDurability = 350)
 	public static final Material ruby=new $Material(nameRuby,colorRuby)
@@ -192,7 +192,7 @@ public class TCMaterials
 			.addTrait(dense);
 
 	@Compo(nameCorundum)
-	@CompoHead(durability = 450,miningspeed = 6.5f,attack = 5.5f,harvestLevel = 3)
+	@CompoHead(durability = 450,miningspeed = 6.4f,attack = 5.1f,harvestLevel = 3)
 	@CompoHandle(modifier = 1.05f, durability = -50)
 	@CompoExtra(extraDurability = 200)
 	public static final Material corundum=new $Material(nameCorundum,colorCorundum)
@@ -202,7 +202,7 @@ public class TCMaterials
 			.addTrait(clustering);
 
 	@Compo(nameTitanium)
-	@CompoHead(durability = 612,miningspeed = 6.5f,attack = 3,harvestLevel = 2)
+	@CompoHead(durability = 612,miningspeed = 6.6f,attack = 3.6f,harvestLevel = 2)
 	@CompoHandle(modifier = 0.95f, durability = 180)
 	@CompoExtra(extraDurability = 150)
 	@CompoBow(drawSpeed = 0.45f,range = 1.7f,bonusDamage = 4)
@@ -257,7 +257,7 @@ public class TCMaterials
 			.addTrait(tasty);
 
 	@Compo(nameNitre)
-	@CompoHead(durability = 140,miningspeed = 2.0f,attack = 4.4f,harvestLevel = 1)
+	@CompoHead(durability = 140,miningspeed = 2.3f,attack = 4.4f,harvestLevel = 1)
 	@CompoHandle(modifier = 0.6f, durability = -60)
 	@CompoExtra(extraDurability = 40)
 	public static final Material nitre=new $Material(nameNitre,colorNitre)
@@ -294,7 +294,7 @@ public class TCMaterials
 			.addTrait(shaking);
 
 	@Compo(nameTalcum)
-	@CompoHead(durability = 140,miningspeed = 3.5f,attack = 3.5f,harvestLevel = 1)
+	@CompoHead(durability = 140,miningspeed = 3.1f,attack = 3.3f,harvestLevel = 1)
 	@CompoExtra(extraDurability = 190)
 	public static final Material talcum=new $Material(nameTalcum,colorTalcum)
 			.setIconItem(Items.talcum)
@@ -302,7 +302,7 @@ public class TCMaterials
 			.addTrait(writable);
 
 	@Compo(nameTourmaline)
-	@CompoHead(durability = 420,miningspeed = 6f,attack = 6.5f,harvestLevel = 2)
+	@CompoHead(durability = 420,miningspeed = 5.9f,attack = 6.5f,harvestLevel = 2)
 	@CompoHandle(modifier = 0.45f, durability = -250)
 	@CompoExtra(extraDurability = 180)
 	public static final Material tourmaline=new $Material(nameTourmaline,colorTourmaline)

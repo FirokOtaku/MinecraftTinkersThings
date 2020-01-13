@@ -143,9 +143,9 @@ item.tiths.gateway_gem.name=折跃之石
 
 ## record
 item.tiths.record_tinkers_efforts.name=唱片
-item.record.record_tinkers_efforts.desc=Record - Tinkers' Efforts
+item.record.record_tinkers_efforts.desc=Frankumjay - Tinkers' Efforts
 item.tiths.record_tinkers_will.name=唱片
-item.record.record_tinkers_will.desc=Record - Tinkers' Will
+item.record.record_tinkers_will.desc=Frankumjay - Tinkers' Will
 
 
 ## materials
@@ -242,3 +242,8 @@ modifier.withering.desc=§o你的生命在流逝§r\n使目标虚弱并凋零
 
 ## potions
 effect.heavy=沉重
+
+## damage sources
+death.attack.san=%1$s遇到了一点精神问题
+death.attack.birefringent=%1$s被折射成了碎片
+death.attack.pyroelectric=%1$s的心脏陷入了麻痹

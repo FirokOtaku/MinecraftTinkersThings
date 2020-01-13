@@ -16,7 +16,7 @@ import static firok.tiths.util.Predicates.canTick;
 public class ProjectileDashingStar extends EntityProjectileBase
 {
 	public float speed,damage;
-	public int ticks=80;
+	public int ticks=40;
 	public String shotter=null;
 
 	public ProjectileDashingStar(World world) {
@@ -61,6 +61,7 @@ public class ProjectileDashingStar extends EntityProjectileBase
 		if(entityHit instanceof EntityPlayer && ((EntityPlayer) entityHit).getDisplayNameString().equals(shotter))
 			return;
 
+		entityHit.hurtResistantTime=0;
 		entityHit.attackEntityFrom(DamageSource,damage);
 		playHitEntitySound();
 		setDead();
@@ -87,7 +88,7 @@ public class ProjectileDashingStar extends EntityProjectileBase
 		if(world.isRemote && canTick(world,2,0))
 		{
 			world.spawnParticle(EnumParticleTypes.FLAME,
-					posX,posY,posZ,
+					posX+rand.nextFloat()*0.1,posY+rand.nextFloat()*0.1,posZ+rand.nextFloat()*0.1,
 					0.0D, 0.0D, 0.0D);
 		}
 	}
@@ -98,7 +99,7 @@ public class ProjectileDashingStar extends EntityProjectileBase
 		super.readEntityFromNBT(tags);
 		this.speed=tags.getFloat("p_speed");
 		this.damage=tags.getFloat("p_damage");
-		this.ticks=tags.hasKey("p_ticks")?tags.getInteger("p_ticks"):80;
+		this.ticks=tags.hasKey("p_ticks")?tags.getInteger("p_ticks"):40;
 		this.shotter=tags.hasKey("p_shotter")?tags.getString("p_shotter"):null;
 	}
 

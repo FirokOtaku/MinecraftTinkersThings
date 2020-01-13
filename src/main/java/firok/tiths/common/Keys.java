@@ -247,6 +247,7 @@ public interface Keys
 
 	// 属性颜色
 	int colorTraitMaiming=Colors.Crimson;
+	int colorTraitWithering=Colors.DarkSlateGray;
 	int colorTraitInky=Colors.Black;
 	int colorTraitRetrospective=Colors.LightYellow;
 	int colorTraitIcy=Colors.DeepSkyBlue;

@@ -143,9 +143,9 @@ item.tiths.gateway_gem.name=Gateway Gem
 
 ## records
 item.tiths.record_tinkers_efforts.name=Music Disc
-item.record.record_tinkers_efforts.desc=Record - Tinkers' Efforts
+item.record.record_tinkers_efforts.desc=Frankumjay - Tinkers' Efforts
 item.tiths.record_tinkers_will.name=Music Disc
-item.record.record_tinkers_will.desc=Record - Tinkers' Will
+item.record.record_tinkers_will.desc=Frankumjay - Tinkers' Will
 
 ## materials
 material.immersed_silver.name=Immsered Silver
@@ -241,3 +241,8 @@ modifier.withering.desc=
 
 ## potions
 effect.heavy=Heavy
+
+## damage sources
+death.attack.san=%1$s has some mental problem
+death.attack.birefringent=%1$s was refracted into pieces
+death.attack.pyroelectric=Heart of %1$s was paralyzed

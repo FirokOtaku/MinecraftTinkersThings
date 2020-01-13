@@ -1,5 +1,9 @@
 # 变更日志 Changelog
 
+## 0.2.24.0 _2020-01-13 00:00_
+
+* 调整材料属性 adjusted attributions of materials
+
 ## 0.2.23.0 _2020-01-11 00:00_
 
 * 增加部分合成表 added some recipes
