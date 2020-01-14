@@ -24,6 +24,9 @@ tile.tiths.ore_halleium.name=哈雷矿
 tile.tiths.ore_altairium.name=河鼓矿
 tile.tiths.ore_hothium.name=霍斯矿
 tile.tiths.ore_tonium.name=钝金矿
+tile.tiths.ore_stellarium.name=恒星金属矿
+tile.tiths.ore_sun_stone.name=日光石矿
+tile.tiths.ore_moon_stone.name=月光石矿
 
 
 ## blocks
@@ -59,6 +62,8 @@ tile.tiths.block_blood_pumpkin.name=血南瓜
 tile.tiths.block_weeping_pumpkin.name=哭泣南瓜
 tile.tiths.block_consolidated_glass.name=强化玻璃
 tile.tiths.block_coagulated_blood_sand.name=凝固血沙
+tile.tiths.block_sun_stone.name=日光石块
+tile.tiths.block_moon_stone.name=月光石块
 
 ## fluids
 fluid.royal_alloy.name=熔融奢华合金
@@ -100,6 +105,8 @@ item.tiths.iceland_spar.name=冰洲石
 item.tiths.spinel.name=尖晶石
 item.tiths.talcum.name=滑石
 item.tiths.tourmaline.name=电气石
+item.tiths.sun_stone.name=日光石
+item.tiths.moon_stone.name=月光石
 ## nugget
 item.tiths.nugget_stellarium.name=恒星金属粒
 item.tiths.nugget_royal_alloy.name=奢华合金粒
@@ -182,6 +189,9 @@ material.tonium.name=钝金
 material.meteorolite.name=陨石
 material.stellarium_obsidian.name=恒星黑曜石
 material.coagulated_blood_sand.name=凝固血沙
+material.coal.name=煤炭
+material.sun_stone.name=日光石
+material.moon_stone.name=月光石
 
 ## modifiers
 modifier.maiming.name=致残
@@ -239,6 +249,12 @@ modifier.hemolytic.name=溶血
 modifier.hemolytic.desc=§o饮血§r\n造成伤害时恢复耐久
 modifier.withering.name=凋零
 modifier.withering.desc=§o你的生命在流逝§r\n使目标虚弱并凋零
+modifier.carbonizing.name=碳化
+modifier.carbonizing.desc=挖石头时有几率掉落煤炭
+modifier.sun_power.name=日之力量
+modifier.sun_power.desc=白天缓慢恢复耐久
+modifier.moon_power.name=月之力量
+modifier.moon_power.desc=夜晚缓慢恢复耐久
 
 ## potions
 effect.heavy=沉重

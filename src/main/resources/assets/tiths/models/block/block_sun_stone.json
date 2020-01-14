@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "tiths:blocks/block_sun_stone",
+    "down": "tiths:blocks/block_sun_stone",
+    "up": "tiths:blocks/block_sun_stone",
+    "north": "tiths:blocks/block_sun_stone",
+    "south": "tiths:blocks/block_sun_stone",
+    "west": "tiths:blocks/block_sun_stone",
+    "east": "tiths:blocks/block_sun_stone"
+  }
+}

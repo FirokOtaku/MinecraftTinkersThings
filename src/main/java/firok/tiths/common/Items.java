@@ -56,6 +56,10 @@ public class Items
 	public static final Item talcum = new Item(); // 滑石
 	@Reg(nameTourmaline)
 	public static final Item tourmaline = new Item(); // 电气石
+	@Reg(nameSunStone)
+	public static final Item sunStone = new Item(); // 日光石
+	@Reg(nameMoonStone)
+	public static final Item moonStone = new Item(); // 月光石
 
 	// 金属粒
 	@Reg(Keys.nuggetStellarium)

@@ -15,6 +15,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import slimeknights.tconstruct.library.utils.HarvestLevels;
 
 import java.util.Random;
 
@@ -60,6 +61,28 @@ public class BlockOre extends Block
 		setHardness(3.0F).setResistance(5.0F);
 	}
 
+	// 调整属性用的方法
+	public BlockOre setCommonOre()
+	{
+		setHardness(3.0F).setResistance(5.0F).setHarvestLevel("pickaxe", HarvestLevels.STONE);
+		return this;
+	}
+	public BlockOre setRareOre()
+	{
+		setHardness(4.5F).setResistance(15F).setHarvestLevel("pickaxe", HarvestLevels.IRON);
+		return this;
+	}
+	public BlockOre setVeryRareOre()
+	{
+		setHardness(6.0F).setResistance(30F).setHarvestLevel("pickaxe", HarvestLevels.OBSIDIAN);
+		return this;
+	}
+	public BlockOre setEpicOre()
+	{
+		setHardness(12.0F).setResistance(100F).setHarvestLevel("pickaxe", HarvestLevels.COBALT);
+		return this;
+	}
+
 	@Override
 	public Item getItemDropped(IBlockState blockState, Random rand, int meta) {
 		Item ret= itemDropped==null?Item.getItemFromBlock(this):itemDropped;
@@ -77,7 +100,6 @@ public class BlockOre extends Block
 				list.add(new ItemStack(item, 1, this.damageDropped(state)));
 			}
 		}
-
 	}
 
 	@Override

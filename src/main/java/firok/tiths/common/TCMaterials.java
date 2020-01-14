@@ -330,6 +330,35 @@ public class TCMaterials
 			.addCraftableIngot(Blocks.blockMeteorolite)
 			.addTrait(alien);
 
+	@Compo(nameCoal)
+	@CompoHead(durability = 50,miningspeed = 0.5f,attack = 1f,harvestLevel = 0)
+	@CompoHandle(modifier = 0.5f,durability = -100)
+	@CompoExtra(extraDurability = 150)
+	public static final Material coal=new $Material(nameCoal,colorCoal)
+			.setIconItem(net.minecraft.init.Items.COAL)
+			.addCraftableIngot(net.minecraft.init.Items.COAL)
+			.addTrait(carbonizing);
+
+	@Compo(nameSunStone)
+	@CompoHead(durability = 545,miningspeed = 5.75f,attack = 6.25f,harvestLevel = 3)
+	@CompoHandle(modifier = 1.1f, durability = 50)
+	@CompoExtra(extraDurability = 70)
+	@CompoBow(drawSpeed = 2.75f,range=1,bonusDamage = 4)
+	public static final Material sunStone=new $Material(nameSunStone,colorSunStone)
+			.setIconItem(Items.sunStone)
+			.addCraftableIngot(Items.sunStone)
+			.addTrait(sunPower);
+
+	@Compo(nameMoonStone)
+	@CompoHead(durability = 545,miningspeed = 5.75f,attack = 6.25f,harvestLevel = 3)
+	@CompoHandle(modifier = 1.1f, durability = 50)
+	@CompoExtra(extraDurability = 70)
+	@CompoBow(drawSpeed = 2.75f,range=1,bonusDamage = 4)
+	public static final Material moonStone=new $Material(nameMoonStone,colorMoonStone)
+			.setIconItem(Items.moonStone)
+			.addCraftableIngot(Items.moonStone)
+			.addTrait(moonPower);
+
 	public static Material cloud=new Material("cloud", Colors.Silver);
 	public static Material cloudStorm=new Material("cloud_storm", Colors.DarkBlue);
 	public static Material skyCrystal=new Material("sky_crystal", Colors.Aqua);

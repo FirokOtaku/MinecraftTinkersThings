@@ -74,6 +74,12 @@ public class Blocks
 	@Reg(Keys.oreRutile)
 	@GenOreWorld(times=4,timeRate = 0.5f,size = 6,minY = 30,maxY = 60)
 	public static final BlockOre oreTitanium = new BlockOre().setRareOre(); // 金红石矿
+	@Reg(Keys.oreSunStone)
+	@GenOreWorld(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
+	public static final BlockOre oreSunStone = new BlockOre(Items.sunStone,1,1,1,4,6).setRareOre(); // 日光石矿
+	@Reg(Keys.oreMoonStone)
+	@GenOreWorld(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
+	public static final BlockOre oreMoonStone = new BlockOre(Items.moonStone,1,1,1,4,6).setRareOre(); // 月光石矿
 
 	@Reg(Keys.orePolarium)
 //	@GenMeteoWorld
@@ -95,6 +101,9 @@ public class Blocks
 //	@GenMeteoWorld
 	@GenOreWorld(times=1,timeRate=0.08f,size=5,minY=40,maxY=180)
 	public static final BlockOre oreTonium = new BlockOre().setEpicOre(); // 钝金矿
+	@Reg(Keys.oreStellarium)
+	@GenOreWorld(times=1,timeRate=0.08f,size=5,minY=40,maxY=180)
+	public static final BlockOre oreStellarium = new BlockOre().setEpicOre(); // 恒星金属矿
 
 	// 矿块
 	@Reg(Keys.blockCinnabar)
@@ -146,7 +155,11 @@ public class Blocks
 	@Reg(Keys.blockTonium)
 	public static final Block blockTonium = new BlockCompressed(); // 钝金块
 	@Reg(Keys.blockCocoa)
-	public static final Block blockCocoa = new BlockCompressed(); // 可可块
+	public static final Block blockCocoa = new BlockCompressed(Material.ROCK); // 可可块
+	@Reg(Keys.blockSunStone)
+	public static final Block blockSunStone = new BlockCompressed(Material.ROCK); // 日光石块
+	@Reg(Keys.blockMoonStone)
+	public static final Block blockMoonStone = new BlockCompressed(Material.ROCK);// 月光石块
 
 	@Reg(Keys.blockStellariumObsidian)
 	public static final Block blockStellariumObsidian = new Block(Material.ROCK); // 恒星黑曜石

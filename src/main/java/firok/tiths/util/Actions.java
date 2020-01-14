@@ -6,12 +6,14 @@ import firok.tiths.entity.projectile.ProjectileDashingStar;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntitySilverfish;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.ResourceLocation;
@@ -26,6 +28,13 @@ import java.util.Random;
 public class Actions
 {
 	private Actions(){}
+
+	public static void CauseSpawnItem(Entity target, ItemStack stack)
+	{
+		World world=target.world;
+		EntityItem ei=new EntityItem(world,target.posX,target.posY,target.posZ,stack);
+		world.spawnEntity(ei);
+	}
 
 	// 生成一个宝藏屋
 	public static void CauseGeneratingTreasureRoom(World world, BlockPos pos)

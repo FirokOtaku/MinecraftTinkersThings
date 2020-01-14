@@ -1,5 +1,28 @@
 # 变更日志 Changelog
 
+> All Time Stamps: GMT+8
+
+## 0.2.27.0 _2020-01-14 13:30_
+
+* 增加部分合成表 added some recipes
+* 为部分方块和物品增加材质贴图 added textures to some blocks and items
+* 增加方块和物品 added blocks and items
+  * 恒星金属矿 stellarium ore block
+  * 日光石矿 sun stone ore block
+  * 日光石 sun stone item
+  * 日光石块 sun stone block
+  * 月光石矿 moon stone ore block
+  * 月光石 moon stone item
+  * 月光石块 moon stone block
+* 增加材料 added materials
+  * 煤炭 coal
+  * 日光石 sun stone
+  * 月光石 moon stone
+* 增加属性 added traits
+  * 碳化 carbonizing
+  * 日之力量 sun power
+  * 月之力量 moon power
+
 ## 0.2.26.0 _2020-01-14 09:30_
 
 * 修改矿物挖掘等级 adjusted harvest-levels of ores

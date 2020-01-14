@@ -7,6 +7,9 @@ import slimeknights.tconstruct.library.traits.AbstractTrait;
 public class Traits
 {
 	public static final AbstractTrait maiming=new TraitMaiming(); // 致残
+	public static final AbstractTrait carbonizing=new TraitCarbonizing(); // 碳化
+	public static final AbstractTrait sunPower=new TraitSunPower(); // 日之力量
+	public static final AbstractTrait moonPower=new TraitMoonPower(); // 月之力量
 	public static final AbstractTrait withering=new TraitWithering(); // 凋零
 	public static final AbstractTrait luxurious=new TraitLuxurious(); // 奢华
 	public static final AbstractTrait retrospective=new TraitRetrospective(); // 后知

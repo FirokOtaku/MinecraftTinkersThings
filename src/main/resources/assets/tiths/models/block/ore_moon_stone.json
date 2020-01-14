@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "tiths:blocks/ore_moon_stone",
+    "down": "tiths:blocks/ore_moon_stone",
+    "up": "tiths:blocks/ore_moon_stone",
+    "north": "tiths:blocks/ore_moon_stone",
+    "south": "tiths:blocks/ore_moon_stone",
+    "west": "tiths:blocks/ore_moon_stone",
+    "east": "tiths:blocks/ore_moon_stone"
+  }
+}

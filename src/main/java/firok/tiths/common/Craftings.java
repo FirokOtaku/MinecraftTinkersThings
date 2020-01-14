@@ -44,6 +44,12 @@ public class Craftings
 		createBinding(Blocks.oreAltairium,Blocks.blockAltairium,Fluids.moltenAltairium,Items.ingotAltairium,Items.nuggetAltairium);
 		createBinding(Blocks.oreHothium,Blocks.blockHothium,Fluids.moltenHothium,Items.ingotHothium,Items.nuggetHothium);
 		createBinding(null,Blocks.blockCocoa,Fluids.moltenCocoa,Items.ingotCocoa,Items.nuggetCocoa);
+
+		TinkerRegistry.registerMelting(
+				new ItemStack(net.minecraft.init.Items.DYE,1,EnumDyeColor.BROWN.getDyeDamage()),
+				Fluids.moltenCocoa,
+				Material.VALUE_Nugget
+		);
 	}
 
 	// 铸造盆合成表

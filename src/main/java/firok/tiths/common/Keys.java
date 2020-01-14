@@ -65,6 +65,9 @@ public interface Keys
 	String nameRoyalPaper="royal_paper";
 	String nameRoyalBook="royal_book";
 	String nameMeteorolite="meteorolite";
+	String nameCoal="coal";
+	String nameSunStone="sun_stone";
+	String nameMoonStone="moon_stone";
 
 	String nameHardener="hardener";
 	String namePolisher="polisher";
@@ -113,6 +116,8 @@ public interface Keys
 	String blockHalleium=prefBlock+nameHalleium;
 	String blockAltairium=prefBlock+nameAltairium;
 	String blockCocoa=prefBlock+nameCocoa;
+	String blockSunStone=prefBlock+nameSunStone;
+	String blockMoonStone=prefBlock+nameMoonStone;
 
 	String blockMeteorolite=prefBlock+nameMeteorolite;
 	String blockBloodPumpkin=prefBlock+nameBloodPumpkin;
@@ -127,6 +132,7 @@ public interface Keys
 	String oreCinnabar=prefOre+nameCinnabar;
 	String oreHothium=prefOre+nameHothium;
 	String oreTonium=prefOre+nameTonium;
+	String oreStellarium=prefOre+nameStellarium;
 	String oreInkPowder=prefOre+nameInkPowder;
 	String oreImmersedSilver=prefOre+nameImmersedSilver;
 	String oreMithril=prefOre+nameMithril;
@@ -134,7 +140,7 @@ public interface Keys
 	String oreBlackrock=prefOre+nameBlackrock;
 	String oreInertWitherium=prefOre+nameInertWitherium;
 	String oreWitherium=prefOre+nameWitherium;
-	String oreShell=prefOre+nameShell;
+//	String oreShell=prefOre+nameShell;
 	String oreRuby=prefOre+nameRuby;
 	String oreSpinel=prefOre+nameSpinel;
 	String oreTalcum=prefOre+nameTalcum;
@@ -147,6 +153,8 @@ public interface Keys
 	String orePolarium=prefOre+namePolarium;
 	String oreHalleium=prefOre+nameHalleium;
 	String oreAltairium=prefOre+nameAltairium;
+	String oreSunStone=prefOre+nameSunStone;
+	String oreMoonStone=prefOre+nameMoonStone;
 
 	// 矿锭
 	String ingotStellarium=prefIngot+nameStellarium;
@@ -182,6 +190,7 @@ public interface Keys
 
 	// 材料颜色
 	int colorMeteorolite=Colors.OliveDrab;
+	int colorCoal=0x2b2b2b;
 	int colorStellarium=Colors.Tomato;
 	int colorStellariumObsidian=Colors.FireBrick;
 	int colorHothium=0x041a51;
@@ -213,9 +222,14 @@ public interface Keys
 	int colorAltairium=0x3f1564;
 	int colorCocoa=Colors.Chocolate; //
 	int colorCoagulatedBloodSand=Colors.DarkRed;
+	int colorSunStone=0xff8557;
+	int colorMoonStone=0x5ad3dc;
 
 	// 属性
 	String nameTraitMaiming="maiming";
+	String nameTraitCarbonizing="carbonizing";
+	String nameTraitSunPower="sun_power";
+	String nameTraitMoonPower="moon_power";
 	String nameTraitWithering="withering";
 	String nameTraitInky="inky";
 	String nameTraitRetrospective="retrospective";
@@ -246,6 +260,9 @@ public interface Keys
 
 	// 属性颜色
 	int colorTraitMaiming=Colors.Crimson;
+	int colorTraitCarbonizing=0x2b2b2b;
+	int colorTraitSunPower=0xff8557;
+	int colorTraitMoonPower=0x5ad3dc;
 	int colorTraitWithering=Colors.DarkSlateGray;
 	int colorTraitInky=Colors.Black;
 	int colorTraitRetrospective=Colors.LightYellow;
