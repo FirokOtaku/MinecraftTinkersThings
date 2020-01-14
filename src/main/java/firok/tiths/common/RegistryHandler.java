@@ -14,6 +14,7 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.common.registry.*;
 import net.minecraftforge.fml.common.registry.VillagerRegistry.VillagerProfession;
+import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
 import slimeknights.tconstruct.library.MaterialIntegration;
 import slimeknights.tconstruct.library.TinkerRegistry;
@@ -154,6 +155,15 @@ public class RegistryHandler
 					item.setRegistryName(TinkersThings.MOD_ID,tn);
 
 					registry.register(item);
+
+					// 矿物词典注册
+					String[] ods=reg.od();
+					if(ods.length>0)
+					{
+						for(String od:ods) OreDictionary.registerOre(od,item);
+					}
+
+					item.setCreativeTab(TinkerRegistry.tabGeneral);
 				}
 //				countItem++;
 			}
@@ -184,6 +194,8 @@ public class RegistryHandler
 					itemBlock.setRegistryName(TinkersThings.MOD_ID,tn);
 
 					registry.register(itemBlock);
+
+					block.setCreativeTab(TinkerRegistry.tabWorld);
 				}
 //				countItemBlock++;
 			}
@@ -221,6 +233,13 @@ public class RegistryHandler
 					block.setRegistryName(TinkersThings.MOD_ID,tn);
 
 					registry.register(block);
+
+					// 矿物词典注册
+					String[] ods=reg.od();
+					if(ods.length>0)
+					{
+						for(String od:ods) OreDictionary.registerOre(od,block);
+					}
 				}
 //				countBlock++;
 			}

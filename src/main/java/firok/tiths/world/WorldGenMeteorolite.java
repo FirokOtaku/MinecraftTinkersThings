@@ -14,6 +14,7 @@ import static firok.tiths.util.Predicates.canTrigger;
 // 生成陨石
 public class WorldGenMeteorolite implements IChunkGen
 {
+	static IBlockState stateMeteo=Blocks.blockMeteorolite.getDefaultState();
 	public IBlockState stateOre;
 	public float rateOre;
 	public float rateChunk;
@@ -34,9 +35,8 @@ public class WorldGenMeteorolite implements IChunkGen
 	public static boolean generate(World world, BlockPos pos, IBlockState stateOre, float rateOre, float rateChunk)
 	{
 		Random rand=world.rand;
-		if(!canTrigger(rand,rateChunk)) return false;
+		if(!canTrigger(rand,0.04f)) return true;
 
-		IBlockState stateMeteo=Blocks.blockMeteorolite.getDefaultState();
 		for(int ox=-4;ox<=4;ox++)
 		{
 			for(int oy=-4;oy<=4;oy++)

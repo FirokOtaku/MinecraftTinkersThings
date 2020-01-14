@@ -1,12 +1,9 @@
 package firok.tiths.common;
 
-import firok.tiths.item.ItemDebug;
-import firok.tiths.item.ItemGatewayGem;
-import firok.tiths.item.ItemRecord;
+import firok.tiths.item.*;
 import firok.tiths.util.Reg;
 import net.minecraft.item.Item;
 
-import firok.tiths.item.ItemHotFood;
 import static firok.tiths.common.Keys.*;
 
 @SuppressWarnings("all")

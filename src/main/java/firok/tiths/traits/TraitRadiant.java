@@ -66,9 +66,9 @@ public class TraitRadiant extends AbstractTrait
 		if(isSelected && world.isRemote && canTick(world,4,1))
 		{
 			world.spawnParticle(EnumParticleTypes.FLAME,
-					entity.posX + random.nextDouble(),
+					entity.posX + random.nextDouble() -0.5,
 					entity.posY + random.nextDouble(),
-					entity.posZ + random.nextDouble(),
+					entity.posZ + random.nextDouble() -0.5,
 					0.0D, 0.0D, 0.0D);
 		}
 	}

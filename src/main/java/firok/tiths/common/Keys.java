@@ -190,7 +190,6 @@ public interface Keys
 	int colorSpiderLeg=0x3d0006;
 	int colorHardSpiderLeg=0x1a0003;
 	int colorCinnabar=Colors.Silver; //
-	int colorGlass=Colors.WhiteSmoke;
 	int colorConsolidatedGlass=Colors.LightBlue;
 	int colorBrokenIce=Colors.LightSkyBlue;
 	int colorImmersedSilver=0x1e4575;

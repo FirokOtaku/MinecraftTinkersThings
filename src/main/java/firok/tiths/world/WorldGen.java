@@ -1,5 +1,6 @@
 package firok.tiths.world;
 
+import firok.tiths.TinkersThings;
 import firok.tiths.common.Blocks;
 import firok.tiths.util.GenMeteoWorld;
 import firok.tiths.util.GenOreWorld;
@@ -14,6 +15,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import slimeknights.tconstruct.library.utils.HarvestLevels;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -48,11 +50,13 @@ public class WorldGen implements IWorldGenerator
 				if(genOreWorld!=null) // 主世界矿物
 				{
 					WorldGenMinableCustom gen=createOreGenWorld(block.getDefaultState(),genOreWorld);
+					TinkersThings.log("registered ore:"+block.getRegistryName());
 					gensWorld.add(gen);
 				}
 				if(genMeteoWorld!=null) // 主世界陨石
 				{
 					WorldGenMeteorolite gen=createMeteoGenWorld(block.getDefaultState(),genMeteoWorld);
+					TinkersThings.log("registered meteo:"+block.getRegistryName());
 					gensWorld.add(gen);
 				}
 			}

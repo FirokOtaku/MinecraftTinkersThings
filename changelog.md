@@ -1,6 +1,10 @@
 # 变更日志 Changelog
 
-## 0.2.25.0 _2020-01-14 15:00_
+## 0.2.26.0 _2020-01-14 09:30_
+
+* 修改矿物挖掘等级 adjusted harvest-levels of ores
+
+## 0.2.25.0 _2020-01-13 15:00_
 
 * 增加矿物词典支持 added ore-dictionary support
 * 增加部分合成表 added some recipes

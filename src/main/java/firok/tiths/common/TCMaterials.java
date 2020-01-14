@@ -80,7 +80,7 @@ public class TCMaterials
 
 
 	@Compo(nameRoyalAlloy)
-	@CompoHead(durability = 136,miningspeed = 8.79f,attack = 2.83f,harvestLevel = 2)
+	@CompoHead(durability = 436,miningspeed = 8.79f,attack = 2.83f,harvestLevel = 2)
 	@CompoHandle(modifier = 0.63f, durability = 45)
 	@CompoExtra(extraDurability = 45)
 	public static final Material royalAlloy=new $Material(nameRoyalAlloy, colorRoyalAlloy)

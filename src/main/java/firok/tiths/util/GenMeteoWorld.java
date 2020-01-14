@@ -15,7 +15,7 @@ public @interface GenMeteoWorld
 	/**
 	 * @return 每区块生成几率
 	 */
-	float rateChunk() default 0.0585f;
+	float rateChunk() default 0.0128f;
 
 	/**
 	 * @return 矿石组成几率
