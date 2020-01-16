@@ -1,9 +1,13 @@
 package firok.tiths.traits;
 
+import firok.tiths.TinkersThings;
 import firok.tiths.util.Actions;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
@@ -27,10 +31,10 @@ public class TraitTreasureDetecting extends AbstractTrait
 	public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective)
 	{
 		// super.afterBlockBreak(tool, world, state, pos, player, wasEffective);
-		if(!world.isRemote && pos.getY()<world.getHeight()/2 && isStone(state) && canTrigger(world,0.001f))
+		if(!world.isRemote && pos.getY()<world.getHeight()/2 && isStone(state) && canTrigger(world,0.01f))
 		{
 			Random rand=world.rand;
-			final int ox=20-rand.nextInt(40),oy=20-rand.nextInt(40),oz=20-rand.nextInt(40);
+			final int ox=15-rand.nextInt(30),oy=10-rand.nextInt(20),oz=15-rand.nextInt(30);
 			final int cx=pos.getX()+ox-4,cy=pos.getY()+oy-4,cz=pos.getZ()+oz-4;
 			boolean check=true;
 			FOR_FIND_NO_STONE:for(int tx=cx;tx<cx+7;tx++)
@@ -49,6 +53,8 @@ public class TraitTreasureDetecting extends AbstractTrait
 			}
 			if(check)
 			{
+				if(player instanceof EntityPlayer)
+					world.playSound((EntityPlayer) player, player.posX,player.posY,player.posZ, SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.MASTER,1.0f,1.0f);
 				Actions.CauseGeneratingTreasureRoom(world,new BlockPos(cx+1,cy+1,cz+1));
 			}
 		}

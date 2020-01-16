@@ -254,6 +254,10 @@ modifier.sun_power.name=Sun Power
 modifier.sun_power.desc=To slowly heal the tool at day time
 modifier.moon_power.name=Moon Power
 modifier.moon_power.desc=To slowly heal the tool at night time
+modifier.lionheart.name=Lionheart
+modifier.lionheart.desc=§oYou no longer fear§r\nEvery time you hit enemy, this will provide you a resistance effect
+modifier.terrifying.name=Terrifying
+modifier.terrifying.desc=§oHuh§r\nTo weaken your enemy
 
 ## potions
 effect.heavy=Heavy

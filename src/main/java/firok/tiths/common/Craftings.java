@@ -34,6 +34,7 @@ public class Craftings
 	{
 		createBinding(null,Blocks.blockStellarium,Fluids.moltenStellarium,Items.ingotStellarium,Items.nuggetStellarium);
 		createBinding(null,Blocks.blockRoyalAlloy,Fluids.moltenRoyalAlloy,Items.ingotRoyalAlloy,Items.nuggetRoyalAlloy);
+		createBinding(Blocks.oreImmersedSilver,Blocks.blockImmersedSilver,Fluids.moltenImmersedSilver,Items.ingotImmersedSilver,Items.nuggetImmersedSilver);
 		createBinding(Blocks.oreMithril,Blocks.blockMithril,Fluids.moltenMithril,Items.ingotMithril,Items.nuggetMithril);
 		createBinding(Blocks.oreAdamantine,Blocks.blockAdamantine,Fluids.moltenAdamantine,Items.ingotAdamantine,Items.nuggetAdamantine);
 		createBinding(Blocks.oreInertWitherium,Blocks.blockInertWitherium,Fluids.moltenInertWitherium,Items.ingotInertWitherium,Items.nuggetInertWitherium);
@@ -43,6 +44,7 @@ public class Craftings
 		createBinding(Blocks.oreHalleium,Blocks.blockHalleium,Fluids.moltenHalleium,Items.ingotHalleium,Items.nuggetHalleium);
 		createBinding(Blocks.oreAltairium,Blocks.blockAltairium,Fluids.moltenAltairium,Items.ingotAltairium,Items.nuggetAltairium);
 		createBinding(Blocks.oreHothium,Blocks.blockHothium,Fluids.moltenHothium,Items.ingotHothium,Items.nuggetHothium);
+		createBinding(Blocks.oreStellarium,Blocks.blockStellarium,Fluids.moltenStellarium,Items.ingotStellarium,Items.nuggetStellarium);
 		createBinding(null,Blocks.blockCocoa,Fluids.moltenCocoa,Items.ingotCocoa,Items.nuggetCocoa);
 
 		TinkerRegistry.registerMelting(

@@ -95,11 +95,11 @@ public class Events
 		}
 		else if(living instanceof EntityWitherSkeleton) // 凋灵骷髅
 		{
-			stack2drop=new ItemStack(Items.ingotInertWitherium,4+rand.nextInt(6));
+			stack2drop=new ItemStack(Items.ingotInertWitherium,2+rand.nextInt(4));
 		}
 		else if(living instanceof EntityWither) // 凋灵
 		{
-			stack2drop=new ItemStack(Items.ingotWitherium,6+rand.nextInt(8));
+			stack2drop=new ItemStack(Items.ingotWitherium,4+rand.nextInt(4));
 		}
 
 		// 掉落物品

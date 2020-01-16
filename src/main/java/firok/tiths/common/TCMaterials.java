@@ -76,6 +76,7 @@ public class TCMaterials
 	public static final Material witherium=new $Material(nameWitherium, colorWitherium)
 			.setIconItem(Items.ingotWitherium)
 			.setFluid(Fluids.moltenWitherium)
+			.addTrait(lionheart)
 			.addTrait(withering);
 
 
@@ -193,12 +194,13 @@ public class TCMaterials
 
 	@Compo(nameCorundum)
 	@CompoHead(durability = 450,miningspeed = 6.4f,attack = 5.1f,harvestLevel = 3)
-	@CompoHandle(modifier = 1.05f, durability = -50)
-	@CompoExtra(extraDurability = 200)
+	@CompoHandle(modifier = 1.00f, durability = -50)
+	@CompoExtra(extraDurability = 50)
 	public static final Material corundum=new $Material(nameCorundum,colorCorundum)
 			.setIconItem(Items.corundum)
 			.addCraftableIngot(Items.corundum)
 			.addTrait(maiming, HEAD)
+			.addTrait(clustering,HEAD)
 			.addTrait(clustering);
 
 	@Compo(nameTitanium)
@@ -350,7 +352,7 @@ public class TCMaterials
 			.addTrait(sunPower);
 
 	@Compo(nameMoonStone)
-	@CompoHead(durability = 545,miningspeed = 5.75f,attack = 6.25f,harvestLevel = 3)
+	@CompoHead(durability = 545,miningspeed = 6.25f,attack = 5.75f,harvestLevel = 3)
 	@CompoHandle(modifier = 1.1f, durability = 50)
 	@CompoExtra(extraDurability = 70)
 	@CompoBow(drawSpeed = 2.75f,range=1,bonusDamage = 4)

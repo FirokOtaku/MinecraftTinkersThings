@@ -257,6 +257,8 @@ public interface Keys
 	String nameTraitWrapping="wrapping";
 	String nameTraitPhantasmic="phantasmic";
 	String nameTraitHemolytic="Hemolytic";
+	String nameTraitLionheart="lionheart";
+	String nameTraitTerrifying="terrifying";
 
 	// 属性颜色
 	int colorTraitMaiming=Colors.Crimson;
@@ -290,6 +292,8 @@ public interface Keys
 	int colorTraitWrapping=0x2d3d1c;
 	int colorTraitPhantasmic=Colors.BlueViolet;
 	int colorTraitHemolytic=Colors.DarkRed;
+	int colorTraitLionheart=0x87143e;
+	int colorTraitTerrifying=0x2a135a;
 
 	// 状态效果颜色
 	int colorPotionHeavy=Colors.DarkSeaGreen;

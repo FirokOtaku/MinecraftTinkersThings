@@ -2,6 +2,14 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.28.0 _2020-01-16 11:00_
+
+* 增加部分合成表 added some recipes
+* 调整材料属性 adjusted attributions of materials
+* 增加属性 added traits
+  * 狮心 lionheart
+  * 恐吓 terrifying
+
 ## 0.2.27.0 _2020-01-14 13:30_
 
 * 增加部分合成表 added some recipes

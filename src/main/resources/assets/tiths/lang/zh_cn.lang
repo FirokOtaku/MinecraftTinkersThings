@@ -255,6 +255,10 @@ modifier.sun_power.name=日之力量
 modifier.sun_power.desc=白天缓慢恢复耐久
 modifier.moon_power.name=月之力量
 modifier.moon_power.desc=夜晚缓慢恢复耐久
+modifier.lionheart.name=狮心
+modifier.lionheart.desc=§o你不再恐惧§r\n每次命中敌人都会叠加一个抗性提升效果
+modifier.terrifying.name=恐惧
+modifier.terrifying.desc=§o哈!§r\n削弱你的敌人
 
 ## potions
 effect.heavy=沉重
