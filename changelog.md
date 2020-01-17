@@ -2,6 +2,10 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.29.1 _2020-01-18 00:00_
+
+* 错误修复 bug fixes
+
 ## 0.2.29.0 _2020-01-17 15:00_
 
 * 更新Forge依赖版本 update Forge dependency
@@ -11,8 +15,6 @@
 * 增加方块和物品 added blocks and items
   * 闪电熔岩 fulgurite block
   * 末影龙鳞 ender dragon squama item
-  * 龙钢锭 dragonium ingot item
-  * 龙钢块 dragonium block
   * 艾瑞希亚锭 irisia ingot item
   * 艾瑞希亚块 irisia block
 * 增加液体 added fluids
@@ -20,7 +22,6 @@
 * 增加材料 added materials
   * 闪电熔岩 fulgurite
   * 末影龙鳞 ender dragon squama
-  * 龙钢 dragonium
   * 艾瑞西亚 irisia
 * 增加属性 added traits
   * 雷鸣 thundering

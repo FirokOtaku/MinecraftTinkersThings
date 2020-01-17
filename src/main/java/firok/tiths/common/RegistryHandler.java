@@ -169,7 +169,7 @@ public class RegistryHandler
 			}
 			catch (Exception e)
 			{
-				e.printStackTrace();
+//				e.printStackTrace();
 			}
 		}
 		Field[] fieldsBlocks=Blocks.class.getDeclaredFields();
@@ -201,7 +201,7 @@ public class RegistryHandler
 			}
 			catch (Exception e)
 			{
-				e.printStackTrace();
+//				e.printStackTrace();
 			}
 		}
 
@@ -245,7 +245,7 @@ public class RegistryHandler
 			}
 			catch (Exception e)
 			{
-				e.printStackTrace();
+				// e.printStackTrace();
 			}
 		}
 //		TinkersThings.log(String.format("register blocks: block[%d/%d]",countBlock,fields.length) );
@@ -345,9 +345,9 @@ public class RegistryHandler
 						}
 					}
 
-					MaterialIntegration integration = new MaterialIntegration(material);
+					MaterialIntegration integration = new MaterialIntegration(material,material.getFluid());
 					integration.preInit();
-					TinkerRegistry.integrate(material);
+//					TinkerRegistry.integrate(material);
 
 //					MaterialIntegration integration = new MaterialIntegration(material, fluid, name);
 //					integration.preInit();
@@ -359,11 +359,12 @@ public class RegistryHandler
 //						TinkerRegistry.integrate(material);
 //					}
 					listIntegration.add(integration);
+					TinkerRegistry.addMaterial(material);
 				}
 			}
 			catch (Exception e)
 			{
-				e.printStackTrace();
+//				e.printStackTrace();
 			}
 		}
 	}

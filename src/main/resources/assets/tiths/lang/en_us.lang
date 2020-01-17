@@ -65,6 +65,7 @@ tile.tiths.block_coagulated_blood_sand.name=Coagulated Blood Sand
 tile.tiths.block_sun_stone.name=Block of Sun Stone
 tile.tiths.block_moon_stone.name=Block of Moon Stone
 tile.tiths.block_irisia.name=Block of Irisia
+tile.tiths.block_fulgurite.name=Fulgurite
 
 ## fluids
 fluid.royal_alloy.name=Molten Royal Alloy

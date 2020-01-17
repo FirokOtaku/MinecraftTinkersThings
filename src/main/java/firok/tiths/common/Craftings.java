@@ -219,7 +219,7 @@ public class Craftings
 			registerBasinCasting(
 					new CastingRecipe(
 							new ItemStack(block),
-							RecipeMatch.of(ItemStack.EMPTY),
+							null,
 							new FluidStack(fluid, Material.VALUE_Block),
 							false, false));
 		// 熔融液体 -> 锭

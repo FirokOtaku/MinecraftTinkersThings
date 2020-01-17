@@ -65,6 +65,7 @@ tile.tiths.block_coagulated_blood_sand.name=凝固血沙
 tile.tiths.block_sun_stone.name=日光石块
 tile.tiths.block_moon_stone.name=月光石块
 tile.tiths.block_irisia.name=艾瑞西亚块
+tile.tiths.block_fulgurite.name=闪电熔岩
 
 ## fluids
 fluid.royal_alloy.name=熔融奢华合金

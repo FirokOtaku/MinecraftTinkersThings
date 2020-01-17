@@ -50,13 +50,13 @@ public class WorldGen implements IWorldGenerator
 				if(genOreWorld!=null) // 主世界矿物
 				{
 					WorldGenMinableCustom gen=createOreGenWorld(block.getDefaultState(),genOreWorld);
-					TinkersThings.log("registered ore:"+block.getRegistryName());
+//					TinkersThings.log("registered ore:"+block.getRegistryName());
 					gensWorld.add(gen);
 				}
 				if(genMeteoWorld!=null) // 主世界陨石
 				{
 					WorldGenMeteorolite gen=createMeteoGenWorld(block.getDefaultState(),genMeteoWorld);
-					TinkersThings.log("registered meteo:"+block.getRegistryName());
+//					TinkersThings.log("registered meteo:"+block.getRegistryName());
 					gensWorld.add(gen);
 				}
 			}
