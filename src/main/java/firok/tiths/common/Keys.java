@@ -26,6 +26,7 @@ public interface Keys
 	String nameCinnabar="cinnabar";
 	String nameSpiderLeg="spider_leg";
 	String nameHardSpiderLeg="hard_spider_leg";
+	String nameEnderDragonSquama="ender_dragon_squama";
 	String nameSkyCrystal="sky_crystal";
 	String nameStormCrystal="storm_crystal";
 	String namePhantomCrystal="phantom_crystal";
@@ -64,7 +65,10 @@ public interface Keys
 	String nameGatewayGem="gateway_gem";
 	String nameRoyalPaper="royal_paper";
 	String nameRoyalBook="royal_book";
+	String nameAncientBookIrisia="ancient_book_irisia";
 	String nameMeteorolite="meteorolite";
+	String nameFulgurite="fulgurite";
+	String nameIrisia="irisia";
 	String nameCoal="coal";
 	String nameSunStone="sun_stone";
 	String nameMoonStone="moon_stone";
@@ -92,6 +96,7 @@ public interface Keys
 	// 矿块
 	String blockStellarium=prefBlock+nameStellarium;
 	String blockRoyalAlloy=prefBlock+nameRoyalAlloy;
+	String blockIrisia=prefBlock+nameIrisia;
 	String blockHothium=prefBlock+nameHothium;
 	String blockTonium=prefBlock+nameTonium;
 	String blockInkPowder=prefBlock+nameInkPowder;
@@ -119,6 +124,7 @@ public interface Keys
 	String blockSunStone=prefBlock+nameSunStone;
 	String blockMoonStone=prefBlock+nameMoonStone;
 
+	String blockFulgurite=prefBlock+nameFulgurite;
 	String blockMeteorolite=prefBlock+nameMeteorolite;
 	String blockBloodPumpkin=prefBlock+nameBloodPumpkin;
 	String blockWeepingPumpkin=prefBlock+nameWeepingPumpkin;
@@ -171,6 +177,7 @@ public interface Keys
 	String ingotHalleium=prefIngot+nameHalleium;
 	String ingotAltairium=prefIngot+nameAltairium;
 	String ingotCocoa=prefIngot+nameCocoa;
+	String ingotIrisia=prefIngot+nameIrisia;
 
 	// 矿粒
 	String nuggetStellarium=prefNugget+nameStellarium;
@@ -187,8 +194,12 @@ public interface Keys
 	String nuggetHalleium=prefNugget+nameHalleium;
 	String nuggetAltairium=prefNugget+nameAltairium;
 	String nuggetCocoa=prefNugget+nameCocoa;
+	String nuggetIrisia=prefNugget+nameIrisia;
 
 	// 材料颜色
+	int colorEnderDragonSquama=0x180c33;
+	int colorFulgurite=0x5c2999;
+	int colorIrisia=0xf1ff99;
 	int colorMeteorolite=Colors.OliveDrab;
 	int colorCoal=0x2b2b2b;
 	int colorStellarium=Colors.Tomato;
@@ -259,6 +270,7 @@ public interface Keys
 	String nameTraitHemolytic="Hemolytic";
 	String nameTraitLionheart="lionheart";
 	String nameTraitTerrifying="terrifying";
+	String nameTraitThundering="thundering";
 
 	// 属性颜色
 	int colorTraitMaiming=Colors.Crimson;
@@ -294,6 +306,7 @@ public interface Keys
 	int colorTraitHemolytic=Colors.DarkRed;
 	int colorTraitLionheart=0x87143e;
 	int colorTraitTerrifying=0x2a135a;
+	int colorTraitThundering=0x2b5c99;
 
 	// 状态效果颜色
 	int colorPotionHeavy=Colors.DarkSeaGreen;

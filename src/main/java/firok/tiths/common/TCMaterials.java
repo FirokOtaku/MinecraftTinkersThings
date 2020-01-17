@@ -361,6 +361,39 @@ public class TCMaterials
 			.addCraftableIngot(Items.moonStone)
 			.addTrait(moonPower);
 
+	@Compo(nameEnderDragonSquama)
+	@CompoHead(durability = 675,miningspeed = 5.8f, attack = 6.7f,harvestLevel = 2)
+	@CompoHandle(modifier = 1.05f, durability = 40)
+	@CompoExtra(extraDurability = 120)
+	@CompoFletching(accuracy = 0.8f,modifier = 3.5f)
+	public static final Material enderDragonSquama=new $Material(nameEnderDragonSquama,colorEnderDragonSquama)
+			.setIconItem(Items.enderDragonSquama)
+			.addCraftableItem(Items.enderDragonSquama,1,Material.VALUE_Ingot * 8)
+			.addTrait(enderference)
+			.addTrait(dense)
+			.addTrait(lionheart,HEAD)
+			.addTrait(enderference,HEAD);
+
+	@Compo(nameFulgurite)
+	@CompoHead(durability = 880,miningspeed = 5.36f, attack = 7.5f, harvestLevel = 4)
+	@CompoExtra(extraDurability = 50)
+	public static final Material fulgurite=new $Material(nameFulgurite,colorFulgurite)
+			.setIconItem(Blocks.blockFulgurite)
+			.addCraftableIngot(Blocks.blockFulgurite)
+			.addTrait(thundering);
+
+	@Compo(nameIrisia)
+	@CompoHead(durability = 130,miningspeed = 7.7f,attack = 9.3f,harvestLevel = 4)
+	@CompoHandle(modifier = 0.75f,durability = 0)
+	@CompoExtra(extraDurability = 20)
+	public static final Material irisia=new $Material(nameIrisia,colorIrisia)
+			.setIconItem(Items.ingotIrisia)
+			.addCraftableIngot(Items.ingotIrisia)
+			.addTrait(lightweight);
+
+//	@Compo(nameFlesh)
+//	public static final Material flesh=new $Material(nameFlesh,colorFlesh);
+
 	public static Material cloud=new Material("cloud", Colors.Silver);
 	public static Material cloudStorm=new Material("cloud_storm", Colors.DarkBlue);
 	public static Material skyCrystal=new Material("sky_crystal", Colors.Aqua);

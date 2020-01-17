@@ -64,6 +64,7 @@ tile.tiths.block_consolidated_glass.name=强化玻璃
 tile.tiths.block_coagulated_blood_sand.name=凝固血沙
 tile.tiths.block_sun_stone.name=日光石块
 tile.tiths.block_moon_stone.name=月光石块
+tile.tiths.block_irisia.name=艾瑞西亚块
 
 ## fluids
 fluid.royal_alloy.name=熔融奢华合金
@@ -81,6 +82,7 @@ fluid.altairium.name=熔融河鼓
 fluid.cocoa.name=熔融可可
 fluid.titanium.name=熔融钛
 fluid.tonium.name=熔融钝金
+fluid.irisia.name=熔融艾瑞西亚
 
 ## items
 item.tiths.hot_bread.name=炽热面包
@@ -122,6 +124,7 @@ item.tiths.nugget_altairium.name=河鼓粒
 item.tiths.nugget_hothium.name=霍斯粒
 item.tiths.nugget_tonium.name=钝金粒
 item.tiths.nugget_cocoa.name=可可粒
+item.tiths.nugget_irisia.name=艾瑞西亚粒
 ## ingot
 item.tiths.ingot_stellarium.name=恒星金属锭
 item.tiths.ingot_royal_alloy.name=奢华合金锭
@@ -137,6 +140,7 @@ item.tiths.ingot_altairium.name=河鼓锭
 item.tiths.ingot_hothium.name=霍斯锭
 item.tiths.ingot_tonium.name=钝金锭
 item.tiths.ingot_cocoa.name=可可锭
+item.tiths.ingot_irisia.name=艾瑞西亚锭
 
 ## other item
 item.tiths.hardener.name=硬化剂
@@ -147,6 +151,7 @@ item.tiths.phasing_gem.name=相变之石
 
 ## consumables
 item.tiths.gateway_gem.name=折跃之石
+iten.tiths.ancient_book_irisia.name=艾瑞西亚古籍
 
 ## record
 item.tiths.record_tinkers_efforts.name=唱片
@@ -192,6 +197,9 @@ material.coagulated_blood_sand.name=凝固血沙
 material.coal.name=煤炭
 material.sun_stone.name=日光石
 material.moon_stone.name=月光石
+material.ender_dragon_squama.name=末影龙鳞
+material.fulgurite.name=闪电熔岩
+material.irisia.name=艾瑞西亚
 
 ## modifiers
 modifier.maiming.name=致残
@@ -259,6 +267,8 @@ modifier.lionheart.name=狮心
 modifier.lionheart.desc=§o你不再恐惧§r\n每次命中敌人都会叠加一个抗性提升效果
 modifier.terrifying.name=恐惧
 modifier.terrifying.desc=§o哈!§r\n削弱你的敌人
+modifier.thundering.name=雷鸣
+modifier.thundering.desc=§o轰!§r\n对敌人造成额外伤害且有几率击退周围的怪物
 
 ## potions
 effect.heavy=沉重

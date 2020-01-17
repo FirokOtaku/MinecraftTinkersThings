@@ -9,6 +9,7 @@ public class Traits
 	public static final AbstractTrait maiming=new TraitMaiming(); // 致残
 	public static final AbstractTrait lionheart=new TraitLionheart(); // 狮心
 	public static final AbstractTrait terrifying=new TraitTerrifying(); // 恐吓
+	public static final AbstractTrait thundering=new TraitThundering(); // 雷鸣
 	public static final AbstractTrait carbonizing=new TraitCarbonizing(); // 碳化
 	public static final AbstractTrait sunPower=new TraitSunPower(); // 日之力量
 	public static final AbstractTrait moonPower=new TraitMoonPower(); // 月之力量

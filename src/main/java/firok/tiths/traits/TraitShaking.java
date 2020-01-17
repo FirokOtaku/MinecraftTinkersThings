@@ -29,7 +29,8 @@ public class TraitShaking extends AbstractTrait
 		if(wasHit && player.isServerWorld())
 		{
 			target.motionX = target.motionZ = 0;
-			target.motionY = 0.4;
+			target.motionY = ((target.motionY<=0)?(0.4):(target.motionY+0.4));
+			target.isAirBorne=true;
 			target.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS,30,2));
 			target.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS,30,2));
 		}

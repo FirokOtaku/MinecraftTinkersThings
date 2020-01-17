@@ -18,6 +18,8 @@ public class Items
 	public static final Item spiderLeg = new Item(); // 蛛腿
 	@Reg(nameHardSpiderLeg)
 	public static final Item hardSpiderLeg = new Item(); // 坚硬蛛腿
+	@Reg(nameEnderDragonSquama)
+	public static final Item enderDragonSquama = new Item(); // 末影龙鳞
 
 	// 原材料 - 各种
 	@Reg(value=nameCinnabar,od={"cinnabar","quicksilver","mercury"})
@@ -90,6 +92,8 @@ public class Items
 	public static final Item nuggetTonium = new Item(); // 钝金粒
 	@Reg(Keys.nuggetCocoa)
 	public static final Item nuggetCocoa = new Item(); // 可可粒
+	@Reg(Keys.nuggetIrisia)
+	public static final Item nuggetIrisia = new Item(); // 艾瑞西亚锭
 
 	// 原材料 - 金属锭
 	@Reg(Keys.ingotStellarium)
@@ -120,6 +124,8 @@ public class Items
 	public static final Item ingotTonium = new Item(); // 钝金锭
 	@Reg(Keys.ingotCocoa)
 	public static final Item ingotCocoa = new Item(); // 可可锭
+	@Reg(Keys.ingotIrisia)
+	public static final Item ingotIrisia = new Item(); // 艾瑞西亚锭
 
 	// 单纯的原材料
 //	@Reg(nameRoyalPaper)
@@ -162,6 +168,8 @@ public class Items
 	// 消耗品
 //	@Reg(nameGatewayGem)
 	public static final Item gatewayGem = new ItemGatewayGem(4); // 折跃之石
+	@Reg(nameAncientBookIrisia)
+	public static final Item ancientBookIrisia = new ItemXP(true,20); // 艾瑞西亚古籍
 
 	public static void trigger(){}
 }

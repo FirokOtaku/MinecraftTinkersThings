@@ -64,6 +64,7 @@ tile.tiths.block_consolidated_glass.name=Consolidated Glass
 tile.tiths.block_coagulated_blood_sand.name=Coagulated Blood Sand
 tile.tiths.block_sun_stone.name=Block of Sun Stone
 tile.tiths.block_moon_stone.name=Block of Moon Stone
+tile.tiths.block_irisia.name=Block of Irisia
 
 ## fluids
 fluid.royal_alloy.name=Molten Royal Alloy
@@ -81,6 +82,7 @@ fluid.altairium.name=Molten Altairium
 fluid.cocoa.name=Molten Cocoa
 fluid.titanium.name=Molten Titanium
 fluid.tonium.name=Molten Tonium
+fluid.irisia.name=Molten Irisia
 
 ## items
 item.tiths.hot_bread.name=Hot Bread
@@ -122,6 +124,7 @@ item.tiths.nugget_altairium.name=Altairium Nugget
 item.tiths.nugget_hothium.name=Hothium Nugget
 item.tiths.nugget_tonium.name=Tonium Nugget
 item.tiths.nugget_cocoa.name=Cocoa Nugget
+item.tiths.nugget_irisia.name=Irisia Nugget
 ## ingot
 item.tiths.ingot_stellarium.name=Stellarium Ingot
 item.tiths.ingot_royal_alloy.name=Royal Alloy Ingot
@@ -137,6 +140,7 @@ item.tiths.ingot_altairium.name=Altairium Ingot
 item.tiths.ingot_hothium.name=Hothium Ingot
 item.tiths.ingot_tonium.name=Tonium Ingot
 item.tiths.ingot_cocoa.name=Cocoa Ingot
+item.tiths.ingot_irisia.name=Irisia Ingot
 
 ## other item
 item.tiths.hardener.name=Hardener
@@ -147,6 +151,7 @@ item.tiths.phasing_gem.name=Phasing Gem
 
 ## consumables
 item.tiths.gateway_gem.name=Gateway Gem
+iten.tiths.ancient_book_irisia.name=Ancient Book of Irisia
 
 ## records
 item.tiths.record_tinkers_efforts.name=Music Disc
@@ -191,6 +196,9 @@ material.coagulated_blood_sand.name=Coagulated Blood Sand
 material.coal.name=Coal
 material.sun_stone.name=Sun Stone
 material.moon_stone.name=Moon Stone
+material.ender_dragon_squama.name=Squama of Ender Dragon
+material.fulgurite.name=fulgurite
+material.irisia.name=Irisia
 
 ## modifiers
 modifier.maiming.name=Maiming
@@ -258,6 +266,8 @@ modifier.lionheart.name=Lionheart
 modifier.lionheart.desc=§oYou no longer fear§r\nEvery time you hit enemy, this will provide you a resistance effect
 modifier.terrifying.name=Terrifying
 modifier.terrifying.desc=§oHuh§r\nTo weaken your enemy
+modifier.thundering.name=Thundering
+modifier.thundering.desc=
 
 ## potions
 effect.heavy=Heavy

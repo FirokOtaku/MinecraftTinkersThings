@@ -18,6 +18,12 @@ public class Alloys
 				new FluidStack(TinkerFluids.iron,VALUE_Ingot*2),
 				new FluidStack(TinkerFluids.gold,VALUE_Ingot)
 				);
+		// 艾瑞西亚
+		registerAlloy(
+				new FluidStack(Fluids.moltenIrisia, VALUE_Ingot * 2),
+				new FluidStack(Fluids.moltenStellarium,VALUE_Ingot),
+				new FluidStack(Fluids.moltenHothium,VALUE_Ingot)
+		);
 	}
 
 	private static void registerAlloy(FluidStack output,FluidStack...inputs)

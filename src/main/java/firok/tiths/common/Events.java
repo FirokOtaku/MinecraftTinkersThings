@@ -2,9 +2,14 @@ package firok.tiths.common;
 
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockLeaves;
+import net.minecraft.block.BlockLog;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.entity.boss.EntityWither;
+import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityCaveSpider;
 import net.minecraft.entity.monster.EntitySpider;
@@ -20,6 +25,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -101,6 +107,10 @@ public class Events
 		{
 			stack2drop=new ItemStack(Items.ingotWitherium,4+rand.nextInt(4));
 		}
+		else if(living instanceof EntityDragon) // 末影龙
+		{
+			stack2drop=new ItemStack(Items.enderDragonSquama);
+		}
 
 		// 掉落物品
 		if(stack2drop!=null)
@@ -143,6 +153,54 @@ public class Events
 		catch (Exception e)
 		{
 			e.printStackTrace();
+		}
+	}
+
+	@SubscribeEvent
+	public static void onEntityJoin(net.minecraftforge.event.entity.EntityJoinWorldEvent event)
+	{
+		World world=event.getWorld();
+		Random rand=world.rand;
+		if(world.isRemote) return; // 只在服务端进行
+
+		Entity en=event.getEntity();
+		if(en instanceof EntityLightningBolt)
+		{
+			BlockPos pos=en.getPosition(); // 中心位置
+
+			IBlockState stateFulgurite=firok.tiths.common.Blocks.blockFulgurite.getDefaultState(); // 闪电熔岩
+
+			final short depth=(short)(-5-rand.nextInt(4));
+			for(int ox=-1;ox<=1;ox++)
+			{
+				for(int oz=-1;oz<=1;oz++)
+				{
+					for(int oy=0;oy>=depth;oy--)
+					{
+						BlockPos posTemp=pos.add(ox,oy,oz);
+						Block block=world.getBlockState(posTemp).getBlock();
+
+
+						if(ox==oz && ox==0 && oy!=depth)
+						{
+							if(block==Blocks.STONE ||
+								block==Blocks.COBBLESTONE ||
+								block==Blocks.DIRT ||
+								block==Blocks.SAND ||
+								block instanceof BlockFluidBase ||
+								block instanceof BlockLeaves ||
+								block instanceof BlockLog
+							)
+								world.setBlockToAir(posTemp);
+						}
+						else
+						{
+							if(block==Blocks.STONE || block==Blocks.COBBLESTONE)
+								world.setBlockState(posTemp,stateFulgurite);
+						}
+					}
+				}
+			}
 		}
 	}
 }

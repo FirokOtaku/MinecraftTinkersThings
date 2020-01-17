@@ -20,6 +20,8 @@ public class Blocks
 //	@GenMeteoWorld
 	@GenOreWorld(times=1,timeRate=0.12f,size=7,minY=40,maxY=180)
 	public static final BlockOre blockMeteorolite = new BlockOre().setEpicOre(); // 陨石
+	@Reg(Keys.blockFulgurite)
+	public static final Block blockFulgurite = new BlockOre().setVeryRareOre(); // 闪电熔岩
 
 	// 矿石
 	@Reg(value=Keys.oreCinnabar,od={"oreCinnabar","oreQuicksilver","oreMercury"})
@@ -114,6 +116,8 @@ public class Blocks
 	public static final Block blockStellarium = new BlockCompressed(); // 恒星金属块
 	@Reg(Keys.blockRoyalAlloy)
 	public static final Block blockRoyalAlloy = new BlockCompressed(); // 奢华合金块
+	@Reg(Keys.blockIrisia)
+	public static final Block blockIrisia = new BlockCompressed(); // 艾瑞希亚块
 	@Reg(Keys.blockImmersedSilver)
 	public static final Block blockImmersedSilver = new BlockCompressed(); // 沉银块
 	@Reg(Keys.blockMithril)

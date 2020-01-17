@@ -109,14 +109,12 @@ public class BlockOre extends Block
 
 	@Override
 	public int quantityDropped(Random rand) {
-		int ret= itemDropped==null?1:minDropped+rand.nextInt(maxDropped-minDropped);
+		int ret= itemDropped==null?1:(minDropped+(maxDropped>minDropped?rand.nextInt(maxDropped-minDropped):0));
 		return ret;
 	}
 
 	@Override
 	public int quantityDroppedWithBonus(int luck, Random rand) {
-
-		Object rand2=rand;
 		return itemDropped!=null&&luck>0&&luckBonus>0?
 				this.quantityDropped(rand)+rand.nextInt(luck*luckBonus):
 				this.quantityDropped(rand);

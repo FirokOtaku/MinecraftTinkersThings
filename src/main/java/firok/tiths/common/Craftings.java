@@ -46,6 +46,7 @@ public class Craftings
 		createBinding(Blocks.oreHothium,Blocks.blockHothium,Fluids.moltenHothium,Items.ingotHothium,Items.nuggetHothium);
 		createBinding(Blocks.oreStellarium,Blocks.blockStellarium,Fluids.moltenStellarium,Items.ingotStellarium,Items.nuggetStellarium);
 		createBinding(null,Blocks.blockCocoa,Fluids.moltenCocoa,Items.ingotCocoa,Items.nuggetCocoa);
+		createBinding(null,Blocks.blockIrisia,Fluids.moltenIrisia,Items.ingotIrisia,Items.nuggetIrisia);
 
 		TinkerRegistry.registerMelting(
 				new ItemStack(net.minecraft.init.Items.DYE,1,EnumDyeColor.BROWN.getDyeDamage()),

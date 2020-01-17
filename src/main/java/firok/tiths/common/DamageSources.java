@@ -13,4 +13,6 @@ public class DamageSources
 	public static final DamageSource BirefringentDamage=new DamageSource("birefringent");
 	// 热释电伤害
 	public static final DamageSource PyroelectricDamage=new DamageSource("pyroelectric");
+	public static final DamageSource ThunderingDamage=new DamageSource("thundering")
+			.setDamageBypassesArmor();
 }
