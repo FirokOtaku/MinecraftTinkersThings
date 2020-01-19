@@ -372,6 +372,17 @@ public class TCMaterials
 			.addItemAsIngot(Items.ingotIrisia)
 			.addTrait(lightweight);
 
+	@Compo(nameTreeRoot)
+	@CompoHead(durability = 165,miningspeed = 3.6f,attack = 3.2f,harvestLevel = 1)
+	@CompoHandle(modifier = 0.9f,durability = 40)
+	@CompoExtra(extraDurability = 25)
+	@CompoBow(drawSpeed = 0.8f,range=1.15f,bonusDamage = 0.5f)
+	@CompoArrowShaft(modifier = 1.2f,bonusAmmo = 25)
+	public static final Material treeRoot=new $Material(nameTreeRoot,colorTreeRoot)
+			.addItemAsIngot(Items.treeRoot)
+			.addTrait(ecological)
+			.addTrait(dense);
+
 //	@Compo(nameFlesh)
 //	public static final Material flesh=new $Material(nameFlesh,colorFlesh);
 

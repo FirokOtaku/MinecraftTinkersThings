@@ -65,6 +65,7 @@ public class WorldGen implements IWorldGenerator
 				e.printStackTrace();
 			}
 		}
+		gensWorld.add(new WorldGenTreeRoot(Blocks.oreTreeRoot.getDefaultState(),4,0.3f));
 
 		// 陨石
 

@@ -27,6 +27,7 @@ tile.tiths.ore_tonium.name=钝金矿
 tile.tiths.ore_stellarium.name=恒星金属矿
 tile.tiths.ore_sun_stone.name=日光石矿
 tile.tiths.ore_moon_stone.name=月光石矿
+tile.tiths.ore_tree_root.name=野生树根
 
 
 ## blocks
@@ -110,6 +111,7 @@ item.tiths.talcum.name=滑石
 item.tiths.tourmaline.name=电气石
 item.tiths.sun_stone.name=日光石
 item.tiths.moon_stone.name=月光石
+item.tiths.tree_root.name=树根
 ## nugget
 item.tiths.nugget_stellarium.name=恒星金属粒
 item.tiths.nugget_royal_alloy.name=奢华合金粒
@@ -201,6 +203,7 @@ material.moon_stone.name=月光石
 material.ender_dragon_squama.name=末影龙鳞
 material.fulgurite.name=闪电熔岩
 material.irisia.name=艾瑞西亚
+material.tree_root.name=树根
 
 ## modifiers
 modifier.maiming.name=致残

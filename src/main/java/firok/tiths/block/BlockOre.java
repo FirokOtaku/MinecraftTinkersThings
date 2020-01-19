@@ -25,9 +25,29 @@ public class BlockOre extends Block
 	private Item itemDropped;
 	private int minDropped,maxDropped,interval,luckBonus,minExp,maxExp,intervalExp;
 
+	public BlockOre(Material material,MapColor color,Item itemDropped,int minDropped,int maxDropped,int luckBonus,int minExp,int maxExp)
+	{
+		super(material,color);
+		this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+		this.itemDropped=itemDropped;
+		this.minDropped=minDropped;
+		this.maxDropped=maxDropped;
+		this.interval=maxDropped-minDropped;
+		this.luckBonus=luckBonus;
+		this.minExp=minExp;
+		this.maxExp=maxExp;
+		this.intervalExp=this.maxExp-minExp;
+	}
+	public BlockOre(Material material,MapColor color)
+	{
+		super(material,color);
+	}
+	public BlockOre(Material material)
+	{
+		super(material,material.getMaterialMapColor());
+	}
 	public BlockOre(MapColor color,Item itemDropped,int minDropped,int maxDropped,int luckBonus,int minExp,int maxExp) {
 		super(Material.ROCK, color);
-		this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 		this.itemDropped=itemDropped;
 		this.minDropped=minDropped;
 		this.maxDropped=maxDropped;
@@ -39,7 +59,6 @@ public class BlockOre extends Block
 	}
 	public BlockOre(Item itemDropped,int minDropped,int maxDropped,int luckBonus,int minExp,int maxExp) {
 		super(Material.ROCK, Material.ROCK.getMaterialMapColor());
-		this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 		this.itemDropped=itemDropped;
 		this.minDropped=minDropped;
 		this.maxDropped=maxDropped;
@@ -55,11 +74,11 @@ public class BlockOre extends Block
 		super(Material.ROCK, Material.ROCK.getMaterialMapColor());
 		setHardness(3.0F).setResistance(5.0F);
 	}
-	public BlockOre(MapColor color)
-	{
-		super(Material.ROCK,color);
-		setHardness(3.0F).setResistance(5.0F);
-	}
+//	public BlockOre(MapColor color)
+//	{
+//		super(Material.ROCK,color);
+//		setHardness(3.0F).setResistance(5.0F);
+//	}
 
 	// 调整属性用的方法
 	public BlockOre setCommonOre()

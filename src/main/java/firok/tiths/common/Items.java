@@ -62,6 +62,8 @@ public class Items
 	public static final Item sunStone = new Item(); // 日光石
 	@Reg(nameMoonStone)
 	public static final Item moonStone = new Item(); // 月光石
+	@Reg(nameTreeRoot)
+	public static final Item treeRoot = new Item(); // 树根
 
 	// 金属粒
 	@Reg(Keys.nuggetStellarium)

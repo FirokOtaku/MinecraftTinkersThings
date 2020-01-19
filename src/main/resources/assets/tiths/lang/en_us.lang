@@ -27,6 +27,7 @@ tile.tiths.ore_tonium.name=Tonium Ore
 tile.tiths.ore_stellarium.name=Stellarium Ore
 tile.tiths.ore_sun_stone.name=Sun Stone Ore
 tile.tiths.ore_moon_stone.name=Moon Stone Ore
+tile.tiths.ore_tree_root.name=Wild Tree Root
 
 
 ## blocks
@@ -110,6 +111,7 @@ item.tiths.talcum.name=Talcum
 item.tiths.tourmaline.name=Tourmaline
 item.tiths.sun_stone.name=Sun Stone
 item.tiths.moon_stone.name=Moon Stone
+item.tiths.tree_root.name=Tree Root
 ## nugget
 item.tiths.nugget_stellarium.name=Stellarium Nugget
 item.tiths.nugget_royal_alloy.name=Royal Alloy Nugget
@@ -200,6 +202,7 @@ material.moon_stone.name=Moon Stone
 material.ender_dragon_squama.name=Squama of Ender Dragon
 material.fulgurite.name=fulgurite
 material.irisia.name=Irisia
+material.tree_root.name=Tree Root
 
 ## modifiers
 modifier.maiming.name=Maiming

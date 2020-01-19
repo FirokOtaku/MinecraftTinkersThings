@@ -2,6 +2,14 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.30.0 _2020-01-19 15:00_
+
+* 增加方块和物品 added blocks and items
+  * 野生树根 wild tree root block
+  * 树根 tree root item
+* 增加材料 added materials
+  * 树根 tree root
+
 ## 0.2.29.1 _2020-01-18 00:00_
 
 * 错误修复 bug fixes

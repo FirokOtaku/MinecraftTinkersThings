@@ -1,14 +1,10 @@
 package firok.tiths.common;
 
 import firok.tiths.block.*;
-import firok.tiths.block.logic.BlockLogicSearing;
-import firok.tiths.indev.BlockOreShell;
-import firok.tiths.util.GenMeteoWorld;
 import firok.tiths.util.GenOreWorld;
 import firok.tiths.util.Reg;
-import firok.tiths.world.GenTreeHura;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockEnchantmentTable;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import slimeknights.tconstruct.library.utils.HarvestLevels;
 
@@ -106,6 +102,11 @@ public class Blocks
 	@Reg(Keys.oreStellarium)
 	@GenOreWorld(times=1,timeRate=0.08f,size=5,minY=40,maxY=180)
 	public static final BlockOre oreStellarium = new BlockOre().setEpicOre(); // 恒星金属矿
+
+	@Reg(Keys.oreTreeRoot)
+	public static final Block oreTreeRoot = new BlockOre(Material.WOOD,Material.WOOD.getMaterialMapColor(),Items.treeRoot,1,3,1,2,4)
+			{{setSoundType(SoundType.WOOD);}}
+			.setHardness(2.0f); // 树根
 
 	// 矿块
 	@Reg(Keys.blockCinnabar)

@@ -14,8 +14,7 @@ import org.apache.logging.log4j.Logger;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.Material;
 
-import java.util.Collection;
-import java.util.Random;
+import java.util.*;
 
 @Mod(
 		modid = TinkersThings.MOD_ID,
@@ -28,7 +27,7 @@ public class TinkersThings
 
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers Things";
-	public static final String VERSION = "1.12.2-0.2.29.1";
+	public static final String VERSION = "1.12.2-0.2.30.0";
 
 	@Mod.Instance(MOD_ID)
 	public static TinkersThings INSTANCE;

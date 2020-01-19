@@ -70,6 +70,7 @@ public interface Keys
 	String nameFulgurite="fulgurite";
 	String nameIrisia="irisia";
 	String nameCoal="coal";
+	String nameTreeRoot="tree_root";
 	String nameSunStone="sun_stone";
 	String nameMoonStone="moon_stone";
 
@@ -121,6 +122,7 @@ public interface Keys
 	String blockHalleium=prefBlock+nameHalleium;
 	String blockAltairium=prefBlock+nameAltairium;
 	String blockCocoa=prefBlock+nameCocoa;
+	String blockTreeRoot=prefBlock+nameTreeRoot;
 	String blockSunStone=prefBlock+nameSunStone;
 	String blockMoonStone=prefBlock+nameMoonStone;
 
