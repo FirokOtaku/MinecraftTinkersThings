@@ -2,7 +2,10 @@ package firok.tiths.common;
 
 import firok.tiths.item.*;
 import firok.tiths.util.Reg;
+import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
+import net.minecraft.potion.PotionEffect;
 
 import static firok.tiths.common.Keys.*;
 
@@ -144,6 +147,9 @@ public class Items
 	public static final Item hotBread = new ItemHotFood(4,0.4f,false); // 灼热面包
 	@Reg(nameHotFish)
 	public static final Item hotFish = new ItemHotFood(6,0.5f,false); // 灼热鱼
+	@Reg(nameFlesh)
+	public static final Item flesh = new ItemFood(8,0.7f,true)
+			.setPotionEffect(new PotionEffect(MobEffects.NAUSEA,200,0),1); // 血肉
 
 	// 唱片
 	@Reg(value=Keys.recordTinkersEfforts,od={"record"})

@@ -112,6 +112,7 @@ item.tiths.tourmaline.name=电气石
 item.tiths.sun_stone.name=日光石
 item.tiths.moon_stone.name=月光石
 item.tiths.tree_root.name=树根
+item.tiths.flesh.name=血肉
 ## nugget
 item.tiths.nugget_stellarium.name=恒星金属粒
 item.tiths.nugget_royal_alloy.name=奢华合金粒
@@ -201,9 +202,10 @@ material.coal.name=煤炭
 material.sun_stone.name=日光石
 material.moon_stone.name=月光石
 material.ender_dragon_squama.name=末影龙鳞
-material.fulgurite.name=闪电熔岩
-material.irisia.name=艾瑞西亚
+material.fulgurite.name=闪电熔岩 (WIP)
+material.irisia.name=艾瑞西亚 (WIP)
 material.tree_root.name=树根
+material.flesh.name=血肉
 
 ## modifiers
 modifier.maiming.name=致残
@@ -273,6 +275,10 @@ modifier.terrifying.name=恐惧
 modifier.terrifying.desc=§o哈!§r\n削弱你的敌人
 modifier.thundering.name=雷鸣
 modifier.thundering.desc=§o轰!§r\n对敌人造成额外伤害且有几率击退周围的怪物
+modifier.gluttonic.name=暴食
+modifier.gluttonic.desc=§o我要吃...§r\n击中目标会使自身饥饿, 击杀目标会恢复饥饿值, 但是不掉落物品
+modifier.moonlight.name=月色
+modifier.moonlight.desc=§o皎洁光芒§r\n击中目标会叠加短暂的夜视效果
 
 ## potions
 effect.heavy=沉重

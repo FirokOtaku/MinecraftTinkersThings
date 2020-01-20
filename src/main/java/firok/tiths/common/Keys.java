@@ -73,6 +73,7 @@ public interface Keys
 	String nameTreeRoot="tree_root";
 	String nameSunStone="sun_stone";
 	String nameMoonStone="moon_stone";
+	String nameFlesh="flesh";
 
 	String nameHardener="hardener";
 	String namePolisher="polisher";
@@ -163,6 +164,7 @@ public interface Keys
 	String oreAltairium=prefOre+nameAltairium;
 	String oreSunStone=prefOre+nameSunStone;
 	String oreMoonStone=prefOre+nameMoonStone;
+	String oreTreeRoot=prefOre+nameTreeRoot;
 
 	// 矿锭
 	String ingotStellarium=prefIngot+nameStellarium;
@@ -204,6 +206,7 @@ public interface Keys
 	int colorIrisia=0xf1ff99;
 	int colorMeteorolite=Colors.OliveDrab;
 	int colorCoal=0x2b2b2b;
+	int colorTreeRoot=0x4a3b31;
 	int colorStellarium=Colors.Tomato;
 	int colorStellariumObsidian=Colors.FireBrick;
 	int colorHothium=0x041a51;
@@ -237,12 +240,15 @@ public interface Keys
 	int colorCoagulatedBloodSand=Colors.DarkRed;
 	int colorSunStone=0xff8557;
 	int colorMoonStone=0x5ad3dc;
+	int colorFlesh=0xb54264;
 
 	// 属性
+	String nameTraitGluttonic="Gluttonic";
 	String nameTraitMaiming="maiming";
 	String nameTraitCarbonizing="carbonizing";
 	String nameTraitSunPower="sun_power";
 	String nameTraitMoonPower="moon_power";
+	String nameTraitMoonlight="moonlight";
 	String nameTraitWithering="withering";
 	String nameTraitInky="inky";
 	String nameTraitRetrospective="retrospective";
@@ -275,10 +281,12 @@ public interface Keys
 	String nameTraitThundering="thundering";
 
 	// 属性颜色
+	int colorTraitGluttonic=0x752b40;
 	int colorTraitMaiming=Colors.Crimson;
 	int colorTraitCarbonizing=0x2b2b2b;
 	int colorTraitSunPower=0xff8557;
 	int colorTraitMoonPower=0x5ad3dc;
+	int colorTraitMoonlight=0x85e8de;
 	int colorTraitWithering=Colors.DarkSlateGray;
 	int colorTraitInky=Colors.Black;
 	int colorTraitRetrospective=Colors.LightYellow;

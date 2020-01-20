@@ -2,6 +2,16 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.31.0 _2020-01-20 19:00_
+
+* 增加物品 added items
+  * 血肉 flesh item
+* 增加材料 added materials
+  * 血肉 flesh
+* 增加属性 added traits
+  * 暴食 gluttonic
+  * 月光 moonlight
+
 ## 0.2.30.0 _2020-01-19 15:00_
 
 * 增加方块和物品 added blocks and items

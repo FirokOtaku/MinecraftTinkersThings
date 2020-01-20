@@ -334,7 +334,9 @@ public class TCMaterials
 	@CompoBow(drawSpeed = 2.75f,range=1,bonusDamage = 4)
 	public static final Material sunStone=new $Material(nameSunStone,colorSunStone)
 			.addItemAsIngot(Items.sunStone)
-			.addTrait(sunPower);
+			.addTrait(sunPower)
+			.addTrait(flammable,HEAD)
+			.addTrait(sunPower,HEAD);
 
 	@Compo(nameMoonStone)
 	@CompoHead(durability = 545,miningspeed = 6.25f,attack = 5.75f,harvestLevel = 3)
@@ -343,7 +345,9 @@ public class TCMaterials
 	@CompoBow(drawSpeed = 2.75f,range=1,bonusDamage = 4)
 	public static final Material moonStone=new $Material(nameMoonStone,colorMoonStone)
 			.addItemAsIngot(Items.moonStone)
-			.addTrait(moonPower);
+			.addTrait(moonPower)
+			.addTrait(moonlight,HEAD)
+			.addTrait(moonPower,HEAD);
 
 	@Compo(nameEnderDragonSquama)
 	@CompoHead(durability = 675,miningspeed = 5.8f, attack = 6.7f,harvestLevel = 2)
@@ -383,8 +387,13 @@ public class TCMaterials
 			.addTrait(ecological)
 			.addTrait(dense);
 
-//	@Compo(nameFlesh)
-//	public static final Material flesh=new $Material(nameFlesh,colorFlesh);
+	@Compo(nameFlesh)
+	@CompoHead(durability = 220,miningspeed = 3.8f,attack = 4,harvestLevel = 0)
+	@CompoHandle(modifier = 0.8f,durability = -50)
+	@CompoExtra(extraDurability = 59)
+	public static final Material flesh=new $Material(nameFlesh,colorFlesh)
+			.addItemAsIngot(Items.flesh)
+			.addTrait(gluttonic);
 
 	public static Material cloud=new Material("cloud", Colors.Silver);
 	public static Material cloudStorm=new Material("cloud_storm", Colors.DarkBlue);

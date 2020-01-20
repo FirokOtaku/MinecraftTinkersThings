@@ -11,8 +11,10 @@ public class Traits
 	public static final AbstractTrait terrifying=new TraitTerrifying(); // 恐吓
 	public static final AbstractTrait thundering=new TraitThundering(); // 雷鸣
 	public static final AbstractTrait carbonizing=new TraitCarbonizing(); // 碳化
+	public static final AbstractTrait gluttonic=new TraitGluttonic(); // 暴食
 	public static final AbstractTrait sunPower=new TraitSunPower(); // 日之力量
 	public static final AbstractTrait moonPower=new TraitMoonPower(); // 月之力量
+	public static final AbstractTrait moonlight=new TraitMoonlight(); // 月光
 	public static final AbstractTrait withering=new TraitWithering(); // 凋零
 	public static final AbstractTrait luxurious=new TraitLuxurious(); // 奢华
 	public static final AbstractTrait retrospective=new TraitRetrospective(); // 后知

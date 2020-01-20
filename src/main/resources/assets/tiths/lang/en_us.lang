@@ -128,6 +128,7 @@ item.tiths.nugget_hothium.name=Hothium Nugget
 item.tiths.nugget_tonium.name=Tonium Nugget
 item.tiths.nugget_cocoa.name=Cocoa Nugget
 item.tiths.nugget_irisia.name=Irisia Nugget
+item.tiths.flesh.name=Flesh
 ## ingot
 item.tiths.ingot_stellarium.name=Stellarium Ingot
 item.tiths.ingot_royal_alloy.name=Royal Alloy Ingot
@@ -200,9 +201,10 @@ material.coal.name=Coal
 material.sun_stone.name=Sun Stone
 material.moon_stone.name=Moon Stone
 material.ender_dragon_squama.name=Squama of Ender Dragon
-material.fulgurite.name=fulgurite
-material.irisia.name=Irisia
+material.fulgurite.name=Fulgurite (WIP)
+material.irisia.name=Irisia (WIP)
 material.tree_root.name=Tree Root
+material.flesh.name=Flesh
 
 ## modifiers
 modifier.maiming.name=Maiming
@@ -272,6 +274,10 @@ modifier.terrifying.name=Terrifying
 modifier.terrifying.desc=§oHuh§r\nTo weaken your enemy
 modifier.thundering.name=Thundering
 modifier.thundering.desc=
+modifier.gluttonic.name=Gluttonic
+modifier.gluttonic.desc=§oI just want to eat§r\n
+modifier.moonlight.name=Moonlight
+modifier.moonlight.desc=
 
 ## potions
 effect.heavy=Heavy
