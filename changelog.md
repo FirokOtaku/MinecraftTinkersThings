@@ -2,6 +2,11 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.32.0 _2020-01-21 18:30_
+
+* 增加属性 added traits
+  * 自然祝福 nature blessing
+
 ## 0.2.31.0 _2020-01-20 19:00_
 
 * 增加物品 added items

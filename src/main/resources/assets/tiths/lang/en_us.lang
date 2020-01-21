@@ -278,6 +278,8 @@ modifier.gluttonic.name=Gluttonic
 modifier.gluttonic.desc=§oI just want to eat§r\n
 modifier.moonlight.name=Moonlight
 modifier.moonlight.desc=
+modifier.nature_blessing.name=Nature Blessing
+modifier.nature_blessing.desc=§o氤氲气息§r\n周围有树木时会缓慢恢复耐久
 
 ## potions
 effect.heavy=Heavy

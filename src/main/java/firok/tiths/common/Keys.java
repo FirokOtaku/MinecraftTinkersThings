@@ -249,6 +249,7 @@ public interface Keys
 	String nameTraitSunPower="sun_power";
 	String nameTraitMoonPower="moon_power";
 	String nameTraitMoonlight="moonlight";
+	String nameTraitNatureBlessing="nature_blessing";
 	String nameTraitWithering="withering";
 	String nameTraitInky="inky";
 	String nameTraitRetrospective="retrospective";
@@ -287,6 +288,7 @@ public interface Keys
 	int colorTraitSunPower=0xff8557;
 	int colorTraitMoonPower=0x5ad3dc;
 	int colorTraitMoonlight=0x85e8de;
+	int colorTraitNatureBlessing=0x538915;
 	int colorTraitWithering=Colors.DarkSlateGray;
 	int colorTraitInky=Colors.Black;
 	int colorTraitRetrospective=Colors.LightYellow;

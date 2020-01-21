@@ -15,6 +15,7 @@ public class Traits
 	public static final AbstractTrait sunPower=new TraitSunPower(); // 日之力量
 	public static final AbstractTrait moonPower=new TraitMoonPower(); // 月之力量
 	public static final AbstractTrait moonlight=new TraitMoonlight(); // 月光
+	public static final AbstractTrait natualBlessing=new TraitNatureBlessing(); // 自然祝福
 	public static final AbstractTrait withering=new TraitWithering(); // 凋零
 	public static final AbstractTrait luxurious=new TraitLuxurious(); // 奢华
 	public static final AbstractTrait retrospective=new TraitRetrospective(); // 后知
