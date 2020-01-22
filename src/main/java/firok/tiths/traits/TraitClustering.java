@@ -42,6 +42,8 @@ public class TraitClustering extends AbstractTrait
 		// 计算因数 大于指定耐久度的百分比
 		float factor=Math.abs(durability / factorDurability - 1);
 
+		factor=Math.max(factor,0.45f); // 因数最大为 0.45
+
 		if(durability- factorDurability>0) // 大于指定耐久度
 		{
 			attack += factor * factorAtk;
@@ -49,7 +51,6 @@ public class TraitClustering extends AbstractTrait
 		}
 		else // 小于指定耐久度
 		{
-			factor=Math.max(factor,0.6f);
 			speed += factor * factorMineSpd;
 			mineSpeed += factor * factorMotiSpd;
 

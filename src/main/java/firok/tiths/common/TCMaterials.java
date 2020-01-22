@@ -395,13 +395,21 @@ public class TCMaterials
 			.addItemAsIngot(Items.flesh)
 			.addTrait(gluttonic);
 
+	@Compo(nameBrokenBedrock)
+	@CompoHead(durability = 1850,miningspeed = 0.5f,attack = 1.5f,harvestLevel = 4)
+	@CompoHandle(modifier = 1.35f,durability = 140)
+	@CompoExtra(extraDurability = 170)
+	public static Material brokenBedrock=new $Material(nameBrokenBedrock, colorBrokenBedrock)
+			.addItemAsIngot(Items.brokenBedrock)
+			.addTrait(dense)
+			.addTrait(duritos);
+
 	public static Material cloud=new Material("cloud", Colors.Silver);
 	public static Material cloudStorm=new Material("cloud_storm", Colors.DarkBlue);
 	public static Material skyCrystal=new Material("sky_crystal", Colors.Aqua);
 	public static Material stormCrystal=new Material("storm_crystal", Colors.DarkBlue);
 	public static Material antiGraCrystal=new Material("anti_gra_crystal", Colors.DarkGreen);
 	public static Material phantomCrystal=new Material("phantom_crystal", Colors.Gray);
-	public static Material brokenBedrock=new Material("broken_bedrock", Colors.DarkGray);
 	public static Material paradiseMetal=new Material("paradise_metal", Colors.Yellow);
 
 }

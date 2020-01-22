@@ -1,6 +1,5 @@
 package firok.tiths.world;
 
-import firok.tiths.TinkersThings;
 import firok.tiths.common.Blocks;
 import firok.tiths.util.GenMeteoWorld;
 import firok.tiths.util.GenOreWorld;
@@ -15,7 +14,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import slimeknights.tconstruct.library.utils.HarvestLevels;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -66,8 +64,7 @@ public class WorldGen implements IWorldGenerator
 			}
 		}
 		gensWorld.add(new WorldGenTreeRoot(Blocks.oreTreeRoot.getDefaultState(),4,0.3f));
-
-		// 陨石
+		gensWorld.add(new WorldGenMinableBedrock(Blocks.oreBrokenBedrock.getDefaultState(),1,0.15f,0.8f,7));
 
 		instance=this;
 	}

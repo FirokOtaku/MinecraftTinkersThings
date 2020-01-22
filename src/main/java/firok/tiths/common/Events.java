@@ -23,11 +23,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import slimeknights.tconstruct.library.utils.ToolHelper;
 
 import java.util.Random;
 
@@ -202,5 +204,20 @@ public class Events
 				}
 			}
 		}
+	}
+
+	@SubscribeEvent
+	public static void onMobDrop(LivingDropsEvent event)
+	{
+		EntityLivingBase enlb=event.getEntityLiving();
+		EntityLivingBase enlbRevTarget=enlb.getRevengeTarget();
+		if(enlbRevTarget instanceof EntityPlayer && enlbRevTarget.isEntityAlive())
+		{
+			EntityPlayer player=(EntityPlayer)enlbRevTarget;
+			ItemStack stack=player.getHeldItemMainhand();
+			boolean hasGluttonic=ToolHelper.getTraits(stack).contains(Traits.gluttonic);
+			if(hasGluttonic) event.getDrops().clear(); // 如果有暴食 就清空掉落物
+		}
+
 	}
 }

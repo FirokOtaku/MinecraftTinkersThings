@@ -107,6 +107,10 @@ public class Blocks
 	public static final Block oreTreeRoot = new BlockOre(Material.WOOD,Material.WOOD.getMaterialMapColor(),Items.treeRoot,1,3,1,2,4)
 			{{setSoundType(SoundType.WOOD);}}
 			.setHardness(2.0f); // 树根
+	@Reg(Keys.oreBrokenBedrock)
+	public static final Block oreBrokenBedrock = new BlockOre(Items.brokenBedrock,1,2,1,6,10)
+			{{setHarvestLevel("pickaxe",HarvestLevels.COBALT);}}
+			.setHardness(80f); // 破碎基岩
 
 	// 矿块
 	@Reg(Keys.blockCinnabar)

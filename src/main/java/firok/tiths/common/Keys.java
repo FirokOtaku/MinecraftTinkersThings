@@ -71,6 +71,7 @@ public interface Keys
 	String nameIrisia="irisia";
 	String nameCoal="coal";
 	String nameTreeRoot="tree_root";
+	String nameBrokenBedrock="broken_bedrock";
 	String nameSunStone="sun_stone";
 	String nameMoonStone="moon_stone";
 	String nameFlesh="flesh";
@@ -165,6 +166,7 @@ public interface Keys
 	String oreSunStone=prefOre+nameSunStone;
 	String oreMoonStone=prefOre+nameMoonStone;
 	String oreTreeRoot=prefOre+nameTreeRoot;
+	String oreBrokenBedrock=prefOre+nameBrokenBedrock;
 
 	// 矿锭
 	String ingotStellarium=prefIngot+nameStellarium;
@@ -241,6 +243,7 @@ public interface Keys
 	int colorSunStone=0xff8557;
 	int colorMoonStone=0x5ad3dc;
 	int colorFlesh=0xb54264;
+	int colorBrokenBedrock=0x323240;
 
 	// 属性
 	String nameTraitGluttonic="Gluttonic";

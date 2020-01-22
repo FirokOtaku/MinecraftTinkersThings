@@ -2,6 +2,14 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.33.0 _2020-01-22 18:30_
+
+* 增加方块和物品 added blocks and items
+  * 破碎基岩矿 broken bedrock ore block
+  * 破碎基岩 broken bedrock item
+* 增加材料 added materials
+  * 破碎基岩 broken bedrock
+
 ## 0.2.32.0 _2020-01-21 18:30_
 
 * 增加属性 added traits
