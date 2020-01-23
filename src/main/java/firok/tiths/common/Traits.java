@@ -1,7 +1,11 @@
 package firok.tiths.common;
 
 import firok.tiths.traits.*;
+import net.minecraft.init.MobEffects;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
+
+import static firok.tiths.common.Keys.colorTraitAntiPoisonous;
+import static firok.tiths.common.Keys.nameTraitAntiPoisonous;
 
 @SuppressWarnings("all")
 public class Traits
@@ -12,6 +16,7 @@ public class Traits
 	public static final AbstractTrait thundering=new TraitThundering(); // 雷鸣
 	public static final AbstractTrait carbonizing=new TraitCarbonizing(); // 碳化
 	public static final AbstractTrait gluttonic=new TraitGluttonic(); // 暴食
+	public static final AbstractTrait antiPoisonous=new AbstractTraitAntiEffect(nameTraitAntiPoisonous,colorTraitAntiPoisonous,80,3,0.6f, MobEffects.POISON);
 	public static final AbstractTrait sunPower=new TraitSunPower(); // 日之力量
 	public static final AbstractTrait moonPower=new TraitMoonPower(); // 月之力量
 	public static final AbstractTrait moonlight=new TraitMoonlight(); // 月光

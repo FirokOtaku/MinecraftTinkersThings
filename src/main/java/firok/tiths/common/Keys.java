@@ -283,6 +283,7 @@ public interface Keys
 	String nameTraitLionheart="lionheart";
 	String nameTraitTerrifying="terrifying";
 	String nameTraitThundering="thundering";
+	String nameTraitAntiPoisonous="anti_poisonous";
 
 	// 属性颜色
 	int colorTraitGluttonic=0x752b40;
@@ -322,6 +323,7 @@ public interface Keys
 	int colorTraitLionheart=0x87143e;
 	int colorTraitTerrifying=0x2a135a;
 	int colorTraitThundering=0x2b5c99;
+	int colorTraitAntiPoisonous=0xc9215a;
 
 	// 状态效果颜色
 	int colorPotionHeavy=Colors.DarkSeaGreen;

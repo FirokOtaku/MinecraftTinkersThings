@@ -2,6 +2,11 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.34.0 _2020-01-23 19:00_
+
+* 增加属性 added traits
+  * 抗毒 anti poisonous
+
 ## 0.2.33.0 _2020-01-22 18:30_
 
 * 增加方块和物品 added blocks and items
