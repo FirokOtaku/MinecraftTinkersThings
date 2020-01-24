@@ -75,6 +75,7 @@ public interface Keys
 	String nameSunStone="sun_stone";
 	String nameMoonStone="moon_stone";
 	String nameFlesh="flesh";
+	String nameCloud="cloud";
 
 	String nameHardener="hardener";
 	String namePolisher="polisher";
@@ -125,8 +126,11 @@ public interface Keys
 	String blockAltairium=prefBlock+nameAltairium;
 	String blockCocoa=prefBlock+nameCocoa;
 	String blockTreeRoot=prefBlock+nameTreeRoot;
+	String blockBrokenBedrock=prefBlock+nameBrokenBedrock;
 	String blockSunStone=prefBlock+nameSunStone;
 	String blockMoonStone=prefBlock+nameMoonStone;
+	String blockFlesh=prefBlock+nameFlesh;
+	String blockCloud=prefBlock+nameCloud;
 
 	String blockFulgurite=prefBlock+nameFulgurite;
 	String blockMeteorolite=prefBlock+nameMeteorolite;
@@ -244,6 +248,7 @@ public interface Keys
 	int colorMoonStone=0x5ad3dc;
 	int colorFlesh=0xb54264;
 	int colorBrokenBedrock=0x323240;
+	int colorCloud=0xb6caea;
 
 	// 属性
 	String nameTraitGluttonic="Gluttonic";

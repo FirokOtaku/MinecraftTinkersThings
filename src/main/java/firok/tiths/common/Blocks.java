@@ -18,6 +18,8 @@ public class Blocks
 	public static final BlockOre blockMeteorolite = new BlockOre().setEpicOre(); // 陨石
 	@Reg(Keys.blockFulgurite)
 	public static final Block blockFulgurite = new BlockOre().setVeryRareOre(); // 闪电熔岩
+	@Reg(Keys.blockCloud)
+	public static final Block blockCloud = new BlockCloud(); // 云
 
 	// 矿石
 	@Reg(value=Keys.oreCinnabar,od={"oreCinnabar","oreQuicksilver","oreMercury"})

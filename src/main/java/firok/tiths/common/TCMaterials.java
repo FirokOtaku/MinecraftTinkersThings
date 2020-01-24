@@ -7,6 +7,7 @@ import slimeknights.tconstruct.tools.TinkerTraits;
 import static firok.tiths.common.Keys.*;
 import static firok.tiths.common.Traits.*;
 import static slimeknights.tconstruct.library.materials.Material.VALUE_Ingot;
+import static slimeknights.tconstruct.library.materials.MaterialTypes.EXTRA;
 import static slimeknights.tconstruct.library.materials.MaterialTypes.HEAD;
 import static slimeknights.tconstruct.tools.TinkerTraits.*;
 
@@ -397,14 +398,21 @@ public class TCMaterials
 
 	@Compo(nameBrokenBedrock)
 	@CompoHead(durability = 1850,miningspeed = 0.5f,attack = 1.5f,harvestLevel = 4)
-	@CompoHandle(modifier = 1.35f,durability = 140)
-	@CompoExtra(extraDurability = 170)
+	@CompoHandle(modifier = 1.35f,durability = 160)
+	@CompoExtra(extraDurability = 270)
 	public static Material brokenBedrock=new $Material(nameBrokenBedrock, colorBrokenBedrock)
 			.addItemAsIngot(Items.brokenBedrock)
-			.addTrait(dense)
+			.addTrait(dense,HEAD)
 			.addTrait(duritos);
 
-	public static Material cloud=new Material("cloud", Colors.Silver);
+	@Compo(nameCloud)
+	@CompoHead(durability = 20,miningspeed = 0.5f,attack = 0,harvestLevel = 0)
+	@CompoExtra(extraDurability = -300)
+	public static Material cloud=new $Material(nameCloud, colorCloud)
+			.addItemAsIngot(Blocks.blockCloud)
+			.addTrait(squeaky,HEAD)
+			.addTrait(lightweight,EXTRA);
+
 	public static Material cloudStorm=new Material("cloud_storm", Colors.DarkBlue);
 	public static Material skyCrystal=new Material("sky_crystal", Colors.Aqua);
 	public static Material stormCrystal=new Material("storm_crystal", Colors.DarkBlue);

@@ -2,6 +2,13 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.35.0 _2020-01-24 16:30_
+
+* 增加方块 added blocks
+  * 云 cloud block
+* 增加材料 added materials
+  * 云 cloud
+
 ## 0.2.34.0 _2020-01-23 19:00_
 
 * 增加属性 added traits
