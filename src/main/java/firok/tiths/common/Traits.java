@@ -35,6 +35,7 @@ public class Traits
 	public static final AbstractTrait shaking=new TraitShaking(); // 撼击
 	public static final AbstractTrait inky=new TraitInky(); // 墨染
 	static{inky.addItem(Items.inkySlime);}
+	public static final AbstractTrait chemicalInstable=new TraitChemicalInstable(); // 化学不稳定
 	public static final AbstractTrait hemolytic=new TraitHemolytic(); // 溶血
 	public static final AbstractTrait extremeFreezing=new TraitExtremeFreezing(); // 极寒
 	public static final AbstractTrait antiGrav=new TraitAntiGrav(); // 反重力

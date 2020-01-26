@@ -281,6 +281,8 @@ modifier.moonlight.name=月色
 modifier.moonlight.desc=§o皎洁光芒§r\n击中目标会叠加短暂的夜视效果
 modifier.nature_blessing.name=自然祝福
 modifier.nature_blessing.desc=§o大自然欢迎你§r\n周围有树木时会缓慢恢复耐久
+modifier.chemical_instable.name=化学不稳定
+modifier.chemical_instable.desc=§o让我想想...§r\n使用时有几率产生小爆炸
 
 ## potions
 effect.heavy=沉重

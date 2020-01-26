@@ -289,6 +289,7 @@ public interface Keys
 	String nameTraitTerrifying="terrifying";
 	String nameTraitThundering="thundering";
 	String nameTraitAntiPoisonous="anti_poisonous";
+	String nameTraitChemicalInstable="chemical_instable";
 
 	// 属性颜色
 	int colorTraitGluttonic=0x752b40;
