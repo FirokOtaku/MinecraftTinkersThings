@@ -282,6 +282,13 @@ modifier.nature_blessing.name=Nature Blessing
 modifier.nature_blessing.desc=§o大自然欢迎你§r\n周围有树木时会缓慢恢复耐久
 modifier.chemical_instable.name=Chemical Instable
 modifier.chemical_instable.desc=§o让我想想...§r\n使用时有几率产生小爆炸
+modifier.infernal_blazing.name=Infernal Blazing
+modifier.infernal_blazing.desc=§o无尽炼狱§r\n手持时使自身自燃
+modifier.dragon_killer.name=Dragon Killer
+modifier.dragon_killer.desc=§o屠"龙"§r\n对"龙"造成额外伤害
+### 关于"屠龙者": 其实是对英文学名里含有"dragon"单词的生物造成更多伤害, 包括"dragonfly"(蜻蜓), 所以这里打引号, 本地化的时候可能需要考虑一下
+modifier.midas_desiring.name=Midas Desiring
+modifier.midas_desiring.desc=§o祸福倚伏§r\n将挖到的金矿石直接转化为双倍的金锭, 有几率将掉落物转化为金子, 但是会慢慢吞食背包里的金子
 
 ## potions
 effect.heavy=Heavy

@@ -2,6 +2,13 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.37.0 _2020-01-27 11:30_
+
+* 增加属性 added traits
+  * 狱炎 infernal blazing
+  * 屠龙者 dragon killer
+  * 迈达斯之欲 midas desiring
+
 ## 0.2.36.0 _2020-01-26 17:30_
 
 * 增加属性 added traits
