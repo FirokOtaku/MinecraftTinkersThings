@@ -15,4 +15,6 @@ public class DamageSources
 	public static final DamageSource PyroelectricDamage=new DamageSource("pyroelectric");
 	public static final DamageSource ThunderingDamage=new DamageSource("thundering")
 			.setDamageBypassesArmor();
+	// 屠龙伤害
+	public static final DamageSource DragonKillerDamage=new DamageSource("dragon_killer");
 }

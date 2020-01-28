@@ -290,6 +290,9 @@ public interface Keys
 	String nameTraitThundering="thundering";
 	String nameTraitAntiPoisonous="anti_poisonous";
 	String nameTraitChemicalInstable="chemical_instable";
+	String nameTraitInfernalBlazing="infernal_blazing";
+	String nameTraitDragonKiller="dragon_killer";
+	String nameTraitMidasDesiring="midas_desiring";
 
 	// 属性颜色
 	int colorTraitGluttonic=0x752b40;
@@ -330,6 +333,10 @@ public interface Keys
 	int colorTraitTerrifying=0x2a135a;
 	int colorTraitThundering=0x2b5c99;
 	int colorTraitAntiPoisonous=0xc9215a;
+	int colorTraitChemicalInstable=0xedde31;
+	int colorTraitInfernalBlazing=0x76222d;
+	int colorTraitDragonKiller=0x9100f3;
+	int colorTraitMidasDesiring=0xdc9113;
 
 	// 状态效果颜色
 	int colorPotionHeavy=Colors.DarkSeaGreen;

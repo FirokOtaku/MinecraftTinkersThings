@@ -2,6 +2,10 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.38.0 _2020-01-28 23:30_
+
+* 调整矿物生成几率 adjusted generation-rates of ores
+
 ## 0.2.37.0 _2020-01-27 11:30_
 
 * 增加属性 added traits

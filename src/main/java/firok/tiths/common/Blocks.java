@@ -24,7 +24,7 @@ public class Blocks
 	// 矿石
 	@Reg(value=Keys.oreCinnabar,od={"oreCinnabar","oreQuicksilver","oreMercury"})
 	@GenOreWorld(times=3,minY=30,maxY=70,size=10)
-	public static final BlockOre oreCinnabar = new BlockOre(Items.cinnabar,1,5,2,3,5).setCommonOre(); // 辰砂矿石
+	public static final BlockOre oreCinnabar = new BlockOre(Items.cinnabar,1,3,2,3,5).setCommonOre(); // 辰砂矿石
 	@Reg(Keys.oreInkPowder)
 	@GenOreWorld(times=5,minY=60,maxY=120,size=8)
 	public static final BlockOre oreInkPowder = new BlockOre(Items.inkPowder,4,8,2,2,7).setCommonOre(); // 墨粉矿石
@@ -39,7 +39,7 @@ public class Blocks
 	public static final BlockOre oreAdamantine = new BlockOre().setEpicOre(); // 精金矿石
 	@Reg(Keys.oreBlackrock)
 	@GenOreWorld(times=9,size=6,minY=10,maxY=150)
-	public static final BlockOre oreBlackrock = new BlockOre(Items.blackrock,2,4,2,1,6); // 黑石矿石
+	public static final BlockOre oreBlackrock = new BlockOre(Items.blackrock,1,3,2,1,6); // 黑石矿石
 	@Reg(Keys.oreInertWitherium)
 	@GenOreWorld(times=2,size=5)
 	public static final BlockOre oreInertWitherium = new BlockOre().setVeryRareOre(); // 惰性凋零矿
@@ -55,22 +55,22 @@ public class Blocks
 	public static final BlockOre oreCorundum = new BlockOre(Items.corundum,1,1,1,2,4).setRareOre(); // 刚玉矿
 	@Reg(Keys.oreNitre)
 	@GenOreWorld(times=6,timeRate=0.6f,size=9,minY=35,maxY=120)
-	public static final BlockOre oreNitre = new BlockOre(Items.nitre,3,5,1,3,5).setCommonOre(); // 硝石矿
+	public static final BlockOre oreNitre = new BlockOre(Items.nitre,1,3,1,3,5).setCommonOre(); // 硝石矿
 	@Reg(Keys.orePyrophyllite)
 	@GenOreWorld(times=2,minY=40,maxY=70,size=8)
-	public static final BlockOre orePyrophyllite = new BlockOre(Items.pyrophyllite,3,5,1,3,5).setCommonOre(); // 叶蜡石矿
+	public static final BlockOre orePyrophyllite = new BlockOre(Items.pyrophyllite,1,2,1,3,5).setCommonOre(); // 叶蜡石矿
 	@Reg(Keys.oreIcelandSpar)
 	@GenOreWorld(times=3,size=6,minY = 40,maxY = 80)
-	public static final BlockOre oreIcelandSpar = new BlockOre(Items.icelandSpar,3,5,1,3,5).setCommonOre(); // 冰洲石矿
+	public static final BlockOre oreIcelandSpar = new BlockOre(Items.icelandSpar,1,2,1,3,5).setCommonOre(); // 冰洲石矿
 	@Reg(value=Keys.oreSpinel,od={"oreSpinel"})
 	@GenOreWorld(times=5,timeRate = 0.6f,size=4,minY=10,maxY=60)
 	public static final BlockOre oreSpinel = new BlockOre(Items.spinel,1,1,1,3,5).setRareOre();
 	@Reg(Keys.oreTalcum)
 	@GenOreWorld(times=2,size=15,minY = 30,maxY = 90)
-	public static final BlockOre oreTalcum = new BlockOre(Items.talcum,3,5,1,3,5).setCommonOre();
+	public static final BlockOre oreTalcum = new BlockOre(Items.talcum,1,2,1,3,5).setCommonOre();
 	@Reg(Keys.oreTourmaline)
 	@GenOreWorld(times=3,timeRate=0.8f,size=8,minY=50,maxY=120)
-	public static final BlockOre oreTourmaline = new BlockOre(Items.tourmaline, 2,4,1,2,4).setCommonOre();
+	public static final BlockOre oreTourmaline = new BlockOre(Items.tourmaline, 1,2,1,2,4).setCommonOre();
 	@Reg(Keys.oreRutile)
 	@GenOreWorld(times=4,timeRate = 0.5f,size = 6,minY = 30,maxY = 60)
 	public static final BlockOre oreTitanium = new BlockOre().setRareOre(); // 金红石矿
@@ -83,26 +83,26 @@ public class Blocks
 
 	@Reg(Keys.orePolarium)
 //	@GenMeteoWorld
-	@GenOreWorld(times=1,timeRate=0.08f,size=5,minY=40,maxY=180)
+	@GenOreWorld(times=1,timeRate=0.12f,size=5,minY=40,maxY=180)
 	public static final BlockOre orePolarium = new BlockOre().setEpicOre(); // 勾陈矿
 	@Reg(Keys.oreHalleium)
 //	@GenMeteoWorld
-	@GenOreWorld(times=1,timeRate=0.08f,size=5,minY=40,maxY=180)
+	@GenOreWorld(times=1,timeRate=0.12f,size=5,minY=40,maxY=180)
 	public static final BlockOre oreHalleium = new BlockOre().setEpicOre(); // 哈雷矿
 	@Reg(Keys.oreAltairium)
 //	@GenMeteoWorld
-	@GenOreWorld(times=1,timeRate=0.08f,size=5,minY=40,maxY=180)
+	@GenOreWorld(times=1,timeRate=0.12f,size=5,minY=40,maxY=180)
 	public static final BlockOre oreAltairium = new BlockOre().setEpicOre(); // 河鼓矿
 	@Reg(Keys.oreHothium)
 //	@GenMeteoWorld
-	@GenOreWorld(times=1,timeRate=0.08f,size=5,minY=40,maxY=180)
+	@GenOreWorld(times=1,timeRate=0.12f,size=5,minY=40,maxY=180)
 	public static final BlockOre oreHothium = new BlockOre().setEpicOre(); // 霍斯矿
 	@Reg(Keys.oreTonium)
 //	@GenMeteoWorld
-	@GenOreWorld(times=1,timeRate=0.08f,size=5,minY=40,maxY=180)
+	@GenOreWorld(times=1,timeRate=0.12f,size=5,minY=40,maxY=180)
 	public static final BlockOre oreTonium = new BlockOre().setEpicOre(); // 钝金矿
 	@Reg(Keys.oreStellarium)
-	@GenOreWorld(times=1,timeRate=0.08f,size=5,minY=40,maxY=180)
+	@GenOreWorld(times=1,timeRate=0.12f,size=5,minY=40,maxY=180)
 	public static final BlockOre oreStellarium = new BlockOre().setEpicOre(); // 恒星金属矿
 
 	@Reg(Keys.oreTreeRoot)

@@ -205,6 +205,8 @@ material.fulgurite.name=Fulgurite (WIP)
 material.irisia.name=Irisia (WIP)
 material.tree_root.name=Tree Root
 material.flesh.name=Flesh
+material.broken_bedrock.name=Broken Bedrock
+material.cloud.name=Cloud
 
 ## modifiers
 modifier.maiming.name=Maiming

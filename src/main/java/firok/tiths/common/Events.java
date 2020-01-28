@@ -17,6 +17,7 @@ import net.minecraft.entity.monster.EntityWitherSkeleton;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
@@ -31,6 +32,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
+import java.util.List;
 import java.util.Random;
 
 import static firok.tiths.traits.TraitStonePhasing.costStone;
@@ -215,8 +217,28 @@ public class Events
 		{
 			EntityPlayer player=(EntityPlayer)enlbRevTarget;
 			ItemStack stack=player.getHeldItemMainhand();
+			final List<EntityItem> drops=event.getDrops();
+
+			// 检查有没有各类属性
+			boolean hasMidasDesiring=ToolHelper.getTraits(stack).contains(Traits.midasDesiring);
 			boolean hasGluttonic=ToolHelper.getTraits(stack).contains(Traits.gluttonic);
-			if(hasGluttonic) event.getDrops().clear(); // 如果有暴食 就清空掉落物
+
+			if(hasMidasDesiring && !hasGluttonic) // 迈达斯之欲 转化物品 // 有暴食的话没必要执行了 // info 其实还能优化 但是懒得优化了
+			{
+				for(EntityItem ei:drops)
+				{
+					ItemStack stackEi=ei.getItem();
+					if(stackEi.getItem()== Item.getItemFromBlock(Blocks.GOLD_ORE))
+					{
+						ei.setItem(new ItemStack(net.minecraft.init.Items.GOLD_INGOT,stackEi.getCount()*2));
+					}
+					else if(canTrigger(enlb.world,0.04f))
+					{
+						ei.setItem(new ItemStack(net.minecraft.init.Items.GOLD_INGOT,stackEi.getCount()));
+					}
+				}
+			}
+			if(hasGluttonic) drops.clear(); // 暴食 清空掉落物
 		}
 
 	}

@@ -206,6 +206,8 @@ material.fulgurite.name=闪电熔岩 (WIP)
 material.irisia.name=艾瑞西亚 (WIP)
 material.tree_root.name=树根
 material.flesh.name=血肉
+material.broken_bedrock.name=破碎基岩
+material.cloud.name=云
 
 ## modifiers
 modifier.maiming.name=致残
