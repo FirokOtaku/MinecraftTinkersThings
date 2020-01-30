@@ -69,6 +69,8 @@ public class Items
 	public static final Item treeRoot = new Item(); // 树根
 	@Reg(nameBrokenBedrock)
 	public static final Item brokenBedrock = new Item(); // 破碎基岩
+	@Reg(nameOpal)
+	public static final Item opal = new Item(); // 欧珀
 
 	// 金属粒
 	@Reg(Keys.nuggetStellarium)

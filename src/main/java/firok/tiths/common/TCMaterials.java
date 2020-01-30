@@ -413,6 +413,14 @@ public class TCMaterials
 			.addTrait(squeaky,HEAD)
 			.addTrait(lightweight,EXTRA);
 
+	@Compo(nameOpal)
+	@CompoHead(durability = 230,miningspeed = 3.1f,attack = 3.7f,harvestLevel = 0)
+	@CompoHandle(modifier = 0.84f,durability = -45)
+	@CompoExtra(extraDurability = 115)
+	public static Material opal=new $Material(nameOpal, colorOpal)
+			.addItemAsIngot(Items.opal)
+			.addTrait(gorgeous);
+
 	public static Material cloudStorm=new Material("cloud_storm", Colors.DarkBlue);
 	public static Material skyCrystal=new Material("sky_crystal", Colors.Aqua);
 	public static Material stormCrystal=new Material("storm_crystal", Colors.DarkBlue);

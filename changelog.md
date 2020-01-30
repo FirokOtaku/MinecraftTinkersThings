@@ -2,6 +2,17 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.39.0 _2020-01-29 17:30_
+
+* 增加方块和物品 added blocks and items
+  * 欧珀矿 opal ore block
+  * 欧珀 opal item
+  * 欧珀块 opal block
+* 增加材料 added materials
+  * 欧珀 opal
+* 增加属性 added traits
+  * 斑斓 gorgeous
+
 ## 0.2.38.0 _2020-01-28 23:30_
 
 * 调整矿物生成几率 adjusted generation-rates of ores
