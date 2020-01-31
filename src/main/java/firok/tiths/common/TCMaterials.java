@@ -421,6 +421,14 @@ public class TCMaterials
 			.addItemAsIngot(Items.opal)
 			.addTrait(gorgeous);
 
+	@Compo(nameTopaz)
+	@CompoHead(durability = 490,miningspeed = 5.6f,attack = 4.4f,harvestLevel = 3)
+	@CompoHandle(modifier = 1.15f,durability = 90)
+	@CompoExtra(extraDurability = 280)
+	public static Material topaz=new $Material(nameTopaz, colorTopaz)
+			.addItemAsIngot(Items.topaz)
+			.addTrait(peaceEnergetic);
+
 	public static Material cloudStorm=new Material("cloud_storm", Colors.DarkBlue);
 	public static Material skyCrystal=new Material("sky_crystal", Colors.Aqua);
 	public static Material stormCrystal=new Material("storm_crystal", Colors.DarkBlue);

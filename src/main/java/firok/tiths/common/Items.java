@@ -71,6 +71,8 @@ public class Items
 	public static final Item brokenBedrock = new Item(); // 破碎基岩
 	@Reg(nameOpal)
 	public static final Item opal = new Item(); // 欧珀
+	@Reg(nameTopaz)
+	public static final Item topaz = new Item(); // 托帕石
 
 	// 金属粒
 	@Reg(Keys.nuggetStellarium)

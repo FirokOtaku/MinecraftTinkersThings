@@ -83,6 +83,9 @@ public class Blocks
 	@Reg(Keys.oreOpal)
 	@GenOreWorld(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
 	public static final BlockOre oreOpal = new BlockOre(Items.opal,1,1,1,4,6).setRareOre();
+	@Reg(Keys.oreTopaz)
+	@GenOreWorld(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
+	public static final BlockOre oreTopaz = new BlockOre(Items.topaz,1,1,1,4,6).setRareOre();
 
 	@Reg(Keys.orePolarium)
 //	@GenMeteoWorld
@@ -176,6 +179,8 @@ public class Blocks
 	public static final Block blockMoonStone = new BlockCompressed(Material.ROCK);// 月光石块
 	@Reg(Keys.blockOpal)
 	public static final Block blockOpal = new BlockCompressed(Material.ROCK); // 欧珀块
+	@Reg(Keys.blockTopaz)
+	public static final Block blockTopaz = new BlockCompressed(Material.ROCK); // 托帕石块
 
 	@Reg(Keys.blockStellariumObsidian)
 	public static final Block blockStellariumObsidian = new Block(Material.ROCK); // 恒星黑曜石

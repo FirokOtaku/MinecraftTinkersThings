@@ -77,6 +77,7 @@ public interface Keys
 	String nameFlesh="flesh";
 	String nameCloud="cloud";
 	String nameOpal="opal";
+	String nameTopaz="topaz";
 
 	String nameHardener="hardener";
 	String namePolisher="polisher";
@@ -133,6 +134,7 @@ public interface Keys
 	String blockFlesh=prefBlock+nameFlesh;
 	String blockCloud=prefBlock+nameCloud;
 	String blockOpal=prefBlock+nameOpal;
+	String blockTopaz=prefBlock+nameTopaz;
 
 	String blockFulgurite=prefBlock+nameFulgurite;
 	String blockMeteorolite=prefBlock+nameMeteorolite;
@@ -174,6 +176,7 @@ public interface Keys
 	String oreTreeRoot=prefOre+nameTreeRoot;
 	String oreBrokenBedrock=prefOre+nameBrokenBedrock;
 	String oreOpal=prefOre+nameOpal;
+	String oreTopaz=prefOre+nameTopaz;
 
 	// 矿锭
 	String ingotStellarium=prefIngot+nameStellarium;
@@ -253,6 +256,7 @@ public interface Keys
 	int colorBrokenBedrock=0x323240;
 	int colorCloud=0xb6caea;
 	int colorOpal=0x0a7dd6;
+	int colorTopaz=0xffc201;
 
 	// 属性
 	String nameTraitGluttonic="Gluttonic";
@@ -298,6 +302,7 @@ public interface Keys
 	String nameTraitDragonKiller="dragon_killer";
 	String nameTraitMidasDesiring="midas_desiring";
 	String nameTraitGorgeous="gorgeous";
+	String nameTraitPeaceEnergetic="peace_energetic";
 
 	// 属性颜色
 	int colorTraitGluttonic=0x752b40;
@@ -343,6 +348,7 @@ public interface Keys
 	int colorTraitDragonKiller=0x9100f3;
 	int colorTraitMidasDesiring=0xdc9113;
 	int colorTraitGorgeous=0x0a7dd6;
+	int colorTraitPeaceEnergetic=0xfff501;
 
 	// 状态效果颜色
 	int colorPotionHeavy=Colors.DarkSeaGreen;
