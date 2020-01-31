@@ -2,7 +2,7 @@
 
 > All Time Stamps: GMT+8
 
-## 0.2.40.0 _2020-01-30 17:30_
+## 0.2.40.0 _2020-01-31 17:30_
 
 * 增加方块和物品 added blocks and items
   * 托帕石矿 topaz ore block
@@ -13,7 +13,7 @@
 * 增加属性 added traits
   * 平和能量 peace energetic
 
-## 0.2.39.0 _2020-01-29 17:30_
+## 0.2.39.0 _2020-01-30 17:30_
 
 * 增加方块和物品 added blocks and items
   * 欧珀矿 opal ore block

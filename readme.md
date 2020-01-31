@@ -7,13 +7,13 @@
 
 ## 最近更新 latest update
 
-**0.2.39.0** _2020-01-29 17:30_ (GMT+8)
+**0.2.40.0** _2020-01-31 17:30_ (GMT+8)
 
 * 增加方块和物品 added blocks and items
-  * 欧珀矿 opal ore block
-  * 欧珀 opal item
-  * 欧珀块 opal block
+  * 托帕石矿 topaz ore block
+  * 托帕石 topaz item
+  * 托帕石块 topaz block
 * 增加材料 added materials
-  * 欧珀 opal
+  * 托帕石 topaz
 * 增加属性 added traits
-  * 斑斓 gorgeous
+  * 平和能量 peace energetic
