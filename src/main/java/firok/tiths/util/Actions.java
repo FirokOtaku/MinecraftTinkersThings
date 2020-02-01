@@ -1,7 +1,5 @@
 package firok.tiths.util;
 
-import firok.tiths.TinkersThings;
-import firok.tiths.common.Potions;
 import firok.tiths.entity.projectile.ProjectileDashingStar;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -14,6 +12,7 @@ import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.ResourceLocation;
@@ -22,13 +21,28 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTableList;
 
-import java.util.Random;
+import java.util.*;
 
 // 所有的行为封装
 public class Actions
 {
 	private Actions(){}
 
+	// 为目标叠加状态
+	public static void CauseAccumEffect(EntityLivingBase target,PotionEffect pe)
+	{
+		if(pe==null) return;
+
+		Potion potion=pe.getPotion();
+		PotionEffect peOrigin=target.getActivePotionEffect(potion);
+		if(peOrigin==null || peOrigin.getAmplifier()<pe.getAmplifier()) target.addPotionEffect(pe);
+		else if(peOrigin.getAmplifier()==pe.getAmplifier())
+		{
+			target.addPotionEffect(new PotionEffect(potion,peOrigin.getDuration()+pe.getDuration(),pe.getAmplifier()));
+		}
+	}
+
+	// 在世界生成物品
 	public static void CauseSpawnItem(Entity target, ItemStack stack)
 	{
 		World world=target.world;

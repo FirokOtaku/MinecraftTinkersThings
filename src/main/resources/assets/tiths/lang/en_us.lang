@@ -28,6 +28,9 @@ tile.tiths.ore_stellarium.name=Stellarium Ore
 tile.tiths.ore_sun_stone.name=Sun Stone Ore
 tile.tiths.ore_moon_stone.name=Moon Stone Ore
 tile.tiths.ore_tree_root.name=Wild Tree Root
+tile.tiths.ore_opal.name=Opal Ore
+tile.tiths.ore_topaz.name=Topaz Ore
+tile.tiths.ore_tanzanite.name=Tanzanite Ore
 
 
 ## blocks
@@ -67,6 +70,9 @@ tile.tiths.block_sun_stone.name=Block of Sun Stone
 tile.tiths.block_moon_stone.name=Block of Moon Stone
 tile.tiths.block_irisia.name=Block of Irisia
 tile.tiths.block_fulgurite.name=Fulgurite
+tile.tiths.block_opal.name=Block of Opal
+tile.tiths.block_topaz.name=Block of Topaz
+tile.tiths.block_tanzanite.name=Block of Tanzanite
 
 ## fluids
 fluid.royal_alloy.name=Molten Royal Alloy
@@ -112,6 +118,9 @@ item.tiths.tourmaline.name=Tourmaline
 item.tiths.sun_stone.name=Sun Stone
 item.tiths.moon_stone.name=Moon Stone
 item.tiths.tree_root.name=Tree Root
+item.tiths.opal.name=Opal
+item.tiths.topaz.name=Topaz
+item.tiths.tanzanite.name=Tanzanite
 ## nugget
 item.tiths.nugget_stellarium.name=Stellarium Nugget
 item.tiths.nugget_royal_alloy.name=Royal Alloy Nugget
@@ -207,6 +216,9 @@ material.tree_root.name=Tree Root
 material.flesh.name=Flesh
 material.broken_bedrock.name=Broken Bedrock
 material.cloud.name=Cloud
+material.opal.name=Opal
+material.topaz.name=Topaz
+material.tanzanite.name=Tanzanite
 
 ## modifiers
 modifier.maiming.name=Maiming
@@ -291,6 +303,12 @@ modifier.dragon_killer.desc=§o屠"龙"§r\n对"龙"造成额外伤害
 ### 关于"屠龙者": 其实是对英文学名里含有"dragon"单词的生物造成更多伤害, 包括"dragonfly"(蜻蜓), 所以这里打引号, 本地化的时候可能需要考虑一下
 modifier.midas_desiring.name=Midas Desiring
 modifier.midas_desiring.desc=§o祸福倚伏§r\n将挖到的金矿石直接转化为双倍的金锭, 有几率将掉落物转化为金子, 但是会慢慢吞食背包里的金子
+modifier.gorgeous.name=Gorgeous
+modifier.gorgeous.desc=
+modifier.peace_energetic.name=Peace Energetic
+modifier.peace_energetic.desc=
+modifier.hyper.name=Hyper
+modifier.hyper.desc=
 
 ## potions
 effect.heavy=Heavy

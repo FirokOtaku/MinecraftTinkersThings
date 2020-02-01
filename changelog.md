@@ -2,6 +2,18 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.41.0 _2020-02-01 14:30_
+
+* 更新语言文件 updated lang files
+* 增加方块和物品 added blocks and items
+  * 坦桑石矿 tanzanite ore block
+  * 坦桑石 tanzanite item
+  * 坦桑石块 tanzanite block
+* 增加材料 added materials
+  * 坦桑石 tanzanite
+* 增加属性 added traits
+  * 振奋 hyper
+
 ## 0.2.40.0 _2020-01-31 17:30_
 
 * 增加方块和物品 added blocks and items

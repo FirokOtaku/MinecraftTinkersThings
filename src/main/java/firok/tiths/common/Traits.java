@@ -37,6 +37,7 @@ public class Traits
 	static{inky.addItem(Items.inkySlime);}
 	public static final AbstractTrait gorgeous=new TraitGorgeous(); // 斑斓
 	public static final AbstractTrait peaceEnergetic=new TraitPeaceEnergetic(); // 平和能量
+	public static final AbstractTrait hyper=new TraitHyper(); // 振奋
 	public static final AbstractTrait chemicalInstable=new TraitChemicalInstable(); // 化学不稳定
 	public static final AbstractTrait infernalBlazing=new TraitInfernalBlazing(); // 狱炎
 	public static final AbstractTrait dragonKiller=new TraitDragonKiller(); // 屠龙者

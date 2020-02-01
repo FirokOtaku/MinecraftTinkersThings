@@ -28,6 +28,9 @@ tile.tiths.ore_stellarium.name=恒星金属矿
 tile.tiths.ore_sun_stone.name=日光石矿
 tile.tiths.ore_moon_stone.name=月光石矿
 tile.tiths.ore_tree_root.name=野生树根
+tile.tiths.ore_opal.name=欧珀矿
+tile.tiths.ore_topaz.name=托帕石矿
+tile.tiths.ore_tanzanite.name=坦桑石矿
 
 
 ## blocks
@@ -67,6 +70,9 @@ tile.tiths.block_sun_stone.name=日光石块
 tile.tiths.block_moon_stone.name=月光石块
 tile.tiths.block_irisia.name=艾瑞西亚块
 tile.tiths.block_fulgurite.name=闪电熔岩
+tile.tiths.block_opal.name=欧珀块
+tile.tiths.block_topaz.name=托帕石块
+tile.tiths.block_tanzanite.name=坦桑石块
 
 ## fluids
 fluid.royal_alloy.name=熔融奢华合金
@@ -113,6 +119,9 @@ item.tiths.sun_stone.name=日光石
 item.tiths.moon_stone.name=月光石
 item.tiths.tree_root.name=树根
 item.tiths.flesh.name=血肉
+item.tiths.opal.name=欧珀
+item.tiths.topaz.name=托帕石
+item.tiths.tanzanite.name=坦桑石
 ## nugget
 item.tiths.nugget_stellarium.name=恒星金属粒
 item.tiths.nugget_royal_alloy.name=奢华合金粒
@@ -208,6 +217,9 @@ material.tree_root.name=树根
 material.flesh.name=血肉
 material.broken_bedrock.name=破碎基岩
 material.cloud.name=云
+material.opal.name=欧珀
+material.topaz.name=托帕石
+material.tanzanite.name=坦桑石
 
 ## modifiers
 modifier.maiming.name=致残
@@ -292,6 +304,12 @@ modifier.dragon_killer.desc=§o屠"龙"§r\n对"龙"造成额外伤害
 ### 关于"屠龙者": 其实是对英文学名里含有"dragon"单词的生物造成更多伤害, 包括"dragonfly"(蜻蜓), 所以这里打引号, 本地化的时候可能需要考虑一下
 modifier.midas_desiring.name=迈达斯之欲
 modifier.midas_desiring.desc=§o不听不听, 飞鞋点金§r\n将挖到的金矿石直接转化为双倍的金锭, 有几率将掉落物转化为金子, 但是会慢慢吞食背包里的金子
+modifier.gorgeous.name=斑斓
+modifier.gorgeous.desc=§o五彩色的黑§r\n增加攻击力
+modifier.peace_energetic.name=平和能量
+modifier.peace_energetic.desc=§o感受宁静§r\n有几率为使用者恢复生命
+modifier.hyper.name=振奋
+modifier.hyper.desc=§o我感觉好嗨§r\n为使用者叠加速度和急迫效果
 
 ## potions
 effect.heavy=沉重

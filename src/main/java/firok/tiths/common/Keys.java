@@ -78,6 +78,7 @@ public interface Keys
 	String nameCloud="cloud";
 	String nameOpal="opal";
 	String nameTopaz="topaz";
+	String nameTanzanite="tanzanite";
 
 	String nameHardener="hardener";
 	String namePolisher="polisher";
@@ -135,6 +136,7 @@ public interface Keys
 	String blockCloud=prefBlock+nameCloud;
 	String blockOpal=prefBlock+nameOpal;
 	String blockTopaz=prefBlock+nameTopaz;
+	String blockTanzanite=prefBlock+nameTanzanite;
 
 	String blockFulgurite=prefBlock+nameFulgurite;
 	String blockMeteorolite=prefBlock+nameMeteorolite;
@@ -177,6 +179,7 @@ public interface Keys
 	String oreBrokenBedrock=prefOre+nameBrokenBedrock;
 	String oreOpal=prefOre+nameOpal;
 	String oreTopaz=prefOre+nameTopaz;
+	String oreTanzanite=prefOre+nameTanzanite;
 
 	// 矿锭
 	String ingotStellarium=prefIngot+nameStellarium;
@@ -226,7 +229,7 @@ public interface Keys
 	int colorRoyalAlloy=0xf5ea8d;
 	int colorSpiderLeg=0x3d0006;
 	int colorHardSpiderLeg=0x1a0003;
-	int colorCinnabar=Colors.Silver; //
+	int colorCinnabar=Colors.Silver;
 	int colorConsolidatedGlass=Colors.LightBlue;
 	int colorBrokenIce=Colors.LightSkyBlue;
 	int colorImmersedSilver=0x1e4575;
@@ -242,7 +245,7 @@ public interface Keys
 	int colorTourmaline=Colors.DarkBlue;
 	int colorCorundum=0x85323c;
 	int colorNitre=Colors.LightGray;
-	int colorPyrophyllite=Colors.LightGreen; //
+	int colorPyrophyllite=Colors.LightGreen;
 	int colorIcelandSpar=Colors.LightSteelBlue;
 	int colorTitanium=0xaaceef; //
 	int colorPolarium=0x6aa7d9; //
@@ -257,6 +260,7 @@ public interface Keys
 	int colorCloud=0xb6caea;
 	int colorOpal=0x0a7dd6;
 	int colorTopaz=0xffc201;
+	int colorTanzanite=0x6607b3;
 
 	// 属性
 	String nameTraitGluttonic="Gluttonic";
@@ -303,6 +307,7 @@ public interface Keys
 	String nameTraitMidasDesiring="midas_desiring";
 	String nameTraitGorgeous="gorgeous";
 	String nameTraitPeaceEnergetic="peace_energetic";
+	String nameTraitHyper="hyper";
 
 	// 属性颜色
 	int colorTraitGluttonic=0x752b40;
@@ -349,6 +354,7 @@ public interface Keys
 	int colorTraitMidasDesiring=0xdc9113;
 	int colorTraitGorgeous=0x0a7dd6;
 	int colorTraitPeaceEnergetic=0xfff501;
+	int colorTraitHyper=0xa022ff;
 
 	// 状态效果颜色
 	int colorPotionHeavy=Colors.DarkSeaGreen;

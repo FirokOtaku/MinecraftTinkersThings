@@ -429,6 +429,14 @@ public class TCMaterials
 			.addItemAsIngot(Items.topaz)
 			.addTrait(peaceEnergetic);
 
+	@Compo(nameTanzanite)
+	@CompoHead(durability = 730,miningspeed = 6.2f,attack = 6.9f,harvestLevel = 3)
+	@CompoHandle(modifier = 1.15f,durability = 90)
+	@CompoExtra(extraDurability = 310)
+	public static Material tanzanite=new $Material(nameTanzanite, colorTanzanite)
+			.addItemAsIngot(Items.tanzanite)
+			.addTrait(hyper);
+
 	public static Material cloudStorm=new Material("cloud_storm", Colors.DarkBlue);
 	public static Material skyCrystal=new Material("sky_crystal", Colors.Aqua);
 	public static Material stormCrystal=new Material("storm_crystal", Colors.DarkBlue);
