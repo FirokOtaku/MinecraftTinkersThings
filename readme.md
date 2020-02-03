@@ -7,14 +7,13 @@
 
 ## 最近更新 latest update
 
-**0.2.41.0** _2020-02-01 14:30_ (GMT+8)
+**0.2.42.0** _2020-02-03 10:00_ (GMT+8)
 
-* 更新语言文件 updated lang files
 * 增加方块和物品 added blocks and items
-  * 坦桑石矿 tanzanite ore block
-  * 坦桑石 tanzanite item
-  * 坦桑石块 tanzanite block
+  * 堇青石矿 cordierite ore block
+  * 堇青石 cordierite item
+  * 堇青石块 cordierite block
 * 增加材料 added materials
-  * 坦桑石 tanzanite
+  * 堇青石 cordierite
 * 增加属性 added traits
-  * 振奋 hyper
+  * 二色性 dichroic

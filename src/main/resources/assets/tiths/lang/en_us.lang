@@ -31,7 +31,7 @@ tile.tiths.ore_tree_root.name=Wild Tree Root
 tile.tiths.ore_opal.name=Opal Ore
 tile.tiths.ore_topaz.name=Topaz Ore
 tile.tiths.ore_tanzanite.name=Tanzanite Ore
-
+tile.tiths.ore_cordierite.name=Cordierite Ore
 
 ## blocks
 tile.tiths.block_blood_sand.name=Blood Sand
@@ -73,6 +73,7 @@ tile.tiths.block_fulgurite.name=Fulgurite
 tile.tiths.block_opal.name=Block of Opal
 tile.tiths.block_topaz.name=Block of Topaz
 tile.tiths.block_tanzanite.name=Block of Tanzanite
+tile.tiths.block_cordierite.name=Block of Cordierite
 
 ## fluids
 fluid.royal_alloy.name=Molten Royal Alloy
@@ -121,6 +122,7 @@ item.tiths.tree_root.name=Tree Root
 item.tiths.opal.name=Opal
 item.tiths.topaz.name=Topaz
 item.tiths.tanzanite.name=Tanzanite
+item.tiths.cordierite.name=Cordierite
 ## nugget
 item.tiths.nugget_stellarium.name=Stellarium Nugget
 item.tiths.nugget_royal_alloy.name=Royal Alloy Nugget
@@ -219,6 +221,7 @@ material.cloud.name=Cloud
 material.opal.name=Opal
 material.topaz.name=Topaz
 material.tanzanite.name=Tanzanite
+material.cordierite.name=Cordierite
 
 ## modifiers
 modifier.maiming.name=Maiming
@@ -309,6 +312,8 @@ modifier.peace_energetic.name=Peace Energetic
 modifier.peace_energetic.desc=
 modifier.hyper.name=Hyper
 modifier.hyper.desc=
+modifier.dichroic.name=Dichroic
+modifier.dichroic.desc=
 
 ## potions
 effect.heavy=Heavy

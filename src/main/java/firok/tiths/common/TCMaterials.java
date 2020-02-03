@@ -437,6 +437,14 @@ public class TCMaterials
 			.addItemAsIngot(Items.tanzanite)
 			.addTrait(hyper);
 
+	@Compo(nameCordierite)
+	@CompoHead(durability = 425,miningspeed = 5.9f,attack = 3.9f,harvestLevel = 3)
+	@CompoHandle(modifier = 1.05f,durability = 35)
+	@CompoExtra(extraDurability = 215)
+	public static Material cordierite=new $Material(nameCordierite, colorCordierite)
+			.addItemAsIngot(Items.cordierite)
+			.addTrait(dichroic);
+
 	public static Material cloudStorm=new Material("cloud_storm", Colors.DarkBlue);
 	public static Material skyCrystal=new Material("sky_crystal", Colors.Aqua);
 	public static Material stormCrystal=new Material("storm_crystal", Colors.DarkBlue);

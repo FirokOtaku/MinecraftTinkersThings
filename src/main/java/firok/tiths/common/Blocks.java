@@ -89,6 +89,9 @@ public class Blocks
 	@Reg(Keys.oreTanzanite)
 	@GenOreWorld(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
 	public static final BlockOre oreTanzanite = new BlockOre(Items.tanzanite,1,1,1,4,6).setRareOre();
+	@Reg(Keys.oreCordierite)
+	@GenOreWorld(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
+	public static final BlockOre oreCordierite = new BlockOre(Items.cordierite,1,1,1,4,6).setRareOre();
 
 	@Reg(Keys.orePolarium)
 //	@GenMeteoWorld
@@ -186,6 +189,8 @@ public class Blocks
 	public static final Block blockTopaz = new BlockCompressed(Material.ROCK); // 托帕石块
 	@Reg(Keys.blockTanzanite)
 	public static final Block blockTanzanite = new BlockCompressed(Material.ROCK); // 坦桑石块
+	@Reg(Keys.blockCordierite)
+	public static final Block blockCordierite = new BlockCompressed(Material.ROCK); // 堇青石
 
 	@Reg(Keys.blockStellariumObsidian)
 	public static final Block blockStellariumObsidian = new Block(Material.ROCK); // 恒星黑曜石

@@ -75,6 +75,8 @@ public class Items
 	public static final Item topaz = new Item(); // 托帕石
 	@Reg(nameTanzanite)
 	public static final Item tanzanite = new Item(); // 坦桑石
+	@Reg(nameCordierite)
+	public static final Item cordierite = new Item(); // 堇青石
 
 	// 金属粒
 	@Reg(Keys.nuggetStellarium)

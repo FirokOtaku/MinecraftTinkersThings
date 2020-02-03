@@ -31,7 +31,7 @@ tile.tiths.ore_tree_root.name=野生树根
 tile.tiths.ore_opal.name=欧珀矿
 tile.tiths.ore_topaz.name=托帕石矿
 tile.tiths.ore_tanzanite.name=坦桑石矿
-
+tile.tiths.ore_cordierite.name=堇青石矿
 
 ## blocks
 tile.tiths.block_blood_sand.name=血沙
@@ -73,6 +73,7 @@ tile.tiths.block_fulgurite.name=闪电熔岩
 tile.tiths.block_opal.name=欧珀块
 tile.tiths.block_topaz.name=托帕石块
 tile.tiths.block_tanzanite.name=坦桑石块
+tile.tiths.block_cordierite.name=堇青石块
 
 ## fluids
 fluid.royal_alloy.name=熔融奢华合金
@@ -122,6 +123,7 @@ item.tiths.flesh.name=血肉
 item.tiths.opal.name=欧珀
 item.tiths.topaz.name=托帕石
 item.tiths.tanzanite.name=坦桑石
+item.tiths.cordierite.name=堇青石
 ## nugget
 item.tiths.nugget_stellarium.name=恒星金属粒
 item.tiths.nugget_royal_alloy.name=奢华合金粒
@@ -220,6 +222,7 @@ material.cloud.name=云
 material.opal.name=欧珀
 material.topaz.name=托帕石
 material.tanzanite.name=坦桑石
+material.cordierite.name=堇青石
 
 ## modifiers
 modifier.maiming.name=致残
@@ -310,6 +313,8 @@ modifier.peace_energetic.name=平和能量
 modifier.peace_energetic.desc=§o感受宁静§r\n有几率为使用者恢复生命
 modifier.hyper.name=振奋
 modifier.hyper.desc=§o我感觉好嗨§r\n为使用者叠加速度和急迫效果
+modifier.dichroic.name=二色性
+modifier.dichroic.desc=§o看起来不一样了?§r\n在明亮的环境增加速度, 在黑暗的环境增加伤害
 
 ## potions
 effect.heavy=沉重
