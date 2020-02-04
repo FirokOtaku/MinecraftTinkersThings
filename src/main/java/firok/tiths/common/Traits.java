@@ -39,6 +39,7 @@ public class Traits
 	public static final AbstractTrait peaceEnergetic=new TraitPeaceEnergetic(); // 平和能量
 	public static final AbstractTrait hyper=new TraitHyper(); // 振奋
 	public static final AbstractTrait dichroic=new TraitDichroic(); // 二色性
+	public static final AbstractTrait lifeInspiring=new TraitLifeInspiring(); // 生命激发
 	public static final AbstractTrait chemicalInstable=new TraitChemicalInstable(); // 化学不稳定
 	public static final AbstractTrait infernalBlazing=new TraitInfernalBlazing(); // 狱炎
 	public static final AbstractTrait dragonKiller=new TraitDragonKiller(); // 屠龙者

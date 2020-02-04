@@ -53,7 +53,7 @@ public class Events
 		// 碎冰
 		TRY_DROP_BROKEN_ICE:if(block== Blocks.ICE)
 		{
-			int amount=1+world.rand.nextInt(6);
+			int amount=1+world.rand.nextInt(3);
 			ItemStack stack=new ItemStack(Items.brokenIce,amount);
 			EntityItem ei=new EntityItem(world,pos.getX(),pos.getY(),pos.getZ(),stack);
 
@@ -63,7 +63,7 @@ public class Events
 		// 贝壳
 		else TRY_DROP_SHELL:if(block== Blocks.SAND)
 		{
-			if(!canTrigger(world,0.28f)) break TRY_DROP_SHELL;
+			if(!canTrigger(world,0.14f)) break TRY_DROP_SHELL;
 
 			Biome biome=world.getBiome(pos);
 			if(biome== Biomes.BEACH ||

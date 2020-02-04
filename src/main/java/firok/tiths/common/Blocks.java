@@ -27,7 +27,7 @@ public class Blocks
 	public static final BlockOre oreCinnabar = new BlockOre(Items.cinnabar,1,3,2,3,5).setCommonOre(); // 辰砂矿石
 	@Reg(Keys.oreInkPowder)
 	@GenOreWorld(times=5,minY=60,maxY=120,size=8)
-	public static final BlockOre oreInkPowder = new BlockOre(Items.inkPowder,4,8,2,2,7).setCommonOre(); // 墨粉矿石
+	public static final BlockOre oreInkPowder = new BlockOre(Items.inkPowder,2,4,2,2,7).setCommonOre(); // 墨粉矿石
 	@Reg(Keys.oreImmersedSilver)
 	@GenOreWorld(times=3,size=5,minY = 30,maxY = 80)
 	public static final BlockOre oreImmersedSilver = new BlockOre().setRareOre(); // 沉银矿石
@@ -92,6 +92,9 @@ public class Blocks
 	@Reg(Keys.oreCordierite)
 	@GenOreWorld(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
 	public static final BlockOre oreCordierite = new BlockOre(Items.cordierite,1,1,1,4,6).setRareOre();
+	@Reg(Keys.orePrehnite)
+	@GenOreWorld(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
+	public static final BlockOre orePrehnite = new BlockOre(Items.prehnite,1,1,1,4,6).setRareOre();
 
 	@Reg(Keys.orePolarium)
 //	@GenMeteoWorld
@@ -190,7 +193,9 @@ public class Blocks
 	@Reg(Keys.blockTanzanite)
 	public static final Block blockTanzanite = new BlockCompressed(Material.ROCK); // 坦桑石块
 	@Reg(Keys.blockCordierite)
-	public static final Block blockCordierite = new BlockCompressed(Material.ROCK); // 堇青石
+	public static final Block blockCordierite = new BlockCompressed(Material.ROCK); // 堇青石块
+	@Reg(Keys.blockPrehnite)
+	public static final Block blockPrehnite = new BlockCompressed(Material.ROCK); // 葡萄石块
 
 	@Reg(Keys.blockStellariumObsidian)
 	public static final Block blockStellariumObsidian = new Block(Material.ROCK); // 恒星黑曜石

@@ -77,6 +77,8 @@ public class Items
 	public static final Item tanzanite = new Item(); // 坦桑石
 	@Reg(nameCordierite)
 	public static final Item cordierite = new Item(); // 堇青石
+	@Reg(namePrehnite)
+	public static final Item prehnite = new Item(); // 葡萄石
 
 	// 金属粒
 	@Reg(Keys.nuggetStellarium)

@@ -80,6 +80,7 @@ public interface Keys
 	String nameTopaz="topaz";
 	String nameTanzanite="tanzanite";
 	String nameCordierite="cordierite";
+	String namePrehnite="prehnite";
 
 	String nameHardener="hardener";
 	String namePolisher="polisher";
@@ -139,6 +140,7 @@ public interface Keys
 	String blockTopaz=prefBlock+nameTopaz;
 	String blockTanzanite=prefBlock+nameTanzanite;
 	String blockCordierite=prefBlock+nameCordierite;
+	String blockPrehnite=prefBlock+namePrehnite;
 
 	String blockFulgurite=prefBlock+nameFulgurite;
 	String blockMeteorolite=prefBlock+nameMeteorolite;
@@ -183,6 +185,7 @@ public interface Keys
 	String oreTopaz=prefOre+nameTopaz;
 	String oreTanzanite=prefOre+nameTanzanite;
 	String oreCordierite=prefOre+nameCordierite;
+	String orePrehnite=prefOre+namePrehnite;
 
 	// 矿锭
 	String ingotStellarium=prefIngot+nameStellarium;
@@ -265,6 +268,7 @@ public interface Keys
 	int colorTopaz=0xffc201;
 	int colorTanzanite=0x6607b3;
 	int colorCordierite=0x536f9e;
+	int colorPrehnite=0xb8e986;
 
 	// 属性
 	String nameTraitGluttonic="Gluttonic";
@@ -313,6 +317,7 @@ public interface Keys
 	String nameTraitPeaceEnergetic="peace_energetic";
 	String nameTraitHyper="hyper";
 	String nameTraitDichroic="dichroic";
+	String nameTraitLifeInspiring="life_inspiring";
 
 	// 属性颜色
 	int colorTraitGluttonic=0x752b40;
@@ -361,6 +366,7 @@ public interface Keys
 	int colorTraitPeaceEnergetic=0xfff501;
 	int colorTraitHyper=0xa022ff;
 	int colorTraitDichroic=0x536f9e;
+	int colorTraitLifeInspiring=0xf84b5d;
 
 	// 状态效果颜色
 	int colorPotionHeavy=Colors.DarkSeaGreen;

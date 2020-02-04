@@ -445,6 +445,14 @@ public class TCMaterials
 			.addItemAsIngot(Items.cordierite)
 			.addTrait(dichroic);
 
+	@Compo(namePrehnite)
+	@CompoHead(durability = 370,miningspeed = 4.1f,attack = 3.3f,harvestLevel = 3)
+	@CompoHandle(modifier = 0.95f,durability = 20)
+	@CompoExtra(extraDurability = 55)
+	public static Material prehnite=new $Material(namePrehnite, colorPrehnite)
+			.addItemAsIngot(Items.prehnite)
+			.addTrait(lifeInspiring);
+
 	public static Material cloudStorm=new Material("cloud_storm", Colors.DarkBlue);
 	public static Material skyCrystal=new Material("sky_crystal", Colors.Aqua);
 	public static Material stormCrystal=new Material("storm_crystal", Colors.DarkBlue);

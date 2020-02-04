@@ -32,6 +32,7 @@ tile.tiths.ore_opal.name=Opal Ore
 tile.tiths.ore_topaz.name=Topaz Ore
 tile.tiths.ore_tanzanite.name=Tanzanite Ore
 tile.tiths.ore_cordierite.name=Cordierite Ore
+tile.tiths.ore_prehnite.name=Prehnite Ore
 
 ## blocks
 tile.tiths.block_blood_sand.name=Blood Sand
@@ -74,6 +75,7 @@ tile.tiths.block_opal.name=Block of Opal
 tile.tiths.block_topaz.name=Block of Topaz
 tile.tiths.block_tanzanite.name=Block of Tanzanite
 tile.tiths.block_cordierite.name=Block of Cordierite
+tile.tiths.block_prehnite.name=Block of Prehnite
 
 ## fluids
 fluid.royal_alloy.name=Molten Royal Alloy
@@ -123,6 +125,7 @@ item.tiths.opal.name=Opal
 item.tiths.topaz.name=Topaz
 item.tiths.tanzanite.name=Tanzanite
 item.tiths.cordierite.name=Cordierite
+item.tiths.prehnite.name=Prehnite
 ## nugget
 item.tiths.nugget_stellarium.name=Stellarium Nugget
 item.tiths.nugget_royal_alloy.name=Royal Alloy Nugget
@@ -222,6 +225,7 @@ material.opal.name=Opal
 material.topaz.name=Topaz
 material.tanzanite.name=Tanzanite
 material.cordierite.name=Cordierite
+material.prehnite.name=Prehnite
 
 ## modifiers
 modifier.maiming.name=Maiming
@@ -314,6 +318,8 @@ modifier.hyper.name=Hyper
 modifier.hyper.desc=
 modifier.dichroic.name=Dichroic
 modifier.dichroic.desc=
+modifier.life_inspiring.name=Life Inspiring
+modifier.life_inspiring.desc=
 
 ## potions
 effect.heavy=Heavy

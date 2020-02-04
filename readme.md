@@ -7,13 +7,13 @@
 
 ## 最近更新 latest update
 
-**0.2.42.0** _2020-02-03 10:00_ (GMT+8)
+**0.2.43.0** _2020-02-04 10:30_ (GMT+8)
 
 * 增加方块和物品 added blocks and items
-  * 堇青石矿 cordierite ore block
-  * 堇青石 cordierite item
-  * 堇青石块 cordierite block
+  * 葡萄石矿 prehnite ore block
+  * 葡萄石 prehnite
+  * 葡萄石块 prehnite
 * 增加材料 added materials
-  * 堇青石 cordierite
+  * 葡萄石 prehnite
 * 增加属性 added traits
-  * 二色性 dichroic
+  * 生命激发 life inspiring
