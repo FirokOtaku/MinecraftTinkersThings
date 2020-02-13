@@ -95,6 +95,9 @@ public class Blocks
 	@Reg(Keys.orePrehnite)
 	@GenOreWorld(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
 	public static final BlockOre orePrehnite = new BlockOre(Items.prehnite,1,1,1,4,6).setRareOre();
+	@Reg(Keys.oreProustite)
+	@GenOreWorld(times=4,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
+	public static final BlockOre oreProustite = new BlockOre(Items.proustite,1,1,1,4,6).setRareOre();
 
 	@Reg(Keys.orePolarium)
 //	@GenMeteoWorld
@@ -196,6 +199,8 @@ public class Blocks
 	public static final Block blockCordierite = new BlockCompressed(Material.ROCK); // 堇青石块
 	@Reg(Keys.blockPrehnite)
 	public static final Block blockPrehnite = new BlockCompressed(Material.ROCK); // 葡萄石块
+	@Reg(Keys.blockProustite)
+	public static final Block blockProustite = new BlockCompressed(Material.ROCK); // 硫砷银矿
 
 	@Reg(Keys.blockStellariumObsidian)
 	public static final Block blockStellariumObsidian = new Block(Material.ROCK); // 恒星黑曜石

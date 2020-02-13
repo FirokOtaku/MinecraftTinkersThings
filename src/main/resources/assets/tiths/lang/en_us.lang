@@ -33,6 +33,8 @@ tile.tiths.ore_topaz.name=Topaz Ore
 tile.tiths.ore_tanzanite.name=Tanzanite Ore
 tile.tiths.ore_cordierite.name=Cordierite Ore
 tile.tiths.ore_prehnite.name=Prehnite Ore
+tile.tiths.ore_proustite.name=Proustite Ore
+tile.tiths.ore_broken_bedrock.name=Broken Bedrock Ore
 
 ## blocks
 tile.tiths.block_blood_sand.name=Blood Sand
@@ -76,6 +78,8 @@ tile.tiths.block_topaz.name=Block of Topaz
 tile.tiths.block_tanzanite.name=Block of Tanzanite
 tile.tiths.block_cordierite.name=Block of Cordierite
 tile.tiths.block_prehnite.name=Block of Prehnite
+tile.tiths.block_proustite.name=Block of Proustite
+tile.tiths.block_cloud.name=Cloud
 
 ## fluids
 fluid.royal_alloy.name=Molten Royal Alloy
@@ -126,6 +130,8 @@ item.tiths.topaz.name=Topaz
 item.tiths.tanzanite.name=Tanzanite
 item.tiths.cordierite.name=Cordierite
 item.tiths.prehnite.name=Prehnite
+item.tiths.proustite.name=Proustite
+item.tiths.broken_bedrock.name=Broken Bedrock
 ## nugget
 item.tiths.nugget_stellarium.name=Stellarium Nugget
 item.tiths.nugget_royal_alloy.name=Royal Alloy Nugget
@@ -226,6 +232,7 @@ material.topaz.name=Topaz
 material.tanzanite.name=Tanzanite
 material.cordierite.name=Cordierite
 material.prehnite.name=Prehnite
+material.proustite.name=Proustite
 
 ## modifiers
 modifier.maiming.name=Maiming

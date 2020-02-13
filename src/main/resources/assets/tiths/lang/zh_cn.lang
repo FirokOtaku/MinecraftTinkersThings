@@ -33,6 +33,8 @@ tile.tiths.ore_topaz.name=托帕石矿
 tile.tiths.ore_tanzanite.name=坦桑石矿
 tile.tiths.ore_cordierite.name=堇青石矿
 tile.tiths.ore_prehnite.name=葡萄石矿
+tile.tiths.ore_proustite.name=硫砷银矿
+tile.tiths.ore_broken_bedrock.name=破碎基岩块
 
 ## blocks
 tile.tiths.block_blood_sand.name=血沙
@@ -76,6 +78,8 @@ tile.tiths.block_topaz.name=托帕石块
 tile.tiths.block_tanzanite.name=坦桑石块
 tile.tiths.block_cordierite.name=堇青石块
 tile.tiths.block_prehnite.name=葡萄石块
+tile.tiths.block_proustite.name=硫砷银块
+tile.tiths.block_cloud.name=云
 
 ## fluids
 fluid.royal_alloy.name=熔融奢华合金
@@ -127,6 +131,8 @@ item.tiths.topaz.name=托帕石
 item.tiths.tanzanite.name=坦桑石
 item.tiths.cordierite.name=堇青石
 item.tiths.prehnite.name=葡萄石
+item.tiths.proustite.name=硫砷银
+item.tiths.broken_bedrock.name=破碎基岩
 ## nugget
 item.tiths.nugget_stellarium.name=恒星金属粒
 item.tiths.nugget_royal_alloy.name=奢华合金粒
@@ -227,6 +233,7 @@ material.topaz.name=托帕石
 material.tanzanite.name=坦桑石
 material.cordierite.name=堇青石
 material.prehnite.name=葡萄石
+material.proustite.name=硫砷银
 
 ## modifiers
 modifier.maiming.name=致残

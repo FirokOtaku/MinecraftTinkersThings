@@ -81,6 +81,7 @@ public interface Keys
 	String nameTanzanite="tanzanite";
 	String nameCordierite="cordierite";
 	String namePrehnite="prehnite";
+	String nameProustite="proustite";
 
 	String nameHardener="hardener";
 	String namePolisher="polisher";
@@ -141,6 +142,7 @@ public interface Keys
 	String blockTanzanite=prefBlock+nameTanzanite;
 	String blockCordierite=prefBlock+nameCordierite;
 	String blockPrehnite=prefBlock+namePrehnite;
+	String blockProustite=prefBlock+nameProustite;
 
 	String blockFulgurite=prefBlock+nameFulgurite;
 	String blockMeteorolite=prefBlock+nameMeteorolite;
@@ -186,6 +188,7 @@ public interface Keys
 	String oreTanzanite=prefOre+nameTanzanite;
 	String oreCordierite=prefOre+nameCordierite;
 	String orePrehnite=prefOre+namePrehnite;
+	String oreProustite=prefOre+nameProustite;
 
 	// 矿锭
 	String ingotStellarium=prefIngot+nameStellarium;
@@ -269,6 +272,7 @@ public interface Keys
 	int colorTanzanite=0x6607b3;
 	int colorCordierite=0x536f9e;
 	int colorPrehnite=0xb8e986;
+	int colorProustite=0x5e252b;
 
 	// 属性
 	String nameTraitGluttonic="Gluttonic";

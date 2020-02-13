@@ -156,14 +156,14 @@ public class RegistryHandler
 
 					registry.register(item);
 
+					item.setCreativeTab(TinkerRegistry.tabGeneral);
+
 					// 矿物词典注册
 					String[] ods=reg.od();
 					if(ods.length>0)
 					{
 						for(String od:ods) OreDictionary.registerOre(od,item);
 					}
-
-					item.setCreativeTab(TinkerRegistry.tabGeneral);
 				}
 //				countItem++;
 			}

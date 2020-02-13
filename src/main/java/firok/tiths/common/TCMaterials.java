@@ -453,6 +453,13 @@ public class TCMaterials
 			.addItemAsIngot(Items.prehnite)
 			.addTrait(lifeInspiring);
 
+	@Compo(nameProustite)
+	@CompoHead(durability = 290,miningspeed = 3.5f,attack = 4.7f,harvestLevel = 2)
+	@CompoHandle(modifier = 0.85f,durability = 80)
+	@CompoExtra(extraDurability = 35)
+	public static Material proustite=new $Material(nameProustite, colorProustite)
+			.addItemAsIngot(Items.proustite);
+
 	public static Material cloudStorm=new Material("cloud_storm", Colors.DarkBlue);
 	public static Material skyCrystal=new Material("sky_crystal", Colors.Aqua);
 	public static Material stormCrystal=new Material("storm_crystal", Colors.DarkBlue);

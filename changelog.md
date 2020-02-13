@@ -2,12 +2,21 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.44.0 _2020-02-13 10:30_
+
+* 增加方块和物品 added blocks and items
+  * 硫砷银矿 proustite ore block
+  * 硫砷银 proustite item
+  * 硫砷银块 proustite block
+* 增加材料 added materials
+  * 硫砷银 proustite
+
 ## 0.2.43.0 _2020-02-04 10:30_
 
 * 增加方块和物品 added blocks and items
   * 葡萄石矿 prehnite ore block
-  * 葡萄石 prehnite
-  * 葡萄石块 prehnite
+  * 葡萄石 prehnite item
+  * 葡萄石块 prehnite block
 * 增加材料 added materials
   * 葡萄石 prehnite
 * 增加属性 added traits

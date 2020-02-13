@@ -79,6 +79,8 @@ public class Items
 	public static final Item cordierite = new Item(); // 堇青石
 	@Reg(namePrehnite)
 	public static final Item prehnite = new Item(); // 葡萄石
+	@Reg(nameProustite)
+	public static final Item proustite = new Item(); // 硫砷银
 
 	// 金属粒
 	@Reg(Keys.nuggetStellarium)
