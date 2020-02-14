@@ -331,6 +331,7 @@ modifier.life_inspiring.desc=§o我不会轻易狗带§r\n在使用者生命危�
 
 ## potions
 effect.heavy=沉重
+effect.pestilential=瘟疫
 
 ## damage sources
 death.attack.san=%1$s遇到了一点精神问题

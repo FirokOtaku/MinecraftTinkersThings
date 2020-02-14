@@ -375,6 +375,7 @@ public interface Keys
 	// 状态效果颜色
 	int colorPotionHeavy=Colors.DarkSeaGreen;
 	int colorPotionDisappear=Colors.Black;
+	int colorPotionPestilential=Colors.DarkGreen;
 
 	// 唱片
 	String recordTinkersEfforts="record_tinkers_efforts";

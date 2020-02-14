@@ -7,11 +7,7 @@
 
 ## 最近更新 latest update
 
-**0.2.44.0** _2020-02-13 10:30_ (GMT+8)
+**0.2.45.0** _2020-02-14 23:00_ (GMT+8)
 
-* 增加方块和物品 added blocks and items
-  * 硫砷银矿 proustite ore block
-  * 硫砷银 proustite item
-  * 硫砷银块 proustite block
-* 增加材料 added materials
-  * 硫砷银 proustite
+* 增加状态效果 added potion effects
+  * 瘟疫 pestilential

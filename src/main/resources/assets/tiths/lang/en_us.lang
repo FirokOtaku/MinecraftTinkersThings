@@ -330,6 +330,7 @@ modifier.life_inspiring.desc=
 
 ## potions
 effect.heavy=Heavy
+effect.pestilential=Pestilential
 
 ## damage sources
 death.attack.san=%1$s has some mental problem

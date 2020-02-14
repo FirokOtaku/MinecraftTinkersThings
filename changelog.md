@@ -2,6 +2,11 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.45.0 _2020-02-14 23:00_
+
+* 增加状态效果 added potion effects
+  * 瘟疫 pestilential
+
 ## 0.2.44.0 _2020-02-13 10:30_
 
 * 增加方块和物品 added blocks and items
