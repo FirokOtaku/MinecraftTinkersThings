@@ -2,12 +2,8 @@ package firok.tiths.potion;
 
 import firok.tiths.TinkersThings;
 import firok.tiths.common.Keys;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
 
 // 沉重

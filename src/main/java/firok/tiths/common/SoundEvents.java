@@ -8,6 +8,7 @@ public class SoundEvents
 {
 	public static final SoundEvent recordTinkersEfforts=$(Keys.soundTinkersEfforts);
 	public static final SoundEvent recordTinkersWill=$(Keys.soundTinkersWill);
+	public static final SoundEvent effectHeal=$(Keys.soundHealEffect);
 
 	/**
 	 @see net.minecraft.util.SoundCategory

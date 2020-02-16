@@ -201,6 +201,8 @@ public class Blocks
 	public static final Block blockPrehnite = new BlockCompressed(Material.ROCK); // 葡萄石块
 	@Reg(Keys.blockProustite)
 	public static final Block blockProustite = new BlockCompressed(Material.ROCK); // 硫砷银矿
+	@Reg(Keys.blockOraclium)
+	public static final Block blockOraclium = new BlockCompressed(); // 神谕块
 
 	@Reg(Keys.blockStellariumObsidian)
 	public static final Block blockStellariumObsidian = new Block(Material.ROCK); // 恒星黑曜石

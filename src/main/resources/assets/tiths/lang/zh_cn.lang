@@ -80,6 +80,7 @@ tile.tiths.block_cordierite.name=堇青石块
 tile.tiths.block_prehnite.name=葡萄石块
 tile.tiths.block_proustite.name=硫砷银块
 tile.tiths.block_cloud.name=云
+tile.tiths.block_oraclium.name=神谕钢块
 
 ## fluids
 fluid.royal_alloy.name=熔融奢华合金
@@ -98,6 +99,7 @@ fluid.cocoa.name=熔融可可
 fluid.titanium.name=熔融钛
 fluid.tonium.name=熔融钝金
 fluid.irisia.name=熔融艾瑞西亚
+fluid.oraclium.name=熔融神谕钢
 
 ## items
 item.tiths.hot_bread.name=炽热面包
@@ -149,6 +151,7 @@ item.tiths.nugget_hothium.name=霍斯粒
 item.tiths.nugget_tonium.name=钝金粒
 item.tiths.nugget_cocoa.name=可可粒
 item.tiths.nugget_irisia.name=艾瑞西亚粒
+item.tiths.nugget_oraclium.name=神谕钢粒
 ## ingot
 item.tiths.ingot_stellarium.name=恒星金属锭
 item.tiths.ingot_royal_alloy.name=奢华合金锭
@@ -165,6 +168,7 @@ item.tiths.ingot_hothium.name=霍斯锭
 item.tiths.ingot_tonium.name=钝金锭
 item.tiths.ingot_cocoa.name=可可锭
 item.tiths.ingot_irisia.name=艾瑞西亚锭
+item.tiths.ingot_oraclium.name=神谕钢粒
 
 ## other item
 item.tiths.hardener.name=硬化剂
@@ -234,6 +238,7 @@ material.tanzanite.name=坦桑石
 material.cordierite.name=堇青石
 material.prehnite.name=葡萄石
 material.proustite.name=硫砷银
+material.oraclium.name=神谕钢
 
 ## modifiers
 modifier.maiming.name=致残
@@ -328,6 +333,8 @@ modifier.dichroic.name=二色性
 modifier.dichroic.desc=§o看起来不一样了?§r\n在明亮的环境增加速度, 在黑暗的环境增加伤害
 modifier.life_inspiring.name=生命激发
 modifier.life_inspiring.desc=§o我不会轻易狗带§r\n在使用者生命危急时提供生命恢复效果
+modifier.oracular.name=神谕
+modifier.oracular.desc=§o洗涤心灵§r\n净化目标增益效果, 净化使用者减益效果, 有小几率为使用者恢复生命
 
 ## potions
 effect.heavy=沉重

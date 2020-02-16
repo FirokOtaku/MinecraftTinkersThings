@@ -80,6 +80,7 @@ tile.tiths.block_cordierite.name=Block of Cordierite
 tile.tiths.block_prehnite.name=Block of Prehnite
 tile.tiths.block_proustite.name=Block of Proustite
 tile.tiths.block_cloud.name=Cloud
+tile.tiths.block_oraclium.name=Block of Oraclium
 
 ## fluids
 fluid.royal_alloy.name=Molten Royal Alloy
@@ -98,6 +99,7 @@ fluid.cocoa.name=Molten Cocoa
 fluid.titanium.name=Molten Titanium
 fluid.tonium.name=Molten Tonium
 fluid.irisia.name=Molten Irisia
+fluid.oraclium.name=Molten Oraclium
 
 ## items
 item.tiths.hot_bread.name=Hot Bread
@@ -149,6 +151,7 @@ item.tiths.nugget_tonium.name=Tonium Nugget
 item.tiths.nugget_cocoa.name=Cocoa Nugget
 item.tiths.nugget_irisia.name=Irisia Nugget
 item.tiths.flesh.name=Flesh
+item.tiths.nugget_oraclium.name=Oraclium Nugget
 ## ingot
 item.tiths.ingot_stellarium.name=Stellarium Ingot
 item.tiths.ingot_royal_alloy.name=Royal Alloy Ingot
@@ -165,6 +168,7 @@ item.tiths.ingot_hothium.name=Hothium Ingot
 item.tiths.ingot_tonium.name=Tonium Ingot
 item.tiths.ingot_cocoa.name=Cocoa Ingot
 item.tiths.ingot_irisia.name=Irisia Ingot
+item.tiths.ingot_oraclium.name=Oraclium Ingot
 
 ## other item
 item.tiths.hardener.name=Hardener
@@ -233,6 +237,7 @@ material.tanzanite.name=Tanzanite
 material.cordierite.name=Cordierite
 material.prehnite.name=Prehnite
 material.proustite.name=Proustite
+material.oraclium.name=Oraclium
 
 ## modifiers
 modifier.maiming.name=Maiming
@@ -327,6 +332,8 @@ modifier.dichroic.name=Dichroic
 modifier.dichroic.desc=
 modifier.life_inspiring.name=Life Inspiring
 modifier.life_inspiring.desc=
+modifier.oracular.name=Oracular
+modifier.oracular.desc=
 
 ## potions
 effect.heavy=Heavy

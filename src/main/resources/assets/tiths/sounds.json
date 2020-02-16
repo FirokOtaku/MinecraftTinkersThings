@@ -12,5 +12,12 @@
     "sounds": [
       "tiths:records/tinkers_will"
     ]
+  },
+  "heal_effect": {
+    "category": "master",
+    "subtitle": "tiths.sound.heal_effect",
+    "sounds": [
+      "tiths:effects/heal"
+    ]
   }
 }

@@ -113,6 +113,8 @@ public class Items
 	public static final Item nuggetCocoa = new Item(); // 可可粒
 	@Reg(Keys.nuggetIrisia)
 	public static final Item nuggetIrisia = new Item(); // 艾瑞西亚锭
+	@Reg(Keys.nuggetOraclium)
+	public static final Item nuggetOraclium = new Item(); // 神谕粒
 
 	// 原材料 - 金属锭
 	@Reg(Keys.ingotStellarium)
@@ -145,6 +147,8 @@ public class Items
 	public static final Item ingotCocoa = new Item(); // 可可锭
 	@Reg(Keys.ingotIrisia)
 	public static final Item ingotIrisia = new Item(); // 艾瑞西亚锭
+	@Reg(Keys.ingotOraclium)
+	public static final Item ingotOraclium = new Item(); // 神谕锭
 
 	// 单纯的原材料
 //	@Reg(nameRoyalPaper)

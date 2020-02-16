@@ -82,6 +82,7 @@ public interface Keys
 	String nameCordierite="cordierite";
 	String namePrehnite="prehnite";
 	String nameProustite="proustite";
+	String nameOraclium="oraclium";
 
 	String nameHardener="hardener";
 	String namePolisher="polisher";
@@ -143,6 +144,7 @@ public interface Keys
 	String blockCordierite=prefBlock+nameCordierite;
 	String blockPrehnite=prefBlock+namePrehnite;
 	String blockProustite=prefBlock+nameProustite;
+	String blockOraclium=prefBlock+nameOraclium;
 
 	String blockFulgurite=prefBlock+nameFulgurite;
 	String blockMeteorolite=prefBlock+nameMeteorolite;
@@ -206,6 +208,7 @@ public interface Keys
 	String ingotAltairium=prefIngot+nameAltairium;
 	String ingotCocoa=prefIngot+nameCocoa;
 	String ingotIrisia=prefIngot+nameIrisia;
+	String ingotOraclium=prefIngot+nameOraclium;
 
 	// 矿粒
 	String nuggetStellarium=prefNugget+nameStellarium;
@@ -223,6 +226,7 @@ public interface Keys
 	String nuggetAltairium=prefNugget+nameAltairium;
 	String nuggetCocoa=prefNugget+nameCocoa;
 	String nuggetIrisia=prefNugget+nameIrisia;
+	String nuggetOraclium=prefNugget+nameOraclium;
 
 	// 材料颜色
 	int colorEnderDragonSquama=0x180c33;
@@ -273,6 +277,7 @@ public interface Keys
 	int colorCordierite=0x536f9e;
 	int colorPrehnite=0xb8e986;
 	int colorProustite=0x5e252b;
+	int colorOraclium=0x5dffb1;
 
 	// 属性
 	String nameTraitGluttonic="Gluttonic";
@@ -322,6 +327,7 @@ public interface Keys
 	String nameTraitHyper="hyper";
 	String nameTraitDichroic="dichroic";
 	String nameTraitLifeInspiring="life_inspiring";
+	String nameTraitOracular="oracular";
 
 	// 属性颜色
 	int colorTraitGluttonic=0x752b40;
@@ -371,6 +377,7 @@ public interface Keys
 	int colorTraitHyper=0xa022ff;
 	int colorTraitDichroic=0x536f9e;
 	int colorTraitLifeInspiring=0xf84b5d;
+	int colorTraitOracular=0x5dffb1;
 
 	// 状态效果颜色
 	int colorPotionHeavy=Colors.DarkSeaGreen;
@@ -384,4 +391,5 @@ public interface Keys
 	// 唱片资源键
 	String soundTinkersEfforts="tinkers_efforts";
 	String soundTinkersWill="tinkers_will";
+	String soundHealEffect="heal_effect";
 }

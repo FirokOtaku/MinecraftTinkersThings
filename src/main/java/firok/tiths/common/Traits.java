@@ -44,6 +44,7 @@ public class Traits
 	public static final AbstractTrait infernalBlazing=new TraitInfernalBlazing(); // 狱炎
 	public static final AbstractTrait dragonKiller=new TraitDragonKiller(); // 屠龙者
 	public static final AbstractTrait midasDesiring=new TraitMidasDesiring(); // 迈达斯之欲
+	public static final AbstractTrait oracular=new TraitOracular(); // 神谕
 	public static final AbstractTrait hemolytic=new TraitHemolytic(); // 溶血
 	public static final AbstractTrait extremeFreezing=new TraitExtremeFreezing(); // 极寒
 	public static final AbstractTrait antiGrav=new TraitAntiGrav(); // 反重力

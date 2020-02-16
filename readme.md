@@ -7,7 +7,15 @@
 
 ## 最近更新 latest update
 
-**0.2.45.0** _2020-02-14 23:00_ (GMT+8)
+**0.2.46.0** _2020-02-16 14:30_ (GMT+8)
 
-* 增加状态效果 added potion effects
-  * 瘟疫 pestilential
+* 增加方块和物品 added blocks and items
+  * 神谕钢块 oraclium block
+  * 神谕钢锭 oraclium ingot
+  * 神谕钢粒 oraclium nugget
+* 增加液体 added fluids
+  * 熔融神谕钢 molten oraclium
+* 增加材料 added materials
+  * 神谕钢 oraclium
+* 增加属性 added traits
+  * 神谕 oracular

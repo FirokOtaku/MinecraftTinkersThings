@@ -24,6 +24,12 @@ public class Alloys
 				new FluidStack(Fluids.moltenStellarium,VALUE_Ingot),
 				new FluidStack(Fluids.moltenHothium,VALUE_Ingot)
 		);
+		// 神谕钢
+		registerAlloy(
+				new FluidStack(Fluids.moltenAltairium, VALUE_Ingot),
+				new FluidStack(Fluids.moltenPolarium, VALUE_Ingot),
+				new FluidStack(Fluids.moltenOraclium, VALUE_Ingot * 2)
+		);
 	}
 
 	private static void registerAlloy(FluidStack output,FluidStack...inputs)

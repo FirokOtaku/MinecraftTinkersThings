@@ -460,6 +460,15 @@ public class TCMaterials
 	public static Material proustite=new $Material(nameProustite, colorProustite)
 			.addItemAsIngot(Items.proustite);
 
+	@Compo(nameOraclium)
+	@CompoHead(durability = 740,miningspeed = 5.6f,attack = 6.8f,harvestLevel = 4)
+	@CompoHandle(modifier = 1.05f,durability = 140)
+	@CompoExtra(extraDurability = 45)
+	public static Material oraclium=new $Material(nameOraclium, colorOraclium)
+			.addItemAsIngot(Items.ingotOraclium)
+			.setFluid(Fluids.moltenOraclium)
+			.addTrait(oracular);
+
 	public static Material cloudStorm=new Material("cloud_storm", Colors.DarkBlue);
 	public static Material skyCrystal=new Material("sky_crystal", Colors.Aqua);
 	public static Material stormCrystal=new Material("storm_crystal", Colors.DarkBlue);
