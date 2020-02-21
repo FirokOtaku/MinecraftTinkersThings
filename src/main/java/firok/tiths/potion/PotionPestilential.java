@@ -1,5 +1,6 @@
 package firok.tiths.potion;
 
+import com.google.common.base.Predicate;
 import firok.tiths.TinkersThings;
 import firok.tiths.common.Keys;
 import firok.tiths.util.Ranges;
@@ -22,9 +23,13 @@ import static firok.tiths.util.Predicates.canTrigger;
 // 瘟疫
 public class PotionPestilential extends BasePotion
 {
-	public PotionPestilential()
+	@SuppressWarnings("all")
+	public final Predicate<? super Entity> selector;
+	@SuppressWarnings("all")
+	public PotionPestilential(Predicate<? super Entity> selector)
 	{
-		super(new ResourceLocation(TinkersThings.MOD_ID,"textures/potions/pestilential.png"),true, Keys.colorPotionPestilential);
+		super(new ResourceLocation(TinkersThings.MOD_ID,"textures/potions/weakened_pestilential.png"),true, Keys.colorPotionPestilential);
+		this.selector=selector;
 	}
 
 	@Override
@@ -63,7 +68,7 @@ public class PotionPestilential extends BasePotion
 				List<Entity> nearby=world.getEntitiesInAABBexcluding(
 						entity,
 						Ranges.Neighbour(entity,4),
-						Selectors.livingBaseAlive
+						selector
 				);
 
 				for(Entity en:nearby)

@@ -83,6 +83,7 @@ public interface Keys
 	String namePrehnite="prehnite";
 	String nameProustite="proustite";
 	String nameOraclium="oraclium";
+	String nameVibratingCrystal="vibrating_crystal";
 
 	String nameHardener="hardener";
 	String namePolisher="polisher";
@@ -145,6 +146,7 @@ public interface Keys
 	String blockPrehnite=prefBlock+namePrehnite;
 	String blockProustite=prefBlock+nameProustite;
 	String blockOraclium=prefBlock+nameOraclium;
+	String blockVibratingCrystal=prefBlock+nameVibratingCrystal;
 
 	String blockFulgurite=prefBlock+nameFulgurite;
 	String blockMeteorolite=prefBlock+nameMeteorolite;
@@ -191,6 +193,7 @@ public interface Keys
 	String oreCordierite=prefOre+nameCordierite;
 	String orePrehnite=prefOre+namePrehnite;
 	String oreProustite=prefOre+nameProustite;
+	String oreVibratingCrystal=prefOre+nameVibratingCrystal;
 
 	// 矿锭
 	String ingotStellarium=prefIngot+nameStellarium;
@@ -278,6 +281,7 @@ public interface Keys
 	int colorPrehnite=0xb8e986;
 	int colorProustite=0x5e252b;
 	int colorOraclium=0x5dffb1;
+	int colorVibratingCrystal=0x1;
 
 	// 属性
 	String nameTraitGluttonic="Gluttonic";

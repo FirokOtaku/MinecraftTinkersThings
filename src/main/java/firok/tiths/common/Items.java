@@ -81,6 +81,8 @@ public class Items
 	public static final Item prehnite = new Item(); // 葡萄石
 	@Reg(nameProustite)
 	public static final Item proustite = new Item(); // 硫砷银
+	@Reg(nameVibratingCrystal)
+	public static final Item vibratingCrystal = new Item(); // 振晶
 
 	// 金属粒
 	@Reg(Keys.nuggetStellarium)

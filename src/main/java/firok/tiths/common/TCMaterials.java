@@ -469,6 +469,14 @@ public class TCMaterials
 			.setFluid(Fluids.moltenOraclium)
 			.addTrait(oracular);
 
+	@Compo(nameVibratingCrystal)
+	@CompoHead(durability = 800,miningspeed = 7.4f,attack = 4.5f,harvestLevel = 3)
+	@CompoHandle(modifier = 0.7f,durability = 230)
+	@CompoExtra(extraDurability = 30)
+	public static Material vibratingCrystal=new $Material(nameVibratingCrystal, colorVibratingCrystal)
+			.addItemAsIngot(Items.vibratingCrystal)
+			.addTrait(treasureDetecting);
+
 	public static Material cloudStorm=new Material("cloud_storm", Colors.DarkBlue);
 	public static Material skyCrystal=new Material("sky_crystal", Colors.Aqua);
 	public static Material stormCrystal=new Material("storm_crystal", Colors.DarkBlue);

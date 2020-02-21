@@ -2,6 +2,17 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.47.0 _2020-02-21 23:30_
+
+* 增加状态效果 added potion effects
+  * 弱化瘟疫 weakened pestilential
+* 增加方块和物品 added blocks and items
+  * 振晶矿 vibrating crystal ore block
+  * 振晶块 vibrating crystal block
+  * 振晶 vibrating crystal
+* 增加材料 added materials
+  * 振晶 vibrating crystal
+
 ## 0.2.46.0 _2020-02-16 14:30_
 
 * 增加方块和物品 added blocks and items
