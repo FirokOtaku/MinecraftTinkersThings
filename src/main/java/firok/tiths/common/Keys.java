@@ -84,6 +84,7 @@ public interface Keys
 	String nameProustite="proustite";
 	String nameOraclium="oraclium";
 	String nameVibratingCrystal="vibrating_crystal";
+	String nameLavaCrystal="lava_crystal";
 
 	String nameHardener="hardener";
 	String namePolisher="polisher";
@@ -147,6 +148,7 @@ public interface Keys
 	String blockProustite=prefBlock+nameProustite;
 	String blockOraclium=prefBlock+nameOraclium;
 	String blockVibratingCrystal=prefBlock+nameVibratingCrystal;
+	String blockLavaCrystal=prefBlock+nameLavaCrystal;
 
 	String blockFulgurite=prefBlock+nameFulgurite;
 	String blockMeteorolite=prefBlock+nameMeteorolite;
@@ -194,6 +196,7 @@ public interface Keys
 	String orePrehnite=prefOre+namePrehnite;
 	String oreProustite=prefOre+nameProustite;
 	String oreVibratingCrystal=prefOre+nameVibratingCrystal;
+	String oreLavaCrystal=prefOre+nameLavaCrystal;
 
 	// 矿锭
 	String ingotStellarium=prefIngot+nameStellarium;
@@ -281,7 +284,8 @@ public interface Keys
 	int colorPrehnite=0xb8e986;
 	int colorProustite=0x5e252b;
 	int colorOraclium=0x5dffb1;
-	int colorVibratingCrystal=0x1;
+	int colorVibratingCrystal=0xab9e05;
+	int colorLavaCrystal=0xa9174f;
 
 	// 属性
 	String nameTraitGluttonic="Gluttonic";
@@ -332,6 +336,7 @@ public interface Keys
 	String nameTraitDichroic="dichroic";
 	String nameTraitLifeInspiring="life_inspiring";
 	String nameTraitOracular="oracular";
+	String nameTraitThermalGathering="thermal_gathering";
 
 	// 属性颜色
 	int colorTraitGluttonic=0x752b40;
@@ -382,6 +387,7 @@ public interface Keys
 	int colorTraitDichroic=0x536f9e;
 	int colorTraitLifeInspiring=0xf84b5d;
 	int colorTraitOracular=0x5dffb1;
+	int colorTraitThermalGathering=0xa9174f;
 
 	// 状态效果颜色
 	int colorPotionHeavy=Colors.DarkSeaGreen;

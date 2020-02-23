@@ -35,6 +35,8 @@ tile.tiths.ore_cordierite.name=Cordierite Ore
 tile.tiths.ore_prehnite.name=Prehnite Ore
 tile.tiths.ore_proustite.name=Proustite Ore
 tile.tiths.ore_broken_bedrock.name=Broken Bedrock Ore
+tile.tiths.ore_vibrating_crystal.name=Vibrating Crystal Ore
+tile.tiths.ore_lava_crystal.name=Lava Crystal Ore
 
 ## blocks
 tile.tiths.block_blood_sand.name=Blood Sand
@@ -81,6 +83,8 @@ tile.tiths.block_prehnite.name=Block of Prehnite
 tile.tiths.block_proustite.name=Block of Proustite
 tile.tiths.block_cloud.name=Cloud
 tile.tiths.block_oraclium.name=Block of Oraclium
+tile.tiths.block_vibrating_crystal.name=Block of Vibrating Crystal
+tile.tiths.block_lava_crystal.name=Block of Lava Crystal
 
 ## fluids
 fluid.royal_alloy.name=Molten Royal Alloy
@@ -134,6 +138,8 @@ item.tiths.cordierite.name=Cordierite
 item.tiths.prehnite.name=Prehnite
 item.tiths.proustite.name=Proustite
 item.tiths.broken_bedrock.name=Broken Bedrock
+item.tiths.vibrating_crystal.name=Vibrating Crystal
+item.tiths.lava_crystal.name=Lava Crystal
 ## nugget
 item.tiths.nugget_stellarium.name=Stellarium Nugget
 item.tiths.nugget_royal_alloy.name=Royal Alloy Nugget
@@ -238,6 +244,8 @@ material.cordierite.name=Cordierite
 material.prehnite.name=Prehnite
 material.proustite.name=Proustite
 material.oraclium.name=Oraclium
+material.vibrating_crystal.name=Vibrating Crystal
+material.lava_crystal.name=Lava Crystal
 
 ## modifiers
 modifier.maiming.name=Maiming
@@ -334,6 +342,8 @@ modifier.life_inspiring.name=Life Inspiring
 modifier.life_inspiring.desc=
 modifier.oracular.name=Oracular
 modifier.oracular.desc=
+modifier.thermal_gathering.name=Thermal Gathering
+modifier.thermal_gathering.desc=
 
 ## potions
 effect.heavy=Heavy

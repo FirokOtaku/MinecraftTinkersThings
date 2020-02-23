@@ -19,22 +19,27 @@ import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static firok.tiths.common.Traits.thermalGathering;
 import static firok.tiths.traits.TraitStonePhasing.costStone;
 import static firok.tiths.util.Predicates.canTrigger;
 
@@ -241,5 +246,22 @@ public class Events
 			if(hasGluttonic) drops.clear(); // 暴食 清空掉落物
 		}
 
+	}
+
+	@SubscribeEvent
+	public static void onEntityDamaged(LivingHurtEvent event)
+	{
+		EntityLivingBase enlb=event.getEntityLiving();
+		DamageSource source=event.getSource();
+		if(source.isFireDamage()) // 判断是不是火焰伤害
+		{
+			List<ITrait> traits=new ArrayList<>();
+			traits.addAll(ToolHelper.getTraits(enlb.getHeldItemMainhand()));
+			traits.addAll(ToolHelper.getTraits(enlb.getHeldItemOffhand()));
+			if(traits.contains(thermalGathering))
+			{
+				event.setAmount( event.getAmount() / 2 );
+			}
+		}
 	}
 }

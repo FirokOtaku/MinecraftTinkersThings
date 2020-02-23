@@ -49,6 +49,7 @@ public class Traits
 	public static final AbstractTrait extremeFreezing=new TraitExtremeFreezing(); // 极寒
 	public static final AbstractTrait antiGrav=new TraitAntiGrav(); // 反重力
 	public static final AbstractTrait stonePhasing=new TraitStonePhasing(); // 石之相变
+	public static final AbstractTrait thermalGathering=new TraitThermalGathering(); // 热力聚集
 	static{stonePhasing.addItem(Items.phasingGem);}
 	public static final AbstractTrait treasureDetecting=new TraitTreasureDetecting(); // 宝藏感知
 	public static final AbstractTrait creaky=new TraitCreaky(); // 喀嚓

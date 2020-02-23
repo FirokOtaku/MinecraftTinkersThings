@@ -34,6 +34,8 @@ public class Items
 	@Reg(nameShell)
 	public static final Item shell = new Item(); // 贝壳
 
+//	public static final Item resplendentGem = new Item(); // 璀璨宝石
+
 	// 原材料 - 矿
 //	@Reg(nameSkyCrystal)
 //	public static final Item skyCrystal = new Item(); // 天空水晶
@@ -83,6 +85,8 @@ public class Items
 	public static final Item proustite = new Item(); // 硫砷银
 	@Reg(nameVibratingCrystal)
 	public static final Item vibratingCrystal = new Item(); // 振晶
+	@Reg(nameLavaCrystal)
+	public static final Item lavaCrystal = new Item(); // 岩浆结晶
 
 	// 金属粒
 	@Reg(Keys.nuggetStellarium)

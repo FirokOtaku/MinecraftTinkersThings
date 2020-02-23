@@ -98,6 +98,8 @@ public class Blocks
 	@Reg(Keys.oreProustite)
 	@GenOreWorld(times=4,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
 	public static final BlockOre oreProustite = new BlockOre(Items.proustite,1,1,1,4,6).setRareOre();
+	@Reg(Keys.oreLavaCrystal)
+	public static final BlockOre oreLavaCrystal = new BlockOre(Items.lavaCrystal,1,1,1,3,6).setVeryRareOre();
 
 	@Reg(Keys.orePolarium)
 //	@GenMeteoWorld
@@ -207,7 +209,9 @@ public class Blocks
 	@Reg(Keys.blockOraclium)
 	public static final Block blockOraclium = new BlockCompressed(); // 神谕块
 	@Reg(Keys.blockVibratingCrystal)
-	public static final Block blockVibratingCrystal = new BlockCompressed(Material.ROCK); // 振晶
+	public static final Block blockVibratingCrystal = new BlockCompressed(Material.ROCK); // 振晶块
+	@Reg(Keys.blockLavaCrystal)
+	public static final Block blockLavaCrystal = new BlockCompressed(Material.ROCK); // 岩浆结晶块
 
 	@Reg(Keys.blockStellariumObsidian)
 	public static final Block blockStellariumObsidian = new Block(Material.ROCK); // 恒星黑曜石

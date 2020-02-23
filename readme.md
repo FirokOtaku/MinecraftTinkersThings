@@ -7,13 +7,13 @@
 
 ## 最近更新 latest update
 
-**0.2.47.0** _2020-02-21 23:30_ (GMT+8)
+**0.2.48.0** _2020-02-23 18:30_ (GMT+8)
 
-* 增加状态效果 added potion effects
-  * 弱化瘟疫 weakened pestilential
 * 增加方块和物品 added blocks and items
-  * 振晶矿 vibrating crystal ore block
-  * 振晶块 vibrating crystal block
-  * 振晶 vibrating crystal
+  * 岩浆水晶矿 lava crystal ore block
+  * 岩浆水晶块 lava crystal block
+  * 岩浆水晶 lava crystal item
 * 增加材料 added materials
-  * 振晶 vibrating crystal
+  * 岩浆水晶 lava crystal
+* 增加属性 added traits
+  * 热力聚集 thermal gathering

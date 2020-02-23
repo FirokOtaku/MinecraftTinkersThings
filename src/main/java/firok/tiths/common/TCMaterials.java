@@ -7,8 +7,7 @@ import slimeknights.tconstruct.tools.TinkerTraits;
 import static firok.tiths.common.Keys.*;
 import static firok.tiths.common.Traits.*;
 import static slimeknights.tconstruct.library.materials.Material.VALUE_Ingot;
-import static slimeknights.tconstruct.library.materials.MaterialTypes.EXTRA;
-import static slimeknights.tconstruct.library.materials.MaterialTypes.HEAD;
+import static slimeknights.tconstruct.library.materials.MaterialTypes.*;
 import static slimeknights.tconstruct.tools.TinkerTraits.*;
 
 @SuppressWarnings("all")
@@ -476,6 +475,16 @@ public class TCMaterials
 	public static Material vibratingCrystal=new $Material(nameVibratingCrystal, colorVibratingCrystal)
 			.addItemAsIngot(Items.vibratingCrystal)
 			.addTrait(treasureDetecting);
+
+	@Compo(nameLavaCrystal)
+	@CompoHead(durability = 540,miningspeed = 6.5f,attack = 6.4f,harvestLevel = 3)
+	@CompoHandle(modifier = 0.98f,durability = 120)
+	@CompoExtra(extraDurability = 45)
+	public static Material lavaCrystal=new $Material(nameLavaCrystal, colorLavaCrystal)
+			.addItemAsIngot(Items.lavaCrystal)
+			.addTrait(flammable,HEAD)
+			.addTrait(flammable,EXTRA)
+			.addTrait(thermalGathering,HANDLE);
 
 	public static Material cloudStorm=new Material("cloud_storm", Colors.DarkBlue);
 	public static Material skyCrystal=new Material("sky_crystal", Colors.Aqua);

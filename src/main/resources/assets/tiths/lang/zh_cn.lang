@@ -35,6 +35,8 @@ tile.tiths.ore_cordierite.name=堇青石矿
 tile.tiths.ore_prehnite.name=葡萄石矿
 tile.tiths.ore_proustite.name=硫砷银矿
 tile.tiths.ore_broken_bedrock.name=破碎基岩块
+tile.tiths.ore_vibrating_crystal.name=振晶矿
+tile.tiths.ore_lava_crystal.name=岩浆水晶矿
 
 ## blocks
 tile.tiths.block_blood_sand.name=血沙
@@ -81,6 +83,8 @@ tile.tiths.block_prehnite.name=葡萄石块
 tile.tiths.block_proustite.name=硫砷银块
 tile.tiths.block_cloud.name=云
 tile.tiths.block_oraclium.name=神谕钢块
+tile.tiths.block_vibrating_crystal.name=振晶块
+tile.tiths.block_lava_crystal.name=岩浆水晶块
 
 ## fluids
 fluid.royal_alloy.name=熔融奢华合金
@@ -135,6 +139,8 @@ item.tiths.cordierite.name=堇青石
 item.tiths.prehnite.name=葡萄石
 item.tiths.proustite.name=硫砷银
 item.tiths.broken_bedrock.name=破碎基岩
+item.tiths.vibrating_crystal.name=振晶
+item.tiths.lava_crystal.name=岩浆水晶
 ## nugget
 item.tiths.nugget_stellarium.name=恒星金属粒
 item.tiths.nugget_royal_alloy.name=奢华合金粒
@@ -239,6 +245,8 @@ material.cordierite.name=堇青石
 material.prehnite.name=葡萄石
 material.proustite.name=硫砷银
 material.oraclium.name=神谕钢
+material.vibrating_crystal.name=振晶
+material.lava_crystal.name=岩浆水晶
 
 ## modifiers
 modifier.maiming.name=致残
@@ -335,6 +343,8 @@ modifier.life_inspiring.name=生命激发
 modifier.life_inspiring.desc=§o我不会轻易狗带§r\n在使用者生命危急时提供生命恢复效果
 modifier.oracular.name=神谕
 modifier.oracular.desc=§o洗涤心灵§r\n净化目标增益效果, 净化使用者减益效果, 有小几率为使用者恢复生命
+modifier.thermal_gathering.name=热力聚集
+modifier.thermal_gathering.desc=§o烫烫烫§r\n降低受到的火焰伤害. 当周围有热源方块时会缓慢恢复耐久.
 
 ## potions
 effect.heavy=沉重
