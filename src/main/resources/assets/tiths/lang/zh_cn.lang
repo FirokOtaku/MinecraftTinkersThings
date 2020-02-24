@@ -185,7 +185,7 @@ item.tiths.phasing_gem.name=相变之石
 
 ## consumables
 item.tiths.gateway_gem.name=折跃之石
-iten.tiths.ancient_book_irisia.name=艾瑞西亚古籍
+item.tiths.ancient_book_irisia.name=艾瑞西亚古籍
 
 ## record
 item.tiths.record_tinkers_efforts.name=唱片
@@ -344,7 +344,7 @@ modifier.life_inspiring.desc=§o我不会轻易狗带§r\n在使用者生命危�
 modifier.oracular.name=神谕
 modifier.oracular.desc=§o洗涤心灵§r\n净化目标增益效果, 净化使用者减益效果, 有小几率为使用者恢复生命
 modifier.thermal_gathering.name=热力聚集
-modifier.thermal_gathering.desc=§o烫烫烫§r\n降低受到的火焰伤害. 当周围有热源方块时会缓慢恢复耐久.
+modifier.thermal_gathering.desc=§o烫烫烫§r\n降低受到的火焰伤害. 当周围有热源方块时会缓慢恢复耐久
 
 ## potions
 effect.heavy=沉重

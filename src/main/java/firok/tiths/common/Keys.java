@@ -278,7 +278,7 @@ public interface Keys
 	int colorBrokenBedrock=0x323240;
 	int colorCloud=0xb6caea;
 	int colorOpal=0x0a7dd6;
-	int colorTopaz=0xffc201;
+	int colorTopaz=0x72a6f5;
 	int colorTanzanite=0x6607b3;
 	int colorCordierite=0x536f9e;
 	int colorPrehnite=0xb8e986;

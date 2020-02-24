@@ -2,6 +2,10 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.48.1 _2020-02-24 18:00_
+
+* 为部分方块和物品增加材质贴图 added textures to some blocks and items
+
 ## 0.2.48.0 _2020-02-23 18:30_
 
 * 增加方块和物品 added blocks and items
