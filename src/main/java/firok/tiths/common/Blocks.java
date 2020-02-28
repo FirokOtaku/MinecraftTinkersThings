@@ -127,6 +127,9 @@ public class Blocks
 	@Reg(Keys.oreVibratingCrystal)
 	@GenOreWorld(times=3,timeRate=0.9f,size=4,minY=30,maxY=60)
 	public static final BlockOre oreVibratingCrystal = new BlockOre(Items.vibratingCrystal,1,3,1,5,7).setVeryRareOre(); // 振晶矿
+	@Reg(Keys.oreSteamium)
+	@GenOreWorld(times=2,timeRate = 1,size=6,minY=40,maxY=60)
+	public static final BlockOre oreSteamium = new BlockOre(); // 气钢矿
 
 	@Reg(Keys.oreTreeRoot)
 	public static final Block oreTreeRoot = new BlockOre(Material.WOOD,Material.WOOD.getMaterialMapColor(),Items.treeRoot,1,3,1,2,4)
@@ -212,6 +215,8 @@ public class Blocks
 	public static final Block blockVibratingCrystal = new BlockCompressed(Material.ROCK); // 振晶块
 	@Reg(Keys.blockLavaCrystal)
 	public static final Block blockLavaCrystal = new BlockCompressed(Material.ROCK); // 岩浆结晶块
+	@Reg(Keys.blockSteamium)
+	public static final Block blockSteamium = new BlockCompressed(); // 气钢块
 
 	@Reg(Keys.blockStellariumObsidian)
 	public static final Block blockStellariumObsidian = new Block(Material.ROCK); // 恒星黑曜石

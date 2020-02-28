@@ -37,6 +37,7 @@ tile.tiths.ore_proustite.name=硫砷银矿
 tile.tiths.ore_broken_bedrock.name=破碎基岩块
 tile.tiths.ore_vibrating_crystal.name=振晶矿
 tile.tiths.ore_lava_crystal.name=岩浆水晶矿
+tile.tiths.ore_steamium.name=气钢矿
 
 ## blocks
 tile.tiths.block_blood_sand.name=血沙
@@ -85,6 +86,7 @@ tile.tiths.block_cloud.name=云
 tile.tiths.block_oraclium.name=神谕钢块
 tile.tiths.block_vibrating_crystal.name=振晶块
 tile.tiths.block_lava_crystal.name=岩浆水晶块
+tile.tiths.block_steamium.name=气钢块
 
 ## fluids
 fluid.royal_alloy.name=熔融奢华合金
@@ -104,6 +106,7 @@ fluid.titanium.name=熔融钛
 fluid.tonium.name=熔融钝金
 fluid.irisia.name=熔融艾瑞西亚
 fluid.oraclium.name=熔融神谕钢
+fluid.steamium.name=熔融气钢
 
 ## items
 item.tiths.hot_bread.name=炽热面包
@@ -158,6 +161,7 @@ item.tiths.nugget_tonium.name=钝金粒
 item.tiths.nugget_cocoa.name=可可粒
 item.tiths.nugget_irisia.name=艾瑞西亚粒
 item.tiths.nugget_oraclium.name=神谕钢粒
+item.tiths.nugget_steamium.name=气钢粒
 ## ingot
 item.tiths.ingot_stellarium.name=恒星金属锭
 item.tiths.ingot_royal_alloy.name=奢华合金锭
@@ -174,7 +178,8 @@ item.tiths.ingot_hothium.name=霍斯锭
 item.tiths.ingot_tonium.name=钝金锭
 item.tiths.ingot_cocoa.name=可可锭
 item.tiths.ingot_irisia.name=艾瑞西亚锭
-item.tiths.ingot_oraclium.name=神谕钢粒
+item.tiths.ingot_oraclium.name=神谕钢锭
+item.tiths.ingot_steamium.name=气钢锭
 
 ## other item
 item.tiths.hardener.name=硬化剂
@@ -247,6 +252,7 @@ material.proustite.name=硫砷银
 material.oraclium.name=神谕钢
 material.vibrating_crystal.name=振晶
 material.lava_crystal.name=岩浆水晶
+material.steamium.name=气钢
 
 ## modifiers
 modifier.maiming.name=致残
@@ -345,6 +351,8 @@ modifier.oracular.name=神谕
 modifier.oracular.desc=§o洗涤心灵§r\n净化目标增益效果, 净化使用者减益效果, 有小几率为使用者恢复生命
 modifier.thermal_gathering.name=热力聚集
 modifier.thermal_gathering.desc=§o烫烫烫§r\n降低受到的火焰伤害. 当周围有热源方块时会缓慢恢复耐久
+modifier.steamy.name=气动
+modifier.steamy.desc=§o-25% off§r\n降低攻击力, 提升击退
 
 ## potions
 effect.heavy=沉重

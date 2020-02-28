@@ -51,6 +51,7 @@ public class Traits
 	public static final AbstractTrait stonePhasing=new TraitStonePhasing(); // 石之相变
 	public static final AbstractTrait thermalGathering=new TraitThermalGathering(); // 热力聚集
 	static{stonePhasing.addItem(Items.phasingGem);}
+	public static final AbstractTrait steamy=new TraitSteamy(); // 气动
 	public static final AbstractTrait treasureDetecting=new TraitTreasureDetecting(); // 宝藏感知
 	public static final AbstractTrait creaky=new TraitCreaky(); // 喀嚓
 	public static final AbstractTrait undeadCalling=new TraitUndeadCalling(); // 亡灵呼唤

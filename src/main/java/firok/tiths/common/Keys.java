@@ -85,6 +85,7 @@ public interface Keys
 	String nameOraclium="oraclium";
 	String nameVibratingCrystal="vibrating_crystal";
 	String nameLavaCrystal="lava_crystal";
+	String nameSteamium="steamium";
 
 	String nameHardener="hardener";
 	String namePolisher="polisher";
@@ -149,6 +150,7 @@ public interface Keys
 	String blockOraclium=prefBlock+nameOraclium;
 	String blockVibratingCrystal=prefBlock+nameVibratingCrystal;
 	String blockLavaCrystal=prefBlock+nameLavaCrystal;
+	String blockSteamium=prefBlock+nameSteamium;
 
 	String blockFulgurite=prefBlock+nameFulgurite;
 	String blockMeteorolite=prefBlock+nameMeteorolite;
@@ -197,6 +199,7 @@ public interface Keys
 	String oreProustite=prefOre+nameProustite;
 	String oreVibratingCrystal=prefOre+nameVibratingCrystal;
 	String oreLavaCrystal=prefOre+nameLavaCrystal;
+	String oreSteamium=prefOre+nameSteamium;
 
 	// 矿锭
 	String ingotStellarium=prefIngot+nameStellarium;
@@ -215,6 +218,7 @@ public interface Keys
 	String ingotCocoa=prefIngot+nameCocoa;
 	String ingotIrisia=prefIngot+nameIrisia;
 	String ingotOraclium=prefIngot+nameOraclium;
+	String ingotSteamium=prefIngot+nameSteamium;
 
 	// 矿粒
 	String nuggetStellarium=prefNugget+nameStellarium;
@@ -233,6 +237,7 @@ public interface Keys
 	String nuggetCocoa=prefNugget+nameCocoa;
 	String nuggetIrisia=prefNugget+nameIrisia;
 	String nuggetOraclium=prefNugget+nameOraclium;
+	String nuggetSteamium=prefNugget+nameSteamium;
 
 	// 材料颜色
 	int colorEnderDragonSquama=0x180c33;
@@ -286,6 +291,7 @@ public interface Keys
 	int colorOraclium=0x5dffb1;
 	int colorVibratingCrystal=0xab9e05;
 	int colorLavaCrystal=0xa9174f;
+	int colorSteamium=0xb7d3f5;
 
 	// 属性
 	String nameTraitGluttonic="Gluttonic";
@@ -337,6 +343,7 @@ public interface Keys
 	String nameTraitLifeInspiring="life_inspiring";
 	String nameTraitOracular="oracular";
 	String nameTraitThermalGathering="thermal_gathering";
+	String nameTraitSteamy="steamy";
 
 	// 属性颜色
 	int colorTraitGluttonic=0x752b40;
@@ -388,6 +395,7 @@ public interface Keys
 	int colorTraitLifeInspiring=0xf84b5d;
 	int colorTraitOracular=0x5dffb1;
 	int colorTraitThermalGathering=0xa9174f;
+	int colorTraitSteamy=0xb7d3f5;
 
 	// 状态效果颜色
 	int colorPotionHeavy=Colors.DarkSeaGreen;

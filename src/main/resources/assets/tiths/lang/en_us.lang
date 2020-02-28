@@ -37,6 +37,7 @@ tile.tiths.ore_proustite.name=Proustite Ore
 tile.tiths.ore_broken_bedrock.name=Broken Bedrock Ore
 tile.tiths.ore_vibrating_crystal.name=Vibrating Crystal Ore
 tile.tiths.ore_lava_crystal.name=Lava Crystal Ore
+tile.tiths.ore_steamium.name=Steamium Ore
 
 ## blocks
 tile.tiths.block_blood_sand.name=Blood Sand
@@ -85,6 +86,7 @@ tile.tiths.block_cloud.name=Cloud
 tile.tiths.block_oraclium.name=Block of Oraclium
 tile.tiths.block_vibrating_crystal.name=Block of Vibrating Crystal
 tile.tiths.block_lava_crystal.name=Block of Lava Crystal
+tile.tiths.block_steamium.name=Block of Steamium
 
 ## fluids
 fluid.royal_alloy.name=Molten Royal Alloy
@@ -104,6 +106,7 @@ fluid.titanium.name=Molten Titanium
 fluid.tonium.name=Molten Tonium
 fluid.irisia.name=Molten Irisia
 fluid.oraclium.name=Molten Oraclium
+fluid.steamium.name=Molten Steamium
 
 ## items
 item.tiths.hot_bread.name=Hot Bread
@@ -158,6 +161,7 @@ item.tiths.nugget_cocoa.name=Cocoa Nugget
 item.tiths.nugget_irisia.name=Irisia Nugget
 item.tiths.flesh.name=Flesh
 item.tiths.nugget_oraclium.name=Oraclium Nugget
+item.tiths.nugget_steamium.name=Steamium Nugget
 ## ingot
 item.tiths.ingot_stellarium.name=Stellarium Ingot
 item.tiths.ingot_royal_alloy.name=Royal Alloy Ingot
@@ -175,6 +179,7 @@ item.tiths.ingot_tonium.name=Tonium Ingot
 item.tiths.ingot_cocoa.name=Cocoa Ingot
 item.tiths.ingot_irisia.name=Irisia Ingot
 item.tiths.ingot_oraclium.name=Oraclium Ingot
+item.tiths.ingot_steamium.name=Steamium Ingot
 
 ## other item
 item.tiths.hardener.name=Hardener
@@ -246,6 +251,7 @@ material.proustite.name=Proustite
 material.oraclium.name=Oraclium
 material.vibrating_crystal.name=Vibrating Crystal
 material.lava_crystal.name=Lava Crystal
+material.steamium.name=Steamium
 
 ## modifiers
 modifier.maiming.name=Maiming
@@ -267,25 +273,25 @@ modifier.switching.desc=§o斗转星移§r\n To exchange position with the targe
 modifier.clustering.name=Clustering
 modifier.clustering.desc=得到的工具工具总耐久高时会增加额外攻击力, 反之会增加速度
 modifier.hardened.name=Hardened
-modifier.hardened.desc=降低速度, 提升耐久和攻击力
+modifier.hardened.desc=To decrease speed, increase damage and durability
 modifier.polished.name=Polished
-modifier.polished.desc=降低耐久和攻击力, 增加速度
+modifier.polished.desc=To decrease damage and durability, and increase speed
 modifier.brittle.name=Brittle
-modifier.brittle.desc=提升速度和攻击力, 大幅降低耐久消耗
+modifier.brittle.desc=To increase speed and damage, decrease durability substantially
 modifier.star_dashing.name=Star Dashing
 modifier.star_dashing.desc=To throw fire while attacking
 modifier.soluble.name=Soluble
 modifier.soluble.desc=§oStop it!§r\nThe tool will lose duration if hold in the water
 modifier.birefringent.name=Birefringent
-modifier.birefringent.desc=§o魔法折射§r\n攻击时有几率再造成一次等量伤害
+modifier.birefringent.desc=§oMagical refraction§r\nTo deal a equivalent damage with a small chance when attacking
 modifier.pyroelectric.name=Pyroelectric
-modifier.pyroelectric.desc=§oBilibili§r\n对攻击目标附近的敌人造成伤害, 环境温度越高伤害越高
+modifier.pyroelectric.desc=§oBilibili§r\nTo damage enemy close to target\nThe higher the ambient temperature, the higher the damage
 modifier.shaking.name=Shaking
 modifier.shaking.desc=§oYou can't run!§r\nTo temporarily stop your enemy in the air
 modifier.anti_grav.name=Anti Gravity
 modifier.anti_grav.desc=§oI’m flying.§r\nRaise the target in air
 modifier.stone_phasing.name=Stone Phasing
-modifier.stone_phasing.desc=§o相位转移§r\nTo storage stones you mined, right click to release
+modifier.stone_phasing.desc=§oShifting§r\nTo storage stones you mined, right click to release
 modifier.stone_phasing.tooltip=Stone Stored:
 modifier.treasure_detecting.name=Treasure Detecting
 modifier.treasure_detecting.desc=§oThere is something.§r\n To raise the chance of finding treasure house during usage
@@ -318,32 +324,34 @@ modifier.thundering.desc=
 modifier.gluttonic.name=Gluttonic
 modifier.gluttonic.desc=§oI just want to eat§r\n
 modifier.moonlight.name=Moonlight
-modifier.moonlight.desc=
+modifier.moonlight.desc=§o皎洁光芒§r\nProvide
 modifier.nature_blessing.name=Nature Blessing
-modifier.nature_blessing.desc=§o大自然欢迎你§r\n周围有树木时会缓慢恢复耐久
+modifier.nature_blessing.desc=§oGreetings from nature§r\nYour tool will automatically repair itself when close to wood
 modifier.chemical_instable.name=Chemical Instable
-modifier.chemical_instable.desc=§o让我想想...§r\n使用时有几率产生小爆炸
+modifier.chemical_instable.desc=§oLet me see...§r\nTo explode with a small chance when using
 modifier.infernal_blazing.name=Infernal Blazing
-modifier.infernal_blazing.desc=§o无尽炼狱§r\n手持时使自身自燃
+modifier.infernal_blazing.desc=§oEndless purgatory§r\nTo burn user when being hold
 modifier.dragon_killer.name=Dragon Killer
-modifier.dragon_killer.desc=§o屠"龙"§r\n对"龙"造成额外伤害
+modifier.dragon_killer.desc=§oNo more DRAGON§r\nTo deal more damage to DRAGON
 ### 关于"屠龙者": 其实是对英文学名里含有"dragon"单词的生物造成更多伤害, 包括"dragonfly"(蜻蜓), 所以这里打引号, 本地化的时候可能需要考虑一下
 modifier.midas_desiring.name=Midas Desiring
 modifier.midas_desiring.desc=§o祸福倚伏§r\n将挖到的金矿石直接转化为双倍的金锭, 有几率将掉落物转化为金子, 但是会慢慢吞食背包里的金子
 modifier.gorgeous.name=Gorgeous
-modifier.gorgeous.desc=
+modifier.gorgeous.desc=§oColorful black§r\nTo increase damage
 modifier.peace_energetic.name=Peace Energetic
-modifier.peace_energetic.desc=
+modifier.peace_energetic.desc=§oExperience tranquility§r\nTo heal user with a small chance
 modifier.hyper.name=Hyper
-modifier.hyper.desc=
+modifier.hyper.desc=§oI feel so high§r\nTo provide speed and haste effects when using
 modifier.dichroic.name=Dichroic
-modifier.dichroic.desc=
+modifier.dichroic.desc=§oDoes it look different?§r\nTo incease speed in a bright place and increase damage in a dark place
 modifier.life_inspiring.name=Life Inspiring
-modifier.life_inspiring.desc=
+modifier.life_inspiring.desc=§oI won't go die easily§r\nTo provide regeneration effect when user is in danger
 modifier.oracular.name=Oracular
-modifier.oracular.desc=
+modifier.oracular.desc=§oSoul washing§r\nCleansing buffs of target and debuffs of user\nTo heal user with a small chance
 modifier.thermal_gathering.name=Thermal Gathering
-modifier.thermal_gathering.desc=
+modifier.thermal_gathering.desc=§oI'm so hot§r\nReduce fire damage you taken and your tool will automatically repair itself when close to heat source
+modifier.steamy.name=Steamy
+modifier.steamy.desc=§o-25% off§r\nTo decrease damage and increase knockback
 
 ## potions
 effect.heavy=Heavy

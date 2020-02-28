@@ -486,6 +486,14 @@ public class TCMaterials
 			.addTrait(flammable,EXTRA)
 			.addTrait(thermalGathering,HANDLE);
 
+	@Compo(nameSteamium)
+	@CompoHead(durability = 690,miningspeed = 5.5f,attack = 6.5f,harvestLevel = 2)
+	@CompoHandle(modifier = 0.65f,durability = 100)
+	@CompoExtra(extraDurability = -80)
+	public static Material steamium=new $Material(nameSteamium, colorSteamium)
+			.addItemAsIngot(Items.ingotSteamium)
+			.addTrait(steamy);
+
 	public static Material cloudStorm=new Material("cloud_storm", Colors.DarkBlue);
 	public static Material skyCrystal=new Material("sky_crystal", Colors.Aqua);
 	public static Material stormCrystal=new Material("storm_crystal", Colors.DarkBlue);
