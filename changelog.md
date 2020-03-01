@@ -2,6 +2,16 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.50.0 _2020-03-01 14:00_
+
+* 为部分方块和物品增加材质贴图 added textures to some blocks and items
+* 增加物品 added items
+  * 谷砖 grain ingot
+* 增加材料 added materials
+  * 谷物 grain
+* 增加属性 added traits
+  * 诱食 decoying
+
 ## 0.2.49.0 _2020-02-28 18:00_
 
 * 为部分方块和物品增加材质贴图 added textures to some blocks and items

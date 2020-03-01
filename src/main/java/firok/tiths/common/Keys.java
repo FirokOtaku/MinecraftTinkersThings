@@ -86,6 +86,7 @@ public interface Keys
 	String nameVibratingCrystal="vibrating_crystal";
 	String nameLavaCrystal="lava_crystal";
 	String nameSteamium="steamium";
+	String nameGrain="grain";
 
 	String nameHardener="hardener";
 	String namePolisher="polisher";
@@ -219,6 +220,7 @@ public interface Keys
 	String ingotIrisia=prefIngot+nameIrisia;
 	String ingotOraclium=prefIngot+nameOraclium;
 	String ingotSteamium=prefIngot+nameSteamium;
+	String ingotGrain=prefIngot+nameGrain;
 
 	// 矿粒
 	String nuggetStellarium=prefNugget+nameStellarium;
@@ -292,6 +294,7 @@ public interface Keys
 	int colorVibratingCrystal=0xab9e05;
 	int colorLavaCrystal=0xa9174f;
 	int colorSteamium=0xb7d3f5;
+	int colorGrain=0xea9b32;
 
 	// 属性
 	String nameTraitGluttonic="Gluttonic";
@@ -344,6 +347,7 @@ public interface Keys
 	String nameTraitOracular="oracular";
 	String nameTraitThermalGathering="thermal_gathering";
 	String nameTraitSteamy="steamy";
+	String nameTraitDecoying="decoying";
 
 	// 属性颜色
 	int colorTraitGluttonic=0x752b40;
@@ -396,6 +400,7 @@ public interface Keys
 	int colorTraitOracular=0x5dffb1;
 	int colorTraitThermalGathering=0xa9174f;
 	int colorTraitSteamy=0xb7d3f5;
+	int colorTraitDecoying=0xea9b32;
 
 	// 状态效果颜色
 	int colorPotionHeavy=Colors.DarkSeaGreen;

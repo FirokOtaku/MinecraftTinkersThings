@@ -27,7 +27,7 @@ public class TinkersThings
 
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers Things";
-	public static final String VERSION = "1.12.2-0.2.49.0";
+	public static final String VERSION = "1.12.2-0.2.50.0";
 
 	@Mod.Instance(MOD_ID)
 	public static TinkersThings INSTANCE;
@@ -63,7 +63,7 @@ public class TinkersThings
 
 		//  proxy.initConfig();
 		//
-		RegistryHandler.registerMaterials();
+		RegistryHandler.registerMaterialsForTesting();
 	}
 
 	public static void tell(Object content)

@@ -11,30 +11,31 @@ import slimeknights.tconstruct.library.traits.AbstractTrait;
 import static firok.tiths.common.Keys.*;
 import static firok.tiths.util.Predicates.canTrigger;
 
-// 亡灵呼唤
-public class TraitUndeadCalling extends AbstractTrait
+// 诱食
+public class TraitDecoying extends AbstractTrait
 {
 	public static final float rate=0.08f;
-	public TraitUndeadCalling()
+	public TraitDecoying()
 	{
-		super(nameTraitUndeadCalling, colorTraitUndeadCalling);
+		super(nameTraitDecoying, colorTraitDecoying);
 	}
 
 	@Override
 	public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective)
 	{
-		if(wasEffective && !world.isRemote && canTrigger(world, rate))
+		if(!world.isRemote && canTrigger(world, rate))
 		{
-			Actions.CauseSpawningUndead(player);
+			Actions.CauseSpawningPassives(player);
 		}
 	}
 
 	@Override
 	public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
 	{
-		if(!target.isEntityAlive() && !target.getEntityWorld().isRemote && canTrigger(player.world, rate))
+		if(!target.getEntityWorld().isRemote && canTrigger(player.world, rate))
 		{
-			Actions.CauseSpawningUndead(player);
+			Actions.CauseSpawningPassives(player);
 		}
 	}
+
 }

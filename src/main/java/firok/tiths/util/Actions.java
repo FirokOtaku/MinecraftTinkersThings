@@ -9,6 +9,10 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntitySilverfish;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntityZombie;
+import net.minecraft.entity.passive.EntityChicken;
+import net.minecraft.entity.passive.EntityCow;
+import net.minecraft.entity.passive.EntityPig;
+import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -21,6 +25,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTableList;
 
+import java.lang.reflect.Constructor;
 import java.util.*;
 
 // 所有的行为封装
@@ -105,15 +110,69 @@ public class Actions
 		}
 	}
 
+	private static final ArrayList<Class<? extends EntityLivingBase>> entityPassives=new ArrayList<>();
+	static
+	{
+		entityPassives.add(EntityCow.class);
+		entityPassives.add(EntitySheep.class);
+		entityPassives.add(EntityPig.class);
+		entityPassives.add(EntityChicken.class);
+	}
+	public static void registerPassive(Class<? extends EntityLivingBase> classPassive)
+	{
+		entityPassives.add(classPassive);
+	}
+	// 诱食 - 触发召唤
+	public static void CauseSpawningPassives(EntityLivingBase player)
+	{
+		try
+		{
+			if(entityPassives.size()<=0) return;
+
+			World world=player.world;
+			Random rand=world.rand;
+			// 寻找召唤位置
+			final int cx=(int)player.posX,cy=(int)player.posY,cz=(int)player.posZ;
+			final int tx=cx+rand.nextInt(16)-8,tz=cz+rand.nextInt(16)-8;
+
+			Class<? extends EntityLivingBase> entityPassiveClass=entityPassives.get(rand.nextInt(entityPassives.size()));
+			Constructor<? extends EntityLivingBase> con=entityPassiveClass.getConstructor(World.class);
+			EntityLivingBase passive=con.newInstance(world);
+
+			byte countAir=0;
+			FOR_FIND_LOCATION_SPAWN:for(int ty=cy+5;ty>cy-5;ty--)
+			{
+				BlockPos posTemp=new BlockPos(tx,ty,tz);
+				IBlockState state=world.getBlockState(posTemp);
+				if(state.getBlock() == Blocks.AIR)
+				{
+					countAir++;
+				}
+				else // is not air
+				{
+					if(countAir>=3 && state.canEntitySpawn(passive))
+					{
+						passive.setPosition(posTemp.getX(),posTemp.getY()+2.5,posTemp.getZ());
+						world.spawnEntity(passive);
+						break FOR_FIND_LOCATION_SPAWN;
+					}
+
+					countAir=0;
+				}
+			}
+		}
+		catch(Exception ignored){}
+	}
 	// 亡灵呼唤 - 触发召唤
-	public static void CauseSpawningUndead(EntityLivingBase player) {
+	public static void CauseSpawningUndead(EntityLivingBase player)
+	{
 		try
 		{
 			World world=player.world;
 			Random rand=world.rand;
 			// 寻找召唤位置
 			final int cx=(int)player.posX,cy=(int)player.posY,cz=(int)player.posZ;
-			int tx=cx+rand.nextInt(18)-9,tz=cz+rand.nextInt(18)-9;
+			final int tx=cx+rand.nextInt(18)-9,tz=cz+rand.nextInt(18)-9;
 
 			EntityMob entity=rand.nextBoolean()?new EntityZombie(world):new EntitySkeleton(world);
 
@@ -140,7 +199,7 @@ public class Actions
 					countAir=0;
 				}
 			}
-		}catch(Exception e){}
+		}catch(Exception ignored){}
 	}
 	// 喀嚓 - 触发召唤
 	public static void CauseSpawningSilverfish(EntityLivingBase player, double x, double y, double z, World world)

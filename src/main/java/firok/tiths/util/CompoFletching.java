@@ -12,6 +12,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface CompoFletching
 {
-	float accuracy(); // 准度系数
-	float modifier(); // 品质系数
+	double accuracy(); // 准度系数
+	double modifier(); // 品质系数
 }

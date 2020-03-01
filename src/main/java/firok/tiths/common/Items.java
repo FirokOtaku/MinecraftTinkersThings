@@ -159,6 +159,8 @@ public class Items
 	public static final Item ingotOraclium = new Item(); // 神谕锭
 	@Reg(Keys.ingotSteamium)
 	public static final Item ingotSteamium = new Item(); // 气钢锭
+	@Reg(Keys.ingotGrain)
+	public static final Item ingotGrain = new Item(); // 谷砖
 
 	// 单纯的原材料
 //	@Reg(nameRoyalPaper)

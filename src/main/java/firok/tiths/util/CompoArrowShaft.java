@@ -12,6 +12,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface CompoArrowShaft
 {
-	float modifier(); // 品质系数
+	double modifier(); // 品质系数
 	int bonusAmmo(); // 额外弹药
 }

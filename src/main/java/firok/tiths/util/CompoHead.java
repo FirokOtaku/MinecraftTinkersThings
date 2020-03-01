@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 public @interface CompoHead
 {
 	int durability();
-	float miningspeed();
-	float attack();
+	double miningspeed();
+	double attack();
 	int harvestLevel();
 }

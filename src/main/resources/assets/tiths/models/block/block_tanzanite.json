@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "tiths:blocks/block_tanzanite",
+    "down": "tiths:blocks/block_tanzanite",
+    "up": "tiths:blocks/block_tanzanite",
+    "north": "tiths:blocks/block_tanzanite",
+    "south": "tiths:blocks/block_tanzanite",
+    "west": "tiths:blocks/block_tanzanite",
+    "east": "tiths:blocks/block_tanzanite"
+  }
+}
