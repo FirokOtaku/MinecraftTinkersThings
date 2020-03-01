@@ -2,6 +2,10 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.50.1 _2020-03-02 01:00_
+
+* 增加开发日志 added development log
+
 ## 0.2.50.0 _2020-03-01 14:00_
 
 * 为部分方块和物品增加材质贴图 added textures to some blocks and items
