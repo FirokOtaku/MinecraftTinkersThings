@@ -2,6 +2,10 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.50.2 _2020-03-04 10:30_
+
+* 为部分匠魂部件增加自定义材质 added customized textures to some tool parts
+
 ## 0.2.50.1 _2020-03-02 01:00_
 
 * 增加开发日志 added development log

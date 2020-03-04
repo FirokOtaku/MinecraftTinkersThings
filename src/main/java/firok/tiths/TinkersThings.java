@@ -27,7 +27,7 @@ public class TinkersThings
 
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers Things";
-	public static final String VERSION = "1.12.2-0.2.50.1";
+	public static final String VERSION = "1.12.2-0.2.50.2";
 
 	@Mod.Instance(MOD_ID)
 	public static TinkersThings INSTANCE;
