@@ -7,6 +7,6 @@
 
 ## 最近更新 latest update
 
-**0.2.51.2** _2020-03-04 10:30_ (GMT+8)
+**0.2.51.3** _2020-03-05 12:00_ (GMT+8)
 
 * 为部分匠魂部件增加自定义材质 added customized textures to some tool parts
