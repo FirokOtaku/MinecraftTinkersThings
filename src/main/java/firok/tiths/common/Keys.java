@@ -297,7 +297,7 @@ public interface Keys
 	int colorGrain=0xea9b32;
 
 	// 属性
-	String nameTraitGluttonic="Gluttonic";
+	String nameTraitGluttonic="gluttonic";
 	String nameTraitMaiming="maiming";
 	String nameTraitCarbonizing="carbonizing";
 	String nameTraitSunPower="sun_power";
@@ -348,6 +348,7 @@ public interface Keys
 	String nameTraitThermalGathering="thermal_gathering";
 	String nameTraitSteamy="steamy";
 	String nameTraitDecoying="decoying";
+	String nameTraitWatery="watery";
 
 	// 属性颜色
 	int colorTraitGluttonic=0x752b40;
@@ -401,6 +402,7 @@ public interface Keys
 	int colorTraitThermalGathering=0xa9174f;
 	int colorTraitSteamy=0xb7d3f5;
 	int colorTraitDecoying=0xea9b32;
+	int colorTraitWatery=0x466389;
 
 	// 状态效果颜色
 	int colorPotionHeavy=Colors.DarkSeaGreen;

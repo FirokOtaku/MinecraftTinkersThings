@@ -4,18 +4,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 import java.util.Random;
 
 import static firok.tiths.util.Predicates.canTrigger;
 
-/**
- * @Description
- * @Author gyy
- * @Date 2020/01/20 19:53
- */
 public class WorldGenMinableBedrock implements IChunkGen
 {
 	public IBlockState stateOre;

@@ -2,6 +2,12 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.51.0 _2020-03-10 13:00_
+
+* 移除所有匠魂部件自定义材质 removed all customized textures of tool parts
+* 增加属性 added traits
+  * 水化 watery
+
 ## 0.2.50.3 _2020-03-05 12:00_
 
 * 为部分匠魂部件增加自定义材质 added customized textures to some tool parts
