@@ -5,8 +5,10 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 
 // 遍历用的东西
-public class Ranges
+public final class Ranges
 {
+	private Ranges(){}
+
 	public static BlockPos[] Neighbour(BlockPos center)
 	{
 		return new BlockPos[]{

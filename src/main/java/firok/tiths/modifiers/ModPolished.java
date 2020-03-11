@@ -1,21 +1,20 @@
-package firok.tiths.motifiers;
+package firok.tiths.modifiers;
 
 import net.minecraft.nbt.NBTTagCompound;
 import slimeknights.tconstruct.library.modifiers.ModifierAspect;
-import slimeknights.tconstruct.library.tools.ToolNBT;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.Tags;
 import slimeknights.tconstruct.tools.modifiers.ToolModifier;
 
-import static firok.tiths.common.Keys.colorTraitHardened;
-import static firok.tiths.common.Keys.nameTraitHardened;
+import static firok.tiths.common.Keys.colorTraitPolished;
+import static firok.tiths.common.Keys.nameTraitPolished;
 
-// 硬化
-public class ModHardened extends ToolModifier
+// 打磨
+public class ModPolished extends ToolModifier
 {
-	public ModHardened()
+	public ModPolished()
 	{
-		super(nameTraitHardened, colorTraitHardened);
+		super(nameTraitPolished, colorTraitPolished);
 
 		addAspects(new ModifierAspect.MultiAspect(this, 5, 1, 1));
 	}
@@ -29,10 +28,10 @@ public class ModHardened extends ToolModifier
 		float mineSpeed=tag.getFloat(Tags.MININGSPEED);
 		int durability=tag.getInteger(Tags.DURABILITY);
 
-		attack+=1.25f;
-		speed*=0.95f;
-		mineSpeed*=0.95f;
-		durability+=65;
+		attack=Math.max(0.05f,attack-1.25f);
+		speed*=1.05f;
+		mineSpeed*=1.05f;
+		durability=Math.max(1,(int)(durability*0.95f));
 
 		tag.setFloat(Tags.ATTACK, attack);
 		tag.setFloat(Tags.ATTACKSPEEDMULTIPLIER, speed);

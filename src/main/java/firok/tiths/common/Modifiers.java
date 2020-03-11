@@ -1,6 +1,6 @@
 package firok.tiths.common;
 
-import firok.tiths.motifiers.*;
+import firok.tiths.modifiers.*;
 import slimeknights.tconstruct.tools.modifiers.ToolModifier;
 
 public class Modifiers

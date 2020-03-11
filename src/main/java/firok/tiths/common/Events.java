@@ -253,6 +253,7 @@ public class Events
 	{
 		EntityLivingBase enlb=event.getEntityLiving();
 		DamageSource source=event.getSource();
+		float originDamage=event.getAmount();
 		if(source.isFireDamage()) // 判断是不是火焰伤害
 		{
 			List<ITrait> traits=new ArrayList<>();
@@ -260,7 +261,7 @@ public class Events
 			traits.addAll(ToolHelper.getTraits(enlb.getHeldItemOffhand()));
 			if(traits.contains(thermalGathering))
 			{
-				event.setAmount( event.getAmount() / 2 );
+				event.setAmount( originDamage / 2 );
 			}
 		}
 	}

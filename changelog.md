@@ -2,6 +2,11 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.52.0 _2020-03-11 15:00_
+
+* 增加状态效果 added potion effects
+  * 发情 estrous
+
 ## 0.2.51.0 _2020-03-10 13:00_
 
 * 移除所有匠魂部件自定义材质 removed all customized textures of tool parts

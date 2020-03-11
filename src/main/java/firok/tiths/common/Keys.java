@@ -87,6 +87,7 @@ public interface Keys
 	String nameLavaCrystal="lava_crystal";
 	String nameSteamium="steamium";
 	String nameGrain="grain";
+	String nameEnderCreviceShard="ender_crevice_shard";
 
 	String nameHardener="hardener";
 	String namePolisher="polisher";

@@ -33,6 +33,8 @@ public class Items
 	public static final Item brokenIce = new Item(); // 碎冰
 	@Reg(nameShell)
 	public static final Item shell = new Item(); // 贝壳
+	@Reg(nameEnderCreviceShard)
+	public static final Item enderCreviceShard = new Item(); // 末影裂隙碎片
 
 //	public static final Item resplendentGem = new Item(); // 璀璨宝石
 

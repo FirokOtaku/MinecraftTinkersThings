@@ -29,7 +29,7 @@ import java.lang.reflect.Constructor;
 import java.util.*;
 
 // 所有的行为封装
-public class Actions
+public final class Actions
 {
 	private Actions(){}
 
