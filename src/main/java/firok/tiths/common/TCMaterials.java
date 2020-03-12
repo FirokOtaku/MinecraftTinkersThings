@@ -502,6 +502,14 @@ public class TCMaterials
 			.addItemAsIngot(Items.ingotGrain)
 			.addTrait(decoying);
 
+	@Compo(nameAventurine)
+	@CompoHead(durability = 720,miningspeed = 6,attack = 7.3,harvestLevel = 3)
+	@CompoHandle(modifier = 0.9,durability = 40)
+	@CompoExtra(extraDurability = 50)
+	public static Material Aventurine=new $Material(nameAventurine, colorAventurine)
+			.addItemAsIngot(Items.aventurine)
+			.addTrait(staminaFocusing);
+
 	public static Material cloudStorm=new Material("cloud_storm", Colors.DarkBlue);
 	public static Material skyCrystal=new Material("sky_crystal", Colors.Aqua);
 	public static Material stormCrystal=new Material("storm_crystal", Colors.DarkBlue);

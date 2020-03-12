@@ -89,6 +89,8 @@ public class Items
 	public static final Item vibratingCrystal = new Item(); // 振晶
 	@Reg(nameLavaCrystal)
 	public static final Item lavaCrystal = new Item(); // 岩浆结晶
+	@Reg(nameAventurine)
+	public static final Item aventurine = new Item(); // 东陵石
 
 	// 金属粒
 	@Reg(Keys.nuggetStellarium)

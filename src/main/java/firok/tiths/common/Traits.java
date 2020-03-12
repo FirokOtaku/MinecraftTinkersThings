@@ -52,6 +52,7 @@ public class Traits
 	public static final AbstractTrait thermalGathering=new TraitThermalGathering(); // 热力聚集
 	static{stonePhasing.addItem(Items.phasingGem);}
 	public static final AbstractTrait watery=new TraitWatery(); // 水化
+	public static final AbstractTrait staminaFocusing=new TraitStaminaFocusing(); // 精力汇聚
 	public static final AbstractTrait steamy=new TraitSteamy(); // 气动
 	public static final AbstractTrait treasureDetecting=new TraitTreasureDetecting(); // 宝藏感知
 	public static final AbstractTrait creaky=new TraitCreaky(); // 喀嚓

@@ -100,6 +100,8 @@ public class Blocks
 	public static final BlockOre oreProustite = new BlockOre(Items.proustite,1,1,1,4,6).setRareOre();
 	@Reg(Keys.oreLavaCrystal)
 	public static final BlockOre oreLavaCrystal = new BlockOre(Items.lavaCrystal,1,1,1,3,6).setVeryRareOre();
+	@Reg(Keys.oreAventurine)
+	public static final BlockOre oreAventurine = new BlockOre(Items.aventurine,1,1,1,4,6).setRareOre();
 
 	@Reg(Keys.orePolarium)
 //	@GenMeteoWorld
@@ -217,6 +219,8 @@ public class Blocks
 	public static final Block blockLavaCrystal = new BlockCompressed(Material.ROCK); // 岩浆结晶块
 	@Reg(Keys.blockSteamium)
 	public static final Block blockSteamium = new BlockCompressed(); // 气钢块
+	@Reg(Keys.blockAventurine)
+	public static final Block blockAventurine = new BlockCompressed(Material.ROCK); // 东陵石块
 
 	@Reg(Keys.blockStellariumObsidian)
 	public static final Block blockStellariumObsidian = new Block(Material.ROCK); // 恒星黑曜石

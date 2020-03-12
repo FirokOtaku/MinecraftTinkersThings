@@ -88,6 +88,7 @@ public interface Keys
 	String nameSteamium="steamium";
 	String nameGrain="grain";
 	String nameEnderCreviceShard="ender_crevice_shard";
+	String nameAventurine="aventurine";
 
 	String nameHardener="hardener";
 	String namePolisher="polisher";
@@ -153,6 +154,7 @@ public interface Keys
 	String blockVibratingCrystal=prefBlock+nameVibratingCrystal;
 	String blockLavaCrystal=prefBlock+nameLavaCrystal;
 	String blockSteamium=prefBlock+nameSteamium;
+	String blockAventurine=prefBlock+nameAventurine;
 
 	String blockFulgurite=prefBlock+nameFulgurite;
 	String blockMeteorolite=prefBlock+nameMeteorolite;
@@ -202,6 +204,7 @@ public interface Keys
 	String oreVibratingCrystal=prefOre+nameVibratingCrystal;
 	String oreLavaCrystal=prefOre+nameLavaCrystal;
 	String oreSteamium=prefOre+nameSteamium;
+	String oreAventurine=prefOre+nameAventurine;
 
 	// 矿锭
 	String ingotStellarium=prefIngot+nameStellarium;
@@ -296,6 +299,7 @@ public interface Keys
 	int colorLavaCrystal=0xa9174f;
 	int colorSteamium=0xb7d3f5;
 	int colorGrain=0xea9b32;
+	int colorAventurine=0x4e8d41;
 
 	// 属性
 	String nameTraitGluttonic="gluttonic";
@@ -348,8 +352,10 @@ public interface Keys
 	String nameTraitOracular="oracular";
 	String nameTraitThermalGathering="thermal_gathering";
 	String nameTraitSteamy="steamy";
+	String nameTraitParroting="parroting";
 	String nameTraitDecoying="decoying";
 	String nameTraitWatery="watery";
+	String nameTraitStaminaFocusing="stamina_focusing";
 
 	// 属性颜色
 	int colorTraitGluttonic=0x752b40;
@@ -402,13 +408,16 @@ public interface Keys
 	int colorTraitOracular=0x5dffb1;
 	int colorTraitThermalGathering=0xa9174f;
 	int colorTraitSteamy=0xb7d3f5;
+	int colorTraitParroting=0x69bd09;
 	int colorTraitDecoying=0xea9b32;
 	int colorTraitWatery=0x466389;
+	int colorTraitStaminaFocusing=0x4e8d41;
 
 	// 状态效果颜色
 	int colorPotionHeavy=Colors.DarkSeaGreen;
 	int colorPotionDisappear=Colors.Black;
 	int colorPotionPestilential=Colors.DarkGreen;
+	int colorPotionEstrous=0xEF94F5;
 
 	// 唱片
 	String recordTinkersEfforts="record_tinkers_efforts";
