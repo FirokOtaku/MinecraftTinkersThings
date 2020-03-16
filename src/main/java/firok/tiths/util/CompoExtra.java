@@ -10,4 +10,6 @@ import java.lang.annotation.Target;
 public @interface CompoExtra
 {
 	int extraDurability();
+
+	String[] traits() default {};
 }

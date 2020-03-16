@@ -65,23 +65,23 @@ public class Items
 	public static final Item talcum = new Item(); // 滑石
 	@Reg(nameTourmaline)
 	public static final Item tourmaline = new Item(); // 电气石
-	@Reg(nameSunStone)
+	@Reg(value=nameSunStone,od={"gem","gemSunStone","sunStone"})
 	public static final Item sunStone = new Item(); // 日光石
-	@Reg(nameMoonStone)
+	@Reg(value=nameMoonStone,od={"gem","gemMoonStone","moonStone"})
 	public static final Item moonStone = new Item(); // 月光石
 	@Reg(nameTreeRoot)
 	public static final Item treeRoot = new Item(); // 树根
 	@Reg(nameBrokenBedrock)
 	public static final Item brokenBedrock = new Item(); // 破碎基岩
-	@Reg(nameOpal)
+	@Reg(value=nameOpal,od={"gem","gemOpal","opal"})
 	public static final Item opal = new Item(); // 欧珀
-	@Reg(nameTopaz)
+	@Reg(value=nameTopaz,od={"gem","gemTopaz","topaz"})
 	public static final Item topaz = new Item(); // 托帕石
-	@Reg(nameTanzanite)
+	@Reg(value=nameTanzanite,od={"gem","gemTanzanite","tanzanite"})
 	public static final Item tanzanite = new Item(); // 坦桑石
-	@Reg(nameCordierite)
+	@Reg(value=nameCordierite,od={"gem","gemCordierite","cordierite"})
 	public static final Item cordierite = new Item(); // 堇青石
-	@Reg(namePrehnite)
+	@Reg(value=namePrehnite,od={"gem","gemPrehnite","prehnite"})
 	public static final Item prehnite = new Item(); // 葡萄石
 	@Reg(nameProustite)
 	public static final Item proustite = new Item(); // 硫砷银
@@ -89,7 +89,7 @@ public class Items
 	public static final Item vibratingCrystal = new Item(); // 振晶
 	@Reg(nameLavaCrystal)
 	public static final Item lavaCrystal = new Item(); // 岩浆结晶
-	@Reg(nameAventurine)
+	@Reg(value=nameAventurine,od={"gem","gemAventurine","aventurine"})
 	public static final Item aventurine = new Item(); // 东陵石
 
 	// 金属粒

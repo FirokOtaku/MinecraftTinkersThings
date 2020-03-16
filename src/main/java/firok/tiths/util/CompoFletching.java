@@ -14,4 +14,6 @@ public @interface CompoFletching
 {
 	double accuracy(); // 准度系数
 	double modifier(); // 品质系数
+
+	String[] traits() default {};
 }

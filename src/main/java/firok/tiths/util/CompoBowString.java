@@ -13,4 +13,6 @@ import java.lang.annotation.Target;
 public @interface CompoBowString
 {
 	float modifier() default 1.0f; // 品质系数
+
+	String[] traits() default {};
 }

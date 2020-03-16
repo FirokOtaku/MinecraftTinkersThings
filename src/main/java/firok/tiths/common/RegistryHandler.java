@@ -13,7 +13,6 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.common.registry.*;
-import net.minecraftforge.fml.common.registry.VillagerRegistry.VillagerProfession;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
 import slimeknights.tconstruct.library.MaterialIntegration;
@@ -27,6 +26,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static firok.tiths.TinkersThings.log;
+import static firok.tiths.util.InnerActions.*;
+import static slimeknights.tconstruct.library.materials.MaterialTypes.*;
 
 public class RegistryHandler
 {
@@ -74,11 +77,15 @@ public class RegistryHandler
 			}
 			catch (Exception e)
 			{
-				TinkersThings.log("error when registering fluid");
-				e.printStackTrace();
+				log("error when registering fluid");
+				log(e);
 			}
 		}
 	}
+
+	/**
+	 * 注册属性本身
+	 */
 	public static void registerTraits()
 	{
 		Field[] fields=Traits.class.getDeclaredFields();
@@ -99,7 +106,8 @@ public class RegistryHandler
 			}
 			catch (Exception e)
 			{
-				e.printStackTrace();
+				log("error when registering traits");
+				log(e);
 			}
 		}
 	}
@@ -169,7 +177,8 @@ public class RegistryHandler
 			}
 			catch (Exception e)
 			{
-//				e.printStackTrace();
+				log("error when registering item");
+				log(e);
 			}
 		}
 		Field[] fieldsBlocks=Blocks.class.getDeclaredFields();
@@ -201,7 +210,8 @@ public class RegistryHandler
 			}
 			catch (Exception e)
 			{
-//				e.printStackTrace();
+				log("error when registering item block");
+				log(e);
 			}
 		}
 
@@ -245,7 +255,8 @@ public class RegistryHandler
 			}
 			catch (Exception e)
 			{
-				// e.printStackTrace();
+				log("error when registering block");
+				log(e);
 			}
 		}
 //		TinkersThings.log(String.format("register blocks: block[%d/%d]",countBlock,fields.length) );
@@ -265,9 +276,13 @@ public class RegistryHandler
 	}
 
 	private static List<MaterialIntegration> listIntegration=new ArrayList<>(20);
+
+	/**
+	 * 注册匠魂材料
+	 */
 	public static void registerMaterials()
 	{
-		Field[] fields=TCMaterials.class.getDeclaredFields();
+		Field[] fields= TiCMaterials.class.getDeclaredFields();
 		for(Field field:fields)
 		{
 			try
@@ -286,7 +301,7 @@ public class RegistryHandler
 						CompoHead compoHead=field.getAnnotation(CompoHead.class);
 						if(compoHead!=null)
 						{
-							HeadMaterialStats statHead=new HeadMaterialStats(compoHead.durability(), compoHead.miningspeed(), compoHead.attack(), compoHead.harvestLevel());
+							HeadMaterialStats statHead=new HeadMaterialStats(compoHead.durability(), (float)compoHead.miningspeed(), (float)compoHead.attack(), compoHead.harvestLevel());
 							TinkerRegistry.addMaterialStats(material,statHead);
 						}
 					}
@@ -295,7 +310,7 @@ public class RegistryHandler
 						CompoHandle compoHandle=field.getAnnotation(CompoHandle.class);
 						if(compoHandle!=null)
 						{
-							HandleMaterialStats statHandle=new HandleMaterialStats(compoHandle.modifier(), compoHandle.durability());
+							HandleMaterialStats statHandle=new HandleMaterialStats((float)compoHandle.modifier(), compoHandle.durability());
 							TinkerRegistry.addMaterialStats(material,statHandle);
 						}
 					}
@@ -313,7 +328,7 @@ public class RegistryHandler
 						CompoBow compoBow=field.getAnnotation(CompoBow.class);
 						if(compoBow!=null)
 						{
-							BowMaterialStats statBow=new BowMaterialStats(compoBow.drawSpeed(), compoBow.range(), compoBow.bonusDamage());
+							BowMaterialStats statBow=new BowMaterialStats((float)compoBow.drawSpeed(), (float)compoBow.range(), (float)compoBow.bonusDamage());
 							TinkerRegistry.addMaterialStats(material,statBow);
 						}
 					}
@@ -331,7 +346,7 @@ public class RegistryHandler
 						CompoArrowShaft compoArrowShaft=field.getAnnotation(CompoArrowShaft.class);
 						if(compoArrowShaft!=null)
 						{
-							ArrowShaftMaterialStats statArrowShaft=new ArrowShaftMaterialStats(compoArrowShaft.modifier(),compoArrowShaft.bonusAmmo());
+							ArrowShaftMaterialStats statArrowShaft=new ArrowShaftMaterialStats((float)compoArrowShaft.modifier(),compoArrowShaft.bonusAmmo());
 							TinkerRegistry.addMaterialStats(material,statArrowShaft);
 						}
 					}
@@ -340,7 +355,7 @@ public class RegistryHandler
 						CompoFletching compoFletching=field.getAnnotation(CompoFletching.class);
 						if(compoFletching!=null)
 						{
-							FletchingMaterialStats statFletching=new FletchingMaterialStats(compoFletching.accuracy(),compoFletching.modifier());
+							FletchingMaterialStats statFletching=new FletchingMaterialStats((float)compoFletching.accuracy(),(float)compoFletching.modifier());
 							TinkerRegistry.addMaterialStats(material,statFletching);
 						}
 					}
@@ -359,15 +374,114 @@ public class RegistryHandler
 //						TinkerRegistry.integrate(material);
 //					}
 					listIntegration.add(integration);
-					TinkerRegistry.addMaterial(material);
+//					TinkerRegistry.addMaterial(material);
 				}
 			}
 			catch (Exception e)
 			{
-//				e.printStackTrace();
+				log("error when registering material");
+				log(e);
 			}
 		}
 	}
+
+	/**
+	 * 给材料注册属性
+	 */
+	public static void registerMaterialTraits()
+	{
+		Field[] fields= TiCMaterials.class.getDeclaredFields();
+		for(Field field:fields)
+		{
+			try
+			{
+				Object obj=field.get(null);
+				if(obj instanceof Material)
+				{
+					Material material=(Material)obj;
+					Compo compo=field.getAnnotation(Compo.class);
+
+					// 检查是否已经注册
+					if(compo==null||TinkerRegistry.getMaterial(material.identifier)==Material.UNKNOWN)
+					{
+						log(String.format("compo[ %s ],material[ %s ]",compo,material));
+						continue;
+					};
+
+					// 顶端
+					{
+						CompoHead compoHead=field.getAnnotation(CompoHead.class);
+						if(compoHead!=null)
+						{
+							addMaterialTraits(material,compoHead.traits(), HEAD);
+						}
+					}
+					// 连接
+					{
+						CompoHandle compoHandle=field.getAnnotation(CompoHandle.class);
+						if(compoHandle!=null)
+						{
+							addMaterialTraits(material,compoHandle.traits(), HANDLE);
+						}
+					}
+					// 其它
+					{
+						CompoExtra compoExtra=field.getAnnotation(CompoExtra.class);
+						if(compoExtra!=null)
+						{
+							addMaterialTraits(material,compoExtra.traits(), EXTRA);
+						}
+					}
+					// 弓臂
+					{
+						CompoBow compoBow=field.getAnnotation(CompoBow.class);
+						if(compoBow!=null)
+						{
+							addMaterialTraits(material,compoBow.traits(), BOW);
+						}
+					}
+					// 弓弦
+					{
+						CompoBowString compoBowString=field.getAnnotation(CompoBowString.class);
+						if(compoBowString!=null)
+						{
+							addMaterialTraits(material,compoBowString.traits(), BOWSTRING);
+						}
+					}
+					// 箭杆
+					{
+						CompoArrowShaft compoArrowShaft=field.getAnnotation(CompoArrowShaft.class);
+						if(compoArrowShaft!=null)
+						{
+							addMaterialTraits(material,compoArrowShaft.traits(), SHAFT);
+						}
+					}
+					// 箭羽
+					{
+						CompoFletching compoFletching=field.getAnnotation(CompoFletching.class);
+						if(compoFletching!=null)
+						{
+							addMaterialTraits(material,compoFletching.traits(), FLETCHING);
+						}
+					}
+
+					addMaterialTraits(material,compo.traitsTool(),MaterialTypes.HEAD);
+					addMaterialTraits(material,compo.traitsTool(),MaterialTypes.EXTRA);
+					addMaterialTraits(material,compo.traitsTool(),MaterialTypes.HANDLE);
+					addMaterialTraits(material,compo.traitsTool(),MaterialTypes.BOW);
+					addMaterialTraits(material,compo.traitsTool(),MaterialTypes.BOWSTRING);
+					addMaterialTraits(material,compo.traitsTool(),MaterialTypes.FLETCHING);
+					addMaterialTraits(material,compo.traitsTool(),MaterialTypes.SHAFT);
+				}
+			}
+			catch (Exception e)
+			{
+				log("error when registering material trait");
+				log(e);
+			}
+		}
+	}
+
 	public static void integrateMaterials()
 	{
 		for(MaterialIntegration inte:listIntegration)
@@ -398,8 +512,30 @@ public class RegistryHandler
 		}
 	}
 
-	public static void registerPotions(IForgeRegistry<Potion> registry)
+//	public static void registerVillagers()
+//	{
+//		IForgeRegistry<VillagerProfession> registry=ForgeRegistries.VILLAGER_PROFESSIONS;
+//		for(Field field:Villagers.class.getDeclaredFields())
+//		{
+//			try
+//			{
+//				Object obj=field.get(null);
+//				if(obj instanceof VillagerProfession)
+//				{
+//					VillagerProfession profession=(VillagerProfession)obj;
+//					registry.register(profession);
+//				}
+//			}
+//			catch (Exception e)
+//			{
+//				e.printStackTrace();
+//			}
+//		}
+//	}
+
+	public static void registerPotions()
 	{
+		IForgeRegistry<Potion> registry=ForgeRegistries.POTIONS;
 		for(Field field:Potions.class.getDeclaredFields())
 		{
 			try

@@ -2,11 +2,9 @@ package firok.tiths.util;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fluids.Fluid;
 import slimeknights.tconstruct.library.materials.Material;
-import slimeknights.tconstruct.tools.TinkerMaterials;
 
 public class $Material extends Material
 {
@@ -38,57 +36,10 @@ public class $Material extends Material
 		return this;
 	}
 
-//	public $Material addCraftableIngot(Item item)
-//	{
-//		return this.addCraftableItem(item,1,VALUE_Ingot);
-//	}
-//	public $Material addCraftableIngot(Block block)
-//	{
-//		return this.addCraftableItem(block,1);
-//	}
-//	public $Material addCraftableItem(Item item,int amountNeeded,int amountMatched)
-//	{
-//		this.addItem(item, amountNeeded, amountMatched);
-//		this.setIconItem(item);
-//		return this;
-//	}
-//	public $Material addCraftableItem(Block block,int ingotMatched)
-//	{
-//		this.addItem(block, ingotMatched * Material.VALUE_Ingot);
-//		this.setIconItem(block);
-//		return this;
-//	}
-
-//	private boolean hasSetIconItem=false;
-//	public $Material setIconItem(String representativeOre)
-//	{
-//		this.addItem(representativeOre);
-//		super.setRepresentativeItem(representativeOre);
-//		return this;
-//	}
-//	public $Material setIconItem(Item item)
-//	{
-//		if(hasSetIconItem) return this;
-//		hasSetIconItem=true;
-//
-////		this.addItem(item,1,Material.VALUE_Ingot);
-//		super.setRepresentativeItem(item);
-//		return this;
-//	}
-//	public $Material setIconItem(Block block)
-//	{
-//		if(hasSetIconItem) return this;
-//		hasSetIconItem=true;
-//
-////		this.addItem(block,Material.VALUE_Ingot);
-//
-//		super.setRepresentativeItem(block);
-//		return this;
-//	}
-
-//	@Override
-//	public void setRepresentativeItem(Item item)
-//	{
-//		this.setRepresentativeItem(item);
-//	}
+	@Override
+	public $Material setFluid(Fluid fluid)
+	{
+		super.setFluid(fluid);
+		return this;
+	}
 }

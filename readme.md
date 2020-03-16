@@ -7,13 +7,7 @@
 
 ## 最近更新 latest update
 
-**0.2.53.0** _2020-03-12 10:00_ (GMT+8)
+**0.2.54.0** _2020-03-16 13:30_ (GMT+8)
 
-* 增加方块和物品 added blocks and items
-  * 东陵石矿 aventurine ore block
-  * 东陵石 aventurine item
-  * 东陵石块 aventurine block
-* 增加材料 added materials
-  * 东陵石 aventurine
-* 增加属性 added traits
-  * 精力汇聚 stamina focusing
+* 重写注册材料属性的方式 rewrote the way of adding material traits 
+* 开始添加匠魂护甲(Construct's Armory)模组的兼容特性 now started to add compatibility to Construct's Armory

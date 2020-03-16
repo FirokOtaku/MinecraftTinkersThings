@@ -1,6 +1,7 @@
 package firok.tiths.traits;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
@@ -23,12 +24,16 @@ public class TraitLifeInspiring extends AbstractTrait
 	@Override
 	public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
 	{
-		if(isSelected && canTick(world,20,4) && entity instanceof EntityPlayer && !ToolHelper.isBroken(tool))
+		if(isSelected && !world.isRemote && canTick(world,20,4) && entity instanceof EntityLivingBase && !ToolHelper.isBroken(tool))
 		{
-			EntityPlayer player=(EntityPlayer)entity;
+			EntityLivingBase player=(EntityLivingBase)entity;
 			float hp=player.getHealth(),hpMax=player.getMaxHealth();
 
-			if(hp/hpMax<0.35f) player.addPotionEffect(new PotionEffect(MobEffects.HEALTH_BOOST,20,1));
+			float percent=hp/hpMax;
+
+			if(percent<0.35f)
+				player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION,25,
+						percent<0.15f?2:1));
 		}
 	}
 }

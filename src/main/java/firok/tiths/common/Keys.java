@@ -301,6 +301,30 @@ public interface Keys
 	int colorGrain=0xea9b32;
 	int colorAventurine=0x4e8d41;
 
+	// 匠魂自带属性
+	String nameTraitLightweight="lightweight";
+	String nameTraitInsatiable="insatiable";
+	String nameTraitUnnatural="unnatural";
+	String nameTraitStonebound="stonebound";
+	String nameTraitCheap="cheap";
+	String nameTraitCheapskate="cheapskate";
+	String nameTraitMagnetic="magnetic";
+	String nameTraitMagnetic2="magnetic2";
+	String nameTraitSharp="sharp";
+	String nameTraitPoisonous="poisonous";
+	String nameTraitEstablished="established";
+	String nameTraitDense="dense";
+	String nameTraitJagged="jagged";
+	String nameTraitTasty="tasty";
+	String nameTraitEcological="ecological";
+	String nameTraitWritable1 ="writable1";
+	String nameTraitAlien="alien";
+	String nameTraitFlammable="flammable";
+	String nameTraitEnderference="enderference";
+	String nameTraitDuritos="duritos";
+	String nameTraitSqueaky="squeaky";
+
+
 	// 属性
 	String nameTraitGluttonic="gluttonic";
 	String nameTraitMaiming="maiming";
@@ -335,7 +359,7 @@ public interface Keys
 	String nameTraitDrilled="drilled";
 	String nameTraitWrapping="wrapping";
 	String nameTraitPhantasmic="phantasmic";
-	String nameTraitHemolytic="Hemolytic";
+	String nameTraitHemolytic="hemolytic";
 	String nameTraitLionheart="lionheart";
 	String nameTraitTerrifying="terrifying";
 	String nameTraitThundering="thundering";

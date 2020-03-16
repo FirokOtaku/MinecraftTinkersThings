@@ -13,4 +13,6 @@ public @interface CompoHead
 	double miningspeed();
 	double attack();
 	int harvestLevel();
+
+	String[] traits() default {};
 }

@@ -2,6 +2,11 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.54.0 _2020-03-16 13:30_
+
+* 重写注册材料属性的方式 rewrote the way of adding material traits 
+* 开始添加匠魂护甲(Construct's Armory)模组的兼容特性 now started to add compatibility to Construct's Armory
+
 ## 0.2.53.0 _2020-03-12 10:00_
 
 * 增加方块和物品 added blocks and items

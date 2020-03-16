@@ -15,4 +15,6 @@ public @interface CompoBow
 	double drawSpeed(); // 拉弓速度
 	double range(); // 射程系数
 	double bonusDamage(); // 额外伤害
+
+	String[] traits() default {};
 }

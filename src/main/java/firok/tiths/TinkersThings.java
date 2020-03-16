@@ -1,17 +1,17 @@
 package firok.tiths;
 
 import firok.tiths.common.*;
+import firok.tiths.intergration.conarm.ArmorRegistryHandler;
 import firok.tiths.world.WorldGen;
 import net.minecraft.client.Minecraft;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
-import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.Material;
 
 import java.util.*;
@@ -20,7 +20,7 @@ import java.util.*;
 		modid = TinkersThings.MOD_ID,
 		name = TinkersThings.MOD_NAME,
 		version = TinkersThings.VERSION,
-		dependencies = "required-after:tconstruct@[1.12.2-2.13.0.171,);required-after:mantle@[1.12-1.3.3.55,);after:baubles@[1.5.2,)"
+		dependencies = "required-after:tconstruct@[1.12.2-2.13.0.171,);required-after:mantle@[1.12-1.3.3.55,);after:baubles@[1.5.2,);after:conarm@[1.2.5.4,)"
 )
 public class TinkersThings
 {
@@ -38,7 +38,7 @@ public class TinkersThings
 	public static Random randClient;
 
 	private static Logger logger;
-	public static void log(String content)
+	public static void log(Object content)
 	{
 		logger.log(Level.INFO,content);
 	}
@@ -47,6 +47,13 @@ public class TinkersThings
 	public void preinit(FMLPreInitializationEvent event)
 	{
 		logger = event.getModLog();
+
+		Configs.enable_conarm=Loader.isModLoaded("conarm");
+		if(Configs.enable_conarm)
+		{
+			log("Hi there, let's build some armors!");
+		}
+
 		RegistryHandler.registerFluids();
 
 		Items.trigger();
@@ -57,13 +64,22 @@ public class TinkersThings
 //		RegistryHandler.registerVillagers();
 
 		RegistryHandler.registerTraits();
+		if(Configs.enable_conarm)
+		{
+			ArmorRegistryHandler.registerArmorTraits();
+		}
+
 		Modifiers.log();
 
 		RegistryHandler.registerPotions();
 
 		//  proxy.initConfig();
 		//
-		RegistryHandler.registerMaterialsForTesting();
+		RegistryHandler.registerMaterials();
+		if(Configs.enable_conarm)
+		{
+			ArmorRegistryHandler.registerArmorMaterials();
+		}
 	}
 
 	public static void tell(Object content)
@@ -85,6 +101,12 @@ public class TinkersThings
 		GameRegistry.registerWorldGenerator(WorldGen.getInstance(), 100);
 		//  // GameRegistry.registerFuelHandler(new FuelHandler());  Registeres fuels' burn times
 
+		RegistryHandler.registerMaterialTraits();
+		if(Configs.enable_conarm)
+		{
+			ArmorRegistryHandler.registerArmorMaterialTraits();
+		}
+
 		Craftings.registerAllCraftings();
 		Alloys.registerAlloys();
 //		TCMaterials.packMaterials();
@@ -102,7 +124,7 @@ public class TinkersThings
 	public void postinit(FMLPostInitializationEvent event)
 	{
 //		proxy.registerBookPages();
-		materials=TinkerRegistry.getAllMaterials();
+//		materials=TinkerRegistry.getAllMaterials();
 		randClient=new Random();
 	}
 

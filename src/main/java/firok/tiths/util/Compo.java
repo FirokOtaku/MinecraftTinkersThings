@@ -13,4 +13,14 @@ import java.lang.annotation.Target;
 public @interface Compo
 {
 	String value();
+
+	/**
+	 * 工具属性
+	 */
+	String[] traitsTool() default {};
+
+	/**
+	 * 护甲属性
+	 */
+	String[] traitsArmor() default {};
 }
