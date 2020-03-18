@@ -404,9 +404,9 @@ public class RegistryHandler
 					// 检查是否已经注册
 					if(compo==null||TinkerRegistry.getMaterial(material.identifier)==Material.UNKNOWN)
 					{
-						log(String.format("compo[ %s ],material[ %s ]",compo,material));
+//						log(String.format("compo[ %s ],material[ %s ]",compo,material));
 						continue;
-					};
+					}
 
 					// 顶端
 					{

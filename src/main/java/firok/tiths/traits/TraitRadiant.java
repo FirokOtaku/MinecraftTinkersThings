@@ -26,6 +26,7 @@ import slimeknights.tconstruct.tools.TinkerTraits;
 
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Random;
 
 import static firok.tiths.common.Keys.colorTraitRadiant;
 import static firok.tiths.common.Keys.nameTraitRadiant;
@@ -42,34 +43,64 @@ public class TraitRadiant extends AbstractTrait
 		super(nameTraitRadiant,colorTraitRadiant);
 	}
 
+	/**
+	 * 用于每tick的灼烧效果检查
+	 */
+	public static boolean checkBurn(World world)
+	{
+		return !world.isRemote && canTick(world,80,1);
+	}
+
+	/**
+	 * 灼烧效果
+	 */
+	public static void burn(World world,Entity source)
+	{
+		List<Entity> ens=world.getEntitiesInAABBexcluding(
+				source,
+				new AxisAlignedBB(
+						source.posX-5,source.posY-4,source.posZ-5,
+						source.posX+5,source.posY+4,source.posZ+5
+				),
+				Selectors.mobAlive
+		);
+		if(ens.size()>0)
+			for(Entity en:ens)
+			{
+				en.setFire(5);
+			}
+	}
+
+	/**
+	 * 用于每tick的粒子效果检查
+	 */
+	public static boolean checkParticle(World world)
+	{
+		return world.isRemote && canTick(world,4,1);
+	}
+
+	/**
+	 * 粒子效果
+	 */
+	public static void particle(World world, Entity entity, Random random)
+	{
+		world.spawnParticle(EnumParticleTypes.FLAME,
+				entity.posX + random.nextDouble() -0.5,
+				entity.posY + random.nextDouble(),
+				entity.posZ + random.nextDouble() -0.5,
+				0.0D, 0.0D, 0.0D);
+	}
 	@Override
 	public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
 	{
-//		super.onUpdate(tool, world, entity, itemSlot, isSelected);
-		if(isSelected && !world.isRemote && canTick(world,80,1))
+		if(isSelected && checkBurn(world))
 		{
-			List<Entity> ens=world.getEntitiesInAABBexcluding(
-					entity,
-					new AxisAlignedBB(
-							entity.posX-5,entity.posY-4,entity.posZ-5,
-							entity.posX+5,entity.posY+4,entity.posZ+5
-					),
-					Selectors.mobAlive
-			);
-			if(ens.size()>0)
-				for(Entity en:ens)
-				{
-					en.setFire(5);
-				}
+			burn(world, entity);
 		}
 
-		if(isSelected && world.isRemote && canTick(world,4,1))
+		if(isSelected && checkParticle(world))
 		{
-			world.spawnParticle(EnumParticleTypes.FLAME,
-					entity.posX + random.nextDouble() -0.5,
-					entity.posY + random.nextDouble(),
-					entity.posZ + random.nextDouble() -0.5,
-					0.0D, 0.0D, 0.0D);
+			particle(world,entity,world.rand);
 		}
 	}
 

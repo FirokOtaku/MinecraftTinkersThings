@@ -7,7 +7,7 @@
 
 ## 最近更新 latest update
 
-**0.2.54.0** _2020-03-16 13:30_ (GMT+8)
+**0.2.55.0** _2020-03-18 10:30_ (GMT+8)
 
-* 重写注册材料属性的方式 rewrote the way of adding material traits 
-* 开始添加匠魂护甲(Construct's Armory)模组的兼容特性 now started to add compatibility to Construct's Armory
+* 为属性增加护甲效果 added effects for traits
+  * 辉耀 radiant

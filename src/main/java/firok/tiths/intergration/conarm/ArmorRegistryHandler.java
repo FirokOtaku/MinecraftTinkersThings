@@ -3,15 +3,13 @@ package firok.tiths.intergration.conarm;
 import c4.conarm.lib.materials.CoreMaterialStats;
 import c4.conarm.lib.materials.PlatesMaterialStats;
 import c4.conarm.lib.materials.TrimMaterialStats;
-import c4.conarm.lib.traits.AbstractArmorTrait;
 import firok.tiths.common.TiCMaterials;
 import firok.tiths.util.Compo;
-import firok.tiths.util.CompoArmorCore;
-import firok.tiths.util.CompoArmorPlate;
-import firok.tiths.util.CompoArmorTrim;
+import firok.tiths.intergration.conarm.util.CompoArmorCore;
+import firok.tiths.intergration.conarm.util.CompoArmorPlate;
+import firok.tiths.intergration.conarm.util.CompoArmorTrim;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.Material;
-import slimeknights.tconstruct.library.materials.MaterialTypes;
 
 import java.lang.reflect.Field;
 
@@ -21,34 +19,6 @@ import static c4.conarm.lib.materials.ArmorMaterialType.*;
 
 public class ArmorRegistryHandler
 {
-	/**
-	 * 注册属性本身
-	 */
-	public static void registerArmorTraits()
-	{
-		Field[] fields=firok.tiths.intergration.conarm.ArmorTraits.class.getDeclaredFields();
-		for(Field field:fields)
-		{
-			try
-			{
-				Object obj=field.get(null);
-
-				if(obj instanceof AbstractArmorTrait)
-				{
-					AbstractArmorTrait trait=(AbstractArmorTrait)obj;
-//					String name=field.getName();
-
-					TinkerRegistry.addTrait(trait);
-				}
-			}
-			catch (Exception e)
-			{
-				log("error when registering armor traits");
-				log(e);
-			}
-		}
-	}
-
 	/**
 	 * 注册护甲材料
 	 */
@@ -66,7 +36,7 @@ public class ArmorRegistryHandler
 					Compo compo=field.getAnnotation(Compo.class);
 
 					// 检查是否已经注册
-					if(compo==null||TinkerRegistry.getMaterial(material.identifier)!=Material.UNKNOWN) continue;
+					if(compo==null||TinkerRegistry.getMaterial(material.identifier)==Material.UNKNOWN) continue;
 
 					// 基底
 					{
@@ -129,7 +99,7 @@ public class ArmorRegistryHandler
 						CompoArmorCore compoArmorCore=field.getAnnotation(CompoArmorCore.class);
 						if(compoArmorCore!=null)
 						{
-							addMaterialTraits(material,compoArmorCore.traits(),CORE);
+							addMaterialTraits(material,compoArmorCore.traits(),CORE,true);
 						}
 					}
 					// 护甲板
@@ -137,7 +107,7 @@ public class ArmorRegistryHandler
 						CompoArmorPlate compoArmorPlate=field.getAnnotation(CompoArmorPlate.class);
 						if(compoArmorPlate!=null)
 						{
-							addMaterialTraits(material,compoArmorPlate.traits(),CORE);
+							addMaterialTraits(material,compoArmorPlate.traits(),PLATES,true);
 						}
 					}
 					// 夹板
@@ -145,18 +115,18 @@ public class ArmorRegistryHandler
 						CompoArmorTrim compoArmorTrim=field.getAnnotation(CompoArmorTrim.class);
 						if(compoArmorTrim!=null)
 						{
-							addMaterialTraits(material,compoArmorTrim.traits(),TRIM);
+							addMaterialTraits(material,compoArmorTrim.traits(),TRIM,true);
 						}
 					}
 
-					addMaterialTraits(material,compo.traitsArmor(), MaterialTypes.HEAD);
-					addMaterialTraits(material,compo.traitsArmor(), MaterialTypes.EXTRA);
-					addMaterialTraits(material,compo.traitsArmor(), MaterialTypes.HANDLE);
+					addMaterialTraits(material,compo.traitsArmor(), CORE,true);
+					addMaterialTraits(material,compo.traitsArmor(), PLATES,true);
+					addMaterialTraits(material,compo.traitsArmor(), TRIM,true);
 				}
 			}
 			catch (Exception e)
 			{
-				log("error when registering armor material attribution");
+				log("error when registering armor material trait");
 				log(e);
 			}
 		}

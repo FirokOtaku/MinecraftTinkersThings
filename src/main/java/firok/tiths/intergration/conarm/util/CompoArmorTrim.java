@@ -1,4 +1,4 @@
-package firok.tiths.util;
+package firok.tiths.intergration.conarm.util;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -317,7 +317,7 @@ public interface Keys
 	String nameTraitJagged="jagged";
 	String nameTraitTasty="tasty";
 	String nameTraitEcological="ecological";
-	String nameTraitWritable1 ="writable1";
+	String nameTraitWritable1="writable1";
 	String nameTraitAlien="alien";
 	String nameTraitFlammable="flammable";
 	String nameTraitEnderference="enderference";

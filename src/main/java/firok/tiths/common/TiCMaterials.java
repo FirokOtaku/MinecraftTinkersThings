@@ -1,5 +1,8 @@
 package firok.tiths.common;
 
+import firok.tiths.intergration.conarm.util.CompoArmorCore;
+import firok.tiths.intergration.conarm.util.CompoArmorPlate;
+import firok.tiths.intergration.conarm.util.CompoArmorTrim;
 import firok.tiths.util.*;
 import slimeknights.tconstruct.library.materials.Material;
 
@@ -79,11 +82,14 @@ public final class TiCMaterials
 			.addItemAsIngot(Items.ingotRoyalAlloy)
 			.setFluid(Fluids.moltenRoyalAlloy);
 
-	@Compo(value = nameStellarium,traitsTool = {nameTraitRadiant})
+	@Compo(value = nameStellarium,traitsTool = {nameTraitRadiant},traitsArmor = {nameTraitRadiant})
 	@CompoHead(durability = 211,miningspeed = 9.55,attack = 8.54,harvestLevel = 4)
 	@CompoExtra(extraDurability = 0)
 	@CompoBow(drawSpeed = 0.9,range = 0.68,bonusDamage = 5)
 	@CompoArrowShaft(modifier = 0.65,bonusAmmo = 0)
+	@CompoArmorCore(durability = 1,defense = 1)
+	@CompoArmorPlate(modifier = 1,durability = 1,toughness = 1)
+	@CompoArmorTrim(extraDurability = 1)
 	public static final Material stellarium=new $Material(nameStellarium, colorStellarium)
 			.addItemAsIngot(Items.ingotStellarium)
 			.setFluid(Fluids.moltenStellarium);
@@ -142,9 +148,7 @@ public final class TiCMaterials
 	@CompoHead(durability = 20,miningspeed = 1.6,attack = 1.8,harvestLevel = 0)
 	@CompoHandle(modifier = 0.54, durability = 10)
 	@CompoExtra(extraDurability = 15)
-	public static final Material brokenIce=new $Material(nameBrokenIce,colorBrokenIce)
-			.addToolTrait(cheap)
-			.addToolTrait(icy);
+	public static final Material brokenIce=new $Material(nameBrokenIce,colorBrokenIce);
 	static
 	{
 		brokenIce.addItem(Items.brokenIce,4, VALUE_Ingot);

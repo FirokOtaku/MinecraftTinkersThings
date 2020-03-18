@@ -51,6 +51,7 @@ repositories {
         name 'thiakil'
         url 'https://maven.thiakil.com'
     }
+    flatDir { dirs './libs' }
 }
 
 dependencies {
