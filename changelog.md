@@ -2,6 +2,12 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.56.0 _2020-03-19 16:00_
+
+* 为属性增加护甲效果 added effects for traits
+  * 反重力 anti gravity
+  * 双折 birefringent
+
 ## 0.2.55.0 _2020-03-18 10:30_
 
 * 为属性增加护甲效果 added effects for traits

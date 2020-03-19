@@ -1,6 +1,6 @@
 package firok.tiths.common;
 
-import firok.tiths.intergration.conarm.traits.TraitArmorRadiant;
+import firok.tiths.intergration.conarm.traits.*;
 import firok.tiths.traits.*;
 import net.minecraft.init.MobEffects;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
@@ -138,7 +138,9 @@ public class Traits
 		clustering = new TraitClustering();
 		starDashing = new TraitStarDashing();
 		soluble = new TraitSoluble();
-		birefringent = new TraitBirefringent();
+
+		birefringent = new TraitArmorBirefringent(); // !!!
+
 		pyroelectric = new TraitPyroelectric();
 		shaking = new TraitShaking();
 		inky = new TraitInky();
@@ -154,7 +156,9 @@ public class Traits
 		oracular = new TraitOracular();
 		hemolytic = new TraitHemolytic();
 		extremeFreezing = new TraitExtremeFreezing();
-		antiGrav = new TraitAntiGrav();
+
+		antiGrav = new TraitArmorAntiGrav(); // !!!
+
 		stonePhasing = new TraitStonePhasing();
 		thermalGathering = new TraitThermalGathering();
 		watery = new TraitWatery();

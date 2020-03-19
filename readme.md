@@ -7,7 +7,8 @@
 
 ## 最近更新 latest update
 
-**0.2.55.0** _2020-03-18 10:30_ (GMT+8)
+**0.2.56.0** _2020-03-19 16:00_ (GMT+8)
 
 * 为属性增加护甲效果 added effects for traits
-  * 辉耀 radiant
+  * 反重力 anti gravity
+  * 双折 birefringent

@@ -40,7 +40,7 @@ public class TraitCarbonizing extends AbstractTrait
 			if(isStone(drop) && canTrigger(rand,0.05f * drop.getCount()))
 			{
 				iter.remove();
-				countCoals++;
+				countCoals+=drop.getCount();
 			}
 		}
 		if(countCoals>0)
