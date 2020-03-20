@@ -89,6 +89,7 @@ public interface Keys
 	String nameGrain="grain";
 	String nameEnderCreviceShard="ender_crevice_shard";
 	String nameAventurine="aventurine";
+	String nameCinder="cinder";
 
 	String nameHardener="hardener";
 	String namePolisher="polisher";

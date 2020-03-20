@@ -120,7 +120,9 @@ public class Traits
 		lionheart = new TraitLionheart();
 		terrifying = new TraitTerrifying();
 		thundering = new TraitThundering();
-		carbonizing = new TraitCarbonizing();
+
+		carbonizing = new TraitArmorCarbonizing(); // !!!
+
 		gluttonic = new TraitGluttonic();
 		antiPoisonous = new AbstractTraitAntiEffect(nameTraitAntiPoisonous, colorTraitAntiPoisonous, 80, 3, 0.6f, MobEffects.POISON);
 		sunPower = new TraitSunPower();

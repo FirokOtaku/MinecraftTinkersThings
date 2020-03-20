@@ -15,18 +15,35 @@ import slimeknights.tconstruct.library.smeltery.CastingRecipe;
 import slimeknights.tconstruct.shared.TinkerFluids;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 
+import static firok.tiths.common.Keys.fuelTimeCinder;
 import static slimeknights.tconstruct.library.TinkerRegistry.registerBasinCasting;
 import static slimeknights.tconstruct.library.TinkerRegistry.registerTableCasting;
 
 @SuppressWarnings("all")
 public class Craftings
 {
+	private static boolean hasRegistered=false;
 	// 注册所有合成表
 	public static void registerAllCraftings()
 	{
+		if(hasRegistered) throw new RuntimeException("duplicated registering crafting");
+		hasRegistered=true;
 		registerBindings();
 		registerBasinCastings();
 		registerTableCastings();
+		registerFuels();
+	}
+	// 燃料
+	private static void registerFuels()
+	{
+		GameRegistry.registerFuelHandler(itemstack->{
+			Item item=itemstack.getItem();
+			if(item==Items.cinder)
+			{
+				return fuelTimeCinder / 8;
+			}
+			return 0;
+		});
 	}
 
 	// 原矿 矿块 矿锭 矿粒 之间的合成关系

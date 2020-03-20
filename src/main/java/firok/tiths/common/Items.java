@@ -171,6 +171,8 @@ public class Items
 //	public static final Item royalPaper = new Item(); // 奢华纸张
 //	@Reg(nameRoyalBook)
 //	public static final Item royalBook = new Item(); // 奢华书本
+	@Reg(nameCinder)
+	public static final Item cinder = new Item(); // 煤屑
 
 	// 植物
 //	@Reg(Keys.nameHuraFruit)

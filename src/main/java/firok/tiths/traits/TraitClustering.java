@@ -16,8 +16,8 @@ import static firok.tiths.common.Keys.nameTraitClustering;
 public class TraitClustering extends AbstractTrait
 {
 	private static final float factorDurability =550;
-	private static final float factorAtk = 2;
-	private static final float factorMotiSpd = 1; // 攻击速度 (因数)
+	private static final float factorAtk = 2; // 攻击速度 (因数)
+	private static final float factorMotiSpd = 1; // 速度
 	private static final float factorMineSpd = 2; // 挖掘速度
 	private static final float factorDrawSpd= 0.08f; // 拉弓速度
 
@@ -44,7 +44,7 @@ public class TraitClustering extends AbstractTrait
 
 		factor=Math.max(factor,0.45f); // 因数最大为 0.45
 
-		if(durability- factorDurability>0) // 大于指定耐久度
+		if(durability > factorDurability) // 大于指定耐久度
 		{
 			attack += factor * factorAtk;
 			tag.setFloat(Tags.ATTACK,attack);

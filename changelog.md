@@ -2,6 +2,13 @@
 
 > All Time Stamps: GMT+8
 
+# 0.2.57.0 _2020-03-20 17:30_
+
+* 增加物品 added items
+  * 煤屑 cinder
+* 为属性增加护甲效果
+  * 碳化 carbonizing
+
 ## 0.2.56.0 _2020-03-19 16:00_
 
 * 为属性增加护甲效果 added effects for traits

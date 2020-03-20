@@ -7,8 +7,9 @@
 
 ## 最近更新 latest update
 
-**0.2.56.0** _2020-03-19 16:00_ (GMT+8)
+**0.2.57.0** _2020-03-20 17:30_ (GMT+8)
 
-* 为属性增加护甲效果 added effects for traits
-  * 反重力 anti gravity
-  * 双折 birefringent
+* 增加物品 added items
+  * 煤屑 cinder
+* 为属性增加护甲效果
+  * 碳化 carbonizing
