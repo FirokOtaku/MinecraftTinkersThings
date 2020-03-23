@@ -33,6 +33,7 @@ public class Craftings
 		registerTableCastings();
 		registerFuels();
 	}
+
 	// 燃料
 	private static void registerFuels()
 	{
@@ -40,7 +41,7 @@ public class Craftings
 			Item item=itemstack.getItem();
 			if(item==Items.cinder)
 			{
-				return fuelTimeCinder / 8;
+				return fuelTimeCinder;
 			}
 			return 0;
 		});

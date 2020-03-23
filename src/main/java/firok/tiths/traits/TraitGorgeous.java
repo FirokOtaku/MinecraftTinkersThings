@@ -1,5 +1,6 @@
 package firok.tiths.traits;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
@@ -14,9 +15,17 @@ public class TraitGorgeous extends AbstractTrait
 		super(nameTraitGorgeous, colorTraitGorgeous);
 	}
 
+	/**
+	 * 1.1f ~ 1.2f
+	 */
+	public static float factor(Entity entity)
+	{
+		return entity.world.rand.nextFloat() * 0.1f + 1.1f;
+	}
+
 	@Override
 	public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float newDamage, boolean isCritical)
 	{
-		return newDamage * (player.world.rand.nextFloat() * 0.1f + 1.1f);
+		return newDamage * factor(player);
 	}
 }

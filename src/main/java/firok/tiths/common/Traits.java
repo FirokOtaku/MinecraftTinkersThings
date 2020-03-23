@@ -122,8 +122,8 @@ public class Traits
 		thundering = new TraitThundering();
 
 		carbonizing = new TraitArmorCarbonizing(); // !!!
+		gluttonic = new TraitArmorGluttonic();
 
-		gluttonic = new TraitGluttonic();
 		antiPoisonous = new AbstractTraitAntiEffect(nameTraitAntiPoisonous, colorTraitAntiPoisonous, 80, 3, 0.6f, MobEffects.POISON);
 		sunPower = new TraitSunPower();
 		moonPower = new TraitMoonPower();
@@ -137,7 +137,9 @@ public class Traits
 
 		switching = new TraitSwitching();
 		icy = new TraitIcy();
-		clustering = new TraitClustering();
+
+		clustering = new TraitArmorClustering();
+
 		starDashing = new TraitStarDashing();
 		soluble = new TraitSoluble();
 
@@ -146,19 +148,27 @@ public class Traits
 		pyroelectric = new TraitPyroelectric();
 		shaking = new TraitShaking();
 		inky = new TraitInky();
-		gorgeous = new TraitGorgeous();
+
+		gorgeous = new TraitArmorGorgeous(); // !!!
+
 		peaceEnergetic = new TraitPeaceEnergetic();
 		hyper = new TraitHyper();
-		dichroic = new TraitDichroic();
+
+		dichroic = new TraitArmorDichroic(); // !!!
+
 		lifeInspiring = new TraitLifeInspiring();
-		chemicalInstable = new TraitChemicalInstable();
+
+		chemicalInstable = new TraitArmorChemicalInstable(); // !!!
+
 		infernalBlazing = new TraitInfernalBlazing();
-		dragonKiller = new TraitDragonKiller();
+
+		dragonKiller = new TraitArmorDragonKiller(); // !!!
+
 		midasDesiring = new TraitMidasDesiring();
 		oracular = new TraitOracular();
 		hemolytic = new TraitHemolytic();
-		extremeFreezing = new TraitExtremeFreezing();
 
+		extremeFreezing = new TraitArmorExtremeFreezing();
 		antiGrav = new TraitArmorAntiGrav(); // !!!
 
 		stonePhasing = new TraitStonePhasing();
@@ -167,8 +177,10 @@ public class Traits
 		staminaFocusing = new TraitStaminaFocusing();
 		steamy = new TraitSteamy();
 		treasureDetecting = new TraitTreasureDetecting();
-		creaky = new TraitCreaky();
-		decoying = new TraitDecoying();
+
+		creaky = new TraitArmorCreaky(); // !!!
+		decoying = new TraitArmorDecoying();
+
 		undeadCalling = new TraitUndeadCalling();
 		repressing = new TraitRepressing();
 	}

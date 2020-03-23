@@ -40,34 +40,49 @@ public class TraitExtremeFreezing extends AbstractTrait
 		super(nameTraitExtremeFreezing, colorTraitExtremeFreezing);
 	}
 
+	public static boolean checkFreeze(World world)
+	{
+		return !world.isRemote && canTick(world,80,1);
+	}
+	public static void freeze(Entity center)
+	{
+		List<Entity> ens=center.world.getEntitiesInAABBexcluding(
+				center,
+				new AxisAlignedBB(
+						center.posX-5,center.posY-4,center.posZ-5,
+						center.posX+5,center.posY+4,center.posZ+5
+				),
+				Selectors.mobAlive
+		);
+		if(ens.size()>0)
+			for(Entity en:ens)
+			{
+				if(!(en instanceof EntityLivingBase)) continue;
+				EntityLivingBase enlb=(EntityLivingBase)en;
+				enlb.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS,85,2));
+			}
+	}
+	public static boolean checkParticle(World world)
+	{
+		return world.isRemote && canTick(world,4,1);
+	}
+	public static void particle(Entity entity)
+	{
+		entity.world.spawnParticle(EnumParticleTypes.CLOUD,
+				entity.posX + random.nextDouble() -0.5,
+				entity.posY + random.nextDouble(),
+				entity.posZ + random.nextDouble() -0.5,
+				0.0D, 0.25D, 0.0D);
+	}
+
 	@Override
 	public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
 	{
 //		super.onUpdate(tool, world, entity, itemSlot, isSelected);
-		if(isSelected && !world.isRemote && canTick(world,80,1))
+		if(isSelected)
 		{
-			List<Entity> ens=world.getEntitiesInAABBexcluding(
-					entity,
-					new AxisAlignedBB(
-							entity.posX-5,entity.posY-4,entity.posZ-5,
-							entity.posX+5,entity.posY+4,entity.posZ+5
-					),
-					Selectors.mobAlive
-			);
-			if(ens.size()>0)
-				for(Entity en:ens)
-				{
-					((EntityLivingBase)en).addPotionEffect(new PotionEffect(MobEffects.SLOWNESS,85,2));
-				}
-		}
-
-		if(isSelected && world.isRemote && canTick(world,4,1))
-		{
-			world.spawnParticle(EnumParticleTypes.CLOUD,
-					entity.posX + random.nextDouble() -0.5,
-					entity.posY + random.nextDouble(),
-					entity.posZ + random.nextDouble() -0.5,
-					0.0D, 0.25D, 0.0D);
+			if(checkFreeze(world)) freeze(entity);
+			if(checkParticle(world)) particle(entity);
 		}
 	}
 

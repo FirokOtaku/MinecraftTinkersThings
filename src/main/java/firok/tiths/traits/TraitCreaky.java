@@ -34,7 +34,7 @@ public class TraitCreaky extends AbstractTrait
 	{
 		if(!target.isEntityAlive() && !target.getEntityWorld().isRemote && canTrigger(player.world, rate))
 		{
-			Actions.CauseSpawningSilverfish(player, target.posX, target.posY, target.posZ, target.getEntityWorld());
+			Actions.CauseSpawningSilverfish(player, target.posX, target.posY, target.posZ, target.world);
 		}
 	}
 

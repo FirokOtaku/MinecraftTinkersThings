@@ -20,13 +20,22 @@ public class TraitChemicalInstable extends AbstractTrait
 		super(nameTraitChemicalInstable, colorTraitChemicalInstable);
 	}
 
+	public static void boom(EntityLivingBase player,double posX,double posY,double posZ)
+	{
+		player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE,10,1));
+		player.world.createExplosion(null,posX,posY,posZ,1,true);
+	}
+	public static void boom(EntityLivingBase player,EntityLivingBase target)
+	{
+		boom(player,target.posX,target.posY,target.posZ);
+	}
+
 	@Override
 	public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
 	{
 		if(wasHit && !target.world.isRemote && canTrigger(target.world,0.15f))
 		{
-			player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE,10,1));
-			target.world.createExplosion(null,target.posX,target.posY,target.posZ,1,true);
+			boom(player,target);
 		}
 	}
 
@@ -35,8 +44,7 @@ public class TraitChemicalInstable extends AbstractTrait
 	{
 		if(!player.world.isRemote && canTrigger(player.world,0.06f))
 		{
-			player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE,10,1));
-			player.world.createExplosion(null,pos.getX(),pos.getY(),pos.getZ(),1,true);
+			boom(player,pos.getX(),pos.getY(),pos.getZ());
 		}
 	}
 }

@@ -444,6 +444,14 @@ public interface Keys
 	int colorPotionPestilential=Colors.DarkGreen;
 	int colorPotionEstrous=0xEF94F5;
 
+	// 燃料热值
+	int fuelTimeCoal=1600;
+	int fuelTimeCoalBlock=16000;
+	int fuelTimeFlameStick=2400;
+	int fuelTimeWood=300;
+	int fuelTimeWoodPlate=300; // fixme
+	int fuelTimeCinder=fuelTimeCoal / 8;
+
 	// 唱片
 	String recordTinkersEfforts="record_tinkers_efforts";
 	String recordTinkersWill="record_tinkers_will";

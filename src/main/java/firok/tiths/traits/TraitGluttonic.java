@@ -1,6 +1,5 @@
 package firok.tiths.traits;
 
-import firok.tiths.TinkersThings;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
