@@ -17,18 +17,23 @@ public class TraitHemolytic  extends AbstractTrait
 		super(nameTraitHemolytic, colorTraitHemolytic);
 	}
 
+	public static final float factorDamage=1.15f;
+	public static final float limitRepairDamage=5;
+	public static final float factorRepairDamage=5;
+	public static final float rate=0.5f;
+
 	@Override
 	public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float newDamage, boolean isCritical)
 	{
-		return super.damage(tool, player, target, damage, newDamage*1.15f, isCritical);
+		return super.damage(tool, player, target, damage, newDamage * factorDamage, isCritical);
 	}
 
 	@Override
 	public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
 	{
-		if(!player.world.isRemote && wasHit && damageDealt>5 && canTrigger(player.world,0.5f))
+		if(!player.world.isRemote && wasHit && damageDealt>limitRepairDamage && canTrigger(player.world,rate))
 		{
-			ToolHelper.healTool(tool,(int)(damageDealt/5),player);
+			ToolHelper.healTool(tool,(int)(damageDealt/factorRepairDamage),player);
 		}
 	}
 }

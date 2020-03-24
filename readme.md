@@ -7,11 +7,7 @@
 
 ## 最近更新 latest update
 
-**0.2.58.0** _2020-03-23 13:30_ (GMT+8)
+**0.2.59.0** _2020-03-24 17:30_ (GMT+8)
 
 * 为属性增加护甲效果
-  * 化学不稳定 chemical instable
-  * 喀嚓 creaky
-  * 诱食 decoying
-  * 极寒 extreme freezing
-  * 斑斓 gorgeous
+  * 溶血 hemolytic
