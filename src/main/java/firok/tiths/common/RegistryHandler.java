@@ -1,7 +1,8 @@
 package firok.tiths.common;
 
 import firok.tiths.TinkersThings;
-import firok.tiths.util.*;
+import firok.tiths.util.conf.MaterialInfo;
+import firok.tiths.util.reg.*;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
@@ -277,6 +278,11 @@ public class RegistryHandler
 
 	private static List<MaterialIntegration> listIntegration=new ArrayList<>(20);
 
+	private static boolean __(Object test)
+	{
+		return test!=null;
+	}
+
 	/**
 	 * 注册匠魂材料
 	 */
@@ -296,12 +302,20 @@ public class RegistryHandler
 					// 检查是否已经注册
 					if(compo==null||TinkerRegistry.getMaterial(material.identifier)!=Material.UNKNOWN) continue;
 
+					MaterialInfo info=ConfigJson.getMat(material.identifier);
+					boolean i=__(info);
+
 					// 顶端
 					{
 						CompoHead compoHead=field.getAnnotation(CompoHead.class);
 						if(compoHead!=null)
 						{
-							HeadMaterialStats statHead=new HeadMaterialStats(compoHead.durability(), (float)compoHead.miningspeed(), (float)compoHead.attack(), compoHead.harvestLevel());
+							HeadMaterialStats statHead=new HeadMaterialStats(
+									i && __(info.head_durability)? info.head_durability:compoHead.durability(),
+									i && __(info.head_mining_speed)? info.head_mining_speed:(float)compoHead.miningspeed(),
+									i && __(info.head_attack)? info.head_attack:(float)compoHead.attack(),
+									i && __(info.head_harvest_level)? info.head_harvest_level:compoHead.harvestLevel()
+							);
 							TinkerRegistry.addMaterialStats(material,statHead);
 						}
 					}
@@ -310,7 +324,10 @@ public class RegistryHandler
 						CompoHandle compoHandle=field.getAnnotation(CompoHandle.class);
 						if(compoHandle!=null)
 						{
-							HandleMaterialStats statHandle=new HandleMaterialStats((float)compoHandle.modifier(), compoHandle.durability());
+							HandleMaterialStats statHandle=new HandleMaterialStats(
+									i && __(info.handle_modifier)? info.handle_modifier:(float)compoHandle.modifier(),
+									i && __(info.handle_durability)? info.handle_durability: compoHandle.durability()
+							);
 							TinkerRegistry.addMaterialStats(material,statHandle);
 						}
 					}
@@ -319,7 +336,9 @@ public class RegistryHandler
 						CompoExtra compoExtra=field.getAnnotation(CompoExtra.class);
 						if(compoExtra!=null)
 						{
-							ExtraMaterialStats statExtra=new ExtraMaterialStats(compoExtra.extraDurability());
+							ExtraMaterialStats statExtra=new ExtraMaterialStats(
+									i && __(info.extra_durability)? info.extra_durability:compoExtra.extraDurability()
+							);
 							TinkerRegistry.addMaterialStats(material,statExtra);
 						}
 					}
@@ -328,7 +347,11 @@ public class RegistryHandler
 						CompoBow compoBow=field.getAnnotation(CompoBow.class);
 						if(compoBow!=null)
 						{
-							BowMaterialStats statBow=new BowMaterialStats((float)compoBow.drawSpeed(), (float)compoBow.range(), (float)compoBow.bonusDamage());
+							BowMaterialStats statBow=new BowMaterialStats(
+									i && __(info.bow_draw_speed)? info.bow_draw_speed:(float)compoBow.drawSpeed(),
+									i && __(info.bow_range)? info.bow_range:(float)compoBow.range(),
+									i && __(info.bow_bonus_damage)? info.bow_bonus_damage:(float)compoBow.bonusDamage()
+							);
 							TinkerRegistry.addMaterialStats(material,statBow);
 						}
 					}
@@ -337,7 +360,9 @@ public class RegistryHandler
 						CompoBowString compoBowString=field.getAnnotation(CompoBowString.class);
 						if(compoBowString!=null)
 						{
-							BowStringMaterialStats statBowString=new BowStringMaterialStats(compoBowString.modifier());
+							BowStringMaterialStats statBowString=new BowStringMaterialStats(
+									i && __(info.string_modifier)? info.string_modifier:compoBowString.modifier()
+							);
 							TinkerRegistry.addMaterialStats(material,statBowString);
 						}
 					}
@@ -346,7 +371,10 @@ public class RegistryHandler
 						CompoArrowShaft compoArrowShaft=field.getAnnotation(CompoArrowShaft.class);
 						if(compoArrowShaft!=null)
 						{
-							ArrowShaftMaterialStats statArrowShaft=new ArrowShaftMaterialStats((float)compoArrowShaft.modifier(),compoArrowShaft.bonusAmmo());
+							ArrowShaftMaterialStats statArrowShaft=new ArrowShaftMaterialStats(
+									i && __(info.shaft_modifier)? info.shaft_modifier:(float)compoArrowShaft.modifier(),
+									i && __(info.shaft_bonus_ammo)? info.shaft_bonus_ammo:compoArrowShaft.bonusAmmo()
+							);
 							TinkerRegistry.addMaterialStats(material,statArrowShaft);
 						}
 					}
@@ -355,7 +383,10 @@ public class RegistryHandler
 						CompoFletching compoFletching=field.getAnnotation(CompoFletching.class);
 						if(compoFletching!=null)
 						{
-							FletchingMaterialStats statFletching=new FletchingMaterialStats((float)compoFletching.accuracy(),(float)compoFletching.modifier());
+							FletchingMaterialStats statFletching=new FletchingMaterialStats(
+									i && __(info.fletching_accuracy)? info.fletching_accuracy:(float)compoFletching.accuracy(),
+									i && __(info.fletching_modifier)? info.fletching_modifier:(float)compoFletching.modifier()
+							);
 							TinkerRegistry.addMaterialStats(material,statFletching);
 						}
 					}
@@ -408,12 +439,15 @@ public class RegistryHandler
 						continue;
 					}
 
+					MaterialInfo info=ConfigJson.getMat(material.identifier);
+					boolean i=__(info);
+
 					// 顶端
 					{
 						CompoHead compoHead=field.getAnnotation(CompoHead.class);
 						if(compoHead!=null)
 						{
-							addMaterialTraits(material,compoHead.traits(), HEAD);
+							addMaterialTraits(material,i && __(info.head_tratis)? info.head_tratis:compoHead.traits(), HEAD);
 						}
 					}
 					// 连接
@@ -421,7 +455,7 @@ public class RegistryHandler
 						CompoHandle compoHandle=field.getAnnotation(CompoHandle.class);
 						if(compoHandle!=null)
 						{
-							addMaterialTraits(material,compoHandle.traits(), HANDLE);
+							addMaterialTraits(material,i && __(info.handle_traits)? info.handle_traits:compoHandle.traits(), HANDLE);
 						}
 					}
 					// 其它
@@ -429,7 +463,7 @@ public class RegistryHandler
 						CompoExtra compoExtra=field.getAnnotation(CompoExtra.class);
 						if(compoExtra!=null)
 						{
-							addMaterialTraits(material,compoExtra.traits(), EXTRA);
+							addMaterialTraits(material,i && __(info.extra_traits)? info.extra_traits:compoExtra.traits(), EXTRA);
 						}
 					}
 					// 弓臂
@@ -437,7 +471,7 @@ public class RegistryHandler
 						CompoBow compoBow=field.getAnnotation(CompoBow.class);
 						if(compoBow!=null)
 						{
-							addMaterialTraits(material,compoBow.traits(), BOW);
+							addMaterialTraits(material,i && __(info.bow_traits)? info.bow_traits:compoBow.traits(), BOW);
 						}
 					}
 					// 弓弦
@@ -445,7 +479,7 @@ public class RegistryHandler
 						CompoBowString compoBowString=field.getAnnotation(CompoBowString.class);
 						if(compoBowString!=null)
 						{
-							addMaterialTraits(material,compoBowString.traits(), BOWSTRING);
+							addMaterialTraits(material,i && __(info.string_traits)? info.string_traits:compoBowString.traits(), BOWSTRING);
 						}
 					}
 					// 箭杆
@@ -453,7 +487,7 @@ public class RegistryHandler
 						CompoArrowShaft compoArrowShaft=field.getAnnotation(CompoArrowShaft.class);
 						if(compoArrowShaft!=null)
 						{
-							addMaterialTraits(material,compoArrowShaft.traits(), SHAFT);
+							addMaterialTraits(material,i && __(info.shaft_traits)? info.shaft_traits:compoArrowShaft.traits(), SHAFT);
 						}
 					}
 					// 箭羽
@@ -461,17 +495,19 @@ public class RegistryHandler
 						CompoFletching compoFletching=field.getAnnotation(CompoFletching.class);
 						if(compoFletching!=null)
 						{
-							addMaterialTraits(material,compoFletching.traits(), FLETCHING);
+							addMaterialTraits(material,i && __(info.fletching_traits)? info.fletching_traits:compoFletching.traits(), FLETCHING);
 						}
 					}
 
-					addMaterialTraits(material,compo.traitsTool(),MaterialTypes.HEAD);
-					addMaterialTraits(material,compo.traitsTool(),MaterialTypes.EXTRA);
-					addMaterialTraits(material,compo.traitsTool(),MaterialTypes.HANDLE);
-					addMaterialTraits(material,compo.traitsTool(),MaterialTypes.BOW);
-					addMaterialTraits(material,compo.traitsTool(),MaterialTypes.BOWSTRING);
-					addMaterialTraits(material,compo.traitsTool(),MaterialTypes.FLETCHING);
-					addMaterialTraits(material,compo.traitsTool(),MaterialTypes.SHAFT);
+					String[] traitsTool=i && __(info.tool_traits)?info.tool_traits:compo.traitsTool();
+
+					addMaterialTraits(material,traitsTool,MaterialTypes.HEAD);
+					addMaterialTraits(material,traitsTool,MaterialTypes.EXTRA);
+					addMaterialTraits(material,traitsTool,MaterialTypes.HANDLE);
+					addMaterialTraits(material,traitsTool,MaterialTypes.BOW);
+					addMaterialTraits(material,traitsTool,MaterialTypes.BOWSTRING);
+					addMaterialTraits(material,traitsTool,MaterialTypes.FLETCHING);
+					addMaterialTraits(material,traitsTool,MaterialTypes.SHAFT);
 				}
 			}
 			catch (Exception e)

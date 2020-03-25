@@ -1,15 +1,18 @@
-package firok.tiths.util;
+package firok.tiths.util.reg;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+/**
+ * 弓弦属性
+ */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface CompoExtra
+public @interface CompoBowString
 {
-	int extraDurability();
+	float modifier() default 1.0f; // 品质系数
 
 	String[] traits() default {};
 }

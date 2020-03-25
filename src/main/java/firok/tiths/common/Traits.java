@@ -166,8 +166,8 @@ public class Traits
 
 		midasDesiring = new TraitMidasDesiring();
 		oracular = new TraitOracular();
-		hemolytic = new TraitHemolytic();
 
+		hemolytic = new TraitArmorHemolytic();
 		extremeFreezing = new TraitArmorExtremeFreezing();
 		antiGrav = new TraitArmorAntiGrav(); // !!!
 

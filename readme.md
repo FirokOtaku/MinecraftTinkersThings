@@ -7,7 +7,6 @@
 
 ## 最近更新 latest update
 
-**0.2.59.0** _2020-03-24 17:30_ (GMT+8)
+**0.2.60.0** _2020-03-25 17:00_ (GMT+8)
 
-* 为属性增加护甲效果
-  * 溶血 hemolytic
+* 现在可以通过json文件自定义材料工具属性 now allow to customize tool stats of materials via json config file

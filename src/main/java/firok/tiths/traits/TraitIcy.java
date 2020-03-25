@@ -14,6 +14,7 @@ import static firok.tiths.common.Keys.colorTraitIcy;
 import static firok.tiths.common.Keys.nameTraitIcy;
 import static firok.tiths.util.Predicates.canTick;
 
+// 冰冷
 public class TraitIcy extends AbstractTrait
 {
 	public TraitIcy()

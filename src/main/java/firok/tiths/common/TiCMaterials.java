@@ -4,12 +4,11 @@ import firok.tiths.intergration.conarm.util.CompoArmorCore;
 import firok.tiths.intergration.conarm.util.CompoArmorPlate;
 import firok.tiths.intergration.conarm.util.CompoArmorTrim;
 import firok.tiths.util.*;
+import firok.tiths.util.reg.*;
 import slimeknights.tconstruct.library.materials.Material;
 
 import static firok.tiths.common.Keys.*;
-import static firok.tiths.common.Traits.*;
 import static slimeknights.tconstruct.library.materials.Material.VALUE_Ingot;
-import static slimeknights.tconstruct.tools.TinkerTraits.*;
 
 @SuppressWarnings("all")
 public final class TiCMaterials
@@ -87,8 +86,8 @@ public final class TiCMaterials
 	@CompoExtra(extraDurability = 0)
 	@CompoBow(drawSpeed = 0.9,range = 0.68,bonusDamage = 5)
 	@CompoArrowShaft(modifier = 0.65,bonusAmmo = 0)
-	@CompoArmorCore(durability = 1,defense = 1)
-	@CompoArmorPlate(modifier = 1,durability = 1,toughness = 1)
+	@CompoArmorCore(durability = 1,defense = 1) // fixme high
+	@CompoArmorPlate(modifier = 1,durability = 1,toughness = 1) // info 属性需要改
 	@CompoArmorTrim(extraDurability = 1)
 	public static final Material stellarium=new $Material(nameStellarium, colorStellarium)
 			.addItemAsIngot(Items.ingotStellarium)

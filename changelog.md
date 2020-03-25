@@ -2,14 +2,18 @@
 
 > All Time Stamps: GMT+8
 
+# 0.2.60.0 _2020-03-25 17:00_
+
+* 现在可以通过json文件自定义材料工具属性 now allow to customize tool stats of materials via json config file
+
 # 0.2.59.0 _2020-03-24 17:30_
 
-* 为属性增加护甲效果
+* 为属性增加护甲效果 added armor effects for traits
   * 溶血 hemolytic
 
 # 0.2.58.0 _2020-03-23 13:30_
 
-* 为属性增加护甲效果
+* 为属性增加护甲效果 added armor effects for traits
   * 化学不稳定 chemical instable
   * 喀嚓 creaky
   * 诱食 decoying
@@ -25,13 +29,13 @@
 
 ## 0.2.56.0 _2020-03-19 16:00_
 
-* 为属性增加护甲效果 added effects for traits
+* 为属性增加护甲效果 added armor effects for traits
   * 反重力 anti gravity
   * 双折 birefringent
 
 ## 0.2.55.0 _2020-03-18 10:30_
 
-* 为属性增加护甲效果 added effects for traits
+* 为属性增加护甲效果 added armor effects for traits
   * 辉耀 radiant
 
 ## 0.2.54.0 _2020-03-16 13:30_

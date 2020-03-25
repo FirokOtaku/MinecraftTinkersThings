@@ -1,4 +1,4 @@
-package firok.tiths.util;
+package firok.tiths.util.reg;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,12 +7,9 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface CompoHead
+public @interface CompoExtra
 {
-	int durability();
-	double miningspeed();
-	double attack();
-	int harvestLevel();
+	int extraDurability();
 
 	String[] traits() default {};
 }
