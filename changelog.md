@@ -2,6 +2,10 @@
 
 > All Time Stamps: GMT+8
 
+# 0.2.61.0 _2020-03-27 16:00_
+
+* 现在可以通过json文件自定义材料护甲属性和世界生成 now allow to customize armor stats of materials and world generations
+
 # 0.2.60.0 _2020-03-25 17:00_
 
 * 现在可以通过json文件自定义材料工具属性 now allow to customize tool stats of materials via json config file

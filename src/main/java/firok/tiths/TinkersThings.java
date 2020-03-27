@@ -27,7 +27,7 @@ public class TinkersThings
 
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers Things";
-	public static final String VERSION = "1.12.2-0.2.60.0";
+	public static final String VERSION = "1.12.2-0.2.61.0";
 
 	@Mod.Instance(MOD_ID)
 	public static TinkersThings INSTANCE;
@@ -48,7 +48,9 @@ public class TinkersThings
 	{
 		logger = event.getModLog();
 
-		ConfigJson.init(Loader.instance().getConfigDir());
+		ConfigJson.setConfigDir(Loader.instance().getConfigDir());
+		ConfigJson.readMats();
+		ConfigJson.readOres();
 
 		Configs.enable_conarm=Loader.isModLoaded("conarm");
 		if(Configs.enable_conarm)

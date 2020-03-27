@@ -1,7 +1,7 @@
 package firok.tiths.common;
 
 import firok.tiths.item.*;
-import firok.tiths.util.Reg;
+import firok.tiths.util.reg.Reg;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;

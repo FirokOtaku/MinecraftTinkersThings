@@ -18,11 +18,23 @@ public class WorldGenMeteorolite implements IChunkGen
 	public IBlockState stateOre;
 	public float rateOre;
 	public float rateChunk;
-	public WorldGenMeteorolite(IBlockState stateOre, float rateOre, float rateChunk)
+	public int[] dimBanned;
+	public WorldGenMeteorolite(IBlockState stateOre, float rateOre, float rateChunk, int[] dimBanned)
 	{
 		this.stateOre=stateOre;
 		this.rateOre=rateOre;
 		this.rateChunk=rateChunk;
+		this.dimBanned=dimBanned;
+	}
+
+	@Override
+	public boolean canGenAtDim(int targetDimId)
+	{
+		for(int dimId:dimBanned)
+		{
+			if(targetDimId==dimId) return false;
+		}
+		return true;
 	}
 
 	@Override

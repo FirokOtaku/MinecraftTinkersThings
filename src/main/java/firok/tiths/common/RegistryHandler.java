@@ -30,6 +30,7 @@ import java.util.Map;
 
 import static firok.tiths.TinkersThings.log;
 import static firok.tiths.util.InnerActions.*;
+import static firok.tiths.util.conf.Values.__;
 import static slimeknights.tconstruct.library.materials.MaterialTypes.*;
 
 public class RegistryHandler
@@ -37,17 +38,12 @@ public class RegistryHandler
 	public static final Map<BlockMolten,ItemBlock> mapFluidBlock2Item=new HashMap<>();
 	public static void registerFluids()
 	{
-		Field[] fields=Fluids.class.getDeclaredFields();
-		for(Field field:fields)
-		{
-			try
-			{
-				Object obj=field.get(null);
-				if(obj instanceof Fluid)
-				{
-					Fluid fluid=(Fluid)obj;
-//					TinkersThings.log("registering fluid:"+fluid.getName());
-
+		FieldStream.of(Fluids.class,null,Fluid.class)
+				.whenFail(e->{
+					log("error when registering fluid");
+					log(e);
+				})
+				.forEach((field, anno, fluid) -> {
 					FluidRegistry.registerFluid(fluid);
 					FluidRegistry.addBucketForFluid(fluid);
 
@@ -73,15 +69,7 @@ public class RegistryHandler
 							TinkerRegistry.registerSmelteryFuel(new FluidStack(fluid,regSmelteryFuel.amount()),regSmelteryFuel.duration());
 						}
 					}
-				}
-//				TinkersThings.log("注册流体成功");
-			}
-			catch (Exception e)
-			{
-				log("error when registering fluid");
-				log(e);
-			}
-		}
+				});
 	}
 
 	/**
@@ -89,28 +77,12 @@ public class RegistryHandler
 	 */
 	public static void registerTraits()
 	{
-		Field[] fields=Traits.class.getDeclaredFields();
-//		TinkersThings.log("register traits...");
-		for(Field field:fields)
-		{
-			try
-			{
-				Object obj=field.get(null);
-
-				if(obj instanceof AbstractTrait)
-				{
-					AbstractTrait trait=(AbstractTrait)obj;
-//					String name=field.getName();
-
-					TinkerRegistry.addTrait(trait);
-				}
-			}
-			catch (Exception e)
-			{
-				log("error when registering traits");
-				log(e);
-			}
-		}
+		FieldStream.of(Traits.class,null,AbstractTrait.class)
+				.whenFail(e->{
+					log("error when registering traits");
+					log(e);
+				})
+				.forEach((field, anno, trait) -> TinkerRegistry.addTrait(trait));
 	}
 //	public static void registerModifiers()
 //	{
@@ -143,15 +115,12 @@ public class RegistryHandler
 	{
 		IForgeRegistry<Item> registry=ForgeRegistries.ITEMS;
 //		int countItem=0,countItemBlock=0;
-		Field[] fieldsItems=Items.class.getDeclaredFields();
-		for(Field field:fieldsItems)
-		{
-			try
-			{
-				Reg reg=field.getAnnotation(Reg.class);
-				Object obj=field.get(null);
-				if(reg!=null && obj instanceof Item)
-				{
+		FieldStream.of(Items.class,null,Item.class,Reg.class)
+				.whenFail(e->{
+					log("error when registering item");
+					log(e);
+				})
+				.forEach(((field, reg, item) -> {
 					String regValue=reg.value();
 					String regTn=reg.tn();
 					String regUn=reg.un();
@@ -159,7 +128,6 @@ public class RegistryHandler
 					String tn= regValue.length()>0? regValue: regTn;
 					String un= regValue.length()>0? regValue: regUn;
 
-					Item item=(Item)obj;
 					item.setUnlocalizedName(TinkersThings.MOD_ID+'.'+un);
 					item.setRegistryName(TinkersThings.MOD_ID,tn);
 
@@ -167,30 +135,14 @@ public class RegistryHandler
 
 					item.setCreativeTab(TinkerRegistry.tabGeneral);
 
-					// 矿物词典注册
-					String[] ods=reg.od();
-					if(ods.length>0)
-					{
-						for(String od:ods) OreDictionary.registerOre(od,item);
-					}
-				}
-//				countItem++;
-			}
-			catch (Exception e)
-			{
-				log("error when registering item");
-				log(e);
-			}
-		}
-		Field[] fieldsBlocks=Blocks.class.getDeclaredFields();
-		for(Field field:fieldsBlocks)
-		{
-			try
-			{
-				Reg reg=field.getAnnotation(Reg.class);
-				Object obj=field.get(null);
-				if(reg!=null && obj instanceof Block)
-				{
+					registerOreDict(item,reg.od());// 矿物词典注册
+				}));
+		FieldStream.of(Blocks.class,null,Block.class,Reg.class)
+				.whenFail(e->{
+					log("error when registering item block");
+					log(e);
+				})
+				.forEach((field, reg, block) -> {
 					String regValue=reg.value();
 					String regTn=reg.tn();
 					String regUn=reg.un();
@@ -198,7 +150,6 @@ public class RegistryHandler
 					String tn= regValue.length()>0? regValue: regTn;
 					String un= regValue.length()>0? regValue: regUn;
 
-					Block block=(Block)obj;
 					ItemBlock itemBlock=new ItemBlock(block);
 					itemBlock.setUnlocalizedName(TinkersThings.MOD_ID+'.'+un);
 					itemBlock.setRegistryName(TinkersThings.MOD_ID,tn);
@@ -206,15 +157,7 @@ public class RegistryHandler
 					registry.register(itemBlock);
 
 					block.setCreativeTab(TinkerRegistry.tabWorld);
-				}
-//				countItemBlock++;
-			}
-			catch (Exception e)
-			{
-				log("error when registering item block");
-				log(e);
-			}
-		}
+				});
 
 //		TinkersThings.log(String.format("register items: item[%d/%d] item_block[%d/%d]",countItem,fieldsItems.length,countItemBlock,fieldsBlocks.length) );
 	}
@@ -222,16 +165,12 @@ public class RegistryHandler
 	public static void registerBlocks()
 	{
 		IForgeRegistry<Block> registry=ForgeRegistries.BLOCKS;
-		Field[] fields=Blocks.class.getDeclaredFields();
-//		int countBlock=0;
-		for(Field field:fields)
-		{
-			try
-			{
-				Reg reg=field.getAnnotation(Reg.class);
-				Object obj=field.get(null);
-				if(reg!=null && obj instanceof Block)
-				{
+		FieldStream.of(Blocks.class,null,Block.class,Reg.class)
+				.whenFail(e->{
+					log("error when registering block");
+					log(e);
+				})
+				.forEach((field, reg, block) -> {
 					String regValue=reg.value();
 					String regTn=reg.tn();
 					String regUn=reg.un();
@@ -239,68 +178,60 @@ public class RegistryHandler
 					String tn= regValue.length()>0? regValue: regTn;
 					String un= regValue.length()>0? regValue: regUn;
 
-					Block block=(Block)obj;
 					block.setUnlocalizedName(TinkersThings.MOD_ID+'.'+un);
 					block.setRegistryName(TinkersThings.MOD_ID,tn);
 
 					registry.register(block);
 
-					// 矿物词典注册
-					String[] ods=reg.od();
-					if(ods.length>0)
-					{
-						for(String od:ods) OreDictionary.registerOre(od,block);
-					}
-				}
-//				countBlock++;
-			}
-			catch (Exception e)
-			{
-				log("error when registering block");
-				log(e);
-			}
-		}
+					registerOreDict(block,reg.od()); // 矿物词典注册
+				});
+
+//		Field[] fields=Blocks.class.getDeclaredFields();
+////		int countBlock=0;
+//		for(Field field:fields)
+//		{
+//			try
+//			{
+//
+////				countBlock++;
+//			}
+//			catch (Exception e)
+//			{
+//				log("error when registering block");
+//				log(e);
+//			}
+//		}
 //		TinkersThings.log(String.format("register blocks: block[%d/%d]",countBlock,fields.length) );
 	}
 	public static void registerTileEntities()
 	{
-		for(Field field:TileEntities.class.getDeclaredFields())
-		{
-			Class classField=field.getType();
-			if(!TileEntity.class.isAssignableFrom(classField)) continue;
-			String name=field.getName();
-			GameRegistry.registerTileEntity(
-					classField,
-					new ResourceLocation(TinkersThings.MOD_ID, name)
-			);
-		}
+		FieldStream.of(TileEntities.class,null,TileEntity.class)
+				.forEach((field, anno, tileEntity) -> {
+					Class classField=field.getType();
+					if(!TileEntity.class.isAssignableFrom(classField)) return;
+					String name=field.getName();
+					GameRegistry.registerTileEntity(
+							classField,
+							new ResourceLocation(TinkersThings.MOD_ID, name)
+					);
+				});
 	}
 
 	private static List<MaterialIntegration> listIntegration=new ArrayList<>(20);
-
-	private static boolean __(Object test)
-	{
-		return test!=null;
-	}
 
 	/**
 	 * 注册匠魂材料
 	 */
 	public static void registerMaterials()
 	{
-		Field[] fields= TiCMaterials.class.getDeclaredFields();
-		for(Field field:fields)
-		{
-			try
-			{
-				Object obj=field.get(null);
-				if(obj instanceof Material)
-				{
-					Material material=(Material)obj;
-					Compo compo=field.getAnnotation(Compo.class);
-
+		FieldStream.of(TiCMaterials.class,null,Material.class,Compo.class)
+				.whenFail(e->{
+					log("error when registering material");
+					log(e);
+				})
+				.forEach((field, compo, material) -> {
 					// 检查是否已经注册
-					if(compo==null||TinkerRegistry.getMaterial(material.identifier)!=Material.UNKNOWN) continue;
+					if(compo==null||TinkerRegistry.getMaterial(material.identifier)!=Material.UNKNOWN) return;
 
 					MaterialInfo info=ConfigJson.getMat(material.identifier);
 					boolean i=__(info);
@@ -406,14 +337,7 @@ public class RegistryHandler
 //					}
 					listIntegration.add(integration);
 //					TinkerRegistry.addMaterial(material);
-				}
-			}
-			catch (Exception e)
-			{
-				log("error when registering material");
-				log(e);
-			}
-		}
+				});
 	}
 
 	/**
@@ -421,23 +345,14 @@ public class RegistryHandler
 	 */
 	public static void registerMaterialTraits()
 	{
-		Field[] fields= TiCMaterials.class.getDeclaredFields();
-		for(Field field:fields)
-		{
-			try
-			{
-				Object obj=field.get(null);
-				if(obj instanceof Material)
-				{
-					Material material=(Material)obj;
-					Compo compo=field.getAnnotation(Compo.class);
-
+		FieldStream.of(TiCMaterials.class,null,Material.class,Compo.class)
+				.whenFail(e->{
+					log("error when registering material trait");
+					log(e);
+				})
+				.forEach((field, compo, material) -> {
 					// 检查是否已经注册
-					if(compo==null||TinkerRegistry.getMaterial(material.identifier)==Material.UNKNOWN)
-					{
-//						log(String.format("compo[ %s ],material[ %s ]",compo,material));
-						continue;
-					}
+					if(compo==null||TinkerRegistry.getMaterial(material.identifier)==Material.UNKNOWN) return;
 
 					MaterialInfo info=ConfigJson.getMat(material.identifier);
 					boolean i=__(info);
@@ -447,7 +362,7 @@ public class RegistryHandler
 						CompoHead compoHead=field.getAnnotation(CompoHead.class);
 						if(compoHead!=null)
 						{
-							addMaterialTraits(material,i && __(info.head_tratis)? info.head_tratis:compoHead.traits(), HEAD);
+							addMaterialTraits(material,i && __(info.head_traits)? info.head_traits :compoHead.traits(), HEAD);
 						}
 					}
 					// 连接
@@ -499,23 +414,19 @@ public class RegistryHandler
 						}
 					}
 
-					String[] traitsTool=i && __(info.tool_traits)?info.tool_traits:compo.traitsTool();
-
+					// 通用工具特性
+					String[] traitsTool=i && __(info.traits_tool)?info.traits_tool :compo.traitsTool();
 					addMaterialTraits(material,traitsTool,MaterialTypes.HEAD);
 					addMaterialTraits(material,traitsTool,MaterialTypes.EXTRA);
 					addMaterialTraits(material,traitsTool,MaterialTypes.HANDLE);
-					addMaterialTraits(material,traitsTool,MaterialTypes.BOW);
-					addMaterialTraits(material,traitsTool,MaterialTypes.BOWSTRING);
-					addMaterialTraits(material,traitsTool,MaterialTypes.FLETCHING);
-					addMaterialTraits(material,traitsTool,MaterialTypes.SHAFT);
-				}
-			}
-			catch (Exception e)
-			{
-				log("error when registering material trait");
-				log(e);
-			}
-		}
+
+					// 通用弓箭特性
+					String[] traitsBow=i && __(info.traits_bow)?info.traits_bow :compo.traitsBow();
+					addMaterialTraits(material,traitsBow,MaterialTypes.BOW);
+					addMaterialTraits(material,traitsBow,MaterialTypes.BOWSTRING);
+					addMaterialTraits(material,traitsBow,MaterialTypes.FLETCHING);
+					addMaterialTraits(material,traitsBow,MaterialTypes.SHAFT);
+				});
 	}
 
 	public static void integrateMaterials()
@@ -572,25 +483,48 @@ public class RegistryHandler
 	public static void registerPotions()
 	{
 		IForgeRegistry<Potion> registry=ForgeRegistries.POTIONS;
-		for(Field field:Potions.class.getDeclaredFields())
-		{
-			try
-			{
-				Object obj=field.get(null);
-				if(obj instanceof Potion)
-				{
-					Potion potion=(Potion)obj;
+		FieldStream.of(Potions.class,null,Potion.class)
+				.whenFail(e->{
+					log("error when registering potion");
+					log(e);
+				})
+				.forEach((field, annotation, potion) -> {
 					String name=field.getName();
 
 					potion.setPotionName("effect."+name);
 					potion.setRegistryName(name);
 
 					registry.register(potion);
-				}
+				});
+	}
+
+	public static void registerOreDict(Block block,String[] ods)
+	{
+		if(ods==null||ods.length<=0) return;
+		for(String od:ods)
+		{
+			try
+			{
+				OreDictionary.registerOre(od,block);
 			}
 			catch (Exception e)
 			{
-				e.printStackTrace();
+				log(e);
+			}
+		}
+	}
+	public static void registerOreDict(Item item,String[] ods)
+	{
+		if(ods==null||ods.length<=0) return;
+		for(String od:ods)
+		{
+			try
+			{
+				OreDictionary.registerOre(od,item);
+			}
+			catch (Exception e)
+			{
+				log(e);
 			}
 		}
 	}

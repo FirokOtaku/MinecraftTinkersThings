@@ -1,4 +1,4 @@
-package firok.tiths.util;
+package firok.tiths.util.reg;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -10,11 +10,12 @@ import java.lang.annotation.Target;
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface GenOreWorld
+public @interface GenOre
 {
 	int minY() default 5;
 	int maxY() default 128;
 	int times() default 4;
 	float timeRate() default 1;
 	int size() default 15;
+	int[] dimsBanned() default { 1, -1 };
 }

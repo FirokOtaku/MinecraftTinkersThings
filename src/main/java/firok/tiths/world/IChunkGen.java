@@ -4,7 +4,9 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-@FunctionalInterface
+/**
+ * 世界内容生成器
+ */
 public interface IChunkGen
 {
 	/**
@@ -16,4 +18,14 @@ public interface IChunkGen
 	 * @return 是否生成
 	 */
 	boolean gen(World world, int chunkX, int chunkZ, Random rand);
+
+	/**
+	 * 检查能否在指定维度生成
+	 * @param targetDimId 指定维度id
+	 * @return 是否生成
+	 */
+	default boolean canGenAtDim(int targetDimId)
+	{
+		return true;
+	}
 }

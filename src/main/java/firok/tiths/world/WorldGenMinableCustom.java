@@ -18,8 +18,9 @@ public class WorldGenMinableCustom implements IChunkGen
 	int size;
 	int maxY,minY;
 	float timeRate;
+	int[] dimsBanned;
 	Predicate<IBlockState> canReplace;
-	public WorldGenMinableCustom(IBlockState state, int times, float timeRate, int size, int minY, int maxY, Predicate<IBlockState> predicate)
+	public WorldGenMinableCustom(IBlockState state, int times, float timeRate, int size, int minY, int maxY, int[] dimsBanned, Predicate<IBlockState> predicate)
 	{
 		super();
 		this.stateGen=state;
@@ -28,7 +29,18 @@ public class WorldGenMinableCustom implements IChunkGen
 		this.size=size;
 		this.minY=minY;
 		this.maxY=maxY;
+		this.dimsBanned=dimsBanned;
 		this.canReplace=predicate;
+	}
+
+	@Override
+	public boolean canGenAtDim(int targetDimId)
+	{
+		for(int dimId:dimsBanned)
+		{
+			if(targetDimId==dimId) return false;
+		}
+		return true;
 	}
 
 	@Override

@@ -1,6 +1,6 @@
 package firok.tiths.common;
 
-import firok.tiths.util.RegSmelteryFuel;
+import firok.tiths.util.reg.RegSmelteryFuel;
 import net.minecraft.util.ResourceLocation;
 import slimeknights.tconstruct.library.fluid.FluidMolten;
 

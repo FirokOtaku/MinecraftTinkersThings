@@ -1,6 +1,9 @@
 package firok.tiths.common;
 
 
+import firok.tiths.entity.special.EnderBeacon;
+import firok.tiths.util.Actions;
+import firok.tiths.util.Ranges;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockLog;
@@ -24,6 +27,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.event.entity.living.EnderTeleportEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -263,6 +267,47 @@ public class Events
 			{
 				event.setAmount( originDamage / 2 );
 			}
+
 		}
+	}
+
+	@SuppressWarnings("all")
+	@SubscribeEvent
+	public static void onEntityEnderTeleport(EnderTeleportEvent event)
+	{
+
+		EntityLivingBase enlb=event.getEntityLiving();
+
+		// 掉落末影裂隙碎片
+		if(!enlb.world.isRemote && canTrigger(enlb.world,0.35f))
+		{
+			Actions.CauseSpawnItem(enlb,new ItemStack(Items.enderCreviceShard));
+		}
+
+		// 寻找周围的末影信标
+		List<EnderBeacon> beacons=(List<EnderBeacon>)(List)enlb.world.getEntitiesWithinAABB(EnderBeacon.class,
+				Ranges.Neighbour(enlb,16)
+		);
+
+		if(beacons.size()<=0) return;
+
+		// 找一个最近的
+		float minDistance=Float.MAX_VALUE;
+		EnderBeacon beacon=null;
+
+		for(EnderBeacon beaconTemp:beacons)
+		{
+			float distanceTemp=beaconTemp.getDistanceToEntity(enlb);
+			if(distanceTemp<minDistance)
+			{
+				minDistance=distanceTemp;
+				beacon=beaconTemp;
+			}
+		}
+
+		// 传送过去
+		event.setTargetX(beacon.posX);
+		event.setTargetY(beacon.posY);
+		event.setTargetZ(beacon.posZ);
 	}
 }

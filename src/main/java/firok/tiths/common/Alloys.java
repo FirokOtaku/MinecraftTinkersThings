@@ -13,11 +13,23 @@ public class Alloys
 	{
 //		TinkersThings.log("register alloys...");
 		// 奢华合金
-		registerAlloy(
-				new FluidStack(Fluids.moltenRoyalAlloy, VALUE_Ingot*3),
-				new FluidStack(TinkerFluids.iron,VALUE_Ingot*2),
-				new FluidStack(TinkerFluids.gold,VALUE_Ingot)
-				);
+		if(Configs.enable_royal_alloy_easy_crafting) // 是否启用简易合成
+		{
+			registerAlloy(
+					new FluidStack(Fluids.moltenRoyalAlloy, VALUE_Ingot*3),
+					new FluidStack(TinkerFluids.iron,VALUE_Ingot*2),
+					new FluidStack(TinkerFluids.gold,VALUE_Ingot)
+			);
+		}
+		else
+		{
+			registerAlloy(
+					new FluidStack(Fluids.moltenRoyalAlloy, VALUE_Ingot*3),
+					new FluidStack(TinkerFluids.iron,VALUE_Ingot*2),
+					new FluidStack(TinkerFluids.gold,VALUE_Ingot),
+					new FluidStack(TinkerFluids.milk,VALUE_Ingot)
+			);
+		}
 		// 艾瑞西亚
 		registerAlloy(
 				new FluidStack(Fluids.moltenIrisia, VALUE_Ingot * 2),

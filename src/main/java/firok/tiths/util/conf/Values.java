@@ -42,6 +42,26 @@ public class Values
 	{
 		Optional.ofNullable(getInteger(json,key)).ifPresent(callback);
 	}
+	public static Integer[] getIntegers(JsonObject json, String key)
+	{
+		if(!json.has(key) || !json.get(key).isJsonArray()) return null;
+
+		JsonArray array=json.get(key).getAsJsonArray();
+		final int size=array.size();
+
+		Integer[] ret=new Integer[size];
+
+		for(int i=0;i<size;i++)
+		{
+			ret[i]= array.get(i).getAsInt();
+		}
+
+		return ret;
+	}
+	public static void getIntegers(JsonObject json, String key, Consumer<Integer[]> callback)
+	{
+		Optional.ofNullable(getIntegers(json,key)).ifPresent(callback);
+	}
 	public static Byte getByte(JsonObject json, String key)
 	{
 		JsonElement temp;
@@ -102,5 +122,18 @@ public class Values
 		double temp=num.doubleValue();
 		for(Number number:numbers) if(number.doubleValue()>temp) return false;
 		return true;
+	}
+
+	public static int[] arr(Integer[] arr)
+	{
+		if(!__(arr) || arr.length<=0) return new int[0];
+		int[] ret=new int[arr.length];
+		for(int i=0;i<arr.length;i++) ret[i]=arr[i];
+		return ret;
+	}
+
+	public static boolean __(Object test)
+	{
+		return test!=null;
 	}
 }

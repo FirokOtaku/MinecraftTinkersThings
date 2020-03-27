@@ -20,6 +20,11 @@ public @interface Compo
 	String[] traitsTool() default {};
 
 	/**
+	 * 弓箭属性
+	 */
+	String[] traitsBow() default {};
+
+	/**
 	 * 护甲属性
 	 */
 	String[] traitsArmor() default {};
