@@ -38,6 +38,7 @@ tile.tiths.ore_broken_bedrock.name=Broken Bedrock Ore
 tile.tiths.ore_vibrating_crystal.name=Vibrating Crystal Ore
 tile.tiths.ore_lava_crystal.name=Lava Crystal Ore
 tile.tiths.ore_steamium.name=Steamium Ore
+tile.tiths.ore_aventurine.name=Aventurine Ore
 
 ## blocks
 tile.tiths.block_blood_sand.name=Blood Sand
@@ -87,6 +88,7 @@ tile.tiths.block_oraclium.name=Block of Oraclium
 tile.tiths.block_vibrating_crystal.name=Block of Vibrating Crystal
 tile.tiths.block_lava_crystal.name=Block of Lava Crystal
 tile.tiths.block_steamium.name=Block of Steamium
+tile.tiths.block_aventurine.name=Block of Aventurine
 
 ## fluids
 fluid.royal_alloy.name=Molten Royal Alloy
@@ -143,6 +145,7 @@ item.tiths.proustite.name=Proustite
 item.tiths.broken_bedrock.name=Broken Bedrock
 item.tiths.vibrating_crystal.name=Vibrating Crystal
 item.tiths.lava_crystal.name=Lava Crystal
+item.tiths.aventurine.name=Aventurine
 ## nugget
 item.tiths.nugget_stellarium.name=Stellarium Nugget
 item.tiths.nugget_royal_alloy.name=Royal Alloy Nugget
@@ -180,6 +183,7 @@ item.tiths.ingot_cocoa.name=Cocoa Ingot
 item.tiths.ingot_irisia.name=Irisia Ingot
 item.tiths.ingot_oraclium.name=Oraclium Ingot
 item.tiths.ingot_steamium.name=Steamium Ingot
+item.tiths.ingot_grain.name=Grain Ingot
 
 ## other item
 item.tiths.hardener.name=Hardener
@@ -187,6 +191,7 @@ item.tiths.polisher.name=Polisher
 item.tiths.inky_slime.name=Inky Slime
 item.tiths.driller.name=Driller
 item.tiths.phasing_gem.name=Phasing Gem
+item.tiths.ender_crevice_shard.name=Ender Crevice Shard
 
 ## consumables
 item.tiths.gateway_gem.name=Gateway Gem
@@ -252,6 +257,8 @@ material.oraclium.name=Oraclium
 material.vibrating_crystal.name=Vibrating Crystal
 material.lava_crystal.name=Lava Crystal
 material.steamium.name=Steamium
+material.grain.name=Grain
+material.aventurine.name=Aventurine
 
 ## modifiers
 modifier.maiming.name=Maiming
@@ -279,7 +286,7 @@ modifier.polished.desc=To decrease damage and durability, and increase speed
 modifier.brittle.name=Brittle
 modifier.brittle.desc=To increase speed and damage, decrease durability substantially
 modifier.star_dashing.name=Star Dashing
-modifier.star_dashing.desc=To throw fire while attacking
+modifier.star_dashing.desc=§oHey! Hey! Hey! START DASH!!§r\nTo throw fire while attacking
 modifier.soluble.name=Soluble
 modifier.soluble.desc=§oStop it!§r\nThe tool will lose duration if hold in the water
 modifier.birefringent.name=Birefringent
@@ -324,7 +331,7 @@ modifier.thundering.desc=
 modifier.gluttonic.name=Gluttonic
 modifier.gluttonic.desc=§oI just want to eat§r\n
 modifier.moonlight.name=Moonlight
-modifier.moonlight.desc=§o皎洁光芒§r\nProvide
+modifier.moonlight.desc=§oSee the light§r\nTo provide night vision effect when hit target
 modifier.nature_blessing.name=Nature Blessing
 modifier.nature_blessing.desc=§oGreetings from nature§r\nYour tool will automatically repair itself when close to wood
 modifier.chemical_instable.name=Chemical Instable
@@ -352,12 +359,20 @@ modifier.thermal_gathering.name=Thermal Gathering
 modifier.thermal_gathering.desc=§oI'm so hot§r\nReduce fire damage you taken and your tool will automatically repair itself when close to heat source
 modifier.steamy.name=Steamy
 modifier.steamy.desc=§o-25% off§r\nTo decrease damage and increase knockback
+modifier.decoying.name=Decoying
+modifier.decoying.desc=§oCome here§r\n
+modifier.stamina_focusing.name=Stamina Focusing
+modifier.stamina_focusing.desc=§o §r\nTo provide resistance effect when user is sneaking
 
 ## potions
 effect.heavy=Heavy
 effect.pestilential=Pestilential
+effect.estrous=Estrous
 
 ## damage sources
 death.attack.san=%1$s has some mental problem
 death.attack.birefringent=%1$s was refracted into pieces
 death.attack.pyroelectric=Heart of %1$s was paralyzed
+
+## warning
+warning.tiths.indev=[TITHS] Warning: This mod is still under developing, any contents could be modified or deleted in the future. And this mod has not been well tested and may have some bugs. Please DO NOT use this mod for normal gaming!

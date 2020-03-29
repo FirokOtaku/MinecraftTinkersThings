@@ -10,6 +10,9 @@
 
 ## 最近更新 latest update
 
-**0.2.61.0** _2020-03-27 16:00_ (GMT+8)
+**0.2.61.0** _2020-03-29 22:30_ (GMT+8)
 
-* 现在可以通过json文件自定义材料护甲属性和世界生成 now allow to customize armor stats of materials and world generations
+* 为部分匠魂部件增加自定义材质 added customized textures to some tool parts
+* 更新语言文件 updated lang files
+* 增加实体 added entities
+  * 末影信标 ender beacon

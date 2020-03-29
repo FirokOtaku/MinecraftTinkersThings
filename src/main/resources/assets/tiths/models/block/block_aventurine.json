@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "tiths:blocks/block_aventurine",
+    "down": "tiths:blocks/block_aventurine",
+    "up": "tiths:blocks/block_aventurine",
+    "north": "tiths:blocks/block_aventurine",
+    "south": "tiths:blocks/block_aventurine",
+    "west": "tiths:blocks/block_aventurine",
+    "east": "tiths:blocks/block_aventurine"
+  }
+}

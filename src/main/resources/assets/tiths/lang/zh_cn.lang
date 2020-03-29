@@ -38,6 +38,7 @@ tile.tiths.ore_broken_bedrock.name=破碎基岩块
 tile.tiths.ore_vibrating_crystal.name=振晶矿
 tile.tiths.ore_lava_crystal.name=岩浆水晶矿
 tile.tiths.ore_steamium.name=气钢矿
+tile.tiths.ore_aventurine.name=东陵石矿
 
 ## blocks
 tile.tiths.block_blood_sand.name=血沙
@@ -87,6 +88,7 @@ tile.tiths.block_oraclium.name=神谕钢块
 tile.tiths.block_vibrating_crystal.name=振晶块
 tile.tiths.block_lava_crystal.name=岩浆水晶块
 tile.tiths.block_steamium.name=气钢块
+tile.tiths.block_aventurine.name=东陵石块
 
 ## fluids
 fluid.royal_alloy.name=熔融奢华合金
@@ -144,6 +146,7 @@ item.tiths.proustite.name=硫砷银
 item.tiths.broken_bedrock.name=破碎基岩
 item.tiths.vibrating_crystal.name=振晶
 item.tiths.lava_crystal.name=岩浆水晶
+item.tiths.aventurine.name=东陵石
 ## nugget
 item.tiths.nugget_stellarium.name=恒星金属粒
 item.tiths.nugget_royal_alloy.name=奢华合金粒
@@ -180,6 +183,7 @@ item.tiths.ingot_cocoa.name=可可锭
 item.tiths.ingot_irisia.name=艾瑞西亚锭
 item.tiths.ingot_oraclium.name=神谕钢锭
 item.tiths.ingot_steamium.name=气钢锭
+item.tiths.ingot_grain.name=谷锭
 
 ## other item
 item.tiths.hardener.name=硬化剂
@@ -187,6 +191,7 @@ item.tiths.polisher.name=打磨剂
 item.tiths.inky_slime.name=墨染粘液
 item.tiths.driller.name=打孔器
 item.tiths.phasing_gem.name=相变之石
+item.tiths.ender_crevice_shard.name=末影裂隙碎片
 
 ## consumables
 item.tiths.gateway_gem.name=折跃之石
@@ -253,6 +258,8 @@ material.oraclium.name=神谕钢
 material.vibrating_crystal.name=振晶
 material.lava_crystal.name=岩浆水晶
 material.steamium.name=气钢
+material.grain.name=谷
+material.aventurine.name=东陵石
 
 ## modifiers
 modifier.maiming.name=致残
@@ -280,7 +287,7 @@ modifier.polished.desc=降低耐久和攻击力, 增加速度
 modifier.brittle.name=脆化
 modifier.brittle.desc=提升速度和攻击力, 大幅降低耐久消耗
 modifier.star_dashing.name=星绽
-modifier.star_dashing.desc=攻击时向周围释放火焰
+modifier.star_dashing.desc=§oHey! Hey! Hey! START DASH!!§r\n攻击时向周围释放火焰
 modifier.soluble.name=可溶
 modifier.soluble.desc=§o停下来啊!§r\n在水中拿着会快速降低耐久
 modifier.birefringent.name=双折
@@ -353,12 +360,20 @@ modifier.thermal_gathering.name=热力聚集
 modifier.thermal_gathering.desc=§o烫烫烫§r\n降低受到的火焰伤害. 当周围有热源方块时会缓慢恢复耐久
 modifier.steamy.name=气动
 modifier.steamy.desc=§o-25% off§r\n降低攻击力, 提升击退
+modifier.decoying.name=诱食
+modifier.decoying.desc=§o来蜀黍这§r\n使用时有几率召唤动物
+modifier.stamina_focusing.name=精力汇聚
+modifier.stamina_focusing.desc=§o坚定意志§r\n潜行时提供抗性提升效果
 
 ## potions
 effect.heavy=沉重
 effect.pestilential=瘟疫
+effect.estrous=发情
 
 ## damage sources
 death.attack.san=%1$s遇到了一点精神问题
 death.attack.birefringent=%1$s被折射成了碎片
 death.attack.pyroelectric=%1$s的心脏陷入了麻痹
+
+## warning
+warning.tiths.indev=[匠魂扩增] 警告: 本模组仍处于开发测试阶段, 现阶段的任何内容在将来的更新中都可能出现删改. 且模组仍未经过完善测试, 可能存在各类漏洞. 请不要用于日常游玩用途!
