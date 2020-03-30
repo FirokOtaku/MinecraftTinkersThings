@@ -1,6 +1,6 @@
 # 自定义矿物生成 customize ore gens
 
-通过修改`/config/tiths_ore_gens.json`文件即可自定义材料属性 you can customized ore gens by editing `/config/tiths_ore_gens.json` file
+通过修改`/config/tiths_ores.json`文件即可自定义材料属性 you can customized ore gens by editing `/config/tiths_ores.json` file
 
 _⚠ 只能修改**本模组添加的**方块 only blocks **added by this mod** can be customized_
 
