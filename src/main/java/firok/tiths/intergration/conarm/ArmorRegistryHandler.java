@@ -3,22 +3,102 @@ package firok.tiths.intergration.conarm;
 import c4.conarm.lib.materials.CoreMaterialStats;
 import c4.conarm.lib.materials.PlatesMaterialStats;
 import c4.conarm.lib.materials.TrimMaterialStats;
+import firok.tiths.common.ConfigJson;
 import firok.tiths.common.TiCMaterials;
-import firok.tiths.util.Compo;
+import firok.tiths.intergration.conarm.traits.*;
+import firok.tiths.traits.*;
+import firok.tiths.util.conf.MaterialInfo;
+import firok.tiths.util.reg.Compo;
 import firok.tiths.intergration.conarm.util.CompoArmorCore;
 import firok.tiths.intergration.conarm.util.CompoArmorPlate;
 import firok.tiths.intergration.conarm.util.CompoArmorTrim;
+import net.minecraft.init.MobEffects;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.Material;
 
 import java.lang.reflect.Field;
 
 import static firok.tiths.TinkersThings.log;
+import static firok.tiths.common.Keys.colorTraitAntiPoisonous;
+import static firok.tiths.common.Keys.nameTraitAntiPoisonous;
+import static firok.tiths.common.Traits.*;
 import static firok.tiths.util.InnerActions.*;
 import static c4.conarm.lib.materials.ArmorMaterialType.*;
+import static firok.tiths.util.conf.Values.__;
 
 public class ArmorRegistryHandler
 {
+	public static void initArmor()
+	{
+		maiming = new TraitMaiming();
+		lionheart = new TraitLionheart();
+		terrifying = new TraitTerrifying();
+		thundering = new TraitThundering();
+
+		carbonizing = new TraitArmorCarbonizing(); // !!!
+		gluttonic = new TraitArmorGluttonic();
+
+		antiPoisonous = new AbstractTraitAntiEffect(nameTraitAntiPoisonous, colorTraitAntiPoisonous, 80, 3, 0.6f, MobEffects.POISON);
+		sunPower = new TraitSunPower();
+		moonPower = new TraitMoonPower();
+		moonlight = new TraitMoonlight();
+		natualBlessing = new TraitNatureBlessing();
+		withering = new TraitWithering();
+		luxurious = new TraitLuxurious();
+		retrospective = new TraitRetrospective();
+
+		radiant=new TraitArmorRadiant(); // !!!
+
+		switching = new TraitSwitching();
+		icy = new TraitIcy();
+
+		clustering = new TraitArmorClustering();
+
+		starDashing = new TraitStarDashing();
+		soluble = new TraitSoluble();
+
+		birefringent = new TraitArmorBirefringent(); // !!!
+
+		pyroelectric = new TraitPyroelectric();
+		shaking = new TraitShaking();
+		inky = new TraitInky();
+
+		gorgeous = new TraitArmorGorgeous(); // !!!
+
+		peaceEnergetic = new TraitPeaceEnergetic();
+		hyper = new TraitHyper();
+
+		dichroic = new TraitArmorDichroic(); // !!!
+
+		lifeInspiring = new TraitLifeInspiring();
+
+		chemicalInstable = new TraitArmorChemicalInstable(); // !!!
+
+		infernalBlazing = new TraitInfernalBlazing();
+
+		dragonKiller = new TraitArmorDragonKiller(); // !!!
+
+		midasDesiring = new TraitMidasDesiring();
+		oracular = new TraitOracular();
+
+		hemolytic = new TraitArmorHemolytic();
+		extremeFreezing = new TraitArmorExtremeFreezing();
+		antiGrav = new TraitArmorAntiGrav(); // !!!
+
+		stonePhasing = new TraitStonePhasing();
+		thermalGathering = new TraitThermalGathering();
+		watery = new TraitWatery();
+		staminaFocusing = new TraitStaminaFocusing();
+		steamy = new TraitSteamy();
+		treasureDetecting = new TraitTreasureDetecting();
+
+		creaky = new TraitArmorCreaky(); // !!!
+		decoying = new TraitArmorDecoying();
+
+		undeadCalling = new TraitUndeadCalling();
+		repressing = new TraitRepressing();
+	}
+
 	/**
 	 * 注册护甲材料
 	 */
@@ -38,13 +118,20 @@ public class ArmorRegistryHandler
 					// 检查是否已经注册
 					if(compo==null||TinkerRegistry.getMaterial(material.identifier)==Material.UNKNOWN) continue;
 
+					MaterialInfo info= ConfigJson.getMat(material.identifier);
+					boolean i=__(info);
+
 					// 基底
 					{
 						CompoArmorCore compoArmorCore=field.getAnnotation(CompoArmorCore.class);
 						if(compoArmorCore!=null)
 						{
-							CoreMaterialStats statCore=new CoreMaterialStats((float)compoArmorCore.durability(),(float)compoArmorCore.defense());
+							CoreMaterialStats statCore=new CoreMaterialStats(
+									i && __(info.core_durability)? info.core_durability:(float)compoArmorCore.durability(),
+									i && __(info.core_dense)? info.core_dense:(float)compoArmorCore.defense()
+							);
 							material.addStats(statCore);
+							log("基底:"+material.identifier);
 						}
 					}
 					// 护甲板
@@ -52,7 +139,11 @@ public class ArmorRegistryHandler
 						CompoArmorPlate compoArmorPlate=field.getAnnotation(CompoArmorPlate.class);
 						if(compoArmorPlate!=null)
 						{
-							PlatesMaterialStats statPlate=new PlatesMaterialStats((float)compoArmorPlate.modifier(),(float)compoArmorPlate.durability(),(float)compoArmorPlate.toughness());
+							PlatesMaterialStats statPlate=new PlatesMaterialStats(
+									i && __(info.plate_modifier)? info.plate_modifier:(float)compoArmorPlate.modifier(),
+									i && __(info.plate_durability)? info.plate_durability:(float)compoArmorPlate.durability(),
+									i && __(info.plate_toughness)? info.plate_toughness:(float)compoArmorPlate.toughness()
+							);
 							material.addStats(statPlate);
 						}
 					}
@@ -61,7 +152,9 @@ public class ArmorRegistryHandler
 						CompoArmorTrim compoArmorTrim=field.getAnnotation(CompoArmorTrim.class);
 						if(compoArmorTrim!=null)
 						{
-							TrimMaterialStats statTrim=new TrimMaterialStats((float)compoArmorTrim.extraDurability());
+							TrimMaterialStats statTrim=new TrimMaterialStats(
+									i && __(info.trim_durability)? info.trim_durability:(float)compoArmorTrim.extraDurability()
+							);
 							material.addStats(statTrim);
 						}
 					}
@@ -94,12 +187,15 @@ public class ArmorRegistryHandler
 					// 检查是否已经注册
 					if(compo==null||TinkerRegistry.getMaterial(material.identifier)==Material.UNKNOWN) continue;
 
+					MaterialInfo info=ConfigJson.getMat(material.identifier);
+					boolean i=__(info);
+
 					// 基底
 					{
 						CompoArmorCore compoArmorCore=field.getAnnotation(CompoArmorCore.class);
 						if(compoArmorCore!=null)
 						{
-							addMaterialTraits(material,compoArmorCore.traits(),CORE,true);
+							addMaterialTraits(material,i && __(info.core_traits)?info.core_traits:compoArmorCore.traits(),CORE,true);
 						}
 					}
 					// 护甲板
@@ -107,7 +203,7 @@ public class ArmorRegistryHandler
 						CompoArmorPlate compoArmorPlate=field.getAnnotation(CompoArmorPlate.class);
 						if(compoArmorPlate!=null)
 						{
-							addMaterialTraits(material,compoArmorPlate.traits(),PLATES,true);
+							addMaterialTraits(material,i && __(info.plate_traits)?info.plate_traits:compoArmorPlate.traits(),PLATES,true);
 						}
 					}
 					// 夹板
@@ -115,13 +211,15 @@ public class ArmorRegistryHandler
 						CompoArmorTrim compoArmorTrim=field.getAnnotation(CompoArmorTrim.class);
 						if(compoArmorTrim!=null)
 						{
-							addMaterialTraits(material,compoArmorTrim.traits(),TRIM,true);
+							addMaterialTraits(material,i && __(info.trim_traits)?info.trim_traits:compoArmorTrim.traits(),TRIM,true);
 						}
 					}
 
-					addMaterialTraits(material,compo.traitsArmor(), CORE,true);
-					addMaterialTraits(material,compo.traitsArmor(), PLATES,true);
-					addMaterialTraits(material,compo.traitsArmor(), TRIM,true);
+					String[] traitsArmor=i && __(info.traits_armor)? info.traits_armor :compo.traitsArmor();
+
+					addMaterialTraits(material,traitsArmor, CORE,true);
+					addMaterialTraits(material,traitsArmor, PLATES,true);
+					addMaterialTraits(material,traitsArmor, TRIM,true);
 				}
 			}
 			catch (Exception e)

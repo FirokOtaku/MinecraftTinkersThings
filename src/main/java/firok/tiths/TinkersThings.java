@@ -6,9 +6,7 @@ import firok.tiths.world.WorldGen;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
@@ -20,14 +18,17 @@ import java.util.*;
 		modid = TinkersThings.MOD_ID,
 		name = TinkersThings.MOD_NAME,
 		version = TinkersThings.VERSION,
-		dependencies = "required-after:tconstruct@[1.12.2-2.13.0.171,);required-after:mantle@[1.12-1.3.3.55,);after:baubles@[1.5.2,);after:conarm@[1.2.5.4,)"
+		dependencies = "required-after:tconstruct@[1.12.2-2.13.0.171,);" +
+		               "required-after:mantle@[1.12-1.3.3.55,);" +
+		               "after:baubles@[1.5.2,);" +
+		               "after:conarm@[1.2.5,)"
 )
 public class TinkersThings
 {
 
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers Things";
-	public static final String VERSION = "1.12.2-0.2.61.0";
+	public static final String VERSION = "1.12.2-0.2.63.1";
 
 	@Mod.Instance(MOD_ID)
 	public static TinkersThings INSTANCE;

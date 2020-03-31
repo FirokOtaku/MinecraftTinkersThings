@@ -65,11 +65,11 @@ public final class Predicates
 //		);
 //	}
 
-	public static boolean canTrigger(World world,float rate)
+	public static boolean canTrigger(World world,double rate)
 	{
 		return canTrigger(world.rand,rate);
 	}
-	public static boolean canTrigger(Random rand,float rate)
+	public static boolean canTrigger(Random rand,double rate)
 	{
 		return rand.nextDouble()<rate;
 	}

@@ -211,7 +211,24 @@ public final class Actions
 			world.spawnEntity(entity);
 			entity.setLastAttackedEntity(player);
 			entity.playLivingSound();
-		}catch(Exception e){}
+		}catch(Exception ignored){}
+	}
+
+	// 异象 - 触发召唤
+	public static void CauseSpawningPhantom(EntityLivingBase player)
+	{
+//		if(player.isServerWorld()) return; // 只在客户端召唤
+//		World world=player.world;
+//		Random rand=TinkersThings.randClient;
+//		EntityLivingBase entity2spawn = new EntityZombie(world);
+//
+//		double px=player.posX-10+rand.nextInt(20);
+//		double py=player.posY-10+rand.nextInt(20);
+//		double pz=player.posZ-10+rand.nextInt(20);
+//		entity2spawn.setPosition(px,py,pz);
+//		entity2spawn.addPotionEffect(new PotionEffect(Potions.disappear,80,0));
+//
+//		world.spawnEntity(entity2spawn);
 	}
 
 	// 星绽 - 创建粒子

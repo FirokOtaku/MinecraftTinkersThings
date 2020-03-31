@@ -71,7 +71,7 @@ public class BlockSapling extends net.minecraft.block.BlockSapling
 
 	public void generateTree(World world, BlockPos pos, IBlockState state, Random rand) {
 		if (TerrainGen.saplingGrowTree(world, rand, pos)) {
-			generate.gen(world,pos);
+			generate.gen(world,rand,pos);
 		}
 	}
 
