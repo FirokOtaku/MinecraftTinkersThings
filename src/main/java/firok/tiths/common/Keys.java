@@ -455,9 +455,24 @@ public interface Keys
 	// 唱片
 	String recordTinkersEfforts="record_tinkers_efforts";
 	String recordTinkersWill="record_tinkers_will";
+	String recordTinkersImagination="record_tinkers_imagination";
+	String recordTinkersEnemy="record_tinkers_enemy";
 
 	// 唱片资源键
 	String soundTinkersEfforts="tinkers_efforts";
 	String soundTinkersWill="tinkers_will";
 	String soundHealEffect="heal_effect";
+	String soundTinkersImagination="tinkers_imagination";
+	String soundTinkersEnemy="tinkers_enemy";
+
+	String configBase="config."+TinkersThings.MOD_ID+'.';
+	String cateGeneral=configBase+"general";
+	String cateGeneralBase=cateGeneral+'.';
+	String confEnableConarm=cateGeneralBase+"enable_conarm";
+	String confEnableMaterialCustomization=cateGeneralBase+"enable_material_customization";
+	String confEnableOreGenCustomization=cateGeneralBase+"enable_ore_gen_customization";
+
+	String cateTraits=configBase+"traits";
+	String cateTraitsBase=cateTraits+'.';
+	String confTraitRateBirefringent=cateTraitsBase+"rate_birefringent";
 }

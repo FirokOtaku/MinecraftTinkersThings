@@ -1,5 +1,6 @@
 package firok.tiths.traits;
 
+import firok.tiths.common.Configs;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
@@ -33,7 +34,7 @@ public class TraitChemicalInstable extends AbstractTrait
 	@Override
 	public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
 	{
-		if(wasHit && !target.world.isRemote && canTrigger(target.world,0.15f))
+		if(wasHit && !target.world.isRemote && canTrigger(target.world, Configs.Traits.rate_chemical_instable_attack))
 		{
 			boom(player,target);
 		}
@@ -42,7 +43,7 @@ public class TraitChemicalInstable extends AbstractTrait
 	@Override
 	public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective)
 	{
-		if(!player.world.isRemote && canTrigger(player.world,0.06f))
+		if(!player.world.isRemote && canTrigger(player.world, Configs.Traits.rate_chemical_instable_break))
 		{
 			boom(player,pos.getX(),pos.getY(),pos.getZ());
 		}

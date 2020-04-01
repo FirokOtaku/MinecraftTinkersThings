@@ -1,5 +1,6 @@
 package firok.tiths.traits;
 
+import firok.tiths.common.Configs;
 import firok.tiths.util.Actions;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -14,7 +15,6 @@ import static firok.tiths.util.Predicates.canTrigger;
 // 诱食
 public class TraitDecoying extends AbstractTrait
 {
-	public static final float rate=0.08f;
 	public TraitDecoying()
 	{
 		super(nameTraitDecoying, colorTraitDecoying);
@@ -23,7 +23,7 @@ public class TraitDecoying extends AbstractTrait
 	@Override
 	public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective)
 	{
-		if(!world.isRemote && canTrigger(world, rate))
+		if(!world.isRemote && canTrigger(world, Configs.Traits.rate_decoying_use))
 		{
 			Actions.CauseSpawningPassives(player);
 		}
@@ -32,7 +32,7 @@ public class TraitDecoying extends AbstractTrait
 	@Override
 	public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
 	{
-		if(!target.getEntityWorld().isRemote && canTrigger(player.world, rate))
+		if(!target.getEntityWorld().isRemote && canTrigger(player.world, Configs.Traits.rate_decoying_use))
 		{
 			Actions.CauseSpawningPassives(player);
 		}

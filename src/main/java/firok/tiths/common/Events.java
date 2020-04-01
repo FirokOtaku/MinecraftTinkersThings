@@ -1,6 +1,7 @@
 package firok.tiths.common;
 
 
+import firok.tiths.TinkersThings;
 import firok.tiths.entity.special.EnderBeacon;
 import firok.tiths.util.Actions;
 import firok.tiths.util.Ranges;
@@ -24,6 +25,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
@@ -31,10 +33,15 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.config.Config;
+import net.minecraftforge.common.config.ConfigManager;
+import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.*;
+import net.minecraftforge.event.entity.minecart.MinecartCollisionEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fluids.BlockFluidBase;
+import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import slimeknights.tconstruct.library.traits.ITrait;
@@ -309,5 +316,13 @@ public class Events
 		event.setTargetX(beacon.posX);
 		event.setTargetY(beacon.posY);
 		event.setTargetZ(beacon.posZ);
+	}
+
+	// 允许在游戏内菜单更改配置文件
+	@SubscribeEvent
+	public static void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
+		if (event.getModID().equals(TinkersThings.MOD_ID)) {
+			ConfigManager.sync(TinkersThings.MOD_ID, Config.Type.INSTANCE);
+		}
 	}
 }

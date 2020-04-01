@@ -1,5 +1,6 @@
 package firok.tiths.traits;
 
+import firok.tiths.common.Configs;
 import net.minecraft.nbt.NBTTagCompound;
 import slimeknights.tconstruct.library.tinkering.Category;
 import slimeknights.tconstruct.library.tools.ProjectileLauncherNBT;
@@ -15,11 +16,6 @@ import static firok.tiths.common.Keys.nameTraitClustering;
 // 群簇
 public class TraitClustering extends AbstractTrait
 {
-	private static final float factorDurability =550;
-	private static final float factorAtk = 2; // 攻击速度 (因数)
-	private static final float factorMotiSpd = 1; // 速度
-	private static final float factorMineSpd = 2; // 挖掘速度
-	private static final float factorDrawSpd= 0.08f; // 拉弓速度
 
 	public TraitClustering()
 	{
@@ -40,23 +36,23 @@ public class TraitClustering extends AbstractTrait
 		durability=Math.max(1,(int)(durability*0.95f));
 
 		// 计算因数 大于指定耐久度的百分比
-		float factor=Math.abs(durability / factorDurability - 1);
+		float factor=Math.abs(durability / Configs.Traits.factor_clustering_durability - 1);
 
 		factor=Math.max(factor,0.45f); // 因数最大为 0.45
 
-		if(durability > factorDurability) // 大于指定耐久度
+		if(durability > Configs.Traits.factor_clustering_durability) // 大于指定耐久度
 		{
-			attack += factor * factorAtk;
+			attack += factor * Configs.Traits.factor_clustering_atk;
 			tag.setFloat(Tags.ATTACK,attack);
 		}
 		else // 小于指定耐久度
 		{
-			speed += factor * factorMineSpd;
-			mineSpeed += factor * factorMotiSpd;
+			speed += factor * Configs.Traits.factor_clustering_speed_mining;
+			mineSpeed += factor * Configs.Traits.factor_clustering_speed;
 
 			if(TinkerUtil.hasCategory(rootCompound, Category.LAUNCHER)) {
 				ProjectileLauncherNBT launcherData = new ProjectileLauncherNBT(TagUtil.getToolTag(rootCompound));
-				launcherData.drawSpeed += launcherData.drawSpeed * factorDrawSpd;
+				launcherData.drawSpeed += launcherData.drawSpeed * Configs.Traits.factor_clustering_speed_draw;
 				TagUtil.setToolTag(rootCompound, launcherData.get());
 			}
 			tag.setFloat(Tags.MININGSPEED,mineSpeed);

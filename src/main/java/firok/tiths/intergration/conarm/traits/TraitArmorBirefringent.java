@@ -1,5 +1,6 @@
 package firok.tiths.intergration.conarm.traits;
 
+import firok.tiths.common.Configs;
 import firok.tiths.intergration.conarm.IAbstractArmorTrait;
 import firok.tiths.traits.TraitBirefringent;
 import net.minecraft.entity.EntityLivingBase;
@@ -23,7 +24,7 @@ public class TraitArmorBirefringent extends TraitBirefringent implements IAbstra
 	{
 		Optional.ofNullable(player.getLastAttackedEntity())
 				.filter(EntityLivingBase::isEntityAlive)
-				.filter(enlb->canTrigger(enlb.world,rate))
+				.filter(enlb->canTrigger(enlb.world, Configs.Traits.rate_birefringent_damage))
 				.ifPresent(enlb->{
 					enlb.hurtResistantTime=0;
 					enlb.attackEntityFrom(BirefringentDamage,newDamage);

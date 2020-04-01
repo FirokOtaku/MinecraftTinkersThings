@@ -1,5 +1,6 @@
 package firok.tiths.traits;
 
+import firok.tiths.common.Configs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
@@ -24,7 +25,7 @@ public class TraitDragonKiller extends AbstractTrait
 			if(name.contains("dragon"))
 			{
 				target.hurtResistantTime=0;
-				target.attackEntityFrom(DragonKillerDamage,4+damageDealt/4);
+				target.attackEntityFrom(DragonKillerDamage, (float)(Configs.Traits.factor_dragon_killer_damage_base + damageDealt * Configs.Traits.factor_dragon_killer_damage_percent));
 			}
 		}
 	}

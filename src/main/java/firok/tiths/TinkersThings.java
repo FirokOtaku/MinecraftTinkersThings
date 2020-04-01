@@ -21,14 +21,13 @@ import java.util.*;
 		dependencies = "required-after:tconstruct@[1.12.2-2.13.0.171,);" +
 		               "required-after:mantle@[1.12-1.3.3.55,);" +
 		               "after:baubles@[1.5.2,);" +
-		               "after:conarm@[1.2.5,)"
+		               "required-after:conarm@[1.2.5,)"
 )
 public class TinkersThings
 {
-
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers Things";
-	public static final String VERSION = "1.12.2-0.2.63.1";
+	public static final String VERSION = "1.12.2-0.2.63.2";
 
 	@Mod.Instance(MOD_ID)
 	public static TinkersThings INSTANCE;
@@ -50,11 +49,11 @@ public class TinkersThings
 		logger = event.getModLog();
 
 		ConfigJson.setConfigDir(Loader.instance().getConfigDir());
-		ConfigJson.readMats();
-		ConfigJson.readOres();
+		if(Configs.General.enable_material_customization) ConfigJson.readMats();
+		if(Configs.General.enable_ore_gen_customization) ConfigJson.readOres();
 
-		Configs.enable_conarm=Loader.isModLoaded("conarm");
-		if(Configs.enable_conarm)
+		Configs.General.enable_conarm=Loader.isModLoaded("conarm");
+		if(Configs.General.enable_conarm)
 		{
 			log("Hi there, let's build some armors!");
 		}
@@ -68,9 +67,9 @@ public class TinkersThings
 		RegistryHandler.registerEntities();
 //		RegistryHandler.registerVillagers();
 
-		if(Configs.enable_conarm)
+		if(Configs.General.enable_conarm)
 		{
-			Traits.initArmor();
+			ArmorRegistryHandler.initArmor();
 		}
 		else
 		{
@@ -86,7 +85,7 @@ public class TinkersThings
 		//  proxy.initConfig();
 		//
 		RegistryHandler.registerMaterials();
-		if(Configs.enable_conarm)
+		if(Configs.General.enable_conarm)
 		{
 			ArmorRegistryHandler.registerArmorMaterials();
 		}
@@ -112,7 +111,7 @@ public class TinkersThings
 		//  // GameRegistry.registerFuelHandler(new FuelHandler());  Registeres fuels' burn times
 
 		RegistryHandler.registerMaterialTraits();
-		if(Configs.enable_conarm)
+		if(Configs.General.enable_conarm)
 		{
 			ArmorRegistryHandler.registerArmorMaterialTraits();
 		}
@@ -136,6 +135,17 @@ public class TinkersThings
 //		proxy.registerBookPages();
 //		materials=TinkerRegistry.getAllMaterials();
 		randClient=new Random();
+	}
+
+	@Mod.EventHandler
+	public void onServerStart(FMLServerStartingEvent event)
+	{
+		ServerDatas.init(event.getServer()); // 初始化服务端数据
+	}
+	@Mod.EventHandler
+	public void onServerStop(FMLServerStoppedEvent event)
+	{
+		ServerDatas.uninit(); // 销毁服务端数据
 	}
 
 	public static void main(String...args)

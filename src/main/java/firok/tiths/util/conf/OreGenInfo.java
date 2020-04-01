@@ -1,5 +1,7 @@
 package firok.tiths.util.conf;
 
+import java.util.Arrays;
+
 /**
  * 矿物生成
  */
@@ -32,5 +34,11 @@ public class OreGenInfo
 		return meteoRateChunk!=null &&
 				meteoRateOre!=null &&
 				meteoDims!=null;
+	}
+
+	@Override
+	public String toString()
+	{
+		return String.format("OreGenInfo{name='%s', minY=%d, maxY=%d, times=%d, timeRate=%s, size=%d, dims=%s, meteoRateChunk=%s, meteoRateOre=%s, meteoDims=%s}", name, minY, maxY, times, timeRate, size, Arrays.toString(dims), meteoRateChunk, meteoRateOre, Arrays.toString(meteoDims));
 	}
 }

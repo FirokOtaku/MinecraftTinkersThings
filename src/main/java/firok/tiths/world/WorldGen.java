@@ -40,6 +40,8 @@ public class WorldGen implements IWorldGenerator
 	{
 		MinecraftForge.ORE_GEN_BUS.register(this);
 
+		loadBlockOres();
+
 		gensWorld.add(new WorldGenTreeRoot(Blocks.oreTreeRoot.getDefaultState(),4,0.3f));
 		gensWorld.add(new WorldGenMinableBedrock(Blocks.oreBrokenBedrock.getDefaultState(),1,0.25f,0.8f,7));
 		gensWorld.add(new WorldGenLavaCrystal());

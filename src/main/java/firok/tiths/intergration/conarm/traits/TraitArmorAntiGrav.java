@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 
 import java.util.Optional;
@@ -37,5 +38,11 @@ public class TraitArmorAntiGrav extends TraitAntiGrav implements IAbstractArmorT
 	public void onFalling(ItemStack armor, EntityPlayer player, LivingFallEvent evt)
 	{
 		evt.setDamageMultiplier(evt.getDamageMultiplier() * 0.75f);
+	}
+
+	@Override
+	public void onJumping(ItemStack armor, EntityPlayer player, LivingEvent.LivingJumpEvent evt)
+	{
+
 	}
 }

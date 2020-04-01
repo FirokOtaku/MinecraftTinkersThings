@@ -1,5 +1,6 @@
 package firok.tiths.intergration.conarm.traits;
 
+import firok.tiths.common.Configs;
 import firok.tiths.intergration.conarm.IAbstractArmorTrait;
 import firok.tiths.traits.TraitChemicalInstable;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,7 +18,7 @@ public class TraitArmorChemicalInstable extends TraitChemicalInstable implements
 	@Override
 	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
 	{
-		if(canTrigger(player.world,0.12f))
+		if(canTrigger(player.world, Configs.Traits.rate_chemical_instable_hit))
 		{
 			boom(player,player.posX,player.posY,player.posZ);
 		}

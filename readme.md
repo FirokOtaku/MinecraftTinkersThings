@@ -10,9 +10,6 @@
 
 ## 最近更新 latest update
 
-**0.2.61.0** _2020-03-29 22:30_ (GMT+8)
+**0.2.63.2** _2020-04-01 18:30_ (GMT+8)
 
-* 为部分匠魂部件增加自定义材质 added customized textures to some tool parts
-* 更新语言文件 updated lang files
-* 增加实体 added entities
-  * 末影信标 ender beacon
+* 现在可以通过配置文件调整更多内部参数 now allow to adjust more internal parameters through the config file

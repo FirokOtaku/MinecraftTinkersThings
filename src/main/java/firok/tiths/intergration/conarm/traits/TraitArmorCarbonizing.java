@@ -1,5 +1,6 @@
 package firok.tiths.intergration.conarm.traits;
 
+import firok.tiths.common.Configs;
 import firok.tiths.common.Items;
 import firok.tiths.intergration.conarm.IAbstractArmorTrait;
 import firok.tiths.traits.TraitCarbonizing;
@@ -19,7 +20,7 @@ public class TraitArmorCarbonizing extends TraitCarbonizing implements IAbstract
 	@Override
 	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
 	{
-		if(!player.world.isRemote && canTrigger(player.world,0.08f))
+		if(!player.world.isRemote && canTrigger(player.world, Configs.Traits.rate_carbonizing_drop))
 		{
 			Actions.CauseSpawnItem(player,new ItemStack(Items.cinder));
 		}

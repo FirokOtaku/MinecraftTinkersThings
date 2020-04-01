@@ -1,5 +1,6 @@
 package firok.tiths.intergration.conarm.traits;
 
+import firok.tiths.common.Configs;
 import firok.tiths.intergration.conarm.IAbstractArmorTrait;
 import firok.tiths.traits.TraitDecoying;
 import firok.tiths.util.Actions;
@@ -18,7 +19,7 @@ public class TraitArmorDecoying extends TraitDecoying implements IAbstractArmorT
 	@Override
 	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
 	{
-		if(!player.world.isRemote && canTrigger(player.world,rate))
+		if(!player.world.isRemote && canTrigger(player.world, Configs.Traits.rate_decoying_hit))
 		{
 			Actions.CauseSpawningPassives(player);
 		}

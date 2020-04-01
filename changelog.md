@@ -2,27 +2,38 @@
 
 > All Time Stamps: GMT+8
 
-# 0.2.62.0 _2020-03-29 22:30_
+## 0.2.63.2 _2020-04-01 18:30_
+
+* 现在可以通过配置文件调整更多内部参数 now allow to adjust more internal parameters through the config file
+
+## 0.2.63.1 _2020-03-31 19:00_
+
+## 0.2.63.0 _2020-03-30 18:30_
+
+* 更新语言文件 updated lang files
+* 错误修复 bug fixes
+
+## 0.2.62.0 _2020-03-29 22:30_
 
 * 为部分匠魂部件增加自定义材质 added customized textures to some tool parts
 * 更新语言文件 updated lang files
 * 增加实体 added entities
   * 末影信标 ender beacon
 
-# 0.2.61.0 _2020-03-27 16:00_
+## 0.2.61.0 _2020-03-27 16:00_
 
 * 现在可以通过json文件自定义材料护甲属性和世界生成 now allow to customize armor stats of materials and world generations
 
-# 0.2.60.0 _2020-03-25 17:00_
+## 0.2.60.0 _2020-03-25 17:00_
 
 * 现在可以通过json文件自定义材料工具属性 now allow to customize tool stats of materials via json config file
 
-# 0.2.59.0 _2020-03-24 17:30_
+## 0.2.59.0 _2020-03-24 17:30_
 
 * 为属性增加护甲效果 added armor effects for traits
   * 溶血 hemolytic
 
-# 0.2.58.0 _2020-03-23 13:30_
+## 0.2.58.0 _2020-03-23 13:30_
 
 * 为属性增加护甲效果 added armor effects for traits
   * 化学不稳定 chemical instable
@@ -31,7 +42,7 @@
   * 极寒 extreme freezing
   * 斑斓 gorgeous
 
-# 0.2.57.0 _2020-03-20 17:30_
+## 0.2.57.0 _2020-03-20 17:30_
 
 * 增加物品 added items
   * 煤屑 cinder
@@ -734,6 +745,6 @@
   * 恒星金属矿石 stellarium ore block
   * 恒星金属锭 stellar ingot
 
-## 0.1.0 _2019-11-18 20:30_
+## 0.1.0 _2019-11-17 13:30_
 
 * 初始化开发环境 setup workspace

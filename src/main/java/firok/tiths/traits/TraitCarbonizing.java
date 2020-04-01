@@ -1,5 +1,6 @@
 package firok.tiths.traits;
 
+import firok.tiths.common.Configs;
 import firok.tiths.util.Actions;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -37,7 +38,7 @@ public class TraitCarbonizing extends AbstractTrait
 		while(iter.hasNext())
 		{
 			ItemStack drop=iter.next();
-			if(isStone(drop) && canTrigger(rand,0.05f * drop.getCount()))
+			if(isStone(drop) && canTrigger(rand, Configs.Traits.rate_carbonizing_transform * drop.getCount()))
 			{
 				iter.remove();
 				countCoals+=drop.getCount();

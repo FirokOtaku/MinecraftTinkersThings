@@ -1,5 +1,6 @@
 package firok.tiths.traits;
 
+import firok.tiths.common.Configs;
 import firok.tiths.util.Actions;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -14,7 +15,6 @@ import static firok.tiths.util.Predicates.canTrigger;
 // 喀嚓
 public class TraitCreaky extends AbstractTrait
 {
-	public static final float rate=0.0033f;
 	public TraitCreaky()
 	{
 		super(nameTraitCreaky, colorTraitCreaky);
@@ -23,7 +23,7 @@ public class TraitCreaky extends AbstractTrait
 	@Override
 	public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective)
 	{
-		if(wasEffective && !world.isRemote && canTrigger(world, rate))
+		if(wasEffective && !world.isRemote && canTrigger(world, Configs.Traits.rate_creaky_use))
 		{
 			Actions.CauseSpawningSilverfish(player, pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, world);
 		}
@@ -32,7 +32,7 @@ public class TraitCreaky extends AbstractTrait
 	@Override
 	public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
 	{
-		if(!target.isEntityAlive() && !target.getEntityWorld().isRemote && canTrigger(player.world, rate))
+		if(!target.isEntityAlive() && !target.getEntityWorld().isRemote && canTrigger(player.world, Configs.Traits.rate_creaky_use))
 		{
 			Actions.CauseSpawningSilverfish(player, target.posX, target.posY, target.posZ, target.world);
 		}

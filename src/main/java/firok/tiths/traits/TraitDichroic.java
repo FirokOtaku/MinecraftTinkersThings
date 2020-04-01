@@ -1,5 +1,6 @@
 package firok.tiths.traits;
 
+import firok.tiths.common.Configs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -11,7 +12,6 @@ import static firok.tiths.common.Keys.*;
 // 二色性
 public class TraitDichroic extends AbstractTrait
 {
-	public static final float lightMid=7f;
 	public static final float lightFactor=35f;
 
 	public TraitDichroic()
@@ -25,9 +25,9 @@ public class TraitDichroic extends AbstractTrait
 		EntityPlayer player=event.getEntityPlayer();
 		int light=player.world.getLightFromNeighbors(player.getPosition());
 
-		if(light>lightMid)
+		if(light > Configs.Traits.factor_dichroic_light_mid)
 		{
-			event.setNewSpeed( event.getNewSpeed() * ( 1 + ( light - lightMid ) / lightFactor ) );
+			event.setNewSpeed((float)( event.getNewSpeed() * ( 1 + ( light - Configs.Traits.factor_dichroic_light_mid ) / Configs.Traits.factor_dichroic_light ) ));
 		}
 	}
 
@@ -36,8 +36,8 @@ public class TraitDichroic extends AbstractTrait
 	{
 		int light=player.world.getLightFromNeighbors(player.getPosition());
 
-		return light<lightMid?
-				newDamage * (1 + (( lightMid- light ) / lightFactor )):
+		return light < Configs.Traits.factor_dichroic_light_mid?
+				newDamage * (float)(1 + ((Configs.Traits.factor_dichroic_light_mid- light ) / Configs.Traits.factor_dichroic_light )):
 				newDamage;
 	}
 }
