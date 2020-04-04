@@ -3,8 +3,8 @@ package firok.tiths.common;
 import firok.tiths.TinkersThings;
 import net.minecraftforge.common.config.Config;
 
-import static net.minecraftforge.common.config.Config.*;
 import static firok.tiths.common.Keys.*;
+import static net.minecraftforge.common.config.Config.*;
 
 // 配置文件
 public class Configs
@@ -88,5 +88,9 @@ public class Configs
 		public static double factor_dragon_killer_damage_percent=1.25;
 	}
 
-
+	public static class ArmorTraits
+	{
+		@RangeDouble(min=0,max=1)
+		public static double rate_hiding_hit=0.2f;
+	}
 }

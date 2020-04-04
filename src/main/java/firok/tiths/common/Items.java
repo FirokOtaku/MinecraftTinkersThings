@@ -49,8 +49,8 @@ public class Items
 //	public static final Item antiGravCrystal = new Item(); // 反重力水晶
 	@Reg(value=nameBlackrock,od={"stone"})
 	public static final Item blackrock = new Item(); // 黑石
-	@Reg(value=nameRuby,od={"gem","gemRuby","ruby"})
-	public static final Item ruby = new Item(); // 红宝石
+	@Reg(value= nameRedins,od={"gem"})
+	public static final Item redins = new Item(); // 红辉石
 	@Reg(nameCorundum)
 	public static final Item corundum = new Item(); // 钢玉
 	@Reg(value=nameNitre)
@@ -77,8 +77,8 @@ public class Items
 	public static final Item opal = new Item(); // 欧珀
 	@Reg(value=nameTopaz,od={"gem","gemTopaz","topaz"})
 	public static final Item topaz = new Item(); // 托帕石
-	@Reg(value=nameTanzanite,od={"gem","gemTanzanite","tanzanite"})
-	public static final Item tanzanite = new Item(); // 坦桑石
+	@Reg(value= nameLizanite,od={"gem"})
+	public static final Item lizanite = new Item(); // 丽辰石
 	@Reg(value=nameCordierite,od={"gem","gemCordierite","cordierite"})
 	public static final Item cordierite = new Item(); // 堇青石
 	@Reg(value=namePrehnite,od={"gem","gemPrehnite","prehnite"})

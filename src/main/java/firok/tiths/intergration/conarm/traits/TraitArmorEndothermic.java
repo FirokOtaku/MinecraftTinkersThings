@@ -7,26 +7,30 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
-import static firok.tiths.common.Keys.colorTraitHemolytic;
-import static firok.tiths.common.Keys.nameTraitHemolytic;
+import static firok.tiths.common.Keys.colorTraitEndothermic;
+import static firok.tiths.common.Keys.nameTraitEndothermic;
 
 /**
- * 溶血 - 护甲
+ * 吸热 - 护甲
  */
-public class TraitArmorHemolytic extends AbstractArmorTrait
+public class TraitArmorEndothermic extends AbstractArmorTrait
 {
-	public TraitArmorHemolytic()
+	public TraitArmorEndothermic()
 	{
-		super(nameTraitHemolytic,colorTraitHemolytic);
+		super(nameTraitEndothermic,colorTraitEndothermic);
 	}
 
 	@Override
 	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
 	{
-		if(!player.world.isRemote && newDamage > 0)
+		if(source.isFireDamage())
 		{
-			ArmorHelper.healArmor(armor,(int)(newDamage/5),player,0);
+			ArmorHelper.damageArmor(armor,source,1,player);
+			return Math.max(0,newDamage - damage / 4);
 		}
-		return newDamage;
+		else
+		{
+			return newDamage;
+		}
 	}
 }

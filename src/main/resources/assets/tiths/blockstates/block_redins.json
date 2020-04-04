@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "tiths:ore_ruby"
+      "model": "tiths:block_redins"
     }
   }
 }

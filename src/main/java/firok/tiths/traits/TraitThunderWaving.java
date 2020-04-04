@@ -1,28 +1,26 @@
 package firok.tiths.traits;
 
 import firok.tiths.common.DamageSources;
-import firok.tiths.util.Selectors;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-
 import java.util.List;
 
-import static firok.tiths.common.Keys.*;
+import static firok.tiths.common.Keys.colorTraitThunderWaving;
+import static firok.tiths.common.Keys.nameTraitThunderWaving;
 import static firok.tiths.util.Predicates.canTrigger;
 import static firok.tiths.util.Ranges.Neighbour;
-import static firok.tiths.util.Selectors.*;
+import static firok.tiths.util.Selectors.mobAlive;
 
-// 雷鸣
-public class TraitThundering extends AbstractTrait
+// 雷鸣波动
+public class TraitThunderWaving extends AbstractTrait
 {
-	public TraitThundering()
+	public TraitThunderWaving()
 	{
-		super(nameTraitThundering, colorTraitThundering);
+		super(nameTraitThunderWaving, colorTraitThunderWaving);
 	}
 
 	@Override

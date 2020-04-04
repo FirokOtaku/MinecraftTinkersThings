@@ -1,6 +1,9 @@
 package firok.tiths.common;
 
-import firok.tiths.block.*;
+import firok.tiths.block.BlockBloodSand;
+import firok.tiths.block.BlockCloud;
+import firok.tiths.block.BlockCompressed;
+import firok.tiths.block.BlockOre;
 import firok.tiths.util.reg.GenOre;
 import firok.tiths.util.reg.Reg;
 import net.minecraft.block.Block;
@@ -45,9 +48,9 @@ public class Blocks
 	public static final BlockOre oreInertWitherium = new BlockOre().setVeryRareOre(); // 惰性凋零矿
 	@Reg(Keys.oreWitherium)
 	public static final BlockOre oreWitherium = new BlockOre().setVeryRareOre(); // 凋零矿
-	@Reg(value=Keys.oreRuby,od={"oreRuby"})
+	@Reg(value=Keys.oreRedins)
 	@GenOre(times = 5,timeRate = 0.4f,size = 4,minY = 10,maxY = 60)
-	public static final BlockOre oreRuby = new BlockOre(Items.ruby,1,1,1,6,10).setVeryRareOre(); // 红宝石矿
+	public static final BlockOre oreRedins = new BlockOre(Items.redins,1,1,1,6,10).setVeryRareOre(); // 红宝石矿
 //	@Reg(Keys.oreShell)
 //	public static final BlockOreShell oreShell = new BlockOreShell(Items.shell,3,6,1,4,6); // 散贝壳方块
 	@Reg(Keys.oreCorundum)
@@ -86,9 +89,9 @@ public class Blocks
 	@Reg(Keys.oreTopaz)
 	@GenOre(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
 	public static final BlockOre oreTopaz = new BlockOre(Items.topaz,1,1,1,4,6).setRareOre();
-	@Reg(Keys.oreTanzanite)
+	@Reg(Keys.oreLizanite)
 	@GenOre(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
-	public static final BlockOre oreTanzanite = new BlockOre(Items.tanzanite,1,1,1,4,6).setRareOre();
+	public static final BlockOre oreLizanite = new BlockOre(Items.lizanite,1,1,1,4,6).setRareOre();
 	@Reg(Keys.oreCordierite)
 	@GenOre(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
 	public static final BlockOre oreCordierite = new BlockOre(Items.cordierite,1,1,1,4,6).setRareOre();
@@ -203,8 +206,8 @@ public class Blocks
 	public static final Block blockOpal = new BlockCompressed(Material.ROCK); // 欧珀块
 	@Reg(Keys.blockTopaz)
 	public static final Block blockTopaz = new BlockCompressed(Material.ROCK); // 托帕石块
-	@Reg(Keys.blockTanzanite)
-	public static final Block blockTanzanite = new BlockCompressed(Material.ROCK); // 坦桑石块
+	@Reg(Keys.blockLizanite)
+	public static final Block blockLizanite = new BlockCompressed(Material.ROCK); // 坦桑石块
 	@Reg(Keys.blockCordierite)
 	public static final Block blockCordierite = new BlockCompressed(Material.ROCK); // 堇青石块
 	@Reg(Keys.blockPrehnite)

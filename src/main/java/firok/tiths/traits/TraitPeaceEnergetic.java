@@ -7,7 +7,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-import static firok.tiths.common.Keys.*;
+import static firok.tiths.common.Keys.colorTraitPeaceEnergetic;
+import static firok.tiths.common.Keys.nameTraitPeaceEnergetic;
 import static firok.tiths.util.Predicates.canTrigger;
 
 // 平和能量
@@ -23,7 +24,7 @@ public class TraitPeaceEnergetic extends AbstractTrait
 	{
 		if(!player.world.isRemote && canTrigger(player.world,0.08f))
 		{
-			player.heal(1);
+			player.heal(4);
 		}
 	}
 
@@ -32,7 +33,7 @@ public class TraitPeaceEnergetic extends AbstractTrait
 	{
 		if(!player.world.isRemote && canTrigger(player.world,0.08f))
 		{
-			player.heal(1);
+			player.heal(4);
 		}
 	}
 }

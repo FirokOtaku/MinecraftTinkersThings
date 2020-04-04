@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "tiths:block_ruby"
+      "model": "tiths:ore_lizanite"
     }
   }
 }

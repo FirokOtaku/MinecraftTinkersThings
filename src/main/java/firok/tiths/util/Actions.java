@@ -1,9 +1,17 @@
 package firok.tiths.util;
 
+import com.google.common.base.Predicate;
+import firok.tiths.TinkersThings;
 import firok.tiths.entity.projectile.ProjectileDashingStar;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityCreature;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.ai.EntityAIBase;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.ai.EntityAITarget;
+import net.minecraft.entity.ai.EntityAITasks;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntitySilverfish;
@@ -26,7 +34,10 @@ import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTableList;
 
 import java.lang.reflect.Constructor;
-import java.util.*;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Random;
 
 // 所有的行为封装
 public final class Actions
@@ -299,5 +310,80 @@ public final class Actions
 		final float distanceZ=MathHelper.cos(angle)*distance;
 		final BlockPos posTop=world.getTopSolidOrLiquidBlock(new BlockPos((int)distanceX+px,0,(int)distanceZ+pz));
 		entity.setPosition(posTop.getX(),posTop.getY()+2,posTop.getZ());
+	}
+
+	/**
+	 * 用反射抓数据
+	 */
+	public static Object get(Class<?> clasz,String fieldName,Object obj) throws NoSuchFieldException, IllegalAccessException
+	{
+		Field field=clasz.getDeclaredField(fieldName);
+		field.setAccessible(true);
+		return field.get(obj);
+	}
+
+	/**
+	 * 清除实体对玩家的攻击AI
+	 */
+	public static void CauseAIIgnore(EntityLiving living)
+	{
+		Iterator< EntityAITasks.EntityAITaskEntry > iter= living.targetTasks.taskEntries.iterator();
+		EntityAINearestAttackableTarget<?> aiAtkOld=null;
+		int pri=-1;
+		while(iter.hasNext())
+		{
+			EntityAITasks.EntityAITaskEntry aiEntry=iter.next();
+			EntityAIBase ai=aiEntry.action;
+			try
+			{
+
+				if(ai instanceof EntityAINearestAttackableTarget)
+				{
+					EntityAINearestAttackableTarget<?> aiAtk=(EntityAINearestAttackableTarget)ai;
+					Class<? extends EntityLivingBase> targetClass=(Class) get(EntityAINearestAttackableTarget.class,"targetClass",aiAtk);
+					if(targetClass.isAssignableFrom(EntityPlayer.class))
+					{
+						living.targetTasks.removeTask(ai);
+
+						aiAtkOld=aiAtk;
+						pri=aiEntry.priority;
+					}
+				}
+			}
+			catch (Exception e)
+			{
+				TinkersThings.log(e);
+			}
+		}
+
+		try
+		{
+			if(aiAtkOld!=null)
+			{
+				living.setAttackTarget(null); // 清空实体索敌信息
+
+				// 获取基类EntityAITarget参数 // RE-RE-REFLECTION !!! HELL YEAH !!!
+				EntityCreature creature=(EntityCreature) get(EntityAITarget.class,"taskOwner",aiAtkOld);
+				boolean shouldCheckSight=(boolean) get(EntityAITarget.class,"shouldCheckSight",aiAtkOld);
+				boolean nearbyOnly=(boolean) get(EntityAITarget.class,"nearbyOnly",aiAtkOld);
+
+				Class<?> classTarget=(Class<?>) get(EntityAINearestAttackableTarget.class,"targetClass",aiAtkOld);
+				int targetChance=(int) get(EntityAINearestAttackableTarget.class,"targetChance",aiAtkOld);
+				Predicate<EntityLivingBase> targetEntitySelectorOrigin=(Predicate<EntityLivingBase>) get(EntityAINearestAttackableTarget.class,"targetEntitySelector",aiAtkOld);
+
+				Predicate<EntityLivingBase> pre= target ->
+				{
+					if(target instanceof EntityPlayer) return false;
+					return targetEntitySelectorOrigin.apply(target);
+				};
+
+				EntityAINearestAttackableTarget<?> aiNew=new EntityAINearestAttackableTarget(creature,classTarget,targetChance,shouldCheckSight,nearbyOnly,pre);
+				living.targetTasks.addTask(pri,aiNew);
+			}
+		}
+		catch (Exception e)
+		{
+			TinkersThings.log(e);
+		}
 	}
 }

@@ -2,6 +2,31 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.64.0 _2020-04-05 01:30_
+
+* 现在可以通过配置文件调整更多内部参数 now allow to adjust more internal parameters through the config file
+* 移除所有简单护甲属性 removed all simple armor traits
+* 增加特性 added traits
+  * 不安定 unsettled
+  * 碳化(护甲) carbonizing(armor)
+  * 化学不稳定(护甲) chemical instable(armor)
+  * 二色性(护甲) dichroic(armor)
+  * 吸热(护甲) endothermic(armor)
+  * 极寒(护甲) extreme freezing(armor)
+  * 斑斓(护甲) gorgeous(armor)
+  * 溶血(护甲) hemolytic(armor)
+  * 匿踪(护甲) hiding(armor)
+  * 扬升(护甲) lifting(armor)
+  * 奢华(护甲) luxurious(armor)
+  * 月之力量(护甲) moon power(armor)
+  * 辉耀(护甲) radiant(armor)
+  * 日之力量(护甲) sun power(armor)
+* 材料重命名 renamed materials
+  * 红宝石 -> 虹辉石 ruby -> redins
+  * 坦桑石 -> 丽辰石 tanzanite -> lizanite
+* 特性重命名 renamed traits
+  * 雷鸣 -> 雷鸣波动 thundering -> thunder waving
+
 ## 0.2.63.3 _2020-04-04 21:00_
 
 * 为部分方块和物品增加材质贴图 added textures to some blocks and items
@@ -19,7 +44,7 @@
 
 ## 0.2.62.0 _2020-03-29 22:30_
 
-* 为部分匠魂部件增加自定义材质 added customized textures to some tool parts
+* 为部分方块和物品增加材质贴图 added textures to some blocks and items
 * 更新语言文件 updated lang files
 * 增加实体 added entities
   * 末影信标 ender beacon
@@ -34,12 +59,12 @@
 
 ## 0.2.59.0 _2020-03-24 17:30_
 
-* 为属性增加护甲效果 added armor effects for traits
+* 为特性增加护甲效果 added armor effects for traits
   * 溶血 hemolytic
 
 ## 0.2.58.0 _2020-03-23 13:30_
 
-* 为属性增加护甲效果 added armor effects for traits
+* 为特性增加护甲效果 added armor effects for traits
   * 化学不稳定 chemical instable
   * 喀嚓 creaky
   * 诱食 decoying
@@ -50,23 +75,23 @@
 
 * 增加物品 added items
   * 煤屑 cinder
-* 为属性增加护甲效果
+* 为特性增加护甲效果
   * 碳化 carbonizing
 
 ## 0.2.56.0 _2020-03-19 16:00_
 
-* 为属性增加护甲效果 added armor effects for traits
+* 为特性增加护甲效果 added armor effects for traits
   * 反重力 anti gravity
   * 双折 birefringent
 
 ## 0.2.55.0 _2020-03-18 10:30_
 
-* 为属性增加护甲效果 added armor effects for traits
+* 为特性增加护甲效果 added armor effects for traits
   * 辉耀 radiant
 
 ## 0.2.54.0 _2020-03-16 13:30_
 
-* 重写注册材料属性的方式 rewrote the way of adding material traits 
+* 重写注册材料特性的方式 rewrote the way of adding material traits 
 * 开始添加匠魂护甲(Construct's Armory)模组的兼容特性 now started to add compatibility to Construct's Armory
 
 ## 0.2.53.0 _2020-03-12 10:00_
@@ -77,7 +102,7 @@
   * 东陵石块 aventurine block
 * 增加材料 added materials
   * 东陵石 aventurine
-* 增加属性 added traits
+* 增加特性 added traits
   * 精力汇聚 stamina focusing
 
 ## 0.2.52.0 _2020-03-11 15:00_
@@ -88,7 +113,7 @@
 ## 0.2.51.0 _2020-03-10 13:00_
 
 * 移除所有匠魂部件自定义材质 removed all customized textures of tool parts
-* 增加属性 added traits
+* 增加特性 added traits
   * 水化 watery
 
 ## 0.2.50.3 _2020-03-05 12:00_
@@ -110,7 +135,7 @@
   * 谷砖 grain ingot
 * 增加材料 added materials
   * 谷物 grain
-* 增加属性 added traits
+* 增加特性 added traits
   * 诱食 decoying
 
 ## 0.2.49.0 _2020-02-28 18:00_
@@ -125,7 +150,7 @@
   * 熔融气钢 molten steamium
 * 增加材料 added materials
   * 气钢 steamium
-* 增加属性 added traits
+* 增加特性 added traits
   * 气动 steamy
 
 ## 0.2.48.1 _2020-02-24 18:00_
@@ -140,7 +165,7 @@
   * 岩浆水晶 lava crystal item
 * 增加材料 added materials
   * 岩浆水晶 lava crystal
-* 增加属性 added traits
+* 增加特性 added traits
   * 热力聚集 thermal gathering
 
 ## 0.2.47.0 _2020-02-21 23:30_
@@ -164,7 +189,7 @@
   * 熔融神谕钢 molten oraclium
 * 增加材料 added materials
   * 神谕钢 oraclium
-* 增加属性 added traits
+* 增加特性 added traits
   * 神谕 oracular
 
 ## 0.2.45.0 _2020-02-14 23:00_
@@ -189,7 +214,7 @@
   * 葡萄石块 prehnite block
 * 增加材料 added materials
   * 葡萄石 prehnite
-* 增加属性 added traits
+* 增加特性 added traits
   * 生命激发 life inspiring
 
 ## 0.2.42.0 _2020-02-03 10:00_
@@ -200,7 +225,7 @@
   * 堇青石块 cordierite block
 * 增加材料 added materials
   * 堇青石 cordierite
-* 增加属性 added traits
+* 增加特性 added traits
   * 二色性 dichroic
 
 ## 0.2.41.0 _2020-02-01 14:30_
@@ -212,7 +237,7 @@
   * 坦桑石块 tanzanite block
 * 增加材料 added materials
   * 坦桑石 tanzanite
-* 增加属性 added traits
+* 增加特性 added traits
   * 振奋 hyper
 
 ## 0.2.40.0 _2020-01-31 17:30_
@@ -223,7 +248,7 @@
   * 托帕石块 topaz block
 * 增加材料 added materials
   * 托帕石 topaz
-* 增加属性 added traits
+* 增加特性 added traits
   * 平和能量 peace energetic
 
 ## 0.2.39.0 _2020-01-30 17:30_
@@ -234,7 +259,7 @@
   * 欧珀块 opal block
 * 增加材料 added materials
   * 欧珀 opal
-* 增加属性 added traits
+* 增加特性 added traits
   * 斑斓 gorgeous
 
 ## 0.2.38.0 _2020-01-28 23:30_
@@ -243,14 +268,14 @@
 
 ## 0.2.37.0 _2020-01-27 11:30_
 
-* 增加属性 added traits
+* 增加特性 added traits
   * 狱炎 infernal blazing
   * 屠龙者 dragon killer
   * 迈达斯之欲 midas desiring
 
 ## 0.2.36.0 _2020-01-26 17:30_
 
-* 增加属性 added traits
+* 增加特性 added traits
   * 化学不稳定 chemical instable
 
 ## 0.2.35.1 _2020-01-25 18:30_
@@ -264,7 +289,7 @@
 
 ## 0.2.34.0 _2020-01-23 19:00_
 
-* 增加属性 added traits
+* 增加特性 added traits
   * 抗毒 anti poisonous
 
 ## 0.2.33.0 _2020-01-22 18:30_
@@ -277,7 +302,7 @@
 
 ## 0.2.32.0 _2020-01-21 18:30_
 
-* 增加属性 added traits
+* 增加特性 added traits
   * 自然祝福 nature blessing
 
 ## 0.2.31.0 _2020-01-20 19:00_
@@ -286,7 +311,7 @@
   * 血肉 flesh item
 * 增加材料 added materials
   * 血肉 flesh
-* 增加属性 added traits
+* 增加特性 added traits
   * 暴食 gluttonic
   * 月光 moonlight
 
@@ -319,14 +344,14 @@
   * 闪电熔岩 fulgurite
   * 末影龙鳞 ender dragon squama
   * 艾瑞西亚 irisia
-* 增加属性 added traits
+* 增加特性 added traits
   * 雷鸣 thundering
 
 ## 0.2.28.0 _2020-01-16 11:00_
 
 * 增加部分合成表 added some recipes
 * 调整材料属性 adjusted attributions of materials
-* 增加属性 added traits
+* 增加特性 added traits
   * 狮心 lionheart
   * 恐吓 terrifying
 
@@ -346,7 +371,7 @@
   * 煤炭 coal
   * 日光石 sun stone
   * 月光石 moon stone
-* 增加属性 added traits
+* 增加特性 added traits
   * 碳化 carbonizing
   * 日之力量 sun power
   * 月之力量 moon power
@@ -367,7 +392,7 @@
 ## 0.2.23.0 _2020-01-11 14:30_
 
 * 增加部分合成表 added some recipes
-* 增加属性 added traits
+* 增加特性 added traits
   * 凋零 withering
 
 ## 0.2.22.0 _2020-01-09 16:30_
@@ -375,7 +400,7 @@
 * 为部分方块和物品增加材质贴图 added textures to some blocks and items
 * 调整部分材料属性 adjusted attribution of some materials
 * 细节改进 minor improvements
-* 增加属性 added traits
+* 增加特性 added traits
   * 溶血 hemolytic
 
 ## 0.2.21.0 _2020-01-08 15:30_
@@ -396,7 +421,7 @@
 * 细节改进 minor improvements
 * 增加物品 added items
   * 打孔器 driller
-* 增加属性 added traits
+* 增加特性 added traits
   * 打孔 drilled
 
 ## 0.2.19.0 _2020-01-04 14:30_
@@ -445,7 +470,7 @@
   * 熔融钝金 molten tonium
 * 增加材料 added materials
   * 钝金 tonium
-* 增加属性 added traits
+* 增加特性 added traits
   * 压制 repressing
 * 增加状态效果 added potion effects
   * 沉重 heavy
@@ -472,12 +497,12 @@
 
 ## 0.2.14.0 _2019-12-22 12:00_
 
-* 增加属性 added traits
+* 增加特性 added traits
   * 后知 retrospective
 
 ## 0.2.13.0 _2019-12-21 22:30_
 
-* 增加属性 added traits
+* 增加特性 added traits
   * 致残 maiming
 * 增加物品 added items
   * 灼热鱼 hot fish item
@@ -485,18 +510,18 @@
 
 ## 0.2.12.0 _2019-12-20 17:30_
 
-* 增加属性 added traits
+* 增加特性 added traits
   * 喀嚓 creaky
   * 亡灵呼唤 undead calling
 
 ## 0.2.11.0 _2019-12-19 10:00_
 
-* 增加属性 added traits
+* 增加特性 added traits
   * 宝藏感知 treasure detecting
 
 ## 0.2.10.0 _2019-12-18 16:00_
 
-* 增加属性 added traits
+* 增加特性 added traits
   * 石之相变 stone phasing
 
 ## 0.2.9.0 _2019-12-16 16:00_
@@ -507,7 +532,7 @@
   * 霍斯块 hothium block
 * 增加液体 added fluids
   * 熔融霍斯 molten hothium
-* 增加属性 added traits
+* 增加特性 added traits
   * 极寒 freezing
   * 反重力 anti-gravity
 
@@ -516,7 +541,7 @@
 * 增加合成表注册器 added crafting recipes register
 * 增加物品 added items
   * 墨染粘液球 inky slime item
-* 增加属性 added traits
+* 增加特性 added traits
   * 墨染 inky
 
 ## 0.2.7.0 _2019-12-14 15:00_
@@ -538,7 +563,7 @@
   * 电气石 tourmaline
   * 玻璃 glass
   * 强化玻璃 consolidated glass
-* 增加属性 added traits
+* 增加特性 added traits
   * 热释电 pyroelectric
   * 撼击 shaking
 * 增加液体 added fluids
@@ -565,7 +590,7 @@
   * 硝石 nitre
   * 叶蜡石 pyrophyllite
   * 冰洲石 iceland spar
-* 增加属性 added traits
+* 增加特性 added traits
   * 可溶 soluble
   * 双折 birefringent
 
@@ -601,7 +626,7 @@
 * 增加物品 added items
   * 硬化剂 hardener
   * 磨石 polisher
-* 增加属性 added traits
+* 增加特性 added traits
   * 硬化 hardened
   * 打磨 polished
   * 星绽 star dashing
@@ -626,7 +651,7 @@
   * 钢玉 corundum item
 * 增加材料 added materials
   * 钢玉 corundum
-* 增加部件属性 add traits
+* 增加部件特性 add traits
   * 群簇 clustering
 
 ## 0.2.1.0 _2019-12-01 09:00_
@@ -707,15 +732,15 @@
   * 蛛腿 spider leg
   * 坚硬蛛腿 hard spider leg
   * 碎冰 broken ice
-* 增加部件属性 add traits
+* 增加部件特性 add traits
   * 冰冷 icy
 
 ## 0.1.3 _2019-11-19 22:30_
 
 * 增加方块和物品注册器 added register of blocks and items
-* 增加部件属性注册器 added register of traits
-* 修改注册部件属性的方式 adjusted the way of registering traits
-* 增加属性 add traits
+* 增加部件特性注册器 added register of traits
+* 修改注册部件特性的方式 adjusted the way of registering traits
+* 增加特性 add traits
   * 奢华 luxurious
   * 辉耀 radiant
   * 换位 switching

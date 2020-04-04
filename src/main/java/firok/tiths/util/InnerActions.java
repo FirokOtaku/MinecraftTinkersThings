@@ -1,5 +1,7 @@
 package firok.tiths.util;
 
+import c4.conarm.lib.traits.AbstractArmorTrait;
+import firok.tiths.TinkersThings;
 import firok.tiths.intergration.conarm.IAbstractArmorTrait;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.Material;
@@ -55,12 +57,14 @@ public class InnerActions
 //		log(String.format("adding trait: %s -> %s [ %s ]",traitName,material.identifier,compo));
 		if(material==null||traitName==null) return false;
 
-		ITrait trait= TinkerRegistry.getTrait(traitName);
+		String traitNameTarget=checkArmor?(traitName+"_armor"):traitName;
+		ITrait trait= TinkerRegistry.getTrait(traitNameTarget);
+
 		if(trait!=null)
 		{
-			if(checkArmor && !(trait instanceof IAbstractArmorTrait))
+			if(TinkersThings.indev && checkArmor && !(trait instanceof IAbstractArmorTrait || trait instanceof AbstractArmorTrait))
 			{
-				throw new RuntimeException("CHECKING_ARMOR_TRAIT : not an armor trait! "+traitName);
+				throw new RuntimeException("CHECKING_ARMOR_TRAIT : not an armor trait! "+traitNameTarget);
 			}
 			material.addTrait(trait,compo);
 			return true;

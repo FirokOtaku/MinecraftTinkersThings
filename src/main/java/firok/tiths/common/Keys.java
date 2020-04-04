@@ -16,6 +16,7 @@ public interface Keys
 	String prefSapling="sapling_";
 	String prefLogic="logic_";
 	String prefRL= TinkersThings.MOD_ID+':';
+	String suffArmor="_armor";
 
 	// 材料
 	String nameRoyalAlloy="royal_alloy";
@@ -41,7 +42,7 @@ public interface Keys
 	String nameWitherium="witherium";
 	String nameStellariumObsidian="stellarium_obsidian";
 	String nameShell="shell";
-	String nameRuby="ruby";
+	String nameRedins="redins";
 	String nameSpinel="spinel";
 	String nameTalcum="talcum";
 	String nameTourmaline="tourmaline";
@@ -78,7 +79,7 @@ public interface Keys
 	String nameCloud="cloud";
 	String nameOpal="opal";
 	String nameTopaz="topaz";
-	String nameTanzanite="tanzanite";
+	String nameLizanite ="lizanite";
 	String nameCordierite="cordierite";
 	String namePrehnite="prehnite";
 	String nameProustite="proustite";
@@ -126,7 +127,7 @@ public interface Keys
 	String blockInertWitherium=prefBlock+nameInertWitherium;
 	String blockWitherium=prefBlock+nameWitherium;
 	String blockStellariumObsidian=prefBlock+nameStellariumObsidian;
-	String blockRuby=prefBlock+nameRuby;
+	String blockRuby= prefBlock + nameRedins;
 	String blockSpinel=prefBlock+nameSpinel;
 	String blockTalcum=prefBlock+nameTalcum;
 	String blockTourmaline=prefBlock+nameTourmaline;
@@ -147,7 +148,7 @@ public interface Keys
 	String blockCloud=prefBlock+nameCloud;
 	String blockOpal=prefBlock+nameOpal;
 	String blockTopaz=prefBlock+nameTopaz;
-	String blockTanzanite=prefBlock+nameTanzanite;
+	String blockLizanite = prefBlock + nameLizanite;
 	String blockCordierite=prefBlock+nameCordierite;
 	String blockPrehnite=prefBlock+namePrehnite;
 	String blockProustite=prefBlock+nameProustite;
@@ -180,7 +181,7 @@ public interface Keys
 	String oreInertWitherium=prefOre+nameInertWitherium;
 	String oreWitherium=prefOre+nameWitherium;
 //	String oreShell=prefOre+nameShell;
-	String oreRuby=prefOre+nameRuby;
+	String oreRedins=prefOre+nameRedins;
 	String oreSpinel=prefOre+nameSpinel;
 	String oreTalcum=prefOre+nameTalcum;
 	String oreTourmaline=prefOre+nameTourmaline;
@@ -198,7 +199,7 @@ public interface Keys
 	String oreBrokenBedrock=prefOre+nameBrokenBedrock;
 	String oreOpal=prefOre+nameOpal;
 	String oreTopaz=prefOre+nameTopaz;
-	String oreTanzanite=prefOre+nameTanzanite;
+	String oreLizanite = prefOre + nameLizanite;
 	String oreCordierite=prefOre+nameCordierite;
 	String orePrehnite=prefOre+namePrehnite;
 	String oreProustite=prefOre+nameProustite;
@@ -270,7 +271,7 @@ public interface Keys
 	int colorInertWitherium=Colors.DarkGray;
 	int colorWitherium=Colors.DimGray;
 	int colorShell=Colors.LightCoral;
-	int colorRuby=0xeb041f;
+	int colorRedins =0xeb041f;
 	int colorSpinel=0xbc061a;
 	int colorTalcum=0xc6ceb8;
 	int colorTourmaline=Colors.DarkBlue;
@@ -291,7 +292,7 @@ public interface Keys
 	int colorCloud=0xb6caea;
 	int colorOpal=0x0a7dd6;
 	int colorTopaz=0x72a6f5;
-	int colorTanzanite=0x6607b3;
+	int colorLizanite =0x6607b3;
 	int colorCordierite=0x536f9e;
 	int colorPrehnite=0xb8e986;
 	int colorProustite=0x5e252b;
@@ -363,7 +364,7 @@ public interface Keys
 	String nameTraitHemolytic="hemolytic";
 	String nameTraitLionheart="lionheart";
 	String nameTraitTerrifying="terrifying";
-	String nameTraitThundering="thundering";
+	String nameTraitThunderWaving ="thunder_waving";
 	String nameTraitAntiPoisonous="anti_poisonous";
 	String nameTraitChemicalInstable="chemical_instable";
 	String nameTraitInfernalBlazing="infernal_blazing";
@@ -381,6 +382,10 @@ public interface Keys
 	String nameTraitDecoying="decoying";
 	String nameTraitWatery="watery";
 	String nameTraitStaminaFocusing="stamina_focusing";
+	String nameTraitArmorHiding="hiding";
+	String nameTraitUnsettled="unsettled";
+	String nameTraitLifting="lifting";
+	String nameTraitEndothermic="endothermic";
 
 	// 属性颜色
 	int colorTraitGluttonic=0x752b40;
@@ -419,7 +424,7 @@ public interface Keys
 	int colorTraitHemolytic=Colors.DarkRed;
 	int colorTraitLionheart=0x87143e;
 	int colorTraitTerrifying=0x2a135a;
-	int colorTraitThundering=0x2b5c99;
+	int colorTraitThunderWaving =0x2b5c99;
 	int colorTraitAntiPoisonous=0xc9215a;
 	int colorTraitChemicalInstable=0xedde31;
 	int colorTraitInfernalBlazing=0x76222d;
@@ -437,6 +442,9 @@ public interface Keys
 	int colorTraitDecoying=0xea9b32;
 	int colorTraitWatery=0x466389;
 	int colorTraitStaminaFocusing=0x4e8d41;
+	int colorTraitUnsettled=0x1d1d1d;
+	int colorTraitLifting=0xc7205a;
+	int colorTraitEndothermic=0x2a99a5;
 
 	// 状态效果颜色
 	int colorPotionHeavy=Colors.DarkSeaGreen;

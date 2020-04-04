@@ -3,102 +3,34 @@ package firok.tiths.intergration.conarm;
 import c4.conarm.lib.materials.CoreMaterialStats;
 import c4.conarm.lib.materials.PlatesMaterialStats;
 import c4.conarm.lib.materials.TrimMaterialStats;
+import c4.conarm.lib.traits.AbstractArmorTrait;
 import firok.tiths.common.ConfigJson;
+import firok.tiths.common.RegistryHandler;
 import firok.tiths.common.TiCMaterials;
-import firok.tiths.intergration.conarm.traits.*;
-import firok.tiths.traits.*;
-import firok.tiths.util.conf.MaterialInfo;
-import firok.tiths.util.reg.Compo;
 import firok.tiths.intergration.conarm.util.CompoArmorCore;
 import firok.tiths.intergration.conarm.util.CompoArmorPlate;
 import firok.tiths.intergration.conarm.util.CompoArmorTrim;
-import net.minecraft.init.MobEffects;
+import firok.tiths.util.conf.MaterialInfo;
+import firok.tiths.util.reg.Compo;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.Material;
 
 import java.lang.reflect.Field;
 
-import static firok.tiths.TinkersThings.log;
-import static firok.tiths.common.Keys.colorTraitAntiPoisonous;
-import static firok.tiths.common.Keys.nameTraitAntiPoisonous;
-import static firok.tiths.common.Traits.*;
-import static firok.tiths.util.InnerActions.*;
 import static c4.conarm.lib.materials.ArmorMaterialType.*;
+import static firok.tiths.TinkersThings.log;
+import static firok.tiths.util.InnerActions.addMaterialTraits;
 import static firok.tiths.util.conf.Values.__;
 
 public class ArmorRegistryHandler
 {
-	public static void initArmor()
+	public static void registerArmorTraits()
 	{
-		maiming = new TraitMaiming();
-		lionheart = new TraitLionheart();
-		terrifying = new TraitTerrifying();
-		thundering = new TraitThundering();
+		ArmorTraits.init();
+		ArmorTraits.postinit();
+		RegistryHandler.registerTraits(ArmorTraits.class, AbstractArmorTrait.class);
 
-		carbonizing = new TraitArmorCarbonizing(); // !!!
-		gluttonic = new TraitArmorGluttonic();
-
-		antiPoisonous = new AbstractTraitAntiEffect(nameTraitAntiPoisonous, colorTraitAntiPoisonous, 80, 3, 0.6f, MobEffects.POISON);
-		sunPower = new TraitSunPower();
-		moonPower = new TraitMoonPower();
-		moonlight = new TraitMoonlight();
-		natualBlessing = new TraitNatureBlessing();
-		withering = new TraitWithering();
-		luxurious = new TraitLuxurious();
-		retrospective = new TraitRetrospective();
-
-		radiant=new TraitArmorRadiant(); // !!!
-
-		switching = new TraitSwitching();
-		icy = new TraitIcy();
-
-		clustering = new TraitArmorClustering();
-
-		starDashing = new TraitStarDashing();
-		soluble = new TraitSoluble();
-
-		birefringent = new TraitArmorBirefringent(); // !!!
-
-		pyroelectric = new TraitPyroelectric();
-		shaking = new TraitShaking();
-		inky = new TraitInky();
-
-		gorgeous = new TraitArmorGorgeous(); // !!!
-
-		peaceEnergetic = new TraitPeaceEnergetic();
-		hyper = new TraitHyper();
-
-		dichroic = new TraitArmorDichroic(); // !!!
-
-		lifeInspiring = new TraitLifeInspiring();
-
-		chemicalInstable = new TraitArmorChemicalInstable(); // !!!
-
-		infernalBlazing = new TraitInfernalBlazing();
-
-		dragonKiller = new TraitArmorDragonKiller(); // !!!
-
-		midasDesiring = new TraitMidasDesiring();
-		oracular = new TraitOracular();
-
-		hemolytic = new TraitArmorHemolytic();
-		extremeFreezing = new TraitArmorExtremeFreezing();
-		antiGrav = new TraitArmorAntiGrav(); // !!!
-
-		stonePhasing = new TraitStonePhasing();
-		thermalGathering = new TraitThermalGathering();
-		watery = new TraitWatery();
-		staminaFocusing = new TraitStaminaFocusing();
-		steamy = new TraitSteamy();
-		treasureDetecting = new TraitTreasureDetecting();
-
-		creaky = new TraitArmorCreaky(); // !!!
-		decoying = new TraitArmorDecoying();
-
-		undeadCalling = new TraitUndeadCalling();
-		repressing = new TraitRepressing();
 	}
-
 	/**
 	 * 注册护甲材料
 	 */
@@ -131,7 +63,6 @@ public class ArmorRegistryHandler
 									i && __(info.core_dense)? info.core_dense:(float)compoArmorCore.defense()
 							);
 							material.addStats(statCore);
-							log("基底:"+material.identifier);
 						}
 					}
 					// 护甲板

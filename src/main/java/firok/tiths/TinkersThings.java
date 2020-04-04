@@ -1,6 +1,7 @@
 package firok.tiths;
 
 import firok.tiths.common.*;
+import firok.tiths.gui.Guis;
 import firok.tiths.intergration.conarm.ArmorRegistryHandler;
 import firok.tiths.world.WorldGen;
 import net.minecraft.client.Minecraft;
@@ -11,8 +12,10 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
 import slimeknights.tconstruct.library.materials.Material;
+import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Random;
 
 @Mod(
 		modid = TinkersThings.MOD_ID,
@@ -27,7 +30,8 @@ public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers Things";
-	public static final String VERSION = "1.12.2-0.2.63.2";
+	public static final String VERSION = "1.12.2-0.2.64.0";
+	public static final boolean indev=true;
 
 	@Mod.Instance(MOD_ID)
 	public static TinkersThings INSTANCE;
@@ -55,28 +59,30 @@ public class TinkersThings
 		Configs.General.enable_conarm=Loader.isModLoaded("conarm");
 		if(Configs.General.enable_conarm)
 		{
-			log("Hi there, let's build some armors!");
+			log("Armor, armor, armor!");
+		}
+		Configs.General.enable_baubles=Loader.isModLoaded("baubles");
+		if(Configs.General.enable_baubles)
+		{
+			log("Bauble, bauble, bauble!");
 		}
 
 		RegistryHandler.registerFluids();
 
 		Items.trigger();
-		RegistryHandler.registerBlocks();
+		RegistryHandler.registerBlocks(Blocks.class);
 //		RegistryHandler.registerTileEntities();
-		RegistryHandler.registerItems();
+		RegistryHandler.registerItems(Items.class,Blocks.class);
 		RegistryHandler.registerEntities();
 //		RegistryHandler.registerVillagers();
 
+		Traits.init();
+		Traits.postInit();
+		RegistryHandler.registerTraits(Traits.class,AbstractTrait.class);
 		if(Configs.General.enable_conarm)
 		{
-			ArmorRegistryHandler.initArmor();
+			ArmorRegistryHandler.registerArmorTraits();
 		}
-		else
-		{
-			Traits.init();
-		}
-		Traits.postInit();
-		RegistryHandler.registerTraits();
 
 		Modifiers.log();
 
@@ -110,6 +116,8 @@ public class TinkersThings
 		GameRegistry.registerWorldGenerator(WorldGen.getInstance(), 100);
 		//  // GameRegistry.registerFuelHandler(new FuelHandler());  Registeres fuels' burn times
 
+		new Guis();
+
 		RegistryHandler.registerMaterialTraits();
 		if(Configs.General.enable_conarm)
 		{
@@ -135,6 +143,8 @@ public class TinkersThings
 //		proxy.registerBookPages();
 //		materials=TinkerRegistry.getAllMaterials();
 		randClient=new Random();
+
+		SelfChecks.checkAll();
 	}
 
 	@Mod.EventHandler

@@ -13,7 +13,8 @@ import slimeknights.tconstruct.library.utils.ToolHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-import static firok.tiths.common.Keys.*;
+import static firok.tiths.common.Keys.colorTraitThermalGathering;
+import static firok.tiths.common.Keys.nameTraitThermalGathering;
 import static firok.tiths.util.Predicates.canTick;
 
 // 热力聚集
@@ -42,27 +43,57 @@ public class TraitThermalGathering extends AbstractTrait
 		THERMAL_SOURCE.add(block);
 	}
 
-	@Override
-	public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
+	public static boolean canThermalGather(World world)
 	{
-		if(!world.isRemote && isSelected && entity instanceof EntityLivingBase && canTick(world,80,4))
+		return canTick(world,80,4);
+	}
+	private static Entity _entity=null;
+	private static long _tickTime=-1;
+	private static boolean _hasFound=false;
+	public static boolean checkThermalSource(Entity entity)
+	{
+		World world=entity.world;
+		long timeNow=world.getTotalWorldTime();
+
+		if (entity != _entity || timeNow != _tickTime)
 		{
-			BlockPos center=entity.getPosition();
-			FOR_FIND_Y:for(int ty=-2;ty<=1;ty++)
+			_entity = entity;
+			_tickTime = timeNow;
+			_hasFound = false;
+
+			BlockPos center = entity.getPosition();
+			FOR_FIND_Y:
+			for (int ty = -2; ty <= 1; ty++)
 			{
-				FOR_FIND_X:for(int tx=-2;tx<=2;tx++)
+				FOR_FIND_X:
+				for (int tx = -2; tx <= 2; tx++)
 				{
-					FOR_FIND_Z:for(int tz=-2;tz<=2;tz++)
+					FOR_FIND_Z:
+					for (int tz = -2; tz <= 2; tz++)
 					{
-						BlockPos pos2find=center.add(tx,ty,tz);
-						Block blockFound=world.getBlockState(pos2find).getBlock();
-						if(THERMAL_SOURCE.contains(blockFound))
+						BlockPos pos2find = center.add(tx, ty, tz);
+						Block blockFound = world.getBlockState(pos2find).getBlock();
+						if (THERMAL_SOURCE.contains(blockFound))
 						{
-							ToolHelper.healTool(tool,4,(EntityLivingBase) entity);
+							_hasFound = true;
 							break FOR_FIND_Y;
 						}
 					}
 				}
+			}
+		}
+		return _hasFound;
+	}
+
+	@Override
+	public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
+	{
+		if(!world.isRemote && isSelected && entity instanceof EntityLivingBase && canThermalGather(world))
+		{
+			boolean hasFound=checkThermalSource(entity);
+			if(hasFound)
+			{
+				ToolHelper.healTool(tool,4,(EntityLivingBase) entity);
 			}
 		}
 	}

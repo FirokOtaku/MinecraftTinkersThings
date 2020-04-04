@@ -13,13 +13,16 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fml.common.registry.*;
+import net.minecraftforge.fml.common.registry.EntityEntry;
+import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
 import slimeknights.tconstruct.library.MaterialIntegration;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.*;
-import slimeknights.tconstruct.library.traits.AbstractTrait;
+import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.smeltery.block.BlockMolten;
 
 import java.lang.reflect.Field;
@@ -29,7 +32,7 @@ import java.util.List;
 import java.util.Map;
 
 import static firok.tiths.TinkersThings.log;
-import static firok.tiths.util.InnerActions.*;
+import static firok.tiths.util.InnerActions.addMaterialTraits;
 import static firok.tiths.util.conf.Values.__;
 import static slimeknights.tconstruct.library.materials.MaterialTypes.*;
 
@@ -75,9 +78,9 @@ public class RegistryHandler
 	/**
 	 * 注册属性本身
 	 */
-	public static void registerTraits()
+	public static void registerTraits(Class<?> clasz,Class<? extends ITrait> claszTrait)
 	{
-		FieldStream.of(Traits.class,null,AbstractTrait.class)
+		FieldStream.of(clasz,null,claszTrait)
 				.whenFail(e->{
 					log("error when registering traits");
 					log(e);
@@ -111,11 +114,12 @@ public class RegistryHandler
 //		}
 //	}
 
-	public static void registerItems()
+	public static void registerItems(Class<?> classItems,Class<?> classBlocks)
 	{
 		IForgeRegistry<Item> registry=ForgeRegistries.ITEMS;
 //		int countItem=0,countItemBlock=0;
-		FieldStream.of(Items.class,null,Item.class,Reg.class)
+		if(classItems!=null)
+		FieldStream.of(classItems,null,Item.class,Reg.class)
 				.whenFail(e->{
 					log("error when registering item");
 					log(e);
@@ -137,7 +141,8 @@ public class RegistryHandler
 
 					registerOreDict(item,reg.od());// 矿物词典注册
 				}));
-		FieldStream.of(Blocks.class,null,Block.class,Reg.class)
+		if(classBlocks!=null)
+		FieldStream.of(classBlocks,null,Block.class,Reg.class)
 				.whenFail(e->{
 					log("error when registering item block");
 					log(e);
@@ -162,10 +167,10 @@ public class RegistryHandler
 //		TinkersThings.log(String.format("register items: item[%d/%d] item_block[%d/%d]",countItem,fieldsItems.length,countItemBlock,fieldsBlocks.length) );
 	}
 
-	public static void registerBlocks()
+	public static void registerBlocks(Class<?> classBlocks)
 	{
 		IForgeRegistry<Block> registry=ForgeRegistries.BLOCKS;
-		FieldStream.of(Blocks.class,null,Block.class,Reg.class)
+		FieldStream.of(classBlocks,null,Block.class,Reg.class)
 				.whenFail(e->{
 					log("error when registering block");
 					log(e);
@@ -185,23 +190,6 @@ public class RegistryHandler
 
 					registerOreDict(block,reg.od()); // 矿物词典注册
 				});
-
-//		Field[] fields=Blocks.class.getDeclaredFields();
-////		int countBlock=0;
-//		for(Field field:fields)
-//		{
-//			try
-//			{
-//
-////				countBlock++;
-//			}
-//			catch (Exception e)
-//			{
-//				log("error when registering block");
-//				log(e);
-//			}
-//		}
-//		TinkersThings.log(String.format("register blocks: block[%d/%d]",countBlock,fields.length) );
 	}
 	public static void registerTileEntities()
 	{
