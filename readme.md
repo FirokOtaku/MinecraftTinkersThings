@@ -10,7 +10,7 @@
 
 ## 最近更新 latest update
 
-**0.2.63.3** _2020-04-05 01:30_ (GMT+8)
+**0.2.64.0** _2020-04-05 01:30_ (GMT+8)
 
 * 现在可以通过配置文件调整更多内部参数 now allow to adjust more internal parameters through the config file
 * 移除所有简单护甲属性 removed all simple armor traits
