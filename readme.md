@@ -10,6 +10,6 @@
 
 ## 最近更新 latest update
 
-**0.2.63.2** _2020-04-01 18:30_ (GMT+8)
+**0.2.63.3** _2020-04-04 21:00_ (GMT+8)
 
-* 现在可以通过配置文件调整更多内部参数 now allow to adjust more internal parameters through the config file
+* 为部分方块和物品增加材质贴图 added textures to some blocks and items

@@ -2,6 +2,10 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.63.3 _2020-04-04 21:00_
+
+* 为部分方块和物品增加材质贴图 added textures to some blocks and items
+
 ## 0.2.63.2 _2020-04-01 18:30_
 
 * 现在可以通过配置文件调整更多内部参数 now allow to adjust more internal parameters through the config file
