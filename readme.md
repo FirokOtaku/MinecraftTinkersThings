@@ -10,6 +10,6 @@
 
 ## 最近更新 latest update
 
-**0.2.64.1** _2020-04-05 17:00_ (GMT+8)
+**0.2.65.1** _2020-04-05 19:00_ (GMT+8)
 
-* 为状态效果增添对应的药水 added potion types to potion effects
+* 为部分方块和物品增加材质贴图 added textures to some blocks and items

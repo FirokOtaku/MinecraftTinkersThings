@@ -41,4 +41,5 @@ public class BlockLogicSearing extends BlockContainer
 	{
 		return new TESearing();
 	}
+
 }
