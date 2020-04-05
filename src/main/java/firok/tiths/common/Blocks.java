@@ -264,4 +264,10 @@ public class Blocks
 	// 逻辑方块
 //	@Reg(Keys.blockLogicSearing)
 //	public static final Block logicSearing = new BlockLogicSearing(); // 逻辑 - 焦黑窖
+//	@Reg("gem_brewin_stand")
+//	public static final Block gemBrewingStand = new BlockSpecialBrewingStand(); 宝石酿造台
+//	static
+//	{
+//		TEGemBrewingStand.registerFixesBrewingStand(Minecraft.getMinecraft().getDataFixer());
+//	}
 }

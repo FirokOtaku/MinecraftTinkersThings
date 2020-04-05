@@ -2,6 +2,10 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.65.0 _2020-04-05 17:00_
+
+* 为状态效果增添对应的药水 added potion types to potion effects
+
 ## 0.2.64.0 _2020-04-05 01:30_
 
 * 现在可以通过配置文件调整更多内部参数 now allow to adjust more internal parameters through the config file

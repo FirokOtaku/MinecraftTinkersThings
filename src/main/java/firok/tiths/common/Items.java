@@ -15,6 +15,8 @@ public class Items
 
 	@Reg("debug")
 	public static final Item debug = new ItemDebug(); // 调试工具
+	@Reg("debug_clear_stone")
+	public static final Item debugClearStone = new ItemDebugClearStone(); // 调试工具-清空石头
 
 	// 原材料 - 怪物掉落
 	@Reg(nameSpiderLeg)
