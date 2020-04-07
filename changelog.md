@@ -1,6 +1,24 @@
 # 变更日志 Changelog
 
 > All Time Stamps: GMT+8
+
+## 0.2.66.0 _2020-04-07 16:00_
+
+* 更新语言文件 updated lang files
+* 降低矿物生成量 reduced amounts of ore generation
+* 增加实体 added entities
+  * 炼金术实体 alchemy
+* 增加特性 added traits
+  * 强袭 champing
+  * 影淡(护甲) fading(armor)
+  * 振奋(护甲) hyper(armor)
+  * 冰凉(护甲) icy(armor)
+  * 沉重(护甲) overHeavy(armor)
+  * 软滑(护甲) sliding(armor)
+  * 阈限(护甲) thresholdLimiting(armor)
+* 特性重命名 renamed traits
+  * 凋零 -> 凋零流动 withering -> wither flowing
+
 ## 0.2.65.1 _2020-04-05 19:00_
 
 * 为部分方块和物品增加材质贴图 added textures to some blocks and items

@@ -33,6 +33,10 @@ public class TraitThermalGathering extends AbstractTrait
 		THERMAL_SOURCE.add(Blocks.FLOWING_LAVA);
 		THERMAL_SOURCE.add(Blocks.FIRE);
 	}
+	public static boolean isThermalSource(Block block)
+	{
+		return THERMAL_SOURCE.contains(block);
+	}
 
 	/**
 	 * 注册一个热源方块
@@ -73,7 +77,7 @@ public class TraitThermalGathering extends AbstractTrait
 					{
 						BlockPos pos2find = center.add(tx, ty, tz);
 						Block blockFound = world.getBlockState(pos2find).getBlock();
-						if (THERMAL_SOURCE.contains(blockFound))
+						if (isThermalSource(blockFound))
 						{
 							_hasFound = true;
 							break FOR_FIND_Y;

@@ -16,6 +16,9 @@ public class Traits
 	public static AbstractTrait antiPoisonous;
 	public static AbstractTrait birefringent; // 双折
 	public static AbstractTrait carbonizing; // 碳化
+	public static AbstractTrait champing1; // 强袭1
+	public static AbstractTrait champing2; // 强袭2
+	public static AbstractTrait champing3; // 强袭3
 	public static AbstractTrait chemicalInstable; // 化学不稳定
 	public static AbstractTrait clustering; // 群簇
 	public static AbstractTrait creaky; // 喀嚓
@@ -59,7 +62,7 @@ public class Traits
 	public static AbstractTrait undeadCalling; // 亡灵呼唤
 	public static AbstractTrait unsettled;
 	public static AbstractTrait watery; // 水化
-	public static AbstractTrait withering; // 凋零
+	public static AbstractTrait wither_flowing; // 凋零流动
 //	public static AbstractTrait phantasmic=new TraitPhantasmic(); // 异象
 //	static{phantasmic.addItem(Items.phantomCrystal,8,8);}
 
@@ -69,6 +72,9 @@ public class Traits
 		antiPoisonous = new AbstractTraitAntiEffect(nameTraitAntiPoisonous, colorTraitAntiPoisonous, 80, 3, 0.6f, MobEffects.POISON);
 		birefringent = new TraitBirefringent();
 		carbonizing = new TraitCarbonizing();
+		champing1=new TraitChamping(1);
+		champing2=new TraitChamping(2);
+		champing3=new TraitChamping(3);
 		chemicalInstable = new TraitChemicalInstable();
 		clustering = new TraitClustering();
 		creaky = new TraitCreaky();
@@ -112,7 +118,7 @@ public class Traits
 		undeadCalling = new TraitUndeadCalling();
 		unsettled = new TraitUnsettled();
 		watery = new TraitWatery();
-		withering = new TraitWithering();
+		wither_flowing = new TraitWitherFlowing();
 	}
 
 	public static void postInit()
