@@ -329,7 +329,7 @@ public interface Keys
 	String nameTraitEnderference="enderference";
 	String nameTraitDuritos="duritos";
 	String nameTraitSqueaky="squeaky";
-
+	String nameTraitHeavy="heavy";
 
 	// 属性
 	String nameTraitGluttonic="gluttonic";
@@ -339,7 +339,7 @@ public interface Keys
 	String nameTraitMoonPower="moon_power";
 	String nameTraitMoonlight="moonlight";
 	String nameTraitNatureBlessing="nature_blessing";
-	String nameTraitWithering="withering";
+	String nameTraitWitherFlowing="wither_flowing";
 	String nameTraitInky="inky";
 	String nameTraitRetrospective="retrospective";
 	String nameTraitIcy="icy";
@@ -390,6 +390,11 @@ public interface Keys
 	String nameTraitUnsettled="unsettled";
 	String nameTraitLifting="lifting";
 	String nameTraitEndothermic="endothermic";
+	String nameTraitThresholdLimiting="threshold_limiting";
+	String nameTraitSliding="sliding";
+	String nameTraitOverHeavy="over_heavy";
+	String nameTraitChamping="champing";
+	String nameTraitFading="fading";
 
 	// 属性颜色
 	int colorTraitGluttonic=0x752b40;
@@ -399,7 +404,7 @@ public interface Keys
 	int colorTraitMoonPower=0x5ad3dc;
 	int colorTraitMoonlight=0x85e8de;
 	int colorTraitNatureBlessing=0x538915;
-	int colorTraitWithering=Colors.DarkSlateGray;
+	int colorTraitWitherFlowing =Colors.DarkSlateGray;
 	int colorTraitInky=Colors.Black;
 	int colorTraitRetrospective=Colors.LightYellow;
 	int colorTraitIcy=Colors.DeepSkyBlue;
@@ -449,6 +454,11 @@ public interface Keys
 	int colorTraitUnsettled=0x1d1d1d;
 	int colorTraitLifting=0xc7205a;
 	int colorTraitEndothermic=0x2a99a5;
+	int colorTraitThresholdLimiting=0x524131;
+	int colorTraitSliding=0xc6ceb8;
+	int colorTraitOverHeavy=0x2b2b2b;
+	int colorTraitChamping=0xffa919;
+	int colorTraitFading=0x686868;
 
 	// 状态效果颜色
 	int colorPotionHeavy=Colors.DarkSeaGreen;

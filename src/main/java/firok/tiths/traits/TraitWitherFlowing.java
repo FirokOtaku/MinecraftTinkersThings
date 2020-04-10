@@ -6,14 +6,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-import static firok.tiths.common.Keys.*;
+import static firok.tiths.common.Keys.colorTraitWitherFlowing;
+import static firok.tiths.common.Keys.nameTraitWitherFlowing;
 
-// 凋零
-public class TraitWithering extends AbstractTrait
+// 凋零流动
+public class TraitWitherFlowing extends AbstractTrait
 {
-	public TraitWithering()
+	public TraitWitherFlowing()
 	{
-		super(nameTraitWithering, colorTraitWithering);
+		super(nameTraitWitherFlowing, colorTraitWitherFlowing);
 	}
 
 	@Override

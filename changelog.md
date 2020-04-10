@@ -1,15 +1,6 @@
 # 变更日志 Changelog
 
 > All Time Stamps: GMT+8
-## 0.2.66.1 _2020-04-10 21:36
-
-* 增加物品 added items
-  * 沉沙石 heavesand
-  * 泊水石 potos
-  * 泠笛石 furutorin
-  * 乌润石 ulun
-* 为部分方块和物品增加材质贴图 added textures to some blocks and items
-
 ## 0.2.65.1 _2020-04-05 19:00_
 
 * 为部分方块和物品增加材质贴图 added textures to some blocks and items

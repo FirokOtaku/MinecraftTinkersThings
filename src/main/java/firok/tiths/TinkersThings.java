@@ -30,7 +30,7 @@ public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers Things";
-	public static final String VERSION = "1.12.2-0.2.65.0";
+	public static final String VERSION = "1.12.2-0.2.66.0";
 	public static final boolean indev=true;
 
 	@Mod.Instance(MOD_ID)
@@ -87,6 +87,7 @@ public class TinkersThings
 		Modifiers.log();
 
 		RegistryHandler.registerPotions();
+		PotionTypes.registerPotionTypes();
 
 		//  proxy.initConfig();
 		//
