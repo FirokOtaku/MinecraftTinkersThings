@@ -12,4 +12,9 @@
 
 **0.2.66.1** _2020-04-10 21:36_ (GMT+8)
 
+* 增加物品 added items
+  *沉沙石 heavesand
+  *泊水石 potos
+  *泠笛石 furutorin
+  *乌润石 ulun
 * 为部分方块和物品增加材质贴图 added textures to some blocks and items
