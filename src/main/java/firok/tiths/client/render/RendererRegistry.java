@@ -5,19 +5,21 @@ import firok.tiths.common.Blocks;
 import firok.tiths.common.Fluids;
 import firok.tiths.common.Items;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
-import slimeknights.tconstruct.shared.FluidsClientProxy;
 
 import java.lang.reflect.Field;
-
-import static firok.tiths.common.RegistryHandler.mapFluidBlock2Item;
 
 @Mod.EventBusSubscriber(value = Side.CLIENT,modid = TinkersThings.MOD_ID)
 public class RendererRegistry
@@ -73,7 +75,8 @@ public class RendererRegistry
 			}
 			catch (Exception e)
 			{
-				TinkersThings.log("error when registering item texture");
+				System.out.println("error when registering item texture");
+				System.out.println("field:"+field);
 				e.printStackTrace();
 			}
 		}
@@ -93,7 +96,8 @@ public class RendererRegistry
 			}
 			catch (Exception e)
 			{
-				TinkersThings.log("error when registering block texture");
+				System.out.println("error when registering block texture");
+				System.out.println("field:"+field);
 				e.printStackTrace();
 			}
 		}
@@ -108,8 +112,8 @@ public class RendererRegistry
 					Fluid fluid=(Fluid)obj;
 					Block block=fluid.getBlock();
 					if(block != null) {
-						Item item = mapFluidBlock2Item.get(block);
-						FluidsClientProxy.FluidStateMapper mapper = new FluidsClientProxy.FluidStateMapper(fluid);
+						Item item = Item.getItemFromBlock(block);
+						FluidStateMapper mapper = new FluidStateMapper(fluid);
 
 						// item-model
 						if(item != net.minecraft.init.Items.AIR) {
@@ -123,10 +127,34 @@ public class RendererRegistry
 			}
 			catch (Exception e)
 			{
-				TinkersThings.log("error when registering fluid texture");
+				System.out.println("error when registering fluid texture");
+				System.out.println("field:"+field);
 				e.printStackTrace();
 			}
 		}
 
+	}
+
+	public static class FluidStateMapper extends StateMapperBase implements ItemMeshDefinition
+	{
+		public final Fluid fluid;
+		public final ModelResourceLocation location;
+
+		public FluidStateMapper(Fluid fluid) {
+			this.fluid = fluid;
+
+			// have each block hold its fluid per nbt? hm
+			this.location = new ModelResourceLocation(new ResourceLocation(TinkersThings.MOD_ID, "fluid_block"), fluid.getName());
+		}
+
+		@Override
+		protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
+			return location;
+		}
+
+		@Override
+		public ModelResourceLocation getModelLocation(ItemStack stack) {
+			return location;
+		}
 	}
 }

@@ -1,6 +1,7 @@
 package firok.tiths.common;
 
 import firok.tiths.TinkersThings;
+import firok.tiths.potion.BasePotion;
 import firok.tiths.util.conf.MaterialInfo;
 import firok.tiths.util.reg.*;
 import net.minecraft.block.Block;
@@ -50,10 +51,18 @@ public class RegistryHandler
 					FluidRegistry.registerFluid(fluid);
 					FluidRegistry.addBucketForFluid(fluid);
 
+					//BlockMolten block = new BlockMolten(fluid);
+//                    // Sets names
+//                    block.setUnlocalizedName("molten_" + fluid.getName());
+//                    block.setRegistryName(TAIGA.MODID, "molten_" + fluid.getName());
+//                    // Registers the fluid in its block form and its corresponding item (block/fluid as item in
+//                    // inventory)
+//                    ForgeRegistries.BLOCKS.register(block);
+//                    ForgeRegistries.ITEMS.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
+
 					BlockMolten blockMolten=new BlockMolten(fluid);
 					blockMolten.setUnlocalizedName(Keys.prefMolten+ fluid.getName());
 					blockMolten.setRegistryName(TinkersThings.MOD_ID, Keys.prefMolten+ fluid.getName());
-					fluid.setBlock(blockMolten);
 
 					ItemBlock itemBlockMolten=new ItemBlock(blockMolten);
 					itemBlockMolten.setRegistryName(blockMolten.getRegistryName());
@@ -471,7 +480,7 @@ public class RegistryHandler
 	public static void registerPotions()
 	{
 		IForgeRegistry<Potion> registry=ForgeRegistries.POTIONS;
-		FieldStream.of(Potions.class,null,Potion.class)
+		FieldStream.of(Potions.class,null, BasePotion.class)
 				.whenFail(e->{
 					log("error when registering potion");
 					log(e);
@@ -481,6 +490,8 @@ public class RegistryHandler
 
 					potion.setPotionName("effect."+name);
 					potion.setRegistryName(name);
+
+					potion.postInit();
 
 					registry.register(potion);
 				});

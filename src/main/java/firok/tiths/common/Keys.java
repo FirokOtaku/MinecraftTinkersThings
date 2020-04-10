@@ -42,6 +42,7 @@ public interface Keys
 	String nameWitherium="witherium";
 	String nameStellariumObsidian="stellarium_obsidian";
 	String nameShell="shell";
+	String nameShellCooked=nameShell+"_cooked";
 	String nameRedins="redins";
 	String nameSpinel="spinel";
 	String nameTalcum="talcum";
@@ -76,6 +77,7 @@ public interface Keys
 	String nameSunStone="sun_stone";
 	String nameMoonStone="moon_stone";
 	String nameFlesh="flesh";
+	String nameFleshCooked=nameFlesh+"_cooked";
 	String nameCloud="cloud";
 	String nameOpal="opal";
 	String nameTopaz="topaz";
@@ -330,6 +332,7 @@ public interface Keys
 	String nameTraitDuritos="duritos";
 	String nameTraitSqueaky="squeaky";
 	String nameTraitHeavy="heavy";
+	String nameTraitAquaspeed="aquaspeed";
 
 	// 属性
 	String nameTraitGluttonic="gluttonic";
@@ -395,6 +398,11 @@ public interface Keys
 	String nameTraitOverHeavy="over_heavy";
 	String nameTraitChamping="champing";
 	String nameTraitFading="fading";
+	String nameTraitDeepParasitic="deep_parasitic";
+	String nameTraitPanicking="panicking";
+	String nameTraitDiffuseReflecting="diffuse_reflecting";
+	String nameTraitWidening="widening";
+	String nameTraitWarmSoft="warm_soft";
 
 	// 属性颜色
 	int colorTraitGluttonic=0x752b40;
@@ -459,12 +467,30 @@ public interface Keys
 	int colorTraitOverHeavy=0x2b2b2b;
 	int colorTraitChamping=0xffa919;
 	int colorTraitFading=0x686868;
+	int colorTraitDeepParasitic=0xb8132a;
+	int colorTraitPanicking=0x451d7f;
+	int colorTraitDiffuseReflecting=0x81dbc7;
+	int colorTraitWidening=0xba274c;
+	int colorTraitWarmSoft=0xfff14f;
 
 	// 状态效果颜色
 	int colorPotionHeavy=Colors.DarkSeaGreen;
 	int colorPotionDisappear=Colors.Black;
 	int colorPotionPestilential=Colors.DarkGreen;
 	int colorPotionEstrous=0xEF94F5;
+	int colorPotionAvatar=0xffeb11;
+	int colorPotionRooted=0x644209;
+	int colorPotionArmorSoftened=0x4b6816;
+
+	// 状态效果属性修饰符uuid
+	String uuidPotionAvatarSpeed="258A83A5-A3BD-4CFD-842C-B2DF39343C91";
+	String uuidPotionAvatarMaxHealth="F550AE43-453E-4A84-ADDB-353C5EA6E733";
+	String uuidPotionAvatarArmor="A65363CA-7A4E-4B93-A092-0AB852E2CD28";
+	String uuidPotionAvatarArmorToughness="6DF53F73-CE44-4F5B-9F96-164EB72BEBDE";
+	String uuidPotionAvatarAttackDamage="BCF6FF13-508E-4971-9E39-FB6A62F623C1";
+	String uuidPotionRootedSpeed="9F5D5738-D280-4577-8589-B1791B5B847D";
+	String uuidPotionArmorSoftenedArmor="425BCA0D-7A45-4246-9887-144F55725230";
+	String uuidPotionArmorSoftenedArmorToughness="BB676529-49C3-4887-AD64-911EDBE69F7E";
 
 	// 燃料热值
 	int fuelTimeCoal=1600;

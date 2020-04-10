@@ -34,7 +34,9 @@ public class Items
 	@Reg(nameBrokenIce)
 	public static final Item brokenIce = new Item(); // 碎冰
 	@Reg(nameShell)
-	public static final Item shell = new Item(); // 贝壳
+	public static final Item shell = new ItemFood(1,0.05f,false); // 贝壳
+	@Reg(nameShellCooked)
+	public static final Item shellCooked = new ItemFood(1,0.2f,false); // 熟贝壳
 	@Reg(nameEnderCreviceShard)
 	public static final Item enderCreviceShard = new Item(); // 末影裂隙碎片
 
@@ -195,6 +197,9 @@ public class Items
 	@Reg(nameFlesh)
 	public static final Item flesh = new ItemFood(8,0.7f,true)
 			.setPotionEffect(new PotionEffect(MobEffects.NAUSEA,200,0),1); // 血肉
+	@Reg(nameFleshCooked)
+	public static final Item fleshCooked = new ItemFood(14,0.9f,false)
+			.setPotionEffect(new PotionEffect(MobEffects.STRENGTH,600,0),1); // 熟血肉
 
 	// 唱片
 	@Reg(value=Keys.recordTinkersEfforts,od={"record"})

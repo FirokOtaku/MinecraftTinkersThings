@@ -197,6 +197,7 @@ item.tiths.driller.name=打孔器
 item.tiths.phasing_gem.name=相变之石
 item.tiths.ender_crevice_shard.name=末影裂隙碎片
 item.tiths.cinder.name=煤屑
+item.tiths.ender_dradon_squama.name=末影龙鳞
 
 ## consumables
 item.tiths.gateway_gem.name=折跃之石
@@ -414,8 +415,46 @@ modifier.threshold_limiting_armor.desc=§o限制器§r\n增加耐久消耗, 穿�
 
 ## potions
 effect.heavy=沉重
+potion.effect.heavy=沉重药水
+splash_potion.effect.heavy=喷溅型沉重药水
+tipped_arrow.effect.heavy=沉重之箭
+lingering_potion.effect.heavy=滞留型沉重药水
+
 effect.pestilential=瘟疫
+potion.effect.pestilential=瘟疫药水
+splash_potion.effect.pestilential=喷溅型瘟疫药水
+tipped_arrow.effect.pestilential=瘟疫之箭
+lingering_potion.effect.pestilential=滞留型瘟疫药水
+
+effect.weakened_pestilential=弱化瘟疫
+potion.effect.weakened_pestilential=弱化瘟疫药水
+splash_potion.effect.weakened_pestilential=喷溅型弱化瘟疫药水
+tipped_arrow.effect.weakened_pestilential=弱化瘟疫之箭
+lingering_potion.effect.weakened_pestilential=滞留型弱化瘟疫药水
+
 effect.estrous=发情
+potion.effect.estrous=发情药水
+splash_potion.effect.estrous=喷溅型发情药水
+tipped_arrow.effect.estrous=发情之箭
+lingering_potion.effect.estrous=滞留型发情药水
+
+effect.avatar=天神下凡
+potion.effect.avatar=天神下凡药水
+splash_potion.effect.avatar=喷溅型天神下凡药水
+tipped_arrow.effect.avatar=天神下凡之箭
+lingering_potion.effect.avatar=滞留型天神下凡药水
+
+effect.rooted=缠绕
+potion.effect.rooted=缠绕药水
+splash_potion.effect.rooted=喷溅型缠绕药水
+tipped_arrow.effect.rooted=缠绕之箭
+lingering_potion.effect.rooted=滞留型缠绕药水
+
+effect.armor_softened=护甲软化
+potion.effect.armor_softened=护甲软化药水
+splash_potion.effect.armor_softened=喷溅型护甲软化药水
+tipped_arrow.effect.armor_softened=护甲软化之箭
+lingering_potion.effect.armor_softened=滞留型护甲软化药水
 
 ## damage sources
 death.attack.san=%1$s遇到了一点精神问题
@@ -433,3 +472,6 @@ config.tiths.general.enable_material_customization.tooltip=如果启用, 则会�
 config.tiths.general.enable_ore_gen_customization=启用矿物生成自定义
 config.tiths.traits=属性效果设定
 config.tiths.traits.rate_birefringent=双折伤害触发几率
+
+## tooltip
+tooltip.tiths.item_xp.when_use=使用后获得经验:

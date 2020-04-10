@@ -1,0 +1,27 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "forge:fluid"
+  },
+  "variants": {
+    "royal_alloy": [ { "custom":{ "fluid": "royal_alloy" } } ],
+    "stellarium": [ { "custom":{ "fluid": "stellarium" } } ],
+    "hothium": [ { "custom": { "fluid": "hothium" } } ],
+    "cinnabar":  [ { "custom": { "fluid": "cinnabar" } } ],
+    "immersed_silver": [ { "custom": { "fluid": "immersed_silver" } } ],
+    "mithril":  [ { "custom": { "fluid": "mithril" } } ],
+    "adamantine": [ { "custom": { "fluid": "adamantine" } } ],
+    "inert_witherium":  [ { "custom": { "fluid": "inert_witherium" } } ],
+    "witherium": [ { "custom": { "fluid": "witherium" } } ],
+    "polarium":  [ { "custom": { "fluid": "polarium" } } ],
+    "halleium": [ { "custom": { "fluid": "halleium" } } ],
+    "altairium":  [ { "custom": { "fluid": "altairium" } } ],
+    "cocoa": [ { "custom": { "fluid": "cocoa" } } ],
+    "titanium":  [ { "custom": { "fluid": "titanium" } } ],
+    "tonium": [ { "custom": { "fluid": "tonium" } } ],
+    "irisia":  [ { "custom": { "fluid": "irisia" } } ],
+    "oraclium": [ { "custom": { "fluid": "oraclium" } } ],
+    "steamium":  [ { "custom": { "fluid": "steamium" } } ]
+
+  }
+}

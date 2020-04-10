@@ -29,8 +29,8 @@ import java.util.Random;
 public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
-	public static final String MOD_NAME = "Tinkers Things";
-	public static final String VERSION = "1.12.2-0.2.66.0";
+	public static final String MOD_NAME = "Tinkers' Things";
+	public static final String VERSION = "1.12.2-0.2.68.0";
 	public static final boolean indev=true;
 
 	@Mod.Instance(MOD_ID)
@@ -47,22 +47,37 @@ public class TinkersThings
 		logger.log(Level.INFO,content);
 	}
 
+	private static boolean hasConarm=false;
+	public static boolean enableConarm()
+	{
+		return hasConarm && Configs.General.enable_conarm;
+	}
+	private static boolean hasBauble=false;
+	public static boolean enableBauble()
+	{
+		return hasBauble;
+	}
 	@Mod.EventHandler
 	public void preinit(FMLPreInitializationEvent event)
 	{
 		logger = event.getModLog();
 
+		if(Configs.General.enable_strict_mode)
+		{
+			log("⚠ strict mode enabled");
+		}
+
 		ConfigJson.setConfigDir(Loader.instance().getConfigDir());
 		if(Configs.General.enable_material_customization) ConfigJson.readMats();
 		if(Configs.General.enable_ore_gen_customization) ConfigJson.readOres();
 
-		Configs.General.enable_conarm=Loader.isModLoaded("conarm");
-		if(Configs.General.enable_conarm)
+		hasConarm=Loader.isModLoaded("conarm");
+		if(enableConarm())
 		{
 			log("Armor, armor, armor!");
 		}
-		Configs.General.enable_baubles=Loader.isModLoaded("baubles");
-		if(Configs.General.enable_baubles)
+		hasBauble=Loader.isModLoaded("baubles");
+		if(enableBauble())
 		{
 			log("Bauble, bauble, bauble!");
 		}
@@ -79,7 +94,7 @@ public class TinkersThings
 		Traits.init();
 		Traits.postInit();
 		RegistryHandler.registerTraits(Traits.class,AbstractTrait.class);
-		if(Configs.General.enable_conarm)
+		if(enableConarm())
 		{
 			ArmorRegistryHandler.registerArmorTraits();
 		}
@@ -92,7 +107,7 @@ public class TinkersThings
 		//  proxy.initConfig();
 		//
 		RegistryHandler.registerMaterials();
-		if(Configs.General.enable_conarm)
+		if(enableConarm())
 		{
 			ArmorRegistryHandler.registerArmorMaterials();
 		}
@@ -120,7 +135,7 @@ public class TinkersThings
 		new Guis();
 
 		RegistryHandler.registerMaterialTraits();
-		if(Configs.General.enable_conarm)
+		if(enableConarm())
 		{
 			ArmorRegistryHandler.registerArmorMaterialTraits();
 		}
@@ -162,5 +177,9 @@ public class TinkersThings
 	public static void main(String...args)
 	{
 //		;
+
+		Class<?> clasz=TinkersThings.class;
+		System.out.println(clasz.getTypeName());
+
 	}
 }

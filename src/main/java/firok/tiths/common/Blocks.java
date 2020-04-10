@@ -9,6 +9,10 @@ import firok.tiths.util.reg.Reg;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.BlockRenderLayer;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.tconstruct.library.utils.HarvestLevels;
 
 @SuppressWarnings("all")
@@ -238,7 +242,27 @@ public class Blocks
 	@Reg(Keys.blockBloodSand)
 	public static final Block blockBloodSand = new BlockBloodSand(); // 血沙
 	@Reg(Keys.blockConsolidatedGlass)
-	public static final Block blockConsolidatedGlass = new BlockCompressed(Material.GLASS); // 强化玻璃
+	public static final Block blockConsolidatedGlass = new BlockCompressed(Material.GLASS){
+		@SideOnly(Side.CLIENT)
+		public BlockRenderLayer getBlockLayer()
+		{
+			return BlockRenderLayer.CUTOUT;
+		}
+
+		public boolean isFullCube(IBlockState state)
+		{
+			return false;
+		}
+
+		protected boolean canSilkHarvest()
+		{
+			return true;
+		}
+
+		public boolean isOpaqueCube(IBlockState state) {
+			return false;
+		}
+	}; // 强化玻璃
 	@Reg(Keys.blockCoagulatedBloodSand)
 	public static final Block blockCoagulatedBloodSand = new BlockCompressed(Material.SAND); // 凝结血沙
 

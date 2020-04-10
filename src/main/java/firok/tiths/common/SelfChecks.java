@@ -1,5 +1,7 @@
 package firok.tiths.common;
 
+import firok.tiths.TinkersThings;
+
 /**
  * 开发用自检类
  */
@@ -7,7 +9,7 @@ public class SelfChecks
 {
 	public static void checkAll()
 	{
-		if(Configs.General.enable_conarm) checkTraits();
+		if(TinkersThings.enableConarm()) checkTraits();
 	}
 
 	public static void checkTraits()

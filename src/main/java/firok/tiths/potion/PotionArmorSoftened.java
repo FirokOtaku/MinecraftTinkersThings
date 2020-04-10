@@ -1,0 +1,34 @@
+package firok.tiths.potion;
+
+import firok.tiths.TinkersThings;
+import firok.tiths.common.Keys;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.util.ResourceLocation;
+
+import static firok.tiths.common.Keys.uuidPotionArmorSoftenedArmor;
+import static firok.tiths.common.Keys.uuidPotionArmorSoftenedArmorToughness;
+
+public class PotionArmorSoftened extends BasePotion
+{
+	public PotionArmorSoftened()
+	{
+		super(new ResourceLocation(TinkersThings.MOD_ID,"textures/potions/armor_softened.png"),true, Keys.colorPotionArmorSoftened);
+	}
+
+	@Override
+	public void postInit()
+	{
+		registerPotionAttributeModifier(
+				SharedMonsterAttributes.ARMOR,
+				uuidPotionArmorSoftenedArmor,
+				-0.2,
+				2
+		)
+		.registerPotionAttributeModifier(
+				SharedMonsterAttributes.ARMOR_TOUGHNESS,
+				uuidPotionArmorSoftenedArmorToughness,
+				-0.2,
+				2
+		);
+	}
+}

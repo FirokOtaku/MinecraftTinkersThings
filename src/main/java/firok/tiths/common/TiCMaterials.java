@@ -289,7 +289,7 @@ public final class TiCMaterials
 			.addItemAsIngot(Items.ingotCocoa)
 			.setFluid(Fluids.moltenCocoa);
 
-	@Compo(value = nameNitre,traitsTool = {nameTraitSoluble,nameTraitJagged})
+	@Compo(value = nameNitre,traitsTool = {nameTraitSoluble,nameTraitJagged},traitsArmor = {nameTraitSoluble})
 	@CompoHead(durability = 140,miningspeed = 2.3,attack = 4.4,harvestLevel = 1)
 	@CompoHandle(modifier = 0.6, durability = -60)
 	@CompoExtra(extraDurability = 40)
@@ -299,7 +299,7 @@ public final class TiCMaterials
 	public static final Material nitre=new $Material(nameNitre,colorNitre)
 			.addItemAsIngot(Items.nitre);
 
-	@Compo(value = nameIcelandSpar,traitsTool = {nameTraitBirefringent})
+	@Compo(value = nameIcelandSpar,traitsTool = {nameTraitBirefringent},traitsArmor = {nameTraitDiffuseReflecting})
 	@CompoHead(durability = 340,miningspeed = 1.5,attack = 5.6,harvestLevel = 1)
 	@CompoHandle(modifier = 0.65, durability = -200)
 	@CompoExtra(extraDurability = 80)
@@ -448,7 +448,7 @@ public final class TiCMaterials
 	public static final Material treeRoot=new $Material(nameTreeRoot,colorTreeRoot)
 			.addItemAsIngot(Items.treeRoot);
 
-	@Compo(value = nameFlesh,traitsTool = {nameTraitGluttonic})
+	@Compo(value = nameFlesh,traitsTool = {nameTraitGluttonic},traitsArmor = {nameTraitDeepParasitic})
 	@CompoHead(durability = 220,miningspeed = 3.8,attack = 4,harvestLevel = 0)
 	@CompoHandle(modifier = 0.8,durability = -50)
 	@CompoExtra(extraDurability = 59)
@@ -474,8 +474,8 @@ public final class TiCMaterials
 	@CompoHead(durability = 20,miningspeed = 0.5,attack = 0,harvestLevel = 0,traits = {nameTraitSqueaky})
 	@CompoExtra(extraDurability = -300,traits = {nameTraitLightweight})
 	@CompoArmorCore(durability = 1,defense = 1)
-	@CompoArmorPlate(modifier = 1,durability = 1,toughness = 1) // info 属性需要改
-	@CompoArmorTrim(extraDurability = 1)
+	@CompoArmorPlate(modifier = 1,durability = 1,toughness = 1,traits = nameTraitWarmSoft+'1') // info 属性需要改
+	@CompoArmorTrim(extraDurability = 1,traits = nameTraitWarmSoft+'2')
 	public static final Material cloud=new $Material(nameCloud, colorCloud)
 			.addItemAsIngot(Blocks.blockCloud);
 
@@ -489,7 +489,7 @@ public final class TiCMaterials
 	public static final Material opal=new $Material(nameOpal, colorOpal)
 			.addItemAsIngot(Items.opal);
 
-	@Compo(value = nameTopaz,traitsTool = {nameTraitPeaceEnergetic})
+	@Compo(value = nameTopaz,traitsTool = {nameTraitPeaceEnergetic},traitsArmor = {})
 	@CompoHead(durability = 490,miningspeed = 5.6,attack = 4.4,harvestLevel = 3)
 	@CompoHandle(modifier = 1.15,durability = 90)
 	@CompoExtra(extraDurability = 280)
@@ -519,7 +519,7 @@ public final class TiCMaterials
 	public static final Material cordierite=new $Material(nameCordierite, colorCordierite)
 			.addItemAsIngot(Items.cordierite);
 
-	@Compo(value = namePrehnite,traitsTool = {nameTraitLifeInspiring})
+	@Compo(value = namePrehnite,traitsTool = {nameTraitLifeInspiring},traitsArmor = {nameTraitLifeInspiring})
 	@CompoHead(durability = 370,miningspeed = 4.1f,attack = 3.3f,harvestLevel = 3)
 	@CompoHandle(modifier = 0.95,durability = 20)
 	@CompoExtra(extraDurability = 55)
@@ -569,7 +569,7 @@ public final class TiCMaterials
 	public static final Material lavaCrystal=new $Material(nameLavaCrystal, colorLavaCrystal)
 			.addItemAsIngot(Items.lavaCrystal);
 
-	@Compo(value = nameSteamium,traitsTool = {nameTraitSteamy})
+	@Compo(value = nameSteamium,traitsTool = {nameTraitSteamy},traitsArmor = {nameTraitAquaspeed})
 	@CompoHead(durability = 690,miningspeed = 5.5,attack = 6.5,harvestLevel = 2)
 	@CompoHandle(modifier = 0.65,durability = 100)
 	@CompoExtra(extraDurability = -80)

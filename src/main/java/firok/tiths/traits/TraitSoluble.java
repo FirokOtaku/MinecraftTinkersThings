@@ -22,7 +22,6 @@ public class TraitSoluble extends AbstractTrait
 	@Override
 	public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
 	{
-		super.onUpdate(tool, world, entity, itemSlot, isSelected);
 		if(!world.isRemote && isSelected && canTick(world,15,2) && entity.isInWater())
 		{
 			ToolHelper.damageTool(tool, 20, (EntityLivingBase) entity);

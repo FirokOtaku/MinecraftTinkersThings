@@ -16,6 +16,7 @@ import slimeknights.tconstruct.shared.TinkerFluids;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 
 import static firok.tiths.common.Keys.fuelTimeCinder;
+import static net.minecraftforge.fml.common.registry.GameRegistry.addSmelting;
 import static slimeknights.tconstruct.library.TinkerRegistry.registerBasinCasting;
 import static slimeknights.tconstruct.library.TinkerRegistry.registerTableCasting;
 
@@ -32,6 +33,7 @@ public class Craftings
 		registerBasinCastings();
 		registerTableCastings();
 		registerFuels();
+		registerSmelting();
 	}
 
 	// 燃料
@@ -217,7 +219,7 @@ public class Craftings
 	){
 		// 矿 -> 锭 冶炼
 		if(amountSmeltOre2Ingot>0 && ore!=null && ingot!=null)
-			GameRegistry.addSmelting(ore,new ItemStack(ingot,amountSmeltOre2Ingot,0),4);
+			addSmelting(ore,new ItemStack(ingot,amountSmeltOre2Ingot,0),4);
 
 		// 矿 -> 熔融液体
 		if(amountMetlOre2Fluid>0 && ore!=null && fluid!=null)
@@ -254,6 +256,12 @@ public class Craftings
 					RecipeMatch.of(TinkerSmeltery.castNugget), // fixme
 					new FluidStack(fluid, Material.VALUE_Nugget * 1),
 					false, false));
+	}
+
+	private static void registerSmelting()
+	{
+		addSmelting(new ItemStack(Items.shell), new ItemStack(Items.shellCooked), 1);
+		addSmelting(new ItemStack(Items.flesh), new ItemStack(Items.fleshCooked), 5);
 	}
 
 	// 下面这个以后可能用到

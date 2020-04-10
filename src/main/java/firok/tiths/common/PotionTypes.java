@@ -1,7 +1,6 @@
 package firok.tiths.common;
 
 import firok.tiths.util.reg.FieldStream;
-import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionType;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -23,15 +22,21 @@ public class PotionTypes
 	public static final PotionType pestilential=new PotionType("pestilential",
 			new PotionEffect(Potions.pestilential,3600,0));
 	public static final PotionType weakened_pestilential=new PotionType("weakened_pestilential",
-			new PotionEffect(Potions.weakenedPestilential,3600,0));
+			new PotionEffect(Potions.weakened_pestilential,3600,0));
+	public static final PotionType avatar=new PotionType("avatar",
+			new PotionEffect(Potions.avatar,3600,0));
+	public static final PotionType rooted=new PotionType("rooted",
+			new PotionEffect(Potions.rooted,3600,0));
+	public static final PotionType armor_softened=new PotionType("armor_softened",
+			new PotionEffect(Potions.armor_softened,3600,0));
 
-	public static final PotionType sun_power=new PotionType("sun_power",
-			new PotionEffect(MobEffects.STRENGTH,3600,0));
+//	public static final PotionType sun_power=new PotionType("sun_power",
+//			new PotionEffect(MobEffects.STRENGTH,3600,0));
 	static
 	{
-		addMix(WATER,Items.sunStone,sun_power);
-
 		addMix(WATER,Items.brokenBedrock,heavy);
+
+		addMix(WATER,Items.treeRoot,rooted);
 	}
 
 	public static void registerPotionTypes()

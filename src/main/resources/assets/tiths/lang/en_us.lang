@@ -30,7 +30,7 @@ tile.tiths.ore_moon_stone.name=Moon Stone Ore
 tile.tiths.ore_tree_root.name=Wild Tree Root
 tile.tiths.ore_opal.name=Opal Ore
 tile.tiths.ore_topaz.name=Topaz Ore
-tile.tiths.ore_tanzanite.name=Tanzanite Ore
+tile.tiths.ore_lizanite.name=Lizanite Ore
 tile.tiths.ore_cordierite.name=Cordierite Ore
 tile.tiths.ore_prehnite.name=Prehnite Ore
 tile.tiths.ore_proustite.name=Proustite Ore
@@ -79,7 +79,7 @@ tile.tiths.block_irisia.name=Block of Irisia
 tile.tiths.block_fulgurite.name=Fulgurite
 tile.tiths.block_opal.name=Block of Opal
 tile.tiths.block_topaz.name=Block of Topaz
-tile.tiths.block_tanzanite.name=Block of Tanzanite
+tile.tiths.block_lizanite.name=Block of Lizanite
 tile.tiths.block_cordierite.name=Block of Cordierite
 tile.tiths.block_prehnite.name=Block of Prehnite
 tile.tiths.block_proustite.name=Block of Proustite
@@ -197,6 +197,7 @@ item.tiths.driller.name=Driller
 item.tiths.phasing_gem.name=Phasing Gem
 item.tiths.ender_crevice_shard.name=Ender Crevice Shard
 item.tiths.cinder.name=Cinder
+item.tiths.ender_dradon_squama.name=Ender Dragon Squama
 
 ## consumables
 item.tiths.gateway_gem.name=Gateway Gem
@@ -413,8 +414,46 @@ modifier.threshold_limiting_armor.desc=§oNo too much§r\nYou will not receive m
 
 ## potions
 effect.heavy=Heavy
+potion.effect.heavy=Potion of Heavy
+splash_potion.effect.heavy=Splash Potion of Heavy
+tipped_arrow.effect.heavy=Arrow of Heavy
+lingering_potion.effect.heavy=Lingering Potion of Heavy
+
 effect.pestilential=Pestilential
+potion.effect.pestilential=Potion of Pestilential
+splash_potion.effect.pestilential=Splash Potion of Pestilential
+tipped_arrow.effect.pestilential=Arrow of Pestilential
+lingering_potion.effect.pestilential=Lingering Potion of Pestilential
+
+effect.weakened_pestilential=Weakened Pestilential
+potion.effect.weakened_pestilential=Potion of Weakened Pestilential
+splash_potion.effect.weakened_pestilential=Splash Potion of Weakened Pestilential
+tipped_arrow.effect.weakened_pestilential=Arrow of Weakened Pestilential
+lingering_potion.effect.weakened_pestilential=Lingering Potion of Weakened Pestilential
+
 effect.estrous=Estrous
+potion.effect.estrous=Potion of Estrous
+splash_potion.effect.estrous=Splash Potion of Estrous
+tipped_arrow.effect.estrous=Arrow of Estrous
+lingering_potion.effect.estrous=Lingering Potion of Estrous
+
+effect.avatar=Avatar
+potion.effect.avatar=Potion of Avatar
+splash_potion.effect.avatar=Splash Potion of Avatar
+tipped_arrow.effect.avatar=Arrow of Avatar
+lingering_potion.effect.avatar=Lingering Potion of Avatar
+
+effect.rooted=Rooted
+potion.effect.rooted=Potion of Rooting
+splash_potion.effect.rooted=Splash Potion of Rooting
+tipped_arrow.effect.rooted=Arrow of Rooting
+lingering_potion.effect.rooted=Lingering Potion of Rooting
+
+effect.armor_softened=Armor Softened
+potion.effect.armor_softened=Potion of Armor Softening
+splash_potion.effect.armor_softened=Splash Potion of Armor Softening
+tipped_arrow.effect.armor_softened=Arrow of Armor Softening
+lingering_potion.effect.armor_softened=Lingering Potion of Armor Softening
 
 ## damage sources
 death.attack.san=%1$s has some mental problem
@@ -423,3 +462,6 @@ death.attack.pyroelectric=Heart of %1$s was paralyzed
 
 ## warning
 warning.tiths.indev=[Tinkers' Things] Warning:  This mod is still §1under developing§r and only used for §2preview and testing§r, any contents could be §6modified or deleted§r in the future. And this mod has §4NOT§r been well tested and may have some bugs. Please §4DO NOT§r use this mod for survival mode or server gaming!
+
+## tooltip
+tooltip.tiths.item_xp.when_use=Exp get when used:

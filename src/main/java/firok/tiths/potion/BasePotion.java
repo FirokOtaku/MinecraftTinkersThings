@@ -2,12 +2,10 @@ package firok.tiths.potion;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
-import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.MinecraftForgeClient;
 
 public class BasePotion extends Potion
 {
@@ -19,7 +17,7 @@ public class BasePotion extends Potion
 	}
 
 	@Override
-	public boolean isReady(int p_isReady_1_, int p_isReady_2_)
+	public boolean isReady(int tick, int level)
 	{
 		return false;
 	}
@@ -61,4 +59,6 @@ public class BasePotion extends Potion
 				16, 16,
 				16, 16);
 	}
+
+	public void postInit(){}
 }

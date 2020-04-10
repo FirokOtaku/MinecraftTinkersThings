@@ -3,6 +3,7 @@ package firok.tiths.common;
 
 import firok.tiths.TinkersThings;
 import firok.tiths.entity.special.EnderBeacon;
+import firok.tiths.intergration.conarm.ArmorEvents;
 import firok.tiths.util.Actions;
 import firok.tiths.util.Ranges;
 import net.minecraft.block.Block;
@@ -31,17 +32,17 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
-import net.minecraftforge.event.entity.living.EnderTeleportEvent;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.event.entity.living.LivingDropsEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+import slimeknights.tconstruct.library.events.TinkerCraftingEvent;
+import slimeknights.tconstruct.library.tinkering.IMaterialItem;
 import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
@@ -333,5 +334,129 @@ public class Events
 			EntityPlayer player=event.player;
 			player.sendMessage( new TextComponentTranslation("warning.tiths.indev") );
 		}
+	}
+
+	@SubscribeEvent
+	public static void onItemUsed(LivingEntityUseItemEvent.Finish event)
+	{
+		if(TinkersThings.enableConarm())
+		{
+			ArmorEvents.onItemUsed(event);
+			/*
+			广域化 - 护甲
+			* */
+		}
+	}
+
+	@SubscribeEvent
+	public static void onPlayerWaken(PlayerWakeUpEvent event)
+	{
+		System.out.println("test");
+		if(TinkersThings.enableConarm())
+		{
+			ArmorEvents.onPlayerWaken(event);
+			/*
+			相关内容:
+			温软 - 护甲
+			* */
+		}
+	}
+
+	private static boolean has(String[] strs,String str)
+	{
+		for(String temp:strs) if(str.equals(temp)) return true;
+		return false;
+	}
+
+	@SubscribeEvent
+	public static void onToolCrafting(TinkerCraftingEvent.ToolCraftingEvent event)
+	{
+		EntityPlayer player=event.getPlayer();
+		ItemStack stack=event.getItemStack();
+		Item item=stack.getItem();
+		if(!player.world.isRemote)
+		{
+			try
+			{
+				// 输出部件列表信息
+				System.out.println("部件列表");
+				List<ItemStack> toolparts=event.getToolParts();
+				for(ItemStack toolpart:toolparts)
+				{
+					if(toolpart.isEmpty()) continue;
+					System.out.println(toolpart.getUnlocalizedName() + " : "+((IMaterialItem)toolpart.getItem()).getMaterialID(toolpart));
+				}
+
+//				List<Material> materials = TinkerUtil.getMaterialsFromTagList(TagUtil.getBaseMaterialsTagList(stack));
+//				List<PartMaterialType> component = itemToolCore.getRequiredComponents();
+
+				// 获取输出材料和部件信息
+//				System.out.println("\n材料:");
+//				for(Material mat:materials)
+//				{
+//					System.out.print(mat.identifier);
+//				}
+//				System.out.println("\npmts :");
+//				int i=0;
+//				for(PartMaterialType pmt:component)
+//				{
+//					System.out.println("pmt "+i);
+//					Set<IToolPart> parts=(Set<IToolPart>)Actions.get(PartMaterialType.class,"neededPart",pmt);
+//					String[] neededTypes=(String[])Actions.get(PartMaterialType.class,"neededTypes",pmt);
+//					System.out.println("parts :");
+//					for(IToolPart part:parts)
+//					{
+//						System.out.println(part.toString());
+//						if(part instanceof ToolPart)
+//						{
+//							ToolPart _part=(ToolPart)part;
+//							System.out.println(_part.getUnlocalizedName());
+//						}
+//					}
+//					System.out.println("needed types :");
+//					System.out.println(Arrays.toString(neededTypes));
+//					i++;
+//				}
+
+				// 工作台gui的代码
+//				for(int i = 0; i < component.size(); i++) {
+//					PartMaterialType pmt = component.get(i);
+//					Material material = materials.get(i);
+//
+//					// get (one possible) toolpart used to craft the thing
+//					Iterator<IToolPart> partIter = pmt.getPossibleParts().iterator();
+//					if(!partIter.hasNext()) {
+//						continue;
+//					}
+//
+//					IToolPart part = partIter.next();
+//					ItemStack partStack = part.getItemstackWithMaterial(material);
+//					if(partStack != null) {
+//						// we have the part, add it
+//						tooltips.add(material.getTextColor() + TextFormatting.UNDERLINE + partStack.getDisplayName());
+//
+//						Set<ITrait> usedTraits = Sets.newHashSet();
+//						// find out which stats and traits it contributes and add it to the tooltip
+//						for(IMaterialStats stats : material.getAllStats()) {
+//							if(pmt.usesStat(stats.getIdentifier())) {
+//								tooltips.addAll(stats.getLocalizedInfo());
+//								for(ITrait trait : pmt.getApplicableTraitsForMaterial(material)) {
+//									if(!usedTraits.contains(trait)) {
+//										tooltips.add(material.getTextColor() + trait.getLocalizedName());
+//										usedTraits.add(trait);
+//									}
+//								}
+//							}
+//						}
+//						tooltips.add("");
+//					}
+//				}
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+
 	}
 }

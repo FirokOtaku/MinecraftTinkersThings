@@ -2,13 +2,32 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.68.0 _2020-04-10 22：30_
+
+* 为流体增加模型 added models to fluids
+* 为部分方块和物品增加材质贴图 added textures to some blocks and items
+* 更新语言文件 updated lang files
+* 增加状态效果 added potion effects
+  * 缠绕 rooted
+  * 天神下凡 avatar
+  * 护甲软化 armor softened
+* 增加特性 added traits
+  * 深触寄生(护甲) deep parasitic(armor)
+  * 生命激发(护甲) life inspiring(armor)
+  * 可溶(护甲) soluble(armor)
+  * 漫反射(护甲) diffuse reflecting(armor)
+  * 广域化(护甲) widening(armor)
+* 增加物品 added items
+  * 熟血肉 cooked flesh
+  * 熟贝壳 cooked shell
+
 ## 0.2.67.0 _2020-04-10 22：00_
 
 * 增加物品 added items
-  *沉沙石 heavesand
-  *泊水石 potos
-  *泠笛石 furutorin
-  *乌润石 ulun
+  * 沉沙石 heavesand
+  * 泊水石 potos
+  * 泠笛石 furutorin
+  * 乌润石 ulun
 * 为部分方块和物品增加材质贴图 added textures to some blocks and items
 
 ##0.2.66.0 2020-04-07 16:00
@@ -21,10 +40,10 @@
   * 影淡(护甲) fading(armor)
   * 振奋(护甲) hyper(armor)
   * 冰凉(护甲) icy(armor)
-  * 沉重(护甲) overHeavy(armor)
+  * 过沉(护甲) over heavy(armor)
   * 软滑(护甲) sliding(armor)
-  * 阈限(护甲) thresholdLimiting(armor)
-*特性重命名 renamed traits
+  * 阈限(护甲) threshold limiting(armor)
+* 特性重命名 renamed traits
   * 凋零 -> 凋零流动 withering -> wither flowing
   
 ## 0.2.65.0 _2020-04-05 17:00_

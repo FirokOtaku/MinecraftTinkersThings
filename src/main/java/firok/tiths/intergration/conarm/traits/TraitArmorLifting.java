@@ -22,7 +22,7 @@ public class TraitArmorLifting extends AbstractArmorTrait
 	@Override
 	public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
 	{
-		if(player.motionY < 0)
+		if(!player.isSneaking() && player.motionY < 0)
 		{
 			player.motionY *= 0.5f;
 		}

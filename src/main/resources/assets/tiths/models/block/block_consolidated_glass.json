@@ -1,12 +1,6 @@
 {
-  "parent": "block/cube",
+  "parent": "block/cube_all",
   "textures": {
-    "particle": "tiths:blocks/block_consolidated_glass",
-    "down": "tiths:blocks/block_consolidated_glass",
-    "up": "tiths:blocks/block_consolidated_glass",
-    "north": "tiths:blocks/block_consolidated_glass",
-    "south": "tiths:blocks/block_consolidated_glass",
-    "west": "tiths:blocks/block_consolidated_glass",
-    "east": "tiths:blocks/block_consolidated_glass"
+    "all": "tiths:blocks/block_consolidated_glass"
   }
 }

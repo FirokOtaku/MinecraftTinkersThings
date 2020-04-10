@@ -1,12 +1,17 @@
 package firok.tiths.item;
 
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 // 右键提供经验值的消耗品
 public class ItemXP extends Item
@@ -37,5 +42,11 @@ public class ItemXP extends Item
 
 		return new ActionResult<>(EnumActionResult.SUCCESS,player.getHeldItem(hand));
 //		return super.onItemRightClick(p_onItemRightClick_1_, p_onItemRightClick_2_, p_onItemRightClick_3_);
+	}
+
+	@Override
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
+	{
+		tooltip.add(I18n.translateToLocal("tiths.item_xp.when_use")+amount+(isLv?'L':' '));
 	}
 }

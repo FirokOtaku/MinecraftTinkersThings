@@ -20,6 +20,14 @@ public class Configs
 		@RequiresMcRestart
 		public static boolean enable_baubles=true;
 
+		/**
+		 * 启用严格模式
+		 * 对于玩家, 禁用严格模式可以减少游戏启动时由于各类id冲突等问题造成的崩溃;
+		 * 对于开发者, 启用严格模式以寻找需要修正的问题
+		 */
+		@RequiresMcRestart
+		public static boolean enable_strict_mode=true;
+
 		@RequiresMcRestart
 		public static boolean enable_royal_alloy_easy_crafting=false;
 
