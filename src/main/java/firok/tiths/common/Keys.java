@@ -91,6 +91,10 @@ public interface Keys
 	String nameEnderCreviceShard="ender_crevice_shard";
 	String nameAventurine="aventurine";
 	String nameCinder="cinder";
+	String nameUlun="ulun";
+	String namePotos="potos";
+	String nameFurutorin="furutorin";
+	String nameHeavesand="heavesand";
 
 	String nameHardener="hardener";
 	String namePolisher="polisher";

@@ -89,11 +89,18 @@ public class Items
 	public static final Item proustite = new Item(); // 硫砷银
 	@Reg(nameVibratingCrystal)
 	public static final Item vibratingCrystal = new Item(); // 振晶
-	@Reg(nameLavaCrystal)
+
 	public static final Item lavaCrystal = new Item(); // 岩浆结晶
 	@Reg(value=nameAventurine,od={"gem","gemAventurine","aventurine"})
 	public static final Item aventurine = new Item(); // 东陵石
-
+	@Reg(nameUlun)
+	public static final Item ulun = new Item(); // 乌润石
+	@Reg(namePotos)
+	public static final Item potos = new Item(); // 泊水石
+	@Reg(nameFurutorin)
+	public static final Item furutorin = new Item(); // 泠笛石
+	@Reg(nameHeavesand)
+	public static final Item heavesand = new Item(); // 沉沙石
 	// 金属粒
 	@Reg(Keys.nuggetStellarium)
 	public static final Item nuggetStellarium = new Item(); // 恒星金属粒

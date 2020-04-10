@@ -147,6 +147,10 @@ item.tiths.broken_bedrock.name=破碎基岩
 item.tiths.vibrating_crystal.name=振晶
 item.tiths.lava_crystal.name=岩浆水晶
 item.tiths.aventurine.name=东陵石
+item.tiths.heavesand.name=沉沙石
+item.tiths.potos.name=泊水石
+item.tiths.furutorin.name=泠笛石
+item.tiths.ulun.name=乌润石
 ## nugget
 item.tiths.nugget_stellarium.name=恒星金属粒
 item.tiths.nugget_royal_alloy.name=奢华合金粒
