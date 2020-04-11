@@ -47,6 +47,6 @@ public class ItemXP extends Item
 	@Override
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
 	{
-		tooltip.add(I18n.translateToLocal("tiths.item_xp.when_use")+amount+(isLv?'L':' '));
+		tooltip.add(I18n.translateToLocal("tooltip.tiths.item_xp.when_use")+amount+(isLv?'L':' '));
 	}
 }

@@ -1,8 +1,8 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "tiths:block_to_ingot",
-  "result": { "item": "tiths:nitre", "count": 9 },
-  "ingredients": [
-    { "item": "tiths:block_nitre" }
-  ]
+	"type": "minecraft:crafting_shapeless",
+	"group": "tiths:block_to_ingot",
+	"result": { "item": "tiths:nitre", "count": 9 },
+	"ingredients": [
+	  { "item": "tiths:block_nitre" }
+	]
 }

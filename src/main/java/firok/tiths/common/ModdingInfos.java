@@ -11,7 +11,12 @@ import java.util.List;
  */
 public class ModdingInfos
 {
-	public static List<ModdingInfo> moddings=new ArrayList<>();
+	private static final List<ModdingInfo> moddings=new ArrayList<>();
+	static void clearModdings()
+	{
+		moddings.clear();
+	}
+
 
 	public static void registerModding(ModdingInfo info)
 	{
@@ -21,19 +26,19 @@ public class ModdingInfos
 		{
 			if(modding==info)
 			{
-				error=String.format("trying to register a modding info [%s] that has already been registered.",modding.type());
+				error=String.format("trying to register a modding info [%s] that has already been registered.",modding.name());
 				pass=false;
 				break FOR_FIND_EQUALS_INFO;
 			}
-			else if(modding.type().equals(info.type()))
+			else if(modding.name().equals(info.name()))
 			{
-				error=String.format("trying to register a modding info with duplicated type name [%s].",info.type());
+				error=String.format("trying to register a modding info with duplicated type name [%s].",info.name());
 				pass=false;
 				break FOR_FIND_EQUALS_INFO;
 			}
 			else if(modding.equalsToolInfo(info))
 			{
-				error=String.format("trying to register a modding info [%s] that has the same tool info with [%s].",info.type(),modding.type());
+				error=String.format("trying to register a modding info [%s] that has the same tool info with [%s].",info.name(),modding.name());
 				pass=false;
 				break FOR_FIND_EQUALS_INFO;
 			}

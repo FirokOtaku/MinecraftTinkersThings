@@ -38,6 +38,11 @@ public class Configs
 		@LangKey(confEnableOreGenCustomization)
 		@RequiresMcRestart
 		public static boolean enable_ore_gen_customization=true;
+
+		/**
+		 * 启用工具合成方法
+		 */
+		public static boolean enable_tool_craft_functions=true;
 	}
 
 	@Config(modid= TinkersThings.MOD_ID,category = "traits")

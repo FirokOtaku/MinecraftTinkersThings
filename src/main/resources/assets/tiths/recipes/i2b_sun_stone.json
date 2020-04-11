@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "tiths:ingot_to_block",
+  "result": { "item": "tiths:block_sun_stone", "count": 1 },
+  "ingredients": [
+    { "item": "tiths:sun_stone" },
+    { "item": "tiths:sun_stone" },
+    { "item": "tiths:sun_stone" },
+
+    { "item": "tiths:sun_stone" },
+    { "item": "tiths:sun_stone" },
+    { "item": "tiths:sun_stone" },
+
+    { "item": "tiths:sun_stone" },
+    { "item": "tiths:sun_stone" },
+    { "item": "tiths:sun_stone" }
+  ]
+}

@@ -1,8 +1,8 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "tiths:block_to_ingot",
-  "result": { "item": "tiths:ingot_royal_alloy", "count": 9 },
-  "ingredients": [
-    { "item": "tiths:block_royal_alloy" }
-  ]
+	"type": "minecraft:crafting_shapeless",
+	"group": "tiths:block_to_ingot",
+	"result": { "item": "tiths:ingot_royal_alloy", "count": 9 },
+	"ingredients": [
+	  { "item": "tiths:block_royal_alloy" }
+	]
 }

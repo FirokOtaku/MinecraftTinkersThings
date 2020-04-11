@@ -1,8 +1,8 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "tiths:block_to_ingot",
-  "result": { "item": "tiths:ingot_hothium", "count": 9 },
-  "ingredients": [
-    { "item": "tiths:block_hothium" }
-  ]
+	"type": "minecraft:crafting_shapeless",
+	"group": "tiths:block_to_ingot",
+	"result": { "item": "tiths:ingot_hothium", "count": 9 },
+	"ingredients": [
+	  { "item": "tiths:block_hothium" }
+	]
 }

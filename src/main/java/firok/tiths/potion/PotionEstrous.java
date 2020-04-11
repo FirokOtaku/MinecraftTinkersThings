@@ -15,7 +15,7 @@ public class PotionEstrous extends BasePotion
 {
 	public PotionEstrous()
 	{
-		super(new ResourceLocation(TinkersThings.MOD_ID,"textures/potions/estrous.png"),true, Keys.colorPotionEstrous);
+		super(new ResourceLocation(TinkersThings.MOD_ID,"textures/potions/estrous.png"),false, Keys.colorPotionEstrous);
 	}
 
 	@Override

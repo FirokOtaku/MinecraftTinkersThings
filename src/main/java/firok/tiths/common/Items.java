@@ -91,7 +91,7 @@ public class Items
 	public static final Item proustite = new Item(); // 硫砷银
 	@Reg(nameVibratingCrystal)
 	public static final Item vibratingCrystal = new Item(); // 振晶
-
+	@Reg(nameLavaCrystal)
 	public static final Item lavaCrystal = new Item(); // 岩浆结晶
 	@Reg(value=nameAventurine,od={"gem","gemAventurine","aventurine"})
 	public static final Item aventurine = new Item(); // 东陵石
@@ -196,7 +196,7 @@ public class Items
 	public static final Item hotFish = new ItemHotFood(6,0.5f,false); // 灼热鱼
 	@Reg(nameFlesh)
 	public static final Item flesh = new ItemFood(8,0.7f,true)
-			.setPotionEffect(new PotionEffect(MobEffects.NAUSEA,200,0),1); // 血肉
+			.setPotionEffect(new PotionEffect(MobEffects.NAUSEA,400,0),1); // 血肉
 	@Reg(nameFleshCooked)
 	public static final Item fleshCooked = new ItemFood(14,0.9f,false)
 			.setPotionEffect(new PotionEffect(MobEffects.STRENGTH,600,0),1); // 熟血肉

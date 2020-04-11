@@ -3,6 +3,7 @@ package firok.tiths;
 import firok.tiths.common.*;
 import firok.tiths.gui.Guis;
 import firok.tiths.intergration.conarm.ArmorRegistryHandler;
+import firok.tiths.modding.ToolInfo;
 import firok.tiths.world.WorldGen;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.Loader;
@@ -30,7 +31,7 @@ public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers' Things";
-	public static final String VERSION = "1.12.2-0.2.68.0";
+	public static final String VERSION = "1.12.2-0.2.69.0";
 	public static final boolean indev=true;
 
 	@Mod.Instance(MOD_ID)
@@ -70,6 +71,7 @@ public class TinkersThings
 		ConfigJson.setConfigDir(Loader.instance().getConfigDir());
 		if(Configs.General.enable_material_customization) ConfigJson.readMats();
 		if(Configs.General.enable_ore_gen_customization) ConfigJson.readOres();
+		if(Configs.General.enable_tool_craft_functions) ConfigJson.readMFs();
 
 		hasConarm=Loader.isModLoaded("conarm");
 		if(enableConarm())
@@ -142,17 +144,12 @@ public class TinkersThings
 
 		Craftings.registerAllCraftings();
 		Alloys.registerAlloys();
-//		TCMaterials.packMaterials();
-		//
 		//  SmeltingRegistry.register(); // Registers smelting recipes
 		RegistryHandler.integrateMaterials();
 	}
 
 	static Collection<Material> materials=null;
 
-	/**
-	 * This is the final initialization event. Register actions from other mods here
-	 */
 	@Mod.EventHandler
 	public void postinit(FMLPostInitializationEvent event)
 	{
@@ -177,9 +174,14 @@ public class TinkersThings
 	public static void main(String...args)
 	{
 //		;
+		ToolInfo info1=new ToolInfo(
+				new String[]{"a","b","c","d"},
+				new String[]{"1","2","3","4"});
+		ToolInfo info2=new ToolInfo(
+				new String[]{"b","c","d","a"},
+				new String[]{"2","3","4","1"}
+		);
 
-		Class<?> clasz=TinkersThings.class;
-		System.out.println(clasz.getTypeName());
-
+		System.out.println(info1.compareTo(info2));
 	}
 }

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "tiths:ingot_to_block",
+  "result": { "item": "tiths:block_lizanite", "count": 1 },
+  "ingredients": [
+    { "item": "tiths:lizanite" },
+    { "item": "tiths:lizanite" },
+    { "item": "tiths:lizanite" },
+
+    { "item": "tiths:lizanite" },
+    { "item": "tiths:lizanite" },
+    { "item": "tiths:lizanite" },
+
+    { "item": "tiths:lizanite" },
+    { "item": "tiths:lizanite" },
+    { "item": "tiths:lizanite" }
+  ]
+}

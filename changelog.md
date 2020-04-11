@@ -2,6 +2,12 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.69.0 _2020-04-11 12:00_
+
+* 错误修复 bug fixes
+* 增加部分合成表 added some recipes
+* 更新语言文件 updated lang files
+
 ## 0.2.68.0 _2020-04-10 22：30_
 
 * 为流体增加模型 added models to fluids

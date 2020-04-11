@@ -198,6 +198,8 @@ item.tiths.phasing_gem.name=相变之石
 item.tiths.ender_crevice_shard.name=末影裂隙碎片
 item.tiths.cinder.name=煤屑
 item.tiths.ender_dradon_squama.name=末影龙鳞
+item.tiths.flesh_cooked.name=熟血肉
+item.tiths.shell_cooked.name=熟贝壳
 
 ## consumables
 item.tiths.gateway_gem.name=折跃之石
@@ -412,6 +414,18 @@ modifier.sliding_armor.name=软滑
 modifier.sliding_armor.desc=§o碎碎平安§r\n有几率损失大量耐久抵消伤害
 modifier.threshold_limiting_armor.name=阈限
 modifier.threshold_limiting_armor.desc=§o限制器§r\n增加耐久消耗, 穿戴者收到的单次伤害不会超过当前生命的四分之一
+modifier.deep_parasitic_armor.name=深触寄生
+modifier.deep_parasitic_armor.desc=§o你的还是我的?§r\n吸收穿戴者生命修复护甲
+modifier.life_inspiring_armor.name=生命激发
+modifier.life_inspiring_armor.desc=§o我依旧不会轻易狗带§r\n在穿戴者生命危急时提供生命恢复效果
+modifier.soluble_armor.name=可溶
+modifier.soluble_armor.desc=§o停停停!§r\n在水里快速损失耐久
+modifier.diffuse_reflecting_armor.name=漫反射
+modifier.diffuse_reflecting_armor.desc=§o魔法反射§r\n将受到伤害的一部分反射给附近的怪物
+modifier.widening_armor.name=广域化
+modifier.widening_armor.desc=§o友爱§r\n穿戴者使用的药水的效果会提供给周围的玩家
+modifier.warm_soft_armor.name=温软
+modifier.warm_soft_armor.desc=§oGood night, tonight§r\n当穿戴者睡醒后给予增益
 
 ## potions
 effect.heavy=沉重

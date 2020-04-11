@@ -1,8 +1,8 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "tiths:block_to_ingot",
-  "result": { "item": "tiths:talcum", "count": 9 },
-  "ingredients": [
-    { "item": "tiths:block_talcum" }
-  ]
+	"type": "minecraft:crafting_shapeless",
+	"group": "tiths:block_to_ingot",
+	"result": { "item": "tiths:talcum", "count": 9 },
+	"ingredients": [
+	  { "item": "tiths:block_talcum" }
+	]
 }

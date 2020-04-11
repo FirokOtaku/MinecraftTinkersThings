@@ -198,6 +198,8 @@ item.tiths.phasing_gem.name=Phasing Gem
 item.tiths.ender_crevice_shard.name=Ender Crevice Shard
 item.tiths.cinder.name=Cinder
 item.tiths.ender_dradon_squama.name=Ender Dragon Squama
+item.tiths.flesh_cooked.name=Cooked Flesh
+item.tiths.shell_cooked.name=Cooked Shell
 
 ## consumables
 item.tiths.gateway_gem.name=Gateway Gem
@@ -411,6 +413,18 @@ modifier.sliding_armor.name=Sliding
 modifier.sliding_armor.desc=§oBroken up§r\nTo cancel the damage by a high durability cost with a small chance
 modifier.threshold_limiting_armor.name=Threshold Limiting
 modifier.threshold_limiting_armor.desc=§oNo too much§r\nYou will not receive more than a quarter of your current health
+modifier.deep_parasitic_armor.name=Deep Parasitic
+modifier.deep_parasitic_armor.desc=§oYours?§r\nYour armor will repair itself by give wearer damage
+modifier.life_inspiring_armor.name=Life Inspiring
+modifier.life_inspiring_armor.desc=§oI won't go die easily too§r\nTo provide regeneration effect when wearer is in danger
+modifier.soluble_armor.name=Soluble
+modifier.soluble_armor.desc=§oStop it!§r\nThe armor will lose duration if wearer in the water
+modifier.diffuse_reflecting_armor.name=Diffuse Reflecting
+modifier.diffuse_reflecting_armor.desc=§oMagical reflecting§r\nTo reflect damage to nearby monsters
+modifier.widening_armor.name=Widening
+modifier.widening_armor.desc=§oThat's friendly§r\nWhen wearer use potion, the effects will also provided to nearby players
+modifier.warm_soft_armor.name=Warm Soft
+modifier.warm_soft_armor.desc=§oGood night, tonight§r\nTo give wearer effects when waking up
 
 ## potions
 effect.heavy=Heavy

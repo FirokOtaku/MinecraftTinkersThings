@@ -11,21 +11,8 @@
 
 ## 最近更新 latest update
 
-**0.2.68.0** _2020-04-10 22:30_ (GMT+8)
+**0.2.69.0** _2020-04-11 12:00_ (GMT+8)
 
-* 为流体增加模型 added models to fluids
-* 为部分方块和物品增加材质贴图 added textures to some blocks and items
+* 错误修复 bug fixes
+* 增加部分合成表 added some recipes
 * 更新语言文件 updated lang files
-* 增加状态效果 added potion effects
-  * 缠绕 rooted
-  * 天神下凡 avatar
-  * 护甲软化 armor softened
-* 增加特性 added traits
-  * 深触寄生(护甲) deep parasitic(armor)
-  * 生命激发(护甲) life inspiring(armor)
-  * 可溶(护甲) soluble(armor)
-  * 漫反射(护甲) diffuse reflecting(armor)
-  * 广域化(护甲) widening(armor)
-* 增加物品 added items
-  * 熟血肉 cooked flesh
-  * 熟贝壳 cooked shell

@@ -474,7 +474,7 @@ public final class TiCMaterials
 	@CompoHead(durability = 20,miningspeed = 0.5,attack = 0,harvestLevel = 0,traits = {nameTraitSqueaky})
 	@CompoExtra(extraDurability = -300,traits = {nameTraitLightweight})
 	@CompoArmorCore(durability = 1,defense = 1)
-	@CompoArmorPlate(modifier = 1,durability = 1,toughness = 1,traits = nameTraitWarmSoft+'1') // info 属性需要改
+	@CompoArmorPlate(modifier = 1,durability = 1,toughness = 1) // info 属性需要改
 	@CompoArmorTrim(extraDurability = 1,traits = nameTraitWarmSoft+'2')
 	public static final Material cloud=new $Material(nameCloud, colorCloud)
 			.addItemAsIngot(Blocks.blockCloud);

@@ -4,6 +4,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import firok.tiths.TinkersThings;
+import firok.tiths.modding.ModdingFactory;
+import firok.tiths.modding.ModdingInfo;
 import firok.tiths.util.conf.MaterialInfo;
 import firok.tiths.util.conf.OreGenInfo;
 
@@ -52,6 +54,7 @@ public class ConfigJson
 
 	public static final String nameConfigMats=TinkersThings.MOD_ID + "_materials.json";
 	public static final String nameConfigOres=TinkersThings.MOD_ID + "_ores.json";
+	public static final String nameConfigToolCraftFunctions=TinkersThings.MOD_ID+"_tool_craft_functions.json";
 
 
 	/* ---- 自定义材料属性相关 ---- */
@@ -159,6 +162,22 @@ public class ConfigJson
 			ores.put(name,info);
 		}));
 		if(ores.size()>0) log("customized ore gens: "+ ores.keySet());
+	}
+
+	/* ---- 自定义工具处理方法 ---- */
+	public static void readMFs()
+	{
+		ModdingInfos.clearModdings();
+		readJsonConfig(nameConfigToolCraftFunctions,objectConfig-> objectConfig.entrySet().forEach(entry->{
+			String name=entry.getKey();
+			JsonObject obj=entry.getValue().getAsJsonObject();
+
+			ModdingInfo modding=ModdingFactory.create(name,obj);
+
+			if(modding==null) return;
+
+			ModdingInfos.registerModding(modding);
+		}));
 	}
 
 //	public static void outputAll()

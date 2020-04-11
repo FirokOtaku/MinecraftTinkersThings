@@ -4,6 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -11,19 +12,19 @@ import java.util.List;
  */
 public class ModdingInfo
 {
-	public String type()
+	public String name()
 	{
-		return type;
+		return name;
 	}
-	private String type;
+	private String name;
 	private ToolInfo toolinfo;
 	private List<ModdingFunction> functions;
 
-	public ModdingInfo(String type,ToolInfo toolinfo,List<ModdingFunction> functions)
+	public ModdingInfo(String name,ToolInfo toolinfo,List<ModdingFunction> functions)
 	{
-		this.type=type;
+		this.name =name;
 		this.toolinfo=toolinfo.copy();
-		this.functions=new ArrayList<>(functions);
+		this.functions=new ArrayList<>(functions==null? Collections.emptyList() :functions);
 	}
 
 	public boolean equalsToolInfo(ModdingInfo info)

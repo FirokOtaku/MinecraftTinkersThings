@@ -18,7 +18,7 @@ hidfug|💡
 Isaac200000|🔊
 Kirisu|💡
 l_sz|💡
-LNY|💡
 Thsaure|💡
 Wu|💡
+諾炎|💡
 夜凌_yorin|💡 🌼
