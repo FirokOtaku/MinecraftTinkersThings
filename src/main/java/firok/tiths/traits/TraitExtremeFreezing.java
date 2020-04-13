@@ -1,36 +1,27 @@
 package firok.tiths.traits;
 
+import firok.tiths.common.Configs;
+import firok.tiths.util.EntityFinders;
 import firok.tiths.util.Selectors;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Enchantments;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.event.world.BlockEvent;
-import slimeknights.tconstruct.common.config.Config;
 import slimeknights.tconstruct.library.modifiers.IToolMod;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
-import slimeknights.tconstruct.library.utils.ToolHelper;
-import slimeknights.tconstruct.shared.TinkerCommons;
 import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.TinkerTraits;
 
 import java.util.List;
-import java.util.ListIterator;
 
 import static firok.tiths.common.Keys.colorTraitExtremeFreezing;
 import static firok.tiths.common.Keys.nameTraitExtremeFreezing;
 import static firok.tiths.util.Predicates.canTick;
-import static firok.tiths.util.Predicates.isStone;
 
 // 极寒
 public class TraitExtremeFreezing extends AbstractTrait
@@ -46,14 +37,7 @@ public class TraitExtremeFreezing extends AbstractTrait
 	}
 	public static void freeze(Entity center)
 	{
-		List<Entity> ens=center.world.getEntitiesInAABBexcluding(
-				center,
-				new AxisAlignedBB(
-						center.posX-5,center.posY-4,center.posZ-5,
-						center.posX+5,center.posY+4,center.posZ+5
-				),
-				Selectors.mobAlive
-		);
+		List<Entity> ens=EntityFinders.Nearby(center, Configs.Traits.range_extreme_freezing,Selectors.mobAlive);
 		if(ens.size()>0)
 			for(Entity en:ens)
 			{

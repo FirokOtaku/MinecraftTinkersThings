@@ -3,7 +3,6 @@ package firok.tiths;
 import firok.tiths.common.*;
 import firok.tiths.gui.Guis;
 import firok.tiths.intergration.conarm.ArmorRegistryHandler;
-import firok.tiths.modding.ToolInfo;
 import firok.tiths.world.WorldGen;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.Loader;
@@ -31,7 +30,7 @@ public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers' Things";
-	public static final String VERSION = "1.12.2-0.2.69.0";
+	public static final String VERSION = "1.12.2-0.2.70.0";
 	public static final boolean indev=true;
 
 	@Mod.Instance(MOD_ID)

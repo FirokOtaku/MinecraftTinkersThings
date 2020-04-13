@@ -1,5 +1,6 @@
 package firok.tiths.traits;
 
+import firok.tiths.util.Actions;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
@@ -17,21 +18,11 @@ public class TraitSwitching extends AbstractTrait
 	}
 
 	@Override
-	public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
+	public void afterHit(ItemStack tool, EntityLivingBase entity, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
 	{
 		if(wasHit && target.isEntityAlive())
 		{
-			double pPosX=player.posX,pPosY=player.posY,pPosZ=player.posZ;
-			float pRotPitch=player.rotationPitch,pRotYaw=player.rotationYaw,pCamPitch=player.cameraPitch;
-
-			player.rotationYaw=target.rotationYaw;
-			player.rotationPitch=target.rotationPitch;
-			player.setPositionAndUpdate(target.posX,target.posY,target.posZ);
-
-			target.cameraPitch=pCamPitch;
-			target.rotationYaw=pRotYaw;
-			target.rotationPitch=pRotPitch;
-			target.setPositionAndUpdate(pPosX,pPosY,pPosZ);
+			Actions.CauseSwitching(entity,target);
 		}
 	}
 }

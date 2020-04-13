@@ -2,6 +2,18 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.70.0 _2020-04-13 14:00_
+
+* 增加方块和物品 added items
+  * 唱片 Tinkers' Imagination record
+* 增加特性 added traits
+  * 凋零流动(护甲) wither flowing(armor)
+  * 剧毒(护甲) poisonous(armor)
+  * 换位(护甲) switching(armor)
+  * 星绽(护甲) star dashing(armor)
+  * 热力聚集(护甲) thermal gathering(armor)
+* 为更多特性增加配置文件支持 more traits are configurable now
+
 ## 0.2.69.0 _2020-04-11 12:00_
 
 * 错误修复 bug fixes

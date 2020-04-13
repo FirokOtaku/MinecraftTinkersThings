@@ -91,6 +91,7 @@ public interface Keys
 	String nameSteamium="steamium";
 	String nameGrain="grain";
 	String nameEnderCreviceShard="ender_crevice_shard";
+	String nameMercurySulfide="mercury_sulfide";
 	String nameAventurine="aventurine";
 	String nameCinder="cinder";
 	String nameUlun="ulun";
@@ -163,6 +164,7 @@ public interface Keys
 	String blockLavaCrystal=prefBlock+nameLavaCrystal;
 	String blockSteamium=prefBlock+nameSteamium;
 	String blockAventurine=prefBlock+nameAventurine;
+	String blockMercurySulfide=prefBlock+nameMercurySulfide;
 
 	String blockFulgurite=prefBlock+nameFulgurite;
 	String blockMeteorolite=prefBlock+nameMeteorolite;
@@ -333,6 +335,14 @@ public interface Keys
 	String nameTraitSqueaky="squeaky";
 	String nameTraitHeavy="heavy";
 	String nameTraitAquaspeed="aquaspeed";
+	String nameTraitSkeletal="skeletal";
+	String nameTraitBouncy="bouncy";
+	String nameTraitRough="rough";
+	String nameTraitAmbitious="ambitious";
+	String nameTraitSteady="steady";
+	String nameTraitCombustible="combustible";
+	String nameTraitIndomitable="indomitable";
+	String nameTraitVoltaic="voltaic";
 
 	// 属性
 	String nameTraitGluttonic="gluttonic";
@@ -472,6 +482,7 @@ public interface Keys
 	int colorTraitDiffuseReflecting=0x81dbc7;
 	int colorTraitWidening=0xba274c;
 	int colorTraitWarmSoft=0xfff14f;
+	int colorTraitPoisonous=0x467f01;
 
 	// 状态效果颜色
 	int colorPotionHeavy=Colors.DarkSeaGreen;
@@ -513,14 +524,14 @@ public interface Keys
 	String soundTinkersImagination="tinkers_imagination";
 	String soundTinkersEnemy="tinkers_enemy";
 
-	String configBase="config."+TinkersThings.MOD_ID+'.';
-	String cateGeneral=configBase+"general";
-	String cateGeneralBase=cateGeneral+'.';
-	String confEnableConarm=cateGeneralBase+"enable_conarm";
-	String confEnableMaterialCustomization=cateGeneralBase+"enable_material_customization";
-	String confEnableOreGenCustomization=cateGeneralBase+"enable_ore_gen_customization";
-
-	String cateTraits=configBase+"traits";
-	String cateTraitsBase=cateTraits+'.';
-	String confTraitRateBirefringent=cateTraitsBase+"rate_birefringent";
+//	String configBase="config."+TinkersThings.MOD_ID+'.';
+//	String cateGeneral=configBase+"general";
+//	String cateGeneralBase=cateGeneral+'.';
+//	String confEnableConarm=cateGeneralBase+"enable_conarm";
+//	String confEnableMaterialCustomization=cateGeneralBase+"enable_material_customization";
+//	String confEnableOreGenCustomization=cateGeneralBase+"enable_ore_gen_customization";
+//
+//	String cateTraits=configBase+"traits";
+//	String cateTraitsBase=cateTraits+'.';
+//	String confTraitRateBirefringent=cateTraitsBase+"rate_birefringent";
 }

@@ -1,5 +1,6 @@
 package firok.tiths.traits;
 
+import firok.tiths.common.Configs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -8,7 +9,8 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.FoodStats;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-import static firok.tiths.common.Keys.*;
+import static firok.tiths.common.Keys.colorTraitGluttonic;
+import static firok.tiths.common.Keys.nameTraitGluttonic;
 
 // 暴食
 public class TraitGluttonic extends AbstractTrait
@@ -34,8 +36,8 @@ public class TraitGluttonic extends AbstractTrait
 				float saturationLevel=stats.getSaturationLevel();
 
 				// 增加饱食度
-				stats.setFoodLevel(foodLevel+4);
-				stats.setFoodSaturationLevel(saturationLevel+4);
+				stats.setFoodLevel(foodLevel + Configs.Traits.factor_gluttonic_food);
+				stats.setFoodSaturationLevel(saturationLevel + Configs.Traits.factor_gluttonic_food);
 			}
 		}
 	}

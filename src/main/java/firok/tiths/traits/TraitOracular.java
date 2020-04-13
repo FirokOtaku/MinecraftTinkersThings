@@ -1,6 +1,6 @@
 package firok.tiths.traits;
 
-import firok.tiths.TinkersThings;
+import firok.tiths.common.Configs;
 import firok.tiths.common.SoundEvents;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,7 +10,8 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.SoundCategory;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-import static firok.tiths.common.Keys.*;
+import static firok.tiths.common.Keys.colorTraitOracular;
+import static firok.tiths.common.Keys.nameTraitOracular;
 import static firok.tiths.util.Predicates.canTrigger;
 
 // 神谕
@@ -28,7 +29,7 @@ public class TraitOracular extends AbstractTrait
 		{
 			boolean playSound=false;
 
-			if(target.isEntityAlive())
+			if(Configs.Traits.enable_oracular_remove_target && target.isEntityAlive())
 			{
 				// 移除目标的增益效果
 				for(PotionEffect effect:target.getActivePotionEffects())
@@ -43,6 +44,7 @@ public class TraitOracular extends AbstractTrait
 			}
 
 			// 移除玩家的减益效果
+			if(Configs.Traits.enable_oracular_remove_player)
 			for(PotionEffect effect:player.getActivePotionEffects())
 			{
 				Potion potion=effect.getPotion();
@@ -54,19 +56,19 @@ public class TraitOracular extends AbstractTrait
 			}
 
 			// 几率回血
-			if(canTrigger(player.world,0.4f))
+			if(canTrigger(player.world, Configs.Traits.rate_oracular_heal))
 			{
-				player.heal(2);
+				player.heal((float)Configs.Traits.factor_oracular_heal);
 				playSound = true;
 			}
 
-//			if(playSound && player instanceof EntityPlayer)
-//			{
+			if(playSound && player instanceof EntityPlayer)
+			{
 //				TinkersThings.log("play sound!");
-////				player.world.playSound((EntityPlayer)player,player.posX,player.posY,player.posZ, SoundEvents.effectHeal, SoundCategory.MASTER, 1, 1);
-//				player.world.playSound((EntityPlayer)player,player.getPosition(),SoundEvents.effectHeal,SoundCategory.MASTER,1,1);
-////				player.playSound(SoundEvents.effectHeal,1,1);
-//			}
+//				player.world.playSound((EntityPlayer)player,player.posX,player.posY,player.posZ, SoundEvents.effectHeal, SoundCategory.MASTER, 1, 1);
+				player.world.playSound(null,player.getPosition(),SoundEvents.effectHeal,SoundCategory.MASTER,1,1);
+//				player.playSound(SoundEvents.effectHeal,1,1);
+			}
 		}
 	}
 }

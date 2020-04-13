@@ -298,6 +298,22 @@ public final class Actions
 		return ret;
 	}
 
+	// 换位 - 转移
+	public static void CauseSwitching(EntityLivingBase entity,EntityLivingBase target)
+	{
+		double pPosX=entity.posX,pPosY=entity.posY,pPosZ=entity.posZ;
+		float pRotPitch=entity.rotationPitch,pRotYaw=entity.rotationYaw,pCamPitch=entity.cameraPitch;
+
+		entity.rotationYaw=target.rotationYaw;
+		entity.rotationPitch=target.rotationPitch;
+		entity.setPositionAndUpdate(target.posX,target.posY,target.posZ);
+
+		target.cameraPitch=pCamPitch;
+		target.rotationYaw=pRotYaw;
+		target.rotationPitch=pRotPitch;
+		target.setPositionAndUpdate(pPosX,pPosY,pPosZ);
+	}
+
 	public static final double PI_2=Math.PI/2,PI_4=Math.PI/4,PI_6=Math.PI/6,PI=Math.PI;
 	public static void CauseGatewayTeleport(Entity entity,float distance)
 	{

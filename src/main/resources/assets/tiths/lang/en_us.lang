@@ -197,7 +197,7 @@ item.tiths.driller.name=Driller
 item.tiths.phasing_gem.name=Phasing Gem
 item.tiths.ender_crevice_shard.name=Ender Crevice Shard
 item.tiths.cinder.name=Cinder
-item.tiths.ender_dradon_squama.name=Ender Dragon Squama
+item.tiths.ender_dragon_squama.name=Ender Dragon Squama
 item.tiths.flesh_cooked.name=Cooked Flesh
 item.tiths.shell_cooked.name=Cooked Shell
 
@@ -210,6 +210,10 @@ item.tiths.record_tinkers_efforts.name=Music Disc
 item.record.record_tinkers_efforts.desc=Frankumjay - Tinkers' Efforts
 item.tiths.record_tinkers_will.name=Music Disc
 item.record.record_tinkers_will.desc=Frankumjay - Tinkers' Will
+item.tiths.record_tinkers_imagination.name=Music Disc
+item.record.record_tinkers_imagination.desc=Timbre - Tinkers' Imagination
+item.tiths.record_tinkers_enemy.name=Music Disc
+item.record.record_tinkers_enemy.desc=- - Tinkers' Enemy
 
 ## materials
 material.immersed_silver.name=Immsered Silver
@@ -323,7 +327,7 @@ modifier.phantasmic.desc=§oOnly I can see it?§r\nWhat on earth is it?
 modifier.hemolytic.name=Hemolytic
 modifier.hemolytic.desc=To heal the tool when dealing damage
 modifier.wither_flowing.name=Wither Flowing
-modifier.wither_flowing.desc=§oYour life drains§r\nTo wither your enemy
+modifier.wither_flowing.desc=§oYour life drains§r\nTo wither and weaken your enemy
 modifier.carbonizing.name=Carbonizing
 modifier.carbonizing.desc=§oFine§r\n
 modifier.sun_power.name=Sun Power
@@ -425,6 +429,18 @@ modifier.widening_armor.name=Widening
 modifier.widening_armor.desc=§oThat's friendly§r\nWhen wearer use potion, the effects will also provided to nearby players
 modifier.warm_soft_armor.name=Warm Soft
 modifier.warm_soft_armor.desc=§oGood night, tonight§r\nTo give wearer effects when waking up
+modifier.wither_flowing_armor.name=Wither Flowing
+modifier.wither_flowing_armor.desc=§oYour life drains§r\nTo wither and weaken your enemy
+modifier.poisonous_armor.name=Poisonous
+modifier.poisonous_armor.desc=§oNot exactly lead-free!§r\nPoisons enemies on hit.
+modifier.switching_armor.name=Switching
+modifier.switching_armor.desc=§oWhat?§r\nTo exchange position with the attacker
+modifier.star_dashing_armor.name=Star Dashing
+modifier.star_dashing_armor.desc=§oHey! Hey! Hey! START DASH!!§r\nTo throw fire when attacked
+modifier.thermal_gathering_armor.name=Thermal Gathering
+modifier.thermal_gathering_armor.desc=§oI'm so hot§r\nReduce fire damage you taken and your armor will automatically repair itself when close to heat source
+modifier.stamina_focusing_armor.name=Stamina Focusing
+modifier.stamina_focusing_armor.desc=§oStrong mind§r\nTo provide resistance effect when user is sneaking
 
 ## potions
 effect.heavy=Heavy

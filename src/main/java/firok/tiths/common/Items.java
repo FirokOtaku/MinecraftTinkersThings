@@ -206,7 +206,8 @@ public class Items
 	public static final Item recordTinkersEfforts = new ItemRecord(Keys.recordTinkersEfforts,SoundEvents.recordTinkersEfforts);
 	@Reg(value=Keys.recordTinkersWill,od={"record"})
 	public static final Item recordTinkersWill = new ItemRecord(Keys.recordTinkersWill,SoundEvents.recordTinkersWill);
-//	public static final Item recordTinkersImagination = new ItemRecord(Keys.recordTinkersImagination,null);
+	@Reg(value=Keys.recordTinkersImagination,od={"record"})
+	public static final Item recordTinkersImagination = new ItemRecord(Keys.recordTinkersImagination,SoundEvents.recordTinkersImagination);
 //	public static final Item recordTinkersEnemy = new ItemRecord(Keys.recordTinkersEnemy,null;)
 
 	// 匠魂工具

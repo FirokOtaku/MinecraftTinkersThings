@@ -1,5 +1,6 @@
 package firok.tiths.traits;
 
+import firok.tiths.common.Configs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -28,7 +29,7 @@ public class TraitMoonPower extends AbstractTrait
 	{
 		if(!world.isRemote && entity instanceof EntityLivingBase && checkHealMoon(world))
 		{
-			ToolHelper.healTool(tool, 1, (EntityLivingBase) entity);
+			ToolHelper.healTool(tool, Configs.Traits.factor_moon_power, (EntityLivingBase) entity);
 		}
 	}
 }

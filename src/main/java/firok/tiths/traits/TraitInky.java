@@ -1,5 +1,6 @@
 package firok.tiths.traits;
 
+import firok.tiths.common.Configs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
@@ -25,7 +26,7 @@ public class TraitInky extends AbstractTrait
 	@Override
 	public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit) {
 		if(wasHit && target.isEntityAlive()) {
-			target.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 100));
+			target.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, Configs.Traits.factor_inky));
 		}
 	}
 

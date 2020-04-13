@@ -13,6 +13,13 @@
       "tiths:records/tinkers_will"
     ]
   },
+  "tinkers_imagination": {
+    "category": "record",
+    "subtitle": "tiths.sound.tinkers_imagination",
+    "sounds": [
+      "tiths:records/tinkers_imagination"
+    ]
+  },
   "heal_effect": {
     "category": "master",
     "subtitle": "tiths.sound.heal_effect",

@@ -1,10 +1,13 @@
 package firok.tiths.traits;
 
+import firok.tiths.common.Configs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
+import static firok.tiths.common.Configs.Traits.factor_hemolytic_damage;
+import static firok.tiths.common.Configs.Traits.rate_hemolytic;
 import static firok.tiths.common.Keys.colorTraitHemolytic;
 import static firok.tiths.common.Keys.nameTraitHemolytic;
 import static firok.tiths.util.Predicates.canTrigger;
@@ -17,23 +20,18 @@ public class TraitHemolytic  extends AbstractTrait
 		super(nameTraitHemolytic, colorTraitHemolytic);
 	}
 
-	public static final float factorDamage=1.15f;
-	public static final float limitRepairDamage=5;
-	public static final float factorRepairDamage=5;
-	public static final float rate=0.5f;
-
 	@Override
 	public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float newDamage, boolean isCritical)
 	{
-		return super.damage(tool, player, target, damage, newDamage * factorDamage, isCritical);
+		return newDamage * (float)factor_hemolytic_damage;
 	}
 
 	@Override
 	public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
 	{
-		if(!player.world.isRemote && wasHit && damageDealt>limitRepairDamage && canTrigger(player.world,rate))
+		if(!player.world.isRemote && wasHit && damageDealt > Configs.Traits.factor_hemolytic_limit && canTrigger(player.world,rate_hemolytic))
 		{
-			ToolHelper.healTool(tool,(int)(damageDealt/factorRepairDamage),player);
+			ToolHelper.healTool(tool,(int)(damageDealt / Configs.Traits.factor_hemolytic_repair),player);
 		}
 	}
 }

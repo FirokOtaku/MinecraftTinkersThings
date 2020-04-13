@@ -1,5 +1,6 @@
 package firok.tiths.traits;
 
+import firok.tiths.common.Configs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -22,7 +23,7 @@ public class TraitLuxurious extends AbstractTrait
 
 	@Override
 	public int onToolHeal(ItemStack tool, int amount, int newAmount, EntityLivingBase entity) {
-		return newAmount - amount / 5; // 降低20%的耐久恢复
+		return (int)(newAmount - amount * Configs.Traits.factor_luxurious_durability); // 降低20%的耐久恢复
 	}
 
 	public static boolean checkParticle(World world)

@@ -197,7 +197,7 @@ item.tiths.driller.name=打孔器
 item.tiths.phasing_gem.name=相变之石
 item.tiths.ender_crevice_shard.name=末影裂隙碎片
 item.tiths.cinder.name=煤屑
-item.tiths.ender_dradon_squama.name=末影龙鳞
+item.tiths.ender_dragon_squama.name=末影龙鳞
 item.tiths.flesh_cooked.name=熟血肉
 item.tiths.shell_cooked.name=熟贝壳
 
@@ -206,11 +206,14 @@ item.tiths.gateway_gem.name=折跃之石
 item.tiths.ancient_book_irisia.name=艾瑞西亚古籍
 
 ## record
-item.tiths.record_tinkers_efforts.name=唱片
+item.tiths.record_tinkers_efforts.name=音乐唱片
 item.record.record_tinkers_efforts.desc=Frankumjay - Tinkers' Efforts
-item.tiths.record_tinkers_will.name=唱片
+item.tiths.record_tinkers_will.name=音乐唱片
 item.record.record_tinkers_will.desc=Frankumjay - Tinkers' Will
-
+item.tiths.record_tinkers_imagination.name=音乐唱片
+item.record.record_tinkers_imagination.desc=Timbre - Tinkers' Imagination
+item.tiths.record_tinkers_enemy.name=音乐唱片
+item.record.record_tinkers_enemy.desc=- - Tinkers' Enemy
 
 ## materials
 material.immersed_silver.name=沉银
@@ -426,6 +429,18 @@ modifier.widening_armor.name=广域化
 modifier.widening_armor.desc=§o友爱§r\n穿戴者使用的药水的效果会提供给周围的玩家
 modifier.warm_soft_armor.name=温软
 modifier.warm_soft_armor.desc=§oGood night, tonight§r\n当穿戴者睡醒后给予增益
+modifier.wither_flowing_armor.name=凋零流动
+modifier.wither_flowing_armor.desc=§o你的生命在流逝§r\n使攻击者虚弱并凋零
+modifier.poisonous_armor.name=剧毒
+modifier.poisonous_armor.desc=§o并非完全不含铅!§r\n使攻击者中毒
+modifier.switching_armor.name=换位
+modifier.switching_armor.desc=§o斗转星移§r\n跟目标交换位置
+modifier.star_dashing_armor.name=星绽
+modifier.star_dashing_armor.desc=§oHey! Hey! Hey! START DASH!!§r\n被击时向周围释放火焰
+modifier.thermal_gathering_armor.name=热力聚集
+modifier.thermal_gathering_armor.desc=§o烤烤烤§r\n降低受到的火焰伤害. 当周围有热源方块时会缓慢恢复耐久
+modifier.stamina_focusing_armor.name=精力汇聚
+modifier.stamina_focusing_armor.desc=§o坚定意志§r\n潜行时提供抗性提升效果
 
 ## potions
 effect.heavy=沉重

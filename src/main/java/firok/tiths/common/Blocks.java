@@ -236,7 +236,7 @@ public class Blocks
 		blockStellariumObsidian.setHardness(50F).setResistance(1200F).setHarvestLevel("pickaxe", HarvestLevels.OBSIDIAN);
 	}
 //	@Reg(Keys.blockBloodPumpkin)
-//	public static final Block blockBloodPumpkin = new Block(Material.WOOD); // 血南瓜
+	public static final Block blockBloodPumpkin = new BlockBloodSand(); // 血南瓜
 //	@Reg(Keys.blockWeepingPumpkin)
 //	public static final Block blockWeepingPumpkin = new Block(Material.WOOD); // 哭泣的南瓜
 	@Reg(Keys.blockBloodSand)

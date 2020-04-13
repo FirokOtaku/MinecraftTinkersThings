@@ -50,6 +50,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static firok.tiths.common.Configs.Traits.enable_gluttonic_clear;
 import static firok.tiths.common.Traits.thermalGathering;
 import static firok.tiths.traits.TraitStonePhasing.costStone;
 import static firok.tiths.util.Predicates.canTrigger;
@@ -135,8 +136,26 @@ public class Events
 		// 掉落物品
 		if(stack2drop!=null)
 		{
-			EntityItem ei=new EntityItem(world,living.posX,living.posY,living.posZ,stack2drop);
-			world.spawnEntity(ei);
+			Actions.CauseSpawnItem(living,stack2drop);
+		}
+
+		if(canTrigger(rand,0.005))
+		{
+			int temp=rand.nextInt(100);
+			ItemStack record2drop;
+			if(temp<33)
+			{
+				record2drop=new ItemStack(Items.recordTinkersEfforts);
+			}
+			else if(temp<66)
+			{
+				record2drop=new ItemStack(Items.recordTinkersImagination);
+			}
+			else
+			{
+				record2drop=new ItemStack(Items.recordTinkersWill);
+			}
+			Actions.CauseSpawnItem(living,record2drop);
 		}
 	}
 
@@ -237,7 +256,7 @@ public class Events
 
 			// 检查有没有各类属性
 			boolean hasMidasDesiring=ToolHelper.getTraits(stack).contains(Traits.midasDesiring);
-			boolean hasGluttonic=ToolHelper.getTraits(stack).contains(Traits.gluttonic);
+			boolean hasGluttonic=enable_gluttonic_clear && ToolHelper.getTraits(stack).contains(Traits.gluttonic);
 
 			if(hasMidasDesiring && !hasGluttonic) // 迈达斯之欲 转化物品 // 有暴食的话没必要执行了 // info 其实还能优化 但是懒得优化了
 			{
@@ -351,7 +370,6 @@ public class Events
 	@SubscribeEvent
 	public static void onPlayerWaken(PlayerWakeUpEvent event)
 	{
-		System.out.println("test");
 		if(TinkersThings.enableConarm())
 		{
 			ArmorEvents.onPlayerWaken(event);

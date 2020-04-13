@@ -1,5 +1,6 @@
 package firok.tiths.traits;
 
+import firok.tiths.common.Configs;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -54,39 +55,45 @@ public class TraitThermalGathering extends AbstractTrait
 	private static Entity _entity=null;
 	private static long _tickTime=-1;
 	private static boolean _hasFound=false;
-	public static boolean checkThermalSource(Entity entity)
+	private static boolean _realCheck(Entity entity,World world)
 	{
-		World world=entity.world;
-		long timeNow=world.getTotalWorldTime();
-
-		if (entity != _entity || timeNow != _tickTime)
+		BlockPos center = entity.getPosition();
+		FOR_FIND_Y:
+		for (int ty = -2; ty <= 1; ty++)
 		{
-			_entity = entity;
-			_tickTime = timeNow;
-			_hasFound = false;
-
-			BlockPos center = entity.getPosition();
-			FOR_FIND_Y:
-			for (int ty = -2; ty <= 1; ty++)
+			FOR_FIND_X:
+			for (int tx = -2; tx <= 2; tx++)
 			{
-				FOR_FIND_X:
-				for (int tx = -2; tx <= 2; tx++)
+				FOR_FIND_Z:
+				for (int tz = -2; tz <= 2; tz++)
 				{
-					FOR_FIND_Z:
-					for (int tz = -2; tz <= 2; tz++)
+					BlockPos pos2find = center.add(tx, ty, tz);
+					Block blockFound = world.getBlockState(pos2find).getBlock();
+					if (isThermalSource(blockFound))
 					{
-						BlockPos pos2find = center.add(tx, ty, tz);
-						Block blockFound = world.getBlockState(pos2find).getBlock();
-						if (isThermalSource(blockFound))
-						{
-							_hasFound = true;
-							break FOR_FIND_Y;
-						}
+						return true;
 					}
 				}
 			}
 		}
-		return _hasFound;
+		return false;
+	}
+	public static boolean checkThermalSource(Entity entity)
+	{
+		World world=entity.world;
+
+		if(Configs.General.enable_single_thread_optimization)
+		{
+			long timeNow=world.getTotalWorldTime();
+			if (entity != _entity || timeNow != _tickTime)
+			{
+				_entity = entity;
+				_tickTime = timeNow;
+				_hasFound = _realCheck(entity,world);
+			}
+			return _hasFound;
+		}
+		else return _realCheck(entity,world);
 	}
 
 	@Override
