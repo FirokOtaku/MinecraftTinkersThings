@@ -11,6 +11,7 @@ name|job
 Firok|💡 📑 🌼 🌏
 Avery|🌏
 Ayero|💡
+Dongguai|💡
 ExplosiveMosFET|💡
 Frankumjay|🔊
 goulixiaoji|💡
@@ -19,6 +20,7 @@ Isaac200000|🔊
 Kirisu|💡
 l_sz|💡
 Thsaure|💡
+Timbre|🔊
 Wu|💡
 諾炎|💡
 夜凌_yorin|💡 🌼
@@ -26,6 +28,8 @@ Wu|💡
 ## 关于音效和音乐 About sounds and musics
 
 本模组所用音效和音乐均来自[Free Sound](https://freesound.org/)网站 All sounds and musics of this mod are from [Free Sound](https://freesound.org/)
+
+您使用本模组的资源文件时, 请注意遵守相应的CC协议 When you use the resources of this mod, please pay attention to the corresponding Creative Commons license
 
 游戏内名称 in-game name|原名称 original name|作者 author|对原作品修改 modification|遵循协议 licence|原作链接 link
 -|-|-|-|-|-

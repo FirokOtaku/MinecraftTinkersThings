@@ -2,6 +2,29 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.71.0 _2020-04-14 18:00_
+
+* 增加方块和物品 added blocks and items
+  * 汞红锭 mercury sulfide ingot item
+  * 汞红块  mercury sulfide block
+  * 沉沙石矿 heavesand ore block
+  * 沉沙石块 heavesand block
+  * 泊水石矿 potos ore block
+  * 泊水石块 potos block
+  * 泠笛石矿 furutorin ore block
+  * 泠笛石块 furutorin block
+  * 乌润石矿 ulun ore block
+  * 乌润石块 ulun block
+  * 叶绿矿 chloroplast ore block
+  * 叶绿块 chloroplast block
+  * 叶绿锭 chloroplast ingot item
+  * 叶绿粒 chloroplast nugget item
+  * 焦黑通风孔 searing vent block
+* 增加液体 added fluids
+  * 熔融叶绿 molten chloroplast
+* 增加实体 added entities
+  * 焦黑通风孔(逻辑) searing vent(logic)
+
 ## 0.2.70.0 _2020-04-13 14:00_
 
 * 增加方块和物品 added items
@@ -42,13 +65,13 @@
 ## 0.2.67.0 _2020-04-10 22：00_
 
 * 增加物品 added items
-  * 沉沙石 heavesand
-  * 泊水石 potos
-  * 泠笛石 furutorin
-  * 乌润石 ulun
+  * 沉沙石 heavesand item
+  * 泊水石 potos item
+  * 泠笛石 furutorin item
+  * 乌润石 ulun item
 * 为部分方块和物品增加材质贴图 added textures to some blocks and items
 
-##0.2.66.0 2020-04-07 16:00
+## 0.2.66.0 2020-04-07 16:00
 
 * 更新语言文件 updated lang files
 * 增加实体 added entities

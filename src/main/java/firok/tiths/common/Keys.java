@@ -98,6 +98,7 @@ public interface Keys
 	String namePotos="potos";
 	String nameFurutorin="furutorin";
 	String nameHeavesand="heavesand";
+	String nameChloroplast="chloroplast";
 
 	String nameHardener="hardener";
 	String namePolisher="polisher";
@@ -165,6 +166,11 @@ public interface Keys
 	String blockSteamium=prefBlock+nameSteamium;
 	String blockAventurine=prefBlock+nameAventurine;
 	String blockMercurySulfide=prefBlock+nameMercurySulfide;
+	String blockChloroplast=prefBlock+nameChloroplast;
+	String blockUlun=prefBlock+nameUlun;
+	String blockPotos=prefBlock+namePotos;
+	String blockFurutorin=prefBlock+nameFurutorin;
+	String blockHeavesand=prefBlock+nameHeavesand;
 
 	String blockFulgurite=prefBlock+nameFulgurite;
 	String blockMeteorolite=prefBlock+nameMeteorolite;
@@ -215,6 +221,11 @@ public interface Keys
 	String oreLavaCrystal=prefOre+nameLavaCrystal;
 	String oreSteamium=prefOre+nameSteamium;
 	String oreAventurine=prefOre+nameAventurine;
+	String oreChloroplast=prefOre+nameChloroplast;
+	String oreUlun=prefOre+nameUlun;
+	String orePotos=prefOre+namePotos;
+	String oreFurutorin=prefOre+nameFurutorin;
+	String oreHeavesand=prefOre+nameHeavesand;
 
 	// 矿锭
 	String ingotStellarium=prefIngot+nameStellarium;
@@ -235,6 +246,7 @@ public interface Keys
 	String ingotOraclium=prefIngot+nameOraclium;
 	String ingotSteamium=prefIngot+nameSteamium;
 	String ingotGrain=prefIngot+nameGrain;
+	String ingotChloroplast=prefIngot+nameChloroplast;
 
 	// 矿粒
 	String nuggetStellarium=prefNugget+nameStellarium;
@@ -254,6 +266,7 @@ public interface Keys
 	String nuggetIrisia=prefNugget+nameIrisia;
 	String nuggetOraclium=prefNugget+nameOraclium;
 	String nuggetSteamium=prefNugget+nameSteamium;
+	String nuggetChloroplast=prefNugget+nameChloroplast;
 
 	// 材料颜色
 	int colorEnderDragonSquama=0x180c33;
@@ -310,6 +323,7 @@ public interface Keys
 	int colorSteamium=0xb7d3f5;
 	int colorGrain=0xea9b32;
 	int colorAventurine=0x4e8d41;
+	int colorChloroplast=0x1;
 
 	// 匠魂自带属性
 	String nameTraitLightweight="lightweight";

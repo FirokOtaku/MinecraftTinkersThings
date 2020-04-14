@@ -28,6 +28,7 @@ public class Fluids
 	public static final FluidMolten moltenIrisia=$(nameIrisia, colorIrisia);
 	public static final FluidMolten moltenOraclium=$(nameOraclium, colorOraclium);
 	public static final FluidMolten moltenSteamium=$(nameSteamium, colorSteamium);
+	public static final FluidMolten moltenChloroplast=$(nameChloroplast, colorChloroplast);
 
 	static FluidMolten $(String name,int color)
 	{

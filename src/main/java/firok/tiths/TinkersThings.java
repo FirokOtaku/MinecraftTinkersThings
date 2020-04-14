@@ -30,7 +30,7 @@ public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers' Things";
-	public static final String VERSION = "1.12.2-0.2.70.0";
+	public static final String VERSION = "1.12.2-0.2.71.0";
 	public static final boolean indev=true;
 
 	@Mod.Instance(MOD_ID)
@@ -168,19 +168,5 @@ public class TinkersThings
 	public void onServerStop(FMLServerStoppedEvent event)
 	{
 		ServerDatas.uninit(); // 销毁服务端数据
-	}
-
-	public static void main(String...args)
-	{
-//		;
-		ToolInfo info1=new ToolInfo(
-				new String[]{"a","b","c","d"},
-				new String[]{"1","2","3","4"});
-		ToolInfo info2=new ToolInfo(
-				new String[]{"b","c","d","a"},
-				new String[]{"2","3","4","1"}
-		);
-
-		System.out.println(info1.compareTo(info2));
 	}
 }

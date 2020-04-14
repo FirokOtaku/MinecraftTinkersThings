@@ -12,7 +12,7 @@ public class Alloys
 	{
 //		TinkersThings.log("register alloys...");
 		// 奢华合金
-		if(Configs.General.enable_royal_alloy_easy_crafting) // 是否启用简易合成
+		if(Configs.Gameplay.enable_royal_alloy_easy_crafting) // 是否启用简易合成
 		{
 			registerAlloy(
 					new FluidStack(Fluids.moltenRoyalAlloy, VALUE_Ingot*3),

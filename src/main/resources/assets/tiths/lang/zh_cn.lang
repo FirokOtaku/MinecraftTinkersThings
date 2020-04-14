@@ -39,6 +39,11 @@ tile.tiths.ore_vibrating_crystal.name=振晶矿
 tile.tiths.ore_lava_crystal.name=岩浆水晶矿
 tile.tiths.ore_steamium.name=气钢矿
 tile.tiths.ore_aventurine.name=东陵石矿
+tile.tiths.ore_ulun.name=乌润石矿
+tile.tiths.ore_potos.name=泊水石矿
+tile.tiths.ore_furutorin.name=泠笛石矿
+tile.tiths.ore_heavesand.name=沉沙石矿
+tile.tiths.ore_chloroplast.name=叶绿矿
 
 ## blocks
 tile.tiths.block_blood_sand.name=血沙
@@ -89,6 +94,11 @@ tile.tiths.block_vibrating_crystal.name=振晶块
 tile.tiths.block_lava_crystal.name=岩浆水晶块
 tile.tiths.block_steamium.name=气钢块
 tile.tiths.block_aventurine.name=东陵石块
+tile.tiths.block_ulun.name=乌润石块
+tile.tiths.block_potos.name=泊水石块
+tile.tiths.block_furutorin.name=泠笛石块
+tile.tiths.block_heavesand.name=沉沙石块
+tile.tiths.block_chloroplast.name=叶绿块
 
 ## fluids
 fluid.royal_alloy.name=熔融奢华合金
@@ -109,6 +119,7 @@ fluid.tonium.name=熔融钝金
 fluid.irisia.name=熔融艾瑞西亚
 fluid.oraclium.name=熔融神谕钢
 fluid.steamium.name=熔融气钢
+fluid.chloroplast.name=熔融叶绿
 
 ## items
 item.tiths.hot_bread.name=炽热面包
@@ -169,6 +180,7 @@ item.tiths.nugget_cocoa.name=可可粒
 item.tiths.nugget_irisia.name=艾瑞西亚粒
 item.tiths.nugget_oraclium.name=神谕钢粒
 item.tiths.nugget_steamium.name=气钢粒
+item.tiths.nugget_chloroplast=叶绿粒
 ## ingot
 item.tiths.ingot_stellarium.name=恒星金属锭
 item.tiths.ingot_royal_alloy.name=奢华合金锭
@@ -188,6 +200,7 @@ item.tiths.ingot_irisia.name=艾瑞西亚锭
 item.tiths.ingot_oraclium.name=神谕钢锭
 item.tiths.ingot_steamium.name=气钢锭
 item.tiths.ingot_grain.name=谷锭
+item.tiths.ingot_chloroplast.name=叶绿锭
 
 ## other item
 item.tiths.hardener.name=硬化剂
@@ -271,6 +284,7 @@ material.lava_crystal.name=岩浆水晶
 material.steamium.name=气钢
 material.grain.name=谷
 material.aventurine.name=东陵石
+material.chloroplast.name=叶绿
 
 ## modifiers
 modifier.maiming.name=致残
@@ -491,7 +505,7 @@ death.attack.birefringent=%1$s被折射成了碎片
 death.attack.pyroelectric=%1$s的心脏陷入了麻痹
 
 ## warning
-warning.tiths.indev=[匠魂扩增] 警告:  目前模组仍在§1开发阶段§r中, 现有放出的模组文件仅用于§2预览和测试§r, 任何内容在未来的更新中都可能出现§6删改§r;  且由于模组目前仍§4未经过§r完整详细的测试, §4不能§r确保平衡性、稳定性和安全性, 请§4不要§r用于生存模式游玩, 更§4不要§r用于服务器!
+warning.tiths.indev=[匠魂扩增] 警告:  目前模组仍在§1开发阶段§r中, 现有放出的模组文件仅用于§2预览和测试§r, 任何内容在未来的更新中都可能出现§6删改§r;  且由于模组目前仍§4未经过§r完整详细的测试, §4不能§r确保平衡性、稳定性和安全性, 请§4不要§r用于生存模式游玩, 更§4不要§r用于服务器!   如果您有任何问题/建议/创意, 可以加入交流群反馈: 938590850
 
 ## config
 config.tiths.general=整体设定

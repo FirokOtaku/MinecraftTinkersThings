@@ -39,6 +39,11 @@ tile.tiths.ore_vibrating_crystal.name=Vibrating Crystal Ore
 tile.tiths.ore_lava_crystal.name=Lava Crystal Ore
 tile.tiths.ore_steamium.name=Steamium Ore
 tile.tiths.ore_aventurine.name=Aventurine Ore
+tile.tiths.ore_ulun.name=Ulun Ore
+tile.tiths.ore_potos.name=Potos Ore
+tile.tiths.ore_furutorin.name=Furutorin Ore
+tile.tiths.ore_heavesand.name=Heavesand Ore
+tile.tiths.ore_chloroplast.name=Chloroplast Ore
 
 ## blocks
 tile.tiths.block_blood_sand.name=Blood Sand
@@ -89,6 +94,11 @@ tile.tiths.block_vibrating_crystal.name=Block of Vibrating Crystal
 tile.tiths.block_lava_crystal.name=Block of Lava Crystal
 tile.tiths.block_steamium.name=Block of Steamium
 tile.tiths.block_aventurine.name=Block of Aventurine
+tile.tiths.block_ulun.name=Block of Ulun
+tile.tiths.block_potos.name=Block of Potos
+tile.tiths.block_furutorin.name=Block of Furutorin
+tile.tiths.block_heavesand.name=Block of Heavesand
+tile.tiths.block_chloroplast.name=Block of Chloroplast
 
 ## fluids
 fluid.royal_alloy.name=Molten Royal Alloy
@@ -109,6 +119,7 @@ fluid.tonium.name=Molten Tonium
 fluid.irisia.name=Molten Irisia
 fluid.oraclium.name=Molten Oraclium
 fluid.steamium.name=Molten Steamium
+fluid.chloroplast.name=Molten Chloroplast
 
 ## items
 item.tiths.hot_bread.name=Hot Bread
@@ -169,6 +180,7 @@ item.tiths.nugget_irisia.name=Irisia Nugget
 item.tiths.flesh.name=Flesh
 item.tiths.nugget_oraclium.name=Oraclium Nugget
 item.tiths.nugget_steamium.name=Steamium Nugget
+item.tiths.nugget_chloroplast=Chloroplast Nugget
 ## ingot
 item.tiths.ingot_stellarium.name=Stellarium Ingot
 item.tiths.ingot_royal_alloy.name=Royal Alloy Ingot
@@ -188,6 +200,7 @@ item.tiths.ingot_irisia.name=Irisia Ingot
 item.tiths.ingot_oraclium.name=Oraclium Ingot
 item.tiths.ingot_steamium.name=Steamium Ingot
 item.tiths.ingot_grain.name=Grain Ingot
+item.tiths.ingot_chloroplast.name=Chloroplast Ingot
 
 ## other item
 item.tiths.hardener.name=Hardener
@@ -271,6 +284,7 @@ material.lava_crystal.name=Lava Crystal
 material.steamium.name=Steamium
 material.grain.name=Grain
 material.aventurine.name=Aventurine
+material.chloroplast.name=Chloroplast
 
 ## modifiers
 modifier.maiming.name=Maiming

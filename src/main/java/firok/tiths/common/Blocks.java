@@ -1,9 +1,6 @@
 package firok.tiths.common;
 
-import firok.tiths.block.BlockBloodSand;
-import firok.tiths.block.BlockCloud;
-import firok.tiths.block.BlockCompressed;
-import firok.tiths.block.BlockOre;
+import firok.tiths.block.*;
 import firok.tiths.util.reg.GenOre;
 import firok.tiths.util.reg.Reg;
 import net.minecraft.block.Block;
@@ -106,9 +103,23 @@ public class Blocks
 	@GenOre(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
 	public static final BlockOre oreProustite = new BlockOre(Items.proustite,1,1,1,4,6).setRareOre();
 	@Reg(Keys.oreLavaCrystal)
+	@GenOre(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
 	public static final BlockOre oreLavaCrystal = new BlockOre(Items.lavaCrystal,1,1,1,3,6).setVeryRareOre();
 	@Reg(Keys.oreAventurine)
+	@GenOre(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
 	public static final BlockOre oreAventurine = new BlockOre(Items.aventurine,1,1,1,4,6).setRareOre();
+	@Reg(Keys.oreUlun)
+	@GenOre(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
+	public static final BlockOre oreUlun = new BlockOre(Items.ulun,1,1,1,4,6); // 乌润石矿
+	@Reg(Keys.orePotos)
+	@GenOre(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
+	public static final BlockOre orePotos = new BlockOre(Items.potos,1,1,1,4,6); // 泊水石矿
+	@Reg(Keys.oreFurutorin)
+	@GenOre(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
+	public static final BlockOre oreFurutorin = new BlockOre(Items.furutorin,1,1,1,4,6); // 泠笛石矿
+	@Reg(Keys.oreHeavesand)
+	@GenOre(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
+	public static final BlockOre oreHeavesand = new BlockOre(Items.heavesand,1,1,1,4,6); // 沉沙石矿
 
 	@Reg(Keys.orePolarium)
 //	@GenMeteoWorld
@@ -139,6 +150,9 @@ public class Blocks
 	@Reg(Keys.oreSteamium)
 	@GenOre(times=2,timeRate = 1,size=6,minY=40,maxY=60)
 	public static final BlockOre oreSteamium = new BlockOre(); // 气钢矿
+	@Reg(Keys.oreChloroplast)
+	@GenOre(times=2,timeRate = 1,size=6,minY=40,maxY=60)
+	public static final Block oreChloroplast = new BlockOreChloroplast(); // 叶绿矿
 
 	@Reg(Keys.oreTreeRoot)
 	public static final Block oreTreeRoot = new BlockOre(Material.WOOD,Material.WOOD.getMaterialMapColor(),Items.treeRoot,1,3,1,2,4)
@@ -228,6 +242,18 @@ public class Blocks
 	public static final Block blockSteamium = new BlockCompressed(); // 气钢块
 	@Reg(Keys.blockAventurine)
 	public static final Block blockAventurine = new BlockCompressed(Material.ROCK); // 东陵石块
+	@Reg(Keys.blockMercurySulfide)
+	public static final Block blockMercurySulfide = new BlockCompressed(); // 汞红块
+	@Reg(Keys.blockUlun)
+	public static final Block blockUlun = new BlockCompressed(Material.ROCK); // 乌润石块
+	@Reg(Keys.blockPotos)
+	public static final Block blockPotos = new BlockCompressed(Material.ROCK); // 泊水石块
+	@Reg(Keys.blockFurutorin)
+	public static final Block blockFurutorin = new BlockCompressed(Material.ROCK); // 泠笛石块
+	@Reg(Keys.blockHeavesand)
+	public static final Block blockHeavesand = new BlockCompressed(Material.ROCK); // 沉沙石块
+	@Reg(Keys.blockChloroplast)
+	public static final Block blockChloroplast = new BlockCompressed(); // 叶绿块
 
 	@Reg(Keys.blockStellariumObsidian)
 	public static final Block blockStellariumObsidian = new Block(Material.ROCK); // 恒星黑曜石
@@ -265,6 +291,8 @@ public class Blocks
 	}; // 强化玻璃
 	@Reg(Keys.blockCoagulatedBloodSand)
 	public static final Block blockCoagulatedBloodSand = new BlockCompressed(Material.SAND); // 凝结血沙
+	@Reg("block_searing_vent")
+	public static final Block blockSearingVent = new BlockSearingVent(); // 焦黑通风孔
 
 	// 一些装饰用方块
 //	@Reg(Keys.blockRoyalEnchantmentTable)

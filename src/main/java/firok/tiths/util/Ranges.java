@@ -28,4 +28,11 @@ public final class Ranges
 				entity.posX+distance,entity.posY+distance,entity.posZ+distance
 		);
 	}
+	public static AxisAlignedBB Neighbour(BlockPos center,double distance)
+	{
+		return new AxisAlignedBB(
+				center.getX()-distance,center.getY()-distance,center.getZ()-distance,
+				center.getX()+distance,center.getY()+distance,center.getZ()+distance
+		);
+	}
 }

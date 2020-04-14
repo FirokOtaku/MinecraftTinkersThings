@@ -39,6 +39,8 @@ public class Items
 	public static final Item shellCooked = new ItemFood(1,0.2f,false); // 熟贝壳
 	@Reg(nameEnderCreviceShard)
 	public static final Item enderCreviceShard = new Item(); // 末影裂隙碎片
+	@Reg(nameMercurySulfide)
+	public static final Item mercurySulfide = new Item(); // 汞红锭
 
 //	public static final Item resplendentGem = new Item(); // 璀璨宝石
 
@@ -138,6 +140,8 @@ public class Items
 	public static final Item nuggetOraclium = new Item(); // 神谕粒
 	@Reg(Keys.nuggetSteamium)
 	public static final Item nuggetSteamium = new Item(); // 气钢粒
+	@Reg(Keys.nuggetChloroplast)
+	public static final Item nuggetChloroplast = new Item(); // 叶绿粒
 
 	// 原材料 - 金属锭
 	@Reg(Keys.ingotStellarium)
@@ -176,6 +180,8 @@ public class Items
 	public static final Item ingotSteamium = new Item(); // 气钢锭
 	@Reg(Keys.ingotGrain)
 	public static final Item ingotGrain = new Item(); // 谷砖
+	@Reg(Keys.ingotChloroplast)
+	public static final Item ingotChloroplast = new Item(); // 叶绿锭
 
 	// 单纯的原材料
 //	@Reg(nameRoyalPaper)

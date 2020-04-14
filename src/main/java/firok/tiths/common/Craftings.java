@@ -67,6 +67,8 @@ public class Craftings
 		createBinding(Blocks.oreStellarium,Blocks.blockStellarium,Fluids.moltenStellarium,Items.ingotStellarium,Items.nuggetStellarium);
 		createBinding(null,Blocks.blockCocoa,Fluids.moltenCocoa,Items.ingotCocoa,Items.nuggetCocoa);
 		createBinding(null,Blocks.blockIrisia,Fluids.moltenIrisia,Items.ingotIrisia,Items.nuggetIrisia);
+		createBinding(Blocks.oreSteamium,Blocks.blockSteamium,Fluids.moltenSteamium,Items.ingotSteamium,Items.nuggetSteamium);
+		createBinding(Blocks.oreChloroplast,Blocks.blockChloroplast,Fluids.moltenChloroplast,Items.ingotChloroplast,Items.nuggetChloroplast);
 
 		TinkerRegistry.registerMelting(
 				new ItemStack(net.minecraft.init.Items.DYE,1,EnumDyeColor.BROWN.getDyeDamage()),
@@ -266,4 +268,6 @@ public class Craftings
 
 	// 下面这个以后可能用到
 	// TinkerRegistry.registerStencilTableCrafting(Pattern.setTagForPart(new ItemStack(pattern), sharpeningKit));
+	// 这个可能是发射器用的
+	// BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY
 }

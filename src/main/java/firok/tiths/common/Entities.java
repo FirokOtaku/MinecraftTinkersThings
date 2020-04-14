@@ -2,6 +2,7 @@ package firok.tiths.common;
 
 import firok.tiths.entity.projectile.ProjectileDashingStar;
 import firok.tiths.entity.special.EnderBeacon;
+import firok.tiths.entity.special.LogicSearing;
 import firok.tiths.entity.trans.Alchemy;
 import firok.tiths.util.reg.RegEntity;
 
@@ -22,4 +23,6 @@ public class Entities
 
 	@RegEntity(network = 350)
 	public static EnderBeacon ender_beacon;
+	@RegEntity(network = 351)
+	public static LogicSearing logic_searing;
 }

@@ -25,7 +25,7 @@ public class TraitArmorChemicalInstable extends AbstractArmorTrait
 	@Override
 	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
 	{
-		if(canTrigger(player.world, Configs.Traits.rate_chemical_instable_hit))
+		if(canTrigger(player.world, Configs.ArmorTraits.rate_chemical_instable_hit))
 		{
 			boom(player,player.posX,player.posY,player.posZ);
 		}
