@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "tiths:blocks/ore_furutorin",
+    "down": "tiths:blocks/ore_furutorin",
+    "up": "tiths:blocks/ore_furutorin",
+    "north": "tiths:blocks/ore_furutorin",
+    "south": "tiths:blocks/ore_furutorin",
+    "west": "tiths:blocks/ore_furutorin",
+    "east": "tiths:blocks/ore_furutorin"
+  }
+}

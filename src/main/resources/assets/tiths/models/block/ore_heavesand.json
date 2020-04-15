@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "tiths:blocks/ore_heavesand",
+    "down": "tiths:blocks/ore_heavesand",
+    "up": "tiths:blocks/ore_heavesand",
+    "north": "tiths:blocks/ore_heavesand",
+    "south": "tiths:blocks/ore_heavesand",
+    "west": "tiths:blocks/ore_heavesand",
+    "east": "tiths:blocks/ore_heavesand"
+  }
+}
