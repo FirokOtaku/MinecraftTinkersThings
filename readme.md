@@ -11,6 +11,11 @@
 
 ## 最近更新 latest update
 
+**0.2.71.1** _2020-04-15 18:57_
+ 
+ * 为部分方块和物品增加材质贴图 added textures to some blocks and items
+
+
 **0.2.71.0** _2020-04-14 18:00_ (GMT+8)
 
 * 增加方块和物品 added blocks and items

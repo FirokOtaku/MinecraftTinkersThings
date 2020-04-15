@@ -1,6 +1,10 @@
 # 变更日志 Changelog
 
 > All Time Stamps: GMT+8
+>## 0.2.71.1 _2020-04-15 18:57_
+ 
+ * 为部分方块和物品增加材质贴图 added textures to some blocks and items
+
 
 ## 0.2.71.0 _2020-04-14 18:00_
 
