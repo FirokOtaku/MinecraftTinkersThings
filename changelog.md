@@ -2,6 +2,14 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.71.4 _2020-04-17 22:15_
+
+* 修改部分材质贴图 modify textures to some block and items
+
+## 0.2.71.3 _2020-04-16 21:30_
+
+* 修改部分材质贴图 modify textures to some block and items
+
 ## 0.2.71.2 _2020-04-16 19:30_
 
 * 为部分方块和物品增加材质贴图 added textures to some blocks and items
