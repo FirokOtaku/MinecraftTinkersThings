@@ -99,6 +99,9 @@ public interface Keys
 	String nameFurutorin="furutorin";
 	String nameHeavesand="heavesand";
 	String nameChloroplast="chloroplast";
+	String nameEnderTurbulence="ender_turbulence";
+	String nameWitheringEssence="withering_essence";
+	String nameDirtyWater="dirty_water";
 
 	String nameHardener="hardener";
 	String namePolisher="polisher";
@@ -179,6 +182,10 @@ public interface Keys
 	String blockBloodSand=prefBlock+nameBloodSand;
 	String blockConsolidatedGlass=prefBlock+nameConsolidatedGlass;
 	String blockCoagulatedBloodSand=prefBlock+nameCoagulatedBloodSand;
+	String blockBloodyChiseledQuartz=prefBlock+"bloody_chiseled_quartz";
+	String blockBloodyPillarQuartz=prefBlock+"bloody_pillar_quartz";
+	String blockBloodyQuartz=prefBlock+"bloody_quartz";
+	String blockSearingVent=prefBlock+"searing_vent";
 
 	String blockRoyalEnchantmentTable=prefBlock+"royal_enchantment_table";
 
@@ -323,7 +330,10 @@ public interface Keys
 	int colorSteamium=0xb7d3f5;
 	int colorGrain=0xea9b32;
 	int colorAventurine=0x4e8d41;
-	int colorChloroplast=0x1;
+	int colorChloroplast=0xb1fa2a;
+	int colorEnderTurbulence=0x5c1491;
+
+	int colorDirtyWater=0x613d1d;
 
 	// 匠魂自带属性
 	String nameTraitLightweight="lightweight";
@@ -516,6 +526,7 @@ public interface Keys
 	String uuidPotionRootedSpeed="9F5D5738-D280-4577-8589-B1791B5B847D";
 	String uuidPotionArmorSoftenedArmor="425BCA0D-7A45-4246-9887-144F55725230";
 	String uuidPotionArmorSoftenedArmorToughness="BB676529-49C3-4887-AD64-911EDBE69F7E";
+	String uuidPotionArmorVoidInfected="9BA4BDC8-7E7F-437A-B526-B2D8CF3588F0";
 
 	// 燃料热值
 	int fuelTimeCoal=1600;
@@ -534,9 +545,10 @@ public interface Keys
 	// 唱片资源键
 	String soundTinkersEfforts="tinkers_efforts";
 	String soundTinkersWill="tinkers_will";
-	String soundHealEffect="heal_effect";
 	String soundTinkersImagination="tinkers_imagination";
 	String soundTinkersEnemy="tinkers_enemy";
+	String soundHealEffect="heal_effect";
+	String soundShakeEffect="shake_effect";
 
 //	String configBase="config."+TinkersThings.MOD_ID+'.';
 //	String cateGeneral=configBase+"general";

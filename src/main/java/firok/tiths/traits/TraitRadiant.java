@@ -1,18 +1,17 @@
 package firok.tiths.traits;
 
+import firok.tiths.common.Configs;
+import firok.tiths.util.EntityFinders;
 import firok.tiths.util.Selectors;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Enchantments;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.world.BlockEvent;
@@ -56,14 +55,7 @@ public class TraitRadiant extends AbstractTrait
 	 */
 	public static void burn(World world,Entity source)
 	{
-		List<Entity> ens=world.getEntitiesInAABBexcluding(
-				source,
-				new AxisAlignedBB(
-						source.posX-5,source.posY-4,source.posZ-5,
-						source.posX+5,source.posY+4,source.posZ+5
-				),
-				Selectors.mobAlive
-		);
+		List<Entity> ens= EntityFinders.Nearby(source, Configs.Traits.range_radiant,Selectors.mobAlive);
 		if(ens.size()>0)
 			for(Entity en:ens)
 			{

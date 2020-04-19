@@ -1,5 +1,6 @@
 package firok.tiths.common;
 
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.shared.TinkerFluids;
@@ -37,9 +38,15 @@ public class Alloys
 		);
 		// 神谕钢
 		registerAlloy(
+				new FluidStack(Fluids.moltenOraclium, VALUE_Ingot * 2),
 				new FluidStack(Fluids.moltenAltairium, VALUE_Ingot),
-				new FluidStack(Fluids.moltenPolarium, VALUE_Ingot),
-				new FluidStack(Fluids.moltenOraclium, VALUE_Ingot * 2)
+				new FluidStack(Fluids.moltenPolarium, VALUE_Ingot)
+		);
+		// 污水
+		registerAlloy(
+				new FluidStack(Fluids.dirtyWater, VALUE_Ingot * 2),
+				new FluidStack(TinkerFluids.dirt, VALUE_Ingot),
+				new FluidStack(FluidRegistry.WATER, VALUE_Ingot)
 		);
 	}
 

@@ -23,6 +23,7 @@ import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -64,6 +65,44 @@ public final class Actions
 		World world=target.world;
 		EntityItem ei=new EntityItem(world,target.posX,target.posY,target.posZ,stack);
 		world.spawnEntity(ei);
+	}
+
+	// 末影传送
+	public static void CauseEnderTeleport(EntityLivingBase entity)
+	{
+		for (int i = 0; i < 64; ++i)
+		{
+			if (teleportRandomly(entity))
+			{
+				entity.setPositionNonDirty();
+				return;
+			}
+		}
+	}
+
+	protected static boolean teleportRandomly(EntityLivingBase entity)
+	{
+		Random rand=entity.world.rand;
+		double d0 = entity.posX + (rand.nextDouble() - 0.5D) * 64.0D;
+		double d1 = entity.posY + (rand.nextInt(64) - 32);
+		double d2 = entity.posZ + (rand.nextDouble() - 0.5D) * 64.0D;
+		return teleportTo(entity,d0, d1, d2);
+	}
+
+	private static boolean teleportTo(EntityLivingBase entity,double x, double y, double z)
+	{
+		net.minecraftforge.event.entity.living.EnderTeleportEvent event = new net.minecraftforge.event.entity.living.EnderTeleportEvent(entity, x, y, z, 0);
+		if (net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(event)) return false;
+
+		boolean flag = entity.attemptTeleport(event.getTargetX(), event.getTargetY(), event.getTargetZ());
+
+		if (flag)
+		{
+			entity.world.playSound(null, entity.prevPosX, entity.prevPosY, entity.prevPosZ, SoundEvents.ENTITY_ENDERMEN_TELEPORT, entity.getSoundCategory(), 1.0F, 1.0F);
+			entity.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
+		}
+
+		return flag;
 	}
 
 	// 生成一个宝藏屋

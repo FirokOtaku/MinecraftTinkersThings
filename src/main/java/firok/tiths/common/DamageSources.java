@@ -4,21 +4,49 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSource;
 
-@SuppressWarnings("all")
+//@SuppressWarnings("all")
 public class DamageSources
 {
-	// 精神伤害
-	public static final DamageSource SanDamage=new DamageSource("san")
+	// 精神伤害 // 目前仅用于血沙 非实体伤害源
+	public static final String TypeSan="san";
+	public static final DamageSource SanDamage=new DamageSource(TypeSan)
 			.setMagicDamage()
 			.setDamageBypassesArmor();
+
 	// 双折伤害
-	public static final DamageSource BirefringentDamage=new DamageSource("birefringent");
+	public static final String TypeBirefringent="birefringent";
+	public static EntityDamageSource Birefringent(Entity source)
+	{
+		EntityDamageSource ret=new EntityDamageSource(TypeBirefringent,source);
+		ret.setDifficultyScaled();
+		ret.setMagicDamage();
+		return ret;
+	}
+
 	// 热释电伤害
-	public static final DamageSource PyroelectricDamage=new DamageSource("pyroelectric");
-	public static final DamageSource ThunderingDamage=new DamageSource("thundering")
-			.setDamageBypassesArmor();
+	public static final String TypePyroelectric="pyroelectric";
+	public static EntityDamageSource Pyroelectric(Entity source)
+	{
+		EntityDamageSource ret=new EntityDamageSource(TypePyroelectric,source);
+		ret.setMagicDamage();
+		return ret;
+	}
+
+	// 雷鸣伤害
+	public static final String TypeThundering="thundering";
+	public static EntityDamageSource Thundering(Entity source)
+	{
+		EntityDamageSource ret=new EntityDamageSource(TypeThundering,source);
+		ret.setDamageBypassesArmor();
+		return ret;
+	}
+
 	// 屠龙伤害
-	public static final DamageSource DragonKillerDamage=new DamageSource("dragon_killer");
+	public static final String TypeDragonKiller="dragon_killer";
+	public static EntityDamageSource DragonKiller(Entity source)
+	{
+		return new EntityDamageSource(TypeDragonKiller,source);
+	}
 
 	public static final String TypeDiffuseReflecting="diffuse_reflecting";
 	// 漫反射伤害

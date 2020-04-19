@@ -8,8 +8,10 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EntityFinders
+public final class EntityFinders
 {
+	private EntityFinders(){}
+
 	public static List<? extends Entity> Nearby(World world, BlockPos center, double distance)
 	{
 		return Nearby(world,center,distance,en->true);

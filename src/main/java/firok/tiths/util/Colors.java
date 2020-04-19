@@ -4,8 +4,10 @@ package firok.tiths.util;
 import java.awt.*;
 
 @SuppressWarnings("all")
-public class Colors
+public final class Colors
 {
+	private Colors(){}
+
 	public static final int Black=0x000000;
 	public static final int Navy=0x000080;
 	public static final int DarkBlue=0x00008B;

@@ -25,7 +25,7 @@ public class Guis implements IGuiHandler
 	{
 		switch (ID)
 		{
-			case GUI_PAGE: return new ContainerPage();
+			case GUI_PAGE: return new ContainerPage(player);
 			case GUI_GEM_BREWING_STAND: return new ContainerGemBrewingStand(player.inventory,(IInventory) world.getTileEntity(new BlockPos(x,y,z)));
 			default: return null;
 		}
@@ -36,7 +36,7 @@ public class Guis implements IGuiHandler
 	{
 		switch (ID)
 		{
-			case GUI_PAGE: return new GuiContainerPage(new ContainerPage());
+			case GUI_PAGE: return new GuiContainerPage(new ContainerPage(player));
 			case GUI_GEM_BREWING_STAND: return new GuiContainerGemBrewingStand(player.inventory,(IInventory) world.getTileEntity(new BlockPos(x,y,z)));
 			default: return null;
 		}

@@ -11,30 +11,20 @@
 
 ## 最近更新 latest update
 
-**0.2.71.1** _2020-04-15 18:57_
- 
- * 为部分方块和物品增加材质贴图 added textures to some blocks and items
+**0.2.72.0** _2020-04-19 18:30_
 
-
-**0.2.71.0** _2020-04-14 18:00_ (GMT+8)
-
-* 增加方块和物品 added blocks and items
-  * 汞红锭 mercury sulfide ingot item
-  * 汞红块  mercury sulfide block
-  * 沉沙石矿 heavesand ore block
-  * 沉沙石块 heavesand block
-  * 泊水石矿 potos ore block
-  * 泊水石块 potos block
-  * 泠笛石矿 furutorin ore block
-  * 泠笛石块 furutorin block
-  * 乌润石矿 ulun ore block
-  * 乌润石块 ulun block
-  * 叶绿矿 chloroplast ore block
-  * 叶绿块 chloroplast block
-  * 叶绿锭 chloroplast ingot item
-  * 叶绿粒 chloroplast nugget item
-  * 焦黑通风孔 searing vent block
+* 错误修复 bug fixes
+* 增加物品 added items
+  * 凋零精尘 withering essence
+* 修改部分合成表 adjusted some recipes
+* 为更多特性增加配置文件支持 more traits are configurable now
+* 修改部分材质贴图 modify textures to some blocks and items
 * 增加液体 added fluids
-  * 熔融叶绿 molten chloroplast
-* 增加实体 added entities
-  * 焦黑通风孔(逻辑) searing vent(logic)
+  * 末影乱流 ender turbulence
+  * 污水 dirty water
+* 增加状态效果
+  * 虚空侵蚀 void infected
+* 增加方块 added blocks
+  * 血腥石英块 bloody quartz block
+  * 竖纹血腥石英块 bloody pillar quartz block
+  * 錾制血腥石英块 bloody chiseled quartz block

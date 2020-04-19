@@ -3,9 +3,7 @@ package firok.tiths.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -19,7 +17,7 @@ import static net.minecraft.util.EnumFacing.*;
 /**
  * 叶绿矿
  */
-public class BlockOreChloroplast extends BlockCompressed
+public class BlockOreChloroplast extends BlockOre
 {
 	public BlockOreChloroplast()
 	{
@@ -27,14 +25,12 @@ public class BlockOreChloroplast extends BlockCompressed
 		this.setTickRandomly(true);
 	}
 
-	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
-	{
-		this.updateTick(world,pos,state, world.rand);
-		return true;
-	}
-
-
+//	@Override
+//	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
+//	{
+//		this.updateTick(world,pos,state, world.rand);
+//		return true;
+//	}
 
 	@Override
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand)
@@ -121,7 +117,7 @@ public class BlockOreChloroplast extends BlockCompressed
 		world.setBlockState(pos2spawn,this.getDefaultState());
 	}
 
-	boolean canSpawnOn(World world,BlockPos pos,IBlockState state,Block block)
+	boolean canSpawnOn(World world,BlockPos pos,Block block)
 	{
 		return isStone(block);
 	}
@@ -129,29 +125,30 @@ public class BlockOreChloroplast extends BlockCompressed
 	void scan(World world,BlockPos pos)
 	{
 		int total=0,up=0,down=0,east=0,west=0,south=0,north=0; // 各个方向上的数量
-		Block[][][] blocksNearby=new Block[3][3][3]; // 考虑了一下 目前还是扫描3×3×3比较合适
-		FOR_X:for(int ox=-1;ox<=1;ox++)
+		Block[][][] blocksNearby=new Block[5][5][5]; // 考虑了一下 目前还是扫描3×3×3比较合适
+		FOR_X:for(int ox=-2;ox<=2;ox++)
 		{
-			FOR_Y:for(int oy=-1;oy<=1;oy++)
+			FOR_Y:for(int oy=-2;oy<=2;oy++)
 			{
-				FOR_Z:for(int oz=-1;oz<=1;oz++)
+				FOR_Z:for(int oz=-2;oz<=2;oz++)
 				{
+					if(ox==0 && oy==0 && oz==0) continue FOR_Z;
+
 					BlockPos posTemp=pos.add(ox,oy,oz);
 					Block block=world.getBlockState(posTemp).getBlock();
-					blocksNearby[1+ox][1+oy][1+oz]=block;
+					blocksNearby[2+ox][2+oy][2+oz]=block;
 
 					if(block==this) // 遍历扫描周围方块类型
 					{
 						total++;
+						if(total>4) break FOR_X;
 
-						if(total>4) break FOR_X; // 大于4块直接停止本次尝试
-
-						if(oy==1) up++;
-						if(oy==-1) down++;
-						if(oz==1) south++;
-						if(oz==-1) north++;
-						if(ox==1) east++;
-						if(ox==-1) west++;
+						if(oy>0) up++;
+						if(oy<0) down++;
+						if(oz>0) south++;
+						if(oz<0) north++;
+						if(ox>0) east++;
+						if(ox<0) west++;
 					}
 				}
 			}
@@ -160,8 +157,8 @@ public class BlockOreChloroplast extends BlockCompressed
 		if(total<=4)
 		{
 			EnumFacing dir;
-			if(down>0) dir=DOWN;
-			else if(up>0) dir=UP;
+			if(up>0) dir=UP;
+			else if(down>0) dir=DOWN;
 			else if(east>0) dir=EAST;
 			else if(west>0) dir=WEST;
 			else if(north>0) dir=NORTH;
@@ -180,9 +177,11 @@ public class BlockOreChloroplast extends BlockCompressed
 				{
 					FOR_Z:for(int oz=ozMin;oz<=ozMax;oz++)
 					{
-						if(blocksNearby[1+ox][1+oy][1+oz]!=this) // fixme 以后改成 canSpawnOn
+						if(ox==0 && oy==0 && oz==0) continue FOR_Z;
+						BlockPos posTemp=pos.add(ox,oy,oz);
+						if(canSpawnOn(world,pos,blocksNearby[2+ox][2+oy][2+oz])) // fixme 以后改成 canSpawnOn
 						{
-							listPos.add(pos.add(ox,oy,oz)); // 能用的生成位置
+							listPos.add(posTemp); // 能用的生成位置
 						}
 					}
 				}

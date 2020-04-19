@@ -28,9 +28,7 @@ import slimeknights.tconstruct.smeltery.block.BlockMolten;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static firok.tiths.TinkersThings.log;
 import static firok.tiths.util.InnerActions.addMaterialTraits;
@@ -39,7 +37,7 @@ import static slimeknights.tconstruct.library.materials.MaterialTypes.*;
 
 public class RegistryHandler
 {
-	public static final Map<BlockMolten,ItemBlock> mapFluidBlock2Item=new HashMap<>();
+//	public static final Map<BlockMolten,ItemBlock> mapFluidBlock2Item=new HashMap<>();
 	public static void registerFluids()
 	{
 		FieldStream.of(Fluids.class,null,Fluid.class)
@@ -60,18 +58,27 @@ public class RegistryHandler
 //                    ForgeRegistries.BLOCKS.register(block);
 //                    ForgeRegistries.ITEMS.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
 
-					BlockMolten blockMolten=new BlockMolten(fluid);
-					blockMolten.setUnlocalizedName(Keys.prefMolten+ fluid.getName());
-					blockMolten.setRegistryName(TinkersThings.MOD_ID, Keys.prefMolten+ fluid.getName());
+					Block blockFluid;
+					FluidBlock fluidBlock=field.getAnnotation(FluidBlock.class);
+					if(fluidBlock!=null)
+					{
+						blockFluid=fluidBlock.value().getConstructor(Fluid.class).newInstance(fluid);
+					}
+					else
+					{
+						blockFluid=new BlockMolten(fluid);
+					}
 
-					ItemBlock itemBlockMolten=new ItemBlock(blockMolten);
-					itemBlockMolten.setRegistryName(blockMolten.getRegistryName());
+					blockFluid.setUnlocalizedName(Keys.prefMolten+ fluid.getName());
+					blockFluid.setRegistryName(TinkersThings.MOD_ID, Keys.prefMolten+ fluid.getName());
 
-					mapFluidBlock2Item.put(blockMolten,itemBlockMolten);
+					ItemBlock itemBlockMolten=new ItemBlock(blockFluid);
+					itemBlockMolten.setRegistryName(blockFluid.getRegistryName());
 
-					ForgeRegistries.BLOCKS.register(blockMolten);
+//					mapFluidBlock2Item.put(blockFluid,itemBlockMolten);
+
+					ForgeRegistries.BLOCKS.register(blockFluid);
 					ForgeRegistries.ITEMS.register(itemBlockMolten);
-					// fixme low // TAIGA.proxy.registerFluidModels(fluid);
 
 					// 注册匠魂燃料
 					{

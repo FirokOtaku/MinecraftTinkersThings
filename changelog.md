@@ -2,13 +2,31 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.72.0 _2020-04-19 18:30_
+
+* 错误修复 bug fixes
+* 增加物品 added items
+  * 凋零精尘 withering essence
+* 修改部分合成表 adjusted some recipes
+* 为更多特性增加配置文件支持 more traits are configurable now
+* 修改部分材质贴图 modify textures to some blocks and items
+* 增加液体 added fluids
+  * 末影乱流 ender turbulence
+  * 污水 dirty water
+* 增加状态效果
+  * 虚空侵蚀 void infected
+* 增加方块 added blocks
+  * 血腥石英块 bloody quartz block
+  * 竖纹血腥石英块 bloody pillar quartz block
+  * 錾制血腥石英块 bloody chiseled quartz block
+
 ## 0.2.71.4 _2020-04-17 22:15_
 
-* 修改部分材质贴图 modify textures to some block and items
+* 修改部分材质贴图 modified textures of some blocks and items
 
 ## 0.2.71.3 _2020-04-16 21:30_
 
-* 修改部分材质贴图 modify textures to some block and items
+* 修改部分材质贴图 modified textures of some blocks and items
 
 ## 0.2.71.2 _2020-04-16 19:30_
 

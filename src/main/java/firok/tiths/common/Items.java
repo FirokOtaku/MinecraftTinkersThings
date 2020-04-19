@@ -1,11 +1,13 @@
 package firok.tiths.common;
 
+import firok.tiths.TinkersThings;
 import firok.tiths.item.*;
 import firok.tiths.util.reg.Reg;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.ResourceLocation;
 
 import static firok.tiths.common.Keys.*;
 
@@ -41,6 +43,8 @@ public class Items
 	public static final Item enderCreviceShard = new Item(); // 末影裂隙碎片
 	@Reg(nameMercurySulfide)
 	public static final Item mercurySulfide = new Item(); // 汞红锭
+	@Reg(nameWitheringEssence)
+	public static final Item witheringEssence = new Item(); // 凋零精华
 
 //	public static final Item resplendentGem = new Item(); // 璀璨宝石
 
@@ -229,6 +233,12 @@ public class Items
 	public static final Item enderGem = new Item(); // 末影之石
 	@Reg(value=namePhasingGem,od={"gem"})
 	public static final Item phasingGem = new Item(); // 相变之石
+
+	// 残页
+	@Reg("page1")
+	public static final ItemPage page1 = new ItemPage("page.tiths.page1",new ResourceLocation(TinkersThings.MOD_ID,"textures/gui/page1"));
+	@Reg("page2")
+	public static final ItemPage page2 = new ItemPage("page.tiths.page2",new ResourceLocation(TinkersThings.MOD_ID,"textures/gui/page1"));
 
 	// 消耗品
 //	@Reg(nameGatewayGem)

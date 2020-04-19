@@ -1,11 +1,12 @@
 package firok.tiths.traits;
 
+import firok.tiths.common.SoundEvents;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
-import slimeknights.tconstruct.library.tools.ToolNBT;
+import net.minecraft.util.SoundCategory;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.Tags;
@@ -33,6 +34,8 @@ public class TraitShaking extends AbstractTrait
 			target.isAirBorne=true;
 			target.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS,30,2));
 			target.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS,30,2));
+
+			player.world.playSound(null,target.getPosition(), SoundEvents.effectShake, SoundCategory.MASTER,1,1);
 		}
 	}
 

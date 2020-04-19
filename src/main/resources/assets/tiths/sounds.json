@@ -26,5 +26,14 @@
     "sounds": [
       "tiths:effects/heal"
     ]
+  },
+  "shake_effect": {
+    "category": "master",
+    "subtitle": "tiths.sound.shake_effect",
+    "sounds": [
+      "tiths:effects/shake1",
+      "tiths:effects/shake2",
+      "tiths:effects/shake3"
+    ]
   }
 }

@@ -65,6 +65,7 @@ public class Craftings
 		createBinding(Blocks.oreAltairium,Blocks.blockAltairium,Fluids.moltenAltairium,Items.ingotAltairium,Items.nuggetAltairium);
 		createBinding(Blocks.oreHothium,Blocks.blockHothium,Fluids.moltenHothium,Items.ingotHothium,Items.nuggetHothium);
 		createBinding(Blocks.oreStellarium,Blocks.blockStellarium,Fluids.moltenStellarium,Items.ingotStellarium,Items.nuggetStellarium);
+		createBinding(Blocks.oreTonium,Blocks.blockTonium,Fluids.moltenTonium,Items.ingotTonium,Items.nuggetTonium);
 		createBinding(null,Blocks.blockCocoa,Fluids.moltenCocoa,Items.ingotCocoa,Items.nuggetCocoa);
 		createBinding(null,Blocks.blockIrisia,Fluids.moltenIrisia,Items.ingotIrisia,Items.nuggetIrisia);
 		createBinding(Blocks.oreSteamium,Blocks.blockSteamium,Fluids.moltenSteamium,Items.ingotSteamium,Items.nuggetSteamium);
@@ -74,6 +75,11 @@ public class Craftings
 				new ItemStack(net.minecraft.init.Items.DYE,1,EnumDyeColor.BROWN.getDyeDamage()),
 				Fluids.moltenCocoa,
 				Material.VALUE_Nugget
+		);
+		TinkerRegistry.registerMelting(
+				new ItemStack(Items.enderCreviceShard),
+				Fluids.moltenEnderTurbulence,
+				Material.VALUE_Ingot
 		);
 	}
 
@@ -114,6 +120,27 @@ public class Craftings
 						new ItemStack(Blocks.blockConsolidatedGlass),
 						RecipeMatch.of(new ItemStack(net.minecraft.init.Blocks.IRON_BARS)),
 						new FluidStack(TinkerFluids.glass, Material.VALUE_Block),
+						true, false));
+		// 血腥石英块
+		registerBasinCasting(
+				new CastingRecipe(
+						new ItemStack(Blocks.blockBloodyQuartz),
+						RecipeMatch.of(new ItemStack(net.minecraft.init.Blocks.QUARTZ_BLOCK,1,0)),
+						new FluidStack(TinkerFluids.blood, Material.VALUE_Ingot),
+						true, false));
+		// 錾制血腥石英块
+		registerBasinCasting(
+				new CastingRecipe(
+						new ItemStack(Blocks.blockBloodyChiseledQuartz),
+						RecipeMatch.of(new ItemStack(net.minecraft.init.Blocks.QUARTZ_BLOCK,1,1)),
+						new FluidStack(TinkerFluids.blood, Material.VALUE_Ingot),
+						true, false));
+		// 竖纹血腥石英块
+		registerBasinCasting(
+				new CastingRecipe(
+						new ItemStack(Blocks.blockBloodyPillarQuartz),
+						RecipeMatch.of(new ItemStack(net.minecraft.init.Blocks.QUARTZ_BLOCK,1,2)),
+						new FluidStack(TinkerFluids.blood, Material.VALUE_Ingot),
 						true, false));
 	}
 	// 铸造台合成表
@@ -163,6 +190,13 @@ public class Craftings
 				new CastingRecipe(
 						new ItemStack(net.minecraft.init.Items.MAGMA_CREAM),
 						RecipeMatch.of(new ItemStack(net.minecraft.init.Items.BLAZE_POWDER)),
+						new FluidStack(TinkerFluids.blood, Material.VALUE_Ingot*1),
+						true, false));
+		// 凋零锭
+		registerTableCasting(
+				new CastingRecipe(
+						new ItemStack(Items.ingotWitherium),
+						RecipeMatch.of(new ItemStack(Items.ingotInertWitherium)),
 						new FluidStack(TinkerFluids.blood, Material.VALUE_Ingot*1),
 						true, false));
 

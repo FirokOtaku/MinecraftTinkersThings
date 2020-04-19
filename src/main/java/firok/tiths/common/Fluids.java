@@ -1,7 +1,12 @@
 package firok.tiths.common;
 
+import firok.tiths.block.fluid.BlockDirtyWater;
+import firok.tiths.block.fluid.BlockMoltenEnderTurbulence;
+import firok.tiths.block.fluid.BlockMoltenHothium;
+import firok.tiths.util.reg.FluidBlock;
 import firok.tiths.util.reg.RegSmelteryFuel;
 import net.minecraft.util.ResourceLocation;
+import slimeknights.tconstruct.library.fluid.FluidColored;
 import slimeknights.tconstruct.library.fluid.FluidMolten;
 
 import static firok.tiths.common.Keys.*;
@@ -12,6 +17,7 @@ public class Fluids
 	public static final FluidMolten moltenRoyalAlloy=$(nameRoyalAlloy, colorRoyalAlloy);
 	@RegSmelteryFuel(amount=10,duration=400)
 	public static final FluidMolten moltenStellarium=$(nameStellarium, colorStellarium);
+	@FluidBlock(BlockMoltenHothium.class)
 	public static final FluidMolten moltenHothium=$(nameHothium, colorHothium);
 	public static final FluidMolten moltenCinnabar=$(nameCinnabar, colorCinnabar);
 	public static final FluidMolten moltenImmersedSilver=$(nameImmersedSilver, colorImmersedSilver);
@@ -29,6 +35,10 @@ public class Fluids
 	public static final FluidMolten moltenOraclium=$(nameOraclium, colorOraclium);
 	public static final FluidMolten moltenSteamium=$(nameSteamium, colorSteamium);
 	public static final FluidMolten moltenChloroplast=$(nameChloroplast, colorChloroplast);
+	@FluidBlock(BlockMoltenEnderTurbulence.class)
+	public static final FluidMolten moltenEnderTurbulence=$(nameEnderTurbulence, colorEnderTurbulence);
+	@FluidBlock(BlockDirtyWater.class)
+	public static final FluidColored dirtyWater=$$(nameDirtyWater, colorDirtyWater);
 
 	static FluidMolten $(String name,int color)
 	{
@@ -41,6 +51,24 @@ public class Fluids
 				new ResourceLocation("tconstruct:blocks/fluids/molten_metal"),
 				new ResourceLocation("tconstruct:blocks/fluids/molten_metal_flow")
 				);
+		fluid.setTemperature(temp); // 温度
+		fluid.setLuminosity(lumen); // 亮度
+		fluid.setViscosity(visc); // 黏度
+		fluid.setDensity(dens); // 密度
+		return fluid;
+	}
+
+	static FluidColored $$(String name,int color)
+	{
+		return $$(name,color,1000,10,10000,2000);
+	}
+	static FluidColored $$(String name,int color,int temp,int lumen,int visc,int dens)
+	{
+		FluidColored fluid=new FluidColored(
+				name,color,
+				new ResourceLocation("tconstruct:blocks/fluids/liquid"),
+				new ResourceLocation("tconstruct:blocks/fluids/liquid_flow")
+		);
 		fluid.setTemperature(temp); // 温度
 		fluid.setLuminosity(lumen); // 亮度
 		fluid.setViscosity(visc); // 黏度

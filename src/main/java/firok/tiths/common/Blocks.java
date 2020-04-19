@@ -45,7 +45,7 @@ public class Blocks
 	@GenOre(times=4,size=6,minY=10,maxY=150)
 	public static final BlockOre oreBlackrock = new BlockOre(Items.blackrock,1,3,2,1,6); // 黑石矿石
 	@Reg(Keys.oreInertWitherium)
-	@GenOre(times=2,size=5)
+//	@GenOre(times=2,size=5)
 	public static final BlockOre oreInertWitherium = new BlockOre().setVeryRareOre(); // 惰性凋零矿
 	@Reg(Keys.oreWitherium)
 	public static final BlockOre oreWitherium = new BlockOre().setVeryRareOre(); // 凋零矿
@@ -267,8 +267,13 @@ public class Blocks
 //	public static final Block blockWeepingPumpkin = new Block(Material.WOOD); // 哭泣的南瓜
 	@Reg(Keys.blockBloodSand)
 	public static final Block blockBloodSand = new BlockBloodSand(); // 血沙
+	static
+	{}
 	@Reg(Keys.blockConsolidatedGlass)
 	public static final Block blockConsolidatedGlass = new BlockCompressed(Material.GLASS){
+		{
+			this.setResistance(200);
+		}
 		@SideOnly(Side.CLIENT)
 		public BlockRenderLayer getBlockLayer()
 		{
@@ -291,8 +296,15 @@ public class Blocks
 	}; // 强化玻璃
 	@Reg(Keys.blockCoagulatedBloodSand)
 	public static final Block blockCoagulatedBloodSand = new BlockCompressed(Material.SAND); // 凝结血沙
-	@Reg("block_searing_vent")
+	@Reg(Keys.blockSearingVent)
 	public static final Block blockSearingVent = new BlockSearingVent(); // 焦黑通风孔
+	@Reg(Keys.blockBloodyQuartz)
+	public static final Block blockBloodyQuartz = new BlockCompressed(); // 血腥石英块
+	@Reg(Keys.blockBloodyPillarQuartz)
+	public static final Block blockBloodyPillarQuartz = new BlockCompressed(); // 錾制血腥竖纹石英块
+	@Reg(Keys.blockBloodyChiseledQuartz)
+	public static final Block blockBloodyChiseledQuartz = new BlockBloodyChiseledQuartzBlock(); // 錾制血腥石英块
+
 
 	// 一些装饰用方块
 //	@Reg(Keys.blockRoyalEnchantmentTable)

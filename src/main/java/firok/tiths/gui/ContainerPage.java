@@ -5,9 +5,11 @@ import net.minecraft.inventory.Container;
 
 public class ContainerPage extends Container
 {
-	public ContainerPage()
+	public EntityPlayer player;
+	public ContainerPage(EntityPlayer player)
 	{
 		super();
+		this.player=player;
 	}
 
 	@Override

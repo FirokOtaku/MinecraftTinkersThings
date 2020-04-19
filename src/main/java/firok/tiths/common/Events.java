@@ -120,13 +120,13 @@ public class Events
 				stack2drop=new ItemStack(canTrigger(rand,0.3f)?Items.hardSpiderLeg:Items.spiderLeg,1+rand.nextInt(1));
 			}
 		}
-		else if(living instanceof EntityWitherSkeleton) // 凋灵骷髅
+		else if(living instanceof EntityWitherSkeleton && canTrigger(rand,0.3)) // 凋灵骷髅
 		{
-			stack2drop=new ItemStack(Items.ingotInertWitherium,2+rand.nextInt(4));
+			stack2drop=new ItemStack(Items.witheringEssence,1);
 		}
 		else if(living instanceof EntityWither) // 凋灵
 		{
-			stack2drop=new ItemStack(Items.ingotWitherium,4+rand.nextInt(4));
+			stack2drop=new ItemStack(Items.witheringEssence,2+rand.nextInt(3));
 		}
 		else if(living instanceof EntityDragon) // 末影龙
 		{
@@ -305,7 +305,7 @@ public class Events
 		EntityLivingBase enlb=event.getEntityLiving();
 
 		// 掉落末影裂隙碎片
-		if(!enlb.world.isRemote && canTrigger(enlb.world,0.35f))
+		if(!enlb.world.isRemote && canTrigger(enlb.world,0.15f))
 		{
 			Actions.CauseSpawnItem(enlb,new ItemStack(Items.enderCreviceShard));
 		}

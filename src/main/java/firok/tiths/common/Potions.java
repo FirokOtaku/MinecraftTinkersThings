@@ -31,6 +31,7 @@ public class Potions
 	public static BasePotion avatar = new PotionAvatar(); // 天神下凡
 	public static BasePotion rooted = new PotionRooted(); // 缠绕
 	public static BasePotion armor_softened = new PotionArmorSoftened(); // 护甲软化
+	public static BasePotion void_infected = new PotionVoidInfected(); // 虚空侵蚀
 //	public static Potion disappear = new PotionDisappear(); // 消失
 
 

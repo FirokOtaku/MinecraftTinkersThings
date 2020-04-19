@@ -30,7 +30,7 @@ public class BlockSearingVent extends Block
 		ItemStack stackHeldMain=player.getHeldItemMainhand();
 		if(stackHeldMain.getItem() != Items.FLINT_AND_STEEL) return false;
 
-		if(EntityFinders.Nearby(world,pos,2,en->en instanceof LogicSearing).size()>0) return false;
+		if(EntityFinders.Nearby(world,pos,4,en->en instanceof LogicSearing).size()>0) return false;
 
 		LogicSearing entity=new LogicSearing(world);
 		ret=entity.initFromPos(pos);

@@ -120,6 +120,8 @@ fluid.irisia.name=熔融艾瑞西亚
 fluid.oraclium.name=熔融神谕钢
 fluid.steamium.name=熔融气钢
 fluid.chloroplast.name=熔融叶绿
+fluid.ender_turbulence.name=末影乱流
+fluid.dirty_water.name=污水
 
 ## items
 item.tiths.hot_bread.name=炽热面包
@@ -180,7 +182,7 @@ item.tiths.nugget_cocoa.name=可可粒
 item.tiths.nugget_irisia.name=艾瑞西亚粒
 item.tiths.nugget_oraclium.name=神谕钢粒
 item.tiths.nugget_steamium.name=气钢粒
-item.tiths.nugget_chloroplast=叶绿粒
+item.tiths.nugget_chloroplast.name=叶绿粒
 ## ingot
 item.tiths.ingot_stellarium.name=恒星金属锭
 item.tiths.ingot_royal_alloy.name=奢华合金锭
@@ -213,6 +215,14 @@ item.tiths.cinder.name=煤屑
 item.tiths.ender_dragon_squama.name=末影龙鳞
 item.tiths.flesh_cooked.name=熟血肉
 item.tiths.shell_cooked.name=熟贝壳
+item.tiths.withering_essence.name=凋零精尘
+item.tiths.mercury_sulfide.name=汞红锭
+
+tile.tiths.block_searing_vent.name=焦黑通风孔
+tile.tiths.block_mercury_sulfide.name=汞红块
+tile.tiths.block_bloody_chiseled_quartz.name=錾制血腥石英块
+tile.tiths.block_bloody_pillar_quartz.name=竖纹血腥石英块
+tile.tiths.block_bloody_quartz.name=血腥石英块
 
 ## consumables
 item.tiths.gateway_gem.name=折跃之石
@@ -432,7 +442,7 @@ modifier.sliding_armor.desc=§o碎碎平安§r\n有几率损失大量耐久抵�
 modifier.threshold_limiting_armor.name=阈限
 modifier.threshold_limiting_armor.desc=§o限制器§r\n增加耐久消耗, 穿戴者收到的单次伤害不会超过当前生命的四分之一
 modifier.deep_parasitic_armor.name=深触寄生
-modifier.deep_parasitic_armor.desc=§o你的还是我的?§r\n吸收穿戴者生命修复护甲
+modifier.deep_parasitic_armor.desc=§o你的还是我的?§r\n吸收穿戴者生命修复护甲\n§4护甲将与穿戴者融为一体§r
 modifier.life_inspiring_armor.name=生命激发
 modifier.life_inspiring_armor.desc=§o我依旧不会轻易狗带§r\n在穿戴者生命危急时提供生命恢复效果
 modifier.soluble_armor.name=可溶
@@ -518,3 +528,8 @@ config.tiths.traits.rate_birefringent=双折伤害触发几率
 
 ## tooltip
 tooltip.tiths.item_xp.when_use=使用后获得经验:
+
+## page
+page.tiths.null=空页面内容
+page.tiths.page1=§b残卷示例标题§r<br>§1残卷示例内容1§r§2残卷示例内容2§r<br>残卷示例内容3
+page.tiths.page2=page2 title\nbody\ncontent...

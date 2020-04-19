@@ -196,13 +196,10 @@ public final class TiCMaterials
 		brokenIce.setRepresentativeItem(Items.brokenIce);
 	}
 
-	@Compo(value = nameShell,traitsTool = {nameTraitSharp},traitsArmor = {nameTraitRough})
+	@Compo(value = nameShell,traitsTool = {nameTraitSharp})
 	@CompoHead(durability = 64,miningspeed = 4.2,attack = 5.7,harvestLevel = 1)
 	@CompoHandle(modifier = 0.69, durability = 121)
 	@CompoExtra(extraDurability = 23)
-	@CompoArmorCore(durability = 1,defense = 1)
-	@CompoArmorPlate(modifier = 1,durability = 1,toughness = 1) // info 属性需要改
-	@CompoArmorTrim(extraDurability = 1)
 	public static final Material shell=new $Material(nameShell,colorShell)
 			.addItemAsIngot(Items.shell);
 
@@ -338,7 +335,7 @@ public final class TiCMaterials
 	public static final Material talcum=new $Material(nameTalcum,colorTalcum)
 			.addItemAsIngot(Items.talcum);
 
-	@Compo(value = nameTourmaline,traitsTool = {nameTraitPyroelectric})
+	@Compo(value = nameTourmaline,traitsTool = {nameTraitPyroelectric},traitsArmor={nameTraitVoltaic})
 	@CompoHead(durability = 420,miningspeed = 5.9,attack = 6.5,harvestLevel = 2)
 	@CompoHandle(modifier = 0.45, durability = -250)
 	@CompoExtra(extraDurability = 180)
@@ -402,8 +399,8 @@ public final class TiCMaterials
 	public static final Material moonStone=new $Material(nameMoonStone,colorMoonStone)
 			.addItemAsIngot(Items.moonStone);
 
-	@Compo(value = nameEnderDragonSquama,traitsTool = {nameTraitEnderference,nameTraitDense})
-	@CompoHead(durability = 675,miningspeed = 5.8, attack = 6.7,harvestLevel = 2,traits = {nameTraitLionheart})
+	@Compo(value = nameEnderDragonSquama,traitsTool = {nameTraitEnderference})
+	@CompoHead(durability = 675,miningspeed = 5.8, attack = 6.7,harvestLevel = 2,traits = {nameTraitLionheart,nameTraitDragonKiller})
 	@CompoHandle(modifier = 1.05, durability = 40)
 	@CompoExtra(extraDurability = 120)
 	@CompoFletching(accuracy = 0.8,modifier = 3.5f)
@@ -473,9 +470,6 @@ public final class TiCMaterials
 	@Compo(nameCloud)
 	@CompoHead(durability = 20,miningspeed = 0.5,attack = 0,harvestLevel = 0,traits = {nameTraitSqueaky})
 	@CompoExtra(extraDurability = -300,traits = {nameTraitLightweight})
-	@CompoArmorCore(durability = 1,defense = 1)
-	@CompoArmorPlate(modifier = 1,durability = 1,toughness = 1) // info 属性需要改
-	@CompoArmorTrim(extraDurability = 1)
 	public static final Material cloud=new $Material(nameCloud, colorCloud)
 			.addItemAsIngot(Blocks.blockCloud);
 
@@ -536,7 +530,8 @@ public final class TiCMaterials
 	@CompoArmorCore(durability = 1,defense = 1)
 	@CompoArmorPlate(modifier = 1,durability = 1,toughness = 1) // info 属性需要改
 	@CompoArmorTrim(extraDurability = 1)
-	public static final Material proustite=new $Material(nameProustite, colorProustite);
+	public static final Material proustite=new $Material(nameProustite, colorProustite)
+			.addItemAsIngot(Items.proustite);
 
 	@Compo(value = nameOraclium,traitsTool = {nameTraitOracular},traitsArmor = {nameTraitThresholdLimiting})
 	@CompoHead(durability = 740,miningspeed = 5.6,attack = 6.8,harvestLevel = 4)
@@ -579,13 +574,10 @@ public final class TiCMaterials
 	public static final Material steamium=new $Material(nameSteamium, colorSteamium)
 			.addItemAsIngot(Items.ingotSteamium);
 
-	@Compo(value = nameGrain,traitsTool = {nameTraitDecoying},traitsArmor = {nameTraitCombustible})
+	@Compo(value = nameGrain,traitsTool = {nameTraitDecoying})
 	@CompoHead(durability = 240,miningspeed = 3.6,attack = 3.5,harvestLevel = 1)
 	@CompoHandle(modifier = 1.05,durability = 10)
 	@CompoExtra(extraDurability = 28)
-	@CompoArmorCore(durability = 1,defense = 1)
-	@CompoArmorPlate(modifier = 1,durability = 1,toughness = 1) // info 属性需要改
-	@CompoArmorTrim(extraDurability = 1)
 	public static final Material grain=new $Material(nameGrain, colorGrain)
 			.addItemAsIngot(Items.ingotGrain);
 

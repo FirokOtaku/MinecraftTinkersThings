@@ -30,7 +30,7 @@ public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers' Things";
-	public static final String VERSION = "1.12.2-0.2.71.0";
+	public static final String VERSION = "1.12.2-0.2.72.0";
 	public static final boolean indev=true;
 
 	@Mod.Instance(MOD_ID)
@@ -130,7 +130,7 @@ public class TinkersThings
 		//  proxy.regsiterKeyBindings();
 		//
 		//  Fluids.registerfromItem(); // Registers some special smeltery recipes (not alloying)
-		GameRegistry.registerWorldGenerator(WorldGen.getInstance(), 100);
+		GameRegistry.registerWorldGenerator(WorldGen.getInstance(), 0);
 		//  // GameRegistry.registerFuelHandler(new FuelHandler());  Registeres fuels' burn times
 
 		new Guis();

@@ -21,7 +21,9 @@
     "tonium": [ { "custom": { "fluid": "tonium" } } ],
     "irisia":  [ { "custom": { "fluid": "irisia" } } ],
     "oraclium": [ { "custom": { "fluid": "oraclium" } } ],
-    "steamium":  [ { "custom": { "fluid": "steamium" } } ]
-
+    "steamium":  [ { "custom": { "fluid": "steamium" } } ],
+    "chloroplast": [ { "custom": { "fluid": "chloroplast" } } ],
+    "ender_turbulence": [ { "custom": { "fluid": "ender_turbulence" } } ],
+    "dirty_water": [ { "custom": { "fluid": "dirty_water" } } ]
   }
 }

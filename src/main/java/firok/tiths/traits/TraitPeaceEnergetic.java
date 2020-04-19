@@ -1,5 +1,6 @@
 package firok.tiths.traits;
 
+import firok.tiths.common.Configs;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -22,18 +23,18 @@ public class TraitPeaceEnergetic extends AbstractTrait
 	@Override
 	public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
 	{
-		if(!player.world.isRemote && canTrigger(player.world,0.08f))
+		if(!player.world.isRemote && canTrigger(player.world, Configs.Traits.rate_peace_energetic_hit))
 		{
-			player.heal(4);
+			player.heal(Configs.Traits.factor_peace_energetic_heal);
 		}
 	}
 
 	@Override
 	public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective)
 	{
-		if(!player.world.isRemote && canTrigger(player.world,0.08f))
+		if(!player.world.isRemote && canTrigger(player.world, Configs.Traits.rate_peace_energetic_break))
 		{
-			player.heal(4);
+			player.heal(Configs.Traits.factor_peace_energetic_heal);
 		}
 	}
 }

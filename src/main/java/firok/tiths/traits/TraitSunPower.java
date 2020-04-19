@@ -1,5 +1,6 @@
 package firok.tiths.traits;
 
+import firok.tiths.common.Configs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -29,7 +30,7 @@ public class TraitSunPower extends AbstractTrait
 	{
 		if(!world.isRemote && entity instanceof EntityLivingBase && checkHealSun(world))
 		{
-			ToolHelper.healTool(tool, 1, (EntityLivingBase) entity);
+			ToolHelper.healTool(tool, Configs.Traits.factor_sun_power, (EntityLivingBase) entity);
 		}
 	}
 }

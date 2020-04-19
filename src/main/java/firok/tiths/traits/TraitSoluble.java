@@ -1,5 +1,6 @@
 package firok.tiths.traits;
 
+import firok.tiths.common.Configs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -24,7 +25,7 @@ public class TraitSoluble extends AbstractTrait
 	{
 		if(!world.isRemote && isSelected && canTick(world,15,2) && entity.isInWater())
 		{
-			ToolHelper.damageTool(tool, 20, (EntityLivingBase) entity);
+			ToolHelper.damageTool(tool, Configs.Traits.factor_soluble, (EntityLivingBase) entity);
 		}
 	}
 }

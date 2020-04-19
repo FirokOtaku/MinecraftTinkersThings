@@ -1,11 +1,11 @@
 package firok.tiths.traits;
 
 import firok.tiths.common.Configs;
+import firok.tiths.common.DamageSources;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-import static firok.tiths.common.DamageSources.BirefringentDamage;
 import static firok.tiths.common.Keys.colorTraitBirefringent;
 import static firok.tiths.common.Keys.nameTraitBirefringent;
 import static firok.tiths.util.Predicates.canTrigger;
@@ -25,7 +25,7 @@ public class TraitBirefringent extends AbstractTrait
 		if(wasHit && player.isServerWorld() && target.isEntityAlive() && canTrigger(player.world, Configs.Traits.rate_birefringent_damage))
 		{
 			target.hurtResistantTime=0;
-			target.attackEntityFrom(BirefringentDamage,damageDealt);
+			target.attackEntityFrom(DamageSources.Birefringent(player),damageDealt);
 		}
 	}
 }

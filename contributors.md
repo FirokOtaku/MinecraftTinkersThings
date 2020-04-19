@@ -19,6 +19,7 @@ hidfug|💡
 Isaac200000|🔊
 Kirisu|💡
 l_sz|💡
+mixmitch62|🔊
 Thsaure|💡
 Timbre|🔊
 Wu|💡
@@ -37,6 +38,9 @@ Tinkers' Efforts|Electronic pop & Sweet guitar|Frankumjay|淡入和淡出音效 
 Tinkers' Will|Eleonor's will. - Electronic track music|Frankumjay|淡入和淡出音效 fade-in and fade-out effect|CC BY 3.0|[Link](https://freesound.org/people/frankum/sounds/453072/)
 Tinkers' Imagination|dreamy remix of PapaninKasettratat's Freesound #453161|Timbre|无 none|CC BY NC 3.0|[Link](https://freesound.org/people/Timbre/sounds/454806/)
 Heal Effect|Error|Isaac200000|无 none|CC0 1.0|[Link](https://freesound.org/people/Isaac200000/sounds/188013/)
+Shaking Effect|Warrior KICK|mixmitch62|无 none|CC0 1.0|[Link](https://freesound.org/people/mixmitch62/sounds/459877/)
+Shaking Effect|Warrior Tom|mixmitch62|无 none|CC0 1.0|[Link](https://freesound.org/people/mixmitch62/sounds/459876/)
+Shaking Effect|Warrior bass T|mixmitch62|无 none|CC0 1.0|[Link](https://freesound.org/people/mixmitch62/sounds/459875/)
 
 ## 关于CC协议 About Creative Commons License
 

@@ -10,8 +10,10 @@ import slimeknights.tconstruct.library.traits.ITrait;
 /**
  * 内部操作
  */
-public class InnerActions
+public final class InnerActions
 {
+	private InnerActions(){}
+
 	/* ---- 给材料增加属性 ---- */
 	public static int addMaterialTraits(Material material, String[] traitNames)
 	{

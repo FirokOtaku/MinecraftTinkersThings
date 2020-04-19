@@ -1,12 +1,13 @@
 package firok.tiths.traits;
 
 import firok.tiths.common.Configs;
+import firok.tiths.common.DamageSources;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-import static firok.tiths.common.DamageSources.DragonKillerDamage;
-import static firok.tiths.common.Keys.*;
+import static firok.tiths.common.Keys.colorTraitDragonKiller;
+import static firok.tiths.common.Keys.nameTraitDragonKiller;
 
 // 屠龙者
 public class TraitDragonKiller extends AbstractTrait
@@ -25,7 +26,7 @@ public class TraitDragonKiller extends AbstractTrait
 			if(name.contains("dragon"))
 			{
 				target.hurtResistantTime=0;
-				target.attackEntityFrom(DragonKillerDamage, (float)(Configs.Traits.factor_dragon_killer_damage_base + damageDealt * Configs.Traits.factor_dragon_killer_damage_percent));
+				target.attackEntityFrom(DamageSources.DragonKiller(player), (float)(Configs.Traits.factor_dragon_killer_damage_base + damageDealt * Configs.Traits.factor_dragon_killer_damage_percent));
 			}
 		}
 	}

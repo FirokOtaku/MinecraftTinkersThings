@@ -30,6 +30,9 @@ public class PotionTypes
 	public static final PotionType armor_softened=new PotionType("armor_softened",
 			new PotionEffect(Potions.armor_softened,3600,0));
 
+	public static final PotionType void_infected=new PotionType("void_infected",
+			new PotionEffect(Potions.void_infected,3600,0));
+
 //	public static final PotionType sun_power=new PotionType("sun_power",
 //			new PotionEffect(MobEffects.STRENGTH,3600,0));
 	static

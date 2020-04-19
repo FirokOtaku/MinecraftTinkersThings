@@ -1,6 +1,8 @@
 package firok.tiths.traits;
 
+import firok.tiths.common.Configs;
 import firok.tiths.common.DamageSources;
+import firok.tiths.util.EntityFinders;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -12,7 +14,6 @@ import java.util.List;
 import static firok.tiths.common.Keys.colorTraitThunderWaving;
 import static firok.tiths.common.Keys.nameTraitThunderWaving;
 import static firok.tiths.util.Predicates.canTrigger;
-import static firok.tiths.util.Ranges.Neighbour;
 import static firok.tiths.util.Selectors.mobAlive;
 
 // 雷鸣波动
@@ -33,12 +34,12 @@ public class TraitThunderWaving extends AbstractTrait
 			if(target.isEntityAlive())
 			{
 				target.hurtResistantTime=0;
-				target.attackEntityFrom(DamageSources.ThunderingDamage,4.5f);
+				target.attackEntityFrom(DamageSources.Thundering(player),4.5f);
 			}
 
-			if(canTrigger(world,0.2f))
+			if(canTrigger(world, Configs.Traits.rate_thunder_waving))
 			{
-				List<Entity> entities=world.getEntitiesInAABBexcluding(player,Neighbour(player,5),mobAlive);
+				List<Entity> entities= EntityFinders.Nearby(player,5,mobAlive);
 				final double px=player.posX,pz=player.posZ;
 				for(Entity en:entities)
 				{
@@ -51,7 +52,7 @@ public class TraitThunderWaving extends AbstractTrait
 					en.addVelocity(vx,0.1f,vz);
 
 					en.hurtResistantTime=0;
-					en.attackEntityFrom(DamageSources.ThunderingDamage,3);
+					en.attackEntityFrom(DamageSources.Thundering(player),(float) Configs.Traits.factor_thunder_waving_damage);
 				}
 			}
 		}

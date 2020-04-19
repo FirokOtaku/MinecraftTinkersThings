@@ -2,6 +2,7 @@ package firok.tiths.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
@@ -23,7 +24,7 @@ public class BlockCloud extends Block
 	protected static final AxisAlignedBB AABB_BOTTOM_HALF = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.5D, 1.0D);
 	public BlockCloud()
 	{
-		super(Material.CLOTH);
+		this(Material.CLOTH);
 	}
 	public static final PropertyEnum<BlockSlab.EnumBlockHalf> HALF = PropertyEnum.<BlockSlab.EnumBlockHalf>create("half", BlockSlab.EnumBlockHalf.class);
 
@@ -32,10 +33,12 @@ public class BlockCloud extends Block
 		this(materialIn, materialIn.getMaterialMapColor());
 	}
 
-	public BlockCloud(Material p_i47249_1_, MapColor p_i47249_2_)
+	public BlockCloud(Material material, MapColor color)
 	{
-		super(p_i47249_1_, p_i47249_2_);
+		super(material, color);
 		this.setLightOpacity(255);
+		this.setHardness(0.4F);
+		this.setSoundType(SoundType.CLOTH);
 	}
 
 	protected boolean canSilkHarvest()

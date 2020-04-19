@@ -229,6 +229,70 @@ public class Configs
 		@LangKey(pgp+"factor_oracular_heal")
 		@RangeDouble(min=0,max=1)
 		public static double factor_oracular_heal=2;
+
+		@LangKey(pgp+"rate_peace_energetic_hit")
+		@RangeDouble(min=0,max=1)
+		public static double rate_peace_energetic_hit=0.08;
+
+		@LangKey(pgp+"rate_peace_energetic_break")
+		@RangeDouble(min=0,max=1)
+		public static double rate_peace_energetic_break=0.08;
+
+		@RangeInt(min=1,max=50)
+		@LangKey(pgp+"factor_peace_energetic_heal")
+		public static int factor_peace_energetic_heal=4;
+
+		@LangKey(pgp+"factor_pyroelectric_damage")
+		@RangeDouble(min=0.1,max=5)
+		public static double factor_pyroelectric_damage=1.8;
+
+		@LangKey(pgp+"range_radiant")
+		@RangeDouble(min=2,max=10)
+		public static double range_radiant=5;
+
+		@LangKey(pgp+"factor_soluble")
+		@RangeInt(min=1,max=100)
+		public static int factor_soluble=20;
+
+		@LangKey(pgp+"factor_star_dashing_damage")
+		@RangeDouble(min=0.5,max=10)
+		public static double factor_star_dashing_damage=3;
+
+		@LangKey(pgp+"factor_star_dashing_speed")
+		@RangeDouble(min=0.01,max=0.5)
+		public static double factor_star_dashing_speed=0.2f;
+
+		@LangKey(pgp+"factor_star_dashing_amount")
+		@RangeInt(min=1,max=8)
+		public static int factor_star_dashing_amount=6;
+
+		@LangKey(pgp+"factor_sun_power")
+		@RangeInt(min=0,max=10)
+		public static int factor_sun_power=1;
+
+		@LangKey(pgp+"rate_thunder_waving")
+		@RangeDouble(min=0,max=1)
+		public static double rate_thunder_waving=0.2;
+
+		@LangKey(pgp+"factor_thunder_waving_damage")
+		@RangeDouble(min=0.5,max=10)
+		public static double factor_thunder_waving_damage=3;
+
+		@LangKey(pgp+"rate_undead_calling_break")
+		@RangeDouble(min=0,max=1)
+		public static double rate_undead_calling_break=0.08;
+
+		@LangKey(pgp+"rate_undead_calling_hit")
+		@RangeDouble(min=0,max=1)
+		public static double rate_undead_calling_hit=0.08;
+
+		@LangKey(pgp+"factor_watery_in")
+		@RangeDouble(min=1,max=2)
+		public static double factor_watery_in=1.4;
+
+		@LangKey(pgp+"factor_watery_out")
+		@RangeDouble(min=0.5,max=1)
+		public static double factor_watery_out=0.6;
 	}
 
 	public static class ArmorTraits

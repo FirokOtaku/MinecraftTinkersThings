@@ -2,20 +2,16 @@ package firok.tiths.world;
 
 import firok.tiths.common.Blocks;
 import firok.tiths.common.ConfigJson;
+import firok.tiths.util.Predicates;
 import firok.tiths.util.conf.OreGenInfo;
 import firok.tiths.util.reg.GenMeteo;
 import firok.tiths.util.reg.GenOre;
-import firok.tiths.util.Predicates;
 import firok.tiths.util.reg.Reg;
 import net.minecraft.block.Block;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -38,13 +34,14 @@ public class WorldGen implements IWorldGenerator
 	private static List<IChunkGen> gensWorld=new ArrayList<>();
 	public WorldGen()
 	{
-		MinecraftForge.ORE_GEN_BUS.register(this);
+//		MinecraftForge.ORE_GEN_BUS.register(this);
 
 		loadBlockOres();
 
 		gensWorld.add(new WorldGenTreeRoot(Blocks.oreTreeRoot.getDefaultState(),4,0.3f));
 		gensWorld.add(new WorldGenMinableBedrock(Blocks.oreBrokenBedrock.getDefaultState(),1,0.25f,0.8f,7));
 		gensWorld.add(new WorldGenLavaCrystal());
+		gensWorld.add(new WorldGenCloud());
 
 		instance=this;
 	}
@@ -112,13 +109,14 @@ public class WorldGen implements IWorldGenerator
 		}
 	}
 
-	@SubscribeEvent
-	public void onOreGenPre(OreGenEvent.Pre event){
-		BlockPos posEvent=event.getPos();
-
-//		System.out.println(String.format("on ore gen pre {%s}",posEvent));
-		gen(event.getWorld(),posEvent.getX(),posEvent.getZ(),event.getRand());
-	}
+//	@SubscribeEvent
+//	public void onOreGenPre(OreGenEvent.Pre event){
+//		BlockPos posEvent=event.getPos();
+//
+//
+////		System.out.println(String.format("on ore gen pre {%s}",posEvent));
+//		gen(event.getWorld(),posEvent.getX(),posEvent.getZ(),event.getRand());
+//	}
 
 	int preChunkX=Integer.MIN_VALUE, preChunkZ =Integer.MIN_VALUE;
 	World preWorld=null;
@@ -133,12 +131,15 @@ public class WorldGen implements IWorldGenerator
 		preChunkX=chunkX;
 		preChunkZ=chunkZ;
 
+//		System.out.println(String.format("矿物生成 at 区块(%d,%d)",chunkX,chunkZ));
+
 //		System.out.println(String.format("gen chunkX,chunkZ{%d,%d}",chunkX,chunkZ));
 		int dim=world.provider.getDimension();
 
 		for(IChunkGen genWorld:gensWorld) // 检查能不能生成在指定世界
 		{
-			if(genWorld.canGenAtDim(dim)) genWorld.gen(world,chunkX,chunkZ,rand);
+			int chunkVX=chunkX*16,chunkVZ=chunkZ*16;
+			if(genWorld.canGenAtDim(dim)) genWorld.gen(world,chunkVX,chunkVZ,rand);
 		}
 	}
 
