@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "tiths:blocks/block_mercury_sulfide",
+    "down": "tiths:blocks/block_mercury_sulfide",
+    "up": "tiths:blocks/block_mercury_sulfide",
+    "north": "tiths:blocks/block_mercury_sulfide",
+    "south": "tiths:blocks/block_mercury_sulfide",
+    "west": "tiths:blocks/block_mercury_sulfide",
+    "east": "tiths:blocks/block_mercury_sulfide"
+  }
+}
