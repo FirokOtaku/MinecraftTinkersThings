@@ -11,20 +11,8 @@
 
 ## 最近更新 latest update
 
-**0.2.72.0** _2020-04-19 18:30_
+**0.2.73.0** _2020-04-23 10:00_
 
-* 错误修复 bug fixes
-* 增加物品 added items
-  * 凋零精尘 withering essence
-* 修改部分合成表 adjusted some recipes
-* 为更多特性增加配置文件支持 more traits are configurable now
-* 修改部分材质贴图 modify textures to some blocks and items
-* 增加液体 added fluids
-  * 末影乱流 ender turbulence
-  * 污水 dirty water
-* 增加状态效果
-  * 虚空侵蚀 void infected
-* 增加方块 added blocks
-  * 血腥石英块 bloody quartz block
-  * 竖纹血腥石英块 bloody pillar quartz block
-  * 錾制血腥石英块 bloody chiseled quartz block
+* 更新语言文件 updated lang files
+* 加入方块 added blocks
+  * 匠魂粉碎机 tinker disintegrator

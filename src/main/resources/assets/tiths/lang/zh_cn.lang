@@ -509,6 +509,12 @@ splash_potion.effect.armor_softened=喷溅型护甲软化药水
 tipped_arrow.effect.armor_softened=护甲软化之箭
 lingering_potion.effect.armor_softened=滞留型护甲软化药水
 
+effect.void_infected=虚空侵蚀
+potion.effect.void_infected=虚空侵蚀药水
+splash_potion.effect.void_infected=喷溅型虚空侵蚀药水
+tipped_arrow.effect.void_infected=虚空侵蚀之箭
+lingering_potion.effect.void_infected=滞留型虚空侵蚀药水
+
 ## damage sources
 death.attack.san=%1$s遇到了一点精神问题
 death.attack.birefringent=%1$s被折射成了碎片
@@ -525,6 +531,10 @@ config.tiths.general.enable_material_customization.tooltip=如果启用, 则会�
 config.tiths.general.enable_ore_gen_customization=启用矿物生成自定义
 config.tiths.traits=属性效果设定
 config.tiths.traits.rate_birefringent=双折伤害触发几率
+
+config.tiths.gameplay=游戏性设定
+
+config.tiths.trait=特性设定
 
 ## tooltip
 tooltip.tiths.item_xp.when_use=使用后获得经验:

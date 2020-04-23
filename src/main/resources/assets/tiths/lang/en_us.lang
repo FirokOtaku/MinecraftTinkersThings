@@ -509,6 +509,12 @@ splash_potion.effect.armor_softened=Splash Potion of Armor Softening
 tipped_arrow.effect.armor_softened=Arrow of Armor Softening
 lingering_potion.effect.armor_softened=Lingering Potion of Armor Softening
 
+effect.void_infected=Void Infected
+potion.effect.void_infected=Potion of Void Infecting
+splash_potion.effect.void_infected=Splash Potion of Void Infecting
+tipped_arrow.effect.void_infected=Arrow of Void Infecting
+lingering_potion.effect.void_infected=Lingering Potion of Void Infecting
+
 ## damage sources
 death.attack.san=%1$s has some mental problem
 death.attack.birefringent=%1$s was refracted into pieces

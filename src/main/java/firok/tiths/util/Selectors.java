@@ -11,7 +11,7 @@ public final class Selectors
 {
 	private Selectors(){}
 
-	public static final Predicate<? super Entity> mobAlive = en -> (en instanceof IMob) && en.isEntityAlive();
+	public static final Predicate<? super Entity> mobAlive = en -> (en instanceof EntityLivingBase) && (en instanceof IMob) && en.isEntityAlive();
 
 	public static final Predicate<? super Entity> livingBaseAlive = en -> (en instanceof EntityLivingBase) && en.isEntityAlive();
 

@@ -15,7 +15,7 @@ public @interface GenOre
 	int minY() default 5;
 	int maxY() default 128;
 	int times() default 4;
-	float timeRate() default 1;
+	double timeRate() default 1;
 	int size() default 15;
 	int[] dimsBanned() default { 1, -1 };
 }

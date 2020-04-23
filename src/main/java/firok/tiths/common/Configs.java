@@ -8,9 +8,9 @@ import static net.minecraftforge.common.config.Config.*;
 // 配置文件
 public class Configs
 {
-	static final String c="config.";
-	static final String pg="pg.";
-	static final String pgp="pgp.";
+	static final String c="config.tiths.";
+	static final String pg="config.tiths.general.";
+	static final String pgp="config.tiths.gameplay.";
 	@Config(modid= TinkersThings.MOD_ID)
 	@LangKey(c+"general")
 	public static class General // 全局设置

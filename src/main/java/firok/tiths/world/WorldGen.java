@@ -79,7 +79,7 @@ public class WorldGen implements IWorldGenerator
 					WorldGenMinableCustom gen=new WorldGenMinableCustom(
 							block.getDefaultState(),
 							i&&__(info.times)? info.times:genOre.times(),
-							i&&__(info.timeRate)? info.timeRate:genOre.timeRate(),
+							i&&__(info.timeRate)? info.timeRate:(float)genOre.timeRate(),
 							i&&__(info.size)? info.size:genOre.size(),
 							i&&__(info.minY)? info.minY:genOre.minY(),
 							i&&__(info.maxY)? info.maxY:genOre.maxY(),

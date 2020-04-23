@@ -186,6 +186,7 @@ public interface Keys
 	String blockBloodyPillarQuartz=prefBlock+"bloody_pillar_quartz";
 	String blockBloodyQuartz=prefBlock+"bloody_quartz";
 	String blockSearingVent=prefBlock+"searing_vent";
+	String blockTinkerDisintegrator = prefBlock + "tinker_disintegrator";
 
 	String blockRoyalEnchantmentTable=prefBlock+"royal_enchantment_table";
 

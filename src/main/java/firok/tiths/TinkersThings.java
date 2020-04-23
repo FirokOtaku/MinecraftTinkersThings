@@ -2,6 +2,7 @@ package firok.tiths;
 
 import firok.tiths.common.*;
 import firok.tiths.gui.Guis;
+import firok.tiths.intergration.baubles.BaubleItems;
 import firok.tiths.intergration.conarm.ArmorRegistryHandler;
 import firok.tiths.world.WorldGen;
 import net.minecraft.client.Minecraft;
@@ -30,7 +31,7 @@ public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers' Things";
-	public static final String VERSION = "1.12.2-0.2.72.0";
+	public static final String VERSION = "1.12.2-0.2.73.0";
 	public static final boolean indev=true;
 
 	@Mod.Instance(MOD_ID)
@@ -55,7 +56,7 @@ public class TinkersThings
 	private static boolean hasBauble=false;
 	public static boolean enableBauble()
 	{
-		return hasBauble;
+		return hasBauble && Configs.General.enable_baubles;
 	}
 	@Mod.EventHandler
 	public void preinit(FMLPreInitializationEvent event)
@@ -86,9 +87,17 @@ public class TinkersThings
 		RegistryHandler.registerFluids();
 
 		Items.trigger();
-		RegistryHandler.registerBlocks(Blocks.class);
+		if(enableBauble())
+		{
+			BaubleItems.trigger();
+		}
+		RegistryHandler.registerBlocks(Blocks.class,TinkersThings.MOD_ID);
 //		RegistryHandler.registerTileEntities();
-		RegistryHandler.registerItems(Items.class,Blocks.class);
+		RegistryHandler.registerItems(Items.class,Blocks.class,TinkersThings.MOD_ID);
+		if(enableBauble())
+		{
+			RegistryHandler.registerItems(BaubleItems.class,null,TinkersThings.MOD_ID);
+		}
 		RegistryHandler.registerEntities();
 //		RegistryHandler.registerVillagers();
 

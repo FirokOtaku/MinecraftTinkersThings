@@ -2,6 +2,12 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.73.0 _2020-04-23 10:00_
+
+* 更新语言文件 updated lang files
+* 加入方块 added blocks
+  * 匠魂粉碎机 tinker disintegrator
+
 ## 0.2.72.1 _2020-04-20 18:45_
 
 * 为部分方块和物品增加材质贴图 added textures to some blocks and items

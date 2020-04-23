@@ -304,6 +304,8 @@ public class Blocks
 	public static final Block blockBloodyPillarQuartz = new BlockCompressed(); // 錾制血腥竖纹石英块
 	@Reg(Keys.blockBloodyChiseledQuartz)
 	public static final Block blockBloodyChiseledQuartz = new BlockBloodyChiseledQuartzBlock(); // 錾制血腥石英块
+	@Reg(Keys.blockTinkerDisintegrator)
+	public static final Block blockTinkerDisintegrator = new BlockTinkerDisintegrator(); // 匠魂粉碎机
 
 
 	// 一些装饰用方块

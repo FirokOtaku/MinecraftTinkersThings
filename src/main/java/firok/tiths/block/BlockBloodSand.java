@@ -1,6 +1,7 @@
 package firok.tiths.block;
 
 import net.minecraft.block.BlockSoulSand;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -12,6 +13,13 @@ import static firok.tiths.common.DamageSources.SanDamage;
 // 血沙
 public class BlockBloodSand extends BlockSoulSand
 {
+	public BlockBloodSand()
+	{
+		super();
+		this.setSoundType(SoundType.SAND);
+		this.setHardness(1);
+	}
+
 	@Override
 	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
 	{

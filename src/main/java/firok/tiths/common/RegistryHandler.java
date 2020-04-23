@@ -130,7 +130,7 @@ public class RegistryHandler
 //		}
 //	}
 
-	public static void registerItems(Class<?> classItems,Class<?> classBlocks)
+	public static void registerItems(Class<?> classItems,Class<?> classBlocks,String modid)
 	{
 		IForgeRegistry<Item> registry=ForgeRegistries.ITEMS;
 //		int countItem=0,countItemBlock=0;
@@ -148,8 +148,8 @@ public class RegistryHandler
 					String tn= regValue.length()>0? regValue: regTn;
 					String un= regValue.length()>0? regValue: regUn;
 
-					item.setUnlocalizedName(TinkersThings.MOD_ID+'.'+un);
-					item.setRegistryName(TinkersThings.MOD_ID,tn);
+					item.setUnlocalizedName(modid+'.'+un);
+					item.setRegistryName(modid,tn);
 
 					registry.register(item);
 
@@ -172,8 +172,8 @@ public class RegistryHandler
 					String un= regValue.length()>0? regValue: regUn;
 
 					ItemBlock itemBlock=new ItemBlock(block);
-					itemBlock.setUnlocalizedName(TinkersThings.MOD_ID+'.'+un);
-					itemBlock.setRegistryName(TinkersThings.MOD_ID,tn);
+					itemBlock.setUnlocalizedName(modid+'.'+un);
+					itemBlock.setRegistryName(modid,tn);
 
 					registry.register(itemBlock);
 
@@ -183,7 +183,7 @@ public class RegistryHandler
 //		TinkersThings.log(String.format("register items: item[%d/%d] item_block[%d/%d]",countItem,fieldsItems.length,countItemBlock,fieldsBlocks.length) );
 	}
 
-	public static void registerBlocks(Class<?> classBlocks)
+	public static void registerBlocks(Class<?> classBlocks,String modid)
 	{
 		IForgeRegistry<Block> registry=ForgeRegistries.BLOCKS;
 		FieldStream.of(classBlocks,null,Block.class,Reg.class)
@@ -199,8 +199,8 @@ public class RegistryHandler
 					String tn= regValue.length()>0? regValue: regTn;
 					String un= regValue.length()>0? regValue: regUn;
 
-					block.setUnlocalizedName(TinkersThings.MOD_ID+'.'+un);
-					block.setRegistryName(TinkersThings.MOD_ID,tn);
+					block.setUnlocalizedName(modid+'.'+un);
+					block.setRegistryName(modid,tn);
 
 					registry.register(block);
 
