@@ -438,6 +438,7 @@ public interface Keys
 	String nameTraitDiffuseReflecting="diffuse_reflecting";
 	String nameTraitWidening="widening";
 	String nameTraitWarmSoft="warm_soft";
+	String nameTraitVibrating="vibrating";
 
 	// 属性颜色
 	int colorTraitGluttonic=0x752b40;
@@ -508,6 +509,7 @@ public interface Keys
 	int colorTraitWidening=0xba274c;
 	int colorTraitWarmSoft=0xfff14f;
 	int colorTraitPoisonous=0x467f01;
+	int colorTraitVibrating=0x4a90e2;
 
 	// 状态效果颜色
 	int colorPotionHeavy=Colors.DarkSeaGreen;

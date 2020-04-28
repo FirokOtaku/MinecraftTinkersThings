@@ -230,17 +230,9 @@ public class Configs
 		@RangeDouble(min=0,max=1)
 		public static double factor_oracular_heal=2;
 
-		@LangKey(pgp+"rate_peace_energetic_hit")
-		@RangeDouble(min=0,max=1)
-		public static double rate_peace_energetic_hit=0.08;
-
-		@LangKey(pgp+"rate_peace_energetic_break")
-		@RangeDouble(min=0,max=1)
-		public static double rate_peace_energetic_break=0.08;
-
 		@RangeInt(min=1,max=50)
 		@LangKey(pgp+"factor_peace_energetic_heal")
-		public static int factor_peace_energetic_heal=4;
+		public static int factor_peace_energetic_heal=1;
 
 		@LangKey(pgp+"factor_pyroelectric_damage")
 		@RangeDouble(min=0.1,max=5)

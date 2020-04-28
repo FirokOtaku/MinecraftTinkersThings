@@ -11,8 +11,11 @@
 
 ## 最近更新 latest update
 
-**0.2.73.0** _2020-04-23 10:00_
+**0.2.74.0** _2020-04-28 23:30_
 
-* 更新语言文件 updated lang files
-* 加入方块 added blocks
-  * 匠魂粉碎机 tinker disintegrator
+* 现在可以在没有匠魂兵工厂模组的情况下启动 now we can startup without Tinkers' Armory
+* 重做平衡性 re-balanced mod
+* 增加特性 added traits
+  * 震动 vibrating
+* 修改特性 modified traits
+  * 平和能量 peace energetic

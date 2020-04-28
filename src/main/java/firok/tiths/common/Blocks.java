@@ -27,99 +27,99 @@ public class Blocks
 
 	// 矿石
 	@Reg(value=Keys.oreCinnabar,od={"oreCinnabar","oreQuicksilver","oreMercury"})
-	@GenOre(times=2,minY=30,maxY=70,size=10)
+	@GenOre(times=4,size=9,minY=18,maxY=56)
 	public static final BlockOre oreCinnabar = new BlockOre(Items.cinnabar,1,3,2,3,5).setCommonOre(); // 辰砂矿石
 	@Reg(Keys.oreInkPowder)
 	@GenOre(times=2,minY=60,maxY=120,size=8)
 	public static final BlockOre oreInkPowder = new BlockOre(Items.inkPowder,2,4,2,2,7).setCommonOre(); // 墨粉矿石
 	@Reg(Keys.oreImmersedSilver)
-	@GenOre(times=1,size=5,minY = 30,maxY = 80)
-	public static final BlockOre oreImmersedSilver = new BlockOre().setRareOre(); // 沉银矿石
+	@GenOre(times=4,timeRate=0.8,size=6,minY = 12,maxY = 56)
+	public static final BlockOre oreImmersedSilver = new BlockOre().setVeryRareOre(); // 沉银矿石
 	@Reg(value=Keys.oreMithril,od={"oreMithril"})
-	@GenOre(times=1,timeRate = 0.4f,size=6,minY = 10,maxY = 50)
+	@GenOre(times=1,timeRate = 0.8f,size=6,minY = 6,maxY = 24)
 	public static final BlockOre oreMithril = new BlockOre().setEpicOre(); // 秘银矿石
 	@Reg(value=Keys.oreAdamantine,od={"oreAdamantine"})
-	@GenOre(times=1,timeRate = 0.4f,size=6,minY = 10,maxY = 50)
+	@GenOre(times=1,timeRate = 0.8f,size=6,minY = 6,maxY = 24)
 	public static final BlockOre oreAdamantine = new BlockOre().setEpicOre(); // 精金矿石
 	@Reg(Keys.oreBlackrock)
-	@GenOre(times=4,size=6,minY=10,maxY=150)
-	public static final BlockOre oreBlackrock = new BlockOre(Items.blackrock,1,3,2,1,6); // 黑石矿石
+	@GenOre(times=9,size=8,minY=6,maxY=128)
+	public static final BlockOre oreBlackrock = new BlockOre(Items.blackrock,1,3,2,1,6).setCommonOre(); // 黑石矿石
 	@Reg(Keys.oreInertWitherium)
 //	@GenOre(times=2,size=5)
 	public static final BlockOre oreInertWitherium = new BlockOre().setVeryRareOre(); // 惰性凋零矿
 	@Reg(Keys.oreWitherium)
 	public static final BlockOre oreWitherium = new BlockOre().setVeryRareOre(); // 凋零矿
 	@Reg(value=Keys.oreRedins)
-	@GenOre(times = 2,timeRate = 0.4f,size = 4,minY = 10,maxY = 60)
-	public static final BlockOre oreRedins = new BlockOre(Items.redins,1,1,1,6,10).setVeryRareOre(); // 红宝石矿
+	@GenOre(times = 2,timeRate = 0.8f,size = 6,minY = 6,maxY = 24)
+	public static final BlockOre oreRedins = new BlockOre(Items.redins,1,1,1,6,10).setRareOre(); // 虹辉石矿
 //	@Reg(Keys.oreShell)
 //	public static final BlockOreShell oreShell = new BlockOreShell(Items.shell,3,6,1,4,6); // 散贝壳方块
 	@Reg(Keys.oreCorundum)
-	@GenOre(times = 2,timeRate = 0.4f,size = 4,minY = 10,maxY = 80)
+	@GenOre(times = 3,timeRate = 0.8f,size = 6,minY = 6,maxY = 24)
 	public static final BlockOre oreCorundum = new BlockOre(Items.corundum,1,1,1,2,4).setRareOre(); // 刚玉矿
 	@Reg(Keys.oreNitre)
-	@GenOre(times=3,timeRate=0.6f,size=9,minY=35,maxY=120)
+	@GenOre(times=5,size=8,minY=6,maxY=128)
 	public static final BlockOre oreNitre = new BlockOre(Items.nitre,1,3,1,3,5).setCommonOre(); // 硝石矿
 	@Reg(Keys.orePyrophyllite)
-	@GenOre(times=1,minY=40,maxY=70,size=8)
+	@GenOre(times=5,size=8,minY=6,maxY=128)
 	public static final BlockOre orePyrophyllite = new BlockOre(Items.pyrophyllite,1,2,1,3,5).setCommonOre(); // 叶蜡石矿
 	@Reg(Keys.oreIcelandSpar)
-	@GenOre(times=1,size=6,minY = 40,maxY = 80)
+	@GenOre(times=5,size=8,minY = 6,maxY = 128)
 	public static final BlockOre oreIcelandSpar = new BlockOre(Items.icelandSpar,1,2,1,3,5).setCommonOre(); // 冰洲石矿
 	@Reg(value=Keys.oreSpinel,od={"oreSpinel"})
 	@GenOre(times=1,timeRate = 0.6f,size=4,minY=10,maxY=60)
-	public static final BlockOre oreSpinel = new BlockOre(Items.spinel,1,1,1,3,5).setRareOre();
+	public static final BlockOre oreSpinel = new BlockOre(Items.spinel,1,1,1,3,5).setVeryRareOre();
 	@Reg(Keys.oreTalcum)
-	@GenOre(times=1,size=15,minY = 30,maxY = 90)
+	@GenOre(times=5,size=8,minY = 6,maxY = 128)
 	public static final BlockOre oreTalcum = new BlockOre(Items.talcum,1,2,1,3,5).setCommonOre();
 	@Reg(Keys.oreTourmaline)
-	@GenOre(times=1,timeRate=0.8f,size=8,minY=50,maxY=120)
-	public static final BlockOre oreTourmaline = new BlockOre(Items.tourmaline, 1,2,1,2,4).setCommonOre();
+	@GenOre(times=3,size=9,minY=6,maxY=56)
+	public static final BlockOre oreTourmaline = new BlockOre(Items.tourmaline, 1,2,1,2,4).setRareOre();
 	@Reg(Keys.oreRutile)
-	@GenOre(times=2,timeRate = 0.5f,size = 6,minY = 30,maxY = 60)
-	public static final BlockOre oreTitanium = new BlockOre().setRareOre(); // 金红石矿
+	@GenOre(times=3,timeRate = 0.8f,size = 6,minY = 18,maxY = 56)
+	public static final BlockOre oreTitanium = new BlockOre().setEpicOre(); // 金红石矿
 	@Reg(Keys.oreSunStone)
-	@GenOre(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
+	@GenOre(times=2,timeRate = 0.8f,size=6,minY = 24,maxY = 56)
 	public static final BlockOre oreSunStone = new BlockOre(Items.sunStone,1,1,1,4,6).setRareOre(); // 日光石矿
 	@Reg(Keys.oreMoonStone)
-	@GenOre(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
+	@GenOre(times=2,timeRate = 0.8f,size=6,minY = 24,maxY = 56)
 	public static final BlockOre oreMoonStone = new BlockOre(Items.moonStone,1,1,1,4,6).setRareOre(); // 月光石矿
 	@Reg(Keys.oreOpal)
-	@GenOre(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
+	@GenOre(times=2,timeRate = 0.8f,size=6,minY = 24,maxY = 56)
 	public static final BlockOre oreOpal = new BlockOre(Items.opal,1,1,1,4,6).setRareOre();
 	@Reg(Keys.oreTopaz)
-	@GenOre(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
+	@GenOre(times=2,timeRate = 0.8f,size=6,minY = 24,maxY = 56)
 	public static final BlockOre oreTopaz = new BlockOre(Items.topaz,1,1,1,4,6).setRareOre();
 	@Reg(Keys.oreLizanite)
-	@GenOre(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
+	@GenOre(times=2,timeRate = 0.8f,size=6,minY = 24,maxY = 56)
 	public static final BlockOre oreLizanite = new BlockOre(Items.lizanite,1,1,1,4,6).setRareOre();
 	@Reg(Keys.oreCordierite)
-	@GenOre(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
+	@GenOre(times=2,timeRate = 0.8f,size=6,minY = 24,maxY = 56)
 	public static final BlockOre oreCordierite = new BlockOre(Items.cordierite,1,1,1,4,6).setRareOre();
 	@Reg(Keys.orePrehnite)
-	@GenOre(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
+	@GenOre(times=2,timeRate = 0.8f,size=6,minY = 24,maxY = 56)
 	public static final BlockOre orePrehnite = new BlockOre(Items.prehnite,1,1,1,4,6).setRareOre();
 	@Reg(Keys.oreProustite)
-	@GenOre(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
+	@GenOre(times=4,size=8,minY = 8,maxY = 128)
 	public static final BlockOre oreProustite = new BlockOre(Items.proustite,1,1,1,4,6).setRareOre();
 	@Reg(Keys.oreLavaCrystal)
-	@GenOre(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
+//	@GenOre(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
 	public static final BlockOre oreLavaCrystal = new BlockOre(Items.lavaCrystal,1,1,1,3,6).setVeryRareOre();
 	@Reg(Keys.oreAventurine)
-	@GenOre(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
+	@GenOre(times=2,timeRate = 0.8f,size=6,minY = 24,maxY = 56)
 	public static final BlockOre oreAventurine = new BlockOre(Items.aventurine,1,1,1,4,6).setRareOre();
 	@Reg(Keys.oreUlun)
-	@GenOre(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
-	public static final BlockOre oreUlun = new BlockOre(Items.ulun,1,1,1,4,6); // 乌润石矿
+	@GenOre(times=2,timeRate = 0.8f,size=6,minY = 24,maxY = 56)
+	public static final BlockOre oreUlun = new BlockOre(Items.ulun,1,1,1,4,6).setRareOre(); // 乌润石矿
 	@Reg(Keys.orePotos)
-	@GenOre(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
-	public static final BlockOre orePotos = new BlockOre(Items.potos,1,1,1,4,6); // 泊水石矿
+	@GenOre(times=2,timeRate = 0.8f,size=6,minY = 24,maxY = 56)
+	public static final BlockOre orePotos = new BlockOre(Items.potos,1,1,1,4,6).setRareOre(); // 泊水石矿
 	@Reg(Keys.oreFurutorin)
-	@GenOre(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
-	public static final BlockOre oreFurutorin = new BlockOre(Items.furutorin,1,1,1,4,6); // 泠笛石矿
+	@GenOre(times=2,timeRate = 0.8f,size=6,minY = 24,maxY = 56)
+	public static final BlockOre oreFurutorin = new BlockOre(Items.furutorin,1,1,1,4,6).setRareOre(); // 泠笛石矿
 	@Reg(Keys.oreHeavesand)
-	@GenOre(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
-	public static final BlockOre oreHeavesand = new BlockOre(Items.heavesand,1,1,1,4,6); // 沉沙石矿
+	@GenOre(times=2,timeRate = 0.8f,size=6,minY = 24,maxY = 56)
+	public static final BlockOre oreHeavesand = new BlockOre(Items.heavesand,1,1,1,4,6).setRareOre(); // 沉沙石矿
 
 	@Reg(Keys.orePolarium)
 //	@GenMeteoWorld
@@ -145,23 +145,23 @@ public class Blocks
 	@GenOre(times=1,timeRate=0.14f,size=5,minY=40,maxY=180)
 	public static final BlockOre oreStellarium = new BlockOre().setEpicOre(); // 恒星金属矿
 	@Reg(Keys.oreVibratingCrystal)
-	@GenOre(times=2,timeRate=0.9f,size=4,minY=30,maxY=60)
+	@GenOre(times=2,timeRate=0.8f,size=6,minY=16,maxY=32)
 	public static final BlockOre oreVibratingCrystal = new BlockOre(Items.vibratingCrystal,1,3,1,5,7).setVeryRareOre(); // 振晶矿
 	@Reg(Keys.oreSteamium)
-	@GenOre(times=2,timeRate = 1,size=6,minY=40,maxY=60)
-	public static final BlockOre oreSteamium = new BlockOre(); // 气钢矿
+	@GenOre(times=4,size=9,minY=16,maxY=56)
+	public static final BlockOre oreSteamium = new BlockOre().setRareOre(); // 气钢矿
 	@Reg(Keys.oreChloroplast)
-	@GenOre(times=2,timeRate = 1,size=6,minY=40,maxY=60)
-	public static final Block oreChloroplast = new BlockOreChloroplast(); // 叶绿矿
+	@GenOre(times=2,timeRate = 1,size=6,minY=56,maxY=128)
+	public static final Block oreChloroplast = new BlockOreChloroplast().setVeryRareOre(); // 叶绿矿
 
 	@Reg(Keys.oreTreeRoot)
 	public static final Block oreTreeRoot = new BlockOre(Material.WOOD,Material.WOOD.getMaterialMapColor(),Items.treeRoot,1,3,1,2,4)
 			{{setSoundType(SoundType.WOOD);}}
-			.setHardness(2.0f); // 树根
+			.setHardness(2.0f).setResistance(25); // 树根
 	@Reg(Keys.oreBrokenBedrock)
 	public static final Block oreBrokenBedrock = new BlockOre(Items.brokenBedrock,1,2,1,6,10)
 			{{setHarvestLevel("pickaxe",HarvestLevels.COBALT);}}
-			.setHardness(80f); // 破碎基岩
+			.setHardness(80f).setResistance(1000); // 破碎基岩
 
 	// 矿块
 	@Reg(Keys.blockCinnabar)

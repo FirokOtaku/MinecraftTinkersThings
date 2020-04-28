@@ -60,7 +60,8 @@ public class Traits
 	public static AbstractTrait thunderWaving; // 雷鸣波动
 	public static AbstractTrait treasureDetecting; // 宝藏感知
 	public static AbstractTrait undeadCalling; // 亡灵呼唤
-	public static AbstractTrait unsettled;
+	public static AbstractTrait unsettled; // 不安定
+	public static AbstractTrait vibrating; // 震动
 	public static AbstractTrait watery; // 水化
 	public static AbstractTrait wither_flowing; // 凋零流动
 //	public static AbstractTrait phantasmic=new TraitPhantasmic(); // 异象
@@ -117,6 +118,7 @@ public class Traits
 		treasureDetecting = new TraitTreasureDetecting();
 		undeadCalling = new TraitUndeadCalling();
 		unsettled = new TraitUnsettled();
+		vibrating = new TraitVibrating();
 		watery = new TraitWatery();
 		wither_flowing = new TraitWitherFlowing();
 	}

@@ -25,13 +25,13 @@ import java.util.Random;
 		dependencies = "required-after:tconstruct@[1.12.2-2.13.0.171,);" +
 		               "required-after:mantle@[1.12-1.3.3.55,);" +
 		               "after:baubles@[1.5.2,);" +
-		               "required-after:conarm@[1.2.5,)"
+		               "after:conarm@[1.2.5,)"
 )
 public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers' Things";
-	public static final String VERSION = "1.12.2-0.2.73.0";
+	public static final String VERSION = "1.12.2-0.2.74.0";
 	public static final boolean indev=true;
 
 	@Mod.Instance(MOD_ID)
@@ -178,4 +178,11 @@ public class TinkersThings
 	{
 		ServerDatas.uninit(); // 销毁服务端数据
 	}
+
+	public static void main(String[] args)
+	{
+		;
+	}
+
+
 }

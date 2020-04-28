@@ -132,6 +132,38 @@ public class Values
 		return ret;
 	}
 
+	/**
+	 * 用位运算把int数组转换为long数组
+	 */
+	public static long[] toLongArray(int[] values)
+	{
+		if(values==null||values.length<=0||values.length%2!=0) return new long[0];
+		long[] ret=new long[values.length/2];
+		for(int i=0;i<values.length;i+=2)
+		{
+			int high=values[i],low=values[i+1];
+			ret[i/2]=(((long)high)<<32)|(low & 0xFFFF_FFFFL);
+		}
+		return ret;
+	}
+
+	/**
+	 * 用位运算把long数组转换为int数组
+	 */
+	public static int[] toIntArray(long[] values)
+	{
+		if(values==null||values.length<=0) return new int[0];
+		int[] ret=new int[values.length*2];
+		for(int i=0;i<values.length;i++)
+		{
+			long raw=values[i];
+			int high=(int)(raw>>>32),low=(int)raw;
+			ret[i*2]=high;
+			ret[i*2+1]=low;
+		}
+		return ret;
+	}
+
 	public static boolean __(Object test)
 	{
 		return test!=null;
