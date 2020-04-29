@@ -217,7 +217,7 @@ public class Blocks
 	@Reg(Keys.blockMoonStone)
 	public static final Block blockMoonStone = new BlockCompressed(Material.ROCK);// 月光石块
 	@Reg(Keys.blockOpal)
-	public static final Block blockOpal = new BlockCompressed(Material.ROCK); // 欧珀块
+	public static final Block blockOpal = new BlockCompressed(Material.ROCK).enableTransparent(); // 欧珀块
 	@Reg(Keys.blockTopaz)
 	public static final Block blockTopaz = new BlockCompressed(Material.ROCK); // 托帕石块
 	@Reg(Keys.blockLizanite)
