@@ -6,10 +6,6 @@ import firok.tiths.util.reg.Reg;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.util.BlockRenderLayer;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.tconstruct.library.utils.HarvestLevels;
 
 @SuppressWarnings("all")
@@ -274,26 +270,8 @@ public class Blocks
 		{
 			this.setResistance(200);
 		}
-		@SideOnly(Side.CLIENT)
-		public BlockRenderLayer getBlockLayer()
-		{
-			return BlockRenderLayer.CUTOUT;
-		}
+	}.enableTransparent(); // 强化玻璃
 
-		public boolean isFullCube(IBlockState state)
-		{
-			return false;
-		}
-
-		protected boolean canSilkHarvest()
-		{
-			return true;
-		}
-
-		public boolean isOpaqueCube(IBlockState state) {
-			return false;
-		}
-	}; // 强化玻璃
 	@Reg(Keys.blockCoagulatedBloodSand)
 	public static final Block blockCoagulatedBloodSand = new BlockCompressed(Material.SAND); // 凝结血沙
 	@Reg(Keys.blockSearingVent)
