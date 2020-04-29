@@ -5,9 +5,13 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+@SuppressWarnings("all")
 public class BlockCompressed extends Block
 {
 	public BlockCompressed()
@@ -23,26 +27,51 @@ public class BlockCompressed extends Block
 		super(material, color);
 	}
 
-	protected boolean isGlassLike=false;
+	protected boolean isTransparent =false;
+
+	/**
+	 * 启用方块渲染透明度
+	 */
 	public BlockCompressed enableTransparent()
 	{
-		this.isGlassLike=true;
+		this.isTransparent =true;
 		return this;
+	}
+
+	@SideOnly(Side.CLIENT)
+	public boolean shouldSideBeRendered(IBlockState blockstateThis, IBlockAccess world, BlockPos pos, EnumFacing side)
+	{
+		if(!isTransparent) return super.shouldSideBeRendered(blockstateThis, world, pos, side);
+
+		IBlockState blockstateNearby = world.getBlockState(pos.offset(side));
+		Block block = blockstateNearby.getBlock();
+
+		if (blockstateThis != blockstateNearby)
+		{
+			return true;
+		}
+
+		if (block == this)
+		{
+			return false;
+		}
+
+		return super.shouldSideBeRendered(blockstateThis, world, pos, side);
 	}
 
 	@SideOnly(Side.CLIENT)
 	public BlockRenderLayer getBlockLayer()
 	{
-		return isGlassLike? BlockRenderLayer.CUTOUT: BlockRenderLayer.SOLID;
+		return isTransparent ? BlockRenderLayer.TRANSLUCENT: BlockRenderLayer.SOLID;
 	}
 
 	public boolean isFullCube(IBlockState state)
 	{
-		return !isGlassLike;
+		return !isTransparent;
 	}
 
 	public boolean isOpaqueCube(IBlockState state) {
-		return !isGlassLike;
+		return !isTransparent;
 	}
 
 	protected boolean canSilkHarvest()
