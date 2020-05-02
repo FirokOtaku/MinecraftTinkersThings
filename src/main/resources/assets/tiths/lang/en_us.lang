@@ -223,6 +223,7 @@ tile.tiths.block_mercury_sulfide.name=Block of Mercury Sulfide
 tile.tiths.block_bloody_chiseled_quartz.name=Chiseled Bloody Quartz Block
 tile.tiths.block_bloody_pillar_quartz.name=Pillar Bloody Quartz Block
 tile.tiths.block_bloody_quartz.name=Bloody Quartz Block
+tile.tiths.block_tinker_disintegrator.name=Tinker Disintegrator
 
 ## consumables
 item.tiths.gateway_gem.name=Gateway Gem
@@ -359,7 +360,7 @@ modifier.sun_power.desc=§o§r\nTo slowly heal the tool at day time
 modifier.moon_power.name=Moon Power
 modifier.moon_power.desc=§o§r\nTo slowly heal the tool at night time
 modifier.lionheart.name=Lionheart
-modifier.lionheart.desc=§oYou no longer fear§r\nEvery time you hit enemy, this will provide you a resistance effect
+modifier.lionheart.desc=§oYou no longer fear§r\nEvery time you hit enemy, this will provide you a lionheart effect
 modifier.terrifying.name=Terrifying
 modifier.terrifying.desc=§oHuh§r\nTo weaken your enemy
 modifier.thunder_waving.name=Thunder Waving
@@ -394,13 +395,19 @@ modifier.oracular.desc=§oSoul washing§r\nCleansing buffs of target and debuffs
 modifier.thermal_gathering.name=Thermal Gathering
 modifier.thermal_gathering.desc=§oI'm so hot§r\nReduce fire damage you taken and your tool will automatically repair itself when close to heat source
 modifier.steamy.name=Steamy
-modifier.steamy.desc=§o-25% off§r\nTo decrease damage and increase knockback
+modifier.steamy.desc=§o-50% off§r\nTo decrease damage and increase knockback
 modifier.decoying.name=Decoying
 modifier.decoying.desc=§oCome here§r\nTo summon animals with a small chance
 modifier.stamina_focusing.name=Stamina Focusing
 modifier.stamina_focusing.desc=§oStrong mind§r\nTo provide resistance effect when user is sneaking
 modifier.champing.name=Champing
 modifier.champing.desc=§oYou are free§r\nTo increase the rate of critical and critical damage
+modifier.vibrating.name=Vibrating
+modifier.vibrating.desc=§oNot very handy§r\nTo decrease the speed but increase knockback when continuously using
+modifier.combustion_supporting.name=Combustion Supporting
+modifier.combustion_supporting.desc=§oYou are fired!§r\nTo increase damage when target is in burning
+modifier.blowing.name=Blowing
+modifier.blowing.desc=§o-25% off§r\nTo blow away the held item of your target
 
 ## armor modifiers
 modifier.carbonizing_armor.name=Carbonizing
@@ -456,7 +463,7 @@ modifier.warm_soft_armor.desc=§oGood night, tonight§r\nTo give wearer effects 
 modifier.wither_flowing_armor.name=Wither Flowing
 modifier.wither_flowing_armor.desc=§oYour life drains§r\nTo wither and weaken your enemy
 modifier.poisonous_armor.name=Poisonous
-modifier.poisonous_armor.desc=§oNot exactly lead-free!§r\nPoisons enemies on hit.
+modifier.poisonous_armor.desc=§oNot exactly lead-free!§r\nPoisons enemies on hit
 modifier.switching_armor.name=Switching
 modifier.switching_armor.desc=§oWhat?§r\nTo exchange position with the attacker
 modifier.star_dashing_armor.name=Star Dashing
@@ -465,6 +472,12 @@ modifier.thermal_gathering_armor.name=Thermal Gathering
 modifier.thermal_gathering_armor.desc=§oI'm so hot§r\nReduce fire damage you taken and your armor will automatically repair itself when close to heat source
 modifier.stamina_focusing_armor.name=Stamina Focusing
 modifier.stamina_focusing_armor.desc=§oStrong mind§r\nTo provide resistance effect when user is sneaking
+modifier.vibrating_armor.name=Vibrating
+modifier.vibrating_armor.desc=§oOhhhhhhh!§r\nTo decrease the damage when consecutively hitted
+modifier.devouring_armor.name=Devouring
+modifier.devouring_armor.desc=§oVoid of magic§r\nAbsorbs magic damage received, there is a chance to turn into healing\nArmor will not lose durability due to magic damage
+modifier.smooth_armor.name=Smooth
+modifier.smooth_armor.desc=§oIt is reflecting§r\nTo dodge damage; have a higher chance when moving
 
 ## potions
 effect.heavy=Heavy
@@ -514,6 +527,18 @@ potion.effect.void_infected=Potion of Void Infecting
 splash_potion.effect.void_infected=Splash Potion of Void Infecting
 tipped_arrow.effect.void_infected=Arrow of Void Infecting
 lingering_potion.effect.void_infected=Lingering Potion of Void Infecting
+
+effect.acid_wetted=Acid Wetted
+potion.effect.acid_wetted=Potion of Acid Wetting
+splash_potion.effect.acid_wetted=Splash Potion of Acid Wetting
+tipped_arrow.effect.acid_wetted=Arrow of Acid Wetting
+lingering_potion.effect.acid_wetted=Lingering Potion of Acid Wetting
+
+effect.lionheart=Lionheart
+potion.effect.lionheart=Potion of Lionheart
+splash_potion.effect.lionheart=Splash Potion of Lionheart
+tipped_arrow.effect.lionheart=Arrow of Lionheart
+lingering_potion.effect.lionheart=Lingering Potion of Lionheart
 
 ## damage sources
 death.attack.san=%1$s has some mental problem

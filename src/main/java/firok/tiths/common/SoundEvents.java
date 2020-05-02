@@ -11,6 +11,9 @@ public class SoundEvents
 	public static final SoundEvent recordTinkersImagination=$(Keys.soundTinkersImagination);
 	public static final SoundEvent effectHeal=$(Keys.soundHealEffect);
 	public static final SoundEvent effectShake=$(Keys.soundShakeEffect);
+	public static final SoundEvent effectFire=$(Keys.soundFireEffect);
+	public static final SoundEvent effectSwing=$(Keys.soundSwingEffect);
+	public static final SoundEvent effectTransforming=$(Keys.soundTransformingEffect);
 
 	/**
 	 @see net.minecraft.util.SoundCategory

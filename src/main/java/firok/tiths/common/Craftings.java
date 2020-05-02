@@ -15,7 +15,7 @@ import slimeknights.tconstruct.library.smeltery.CastingRecipe;
 import slimeknights.tconstruct.shared.TinkerFluids;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 
-import static firok.tiths.common.Keys.fuelTimeCinder;
+import static firok.tiths.common.Keys.*;
 import static net.minecraftforge.fml.common.registry.GameRegistry.addSmelting;
 import static slimeknights.tconstruct.library.TinkerRegistry.registerBasinCasting;
 import static slimeknights.tconstruct.library.TinkerRegistry.registerTableCasting;
@@ -45,6 +45,14 @@ public class Craftings
 			{
 				return fuelTimeCinder;
 			}
+			else if(item==Items.lavaCrystal)
+			{
+				return fuelTimeLavaCrystal;
+			}
+			else if(item==Items.treeRoot)
+			{
+				return fuelTimeTreeRoot;
+			}
 			return 0;
 		});
 	}
@@ -52,7 +60,7 @@ public class Craftings
 	// 原矿 矿块 矿锭 矿粒 之间的合成关系
 	private static void registerBindings()
 	{
-		createBinding(null,Blocks.blockStellarium,Fluids.moltenStellarium,Items.ingotStellarium,Items.nuggetStellarium);
+		createBinding(Blocks.oreStellarium,Blocks.blockStellarium,Fluids.moltenStellarium,Items.ingotStellarium,Items.nuggetStellarium);
 		createBinding(null,Blocks.blockRoyalAlloy,Fluids.moltenRoyalAlloy,Items.ingotRoyalAlloy,Items.nuggetRoyalAlloy);
 		createBinding(Blocks.oreImmersedSilver,Blocks.blockImmersedSilver,Fluids.moltenImmersedSilver,Items.ingotImmersedSilver,Items.nuggetImmersedSilver);
 		createBinding(Blocks.oreMithril,Blocks.blockMithril,Fluids.moltenMithril,Items.ingotMithril,Items.nuggetMithril);

@@ -1,6 +1,7 @@
 package firok.tiths.traits;
 
 import firok.tiths.common.Potions;
+import firok.tiths.util.InnerActions;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -32,7 +33,8 @@ public class TraitRepressing extends AbstractTrait
 	@Override
 	public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag)
 	{
-		super.applyEffect(rootCompound, modifierTag);
+		if(InnerActions.addTrait(this,rootCompound,modifierTag)) return;
+
 		ToolNBT data = TagUtil.getToolStats(rootCompound);
 		data.speed*=0.85f;
 		data.attackSpeedMultiplier*=0.75f;

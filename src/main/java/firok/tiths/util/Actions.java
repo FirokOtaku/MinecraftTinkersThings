@@ -29,6 +29,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -291,7 +292,7 @@ public final class Actions
 		mod= MathHelper.sqrt(mod);
 
 		star.motionX= speed * (toX-fromX) / mod;
-		star.motionY= speed * (toY-fromY) / mod;
+		star.motionY= speed * (toY-fromY) / mod + 0.2;
 		star.motionZ= speed * (toZ-fromZ) / mod;
 
 		star.damage=damage;
@@ -331,8 +332,11 @@ public final class Actions
 
 			ret[i]=CauseStarDashing(world,fromX,fromY,fromZ,toX,toY,toZ,speed,damage);
 
-			world.spawnEntity(ret[i]);
+//			world.spawnEntity(ret[i]);
 		}
+
+//		if(!world.isRemote)
+		world.playSound(null,centerX,centerY,centerZ, firok.tiths.common.SoundEvents.effectFire, SoundCategory.MASTER, 1, 1);
 
 		return ret;
 	}
@@ -365,6 +369,15 @@ public final class Actions
 		final float distanceZ=MathHelper.cos(angle)*distance;
 		final BlockPos posTop=world.getTopSolidOrLiquidBlock(new BlockPos((int)distanceX+px,0,(int)distanceZ+pz));
 		entity.setPosition(posTop.getX(),posTop.getY()+2,posTop.getZ());
+	}
+
+	public static void CauseAcidDamage(EntityLivingBase entity,int damage,boolean playSound)
+	{
+		for(ItemStack stackEqui:entity.getEquipmentAndArmor())
+		{
+			if(stackEqui.isItemStackDamageable())
+				stackEqui.damageItem(damage,entity);
+		}
 	}
 
 	/**

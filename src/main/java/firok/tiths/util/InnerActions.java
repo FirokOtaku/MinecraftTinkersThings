@@ -3,9 +3,14 @@ package firok.tiths.util;
 import c4.conarm.lib.traits.AbstractArmorTrait;
 import firok.tiths.TinkersThings;
 import firok.tiths.intergration.conarm.IAbstractArmorTrait;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.nbt.NBTTagString;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.Material;
+import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.traits.ITrait;
+import slimeknights.tconstruct.library.utils.TagUtil;
 
 /**
  * 内部操作
@@ -13,6 +18,34 @@ import slimeknights.tconstruct.library.traits.ITrait;
 public final class InnerActions
 {
 	private InnerActions(){}
+
+	/* ---- 给物品增加特性 ---- */
+	public static boolean addTrait(ITrait trait, NBTTagCompound rootCompound, NBTTagCompound modifierTag)
+	{
+		return addTrait(trait.getIdentifier(),rootCompound,modifierTag);
+	}
+	/**
+	 * 给物品添加特性
+	 * @see AbstractTrait#applyEffect(net.minecraft.nbt.NBTTagCompound, net.minecraft.nbt.NBTTagCompound)
+	 * @param idTrait 要添加特性的id
+	 * @return 之前是否已经添加过这个特性
+	 */
+	public static boolean addTrait(String idTrait, NBTTagCompound rootCompound, NBTTagCompound modifierTag)
+	{
+		NBTTagList traits = TagUtil.getTraitsTagList(rootCompound);
+		for(int i = 0; i < traits.tagCount(); i++)
+		{
+			if(idTrait.equals(traits.getStringTagAt(i)))
+			{
+				return true;
+			}
+		}
+
+		traits.appendTag(new NBTTagString(idTrait));
+		TagUtil.setTraitsTagList(rootCompound, traits);
+
+		return false;
+	}
 
 	/* ---- 给材料增加属性 ---- */
 	public static int addMaterialTraits(Material material, String[] traitNames)

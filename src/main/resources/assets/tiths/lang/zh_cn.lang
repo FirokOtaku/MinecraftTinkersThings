@@ -223,6 +223,7 @@ tile.tiths.block_mercury_sulfide.name=汞红块
 tile.tiths.block_bloody_chiseled_quartz.name=錾制血腥石英块
 tile.tiths.block_bloody_pillar_quartz.name=竖纹血腥石英块
 tile.tiths.block_bloody_quartz.name=血腥石英块
+tile.tiths.block_tinker_disintegrator.name=匠魂粉碎机
 
 ## consumables
 item.tiths.gateway_gem.name=折跃之石
@@ -359,7 +360,7 @@ modifier.sun_power.desc=§o§r\n白天缓慢恢复耐久
 modifier.moon_power.name=月之力量
 modifier.moon_power.desc=§o§r\n夜晚缓慢恢复耐久
 modifier.lionheart.name=狮心
-modifier.lionheart.desc=§o你不再恐惧§r\n每次命中敌人都会叠加一个抗性提升效果
+modifier.lionheart.desc=§o你不再恐惧§r\n每次命中敌人都会叠加一个狮心效果
 modifier.terrifying.name=恐惧
 modifier.terrifying.desc=§o哈!§r\n削弱你的敌人
 modifier.thunder_waving.name=雷鸣波动
@@ -394,13 +395,19 @@ modifier.oracular.desc=§o洗涤心灵§r\n净化目标增益效果, 净化使�
 modifier.thermal_gathering.name=热力聚集
 modifier.thermal_gathering.desc=§o烫烫烫§r\n降低受到的火焰伤害. 当周围有热源方块时会缓慢恢复耐久
 modifier.steamy.name=气动
-modifier.steamy.desc=§o-25% off§r\n降低攻击力, 提升击退
+modifier.steamy.desc=§o-50% off§r\n降低攻击力, 提升击退
 modifier.decoying.name=诱食
 modifier.decoying.desc=§o来蜀黍这§r\n使用时有几率召唤动物
 modifier.stamina_focusing.name=精力汇聚
 modifier.stamina_focusing.desc=§o坚定意志§r\n潜行时提供抗性提升效果
 modifier.champing.name=强袭
 modifier.champing.desc=§o自由§r\n增加暴击几率和暴击伤害
+modifier.vibrating.name=震动
+modifier.vibrating.desc=§o不是特别顺手§r\n连续使用会提升击退但是降低速度
+modifier.combustion_supporting.name=助燃
+modifier.combustion_supporting.desc=§oFFF!§r\n当目标着火时损失更多耐久造成更多伤害
+modifier.blowing.name=吹袭
+modifier.blowing.desc=§o-25% off§r\n有几率缴械目标
 
 ## armor modifiers
 modifier.carbonizing_armor.name=碳化
@@ -465,6 +472,12 @@ modifier.thermal_gathering_armor.name=热力聚集
 modifier.thermal_gathering_armor.desc=§o烤烤烤§r\n降低受到的火焰伤害. 当周围有热源方块时会缓慢恢复耐久
 modifier.stamina_focusing_armor.name=精力汇聚
 modifier.stamina_focusing_armor.desc=§o坚定意志§r\n潜行时提供抗性提升效果
+modifier.vibrating_armor.name=震动
+modifier.vibrating_armor.desc=§o打我啊§r\n降低连续被击时收到的伤害
+modifier.devouring_armor.name=吞噬
+modifier.devouring_armor.desc=§o法力虚空§r\n吸收魔法伤害, 有几率转变为治疗\n护甲不会由于魔法伤害损失耐久
+modifier.smooth_armor.name=光滑
+modifier.smooth_armor.desc=§o它在反光§r\n闪避伤害; 移动时几率更高
 
 ## potions
 effect.heavy=沉重
@@ -514,6 +527,18 @@ potion.effect.void_infected=虚空侵蚀药水
 splash_potion.effect.void_infected=喷溅型虚空侵蚀药水
 tipped_arrow.effect.void_infected=虚空侵蚀之箭
 lingering_potion.effect.void_infected=滞留型虚空侵蚀药水
+
+effect.acid_wetted=酸蚀
+potion.effect.acid_wetted=酸蚀药水
+splash_potion.effect.acid_wetted=喷溅型酸蚀药水
+tipped_arrow.effect.acid_wetted=酸蚀之箭
+lingering_potion.effect.acid_wetted=滞留型酸蚀药水
+
+effect.lionheart=狮心
+potion.effect.lionheart=狮心药水
+splash_potion.effect.lionheart=喷溅型狮心
+tipped_arrow.effect.lionheart=狮心之箭
+lingering_potion.effect.lionheart=滞留型狮心药水
 
 ## damage sources
 death.attack.san=%1$s遇到了一点精神问题

@@ -119,26 +119,26 @@ public class Blocks
 
 	@Reg(Keys.orePolarium)
 //	@GenMeteoWorld
-	@GenOre(times=1,timeRate=0.14f,size=5,minY=40,maxY=180)
+	@GenOre(times=1,timeRate=0.36,size=5,minY=40,maxY=180)
 	public static final BlockOre orePolarium = new BlockOre().setEpicOre(); // 勾陈矿
 	@Reg(Keys.oreHalleium)
 //	@GenMeteoWorld
-	@GenOre(times=1,timeRate=0.14f,size=5,minY=40,maxY=180)
+	@GenOre(times=1,timeRate=0.36,size=5,minY=40,maxY=180)
 	public static final BlockOre oreHalleium = new BlockOre().setEpicOre(); // 哈雷矿
 	@Reg(Keys.oreAltairium)
 //	@GenMeteoWorld
-	@GenOre(times=1,timeRate=0.14f,size=5,minY=40,maxY=180)
+	@GenOre(times=1,timeRate=0.36,size=5,minY=40,maxY=180)
 	public static final BlockOre oreAltairium = new BlockOre().setEpicOre(); // 河鼓矿
 	@Reg(Keys.oreHothium)
 //	@GenMeteoWorld
-	@GenOre(times=1,timeRate=0.14f,size=5,minY=40,maxY=180)
+	@GenOre(times=1,timeRate=0.36,size=5,minY=40,maxY=180)
 	public static final BlockOre oreHothium = new BlockOre().setEpicOre(); // 霍斯矿
 	@Reg(Keys.oreTonium)
 //	@GenMeteoWorld
-	@GenOre(times=1,timeRate=0.14f,size=5,minY=40,maxY=180)
+	@GenOre(times=1,timeRate=0.36,size=5,minY=40,maxY=180)
 	public static final BlockOre oreTonium = new BlockOre().setEpicOre(); // 钝金矿
 	@Reg(Keys.oreStellarium)
-	@GenOre(times=1,timeRate=0.14f,size=5,minY=40,maxY=180)
+	@GenOre(times=1,timeRate=0.36,size=5,minY=40,maxY=180)
 	public static final BlockOre oreStellarium = new BlockOre().setEpicOre(); // 恒星金属矿
 	@Reg(Keys.oreVibratingCrystal)
 	@GenOre(times=2,timeRate=0.8f,size=6,minY=16,maxY=32)

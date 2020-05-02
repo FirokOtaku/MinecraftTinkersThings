@@ -3,7 +3,6 @@
 > 📑 Code 代码
 > 💡 Idea 创意
 > 🌏 Localization 本地化
-> 🔊 Sound and Music 音效和音乐
 > 🌼 Texture 材质
 
 name|job
@@ -13,15 +12,11 @@ Avery|🌏
 Ayero|💡
 Dongguai|💡
 ExplosiveMosFET|💡
-Frankumjay|🔊
 goulixiaoji|💡
 hidfug|💡 🌼
-Isaac200000|🔊
 Kirisu|💡
 l_sz|💡
-mixmitch62|🔊
 Thsaure|💡
-Timbre|🔊
 Wu|💡
 諾炎|💡
 夜凌_yorin|💡 🌼
@@ -41,6 +36,15 @@ Heal Effect|Error|Isaac200000|无 none|CC0 1.0|[Link](https://freesound.org/peop
 Shaking Effect|Warrior KICK|mixmitch62|无 none|CC0 1.0|[Link](https://freesound.org/people/mixmitch62/sounds/459877/)
 Shaking Effect|Warrior Tom|mixmitch62|无 none|CC0 1.0|[Link](https://freesound.org/people/mixmitch62/sounds/459876/)
 Shaking Effect|Warrior bass T|mixmitch62|无 none|CC0 1.0|[Link](https://freesound.org/people/mixmitch62/sounds/459875/)
+Fire Effect|Fire sound|CTCollab|变速 speed changed|CC BY 3.0|[Link](https://freesound.org/people/CTCollab/sounds/223610/)
+Fire Effect|Fire Ball Release|CTCollab|变速 speed changed|CC BY 3.0|[Link](https://freesound.org/people/CTCollab/sounds/223611/)
+Fire Effect|Fireball 1|CTCollab|变速 speed changed|CC BY 3.0|[Link](https://freesound.org/people/CTCollab/sounds/223615/)
+Swing Effect|Bamboo Swing, A14|InspectorJ|裁剪 trimed|CC BY 3.0|[Link](https://freesound.org/people/InspectorJ/sounds/394418/)
+Swing Effect|Whoosch sound|nitramdoh|调整音量 volume changed|CC0 1.0|[Link](https://freesound.org/people/nitramdoh/sounds/351152/)
+Swing Effect|stick-1|_def|无 none|CC BY 3.0|[Link](https://freesound.org/people/_def/sounds/346557/)
+Transforming Effect|Whoosh woow mk1|Speedenza|无 none|CC BY NC 3.0|[Link](https://freesound.org/people/Speedenza/sounds/168177/)
+Transforming Effect|Whoosh woow mk2|Speedenza|无 none|CC BY NC 3.0|[Link](https://freesound.org/people/Speedenza/sounds/168176/)
+Transforming Effect|Whoosh woow mk3|Speedenza|无 none|CC BY NC 3.0|[Link](https://freesound.org/people/Speedenza/sounds/168180/)
 
 ## 关于CC协议 About Creative Commons License
 

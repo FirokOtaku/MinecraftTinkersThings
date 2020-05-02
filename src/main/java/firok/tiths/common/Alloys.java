@@ -31,11 +31,11 @@ public class Alloys
 			);
 		}
 		// 艾瑞西亚
-		registerAlloy(
-				new FluidStack(Fluids.moltenIrisia, VALUE_Ingot * 2),
-				new FluidStack(Fluids.moltenStellarium,VALUE_Ingot),
-				new FluidStack(Fluids.moltenHothium,VALUE_Ingot)
-		);
+//		registerAlloy(
+//				new FluidStack(Fluids.moltenIrisia, VALUE_Ingot * 2),
+//				new FluidStack(Fluids.moltenStellarium,VALUE_Ingot),
+//				new FluidStack(Fluids.moltenHothium,VALUE_Ingot)
+//		);
 		// 神谕钢
 		registerAlloy(
 				new FluidStack(Fluids.moltenOraclium, VALUE_Ingot * 2),

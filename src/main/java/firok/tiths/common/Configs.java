@@ -89,6 +89,13 @@ public class Configs
 		@RangeDouble(min=0,max=1)
 		public static double rate_birefringent_damage = 0.3;
 
+		@LangKey(pgp+"rate_blowing")
+		@RangeDouble(min=0,max=1)
+		public static double rate_blowing = 0.25;
+
+		@LangKey(pgp+"blacklist_blowing_entity")
+		public static String[] blacklist_blowing_entity = new String[0];
+
 		@LangKey(pgp+"rate_carbonizing_transform")
 		@RangeDouble(min=0,max=1)
 		public static double rate_carbonizing_transform = 0.05;

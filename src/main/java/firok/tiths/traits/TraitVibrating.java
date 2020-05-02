@@ -23,7 +23,7 @@ public class TraitVibrating extends AbstractTrait
 		super(nameTraitVibrating, colorTraitVibrating);
 	}
 
-	public static void addFrequency(ItemStack stack,int count,int max)
+	public static float addFrequency(ItemStack stack,int count,int max)
 	{
 		NBTTagCompound nbt=stack.hasTagCompound()?stack.getTagCompound():new NBTTagCompound();
 		float frequency=nbt.hasKey(NBTKey)?nbt.getFloat(NBTKey):0;
@@ -33,9 +33,11 @@ public class TraitVibrating extends AbstractTrait
 
 		nbt.setFloat(NBTKey,frequency);
 		stack.setTagCompound(nbt);
+
+		return frequency;
 	}
 
-	public static void subtractFrequency(ItemStack stack,int count,int min)
+	public static float subtractFrequency(ItemStack stack,int count,int min)
 	{
 		NBTTagCompound nbt=stack.hasTagCompound()?stack.getTagCompound():new NBTTagCompound();
 		float frequency=nbt.hasKey(NBTKey)?nbt.getFloat(NBTKey):0;
@@ -45,6 +47,8 @@ public class TraitVibrating extends AbstractTrait
 
 		nbt.setFloat(NBTKey,frequency);
 		stack.setTagCompound(nbt);
+
+		return frequency;
 	}
 
 	public static float getFrequency(ItemStack stack,int max,int min)

@@ -335,6 +335,7 @@ public interface Keys
 	int colorEnderTurbulence=0x5c1491;
 
 	int colorDirtyWater=0x613d1d;
+	int colorAcid=0x0e8c39;
 
 	// 匠魂自带属性
 	String nameTraitLightweight="lightweight";
@@ -368,6 +369,8 @@ public interface Keys
 	String nameTraitCombustible="combustible";
 	String nameTraitIndomitable="indomitable";
 	String nameTraitVoltaic="voltaic";
+	String nameTraitMundane="mundane";
+	String nameTraitInvigorating="invigorating";
 
 	// 属性
 	String nameTraitGluttonic="gluttonic";
@@ -439,6 +442,11 @@ public interface Keys
 	String nameTraitWidening="widening";
 	String nameTraitWarmSoft="warm_soft";
 	String nameTraitVibrating="vibrating";
+	String nameTraitCombustionSupporting="combustion_supporting";
+	String nameTraitBlowing="blowing";
+	String nameTraitDeadening="deadening";
+	String nameTraitDevouring="devouring";
+	String nameTraitSmooth="smooth";
 
 	// 属性颜色
 	int colorTraitGluttonic=0x752b40;
@@ -510,6 +518,11 @@ public interface Keys
 	int colorTraitWarmSoft=0xfff14f;
 	int colorTraitPoisonous=0x467f01;
 	int colorTraitVibrating=0x4a90e2;
+	int colorTraitCombustionSupporting=0xa56228;
+	int colorTraitBlowing=0x86b0ed;
+	int colorTraitDeadening=0x59a373;
+	int colorTraitDevouring=0x390664;
+	int colorTraitSmooth=0xe8f7f7;
 
 	// 状态效果颜色
 	int colorPotionHeavy=Colors.DarkSeaGreen;
@@ -519,6 +532,8 @@ public interface Keys
 	int colorPotionAvatar=0xffeb11;
 	int colorPotionRooted=0x644209;
 	int colorPotionArmorSoftened=0x4b6816;
+	int colorPotionAcidWetted=0x0e8c39;
+	int colorPotionLionheart=0xe3041f;
 
 	// 状态效果属性修饰符uuid
 	String uuidPotionAvatarSpeed="258A83A5-A3BD-4CFD-842C-B2DF39343C91";
@@ -530,6 +545,8 @@ public interface Keys
 	String uuidPotionArmorSoftenedArmor="425BCA0D-7A45-4246-9887-144F55725230";
 	String uuidPotionArmorSoftenedArmorToughness="BB676529-49C3-4887-AD64-911EDBE69F7E";
 	String uuidPotionArmorVoidInfected="9BA4BDC8-7E7F-437A-B526-B2D8CF3588F0";
+	String uuidPotionSpeedHiddenHyper="DF67E659-FB9D-4FAF-802C-8AA2F593A558";
+	String uuidPotionArmorLionheart ="995F5833-14F9-4897-9ED7-2FA85EFF5281";
 
 	// 燃料热值
 	int fuelTimeCoal=1600;
@@ -538,6 +555,8 @@ public interface Keys
 	int fuelTimeWood=300;
 	int fuelTimeWoodPlate=300; // fixme
 	int fuelTimeCinder=fuelTimeCoal / 8;
+	int fuelTimeLavaCrystal=fuelTimeCoal * 4;
+	int fuelTimeTreeRoot=fuelTimeCoal / 4;
 
 	// 唱片
 	String recordTinkersEfforts="record_tinkers_efforts";
@@ -552,6 +571,9 @@ public interface Keys
 	String soundTinkersEnemy="tinkers_enemy";
 	String soundHealEffect="heal_effect";
 	String soundShakeEffect="shake_effect";
+	String soundFireEffect="fire_effect";
+	String soundSwingEffect="swing_effect";
+	String soundTransformingEffect="transforming_effect";
 
 //	String configBase="config."+TinkersThings.MOD_ID+'.';
 //	String cateGeneral=configBase+"general";

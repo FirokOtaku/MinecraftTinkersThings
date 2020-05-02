@@ -1,6 +1,7 @@
 package firok.tiths.traits;
 
 import firok.tiths.common.SoundEvents;
+import firok.tiths.util.InnerActions;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
@@ -35,14 +36,15 @@ public class TraitShaking extends AbstractTrait
 			target.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS,30,2));
 			target.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS,30,2));
 
-			player.world.playSound(null,target.getPosition(), SoundEvents.effectShake, SoundCategory.MASTER,1,1);
+			target.world.playSound(null,target.getPosition(), SoundEvents.effectShake, SoundCategory.MASTER,0.7f,1);
 		}
 	}
 
 	@Override
 	public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag)
 	{
-		super.applyEffect(rootCompound, modifierTag);
+		if(InnerActions.addTrait(this,rootCompound,modifierTag)) return;
+
 		NBTTagCompound tag = TagUtil.getToolTag(rootCompound);
 		float speed=tag.getFloat(Tags.ATTACKSPEEDMULTIPLIER);
 		float mineSpeed=tag.getFloat(Tags.MININGSPEED);

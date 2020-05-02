@@ -173,6 +173,7 @@ public class BlockCloud extends Block
 	@Override
 	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity en)
 	{
+		en.fallDistance=0;
 		en.motionX*=0.4;
 		if(en.motionY<0) en.motionY*=0.4;
 		en.motionZ*=0.4;

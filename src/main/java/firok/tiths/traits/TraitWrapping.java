@@ -1,6 +1,7 @@
 package firok.tiths.traits;
 
 import firok.tiths.util.Actions;
+import firok.tiths.util.InnerActions;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -8,7 +9,8 @@ import slimeknights.tconstruct.library.tools.ToolNBT;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 
-import static firok.tiths.common.Keys.*;
+import static firok.tiths.common.Keys.colorTraitWrapping;
+import static firok.tiths.common.Keys.nameTraitWrapping;
 
 /**
  * 折跃
@@ -33,6 +35,7 @@ public class TraitWrapping extends AbstractTrait
 	@Override
 	public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag)
 	{
+		if(InnerActions.addTrait(this,rootCompound,modifierTag)) return;
 		ToolNBT data = TagUtil.getToolStats(rootCompound);
 		data.durability=Math.max(1,data.durability-75);
 		TagUtil.setToolTag(rootCompound, data.get());

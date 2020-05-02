@@ -35,5 +35,37 @@
       "tiths:effects/shake2",
       "tiths:effects/shake3"
     ]
+  },
+  "fire_effect": {
+    "category": "master",
+    "subtitle": "tiths.sound.fire_effect",
+    "sounds": [
+      "tiths:effects/fire11",
+      "tiths:effects/fire12",
+      "tiths:effects/fire21",
+      "tiths:effects/fire22",
+      "tiths:effects/fire23",
+      "tiths:effects/fire31",
+      "tiths:effects/fire32",
+      "tiths:effects/fire33"
+    ]
+  },
+  "swing_effect": {
+    "category": "master",
+    "subtitle": "tiths.sound.swing_effect",
+    "sounds": [
+      "tiths:effects/swing1",
+      "tiths:effects/swing2",
+      "tiths:effects/swing3"
+    ]
+  },
+  "transforming_effect": {
+    "category": "master",
+    "subtitle": "tiths.sound.transforming_effect",
+    "sounds": [
+      "tiths:effects/transforming1",
+      "tiths:effects/transforming2",
+      "tiths:effects/transforming3"
+    ]
   }
 }

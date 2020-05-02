@@ -1,6 +1,7 @@
 package firok.tiths.traits;
 
 import firok.tiths.common.Configs;
+import firok.tiths.util.InnerActions;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
@@ -33,6 +34,8 @@ public class TraitInky extends AbstractTrait
 	@Override
 	public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag)
 	{
+		if(InnerActions.addTrait(this,rootCompound,modifierTag)) return;
+
 		ToolNBT data = TagUtil.getToolStats(rootCompound);
 
 		data.speed*=0.9f;

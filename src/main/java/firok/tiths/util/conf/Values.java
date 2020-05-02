@@ -164,6 +164,8 @@ public class Values
 		return ret;
 	}
 
+	public static final float FAC=(float) Math.PI/180;
+
 	public static boolean __(Object test)
 	{
 		return test!=null;

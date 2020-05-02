@@ -32,6 +32,9 @@ public class Potions
 	public static BasePotion rooted = new PotionRooted(); // 缠绕
 	public static BasePotion armor_softened = new PotionArmorSoftened(); // 护甲软化
 	public static BasePotion void_infected = new PotionVoidInfected(); // 虚空侵蚀
+	public static BasePotion acid_wetted = new PotionAcidWetted(); // 酸蚀
+	public static BasePotion hidden_hyper = new PotionHiddenHyper(); // 特性 - 振奋 (隐藏状态)
+	public static BasePotion lionheart = new PotionLionheart(); // 狮心
 //	public static Potion disappear = new PotionDisappear(); // 消失
 
 

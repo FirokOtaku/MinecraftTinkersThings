@@ -8,6 +8,9 @@ public class ArmorTraits
 {
 	public static AbstractArmorTrait carbonizing; // 碳化
 	public static AbstractArmorTrait chemicalInstable; // 化学不稳定
+	public static AbstractArmorTrait deadening; // 吸音
+	public static AbstractArmorTrait deepParasitic; // 深触寄生
+	public static AbstractArmorTrait devouring; // 吞噬
 	public static AbstractArmorTrait dichroic; // 二色性
 	public static AbstractArmorTrait diffuseReflecting; // 漫反射
 	public static AbstractArmorTrait endothermic; // 吸热
@@ -25,9 +28,9 @@ public class ArmorTraits
 	public static AbstractArmorTrait overHeavy; // 沉重
 	public static AbstractArmorTrait panicking; // 威慑
 	public static AbstractArmorTrait poisonous; // 剧毒
-	public static AbstractArmorTrait parasitic; // 深触寄生
 	public static AbstractArmorTrait radiant; // 辉耀
 	public static AbstractArmorTrait sliding; // 软滑
+	public static AbstractArmorTrait smooth; // 光滑
 	public static AbstractArmorTrait soluble; // 可溶
 	public static AbstractArmorTrait staminaFocusing; // 精力汇聚
 	public static AbstractArmorTrait starDashing; // 星绽
@@ -35,6 +38,7 @@ public class ArmorTraits
 	public static AbstractArmorTrait switching; // 换位
 	public static AbstractArmorTrait thermalGathering; // 热力聚集
 	public static AbstractArmorTrait thresholdLimiting; // 阈限
+	public static AbstractArmorTrait vibrating; // 震动
 	public static AbstractArmorTrait warmSoft1; // 温软1
 	public static AbstractArmorTrait warmSoft2; // 温软2
 	public static AbstractArmorTrait warmSoft3; // 温软3
@@ -45,6 +49,9 @@ public class ArmorTraits
 	{
 		carbonizing=new TraitArmorCarbonizing();
 		chemicalInstable=new TraitArmorChemicalInstable();
+//		deadening;
+		deepParasitic =new TraitArmorDeepParasitic();
+		devouring = new TraitArmorDevouring();
 		dichroic=new TraitArmorDichroic();
 		diffuseReflecting=new TraitArmorDiffuseReflecting();
 		endothermic=new TraitArmorEndothermic();
@@ -62,9 +69,9 @@ public class ArmorTraits
 		overHeavy=new TraitArmorOverHeavy();
 //		panicking=new TraitArmorPanicking();
 		poisonous=new TraitArmorPoisonous();
-		parasitic=new TraitArmorDeepParasitic();
 		radiant=new TraitArmorRadiant();
 		sliding=new TraitArmorSliding();
+		smooth=new TraitArmorSmooth();
 		soluble=new TraitArmorSoluble();
 		staminaFocusing=new TraitArmorStaminaFocusing();
 		starDashing=new TraitArmorStarDashing();
@@ -72,6 +79,7 @@ public class ArmorTraits
 		switching=new TraitArmorSwitching();
 		thermalGathering=new TraitArmorThermalGathering();
 		thresholdLimiting=new TraitArmorThresholdLimiting();
+		vibrating=new TraitArmorVibrating();
 		warmSoft1=new TraitArmorWarmSoft(1);
 		warmSoft2=new TraitArmorWarmSoft(2);
 		warmSoft3=new TraitArmorWarmSoft(3);

@@ -1,12 +1,14 @@
 package firok.tiths.traits;
 
+import firok.tiths.common.Potions;
+import firok.tiths.util.Actions;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-import static firok.tiths.common.Keys.*;
+import static firok.tiths.common.Keys.colorTraitLionheart;
+import static firok.tiths.common.Keys.nameTraitLionheart;
 
 // 狮心
 public class TraitLionheart extends AbstractTrait
@@ -21,18 +23,7 @@ public class TraitLionheart extends AbstractTrait
 	{
 		if(wasHit && damageDealt>0 && !player.world.isRemote)
 		{
-			PotionEffect pe=player.getActivePotionEffect(MobEffects.RESISTANCE);
-			if(pe==null)
-			{
-				pe=new PotionEffect(MobEffects.RESISTANCE,25,3);
-				player.addPotionEffect(pe);
-			}
-			else
-			{
-				int level=pe.getAmplifier();
-				if(level<3) player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE,35,3));
-				else if(level==3) player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE,35+pe.getDuration(),3));
-			}
+			Actions.CauseAccumEffect(player,new PotionEffect(Potions.lionheart,35,0));
 		}
 	}
 }

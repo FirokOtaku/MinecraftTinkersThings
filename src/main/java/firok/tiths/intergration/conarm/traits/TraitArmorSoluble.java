@@ -1,7 +1,6 @@
 package firok.tiths.intergration.conarm.traits;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -24,9 +23,12 @@ public class TraitArmorSoluble extends AbstractArmorTrait
 	@Override
 	public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
 	{
-		if(!world.isRemote && canTick(world,15,2) && player.isInWater())
+		if(!world.isRemote && player.isInWater())
 		{
-			ToolHelper.damageTool(tool, 20, (EntityLivingBase) player);
+			if( canTick(world,15,2) )
+			{
+				ToolHelper.damageTool(tool, 20, player);
+			}
 		}
 	}
 }

@@ -15,12 +15,14 @@ public class Traits
 	public static AbstractTrait antiGrav; // 反重力
 	public static AbstractTrait antiPoisonous;
 	public static AbstractTrait birefringent; // 双折
+	public static AbstractTrait blowing; // 吹袭
 	public static AbstractTrait carbonizing; // 碳化
 	public static AbstractTrait champing1; // 强袭1
 	public static AbstractTrait champing2; // 强袭2
 	public static AbstractTrait champing3; // 强袭3
 	public static AbstractTrait chemicalInstable; // 化学不稳定
 	public static AbstractTrait clustering; // 群簇
+	public static AbstractTrait combustionSupporting; // 助燃
 	public static AbstractTrait creaky; // 喀嚓
 	public static AbstractTrait decoying; // 诱食
 	public static AbstractTrait dichroic; // 二色性
@@ -72,12 +74,14 @@ public class Traits
 		antiGrav = new TraitAntiGrav();
 		antiPoisonous = new AbstractTraitAntiEffect(nameTraitAntiPoisonous, colorTraitAntiPoisonous, 80, 3, 0.6f, MobEffects.POISON);
 		birefringent = new TraitBirefringent();
+		blowing = new TraitBlowing();
 		carbonizing = new TraitCarbonizing();
 		champing1=new TraitChamping(1);
 		champing2=new TraitChamping(2);
 		champing3=new TraitChamping(3);
 		chemicalInstable = new TraitChemicalInstable();
 		clustering = new TraitClustering();
+		combustionSupporting=new TraitCombustionSupporting();
 		creaky = new TraitCreaky();
 		decoying = new TraitDecoying();
 		dichroic = new TraitDichroic();

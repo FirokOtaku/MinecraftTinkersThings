@@ -1,5 +1,6 @@
 package firok.tiths.entity.projectile;
 
+import firok.tiths.TinkersThings;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -10,7 +11,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import slimeknights.tconstruct.library.entity.EntityProjectileBase;
 
-import static firok.tiths.util.Predicates.canTick;
+import static firok.tiths.util.Predicates.canTrigger;
 
 // 投射物实体 - 星绽
 public class ProjectileDashingStar extends EntityProjectileBase
@@ -40,7 +41,7 @@ public class ProjectileDashingStar extends EntityProjectileBase
 
 	@Override
 	public double getGravity() {
-		return 0d; // integer division. so the first ticks it will have no gravity at all.
+		return 0.02; // integer division. so the first ticks it will have no gravity at all.
 	}
 
 	@Override
@@ -85,7 +86,7 @@ public class ProjectileDashingStar extends EntityProjectileBase
 			return;
 		}
 
-		if(world.isRemote && canTick(world,2,0))
+		if(world.isRemote && canTrigger(TinkersThings.randClient,0.45))
 		{
 			world.spawnParticle(EnumParticleTypes.FLAME,
 					posX+rand.nextFloat()*0.1,posY+rand.nextFloat()*0.1,posZ+rand.nextFloat()*0.1,

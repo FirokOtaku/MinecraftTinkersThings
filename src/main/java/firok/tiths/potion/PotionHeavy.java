@@ -15,7 +15,7 @@ public class PotionHeavy extends BasePotion
 	}
 
 	@Override
-	public boolean isReady(int p_isReady_1_, int p_isReady_2_) // todo low 改一下形参名字
+	public boolean isReady(int tick, int level)
 	{
 		return true;
 	}

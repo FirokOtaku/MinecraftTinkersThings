@@ -11,11 +11,16 @@
 
 ## 最近更新 latest update
 
-**0.2.74.0** _2020-04-28 23:30_
+**0.2.75.0** _2020-05-02 10:00_
 
-* 现在可以在没有匠魂兵工厂模组的情况下启动 now we can startup without Tinkers' Armory
 * 重做平衡性 re-balanced mod
+* 错误修复 bug fixes
+* 增加状态效果 added potion effects
+  * 酸蚀 acid wetted
+  * 狮心 lionheart
 * 增加特性 added traits
-  * 震动 vibrating
-* 修改特性 modified traits
-  * 平和能量 peace energetic
+  * 震动(护甲) vibrating(armor)
+  * 吞噬(护甲) devouring(armor)
+  * 助燃 combustion supporting
+  * 吹袭 blowing
+  * 光滑(护甲) smooth(armor)

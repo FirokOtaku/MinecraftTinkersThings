@@ -2,6 +2,20 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.75.0 _2020-05-02 10:00_
+
+* 重做平衡性 re-balanced mod
+* 错误修复 bug fixes
+* 增加状态效果 added potion effects
+  * 酸蚀 acid wetted
+  * 狮心 lionheart
+* 增加特性 added traits
+  * 震动(护甲) vibrating(armor)
+  * 吞噬(护甲) devouring(armor)
+  * 助燃 combustion supporting
+  * 吹袭 blowing
+  * 光滑(护甲) smooth(armor)
+
 ## 0.2.74.0 _2020-04-28 23:30_
 
 * 现在可以在没有匠魂兵工厂模组的情况下启动 now we can startup without Tinkers' Armory
@@ -20,7 +34,7 @@
 ## 0.2.72.1 _2020-04-20 18:45_
 
 * 为部分方块和物品增加材质贴图 added textures to some blocks and items
-* 修改部分材质贴图 modify textures to some blocks and items
+* 修改部分材质贴图 modified textures of some blocks and items
 
 ## 0.2.72.0 _2020-04-19 18:30_
 
@@ -29,7 +43,7 @@
   * 凋零精尘 withering essence
 * 修改部分合成表 adjusted some recipes
 * 为更多特性增加配置文件支持 more traits are configurable now
-* 修改部分材质贴图 modify textures to some blocks and items
+* 修改部分材质贴图 modified textures of some blocks and items
 * 增加液体 added fluids
   * 末影乱流 ender turbulence
   * 污水 dirty water

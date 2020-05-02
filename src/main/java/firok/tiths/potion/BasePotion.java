@@ -10,10 +10,26 @@ import net.minecraft.util.ResourceLocation;
 public class BasePotion extends Potion
 {
 	ResourceLocation rl;
+	boolean show;
 	public BasePotion(ResourceLocation rl,boolean isBadEffect, int color)
+	{
+		this(rl,isBadEffect,color,true);
+	}
+	public BasePotion(ResourceLocation rl,boolean isBadEffect, int color,boolean show)
 	{
 		super(isBadEffect, color);
 		this.rl=rl;
+		this.show=show;
+	}
+
+	@Override
+	public boolean shouldRenderInvText(PotionEffect effect) {
+		return show;
+	}
+
+	@Override
+	public boolean shouldRender(PotionEffect effect) {
+		return show;
 	}
 
 	@Override
@@ -51,6 +67,8 @@ public class BasePotion extends Potion
 
 	public void render(int x, int y, PotionEffect effect, Minecraft mc, float alpha) {
 		// 绘制逻辑
+		if(rl==null) return;
+
 		mc.getTextureManager().bindTexture(rl);
 		// x, y 为绘制的起点，u, v 为纹理的起点，w, h 为选取的纹理的宽和高，texW 和 texH 代表整张纹理的宽和高
 		Gui.drawModalRectWithCustomSizedTexture(
