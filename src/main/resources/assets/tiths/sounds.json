@@ -67,5 +67,14 @@
       "tiths:effects/transforming2",
       "tiths:effects/transforming3"
     ]
+  },
+  "forward_effect": {
+    "category": "master",
+    "subtitle": "tiths.sound.forward_effect",
+    "sounds": [
+      "tiths:effects/forward1",
+      "tiths:effects/forward2",
+      "tiths:effects/forward3"
+    ]
   }
 }

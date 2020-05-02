@@ -230,6 +230,14 @@ public class Craftings
 						RecipeMatch.of(new ItemStack(net.minecraft.init.Items.FISH)),
 						new FluidStack(FluidRegistry.LAVA, Material.VALUE_Nugget*1),
 						true, false));
+
+		// 碎冰
+		registerTableCasting(
+				new CastingRecipe(
+						new ItemStack(Items.brokenIce),
+						RecipeMatch.of(new ItemStack(Items.nitre)),
+						new FluidStack(FluidRegistry.WATER, 100),
+						true, false));
 	}
 
 	private static void createBinding(

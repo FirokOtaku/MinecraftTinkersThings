@@ -2,6 +2,12 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.76.0 _2020-05-03 02:00_
+
+* 加入物品 added items
+  * 往昔水晶 former crystal
+* 现在部分方块和物品拥有提示信息 now some blocks and items have tooltips
+
 ## 0.2.75.0 _2020-05-02 10:00_
 
 * 重做平衡性 re-balanced mod

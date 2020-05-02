@@ -20,7 +20,7 @@ import java.lang.reflect.Field;
 import static c4.conarm.lib.materials.ArmorMaterialType.*;
 import static firok.tiths.TinkersThings.log;
 import static firok.tiths.util.InnerActions.addMaterialTraits;
-import static firok.tiths.util.conf.Values.__;
+import static firok.tiths.util.Values.__;
 
 public class ArmorRegistryHandler
 {

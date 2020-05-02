@@ -102,6 +102,7 @@ public interface Keys
 	String nameEnderTurbulence="ender_turbulence";
 	String nameWitheringEssence="withering_essence";
 	String nameDirtyWater="dirty_water";
+	String nameFormerCrystal="former_crystal";
 
 	String nameHardener="hardener";
 	String namePolisher="polisher";
@@ -574,6 +575,7 @@ public interface Keys
 	String soundFireEffect="fire_effect";
 	String soundSwingEffect="swing_effect";
 	String soundTransformingEffect="transforming_effect";
+	String soundForwardEffect="forward_effect";
 
 //	String configBase="config."+TinkersThings.MOD_ID+'.';
 //	String cateGeneral=configBase+"general";

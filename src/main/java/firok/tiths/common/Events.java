@@ -30,6 +30,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.client.event.sound.PlaySoundEvent;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.event.entity.living.*;
@@ -41,8 +42,9 @@ import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.tconstruct.library.events.TinkerCraftingEvent;
-import slimeknights.tconstruct.library.tinkering.IMaterialItem;
 import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
@@ -380,6 +382,16 @@ public class Events
 		}
 	}
 
+//	@SubscribeEvent
+//	public static void onLoot(LootTableLoadEvent event)
+//	{
+//		ResourceLocation name=event.getName();
+//		LootTableManager manager=event.getLootTableManager();
+//		LootTable table=event.getTable();
+//
+//		LootPool pool=new LootPool();
+//	}
+
 	private static boolean has(String[] strs,String str)
 	{
 		for(String temp:strs) if(str.equals(temp)) return true;
@@ -397,13 +409,13 @@ public class Events
 			try
 			{
 				// 输出部件列表信息
-				System.out.println("部件列表");
-				List<ItemStack> toolparts=event.getToolParts();
-				for(ItemStack toolpart:toolparts)
-				{
-					if(toolpart.isEmpty()) continue;
-					System.out.println(toolpart.getUnlocalizedName() + " : "+((IMaterialItem)toolpart.getItem()).getMaterialID(toolpart));
-				}
+//				System.out.println("部件列表");
+//				List<ItemStack> toolparts=event.getToolParts();
+//				for(ItemStack toolpart:toolparts)
+//				{
+//					if(toolpart.isEmpty()) continue;
+//					System.out.println(toolpart.getUnlocalizedName() + " : "+((IMaterialItem)toolpart.getItem()).getMaterialID(toolpart));
+//				}
 
 //				List<Material> materials = TinkerUtil.getMaterialsFromTagList(TagUtil.getBaseMaterialsTagList(stack));
 //				List<PartMaterialType> component = itemToolCore.getRequiredComponents();
@@ -476,5 +488,15 @@ public class Events
 			}
 		}
 
+	}
+
+	@SideOnly(Side.CLIENT)
+	@SubscribeEvent
+	public static void onClientSoundPlay(PlaySoundEvent event)
+	{
+		if(TinkersThings.enableConarm())
+		{
+			ArmorEvents.onClientSoundPlay(event);
+		}
 	}
 }

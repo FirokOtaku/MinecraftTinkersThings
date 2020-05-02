@@ -37,5 +37,7 @@ public class ModPolished extends ToolModifier
 		tag.setFloat(Tags.ATTACKSPEEDMULTIPLIER, speed);
 		tag.setFloat(Tags.MININGSPEED, mineSpeed);
 		tag.setInteger(Tags.DURABILITY,durability);
+
+		TagUtil.setToolTag(rootCompound, tag);
 	}
 }

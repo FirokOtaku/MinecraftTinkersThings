@@ -3,14 +3,24 @@ package firok.tiths.util;
 import c4.conarm.lib.traits.AbstractArmorTrait;
 import firok.tiths.TinkersThings;
 import firok.tiths.intergration.conarm.IAbstractArmorTrait;
+import net.minecraft.block.Block;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.tconstruct.library.TinkerRegistry;
+import slimeknights.tconstruct.library.Util;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
+
+import java.util.Collections;
+import java.util.List;
 
 /**
  * 内部操作
@@ -18,6 +28,46 @@ import slimeknights.tconstruct.library.utils.TagUtil;
 public final class InnerActions
 {
 	private InnerActions(){}
+
+	/* ---- 添加物品描述 ----*/
+	@SideOnly(Side.CLIENT)
+	public static void addInformation(Item item, List<String> list, ITooltipFlag flag, Object... params)
+	{
+		addInformation(item.getUnlocalizedName(), list, flag, params);
+	}
+	@SideOnly(Side.CLIENT)
+	public static void addInformation(Block block, List<String> list, ITooltipFlag flag, Object... params)
+	{
+		addInformation(block.getUnlocalizedName(), list, flag, params);
+	}
+	@SideOnly(Side.CLIENT)
+	public static void addInformation(String key, List<String> list, ITooltipFlag flag, Object... params)
+	{
+		if(key==null || list==null) return;
+
+		String keyDesc=key+".desc";
+		String keyMore=key+".more";
+
+		String value;
+		TRANSLATE:if(Util.isShiftKeyDown())
+		{
+			value=I18n.format(keyMore,params);
+			if(!value.equals(keyMore)) break TRANSLATE;
+
+			value=I18n.format(keyDesc,params);
+			if(value.equals(keyDesc)) value=null;
+		}
+		else
+		{
+			value=I18n.format(keyDesc,params);
+			if(value.equals(keyDesc)) value=null;
+		}
+
+		if(value!=null)
+		{
+			Collections.addAll(list, value.split("<br>"));
+		}
+	}
 
 	/* ---- 给物品增加特性 ---- */
 	public static boolean addTrait(ITrait trait, NBTTagCompound rootCompound, NBTTagCompound modifierTag)

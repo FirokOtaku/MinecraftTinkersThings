@@ -2,15 +2,20 @@ package firok.tiths.intergration.conarm;
 
 import c4.conarm.lib.capabilities.ArmorAbilityHandler;
 import firok.tiths.intergration.conarm.traits.TraitArmorWidening;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPotion;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.minecraftforge.client.event.sound.PlaySoundEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import net.minecraftforge.fml.common.Optional;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
 import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
@@ -92,5 +97,28 @@ public class ArmorEvents
 	private static int getLv(ItemStack stack,ITrait trait)
 	{
 		return new ModifierNBT(TinkerUtil.getModifierTag(stack, trait.getIdentifier())).level;
+	}
+
+	@SideOnly(Side.CLIENT)
+	public static void onClientSoundPlay(PlaySoundEvent event)
+	{
+		try
+		{
+			EntityPlayerSP playerSP= Minecraft.getMinecraft().player;
+			if(playerSP==null) return; // game has not started
+			for(ItemStack stackArmor:playerSP.getArmorInventoryList())
+			{
+				if(stackArmor==null||stackArmor.isEmpty()) continue;
+
+//				if(ToolHelper.getTraits(stackArmor).contains(ArmorTraits.luxurious))
+//				{
+//					;
+//				}
+			}
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 }

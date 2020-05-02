@@ -4,8 +4,8 @@ import com.google.gson.JsonObject;
 import firok.tiths.TinkersThings;
 import firok.tiths.common.Configs;
 
-import static firok.tiths.util.conf.Values.getStr;
-import static firok.tiths.util.conf.Values.getStrs;
+import static firok.tiths.util.Values.getStr;
+import static firok.tiths.util.Values.getStrs;
 
 public class FunctionFactory
 {

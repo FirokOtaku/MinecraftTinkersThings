@@ -217,6 +217,7 @@ item.tiths.flesh_cooked.name=Cooked Flesh
 item.tiths.shell_cooked.name=Cooked Shell
 item.tiths.withering_essence.name=Withering Essence
 item.tiths.mercury_sulfide.name=Ingot of Mercury Sulfide
+item.tiths.former_crystal.name=Crystal of Former
 
 tile.tiths.block_searing_vent.name=Searing Vent
 tile.tiths.block_mercury_sulfide.name=Block of Mercury Sulfide

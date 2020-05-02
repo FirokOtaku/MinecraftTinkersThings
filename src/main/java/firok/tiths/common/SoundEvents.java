@@ -14,6 +14,7 @@ public class SoundEvents
 	public static final SoundEvent effectFire=$(Keys.soundFireEffect);
 	public static final SoundEvent effectSwing=$(Keys.soundSwingEffect);
 	public static final SoundEvent effectTransforming=$(Keys.soundTransformingEffect);
+	public static final SoundEvent effectForward=$(Keys.soundForwardEffect);
 
 	/**
 	 @see net.minecraft.util.SoundCategory

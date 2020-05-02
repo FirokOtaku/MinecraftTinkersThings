@@ -8,7 +8,8 @@ import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.Tags;
 import slimeknights.tconstruct.tools.modifiers.ToolModifier;
 
-import static firok.tiths.common.Keys.*;
+import static firok.tiths.common.Keys.colorTraitDrilled;
+import static firok.tiths.common.Keys.nameTraitDrilled;
 
 // 打孔
 public class ModDrilled extends ToolModifier
@@ -51,5 +52,7 @@ public class ModDrilled extends ToolModifier
 		tag.setInteger(Tags.TOOL_MODIFIERS,modifiers);
 		tag.setInteger(Tags.FREE_MODIFIERS, freeModifiers);
 		tag.setInteger(Tags.DURABILITY,durability);
+
+		TagUtil.setToolTag(rootCompound, tag);
 	}
 }

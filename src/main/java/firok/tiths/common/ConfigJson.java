@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 import static firok.tiths.TinkersThings.log;
-import static firok.tiths.util.conf.Values.*;
+import static firok.tiths.util.Values.*;
 
 /**
  * 这个类用来处理json格式的材料属性文件

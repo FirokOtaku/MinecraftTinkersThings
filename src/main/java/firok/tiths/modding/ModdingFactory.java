@@ -4,7 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import static firok.tiths.TinkersThings.log;
-import static firok.tiths.util.conf.Values.getStrs;
+import static firok.tiths.util.Values.getStrs;
 
 /**
  * @author gyy

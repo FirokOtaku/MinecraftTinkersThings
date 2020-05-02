@@ -28,17 +28,11 @@ public class TraitClustering extends AbstractTrait
 	public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag) {
 		if(InnerActions.addTrait(this,rootCompound,modifierTag)) return;
 
-
-		System.out.println("开始尝试应用修改");
-
-		// todo 这里的公式肯定还要改
 		NBTTagCompound tag = TagUtil.getToolTag(rootCompound);
 		int durability=tag.getInteger(Tags.DURABILITY);
 		float attack=tag.getFloat(Tags.ATTACK);
 		float speed=tag.getFloat(Tags.ATTACKSPEEDMULTIPLIER);
 		float mineSpeed=tag.getFloat(Tags.MININGSPEED);
-
-		System.out.printf("原本 = 耐久:%d, 攻击:%f, 速度:%f, 挖掘速度:%f\n",durability,attack,speed,mineSpeed);
 
 		durability=Math.max(1,(int)(durability*0.95f));
 
@@ -53,7 +47,6 @@ public class TraitClustering extends AbstractTrait
 			if(factor>0.45f) factor=0.45f;
 
 			attack += factor * Configs.Traits.factor_clustering_atk;
-			System.out.printf("新的 = 攻击力:%f",attack);
 			tag.setFloat(Tags.ATTACK,attack);
 		}
 		else // 小于指定耐久度
@@ -63,7 +56,6 @@ public class TraitClustering extends AbstractTrait
 			speed += factor * Configs.Traits.factor_clustering_speed_mining;
 			mineSpeed += factor * Configs.Traits.factor_clustering_speed;
 
-			System.out.printf("新的 = 速度:%f, 挖掘速度:%f\n",speed,mineSpeed);
 			if(TinkerUtil.hasCategory(rootCompound, Category.LAUNCHER)) {
 				ProjectileLauncherNBT launcherData = new ProjectileLauncherNBT(TagUtil.getToolTag(rootCompound));
 				launcherData.drawSpeed += launcherData.drawSpeed * Configs.Traits.factor_clustering_speed_draw;
@@ -72,9 +64,6 @@ public class TraitClustering extends AbstractTrait
 			tag.setFloat(Tags.MININGSPEED,mineSpeed);
 			tag.setFloat(Tags.ATTACKSPEEDMULTIPLIER,speed);
 		}
-
-		System.out.printf("因数: %f\n",factor);
-
 	}
 
 //	@Override

@@ -11,16 +11,8 @@
 
 ## 最近更新 latest update
 
-**0.2.75.0** _2020-05-02 10:00_
+**0.2.76.0** _2020-05-03 02:00_
 
-* 重做平衡性 re-balanced mod
-* 错误修复 bug fixes
-* 增加状态效果 added potion effects
-  * 酸蚀 acid wetted
-  * 狮心 lionheart
-* 增加特性 added traits
-  * 震动(护甲) vibrating(armor)
-  * 吞噬(护甲) devouring(armor)
-  * 助燃 combustion supporting
-  * 吹袭 blowing
-  * 光滑(护甲) smooth(armor)
+* 加入物品 added items
+  * 往昔水晶 former crystal
+* 现在部分方块和物品拥有提示信息 now some blocks and items have tooltips

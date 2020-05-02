@@ -1,4 +1,4 @@
-package firok.tiths.util.conf;
+package firok.tiths.util;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -164,6 +164,9 @@ public class Values
 		return ret;
 	}
 
+	/**
+	 * 角度弧度互相换算用的
+	 */
 	public static final float FAC=(float) Math.PI/180;
 
 	public static boolean __(Object test)

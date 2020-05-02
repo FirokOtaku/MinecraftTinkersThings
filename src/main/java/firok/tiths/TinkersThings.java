@@ -31,8 +31,8 @@ public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers' Things";
-	public static final String VERSION = "1.12.2-0.2.75.0";
-	public static final boolean indev=true;
+	public static final String VERSION = "1.12.2-0.2.76.0";
+	public static final boolean indev = true;
 
 	@Mod.Instance(MOD_ID)
 	public static TinkersThings INSTANCE;
@@ -181,7 +181,10 @@ public class TinkersThings
 
 	public static void main(String[] args)
 	{
-		;
+		String str="1<br>2<br>3";
+		String[] lines=str.split("<br>");
+		for(String line:lines)
+			System.out.println(line);
 	}
 
 

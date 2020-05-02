@@ -19,8 +19,8 @@ import java.util.List;
 import java.util.Random;
 
 import static firok.tiths.TinkersThings.log;
-import static firok.tiths.util.conf.Values.__;
-import static firok.tiths.util.conf.Values.arr;
+import static firok.tiths.util.Values.__;
+import static firok.tiths.util.Values.arr;
 
 public class WorldGen implements IWorldGenerator
 {

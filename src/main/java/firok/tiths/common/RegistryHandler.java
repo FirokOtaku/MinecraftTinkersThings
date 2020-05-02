@@ -32,7 +32,7 @@ import java.util.List;
 
 import static firok.tiths.TinkersThings.log;
 import static firok.tiths.util.InnerActions.addMaterialTraits;
-import static firok.tiths.util.conf.Values.__;
+import static firok.tiths.util.Values.__;
 import static slimeknights.tconstruct.library.materials.MaterialTypes.*;
 
 public class RegistryHandler
