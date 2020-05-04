@@ -8,7 +8,8 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-import static firok.tiths.util.Predicates.*;
+import static firok.tiths.util.Predicates.canTrigger;
+import static firok.tiths.util.Predicates.isStone;
 
 // 生成岩浆水晶
 public class WorldGenLavaCrystal implements IChunkGen

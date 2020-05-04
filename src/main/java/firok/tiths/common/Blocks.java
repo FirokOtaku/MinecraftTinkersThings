@@ -9,8 +9,10 @@ import net.minecraft.block.material.Material;
 import slimeknights.tconstruct.library.utils.HarvestLevels;
 
 @SuppressWarnings("all")
-public class Blocks
+public final class Blocks
 {
+	private Blocks() {}
+
 	// 算不上矿石的自然生成方块
 	@Reg(value=Keys.blockMeteorolite,od={"meteorolite"})
 //	@GenMeteoWorld

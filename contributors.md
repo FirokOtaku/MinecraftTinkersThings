@@ -45,6 +45,9 @@ Swing Effect|stick-1|_def|无 none|CC BY 3.0|[Link](https://freesound.org/people
 Transforming Effect|Whoosh woow mk1|Speedenza|无 none|CC BY NC 3.0|[Link](https://freesound.org/people/Speedenza/sounds/168177/)
 Transforming Effect|Whoosh woow mk2|Speedenza|无 none|CC BY NC 3.0|[Link](https://freesound.org/people/Speedenza/sounds/168176/)
 Transforming Effect|Whoosh woow mk3|Speedenza|无 none|CC BY NC 3.0|[Link](https://freesound.org/people/Speedenza/sounds/168180/)
+Forward Effect|shimmer_synth_1|wangzhuokun|无 none|CC0 1.0|[Link](https://freesound.org/people/wangzhuokun/sounds/434600/)
+Forward Effect|shimmer_synth_2|wangzhuokun|无 none|CC BY 3.0|[Link](https://freesound.org/people/wangzhuokun/sounds/434599/)
+Forward Effect|shimmer_synth_3|wangzhuokun|无 none|CC0 1.0|[Link](https://freesound.org/people/wangzhuokun/sounds/434601/)
 
 ## 关于CC协议 About Creative Commons License
 

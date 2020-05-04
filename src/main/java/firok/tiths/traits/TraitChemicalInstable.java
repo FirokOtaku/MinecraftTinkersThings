@@ -10,7 +10,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-import static firok.tiths.common.Keys.*;
+import static firok.tiths.common.Keys.colorTraitChemicalInstable;
+import static firok.tiths.common.Keys.nameTraitChemicalInstable;
 import static firok.tiths.util.Predicates.canTrigger;
 
 // 化学不稳定

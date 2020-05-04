@@ -9,8 +9,10 @@ import java.util.List;
 /**
  * 魔改工具注册表
  */
-public class ModdingInfos
+public final class ModdingInfos
 {
+	private ModdingInfos() {}
+
 	private static final List<ModdingInfo> moddings=new ArrayList<>();
 	static void clearModdings()
 	{

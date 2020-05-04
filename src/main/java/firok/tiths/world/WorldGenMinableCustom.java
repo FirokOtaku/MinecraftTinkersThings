@@ -2,7 +2,6 @@ package firok.tiths.world;
 
 import com.google.common.base.Predicate;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;

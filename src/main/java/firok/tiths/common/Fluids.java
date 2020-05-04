@@ -12,8 +12,10 @@ import slimeknights.tconstruct.library.fluid.FluidMolten;
 import static firok.tiths.common.Keys.*;
 
 @SuppressWarnings("unused")
-public class Fluids
+public final class Fluids
 {
+	private Fluids() {}
+
 	public static final FluidMolten moltenRoyalAlloy=$(nameRoyalAlloy, colorRoyalAlloy);
 	@RegSmelteryFuel(amount=10,duration=400)
 	public static final FluidMolten moltenStellarium=$(nameStellarium, colorStellarium);

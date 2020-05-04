@@ -21,8 +21,10 @@ import static firok.tiths.util.Values.*;
 /**
  * 这个类用来处理json格式的材料属性文件
  */
-public class ConfigJson
+public final class ConfigJson
 {
+	private ConfigJson() {}
+
 	/**
 	 * 设定配置文件夹
 	 */

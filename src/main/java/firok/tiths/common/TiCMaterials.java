@@ -13,7 +13,7 @@ import static slimeknights.tconstruct.library.materials.Material.VALUE_Ingot;
 @SuppressWarnings("all")
 public final class TiCMaterials
 {
-	private TiCMaterials(){}
+	private TiCMaterials() {}
 
 	@Compo(value = nameImmersedSilver, traitsTool = {nameTraitInsatiable},traitsBow = { nameTraitInsatiable }, traitsArmor = {nameTraitSkeletal})
 	@CompoHead(durability=365,miningspeed=6.7,attack=4,harvestLevel=2,traits={  })

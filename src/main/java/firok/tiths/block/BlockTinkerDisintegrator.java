@@ -1,8 +1,10 @@
 package firok.tiths.block;
 
 import firok.tiths.util.Actions;
+import firok.tiths.util.InnerActions;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
@@ -13,11 +15,14 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.tinkering.ITinkerable;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +36,7 @@ public class BlockTinkerDisintegrator extends Block
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
 	{
-		if(!world.isRemote)
+		if(!world.isRemote && facing==EnumFacing.UP)
 		{
 			ItemStack stackHeld=player.getHeldItem(hand);
 			if(stackHeld.isEmpty()) return false;
@@ -75,5 +80,12 @@ public class BlockTinkerDisintegrator extends Block
 		}
 
 		return false;
+	}
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced)
+	{
+		InnerActions.addInformation(this, tooltip, advanced);
 	}
 }

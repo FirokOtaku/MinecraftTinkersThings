@@ -63,6 +63,7 @@ public class ItemFormerCrystal extends Item
 				{
 					FormerStatus status=FormerStatus.fromNBT(nbtRoot.getCompoundTag("status"));
 					if(status!=null) status.toPlayer(player);
+					if(!player.isCreative()) stack.shrink(1);
 				}
 				else // 储存
 				{

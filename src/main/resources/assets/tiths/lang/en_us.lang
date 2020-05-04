@@ -454,7 +454,7 @@ modifier.deep_parasitic_armor.desc=§oYours?§r\nYour armor will repair itself b
 modifier.life_inspiring_armor.name=Life Inspiring
 modifier.life_inspiring_armor.desc=§oI won't go die easily too§r\nTo provide regeneration effect when wearer is in danger
 modifier.soluble_armor.name=Soluble
-modifier.soluble_armor.desc=§oStop it!§r\nThe armor will lose duration if wearer in the water
+modifier.soluble_armor.desc=§oStop it!§r\nThe armor will lose duration and push wearer if in the water
 modifier.diffuse_reflecting_armor.name=Diffuse Reflecting
 modifier.diffuse_reflecting_armor.desc=§oMagical reflecting§r\nTo reflect damage to nearby monsters
 modifier.widening_armor.name=Widening
@@ -540,6 +540,12 @@ potion.effect.lionheart=Potion of Lionheart
 splash_potion.effect.lionheart=Splash Potion of Lionheart
 tipped_arrow.effect.lionheart=Arrow of Lionheart
 lingering_potion.effect.lionheart=Lingering Potion of Lionheart
+
+effect.icy=Icy
+potion.effect.icy=Potion of Icy
+splash_potion.effect.icy=Splash Potion of Icy
+tipped_arrow.effect.icy=Arrow of Icy
+lingering_potion.effect.icy=Lingering Potion of Icy
 
 ## damage sources
 death.attack.san=%1$s has some mental problem

@@ -5,7 +5,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-import static firok.tiths.common.Keys.*;
+import static firok.tiths.common.Keys.colorTraitInfernalBlazing;
+import static firok.tiths.common.Keys.nameTraitInfernalBlazing;
 import static firok.tiths.util.Predicates.canTick;
 
 // 狱炎

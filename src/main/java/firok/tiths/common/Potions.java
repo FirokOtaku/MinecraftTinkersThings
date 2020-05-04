@@ -22,8 +22,10 @@ import firok.tiths.util.Selectors;
 */
 
 // 状态效果的注册 reg_name是直接读取field名称
-public class Potions
+public final class Potions
 {
+	private Potions() {}
+
 	public static BasePotion heavy = new PotionHeavy(); // 沉重
 	public static BasePotion pestilential = new PotionPestilential(Selectors.livingBaseAlive); // 瘟疫
 	public static BasePotion weakened_pestilential = new PotionPestilential(Selectors.mobAlive); // 弱化瘟疫
@@ -35,6 +37,8 @@ public class Potions
 	public static BasePotion acid_wetted = new PotionAcidWetted(); // 酸蚀
 	public static BasePotion hidden_hyper = new PotionHiddenHyper(); // 特性 - 振奋 (隐藏状态)
 	public static BasePotion lionheart = new PotionLionheart(); // 狮心
+	public static BasePotion icy = new PotionIcy(); // 清凉
+	public static BasePotion hidden_soluble = new PotionHiddenSoluble(); // 特性 - 可溶 (隐藏状态)
 //	public static Potion disappear = new PotionDisappear(); // 消失
 
 

@@ -1,9 +1,12 @@
 package firok.tiths.common;
 
+import firok.tiths.TinkersThings;
 import net.minecraft.block.Block;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
@@ -11,9 +14,11 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.Material;
+import slimeknights.tconstruct.library.materials.MaterialTypes;
 import slimeknights.tconstruct.library.smeltery.CastingRecipe;
 import slimeknights.tconstruct.shared.TinkerFluids;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
+import slimeknights.tconstruct.tools.TinkerTools;
 
 import static firok.tiths.common.Keys.*;
 import static net.minecraftforge.fml.common.registry.GameRegistry.addSmelting;
@@ -21,19 +26,48 @@ import static slimeknights.tconstruct.library.TinkerRegistry.registerBasinCastin
 import static slimeknights.tconstruct.library.TinkerRegistry.registerTableCasting;
 
 @SuppressWarnings("all")
-public class Craftings
+public final class Craftings
 {
+	private Craftings() {}
+
 	private static boolean hasRegistered=false;
 	// 注册所有合成表
 	public static void registerAllCraftings()
 	{
 		if(hasRegistered) throw new RuntimeException("duplicated registering crafting");
 		hasRegistered=true;
+		registerCustom();
 		registerBindings();
 		registerBasinCastings();
 		registerTableCastings();
 		registerFuels();
 		registerSmelting();
+	}
+
+	private static ItemStack[] stacksSharpeningKit=null;
+	private static ItemStack[] getStacksSharpeningKit()
+	{
+		if(stacksSharpeningKit==null)
+		{
+			stacksSharpeningKit=
+			TinkerRegistry.getAllMaterialsWithStats(MaterialTypes.HEAD)
+					.stream()
+					.map(TinkerTools.sharpeningKit::getItemstackWithMaterial)
+					.toArray(count->new ItemStack[count]);
+		}
+		return stacksSharpeningKit;
+	}
+
+	private static void registerCustom()
+	{
+		// 磨制工具 + 煤 = 煤屑
+		GameRegistry.addShapelessRecipe(
+				new ResourceLocation(TinkersThings.MOD_ID,"special_cinder"),
+				(ResourceLocation) null,
+				new ItemStack(Items.cinder,8),
+				Ingredient.fromItem(net.minecraft.init.Items.COAL),
+				Ingredient.fromStacks(getStacksSharpeningKit())
+		);
 	}
 
 	// 燃料
@@ -88,6 +122,17 @@ public class Craftings
 				new ItemStack(Items.enderCreviceShard),
 				Fluids.moltenEnderTurbulence,
 				Material.VALUE_Ingot
+		);
+		TinkerRegistry.registerMelting(
+				new ItemStack(Blocks.blockCloud),
+				FluidRegistry.WATER,
+				100
+		);
+
+		TinkerRegistry.registerMelting(
+				new ItemStack(Items.brokenIce),
+				FluidRegistry.WATER,
+				250
 		);
 	}
 
@@ -175,12 +220,12 @@ public class Craftings
 						new FluidStack(TinkerFluids.purpleSlime, Material.VALUE_Ingot*2),
 						true, false));
 		// 末影之石
-		registerTableCasting(
-				new CastingRecipe(
-						new ItemStack(Items.enderGem),
-						RecipeMatch.of(new ItemStack(net.minecraft.init.Items.ENDER_PEARL)),
-						new FluidStack(TinkerFluids.emerald, Material.VALUE_Ingot*1),
-						true, false));
+//		registerTableCasting(
+//				new CastingRecipe(
+//						new ItemStack(Items.enderGem),
+//						RecipeMatch.of(new ItemStack(net.minecraft.init.Items.ENDER_PEARL)),
+//						new FluidStack(TinkerFluids.emerald, Material.VALUE_Ingot*1),
+//						true, false));
 		// 岩浆膏
 		registerTableCasting(
 				new CastingRecipe(
@@ -236,7 +281,7 @@ public class Craftings
 				new CastingRecipe(
 						new ItemStack(Items.brokenIce),
 						RecipeMatch.of(new ItemStack(Items.nitre)),
-						new FluidStack(FluidRegistry.WATER, 100),
+						new FluidStack(FluidRegistry.WATER, 250),
 						true, false));
 	}
 

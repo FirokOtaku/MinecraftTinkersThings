@@ -535,6 +535,7 @@ public interface Keys
 	int colorPotionArmorSoftened=0x4b6816;
 	int colorPotionAcidWetted=0x0e8c39;
 	int colorPotionLionheart=0xe3041f;
+	int colorPotionIcy=0x4194c0;
 
 	// 状态效果属性修饰符uuid
 	String uuidPotionAvatarSpeed="258A83A5-A3BD-4CFD-842C-B2DF39343C91";

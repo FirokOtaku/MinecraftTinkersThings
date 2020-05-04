@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tiths:special",
+  "result": { "item": "tiths:block_tinker_disintegrator", "count": 1 },
+
+  "pattern": [
+    "SPS",
+    "S S",
+    "SPS"
+  ],
+  "key": {
+    "S": { "item": "tconstruct:seared", "data": 3 },
+    "P": { "item": "minecraft:piston" }
+  }
+}

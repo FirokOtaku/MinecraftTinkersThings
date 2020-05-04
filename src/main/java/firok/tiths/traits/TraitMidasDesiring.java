@@ -15,7 +15,8 @@ import slimeknights.tconstruct.library.traits.AbstractTrait;
 
 import java.util.ListIterator;
 
-import static firok.tiths.common.Keys.*;
+import static firok.tiths.common.Keys.colorTraitMidasDesiring;
+import static firok.tiths.common.Keys.nameTraitMidasDesiring;
 import static firok.tiths.util.Predicates.canTick;
 import static firok.tiths.util.Predicates.canTrigger;
 

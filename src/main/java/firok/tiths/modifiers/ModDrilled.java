@@ -1,11 +1,12 @@
 package firok.tiths.modifiers;
 
+import firok.tiths.util.InnerActions;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import slimeknights.tconstruct.library.modifiers.ModifierAspect;
+import slimeknights.tconstruct.library.tools.ProjectileLauncherNBT;
 import slimeknights.tconstruct.library.tools.ToolNBT;
 import slimeknights.tconstruct.library.utils.TagUtil;
-import slimeknights.tconstruct.library.utils.Tags;
 import slimeknights.tconstruct.tools.modifiers.ToolModifier;
 
 import static firok.tiths.common.Keys.colorTraitDrilled;
@@ -31,28 +32,38 @@ public class ModDrilled extends ToolModifier
 	@Override
 	public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag)
 	{
-		NBTTagCompound tag = TagUtil.getToolTag(rootCompound);
-		float attack=tag.getFloat(Tags.ATTACK);
-		float speed=tag.getFloat(Tags.ATTACKSPEEDMULTIPLIER);
-		float mineSpeed=tag.getFloat(Tags.MININGSPEED);
-		int modifiers=tag.getInteger(Tags.TOOL_MODIFIERS);
-		int freeModifiers=tag.getInteger(Tags.FREE_MODIFIERS);
-		int durability=tag.getInteger(Tags.DURABILITY);
+		InnerActions.apply(rootCompound, modifierTag, ModDrilled::applyInner);
+	}
 
-		attack=Math.max(0.05f,attack-2);
-		speed+=0.2f;
-		mineSpeed+=0.2f;
-		modifiers+=2;
-		freeModifiers+=2;
-		durability=Math.max(1,durability-650);
+	public static void applyInner(NBTTagCompound rootCompound, ToolNBT data,int level,boolean harvest,boolean weapon,boolean launcher)
+	{
+		while(level-->0)
+		{
+			data.durability-=650;
+			if(data.durability<0) data.durability=1;
 
-		tag.setFloat(Tags.ATTACK, attack);
-		tag.setFloat(Tags.ATTACKSPEEDMULTIPLIER, speed);
-		tag.setFloat(Tags.MININGSPEED, mineSpeed);
-		tag.setInteger(Tags.TOOL_MODIFIERS,modifiers);
-		tag.setInteger(Tags.FREE_MODIFIERS, freeModifiers);
-		tag.setInteger(Tags.DURABILITY,durability);
+			data.modifiers+=2;
 
-		TagUtil.setToolTag(rootCompound, tag);
+			if(harvest)
+			{
+				data.speed+=0.2;
+			}
+
+			if(weapon)
+			{
+				data.attackSpeedMultiplier+=0.2;
+				data.attack-=2;
+				if(data.attack<0.05) data.attack=0.05f;
+			}
+
+			TagUtil.setToolTag(rootCompound, data.get());
+
+			if(launcher)
+			{
+				ProjectileLauncherNBT launcherData = new ProjectileLauncherNBT(TagUtil.getToolTag(rootCompound));
+				launcherData.drawSpeed+=0.2;
+				TagUtil.setToolTag(rootCompound, launcherData.get());
+			}
+		}
 	}
 }

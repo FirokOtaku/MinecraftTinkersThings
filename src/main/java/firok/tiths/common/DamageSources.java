@@ -4,9 +4,10 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSource;
 
-//@SuppressWarnings("all")
-public class DamageSources
+public final class DamageSources
 {
+	private DamageSources() {}
+
 	// 精神伤害 // 目前仅用于血沙 非实体伤害源
 	public static final String TypeSan="san";
 	public static final DamageSource SanDamage=new DamageSource(TypeSan)

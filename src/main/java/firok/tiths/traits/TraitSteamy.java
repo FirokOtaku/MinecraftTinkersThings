@@ -4,7 +4,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-import static firok.tiths.common.Keys.*;
+import static firok.tiths.common.Keys.colorTraitSteamy;
+import static firok.tiths.common.Keys.nameTraitSteamy;
 
 // 气动
 public class TraitSteamy extends AbstractTrait

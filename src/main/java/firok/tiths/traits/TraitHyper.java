@@ -10,7 +10,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-import static firok.tiths.common.Keys.*;
+import static firok.tiths.common.Keys.colorTraitHyper;
+import static firok.tiths.common.Keys.nameTraitHyper;
 
 // 振奋
 public class TraitHyper extends AbstractTrait

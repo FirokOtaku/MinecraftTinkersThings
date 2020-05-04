@@ -4,7 +4,6 @@ import com.google.common.base.Predicate;
 import firok.tiths.TinkersThings;
 import firok.tiths.common.Keys;
 import firok.tiths.util.Ranges;
-import firok.tiths.util.Selectors;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;

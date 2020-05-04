@@ -6,8 +6,10 @@ import net.minecraftforge.common.config.Config;
 import static net.minecraftforge.common.config.Config.*;
 
 // 配置文件
-public class Configs
+public final class Configs
 {
+	private Configs() {}
+
 	static final String c="config.tiths.";
 	static final String pg="config.tiths.general.";
 	static final String pgp="config.tiths.gameplay.";

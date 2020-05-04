@@ -14,7 +14,8 @@ import slimeknights.tconstruct.library.traits.AbstractTrait;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import static firok.tiths.common.Keys.*;
+import static firok.tiths.common.Keys.colorTraitParroting;
+import static firok.tiths.common.Keys.nameTraitParroting;
 import static firok.tiths.util.Predicates.canTrigger;
 
 // 学舌

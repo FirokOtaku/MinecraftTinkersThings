@@ -1,6 +1,7 @@
 package firok.tiths.util;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import com.google.common.collect.ImmutableSet;
 import firok.tiths.TinkersThings;
 import firok.tiths.intergration.conarm.IAbstractArmorTrait;
 import net.minecraft.block.Block;
@@ -15,12 +16,16 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.Util;
 import slimeknights.tconstruct.library.materials.Material;
+import slimeknights.tconstruct.library.modifiers.ModifierNBT;
+import slimeknights.tconstruct.library.tinkering.Category;
+import slimeknights.tconstruct.library.tools.ToolNBT;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 /**
  * 内部操作
@@ -28,6 +33,26 @@ import java.util.List;
 public final class InnerActions
 {
 	private InnerActions(){}
+
+	/**
+	 * 应用强化
+	 */
+	public static void apply(NBTTagCompound rootCompound, NBTTagCompound modifierTag, Applier fun)
+	{
+		ModifierNBT.IntegerNBT modData = ModifierNBT.readInteger(modifierTag);
+
+		Set<Category> categories = ImmutableSet.copyOf(TagUtil.getCategories(rootCompound));
+		boolean harvest = categories.contains(Category.HARVEST);
+		boolean weapon = categories.contains(Category.WEAPON);
+		boolean launcher = categories.contains(Category.LAUNCHER);
+
+		ToolNBT data = TagUtil.getToolStats(rootCompound);
+		int level = modData.current;
+
+		fun.apply(rootCompound, data,level,harvest,weapon,launcher);
+	}
+
+
 
 	/* ---- 添加物品描述 ----*/
 	@SideOnly(Side.CLIENT)

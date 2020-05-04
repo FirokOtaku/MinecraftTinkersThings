@@ -12,8 +12,10 @@ import static net.minecraft.potion.PotionHelper.addMix;
 /**
  * 药水类型
  */
-public class PotionTypes
+public final class PotionTypes
 {
+	private PotionTypes() {}
+
 	public static final PotionType heavy=new PotionType("heavy",
 			new PotionEffect(Potions.heavy,3600,0));
 
@@ -37,13 +39,18 @@ public class PotionTypes
 	public static final PotionType lionheart=new PotionType("lionheart",
 			new PotionEffect(Potions.lionheart,3600,0));
 
+	public static final PotionType icy=new PotionType("icy",
+			new PotionEffect(Potions.icy,3600,0));
+
 //	public static final PotionType sun_power=new PotionType("sun_power",
 //			new PotionEffect(MobEffects.STRENGTH,3600,0));
 	static
 	{
-		addMix(WATER,Items.brokenBedrock,heavy);
+		addMix(WATER,Items.brokenBedrock,void_infected);
 
 		addMix(WATER,Items.treeRoot,rooted);
+
+		addMix(WATER,Items.brokenIce,icy);
 	}
 
 	public static void registerPotionTypes()

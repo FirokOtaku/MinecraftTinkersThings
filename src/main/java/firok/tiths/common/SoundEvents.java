@@ -4,8 +4,10 @@ import firok.tiths.TinkersThings;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 
-public class SoundEvents
+public final class SoundEvents
 {
+	private SoundEvents() {}
+
 	public static final SoundEvent recordTinkersEfforts=$(Keys.soundTinkersEfforts);
 	public static final SoundEvent recordTinkersWill=$(Keys.soundTinkersWill);
 	public static final SoundEvent recordTinkersImagination=$(Keys.soundTinkersImagination);

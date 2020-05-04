@@ -245,6 +245,8 @@ tile.tiths.block_bloody_chiseled_quartz.name=錾制血腥石英块
 tile.tiths.block_bloody_pillar_quartz.name=竖纹血腥石英块
 tile.tiths.block_bloody_quartz.name=血腥石英块
 tile.tiths.block_tinker_disintegrator.name=匠魂粉碎机
+tile.tiths.block_tinker_disintegrator.desc=将工具粉碎成碎片
+tile.tiths.block_tinker_disintegrator.more=手持工具右键执行粉碎
 
 ## consumables
 item.tiths.gateway_gem.name=折跃之石
@@ -473,7 +475,7 @@ modifier.deep_parasitic_armor.desc=§o你的还是我的?§r\n吸收穿戴者生
 modifier.life_inspiring_armor.name=生命激发
 modifier.life_inspiring_armor.desc=§o我依旧不会轻易狗带§r\n在穿戴者生命危急时提供生命恢复效果
 modifier.soluble_armor.name=可溶
-modifier.soluble_armor.desc=§o停停停!§r\n在水里快速损失耐久
+modifier.soluble_armor.desc=§o停停停!§r\n在水里快速损失耐久, 会推动穿戴者
 modifier.diffuse_reflecting_armor.name=漫反射
 modifier.diffuse_reflecting_armor.desc=§o魔法反射§r\n将受到伤害的一部分反射给附近的怪物
 modifier.widening_armor.name=广域化
@@ -556,9 +558,15 @@ lingering_potion.effect.acid_wetted=滞留型酸蚀药水
 
 effect.lionheart=狮心
 potion.effect.lionheart=狮心药水
-splash_potion.effect.lionheart=喷溅型狮心
+splash_potion.effect.lionheart=喷溅型狮心药水
 tipped_arrow.effect.lionheart=狮心之箭
 lingering_potion.effect.lionheart=滞留型狮心药水
+
+effect.icy=清凉
+potion.effect.icy=清凉药水
+splash_potion.effect.icy=喷溅型清凉药水
+tipped_arrow.effect.icy=清凉之箭
+lingering_potion.effect.icy=滞留型清凉药水
 
 ## damage sources
 death.attack.san=%1$s遇到了一点精神问题

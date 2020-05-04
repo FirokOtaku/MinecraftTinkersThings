@@ -12,8 +12,9 @@ import net.minecraft.util.ResourceLocation;
 import static firok.tiths.common.Keys.*;
 
 @SuppressWarnings("all")
-public class Items
+public final class Items
 {
+	private Items() {}
 
 	@Reg("debug")
 	public static final Item debug = new ItemDebug(); // 调试工具
@@ -63,7 +64,7 @@ public class Items
 	public static final Item redins = new ItemCustom(); // 红辉石
 	@Reg(nameCorundum)
 	public static final Item corundum = new ItemCustom(); // 钢玉
-	@Reg(value=nameNitre)
+	@Reg(value=nameNitre,od={"dyeGray"})
 	public static final Item nitre = new ItemCustom(); // 硝石
 	@Reg(namePyrophyllite)
 	public static final Item pyrophyllite = new ItemCustom(); // 叶蜡石
@@ -224,20 +225,20 @@ public class Items
 	@Reg(nameHardener)
 	public static final Item hardener = new ItemCustom(); // 硬化剂
 	@Reg(namePolisher)
-	public static final Item polisher = new ItemCustom(); // 磨石
+	public static final Item polisher = new ItemCustom(); // 打磨剂
 	@Reg(nameInkySlime)
 	public static final Item inkySlime = new ItemCustom(); // 墨染粘液
 	@Reg(nameDriller)
 	public static final Item driller = new ItemCustom(); // 打孔器
 //	@Reg(nameEnderGem)
-	public static final Item enderGem = new ItemCustom(); // 末影之石
+//	public static final Item enderGem = new ItemCustom(); // 末影之石
 	@Reg(value=namePhasingGem,od={"gem"})
 	public static final Item phasingGem = new ItemCustom(); // 相变之石
 
 	// 残页
-	@Reg("page1")
+	@Reg(value = "page1",od = {"paper"})
 	public static final ItemPage page1 = new ItemPage("page.tiths.page1",new ResourceLocation(TinkersThings.MOD_ID,"textures/gui/page1"));
-	@Reg("page2")
+	@Reg(value = "page2",od = {"paper"})
 	public static final ItemPage page2 = new ItemPage("page.tiths.page2",new ResourceLocation(TinkersThings.MOD_ID,"textures/gui/page1"));
 
 	// 消耗品
@@ -245,7 +246,7 @@ public class Items
 	public static final Item gatewayGem = new ItemGatewayGem(4); // 折跃之石
 	@Reg(nameAncientBookIrisia)
 	public static final Item ancientBookIrisia = new ItemXP(true,20); // 艾瑞西亚古籍
-	@Reg(nameFormerCrystal)
+	@Reg(value = nameFormerCrystal,od = {"book"})
 	public static final Item formerCrystal = new ItemFormerCrystal(); // 往昔水晶
 
 	public static void trigger(){}

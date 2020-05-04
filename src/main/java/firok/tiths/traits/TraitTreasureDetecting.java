@@ -1,6 +1,5 @@
 package firok.tiths.traits;
 
-import firok.tiths.TinkersThings;
 import firok.tiths.util.Actions;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;

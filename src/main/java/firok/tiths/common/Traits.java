@@ -8,8 +8,10 @@ import static firok.tiths.common.Keys.colorTraitAntiPoisonous;
 import static firok.tiths.common.Keys.nameTraitAntiPoisonous;
 
 @SuppressWarnings("all")
-public class Traits
+public final class Traits
 {
+	private Traits() {}
+
 //	public static final AbstractTrait wrapping=new TraitWrapping(); // 折跃
 //	static{wrapping.addItem(Items.enderGem);}
 	public static AbstractTrait antiGrav; // 反重力

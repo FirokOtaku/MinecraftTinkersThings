@@ -9,7 +9,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-import static firok.tiths.common.Keys.*;
+import static firok.tiths.common.Keys.colorTraitCreaky;
+import static firok.tiths.common.Keys.nameTraitCreaky;
 import static firok.tiths.util.Predicates.canTrigger;
 
 // 喀嚓

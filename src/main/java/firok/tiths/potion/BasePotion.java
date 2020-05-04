@@ -62,6 +62,7 @@ public class BasePotion extends Potion
 	// 需要通过 index % 8 和 index / 8 转换回来。
 	@Override
 	public void renderHUDEffect(int x, int y, PotionEffect effect, Minecraft mc, float alpha) {
+
 		this.render(x+4,y+4,effect,mc,1);
 	}
 

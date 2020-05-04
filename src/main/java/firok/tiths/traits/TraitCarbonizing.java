@@ -12,7 +12,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import static firok.tiths.common.Keys.*;
+import static firok.tiths.common.Keys.colorTraitCarbonizing;
+import static firok.tiths.common.Keys.nameTraitCarbonizing;
 import static firok.tiths.util.Predicates.canTrigger;
 import static firok.tiths.util.Predicates.isStone;
 

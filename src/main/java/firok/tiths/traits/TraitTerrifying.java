@@ -6,7 +6,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-import static firok.tiths.common.Keys.*;
+import static firok.tiths.common.Keys.colorTraitTerrifying;
+import static firok.tiths.common.Keys.nameTraitTerrifying;
 
 // 恐吓
 public class TraitTerrifying extends AbstractTrait

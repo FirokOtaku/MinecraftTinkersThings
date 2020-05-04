@@ -2,6 +2,14 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.77.0 _2020-05-04 17:30_
+
+* 错误修复 bug fixes
+* 加入状态效果 add potion effects
+  * 清凉 icy
+* 修改特性 modified traits
+  * 可溶(护甲) soluble(armor)
+
 ## 0.2.76.0 _2020-05-03 02:00_
 
 * 加入物品 added items

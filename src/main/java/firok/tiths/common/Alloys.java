@@ -7,8 +7,10 @@ import slimeknights.tconstruct.shared.TinkerFluids;
 
 import static slimeknights.tconstruct.library.materials.Material.VALUE_Ingot;
 
-public class Alloys
+public final class Alloys
 {
+	private Alloys() {}
+
 	public static void registerAlloys()
 	{
 //		TinkersThings.log("register alloys...");

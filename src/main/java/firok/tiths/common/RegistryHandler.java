@@ -35,8 +35,10 @@ import static firok.tiths.util.InnerActions.addMaterialTraits;
 import static firok.tiths.util.Values.__;
 import static slimeknights.tconstruct.library.materials.MaterialTypes.*;
 
-public class RegistryHandler
+public final class RegistryHandler
 {
+	private RegistryHandler() {}
+
 //	public static final Map<BlockMolten,ItemBlock> mapFluidBlock2Item=new HashMap<>();
 	public static void registerFluids()
 	{
