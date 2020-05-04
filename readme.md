@@ -11,7 +11,13 @@
 
 ## 最近更新 latest update
 
-0.2.77.0 _2020-05-04 17:30_
+### 0.2.77.1 _2020-05-04 23:00_
+
+* 错误修复 bug fixes
+  * 将特性"剧毒"重命名为"砷毒"以修复(与核电工艺)由于重复id导致的崩溃
+    renamed the trait *poisonous* to *arsenic_poisonous* to fix crashes caused by duplicate ids from *NuclearCraft*
+
+### 0.2.77.0 _2020-05-04 17:30_
 
 * 错误修复 bug fixes
 * 加入状态效果 add potion effects
@@ -32,6 +38,8 @@ beta|无已知|无已知|包含|不推荐|可用于生存模式
 
 > "无已知" 表示 "没有已知的问题", 但是"可能含有潜在的问题"
 
+> beta版本虽然可用于个人用途的生存模式, 但是内含的内容本身并不确定, 其中的内容在将来的更新中可能会出现增、删、改
+
 <br>
 
 Version|Fatal problem|General problem|Gameplay problem|For server use|For personal use
@@ -44,3 +52,5 @@ beta|No known|No known|Included|Not recommended|Can be used for survival mode
 * **Gameplay problem** Textures missing, balance issues, etc.
 
 > "No known" means "no known problems", but "may contain potential problems"
+
+> Although the beta version can be used for personal use survival mode, the content itself is not sure, and the content may be added, deleted, or changed in future updates

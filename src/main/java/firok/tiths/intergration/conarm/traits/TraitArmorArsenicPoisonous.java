@@ -12,16 +12,16 @@ import net.minecraft.util.EntityDamageSource;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 import static firok.tiths.common.Keys.colorTraitPoisonous;
-import static firok.tiths.common.Keys.nameTraitPoisonous;
+import static firok.tiths.common.Keys.nameTraitArsenicPoisonous;
 
 /**
- * 剧毒 - 护甲
+ * 砷毒 - 护甲
  */
-public class TraitArmorPoisonous extends AbstractArmorTrait
+public class TraitArmorArsenicPoisonous extends AbstractArmorTrait
 {
-	public TraitArmorPoisonous()
+	public TraitArmorArsenicPoisonous()
 	{
-		super(nameTraitPoisonous,colorTraitPoisonous);
+		super(nameTraitArsenicPoisonous,colorTraitPoisonous);
 	}
 
 	@Override

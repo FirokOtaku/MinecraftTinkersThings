@@ -6,6 +6,7 @@ import firok.tiths.intergration.conarm.traits.*;
 // ABCDE FGHIJ KLMNO PQRST UVWXY Z
 public class ArmorTraits
 {
+	public static AbstractArmorTrait arsenicPoisonous; // 砷毒
 	public static AbstractArmorTrait carbonizing; // 碳化
 	public static AbstractArmorTrait chemicalInstable; // 化学不稳定
 	public static AbstractArmorTrait deadening; // 吸音
@@ -27,7 +28,6 @@ public class ArmorTraits
 	public static AbstractArmorTrait moonPower; // 月之力量
 	public static AbstractArmorTrait overHeavy; // 沉重
 	public static AbstractArmorTrait panicking; // 威慑
-	public static AbstractArmorTrait poisonous; // 剧毒
 	public static AbstractArmorTrait radiant; // 辉耀
 	public static AbstractArmorTrait sliding; // 软滑
 	public static AbstractArmorTrait smooth; // 光滑
@@ -47,6 +47,7 @@ public class ArmorTraits
 
 	public static void init()
 	{
+		arsenicPoisonous=new TraitArmorArsenicPoisonous();
 		carbonizing=new TraitArmorCarbonizing();
 		chemicalInstable=new TraitArmorChemicalInstable();
 //		deadening;
@@ -68,7 +69,6 @@ public class ArmorTraits
 		moonPower=new TraitArmorMoonPower();
 		overHeavy=new TraitArmorOverHeavy();
 //		panicking=new TraitArmorPanicking();
-		poisonous=new TraitArmorPoisonous();
 		radiant=new TraitArmorRadiant();
 		sliding=new TraitArmorSliding();
 		smooth=new TraitArmorSmooth();

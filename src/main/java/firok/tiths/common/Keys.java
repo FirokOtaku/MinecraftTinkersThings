@@ -348,7 +348,7 @@ public interface Keys
 	String nameTraitMagnetic="magnetic";
 	String nameTraitMagnetic2="magnetic2";
 	String nameTraitSharp="sharp";
-	String nameTraitPoisonous="poisonous";
+	String nameTraitArsenicPoisonous="arsenic_poisonous";
 	String nameTraitEstablished="established";
 	String nameTraitDense="dense";
 	String nameTraitJagged="jagged";

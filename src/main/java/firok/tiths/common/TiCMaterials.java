@@ -126,7 +126,7 @@ public final class TiCMaterials
 			.addItemAsIngot(Items.ingotHothium)
 			.setFluid(Fluids.moltenHothium);
 
-	@Compo(value = nameSpiderLeg,traitsTool = {nameTraitSharp,nameTraitPoisonous},traitsArmor = {nameTraitRough,nameTraitPoisonous})
+	@Compo(value = nameSpiderLeg,traitsTool = {nameTraitSharp, nameTraitArsenicPoisonous},traitsArmor = {nameTraitRough, nameTraitArsenicPoisonous})
 	@CompoHead(durability=45,miningspeed=0.55,attack=3,harvestLevel=0,traits={  })
 	@CompoArrowShaft(modifier=0.5,bonusAmmo=0,traits={  })
 	public static final Material spiderLeg=new $Material(nameSpiderLeg, colorSpiderLeg)
@@ -530,7 +530,7 @@ public final class TiCMaterials
 	public static final Material prehnite=new $Material(namePrehnite, colorPrehnite)
 			.addItemAsIngot(Items.prehnite);
 
-	@Compo(value = nameProustite,traitsTool = {nameTraitPoisonous},traitsBow = {nameTraitPoisonous},traitsArmor = {nameTraitPoisonous})
+	@Compo(value = nameProustite,traitsTool = {nameTraitArsenicPoisonous},traitsBow = {nameTraitArsenicPoisonous},traitsArmor = {nameTraitArsenicPoisonous})
 	@CompoHead(durability=210,miningspeed=3.5,attack=4,harvestLevel=1,traits={  })
 	@CompoHandle(modifier=0.85,durability=80,traits={  })
 	@CompoExtra(extraDurability=35,traits={  })

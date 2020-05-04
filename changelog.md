@@ -2,6 +2,12 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.77.1 _2020-05-04 23:00_
+
+* 错误修复 bug fixes
+  * 将特性"剧毒"重命名为"砷毒"以修复(与核电工艺)由于重复id导致的崩溃
+    renamed the trait *poisonous* to *arsenic_poisonous* to fix crashes caused by duplicate ids from *NuclearCraft*
+
 ## 0.2.77.0 _2020-05-04 17:30_
 
 * 错误修复 bug fixes

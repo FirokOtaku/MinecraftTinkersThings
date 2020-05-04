@@ -20,6 +20,7 @@ public class PotionIcy extends BasePotion
 	@Override
 	public boolean isReady(int tick, int level)
 	{
+		level++;
 		return canTick(tick,Math.max(1,20/level),0);
 	}
 
