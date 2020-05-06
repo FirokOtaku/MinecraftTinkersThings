@@ -39,7 +39,9 @@ public class WorldGenLavaCrystal implements IChunkGen
 
 					BlockPos posTemp=pos.add(ox,oy,oz);
 
-					if(!isStone(world.getBlockState(posTemp)))
+					IBlockState stateTemp=world.getBlockState(posTemp);
+
+					if(!isStone(stateTemp) && stateTemp.getBlock()!=Blocks.NETHERRACK)
 					{
 						hasSomeNoneStone=true;
 						break FOR_X;

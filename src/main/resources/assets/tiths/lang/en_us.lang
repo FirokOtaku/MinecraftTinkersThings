@@ -553,7 +553,10 @@ death.attack.birefringent=%1$s was refracted into pieces
 death.attack.pyroelectric=Heart of %1$s was paralyzed
 
 ## warning
-warning.tiths.indev=[Tinkers' Things] Warning:  This mod is still §1under developing§r and only used for §2preview and testing§r, any contents could be §6modified or deleted§r in the future. And this mod has §4NOT§r been well tested and may have some bugs. Please §4DO NOT§r use this mod for survival mode or server gaming!
+warning.tiths.release=[Tinkers' Things] Welcome to use this mod! (This message can be disabled in config)
+warning.tiths.beta=[Tinkers' Things] Warning: You are using a §1beta§r version of mod, used for §2preview and testing§r, any contents could be §6modified or deleted§r in the future. This version of mod is §4NOT RECOMMENDED§r for server use. (This message can be disabled in config)
+warning.tiths.alpha=[Tinkers' Things] Warning:  You are using a §1alpha§r version of mod, which only used for §2preview and testing§r, any contents could be §6modified or deleted§r in the future. And this mod has §4NOT§r been well tested and may have some bugs. Please §4DO NOT§r use this mod for survival mode or server gaming!
+warning.tiths.indev=[Tinkers' Things] Warning:  You are using a §1indev§r version of mod, please §4DO NOT§r distribute mod of this version!
 
 ## tooltip
 tooltip.tiths.item_xp.when_use=Exp get when used:

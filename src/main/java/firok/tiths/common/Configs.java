@@ -1,6 +1,7 @@
 package firok.tiths.common;
 
 import firok.tiths.TinkersThings;
+import firok.tiths.util.VersionPhase;
 import net.minecraftforge.common.config.Config;
 
 import static net.minecraftforge.common.config.Config.*;
@@ -68,6 +69,22 @@ public final class Configs
 		 */
 		@LangKey(pg+"enable_single_thread_optimization")
 		public static boolean enable_single_thread_optimization=true;
+
+		/**
+		 * 是否禁用警告信息
+		 */
+		@LangKey(pg+"disable_login_warning")
+		public static boolean disable_login_warning=false;
+
+		public static boolean isShowLoginWarning()
+		{
+			final VersionPhase version=TinkersThings.version;
+			if(version.canDisableLoginWarning)
+			{
+				return !disable_login_warning; // master
+			}
+			else return true;
+		}
 	}
 
 

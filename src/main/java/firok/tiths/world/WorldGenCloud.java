@@ -1,6 +1,9 @@
 package firok.tiths.world;
 
 import firok.tiths.common.Blocks;
+import firok.tiths.common.ConfigJson;
+import firok.tiths.util.Values;
+import firok.tiths.util.conf.OreGenInfo;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -12,17 +15,52 @@ import static firok.tiths.util.Predicates.canTrigger;
 // 世界生成-云
 public class WorldGenCloud implements IChunkGen
 {
+	protected int[] dimsAllowed;
+	protected float rateChunk;
+	protected int minY, interval;
 	public WorldGenCloud()
 	{
-		;
+		OreGenInfo info=ConfigJson.getOre("CLOUD");
+		if(info==null)
+		{
+			this.dimsAllowed=new int[]{ 0, };
+			this.rateChunk=0.06f;
+			this.minY=150;
+			this.interval =180;
+		}
+		else
+		{
+			this.dimsAllowed= info.dims!=null?Values.arr(info.dims):new int[]{ 0, };
+			this.rateChunk=info.timeRate!=null?info.timeRate:0.06f;
+			this.minY=info.minY!=null?info.minY:150;
+			this.interval=info.maxY!=null?info.maxY-this.minY:30;
+			if(this.interval<=0) this.interval=1;
+		}
+	}
+//	public WorldGenCloud(int[] dimsAllowed)
+//	{
+//		this.dimsAllowed =dimsAllowed;
+//	}
+
+	@Override
+	public boolean canGenAtDim(int targetDimId)
+	{
+		for(int temp:dimsAllowed)
+		{
+			if(temp==targetDimId)
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	@Override
 	public boolean gen(World world, int chunkX, int chunkZ, Random rand)
 	{
-		if(!canTrigger(rand,0.06f)) return true;
+		if(!canTrigger(rand,rateChunk)) return true;
 
-		int posX=chunkX+5+rand.nextInt(11),posY=rand.nextInt(30)+150,posZ=chunkZ+5+rand.nextInt(11);
+		int posX=chunkX+5+rand.nextInt(11),posY= rand.nextInt(interval) + minY,posZ= chunkZ + 5 + rand.nextInt(11);
 
 		return generate(world, new BlockPos(posX,posY,posZ));
 	}

@@ -57,7 +57,7 @@ import static firok.tiths.common.Traits.thermalGathering;
 import static firok.tiths.traits.TraitStonePhasing.costStone;
 import static firok.tiths.util.Predicates.canTrigger;
 
-@Mod.EventBusSubscriber
+@Mod.EventBusSubscriber(modid=TinkersThings.MOD_ID)
 public class Events
 {
 	@SubscribeEvent
@@ -342,7 +342,8 @@ public class Events
 	// 允许在游戏内菜单更改配置文件
 	@SubscribeEvent
 	public static void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
-		if (event.getModID().equals(TinkersThings.MOD_ID)) {
+		if (event.getModID().equals(TinkersThings.MOD_ID))
+		{
 			ConfigManager.sync(TinkersThings.MOD_ID, Config.Type.INSTANCE);
 		}
 	}
@@ -350,10 +351,11 @@ public class Events
 	@SubscribeEvent
 	public static void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event)
 	{
-		if(TinkersThings.indev)
+		if(Configs.General.isShowLoginWarning())
 		{
 			EntityPlayer player=event.player;
-			player.sendMessage( new TextComponentTranslation("warning.tiths.indev") );
+			String name=TinkersThings.version.name().toLowerCase();
+			player.sendMessage( new TextComponentTranslation("warning.tiths."+name) );
 		}
 	}
 
