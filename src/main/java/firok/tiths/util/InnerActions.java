@@ -172,7 +172,7 @@ public final class InnerActions
 
 		if(trait!=null)
 		{
-			if(TinkersThings.indev && checkArmor && !(trait instanceof IAbstractArmorTrait || trait instanceof AbstractArmorTrait))
+			if(checkArmor && !(trait instanceof IAbstractArmorTrait || trait instanceof AbstractArmorTrait))
 			{
 				throw new RuntimeException("CHECKING_ARMOR_TRAIT : not an armor trait! "+traitNameTarget);
 			}

@@ -5,7 +5,7 @@
 _⚠ 只能修改**本模组添加的**方块 only blocks **added by this mod** can be customized_
 
 
-## 整体格式 format
+## 整体格式 general format
 
 配置文件遵循`{"tile_name1":{ configs }, "tile_name2":{ configs }, ...}`格式 the config file follows the format of `{"tile_name1":{ configs }, "tile_name2":{ configs }, ...}`
 
@@ -42,5 +42,32 @@ _⚠ 只能修改**本模组添加的**方块 only blocks **added by this mod** 
             "rate": 0.8,
             "size": 10,
             "dims": [ 1, -1 ]
+        },
+        "ore_nitre":{
+            "min_y": 10,
+            "max_y": 20,
+            "times": 3,
+            "rate": 0.8,
+            "size": 10,
+            "dims": [ 1 ]
         }
     }
+
+## 特殊世界生成 special world generations
+
+部分特殊的世界生成也可使用此配置文件进行配置, 分别使用专门的键 some special world generations can also be modified by this config file, and the use specified **key**
+
+### 云 cloud
+
+    {
+        "CLOUD": {
+            "minY": 150,
+            "maxY": 180,
+            "rate": 0.06,
+            "dims": [ 0 ]
+        }
+    }
+
+ℹ `"dims"`属性此时是允许生成的维度白名单 `"dims"` now is used as whitelist
+
+ℹ 与其它世界生成不同, 云层生成时是监测并替换原版空气方块 not like other world generation, only air block (`minecraft:air`) will be detected and replaced into cloud block

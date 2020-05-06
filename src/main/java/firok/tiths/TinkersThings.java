@@ -4,6 +4,7 @@ import firok.tiths.common.*;
 import firok.tiths.gui.Guis;
 import firok.tiths.intergration.baubles.BaubleItems;
 import firok.tiths.intergration.conarm.ArmorRegistryHandler;
+import firok.tiths.util.VersionPhase;
 import firok.tiths.world.WorldGen;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.Loader;
@@ -31,8 +32,8 @@ public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers' Things";
-	public static final String VERSION = "1.12.2-0.2.77.0";
-	public static final boolean indev = true;
+	public static final String VERSION = "1.12.2-0.2.77.2";
+	public static final VersionPhase version = VersionPhase.Beta;
 
 	@Mod.Instance(MOD_ID)
 	public static TinkersThings INSTANCE;
@@ -45,7 +46,11 @@ public class TinkersThings
 	private static Logger logger;
 	public static void log(Object content)
 	{
-		logger.log(Level.INFO,content);
+		log(content,Level.INFO);
+	}
+	public static void log(Object content,Level level)
+	{
+		logger.log(level,content);
 	}
 
 	private static boolean hasConarm=false;
@@ -181,10 +186,7 @@ public class TinkersThings
 
 	public static void main(String[] args)
 	{
-		String str="1<br>2<br>3";
-		String[] lines=str.split("<br>");
-		for(String line:lines)
-			System.out.println(line);
+		;
 	}
 
 

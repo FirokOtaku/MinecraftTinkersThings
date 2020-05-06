@@ -6,6 +6,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
+import slimeknights.tconstruct.library.utils.ToolHelper;
 
 import static firok.tiths.common.Keys.colorTraitSoluble;
 import static firok.tiths.common.Keys.nameTraitSoluble;
@@ -26,12 +27,12 @@ public class TraitArmorSoluble extends AbstractArmorTrait
 	{
 		if(!world.isRemote && player.isInWater())
 		{
-//			if( canTick(world,15,2) )
-//			{
-//				ToolHelper.damageTool(tool, 20, player);
-//			}
+			if( canTick(world,15,2) )
+			{
+				ToolHelper.damageTool(tool, 20, player);
+			}
 
-			if( player.isInWater() && canTick(world,4,0) )
+			if( canTick(world,4,0) )
 			{
 				player.addPotionEffect( new PotionEffect(Potions.hidden_soluble, 5, 0 ));
 			}

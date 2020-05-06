@@ -11,6 +11,14 @@
 
 ## 最近更新 latest update
 
+## 0.2.77.2 _2020-05-06 14:30_
+
+* 错误修复 bug fixes
+  * 现在默认不会在下界生成云层 cloud will no longer generate in nether by default
+  * 特性-可溶(护甲)现在会正常损失护甲耐久 now trait-soluble(armor) will damage armors correctly
+* 现在可以在配置文件中修改云层的生成 now generation of cloud can be modified in config file
+* 现在可以在配置文件中禁用登录提示信息(仅beta和release版本) now login warning message can be disabled in config (only when beta and release)
+
 ### 0.2.77.1 _2020-05-04 23:00_
 
 * 错误修复 bug fixes
