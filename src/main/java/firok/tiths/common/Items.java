@@ -58,7 +58,7 @@ public final class Items
 //	public static final Item phantomCrystal = new ItemCustom(); // 异象水晶
 //	@Reg(nameAntiGravCrystal)
 //	public static final Item antiGravCrystal = new ItemCustom(); // 反重力水晶
-	@Reg(value=nameBlackrock,od={"stone"})
+	@Reg(value=nameBlackrock)
 	public static final Item blackrock = new ItemCustom(); // 黑石
 	@Reg(value= nameRedins,od={"gem"})
 	public static final Item redins = new ItemCustom(); // 红辉石
