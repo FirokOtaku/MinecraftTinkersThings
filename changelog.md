@@ -2,6 +2,11 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.77.3 _2020-05-09 12:00_
+
+* 错误修复 bug fixes
+  * 移除黑石矿辞以修复黑石不能用于制作部件问题 now blackrock can craft to components by removing its ore-dictionary info
+
 ## 0.2.77.2 _2020-05-06 14:30_
 
 * 错误修复 bug fixes
@@ -567,7 +572,7 @@
 
 ## 0.2.25.0 _2020-01-13 15:00_
 
-* 增加矿物词典支持 added ore-dictionary support
+* 增加矿物辞典支持 added ore-dictionary support
 * 增加部分合成表 added some recipes
 
 ## 0.2.24.0 _2020-01-13 08:30_
