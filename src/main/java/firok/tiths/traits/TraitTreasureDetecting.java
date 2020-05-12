@@ -53,7 +53,7 @@ public class TraitTreasureDetecting extends AbstractTrait
 			if(check)
 			{
 				if(player instanceof EntityPlayer)
-					world.playSound((EntityPlayer) player, player.posX,player.posY,player.posZ, SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.MASTER,1.0f,1.0f);
+					world.playSound((EntityPlayer) player, player.posX,player.posY,player.posZ, SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS,1.0f,1.0f);
 				Actions.CauseGeneratingTreasureRoom(world,new BlockPos(cx+1,cy+1,cz+1));
 			}
 		}

@@ -23,7 +23,9 @@ public class TraitPeaceEnergetic extends AbstractTrait
 	public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
 	{
 		if(isSelected && !world.isRemote &&
-		   entity.motionX==0 && entity.motionY==0 && entity.motionZ==0 &&
+		   Math.abs(entity.motionX) < 0.15 &&
+		   Math.abs(entity.motionY) < 0.15 &&
+		   Math.abs(entity.motionZ) < 0.15 &&
 		   canTick(world,20,1) && entity instanceof EntityLivingBase)
 		{
 			EntityLivingBase enlb=(EntityLivingBase)entity;
