@@ -2,7 +2,6 @@
 
 一个匠魂的附属模组. An addon of Tinkers' Construct.
 
-* 材料列表 all the materials: [materials.md](materials.md)
 * 变更日志 change log: [changelog.md](changelog.md)
 * 贡献者列表 contributors: [contributors.md](contributors.md)
 
@@ -14,7 +13,7 @@
 ### 0.2.77.4 _2020-05-12 00:00_
 
 * 错误修复 bug fixes
-  * 现在平衡能量特性可以正确恢复生命 now peace energetic trait can heal player correctly
+  * 现在平和能量特性可以正确恢复生命 now peace energetic trait can heal player correctly
   * 现在震动特性可以正确增加击退 now vibrating trait can deal knockback correctly
   * 现在雷鸣波动特性可以正确击退实体 now thundering waving trait can deal knockback correctly
 * 重做平衡性 re-balanced mod
