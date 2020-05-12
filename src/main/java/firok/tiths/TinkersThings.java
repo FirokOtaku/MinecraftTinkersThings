@@ -32,7 +32,7 @@ public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers' Things";
-	public static final String VERSION = "1.12.2-0.2.77.2";
+	public static final String VERSION = "1.12.2-0.2.77.3";
 	public static final VersionPhase version = VersionPhase.Beta;
 
 	@Mod.Instance(MOD_ID)
