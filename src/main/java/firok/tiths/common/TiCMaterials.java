@@ -181,8 +181,8 @@ public final class TiCMaterials
 		brokenIce.setRepresentativeItem(Items.brokenIce);
 	}
 
-	@Compo(value = nameShell,traitsTool = {nameTraitSharp})
-	@CompoHead(durability=64,miningspeed=4.2,attack=5,harvestLevel=1,traits={  })
+	@Compo(value = nameShell,traitsTool = {})
+	@CompoHead(durability=64,miningspeed=4.2,attack=3.9,harvestLevel=1,traits={  })
 	@CompoHandle(modifier=0.69,durability=40,traits={  })
 	@CompoExtra(extraDurability=23,traits={  })
 	@CompoFletching(accuracy=0.6,modifier=1.25,traits={  })

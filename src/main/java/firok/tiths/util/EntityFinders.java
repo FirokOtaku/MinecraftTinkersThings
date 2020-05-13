@@ -19,7 +19,7 @@ public final class EntityFinders
 	public static List<? extends Entity> Nearby(World world, BlockPos center, double distance, Predicate<? super Entity> predicate)
 	{
 		List<Entity> ret=new ArrayList<>();
-		List<Entity> temps=world.getEntitiesWithinAABB(Entity.class,Ranges.Neighbour(center,distance),predicate);
+		List<Entity> temps=world.getEntitiesWithinAABB(Entity.class,Ranges.Neighbour(center,distance+2),predicate);
 		final double distanceSq=distance*distance;
 		for(Entity temp:temps)
 		{
@@ -32,7 +32,7 @@ public final class EntityFinders
 	public static List<? extends Entity> Nearby(Entity center,double distance)
 	{
 		List<Entity> ret=new ArrayList<>();
-		List<Entity> temps=center.world.getEntitiesWithinAABBExcludingEntity(center,Ranges.Neighbour(center,distance));
+		List<Entity> temps=center.world.getEntitiesWithinAABBExcludingEntity(center,Ranges.Neighbour(center,distance+2));
 		final double distanceSq=distance*distance;
 		for(Entity temp:temps)
 		{
@@ -46,7 +46,7 @@ public final class EntityFinders
 	public static List<Entity> Nearby(Entity center, double distance, Predicate<? super Entity> predicate)
 	{
 		List<Entity> ret=new ArrayList<>();
-		List<Entity> temps=center.world.getEntitiesInAABBexcluding(center,Ranges.Neighbour(center,distance), predicate);
+		List<Entity> temps=center.world.getEntitiesInAABBexcluding(center,Ranges.Neighbour(center,distance+2), predicate);
 		final double distanceSq=distance*distance;
 		for(Entity temp:temps)
 		{
