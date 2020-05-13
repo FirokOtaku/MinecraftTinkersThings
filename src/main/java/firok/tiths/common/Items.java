@@ -37,9 +37,9 @@ public final class Items
 	@Reg(nameBrokenIce)
 	public static final Item brokenIce = new ItemCustom(); // 碎冰
 	@Reg(nameShell)
-	public static final Item shell = new ItemFood(1,0.05f,false); // 贝壳
+	public static final Item shell = new ItemFood(1,0.2f,false); // 贝壳
 	@Reg(nameShellCooked)
-	public static final Item shellCooked = new ItemFood(1,0.2f,false); // 熟贝壳
+	public static final Item shellCooked = new ItemFood(2,0.2f,false); // 熟贝壳
 	@Reg(nameEnderCreviceShard)
 	public static final Item enderCreviceShard = new ItemCustom(); // 末影裂隙碎片
 	@Reg(nameMercurySulfide)
