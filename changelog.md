@@ -2,6 +2,11 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.77.6 _2020-05-17 11:30_
+
+* 错误修复 bug fixes
+  * 现在气钢和钝金可用于制作工具 now steamium and tonium can be used to build tools
+
 ## 0.2.77.5 _2020-05-13 08:30_
 
 * 错误修复 bug fixes

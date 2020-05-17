@@ -10,6 +10,16 @@
 
 ## 最近更新 latest update
 
+## 0.2.77.6 _2020-05-17 11:30_
+
+* 错误修复 bug fixes
+  * 现在气钢和钝金可用于制作工具 now steamium and tonium can be used to build tools
+
+## 0.2.77.5 _2020-05-13 08:30_
+
+* 错误修复 bug fixes
+  * 修复凋零精尘不能用于合成的问题 now wither essence can be used in recipe again
+
 ### 0.2.77.4 _2020-05-12 00:00_
 
 * 错误修复 bug fixes
