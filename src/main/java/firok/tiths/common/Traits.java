@@ -53,6 +53,7 @@ public final class Traits
 	public static AbstractTrait retrospective; // 后知
 	public static AbstractTrait shaking; // 撼击
 	public static AbstractTrait soluble; // 可溶
+	public static AbstractTrait sovereign; // 君临
 	public static AbstractTrait staminaFocusing; // 精力汇聚
 	public static AbstractTrait starDashing; // 星绽
 	public static AbstractTrait steamy; // 气动
@@ -112,6 +113,7 @@ public final class Traits
 		retrospective = new TraitRetrospective();
 		shaking = new TraitShaking();
 		soluble = new TraitSoluble();
+		sovereign = new TraitSovereign();
 		staminaFocusing = new TraitStaminaFocusing();
 		starDashing = new TraitStarDashing();
 		steamy = new TraitSteamy();

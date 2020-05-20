@@ -1,21 +1,30 @@
 package firok.tiths.intergration.conarm;
 
+import c4.conarm.common.armor.utils.ArmorHelper;
+import c4.conarm.common.armor.utils.ArmorTagUtil;
 import c4.conarm.lib.capabilities.ArmorAbilityHandler;
 import firok.tiths.intergration.conarm.traits.TraitArmorWidening;
+import firok.tiths.util.Actions;
+import firok.tiths.util.InnerActions;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.audio.*;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPotion;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.sound.PlaySoundEvent;
+import net.minecraftforge.client.event.sound.SoundEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import slimeknights.tconstruct.library.modifiers.IModifier;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
 import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
@@ -106,14 +115,46 @@ public class ArmorEvents
 		{
 			EntityPlayerSP playerSP= Minecraft.getMinecraft().player;
 			if(playerSP==null) return; // game has not started
-			for(ItemStack stackArmor:playerSP.getArmorInventoryList())
-			{
-				if(stackArmor==null||stackArmor.isEmpty()) continue;
 
-//				if(ToolHelper.getTraits(stackArmor).contains(ArmorTraits.luxurious))
+			boolean hasDeadening=false; // 是否有消音
+
+			ItemStack stackHead=playerSP.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+			if(stackHead.isEmpty()) return;
+
+			List<ITrait> modifiers= ToolHelper.getTraits(stackHead);
+			if(modifiers.contains(ArmorTraits.deadening))
+			{
+				hasDeadening=true;
+			}
+
+			ISound soundNew=null;
+
+			if(hasDeadening)
+			{
+				ISound s=event.getSound();
+
+				;
+
+				float volume=(float) InnerActions.get(PositionedSound.class,"volume",s);
+				InnerActions.set(PositionedSound.class,"volume",s,volume*0.15f);
+
+				soundNew=s;
+//				if(s instanceof PositionedSoundRecord)
+//				{
+//					PositionedSoundRecord s2=(PositionedSoundRecord)s;
+//					soundNew=new PositionedSoundRecord(
+//							s2.getSoundLocation(),s2.getCategory(),
+//							s2.getVolume() * 0.2f,s2.getPitch(),
+//							s2.canRepeat(),s2.getRepeatDelay(),s2.getAttenuationType(),
+//							s2.getXPosF(),s2.getYPosF(),s2.getZPosF()
+//					);
+//				}
+//				else if(s instanceof ElytraSound)
 //				{
 //					;
 //				}
+
+				event.setResultSound(soundNew);
 			}
 		}
 		catch (Exception e)

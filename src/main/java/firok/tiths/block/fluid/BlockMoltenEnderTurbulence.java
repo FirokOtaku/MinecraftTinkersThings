@@ -5,6 +5,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
@@ -29,6 +30,7 @@ public class BlockMoltenEnderTurbulence extends BlockTinkerFluid
 		{
 			EntityLivingBase enlb = (EntityLivingBase) entityIn;
 			Actions.CauseEnderTeleport(enlb);
+			enlb.attackEntityFrom(DamageSource.FALL,3);
 		}
 	}
 }

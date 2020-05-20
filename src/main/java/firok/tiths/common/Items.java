@@ -6,6 +6,7 @@ import firok.tiths.util.reg.Reg;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
 
@@ -37,9 +38,9 @@ public final class Items
 	@Reg(nameBrokenIce)
 	public static final Item brokenIce = new ItemCustom(); // 碎冰
 	@Reg(nameShell)
-	public static final Item shell = new ItemFood(1,0.05f,false); // 贝壳
+	public static final Item shell = new ItemFood(1,0.2f,false); // 贝壳
 	@Reg(nameShellCooked)
-	public static final Item shellCooked = new ItemFood(1,0.2f,false); // 熟贝壳
+	public static final Item shellCooked = new ItemFood(2,0.2f,false); // 熟贝壳
 	@Reg(nameEnderCreviceShard)
 	public static final Item enderCreviceShard = new ItemCustom(); // 末影裂隙碎片
 	@Reg(nameMercurySulfide)
@@ -110,6 +111,8 @@ public final class Items
 	public static final Item furutorin = new ItemCustom(); // 泠笛石
 	@Reg(nameHeavesand)
 	public static final Item heavesand = new ItemCustom(); // 沉沙石
+	@Reg(nameTorrentialCrystal)
+	public static final Item torrentialCrystal = new ItemCustom(); // 激流水晶
 	// 金属粒
 	@Reg(Keys.nuggetStellarium)
 	public static final Item nuggetStellarium = new ItemCustom(); // 恒星金属粒
@@ -140,7 +143,7 @@ public final class Items
 	@Reg(Keys.nuggetCocoa)
 	public static final Item nuggetCocoa = new ItemCustom(); // 可可粒
 	@Reg(Keys.nuggetIrisia)
-	public static final Item nuggetIrisia = new ItemCustom(); // 艾瑞西亚锭
+	public static final Item nuggetIrisia = new ItemCustom(); // 艾瑞西亚粒
 	@Reg(Keys.nuggetOraclium)
 	public static final Item nuggetOraclium = new ItemCustom(); // 神谕粒
 	@Reg(Keys.nuggetSteamium)
@@ -188,6 +191,10 @@ public final class Items
 	@Reg(Keys.ingotChloroplast)
 	public static final Item ingotChloroplast = new ItemCustom(); // 叶绿锭
 
+	// 粉末
+	@Reg(Keys.dustBlackrock)
+	public static final Item dustBlackrock = new ItemCustom(); // 黑石粉
+
 	// 单纯的原材料
 //	@Reg(nameRoyalPaper)
 //	public static final Item royalPaper = new ItemCustom(); // 奢华纸张
@@ -204,12 +211,12 @@ public final class Items
 	@Reg(nameHotBread)
 	public static final Item hotBread = new ItemHotFood(4,0.4f,false); // 灼热面包
 	@Reg(nameHotFish)
-	public static final Item hotFish = new ItemHotFood(6,0.5f,false); // 灼热鱼
+	public static final Item hotFish = new ItemHotFood(6,0.6f,false); // 灼热鱼
 	@Reg(nameFlesh)
-	public static final Item flesh = new ItemFood(8,0.7f,true)
+	public static final Item flesh = new ItemFood(8,0.8f,true)
 			.setPotionEffect(new PotionEffect(MobEffects.NAUSEA,400,0),1); // 血肉
 	@Reg(nameFleshCooked)
-	public static final Item fleshCooked = new ItemFood(14,0.9f,false)
+	public static final Item fleshCooked = new ItemFood(14,1f,false)
 			.setPotionEffect(new PotionEffect(MobEffects.STRENGTH,600,0),1); // 熟血肉
 
 	// 唱片
@@ -234,12 +241,13 @@ public final class Items
 //	public static final Item enderGem = new ItemCustom(); // 末影之石
 	@Reg(value=namePhasingGem,od={"gem"})
 	public static final Item phasingGem = new ItemCustom(); // 相变之石
+	@Reg(nameMesh)
+	public static final Item net = new ItemCustom(); // 网
+	@Reg(nameBuoy)
+	public static final Item buoy = new ItemCustom(); // 浮筒
 
-	// 残页
-	@Reg(value = "page1",od = {"paper"})
-	public static final ItemPage page1 = new ItemPage("page.tiths.page1",new ResourceLocation(TinkersThings.MOD_ID,"textures/gui/page1"));
-	@Reg(value = "page2",od = {"paper"})
-	public static final ItemPage page2 = new ItemPage("page.tiths.page2",new ResourceLocation(TinkersThings.MOD_ID,"textures/gui/page1"));
+//	@Reg("fluid_ball")
+//	public static final Item fluidBall = new ItemFluidBall(); // 液体球
 
 	// 消耗品
 //	@Reg(nameGatewayGem)
@@ -248,6 +256,21 @@ public final class Items
 	public static final Item ancientBookIrisia = new ItemXP(true,20); // 艾瑞西亚古籍
 	@Reg(value = nameFormerCrystal,od = {"book"})
 	public static final Item formerCrystal = new ItemFormerCrystal(); // 往昔水晶
+
+	// 残页
+	@Reg(value = "page",od = {"paper"})
+	public static final ItemLangPage page = new ItemLangPage();
+	static
+	{
+		ItemStack page1=new ItemStack(page);
+		page.setText(page1,"page.tiths.page1");
+		page.setBackground(page1,new ResourceLocation(TinkersThings.MOD_ID,"textures/gui/page1"));
+		page.addSubItem(page1);
+		ItemStack page2=new ItemStack(page);
+		page.setText(page2,"page.tiths.page2");
+		page.setBackground(page2,new ResourceLocation(TinkersThings.MOD_ID,"textures/gui/page1"));
+		page.addSubItem(page2);
+	}
 
 	public static void trigger(){}
 }

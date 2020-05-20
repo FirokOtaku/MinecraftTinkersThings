@@ -48,7 +48,7 @@ public class TraitBlowing extends AbstractTrait
 
 			if(!stack2drop.isEmpty())
 			{
-				world.playSound(null,player.posX,player.posY,player.posZ, SoundEvents.effectSwing, SoundCategory.MASTER,1,1);
+				world.playSound(null,player.posX,player.posY,player.posZ, SoundEvents.effectSwing, SoundCategory.PLAYERS,1,1);
 				Actions.CauseSpawnItem(target,stack2drop);
 			}
 		}

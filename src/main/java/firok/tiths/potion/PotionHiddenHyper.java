@@ -14,7 +14,7 @@ public class PotionHiddenHyper extends BasePotion
 {
 	public PotionHiddenHyper()
 	{
-		super(new ResourceLocation(TinkersThings.MOD_ID,"textures/potions/speed_boost_hyper.png"),false, Keys.colorPotionRooted, false);
+		super(new ResourceLocation(TinkersThings.MOD_ID,"textures/potions/speed_boost_hyper.png"),false, Keys.colorPotionHyper, false);
 	}
 
 	@Override

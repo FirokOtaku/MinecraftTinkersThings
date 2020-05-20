@@ -29,7 +29,7 @@ public class TraitArmorDevouring extends AbstractArmorTrait
 		{
 			if(!player.world.isRemote && newDamage > 0 && canTrigger(player.world,0.2))
 			{
-				player.world.playSound(null,player.posX,player.posY,player.posZ, SoundEvents.effectTransforming, SoundCategory.MASTER,2,1);
+				player.world.playSound(null,player.posX,player.posY,player.posZ, SoundEvents.effectTransforming, SoundCategory.PLAYERS,2,1);
 				player.heal(newDamage * 0.5f);
 			}
 

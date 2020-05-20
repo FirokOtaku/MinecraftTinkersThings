@@ -2,7 +2,6 @@
 
 一个匠魂的附属模组. An addon of Tinkers' Construct.
 
-* 材料列表 all the materials: [materials.md](materials.md)
 * 变更日志 change log: [changelog.md](changelog.md)
 * 贡献者列表 contributors: [contributors.md](contributors.md)
 
@@ -11,32 +10,22 @@
 
 ## 最近更新 latest update
 
-## 0.2.77.3 _2020-05-09 12:00_
+### 0.3.0.1 _2020-05-20 18:00_
 
-* 错误修复 bug fixes
-  * 移除黑石矿辞以修复黑石不能用于制作部件问题 now blackrock can craft to components by removing its ore-dictionary info
-
-## 0.2.77.2 _2020-05-06 14:30_
-
-* 错误修复 bug fixes
-  * 现在默认不会在下界生成云层 cloud will no longer generate in nether by default
-  * 特性-可溶(护甲)现在会正常损失护甲耐久 now trait-soluble(armor) will damage armors correctly
-* 现在可以在配置文件中修改云层的生成 now generation of cloud can be modified in config file
-* 现在可以在配置文件中禁用登录提示信息(仅beta和release版本) now login warning message can be disabled in config (only when beta and release)
-
-### 0.2.77.1 _2020-05-04 23:00_
-
-* 错误修复 bug fixes
-  * 将特性"剧毒"重命名为"砷毒"以修复(与核电工艺)由于重复id导致的崩溃
-    renamed the trait *poisonous* to *arsenic_poisonous* to fix crashes caused by duplicate ids from *NuclearCraft*
-
-### 0.2.77.0 _2020-05-04 17:30_
-
-* 错误修复 bug fixes
-* 加入状态效果 add potion effects
-  * 清凉 icy
-* 修改特性 modified traits
-  * 可溶(护甲) soluble(armor)
+* 重写世界生成 rewrote world generation
+* 加入物品 added items
+  * 网 mesh item
+  * 浮筒 buoy item
+  * 激流水晶 torrential crystal item
+  * 激流水晶矿 torrential crystal ore block
+  * 激流水晶块 torrential crystal block
+  * 黑石粉 blackrock dust item
+* 加入特性 added traits
+  * 筛网(护甲) meshing(armor)
+  * 浮力(护甲) buoyant(armor)
+  * 君临 sovereign
+* 更新材料的渲染信息 updated rendering information of all materials
+* 修改部分材质 modified some textures
 
 ## 版本间差异 differences between versions
 

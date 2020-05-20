@@ -4,6 +4,8 @@ package firok.tiths.common;
 import firok.tiths.TinkersThings;
 import firok.tiths.entity.special.EnderBeacon;
 import firok.tiths.intergration.conarm.ArmorEvents;
+import firok.tiths.item.IFluid;
+import firok.tiths.item.ItemFluidBall;
 import firok.tiths.util.Actions;
 import firok.tiths.util.Ranges;
 import net.minecraft.block.Block;
@@ -38,6 +40,7 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fluids.BlockFluidBase;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -47,6 +50,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.tconstruct.library.events.TinkerCraftingEvent;
 import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.ToolHelper;
+import slimeknights.tconstruct.smeltery.events.TinkerSmelteryEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -500,5 +504,21 @@ public class Events
 		{
 			ArmorEvents.onClientSoundPlay(event);
 		}
+	}
+
+	@SubscribeEvent
+	public static void onMelting(TinkerSmelteryEvent.OnMelting event)
+	{
+		if(event.itemStack==null) return;
+		Item item=event.itemStack.getItem();
+		if(item instanceof IFluid)
+		{
+			IFluid itemFluid=(IFluid)item;
+			FluidStack fluidStack=itemFluid.getFluidStack(event.itemStack);
+			if(fluidStack==null) return;
+
+			event.result=fluidStack;
+		}
+
 	}
 }

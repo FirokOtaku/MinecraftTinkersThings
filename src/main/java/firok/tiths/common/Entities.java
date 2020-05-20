@@ -1,20 +1,25 @@
 package firok.tiths.common;
 
 import firok.tiths.entity.projectile.ProjectileDashingStar;
+import firok.tiths.entity.projectile.ProjectileLightBall;
 import firok.tiths.entity.special.EnderBeacon;
 import firok.tiths.entity.special.LogicSearing;
 import firok.tiths.entity.trans.Alchemy;
 import firok.tiths.util.reg.RegEntity;
 
 @SuppressWarnings("all")
-public class Entities
+public final class Entities
 {
+	private Entities() {}
+
 //	@RegEntity(network=250)
 //	public static ProjectileJavelin projectile_javelin;
 	@RegEntity(network=251)
 	public static ProjectileDashingStar projectile_dashing_star;
 //	@RegEntity(network=252)
 //	public static ProjectileItemPotionTransform item_potion_transform;
+	@RegEntity(network=253)
+	public static ProjectileLightBall projectile_light_ball;
 //
 //	@RegEntity(network=301)
 //	public static TransformingCloud transforming_cloud;

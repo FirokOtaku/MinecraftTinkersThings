@@ -1,14 +1,17 @@
 package firok.tiths.util;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockStone;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import java.util.Random;
+import java.util.function.Predicate;
 
 public final class Predicates
 {
@@ -25,7 +28,23 @@ public final class Predicates
 
 	static final Item blockStone=Item.getItemFromBlock(Blocks.STONE);
 	static final Item blockCobbleStone=Item.getItemFromBlock(Blocks.COBBLESTONE);
-	public static boolean isStone(ItemStack stack)
+	static final Item blockNetherrack=Item.getItemFromBlock(Blocks.NETHERRACK);
+	static final Item blockEndStone=Item.getItemFromBlock(Blocks.END_STONE);
+	static final Item blockAir=Item.getItemFromBlock(Blocks.AIR);
+	static final Item blockDirt=Item.getItemFromBlock(Blocks.DIRT);
+	static final Item blockGrass=Item.getItemFromBlock(Blocks.GRASS);
+
+	public static boolean any(Object... obj)
+	{
+		return true;
+	}
+	public static boolean none(Object... obj)
+	{
+		return false;
+	}
+
+	/* ---- 判断是否是圆石或者石头 ---- */
+	public static boolean isAnyStone(ItemStack stack)
 	{
 		Item item;
 		return stack != null &&
@@ -33,17 +52,217 @@ public final class Predicates
 				((item = stack.getItem()) == blockStone ||
 						item == blockCobbleStone);
 	}
-	public static boolean isStone(IBlockState state)
+	public static boolean isAnyStone(IBlockState state)
 	{
-		return state!=null&&isStone(state.getBlock());
+		return state!=null && isAnyStone(state.getBlock());
 	}
-	public static boolean isStone(Item item)
+	public static boolean isAnyStone(Item item)
 	{
 		return item!=null && (item == blockStone || item == blockCobbleStone);
 	}
-	public static boolean isStone(Block block)
+	public static boolean isAnyStone(Block block)
 	{
 		return block!=null && (block == Blocks.STONE || block == Blocks.COBBLESTONE);
+	}
+
+	/* ---- 判断是否是石头 ---- */
+	public static boolean isStone(ItemStack stack)
+	{
+		return stack!=null && !stack.isEmpty() && stack.getItem() == blockStone;
+	}
+	public static boolean isStone(IBlockState state)
+	{
+		return state!=null && isStone(state.getBlock());
+	}
+	public static boolean isStone(Item item)
+	{
+		return item==blockStone;
+	}
+	public static boolean isStone(Block block)
+	{
+		return block==Blocks.STONE;
+	}
+
+	/* ---- 判断是否是圆石 ---- */
+	public static boolean isCobbleStone(ItemStack stack)
+	{
+		return stack!=null && !stack.isEmpty() && stack.getItem() == blockCobbleStone;
+	}
+	public static boolean isCobbleStone(IBlockState state)
+	{
+		return state!=null && isCobbleStone(state.getBlock());
+	}
+	public static boolean isCobbleStone(Item item)
+	{
+		return item==blockCobbleStone;
+	}
+	public static boolean isCobbleStone(Block block)
+	{
+		return block!=null && block==Blocks.COBBLESTONE;
+	}
+
+	/* ---- 判断是否是地狱岩 ---- */
+	public static boolean isNetherrack(ItemStack stack)
+	{
+		return stack!=null && !stack.isEmpty() && stack.getItem() == blockNetherrack;
+	}
+	public static boolean isNetherrack(IBlockState state)
+	{
+		return state!=null && isNetherrack(state.getBlock());
+	}
+	public static boolean isNetherrack(Item item)
+	{
+		return item==blockNetherrack;
+	}
+	public static boolean isNetherrack(Block block)
+	{
+		return block==Blocks.NETHERRACK;
+	}
+
+	/* ---- 判断是否是末地石 ---- */
+	public static boolean isEndStone(ItemStack stack)
+	{
+		return stack!=null && !stack.isEmpty() && stack.getItem() == blockEndStone;
+	}
+	public static boolean isEndStone(IBlockState state)
+	{
+		return state!=null && isEndStone(state.getBlock());
+	}
+	public static boolean isEndStone(Item item)
+	{
+		return item==blockEndStone;
+	}
+	public static boolean isEndStone(Block block)
+	{
+		return block==Blocks.END_STONE;
+	}
+
+	/* ---- 判断是否是空气 ---- */
+	public static boolean isAir(ItemStack stack)
+	{
+		return stack != null && !stack.isEmpty() && stack.getItem() == blockAir;
+	}
+	public static boolean isAir(IBlockState state)
+	{
+		return state!=null && isAir(state.getBlock());
+	}
+	public static boolean isAir(Item item)
+	{
+		return item==blockAir;
+	}
+	public static boolean isAir(Block block)
+	{
+		return block==Blocks.AIR;
+	}
+
+	/* ---- 判断是否是土方块 ---- */
+	public static boolean isDirt(ItemStack stack)
+	{
+		return stack != null && !stack.isEmpty() && stack.getItem() == blockDirt && stack.getItemDamage()==0;
+	}
+	public static boolean isDirt(IBlockState state)
+	{
+		return state!=null && isDirt(state.getBlock());
+	}
+	public static boolean isDirt(Item item)
+	{
+		return item==blockDirt;
+	}
+	public static boolean isDirt(Block block)
+	{
+		return block==Blocks.DIRT;
+	}
+
+	/* ---- 判断是否是草方块 ---- */
+	public static boolean isGrass(ItemStack stack)
+	{
+		return stack != null && !stack.isEmpty() && stack.getItem() == blockGrass;
+	}
+	public static boolean isGrass(IBlockState state)
+	{
+		return state!=null && isGrass(state.getBlock());
+	}
+	public static boolean isGrass(Item item)
+	{
+		return item==blockGrass;
+	}
+	public static boolean isGrass(Block block)
+	{
+		return block==Blocks.GRASS;
+	}
+
+
+	public static Predicate<ItemStack> getPredicateItemStack(String str,Predicate<ItemStack> defaultValue)
+	{
+		if(str==null) return defaultValue;
+		else switch (str)
+		{
+			case "any": return Predicates::any;
+			case "none": return Predicates::none;
+			case "air": return Predicates::isAir;
+			case "any_stone": return Predicates::isAnyStone;
+			case "stone": return Predicates::isStone;
+			case "cobble_stone": return Predicates::isCobbleStone;
+			case "end_stone": return Predicates::isEndStone;
+			case "netherrack": return Predicates::isNetherrack;
+			case "grass": return Predicates::isGrass;
+			case "dirt": return Predicates::isDirt;
+			default: return defaultValue;
+		}
+	}
+	public static Predicate<IBlockState> getPredicateIBlockState(String str,Predicate<IBlockState> defaultValue)
+	{
+		if(str==null) return defaultValue;
+		else switch (str)
+		{
+			case "any": return Predicates::any;
+			case "none": return Predicates::none;
+			case "air": return Predicates::isAir;
+			case "any_stone": return Predicates::isAnyStone;
+			case "stone": return Predicates::isStone;
+			case "cobble_stone": return Predicates::isCobbleStone;
+			case "end_stone": return Predicates::isEndStone;
+			case "netherrack": return Predicates::isNetherrack;
+			case "grass": return Predicates::isGrass;
+			case "dirt": return Predicates::isDirt;
+			default: return defaultValue;
+		}
+	}
+	public static Predicate<Item> getPredicateItem(String str,Predicate<Item> defaultValue)
+	{
+		if(str==null) return defaultValue;
+		else switch (str)
+		{
+			case "any": return Predicates::any;
+			case "none": return Predicates::none;
+			case "air": return Predicates::isAir;
+			case "any_stone": return Predicates::isAnyStone;
+			case "stone": return Predicates::isStone;
+			case "cobble_stone": return Predicates::isCobbleStone;
+			case "end_stone": return Predicates::isEndStone;
+			case "netherrack": return Predicates::isNetherrack;
+			case "grass": return Predicates::isGrass;
+			case "dirt": return Predicates::isDirt;
+			default: return defaultValue;
+		}
+	}
+	public static Predicate<Block> getPredicateBlock(String str,Predicate<Block> defaultValue)
+	{
+		if(str==null) return defaultValue;
+		else switch (str)
+		{
+			case "any": return Predicates::any;
+			case "none": return Predicates::none;
+			case "air": return Predicates::isAir;
+			case "any_stone": return Predicates::isAnyStone;
+			case "stone": return Predicates::isStone;
+			case "cobble_stone": return Predicates::isCobbleStone;
+			case "end_stone": return Predicates::isEndStone;
+			case "netherrack": return Predicates::isNetherrack;
+			case "grass": return Predicates::isGrass;
+			case "dirt": return Predicates::isDirt;
+			default: return defaultValue;
+		}
 	}
 
 //	public static boolean canReplaceWithOre(IBlockState state, IBlockAccess world, BlockPos pos)

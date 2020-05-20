@@ -2,6 +2,7 @@ package firok.tiths.traits;
 
 import firok.tiths.common.Configs;
 import firok.tiths.util.Actions;
+import firok.tiths.util.Predicates;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -15,7 +16,6 @@ import java.util.Random;
 import static firok.tiths.common.Keys.colorTraitCarbonizing;
 import static firok.tiths.common.Keys.nameTraitCarbonizing;
 import static firok.tiths.util.Predicates.canTrigger;
-import static firok.tiths.util.Predicates.isStone;
 
 // 碳化
 public class TraitCarbonizing extends AbstractTrait
@@ -39,7 +39,7 @@ public class TraitCarbonizing extends AbstractTrait
 		while(iter.hasNext())
 		{
 			ItemStack drop=iter.next();
-			if(isStone(drop) && canTrigger(rand, Configs.Traits.rate_carbonizing_transform * drop.getCount()))
+			if(Predicates.isAnyStone(drop) && canTrigger(rand, Configs.Traits.rate_carbonizing_transform * drop.getCount()))
 			{
 				iter.remove();
 				countCoals+=drop.getCount();

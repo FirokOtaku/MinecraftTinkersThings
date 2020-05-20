@@ -15,6 +15,7 @@ public interface Keys
 	String prefLeaf="leaf_";
 	String prefSapling="sapling_";
 	String prefLogic="logic_";
+	String prefDust="dust_";
 	String prefRL= TinkersThings.MOD_ID+':';
 	String suffArmor="_armor";
 
@@ -103,12 +104,16 @@ public interface Keys
 	String nameWitheringEssence="withering_essence";
 	String nameDirtyWater="dirty_water";
 	String nameFormerCrystal="former_crystal";
+	String nameTorrentialCrystal="torrential_crystal";
+	String nameThanatonium="thanatonium";
 
 	String nameHardener="hardener";
 	String namePolisher="polisher";
 	String nameDriller="driller";
 	String nameEnderGem="ender_gem";
 	String namePhasingGem="phasing_gem";
+	String nameMesh="mesh";
+	String nameBuoy="buoy";
 
 	// 植物
 	String nameHura="hura";
@@ -175,6 +180,7 @@ public interface Keys
 	String blockPotos=prefBlock+namePotos;
 	String blockFurutorin=prefBlock+nameFurutorin;
 	String blockHeavesand=prefBlock+nameHeavesand;
+	String blockTorrentialCrystal=prefBlock+nameTorrentialCrystal;
 
 	String blockFulgurite=prefBlock+nameFulgurite;
 	String blockMeteorolite=prefBlock+nameMeteorolite;
@@ -235,6 +241,7 @@ public interface Keys
 	String orePotos=prefOre+namePotos;
 	String oreFurutorin=prefOre+nameFurutorin;
 	String oreHeavesand=prefOre+nameHeavesand;
+	String oreTorrentialCrystal=prefOre+nameTorrentialCrystal;
 
 	// 矿锭
 	String ingotStellarium=prefIngot+nameStellarium;
@@ -276,6 +283,9 @@ public interface Keys
 	String nuggetOraclium=prefNugget+nameOraclium;
 	String nuggetSteamium=prefNugget+nameSteamium;
 	String nuggetChloroplast=prefNugget+nameChloroplast;
+
+	// 粉末
+	String dustBlackrock=prefDust+nameBlackrock;
 
 	// 材料颜色
 	int colorEnderDragonSquama=0x180c33;
@@ -448,6 +458,9 @@ public interface Keys
 	String nameTraitDeadening="deadening";
 	String nameTraitDevouring="devouring";
 	String nameTraitSmooth="smooth";
+	String nameTraitMeshing="meshing";
+	String nameTraitBuoyant="buoyant";
+	String nameTraitSovereign="sovereign";
 
 	// 属性颜色
 	int colorTraitGluttonic=0x752b40;
@@ -524,6 +537,9 @@ public interface Keys
 	int colorTraitDeadening=0x59a373;
 	int colorTraitDevouring=0x390664;
 	int colorTraitSmooth=0xe8f7f7;
+	int colorTraitMeshing=0x072a5a;
+	int colorTraitBuoyant=0xe5d53a;
+	int colorTraitSovereign=0xf5d723;
 
 	// 状态效果颜色
 	int colorPotionHeavy=Colors.DarkSeaGreen;
@@ -536,6 +552,9 @@ public interface Keys
 	int colorPotionAcidWetted=0x0e8c39;
 	int colorPotionLionheart=0xe3041f;
 	int colorPotionIcy=0x4194c0;
+	int colorPotionSoluble=colorNitre;
+	int colorPotionHyper=colorTraitHyper;
+	int colorPotionBuoyant=colorTraitBuoyant;
 
 	// 状态效果属性修饰符uuid
 	String uuidPotionAvatarSpeed="258A83A5-A3BD-4CFD-842C-B2DF39343C91";

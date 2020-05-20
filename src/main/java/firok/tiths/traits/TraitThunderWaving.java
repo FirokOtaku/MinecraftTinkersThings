@@ -5,7 +5,9 @@ import firok.tiths.common.DamageSources;
 import firok.tiths.util.EntityFinders;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
@@ -29,7 +31,7 @@ public class TraitThunderWaving extends AbstractTrait
 	{
 		World world=target.world;
 //		super.afterHit(tool, player, target, damageDealt, wasCritical, wasHit);
-		if(wasHit && !world.isRemote)
+		if(wasHit)
 		{
 			if(target.isEntityAlive())
 			{
@@ -39,6 +41,10 @@ public class TraitThunderWaving extends AbstractTrait
 
 			if(canTrigger(world, Configs.Traits.rate_thunder_waving))
 			{
+				if(!world.isRemote)
+				{
+					world.playSound(null,player.posX,player.posY,player.posZ, SoundEvents.ENTITY_LIGHTNING_THUNDER, SoundCategory.PLAYERS,0.8f,1.1f);
+				}
 				List<Entity> entities= EntityFinders.Nearby(player,5,mobAlive);
 				final double px=player.posX,pz=player.posZ;
 				for(Entity en:entities)

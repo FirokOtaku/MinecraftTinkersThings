@@ -3,9 +3,10 @@ package firok.tiths;
 import firok.tiths.common.*;
 import firok.tiths.gui.Guis;
 import firok.tiths.intergration.baubles.BaubleItems;
+import firok.tiths.intergration.conarm.ArmorModifiers;
 import firok.tiths.intergration.conarm.ArmorRegistryHandler;
 import firok.tiths.util.VersionPhase;
-import firok.tiths.world.WorldGen;
+import firok.tiths.world.WorldGens;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
@@ -32,8 +33,8 @@ public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers' Things";
-	public static final String VERSION = "1.12.2-0.2.77.3";
-	public static final VersionPhase version = VersionPhase.Beta;
+	public static final String VERSION = "1.12.2-0.3.0.1";
+	public static final VersionPhase version = VersionPhase.Alpha;
 
 	@Mod.Instance(MOD_ID)
 	public static TinkersThings INSTANCE;
@@ -115,6 +116,10 @@ public class TinkersThings
 		}
 
 		Modifiers.log();
+		if(enableConarm())
+		{
+			ArmorModifiers.log();
+		}
 
 		RegistryHandler.registerPotions();
 		PotionTypes.registerPotionTypes();
@@ -144,7 +149,7 @@ public class TinkersThings
 		//  proxy.regsiterKeyBindings();
 		//
 		//  Fluids.registerfromItem(); // Registers some special smeltery recipes (not alloying)
-		GameRegistry.registerWorldGenerator(WorldGen.getInstance(), 0);
+		GameRegistry.registerWorldGenerator(WorldGens.getInstance(), 0);
 		//  // GameRegistry.registerFuelHandler(new FuelHandler());  Registeres fuels' burn times
 
 		new Guis();
@@ -176,6 +181,8 @@ public class TinkersThings
 	@Mod.EventHandler
 	public void onServerStart(FMLServerStartingEvent event)
 	{
+		event.registerServerCommand(Commands.getInstance());
+
 		ServerDatas.init(event.getServer()); // 初始化服务端数据
 	}
 	@Mod.EventHandler

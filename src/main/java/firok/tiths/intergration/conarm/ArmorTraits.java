@@ -1,15 +1,19 @@
 package firok.tiths.intergration.conarm;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import c4.conarm.lib.utils.RecipeMatchHolder;
+import firok.tiths.common.Items;
 import firok.tiths.intergration.conarm.traits.*;
+import firok.tiths.util.reg.Indev;
 
 // ABCDE FGHIJ KLMNO PQRST UVWXY Z
 public class ArmorTraits
 {
 	public static AbstractArmorTrait arsenicPoisonous; // 砷毒
+	public static AbstractArmorTrait buoyant; // 浮力
 	public static AbstractArmorTrait carbonizing; // 碳化
 	public static AbstractArmorTrait chemicalInstable; // 化学不稳定
-	public static AbstractArmorTrait deadening; // 吸音
+	@Indev public static AbstractArmorTrait deadening; // 吸音
 	public static AbstractArmorTrait deepParasitic; // 深触寄生
 	public static AbstractArmorTrait devouring; // 吞噬
 	public static AbstractArmorTrait dichroic; // 二色性
@@ -25,6 +29,7 @@ public class ArmorTraits
 	public static AbstractArmorTrait lifeInspiring; // 生命激发
 	public static AbstractArmorTrait lifting; // 扬升
 	public static AbstractArmorTrait luxurious; // 奢华
+	public static AbstractArmorTrait meshing; // 筛网
 	public static AbstractArmorTrait moonPower; // 月之力量
 	public static AbstractArmorTrait overHeavy; // 沉重
 	public static AbstractArmorTrait panicking; // 威慑
@@ -48,9 +53,10 @@ public class ArmorTraits
 	public static void init()
 	{
 		arsenicPoisonous=new TraitArmorArsenicPoisonous();
+		buoyant=new TraitArmorBuoyant();
 		carbonizing=new TraitArmorCarbonizing();
 		chemicalInstable=new TraitArmorChemicalInstable();
-//		deadening;
+//		deadening=new TraitArmorDeadening();
 		deepParasitic =new TraitArmorDeepParasitic();
 		devouring = new TraitArmorDevouring();
 		dichroic=new TraitArmorDichroic();
@@ -66,6 +72,7 @@ public class ArmorTraits
 		lifeInspiring=new TraitArmorLifeInspiring();
 		lifting=new TraitArmorLifting();
 		luxurious=new TraitArmorLuxurious();
+		meshing=new TraitArmorMeshing();
 		moonPower=new TraitArmorMoonPower();
 		overHeavy=new TraitArmorOverHeavy();
 //		panicking=new TraitArmorPanicking();
@@ -88,6 +95,10 @@ public class ArmorTraits
 	}
 	public static void postinit()
 	{
-		;
+		RecipeMatchHolder.addItem(buoyant, Items.buoy);
+
+		RecipeMatchHolder.addItem(meshing, Items.net);
+
+		RecipeMatchHolder.addItem(deadening, net.minecraft.init.Items.WOODEN_SWORD);
 	}
 }

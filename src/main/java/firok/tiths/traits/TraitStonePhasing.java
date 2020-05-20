@@ -2,6 +2,7 @@ package firok.tiths.traits;
 
 import com.google.common.collect.ImmutableList;
 import firok.tiths.TinkersThings;
+import firok.tiths.util.Predicates;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.text.translation.I18n;
@@ -13,7 +14,7 @@ import java.util.List;
 
 import static firok.tiths.common.Keys.colorTraitStonePhasing;
 import static firok.tiths.common.Keys.nameTraitStonePhasing;
-import static firok.tiths.util.Predicates.isStone;
+import static firok.tiths.util.Predicates.isAnyStone;
 
 // 石之相变
 public class TraitStonePhasing extends AbstractTrait
@@ -32,7 +33,7 @@ public class TraitStonePhasing extends AbstractTrait
 		while(iter.hasNext())
 		{
 			ItemStack stack=iter.next();
-			if(isStone(stack))
+			if(Predicates.isAnyStone(stack))
 			{
 				iter.remove();
 				NBTTagCompound nbt=tool.hasTagCompound()?tool.getTagCompound():new NBTTagCompound();
