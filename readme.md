@@ -24,7 +24,7 @@
   * 筛网(护甲) meshing(armor)
   * 浮力(护甲) buoyant(armor)
   * 君临 sovereign
-* 更新材料的渲染信息 updated rendering information of all materials
+* 更新材料的渲染信息 updated rendering information of materials
 * 修改部分材质 modified some textures
 
 ## 版本间差异 differences between versions
