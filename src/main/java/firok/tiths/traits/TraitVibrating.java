@@ -94,7 +94,7 @@ public class TraitVibrating extends AbstractTrait
 		float frequency=getFrequency(tool,144,0);
 		while(frequency>0)
 		{
-			newKnockback*=1.08;
+			newKnockback+=0.08f;
 			frequency-=12;
 		}
 

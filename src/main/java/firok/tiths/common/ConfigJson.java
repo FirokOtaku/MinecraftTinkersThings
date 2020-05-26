@@ -8,6 +8,7 @@ import firok.tiths.modding.ModdingFactory;
 import firok.tiths.modding.ModdingInfo;
 import firok.tiths.util.conf.MaterialInfo;
 import firok.tiths.util.conf.OreGenInfo;
+import firok.tiths.world.Info;
 
 import java.io.File;
 import java.io.FileReader;
@@ -16,7 +17,7 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 import static firok.tiths.TinkersThings.log;
-import static firok.tiths.util.Values.*;
+import static firok.tiths.util.InnerActions.*;
 
 /**
  * 这个类用来处理json格式的材料属性文件
@@ -137,33 +138,49 @@ public final class ConfigJson
 	}
 
 	/* ---- 自定义世界生成相关 ---- */
-	private static final Map<String, OreGenInfo> ores=new HashMap<>();
-	public static OreGenInfo getOre(String name)
+//	private static final Map<String, OreGenInfo> ores=new HashMap<>();
+//	public static OreGenInfo getOre(String name)
+//	{
+//		return ores.get(name);
+//	}
+//	public static void readOres()
+//	{
+//		readJsonConfig(nameConfigOres,objectConfig-> objectConfig.entrySet().forEach(entry->{
+//			String name=entry.getKey();
+//			OreGenInfo info=new OreGenInfo();
+//			info.name=name;
+//			JsonObject obj=entry.getValue().getAsJsonObject();
+//
+//			getInteger(obj,"min_y",v->info.minY=v);
+//			getInteger(obj,"max_y",v->info.maxY=v);
+//			getInteger(obj,"times",v->info.times=v);
+//			getFloat(obj,"rate",v->info.timeRate=v);
+//			getInteger(obj,"size",v->info.size=v);
+//			getIntegers(obj,"dims",v->info.dims=v);
+//
+//			getFloat(obj,"meteo_rate_chunk",v->info.meteoRateChunk=v);
+//			getFloat(obj,"meteo_rate_ore",v->info.meteoRateOre=v);
+//			getIntegers(obj,"meteo_dims",v->info.meteoDims=v);
+//
+//			ores.put(name,info);
+//		}));
+//		if(ores.size()>0) log("customized ore gens: "+ ores.keySet());
+//	}
+	private static final Map<String, Info> ores=new HashMap<>();
+	public static Info getOre(String name)
 	{
 		return ores.get(name);
 	}
 	public static void readOres()
 	{
+		ores.clear();
 		readJsonConfig(nameConfigOres,objectConfig-> objectConfig.entrySet().forEach(entry->{
 			String name=entry.getKey();
-			OreGenInfo info=new OreGenInfo();
-			info.name=name;
 			JsonObject obj=entry.getValue().getAsJsonObject();
-
-			getInteger(obj,"min_y",v->info.minY=v);
-			getInteger(obj,"max_y",v->info.maxY=v);
-			getInteger(obj,"times",v->info.times=v);
-			getFloat(obj,"rate",v->info.timeRate=v);
-			getInteger(obj,"size",v->info.size=v);
-			getIntegers(obj,"dims",v->info.dims=v);
-
-			getFloat(obj,"meteo_rate_chunk",v->info.meteoRateChunk=v);
-			getFloat(obj,"meteo_rate_ore",v->info.meteoRateOre=v);
-			getIntegers(obj,"meteo_dims",v->info.meteoDims=v);
+			Info info=Info.build(obj);
 
 			ores.put(name,info);
 		}));
-		if(ores.size()>0) log("customized ore gens: "+ ores.keySet());
 	}
 
 	/* ---- 自定义工具处理方法 ---- */

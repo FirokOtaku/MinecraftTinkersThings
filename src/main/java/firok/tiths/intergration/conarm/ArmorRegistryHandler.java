@@ -1,9 +1,11 @@
 package firok.tiths.intergration.conarm;
 
+import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.lib.materials.CoreMaterialStats;
 import c4.conarm.lib.materials.PlatesMaterialStats;
 import c4.conarm.lib.materials.TrimMaterialStats;
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import firok.tiths.TinkersThings;
 import firok.tiths.common.ConfigJson;
 import firok.tiths.common.RegistryHandler;
 import firok.tiths.common.TiCMaterials;
@@ -12,6 +14,7 @@ import firok.tiths.intergration.conarm.util.CompoArmorPlate;
 import firok.tiths.intergration.conarm.util.CompoArmorTrim;
 import firok.tiths.util.conf.MaterialInfo;
 import firok.tiths.util.reg.Compo;
+import firok.tiths.util.reg.FieldStream;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.Material;
 
@@ -20,7 +23,7 @@ import java.lang.reflect.Field;
 import static c4.conarm.lib.materials.ArmorMaterialType.*;
 import static firok.tiths.TinkersThings.log;
 import static firok.tiths.util.InnerActions.addMaterialTraits;
-import static firok.tiths.util.Values.__;
+import static firok.tiths.util.InnerActions.__;
 
 public class ArmorRegistryHandler
 {
@@ -29,7 +32,8 @@ public class ArmorRegistryHandler
 		ArmorTraits.init();
 		ArmorTraits.postinit();
 		RegistryHandler.registerTraits(ArmorTraits.class, AbstractArmorTrait.class);
-
+		FieldStream.of(ArmorTraits.class,null,AbstractArmorTrait.class)
+		.forEach((field, annotation, abstractArmorTrait)->ArmoryRegistry.registerModifier(abstractArmorTrait));
 	}
 	/**
 	 * 注册护甲材料

@@ -1,18 +1,14 @@
 {
   "type": "minecraft:crafting_shapeless",
   "group": "tiths:common",
-  "result": { "item": "tiths:ingot_inert_witherium", "count": 8 },
+  "result": { "item": "tiths:ingot_inert_witherium", "count": 4 },
   "ingredients": [
     { "item": "tiths:withering_essence" },
 
     { "item": "tiths:ingot_adamantine" },
     { "item": "tiths:ingot_adamantine" },
     { "item": "tiths:ingot_adamantine" },
-    { "item": "tiths:ingot_adamantine" },
-
-    { "item": "tiths:ingot_adamantine" },
-    { "item": "tiths:ingot_adamantine" },
-    { "item": "tiths:ingot_adamantine" },
     { "item": "tiths:ingot_adamantine" }
+
   ]
 }

@@ -4,12 +4,8 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import static firok.tiths.TinkersThings.log;
-import static firok.tiths.util.Values.getStrs;
+import static firok.tiths.util.InnerActions.getStrs;
 
-/**
- * @author gyy
- * @date 2020/04/11 08:50
- */
 public class ModdingFactory
 {
 	public static ModdingInfo create(String name,JsonObject json)

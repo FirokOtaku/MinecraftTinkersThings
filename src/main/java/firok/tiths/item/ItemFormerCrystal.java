@@ -78,7 +78,7 @@ public class ItemFormerCrystal extends Item
 					stack.setTagCompound(nbtRoot);
 				}
 
-				world.playSound(null,player.posX,player.posY,player.posZ, SoundEvents.effectForward, SoundCategory.MASTER,1,1);
+				world.playSound(null,player.posX,player.posY,player.posZ, SoundEvents.effectForward, SoundCategory.PLAYERS,1,1);
 			}
 		}
 		catch (Exception e)

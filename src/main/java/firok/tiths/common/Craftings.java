@@ -13,12 +13,18 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.TinkerRegistry;
+import slimeknights.tconstruct.library.materials.HeadMaterialStats;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.materials.MaterialTypes;
 import slimeknights.tconstruct.library.smeltery.CastingRecipe;
+import slimeknights.tconstruct.library.smeltery.MeltingRecipe;
+import slimeknights.tconstruct.library.utils.HarvestLevels;
 import slimeknights.tconstruct.shared.TinkerFluids;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 import slimeknights.tconstruct.tools.TinkerTools;
+
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 import static firok.tiths.common.Keys.*;
 import static net.minecraftforge.fml.common.registry.GameRegistry.addSmelting;
@@ -31,11 +37,36 @@ public final class Craftings
 	private Craftings() {}
 
 	private static boolean hasRegistered=false;
+
+	private static ItemStack[] stacksSharpeningKitAll = null;
+	private static ItemStack[] stacksSharpeningKitGreaterIron = null;
+
+	private static ItemStack[] getStacksOfPart(String materialType, Predicate<Material> preMaterial, Function<Material,ItemStack> stackMapper)
+	{
+		return TinkerRegistry.getAllMaterialsWithStats(materialType)
+				.stream()
+				.filter(preMaterial)
+				.map(stackMapper)
+				.toArray(ItemStack[]::new);
+	}
+
 	// 注册所有合成表
 	public static void registerAllCraftings()
 	{
 		if(hasRegistered) throw new RuntimeException("duplicated registering crafting");
 		hasRegistered=true;
+
+		stacksSharpeningKitAll = getStacksOfPart(
+				MaterialTypes.HEAD,
+				m->!Material.UNKNOWN.equals(m),
+				TinkerTools.sharpeningKit::getItemstackWithMaterial
+		);
+		stacksSharpeningKitGreaterIron = getStacksOfPart(
+				MaterialTypes.HEAD,
+				m-> ((HeadMaterialStats)m.getStats(MaterialTypes.HEAD)).harvestLevel >= HarvestLevels.IRON,
+				TinkerTools.sharpeningKit::getItemstackWithMaterial
+		);
+
 		registerCustom();
 		registerBindings();
 		registerBasinCastings();
@@ -44,29 +75,23 @@ public final class Craftings
 		registerSmelting();
 	}
 
-	private static ItemStack[] stacksSharpeningKit=null;
-	private static ItemStack[] getStacksSharpeningKit()
-	{
-		if(stacksSharpeningKit==null)
-		{
-			stacksSharpeningKit=
-			TinkerRegistry.getAllMaterialsWithStats(MaterialTypes.HEAD)
-					.stream()
-					.map(TinkerTools.sharpeningKit::getItemstackWithMaterial)
-					.toArray(count->new ItemStack[count]);
-		}
-		return stacksSharpeningKit;
-	}
-
 	private static void registerCustom()
 	{
-		// 磨制工具 + 煤 = 煤屑
+		// 任意磨制工具 + 煤 = 煤屑
 		GameRegistry.addShapelessRecipe(
 				new ResourceLocation(TinkersThings.MOD_ID,"special_cinder"),
 				(ResourceLocation) null,
 				new ItemStack(Items.cinder,8),
 				Ingredient.fromItem(net.minecraft.init.Items.COAL),
-				Ingredient.fromStacks(getStacksSharpeningKit())
+				Ingredient.fromStacks(stacksSharpeningKitAll)
+		);
+		// 任意磨制工具 + 黑石 = 黑石粉
+		GameRegistry.addShapelessRecipe(
+				new ResourceLocation(TinkersThings.MOD_ID,"special_dust_blackrock"),
+				(ResourceLocation) null,
+				new ItemStack(Items.dustBlackrock,1),
+				Ingredient.fromItem(Items.blackrock),
+				Ingredient.fromStacks(stacksSharpeningKitAll)
 		);
 	}
 
@@ -134,6 +159,17 @@ public final class Craftings
 				FluidRegistry.WATER,
 				250
 		);
+
+		// 液体球
+//		TinkerRegistry.registerMelting(
+//				new ItemStack(Items.fluidBall),
+//				TinkerFluids.blueslime,
+//				1000
+//		);
+//		TinkerRegistry.registerMelting(
+//				new MeltingRecipe(new RecipeMatch.Item(new ItemStack(Items.fluidBall),1),
+//				new FluidStack(TinkerFluids.blueslime,1000))
+//		);
 	}
 
 	// 铸造盆合成表

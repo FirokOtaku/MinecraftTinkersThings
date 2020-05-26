@@ -28,8 +28,13 @@ public class TraitArmorThresholdLimiting extends AbstractArmorTrait
 		if(newDamage>damageMax)
 		{
 			ArmorHelper.damageArmor(armor,source,1,player);
-			return damageMax;
+			newDamage= damageMax<1?1:damageMax;
 		}
-		else return newDamage;
+//		if(player.isServerWorld())
+//		{
+//			System.out.println("newDamage: "+newDamage);
+//		}
+
+		return newDamage;
 	}
 }

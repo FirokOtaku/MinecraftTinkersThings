@@ -2,6 +2,8 @@ package firok.tiths.util;
 
 import com.google.common.base.Predicate;
 import firok.tiths.TinkersThings;
+import firok.tiths.common.Potions;
+import firok.tiths.entity.ai.EntityAIAvoidEntityFear;
 import firok.tiths.entity.projectile.ProjectileDashingStar;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -36,16 +38,45 @@ import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTableList;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
+
+import static firok.tiths.util.InnerActions.*;
 
 // 所有的行为封装
 public final class Actions
 {
 	private Actions(){}
 
+	// 恐惧效果
+	public static void CauseTargetFear(EntityLivingBase target,Class<? extends Entity> classToAvoid,int time)
+	{
+		World world=target.world;
+		if(!world.isRemote)
+		{
+			if(target instanceof EntityMob)
+			{
+				EntityMob mob=(EntityMob)target;
+
+				boolean hasFearAI=false;
+				for(EntityAITasks.EntityAITaskEntry en:mob.tasks.taskEntries)
+				{
+					if(en.action instanceof EntityAIAvoidEntityFear && ((EntityAIAvoidEntityFear<? extends Entity>) en.action).getClassToAvoid() == classToAvoid)
+					{
+						hasFearAI=true;
+						break;
+					}
+				}
+				if(!hasFearAI)
+				{
+					mob.tasks.addTask(0, new EntityAIAvoidEntityFear<>(mob, classToAvoid, 12.0F, 1.0D, 1));
+				}
+
+				target.addPotionEffect(new PotionEffect(Potions.fear,time,0));
+			}
+		}
+	}
 	// 为目标叠加状态
 	public static void CauseAccumEffect(EntityLivingBase target,PotionEffect pe)
 	{
@@ -71,7 +102,7 @@ public final class Actions
 	// 末影传送
 	public static void CauseEnderTeleport(EntityLivingBase entity)
 	{
-		for (int i = 0; i < 64; ++i)
+		for (int i = 0; i < 1; ++i)
 		{
 			if (teleportRandomly(entity))
 			{
@@ -378,16 +409,6 @@ public final class Actions
 			if(stackEqui.isItemStackDamageable())
 				stackEqui.damageItem(damage,entity);
 		}
-	}
-
-	/**
-	 * 用反射抓数据
-	 */
-	public static Object get(Class<?> clasz,String fieldName,Object obj) throws NoSuchFieldException, IllegalAccessException
-	{
-		Field field=clasz.getDeclaredField(fieldName);
-		field.setAccessible(true);
-		return field.get(obj);
 	}
 
 	/**

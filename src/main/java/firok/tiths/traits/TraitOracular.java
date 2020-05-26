@@ -66,7 +66,7 @@ public class TraitOracular extends AbstractTrait
 			{
 //				TinkersThings.log("play sound!");
 //				player.world.playSound((EntityPlayer)player,player.posX,player.posY,player.posZ, SoundEvents.effectHeal, SoundCategory.MASTER, 1, 1);
-				player.world.playSound(null,player.getPosition(),SoundEvents.effectHeal,SoundCategory.MASTER,1,1);
+				player.world.playSound(null,player.getPosition(),SoundEvents.effectHeal,SoundCategory.PLAYERS,1,1);
 //				player.playSound(SoundEvents.effectHeal,1,1);
 			}
 		}

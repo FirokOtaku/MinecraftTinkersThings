@@ -44,6 +44,7 @@ tile.tiths.ore_potos.name=Potos Ore
 tile.tiths.ore_furutorin.name=Furutorin Ore
 tile.tiths.ore_heavesand.name=Heavesand Ore
 tile.tiths.ore_chloroplast.name=Chloroplast Ore
+tile.tiths.ore_torrential_crystal.name=Torrential Crystal Ore (WIP)
 
 ## blocks
 tile.tiths.block_blood_sand.name=Blood Sand
@@ -99,6 +100,7 @@ tile.tiths.block_potos.name=Block of Potos
 tile.tiths.block_furutorin.name=Block of Furutorin
 tile.tiths.block_heavesand.name=Block of Heavesand
 tile.tiths.block_chloroplast.name=Block of Chloroplast
+tile.tiths.block_torrential_crystal.name=Block of Torrential Crystal (WIP)
 
 ## fluids
 fluid.royal_alloy.name=Molten Royal Alloy
@@ -127,6 +129,7 @@ fluid.dirty_water.name=Dirty Water
 item.tiths.hot_bread.name=Hot Bread
 item.tiths.hot_fish.name=Hot Fish
 item.tiths.debug.name=Debug Tool
+item.tiths.debug_clear_stone.name=Debug Tool - Clear Stone
 item.tiths.spider_leg.name=Spider Leg
 item.tiths.hard_spider_leg.name=Hard Spider Leg
 item.tiths.cinnabar.name=Cinnabar
@@ -159,10 +162,11 @@ item.tiths.broken_bedrock.name=Broken Bedrock
 item.tiths.vibrating_crystal.name=Vibrating Crystal
 item.tiths.lava_crystal.name=Lava Crystal
 item.tiths.aventurine.name=Aventurine
-item.tiths.heavesand.name=Heavesand
-item.tiths.potos.name=Potos
-item.tiths.furutorin.name=Furutorin
-item.tiths.ulun.name=Flun
+item.tiths.heavesand.name=Heavesand (WIP)
+item.tiths.potos.name=Potos (WIP)
+item.tiths.furutorin.name=Furutorin (WIP)
+item.tiths.ulun.name=Ulun (WIP)
+item.tiths.torrential_crystal.name=Torrential Crystal (WIP)
 ## nugget
 item.tiths.nugget_stellarium.name=Stellarium Nugget
 item.tiths.nugget_royal_alloy.name=Royal Alloy Nugget
@@ -179,7 +183,7 @@ item.tiths.nugget_hothium.name=Hothium Nugget
 item.tiths.nugget_tonium.name=Tonium Nugget
 item.tiths.nugget_cocoa.name=Cocoa Nugget
 item.tiths.nugget_irisia.name=Irisia Nugget
-item.tiths.flesh.name=Flesh
+item.tiths.flesh.name=Flesh (WIP)
 item.tiths.nugget_oraclium.name=Oraclium Nugget
 item.tiths.nugget_steamium.name=Steamium Nugget
 item.tiths.nugget_chloroplast.name=Chloroplast Nugget
@@ -209,7 +213,7 @@ item.tiths.hardener.name=Hardener
 item.tiths.polisher.name=Polisher
 item.tiths.inky_slime.name=Inky Slime
 item.tiths.driller.name=Driller
-item.tiths.phasing_gem.name=Phasing Gemf
+item.tiths.phasing_gem.name=Phasing Gem
 item.tiths.ender_crevice_shard.name=Ender Crevice Shard
 item.tiths.cinder.name=Cinder
 item.tiths.ender_dragon_squama.name=Ender Dragon Squama
@@ -218,6 +222,8 @@ item.tiths.shell_cooked.name=Cooked Shell
 item.tiths.withering_essence.name=Withering Essence
 item.tiths.mercury_sulfide.name=Ingot of Mercury Sulfide
 item.tiths.former_crystal.name=Crystal of Former
+item.tiths.mesh.name=Mesh
+item.tiths.buoy.name=Buoy
 
 tile.tiths.block_searing_vent.name=Searing Vent
 tile.tiths.block_mercury_sulfide.name=Block of Mercury Sulfide
@@ -279,9 +285,9 @@ material.sun_stone.name=Sun Stone
 material.moon_stone.name=Moon Stone
 material.ender_dragon_squama.name=Squama of Ender Dragon
 material.fulgurite.name=Fulgurite
-material.irisia.name=Irisia
+material.irisia.name=Irisia (WIP)
 material.tree_root.name=Tree Root
-material.flesh.name=Flesh
+material.flesh.name=Flesh (WIP)
 material.broken_bedrock.name=Broken Bedrock
 material.cloud.name=Cloud
 material.opal.name=Opal
@@ -409,6 +415,8 @@ modifier.combustion_supporting.name=Combustion Supporting
 modifier.combustion_supporting.desc=§oYou are fired!§r\nTo increase damage when target is in burning
 modifier.blowing.name=Blowing
 modifier.blowing.desc=§o-25% off§r\nTo blow away the held item of your target
+modifier.sovereign.name=Sovereign
+modifier.sovereign.desc=§oPower of black king§r\nTo let the target fear with a small chance
 
 ## armor modifiers
 modifier.carbonizing_armor.name=Carbonizing
@@ -479,6 +487,10 @@ modifier.devouring_armor.name=Devouring
 modifier.devouring_armor.desc=§oVoid of magic§r\nAbsorbs magic damage received, there is a chance to turn into healing\nArmor will not lose durability due to magic damage
 modifier.smooth_armor.name=Smooth
 modifier.smooth_armor.desc=§oIt is reflecting§r\nTo dodge damage; have a higher chance when moving
+modifier.buoyant_armor.name=Buoyant
+modifier.buoyant_armor.desc=§oNo sinking anymore§r\nTo provide buoyancy in water
+modifier.meshing_armor.name=Meshing
+modifier.meshing_armor.desc=§oThat's a lot of fish§r\nTo provide fishing products when in water
 
 ## potions
 effect.heavy=Heavy

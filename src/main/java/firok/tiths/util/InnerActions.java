@@ -2,11 +2,16 @@ package firok.tiths.util;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
 import com.google.common.collect.ImmutableSet;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import firok.tiths.TinkersThings;
 import firok.tiths.intergration.conarm.IAbstractArmorTrait;
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -23,9 +28,12 @@ import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 
+import java.lang.reflect.Field;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
+import java.util.function.Consumer;
 
 /**
  * 内部操作
@@ -122,6 +130,7 @@ public final class InnerActions
 		return false;
 	}
 
+
 	/* ---- 给材料增加属性 ---- */
 	public static int addMaterialTraits(Material material, String[] traitNames)
 	{
@@ -184,5 +193,205 @@ public final class InnerActions
 //			log("cannot find trait!");
 //		}
 		return false;
+	}
+
+	/**
+	 * 用反射抓数据
+	 */
+	public static Object get(Class<?> clasz,String fieldName,Object obj) throws NoSuchFieldException, IllegalAccessException
+	{
+		Field field=clasz.getDeclaredField(fieldName);
+		field.setAccessible(true);
+		return field.get(obj);
+	}
+	public static void set(Class<?> clasz,String fieldName,Object obj,Object value) throws NoSuchFieldException, IllegalAccessException
+	{
+		Field field=clasz.getDeclaredField(fieldName);
+		field.setAccessible(true);
+		field.set(obj,value);
+	}
+
+	/**
+	 * 用来判断是不是本地客户端世界
+	 * @param player 玩家
+	 */
+	public static boolean isLocalClient(EntityPlayer player)
+	{
+		try { return player.world.isRemote && Minecraft.getMinecraft().player.getDisplayNameString().equals(player.getDisplayNameString()); }
+		catch (Exception ignore) { return false; }
+	}
+
+	/* ---- 一些数据操作工具方法 ---- */
+
+	public static String getStr(JsonObject json, String key)
+	{
+		JsonElement temp;
+		return json.has(key) && (temp=json.get(key)).isJsonPrimitive()?
+				temp.getAsString():null;
+	}
+	public static void getStr(JsonObject json, String key, Consumer<String> callback)
+	{
+		Optional.ofNullable(getStr(json,key)).ifPresent(callback);
+	}
+	public static Float getFloat(JsonObject json, String key)
+	{
+		JsonElement temp;
+		return json.has(key) && (temp=json.get(key)).isJsonPrimitive()?
+				temp.getAsFloat():null;
+	}
+	public static void getFloat(JsonObject json, String key, Consumer<Float> callback)
+	{
+		Optional.ofNullable(getFloat(json,key)).ifPresent(callback);
+	}
+	public static Integer getInteger(JsonObject json, String key)
+	{
+		JsonElement temp;
+		return json.has(key) && (temp=json.get(key)).isJsonPrimitive()?
+				temp.getAsInt(): null;
+	}
+	public static void getInteger(JsonObject json, String key, Consumer<Integer> callback)
+	{
+		Optional.ofNullable(getInteger(json,key)).ifPresent(callback);
+	}
+	public static Integer[] getIntegers(JsonObject json, String key)
+	{
+		if(!json.has(key) || !json.get(key).isJsonArray()) return null;
+
+		JsonArray array=json.get(key).getAsJsonArray();
+		final int size=array.size();
+
+		Integer[] ret=new Integer[size];
+
+		for(int i=0;i<size;i++)
+		{
+			ret[i]= array.get(i).getAsInt();
+		}
+
+		return ret;
+	}
+	public static void getIntegers(JsonObject json, String key, Consumer<Integer[]> callback)
+	{
+		Optional.ofNullable(getIntegers(json,key)).ifPresent(callback);
+	}
+	public static Byte getByte(JsonObject json, String key)
+	{
+		JsonElement temp;
+		return json.has(key) && (temp=json.get(key)).isJsonPrimitive()?
+				temp.getAsByte(): null;
+	}
+	public static void getByte(JsonObject json, String key, Consumer<Byte> callback)
+	{
+		Optional.ofNullable(getByte(json,key)).ifPresent(callback);
+	}
+	public static Boolean getBool(JsonObject json, String key)
+	{
+		JsonElement temp;
+		return json.has(key) && (temp=json.get(key)).isJsonPrimitive()?
+				temp.getAsBoolean(): null;
+	}
+	public static void getBool(JsonObject json, String key, Consumer<Boolean> callback)
+	{
+		Optional.ofNullable(getBool(json,key)).ifPresent(callback);
+	}
+
+	public static String[] getStrs(JsonObject json, String key)
+	{
+		if(!json.has(key) || !json.get(key).isJsonArray()) return null;
+
+		JsonArray array=json.get(key).getAsJsonArray();
+		final int size=array.size();
+
+		String[] ret=new String[size];
+
+		for(int i=0;i<size;i++)
+		{
+			ret[i]=array.get(i).getAsString();
+		}
+
+		return ret;
+	}
+	public static void getStrs(JsonObject json, String key, Consumer<String[]> callback)
+	{
+		Optional.ofNullable(getStrs(json,key)).ifPresent(callback);
+	}
+
+	public static JsonObject getObj(JsonObject json, String key)
+	{
+		JsonElement temp;
+		return json.has(key) && (temp=json.get(key)).isJsonObject()?
+				temp.getAsJsonObject():null;
+	}
+	public static void getObj(JsonObject json, String key, Consumer<JsonObject> callback)
+	{
+		Optional.ofNullable(getObj(json,key)).ifPresent(callback);
+	}
+	public static JsonArray getArr(JsonObject json, String key)
+	{
+		JsonElement temp;
+		return json.has(key) && (temp=json.get(key)).isJsonArray()?
+				temp.getAsJsonArray():null;
+	}
+
+	public static boolean greater(Number num,Number...numbers)
+	{
+		double temp=num.doubleValue();
+		for(Number number:numbers) if(number.doubleValue()<temp) return false;
+		return true;
+	}
+	public static boolean lesser(Number num,Number...numbers)
+	{
+		double temp=num.doubleValue();
+		for(Number number:numbers) if(number.doubleValue()>temp) return false;
+		return true;
+	}
+
+	public static int[] arr(Integer[] arr)
+	{
+		if(!__(arr) || arr.length<=0) return new int[0];
+		int[] ret=new int[arr.length];
+		for(int i=0;i<arr.length;i++) ret[i]=arr[i];
+		return ret;
+	}
+
+	/**
+	 * 用位运算把int数组转换为long数组
+	 */
+	public static long[] toLongArray(int[] values)
+	{
+		if(values==null||values.length<=0||values.length%2!=0) return new long[0];
+		long[] ret=new long[values.length/2];
+		for(int i=0;i<values.length;i+=2)
+		{
+			int high=values[i],low=values[i+1];
+			ret[i/2]=(((long)high)<<32)|(low & 0xFFFF_FFFFL);
+		}
+		return ret;
+	}
+
+	/**
+	 * 用位运算把long数组转换为int数组
+	 */
+	public static int[] toIntArray(long[] values)
+	{
+		if(values==null||values.length<=0) return new int[0];
+		int[] ret=new int[values.length*2];
+		for(int i=0;i<values.length;i++)
+		{
+			long raw=values[i];
+			int high=(int)(raw>>>32),low=(int)raw;
+			ret[i*2]=high;
+			ret[i*2+1]=low;
+		}
+		return ret;
+	}
+
+	/**
+	 * 角度弧度互相换算用的
+	 */
+	public static final float FAC=(float) Math.PI/180;
+
+	public static boolean __(Object test)
+	{
+		return test!=null;
 	}
 }

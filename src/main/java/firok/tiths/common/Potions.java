@@ -39,7 +39,7 @@ public final class Potions
 	public static BasePotion lionheart = new PotionLionheart(); // 狮心
 	public static BasePotion icy = new PotionIcy(); // 清凉
 	public static BasePotion hidden_soluble = new PotionHiddenSoluble(); // 特性 - 可溶 (隐藏状态)
-//	public static Potion disappear = new PotionDisappear(); // 消失
-
+	public static BasePotion fear = new PotionFear(); // 恐惧
+	public static BasePotion hidden_buoyant = new PotionHiddenBuoyant(); // 特性 - 浮力 (隐藏状态)
 
 }

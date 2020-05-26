@@ -42,7 +42,7 @@ public final class TiCMaterials
 			.setFluid(Fluids.moltenMithril);
 
 	@Compo(value = nameAdamantine,traitsTool = {nameTraitUnnatural,nameTraitStonebound}, traitsBow = { nameTraitStonebound },traitsArmor = {nameTraitDevouring})
-	@CompoHead(durability=900,miningspeed=14.7,attack=5,harvestLevel=4,traits={  })
+	@CompoHead(durability=900,miningspeed=14.7,attack=5,harvestLevel=4,traits={ nameTraitSovereign })
 	@CompoHandle(modifier=0.95,durability=-90,traits={  })
 	@CompoExtra(extraDurability=290,traits={  })
 	@CompoBow(drawSpeed=0.55,range=1.8,bonusDamage=6,traits={  })
@@ -352,7 +352,8 @@ public final class TiCMaterials
 	@CompoArmorPlate(modifier=1.03,durability=11,toughness=4,traits={  })
 	@CompoArmorTrim(extraDurability=11,traits={  })
 	public static final Material tonium=new $Material(nameTonium,colorTonium)
-			.addItemAsIngot(Items.ingotTonium);
+			.addItemAsIngot(Items.ingotTonium)
+			.setFluid(Fluids.moltenTonium);
 
 	@Compo(value = nameMeteorolite,traitsTool = {nameTraitAlien},traitsBow = {nameTraitAlien},traitsArmor = {nameTraitAlien})
 	@CompoHead(durability=700,miningspeed=4.3,attack=4,harvestLevel=3,traits={  })
@@ -580,7 +581,8 @@ public final class TiCMaterials
 	@CompoArmorPlate(modifier=1.18,durability=6,toughness=3,traits={  })
 	@CompoArmorTrim(extraDurability=8.6,traits={  })
 	public static final Material steamium=new $Material(nameSteamium, colorSteamium)
-			.addItemAsIngot(Items.ingotSteamium);
+			.addItemAsIngot(Items.ingotSteamium)
+			.setFluid(Fluids.moltenSteamium);
 
 	@Compo(value = nameGrain,traitsTool = {nameTraitDecoying})
 	@CompoHead(durability=240,miningspeed=3.6,attack=3,harvestLevel=1,traits={  })

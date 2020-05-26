@@ -30,21 +30,27 @@ public final class Blocks
 	@Reg(Keys.oreInkPowder)
 	@GenOre(times=2,minY=60,maxY=120,size=8)
 	public static final BlockOre oreInkPowder = new BlockOre(Items.inkPowder,2,4,2,2,7).setCommonOre(); // 墨粉矿石
+
 	@Reg(Keys.oreImmersedSilver)
 	@GenOre(times=4,timeRate=0.8,size=6,minY = 12,maxY = 56)
 	public static final BlockOre oreImmersedSilver = new BlockOre().setVeryRareOre(); // 沉银矿石
+
 	@Reg(value=Keys.oreMithril,od={"oreMithril"})
 	@GenOre(times=1,timeRate = 0.8f,size=6,minY = 6,maxY = 24)
 	public static final BlockOre oreMithril = new BlockOre().setEpicOre(); // 秘银矿石
+
 	@Reg(value=Keys.oreAdamantine,od={"oreAdamantine"})
 	@GenOre(times=1,timeRate = 0.8f,size=6,minY = 6,maxY = 24)
 	public static final BlockOre oreAdamantine = new BlockOre().setEpicOre(); // 精金矿石
+
 	@Reg(Keys.oreBlackrock)
 	@GenOre(times=9,size=8,minY=6,maxY=128)
 	public static final BlockOre oreBlackrock = new BlockOre(Items.blackrock,1,3,2,1,6).setCommonOre(); // 黑石矿石
+
 	@Reg(Keys.oreInertWitherium)
 //	@GenOre(times=2,size=5)
 	public static final BlockOre oreInertWitherium = new BlockOre().setVeryRareOre(); // 惰性凋零矿
+
 	@Reg(Keys.oreWitherium)
 	public static final BlockOre oreWitherium = new BlockOre().setVeryRareOre(); // 凋零矿
 	@Reg(value=Keys.oreRedins)
@@ -118,6 +124,8 @@ public final class Blocks
 	@Reg(Keys.oreHeavesand)
 	@GenOre(times=2,timeRate = 0.8f,size=6,minY = 24,maxY = 56)
 	public static final BlockOre oreHeavesand = new BlockOre(Items.heavesand,1,1,1,4,6).setRareOre(); // 沉沙石矿
+	@Reg(Keys.oreTorrentialCrystal)
+	public static final BlockOre oreTorrentialCrystal = new BlockOre(Items.torrentialCrystal, 1,1,1,4,6).setRareOre(); // 激流水晶矿
 
 	@Reg(Keys.orePolarium)
 //	@GenMeteoWorld
@@ -252,6 +260,8 @@ public final class Blocks
 	public static final Block blockHeavesand = new BlockCompressed(Material.ROCK); // 沉沙石块
 	@Reg(Keys.blockChloroplast)
 	public static final Block blockChloroplast = new BlockCompressed(); // 叶绿块
+	@Reg(Keys.blockTorrentialCrystal)
+	public static final Block blockTorrentialCrystal = new BlockCompressed(Material.ROCK); // 激流水晶块
 
 	@Reg(Keys.blockStellariumObsidian)
 	public static final Block blockStellariumObsidian = new Block(Material.ROCK); // 恒星黑曜石
@@ -306,6 +316,9 @@ public final class Blocks
 //	public static final Block blockLogBlood = new BlockWood();
 //	@Reg(Keys.leafBlood)
 //	public static final Block blockLeafBlood = new BlockLeaf(blockSaplingBlood,50);
+
+	@Reg("block_sea_grass")
+	public static final Block blockSeaGrass = new BlockSeaGrass(); // 海草
 
 	// 逻辑方块
 //	@Reg(Keys.blockLogicSearing)

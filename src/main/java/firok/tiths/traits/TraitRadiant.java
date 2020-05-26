@@ -2,6 +2,7 @@ package firok.tiths.traits;
 
 import firok.tiths.common.Configs;
 import firok.tiths.util.EntityFinders;
+import firok.tiths.util.Predicates;
 import firok.tiths.util.Selectors;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.Enchantment;
@@ -30,7 +31,7 @@ import java.util.Random;
 import static firok.tiths.common.Keys.colorTraitRadiant;
 import static firok.tiths.common.Keys.nameTraitRadiant;
 import static firok.tiths.util.Predicates.canTick;
-import static firok.tiths.util.Predicates.isStone;
+import static firok.tiths.util.Predicates.isAnyStone;
 
 /**
  * 辉耀
@@ -127,7 +128,7 @@ public class TraitRadiant extends AbstractTrait
 			while(iter.hasNext()) {
 				ItemStack drop = iter.next();
 
-				if(isStone(drop))
+				if(Predicates.isAnyStone(drop))
 				{
 					ItemStack stackSearedBrick=TinkerCommons.searedBrick.copy();
 					stackSearedBrick.setCount(drop.getCount());

@@ -24,7 +24,7 @@ public class TraitArmorLifting extends AbstractArmorTrait
 	{
 		if(!player.isSneaking() && player.motionY < 0)
 		{
-			player.motionY *= 0.7f;
+			player.motionY*=0.75f;
 		}
 	}
 

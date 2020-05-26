@@ -31,6 +31,7 @@ public class BlockTinkerDisintegrator extends Block
 	public BlockTinkerDisintegrator()
 	{
 		super(net.minecraft.block.material.Material.IRON);
+		this.setHardness(20);
 	}
 
 	@Override
@@ -48,7 +49,7 @@ public class BlockTinkerDisintegrator extends Block
 				List<Material> materials=TinkerUtil.getMaterialsFromTagList(list);
 
 				if(!player.isCreative()) player.setHeldItem(hand,ItemStack.EMPTY);
-				world.playSound(null,pos, SoundEvents.ENTITY_ITEM_BREAK, SoundCategory.MASTER, 1,1);
+				world.playSound(null,pos, SoundEvents.ENTITY_ITEM_BREAK, SoundCategory.BLOCKS, 1,1);
 
 				List<ItemStack> stacks=new ArrayList<>(materials.size()+1);
 

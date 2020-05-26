@@ -28,11 +28,13 @@ import slimeknights.tconstruct.smeltery.block.BlockMolten;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static firok.tiths.TinkersThings.log;
 import static firok.tiths.util.InnerActions.addMaterialTraits;
-import static firok.tiths.util.Values.__;
+import static firok.tiths.util.InnerActions.__;
 import static slimeknights.tconstruct.library.materials.MaterialTypes.*;
 
 public final class RegistryHandler
@@ -93,6 +95,7 @@ public final class RegistryHandler
 				});
 	}
 
+	public static final Set<ITrait> traitsTiths=new HashSet<>();
 	/**
 	 * 注册属性本身
 	 */
@@ -103,7 +106,10 @@ public final class RegistryHandler
 					log("error when registering traits");
 					log(e);
 				})
-				.forEach((field, anno, trait) -> TinkerRegistry.addTrait(trait));
+				.forEach((field, anno, trait) -> {
+					traitsTiths.add(trait);
+					TinkerRegistry.addTrait(trait);
+				});
 	}
 //	public static void registerModifiers()
 //	{
@@ -225,6 +231,7 @@ public final class RegistryHandler
 
 	private static List<MaterialIntegration> listIntegration=new ArrayList<>(20);
 
+	public static final List<Material> materialsTiths=new ArrayList<>();
 	/**
 	 * 注册匠魂材料
 	 */
@@ -343,6 +350,8 @@ public final class RegistryHandler
 //					}
 					listIntegration.add(integration);
 //					TinkerRegistry.addMaterial(material);
+
+					materialsTiths.add(material);
 				});
 	}
 
