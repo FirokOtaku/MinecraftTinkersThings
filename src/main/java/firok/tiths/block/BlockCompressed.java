@@ -32,6 +32,8 @@ public class BlockCompressed extends Block
 	public BlockCompressed(Material material, MapColor color)
 	{
 		super(material, color);
+		setHardness(20);
+		setResistance(30);
 	}
 
 	protected boolean isTransparent =false;

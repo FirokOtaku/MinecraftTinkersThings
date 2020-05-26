@@ -11,6 +11,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -171,4 +173,51 @@ public class BlockOre extends Block
 	//	public int damageDropped(IBlockState p_damageDropped_1_) {
 //		return this == Blocks.LAPIS_ORE ? EnumDyeColor.BLUE.getDyeDamage() : 0;
 //	}
+
+	protected boolean isTransparent =false;
+
+	/**
+	 * 启用方块渲染透明度
+	 */
+	public BlockOre enableTransparent()
+	{
+		this.isTransparent =true;
+		return this;
+	}
+
+	@SideOnly(Side.CLIENT)
+	public boolean shouldSideBeRendered(IBlockState blockstateThis, IBlockAccess world, BlockPos pos, EnumFacing side)
+	{
+		if(!isTransparent) return super.shouldSideBeRendered(blockstateThis, world, pos, side);
+
+		IBlockState blockstateNearby = world.getBlockState(pos.offset(side));
+		Block block = blockstateNearby.getBlock();
+
+		if (blockstateThis != blockstateNearby)
+		{
+			return true;
+		}
+
+		if (block == this)
+		{
+			return false;
+		}
+
+		return super.shouldSideBeRendered(blockstateThis, world, pos, side);
+	}
+
+	@SideOnly(Side.CLIENT)
+	public BlockRenderLayer getBlockLayer()
+	{
+		return isTransparent ? BlockRenderLayer.TRANSLUCENT: BlockRenderLayer.SOLID;
+	}
+
+	public boolean isFullCube(IBlockState state)
+	{
+		return !isTransparent;
+	}
+
+	public boolean isOpaqueCube(IBlockState state) {
+		return !isTransparent;
+	}
 }

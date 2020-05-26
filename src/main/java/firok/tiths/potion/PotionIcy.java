@@ -14,7 +14,7 @@ public class PotionIcy extends BasePotion
 {
 	public PotionIcy()
 	{
-		super(new ResourceLocation(TinkersThings.MOD_ID,"textures/potions/icy.png"),false, Keys.colorPotionIcy);
+		super(icon("icy"),false, Keys.colorPotionIcy);
 	}
 
 	@Override

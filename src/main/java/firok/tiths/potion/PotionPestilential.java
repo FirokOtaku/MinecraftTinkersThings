@@ -27,7 +27,7 @@ public class PotionPestilential extends BasePotion
 	@SuppressWarnings("all")
 	public PotionPestilential(Predicate<? super Entity> selector)
 	{
-		super(new ResourceLocation(TinkersThings.MOD_ID,"textures/potions/weakened_pestilential.png"),true, Keys.colorPotionPestilential);
+		super(icon("weakened_pestilential"),true, Keys.colorPotionPestilential);
 		this.selector=selector;
 	}
 

@@ -160,6 +160,22 @@ public final class Craftings
 				250
 		);
 
+		TinkerRegistry.registerMelting(
+				new ItemStack(Blocks.oreSolidDirt),
+				TinkerFluids.dirt,
+				Material.VALUE_Block * 8
+		);
+		TinkerRegistry.registerMelting(
+				new ItemStack(Blocks.oreSolidSand),
+				TinkerFluids.glass,
+				8000
+		);
+		TinkerRegistry.registerMelting(
+				new ItemStack(Blocks.oreSolidStone),
+				TinkerFluids.searedStone,
+				Material.VALUE_Block * 8
+		);
+
 		// 液体球
 //		TinkerRegistry.registerMelting(
 //				new ItemStack(Items.fluidBall),

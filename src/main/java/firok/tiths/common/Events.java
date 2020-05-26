@@ -7,6 +7,7 @@ import firok.tiths.intergration.conarm.ArmorEvents;
 import firok.tiths.item.IFluid;
 import firok.tiths.item.ItemFluidBall;
 import firok.tiths.util.Actions;
+import firok.tiths.util.InnerActions;
 import firok.tiths.util.Ranges;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
@@ -22,9 +23,12 @@ import net.minecraft.entity.monster.EntityCaveSpider;
 import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.entity.monster.EntityWitherSkeleton;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.entity.projectile.EntityFishHook;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemFishingRod;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
@@ -36,6 +40,7 @@ import net.minecraftforge.client.event.sound.PlaySoundEvent;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.event.entity.living.*;
+import net.minecraftforge.event.entity.player.ItemFishedEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import net.minecraftforge.event.world.BlockEvent;
@@ -246,6 +251,37 @@ public class Events
 					}
 				}
 			}
+		}
+		else if(en instanceof EntityFishHook)
+		{
+			try
+			{
+				EntityFishHook hook=(EntityFishHook)en;
+
+				EntityPlayer player=hook.getAngler();
+				if(player==null) return;
+
+				InventoryPlayer inv=player.inventory;
+				final int size=inv.getSizeInventory();
+				for(int i=0;i<size;i++)
+				{
+					ItemStack stack=inv.getStackInSlot(i);
+					if(stack.isEmpty()) continue;
+
+					if(stack.getItem()!=Items.shell) continue;
+
+					stack.shrink(1);
+
+					hook.setLureSpeed(1);
+
+					int lureSpeed=(int) InnerActions.get(EntityFishHook.class,"lureSpeed",hook);
+					lureSpeed++;
+					InnerActions.set(EntityFishHook.class,"lureSpeed",hook,lureSpeed);
+
+					break;
+				}
+			}
+			catch (Exception ignored) { }
 		}
 	}
 

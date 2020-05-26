@@ -1,5 +1,7 @@
 package firok.tiths.util.reg;
 
+import firok.tiths.world.Strategy;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -17,5 +19,13 @@ public @interface GenOre
 	int times() default 4;
 	double timeRate() default 1;
 	int size() default 15;
-	int[] dimsBanned() default { 1, -1 };
+
+	Strategy dim() default Strategy.NONE_BLACKLIST;
+	int[] dimsBL() default { 1, -1 };
+	int[] dimsWL() default { };
+	Strategy biome() default Strategy.NONE_BLACKLIST;
+	String[] biomeBL() default {};
+	String[] biomeWL() default {};
+
+	String selector() default "stone";
 }

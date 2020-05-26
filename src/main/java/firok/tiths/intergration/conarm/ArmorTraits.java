@@ -23,6 +23,7 @@ public class ArmorTraits
 	public static AbstractArmorTrait fading; // 影淡
 	public static AbstractArmorTrait gorgeous; // 斑斓
 	public static AbstractArmorTrait hemolytic; // 溶血
+	public static AbstractArmorTrait hydrating; // 水合
 	public static AbstractArmorTrait hiding; // 匿踪
 	public static AbstractArmorTrait hyper; // 振奋
 	public static AbstractArmorTrait icy; // 冰凉
@@ -43,6 +44,7 @@ public class ArmorTraits
 	public static AbstractArmorTrait switching; // 换位
 	public static AbstractArmorTrait thermalGathering; // 热力聚集
 	public static AbstractArmorTrait thresholdLimiting; // 阈限
+	public static AbstractArmorTrait tubeUpgraded; // 导管升级
 	public static AbstractArmorTrait vibrating; // 震动
 	public static AbstractArmorTrait warmSoft1; // 温软1
 	public static AbstractArmorTrait warmSoft2; // 温软2
@@ -66,6 +68,7 @@ public class ArmorTraits
 		fading=new TraitArmorFading();
 		gorgeous=new TraitArmorGorgeous();
 		hemolytic=new TraitArmorHemolytic();
+		hydrating=new TraitArmorHydrating();
 		hiding=new TraitArmorHiding();
 		hyper=new TraitArmorHyper();
 		icy=new TraitArmorIcy();
@@ -86,6 +89,7 @@ public class ArmorTraits
 		switching=new TraitArmorSwitching();
 		thermalGathering=new TraitArmorThermalGathering();
 		thresholdLimiting=new TraitArmorThresholdLimiting();
+		tubeUpgraded=new TraitArmorTubeUpgraded();
 		vibrating=new TraitArmorVibrating();
 		warmSoft1=new TraitArmorWarmSoft(1);
 		warmSoft2=new TraitArmorWarmSoft(2);
@@ -100,5 +104,7 @@ public class ArmorTraits
 		RecipeMatchHolder.addItem(meshing, Items.net);
 
 		RecipeMatchHolder.addItem(deadening, net.minecraft.init.Items.WOODEN_SWORD);
+
+		RecipeMatchHolder.addItem(tubeUpgraded, Items.tube);;
 	}
 }

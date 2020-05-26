@@ -13,7 +13,7 @@ public class PotionAvatar extends BasePotion
 {
 	public PotionAvatar()
 	{
-		super(new ResourceLocation(TinkersThings.MOD_ID,"textures/potions/avatar.png"),false, Keys.colorPotionAvatar);
+		super(icon("avatar"),false, Keys.colorPotionAvatar);
 	}
 
 	@Override

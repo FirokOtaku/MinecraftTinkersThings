@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tiths:tools",
+  "result": { "item": "tiths:block_air_pump", "count": 1 },
+
+  "pattern": [
+    "SIS",
+    "G G",
+    "SPS"
+  ],
+  "key": {
+    "P": { "item": "minecraft:piston" },
+    "G": { "item": "tiths:block_consolidated_glass" },
+    "S": { "item": "tconstruct:seared", "data": 3 },
+    "I": { "item": "minecraft:iron_trapdoor" }
+  }
+}

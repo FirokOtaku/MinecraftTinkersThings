@@ -45,6 +45,9 @@ tile.tiths.ore_furutorin.name=Furutorin Ore
 tile.tiths.ore_heavesand.name=Heavesand Ore
 tile.tiths.ore_chloroplast.name=Chloroplast Ore
 tile.tiths.ore_torrential_crystal.name=Torrential Crystal Ore (WIP)
+tile.tiths.ore_solid_dirt.name=Solid Dirt Ore
+tile.tiths.ore_solid_sand.name=Solid Sand Ore
+tile.tiths.ore_solid_stone.name=Solid Stone Ore
 
 ## blocks
 tile.tiths.block_blood_sand.name=Blood Sand
@@ -101,6 +104,7 @@ tile.tiths.block_furutorin.name=Block of Furutorin
 tile.tiths.block_heavesand.name=Block of Heavesand
 tile.tiths.block_chloroplast.name=Block of Chloroplast
 tile.tiths.block_torrential_crystal.name=Block of Torrential Crystal (WIP)
+tile.tiths.block_colorful_glass.name=Colorful Glass Block
 
 ## fluids
 fluid.royal_alloy.name=Molten Royal Alloy
@@ -207,6 +211,9 @@ item.tiths.ingot_oraclium.name=Oraclium Ingot
 item.tiths.ingot_steamium.name=Steamium Ingot
 item.tiths.ingot_grain.name=Grain Ingot
 item.tiths.ingot_chloroplast.name=Chloroplast Ingot
+## dust
+item.tiths.dust_blackrock.name=Blackrock Dust
+item.tiths.dust_chloroplast.name=Chloroplast Dust
 
 ## other item
 item.tiths.hardener.name=Hardener
@@ -224,6 +231,12 @@ item.tiths.mercury_sulfide.name=Ingot of Mercury Sulfide
 item.tiths.former_crystal.name=Crystal of Former
 item.tiths.mesh.name=Mesh
 item.tiths.buoy.name=Buoy
+item.tiths.tube.name=Tube
+item.tiths.tube.desc=Tube
+item.tiths.air_bubble.name=Bubble
+item.tiths.air_tank.name=Air Tank
+item.tiths.disposable_air_tank.name=Disposable Air Tank
+item.tiths.air_bomb.name=Air Bomb
 
 tile.tiths.block_searing_vent.name=Searing Vent
 tile.tiths.block_mercury_sulfide.name=Block of Mercury Sulfide
@@ -491,6 +504,8 @@ modifier.buoyant_armor.name=Buoyant
 modifier.buoyant_armor.desc=§oNo sinking anymore§r\nTo provide buoyancy in water
 modifier.meshing_armor.name=Meshing
 modifier.meshing_armor.desc=§oThat's a lot of fish§r\nTo provide fishing products when in water
+modifier.tube_upgraded_armor.name=Tube Upgraded
+modifier.tube_upgraded_armor.desc=§oNot like fish§r\nTo consume air supplies in the inventory to provide oxygen to the wearer
 
 ## potions
 effect.heavy=Heavy

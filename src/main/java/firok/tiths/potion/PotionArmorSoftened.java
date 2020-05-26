@@ -12,7 +12,7 @@ public class PotionArmorSoftened extends BasePotion
 {
 	public PotionArmorSoftened()
 	{
-		super(new ResourceLocation(TinkersThings.MOD_ID,"textures/potions/armor_softened.png"),true, Keys.colorPotionArmorSoftened);
+		super(icon("armor_softened"),true, Keys.colorPotionArmorSoftened);
 	}
 
 	@Override

@@ -111,7 +111,7 @@ public final class Blocks
 	public static final BlockOre oreLavaCrystal = new BlockOre(Items.lavaCrystal,1,1,1,3,6).setVeryRareOre();
 	@Reg(Keys.oreAventurine)
 	@GenOre(times=2,timeRate = 0.8f,size=6,minY = 24,maxY = 56)
-	public static final BlockOre oreAventurine = new BlockOre(Items.aventurine,1,1,1,4,6).setRareOre();
+	public static final BlockOre oreAventurine = new BlockOre(Items.aventurine,1,1,1,4,6).setRareOre().enableTransparent();
 	@Reg(Keys.oreUlun)
 	@GenOre(times=2,timeRate = 0.8f,size=6,minY = 24,maxY = 56)
 	public static final BlockOre oreUlun = new BlockOre(Items.ulun,1,1,1,4,6).setRareOre(); // 乌润石矿
@@ -168,6 +168,16 @@ public final class Blocks
 	public static final Block oreBrokenBedrock = new BlockOre(Items.brokenBedrock,1,2,1,6,10)
 			{{setHarvestLevel("pickaxe",HarvestLevels.COBALT);}}
 			.setHardness(80f).setResistance(1000); // 破碎基岩
+
+	@GenOre(times=4,timeRate = 0.3,size=8,minY=10,maxY=128)
+	@Reg(Keys.oreSolidDirt)
+	public static final Block oreSolidDirt = new BlockOre().setCommonOre().setHardness(15);
+	@GenOre(times=4,timeRate = 0.3,size=8,minY=10,maxY=128)
+	@Reg(Keys.oreSolidSand)
+	public static final Block oreSolidSand = new BlockOre().setCommonOre().setHardness(15);
+	@GenOre(times=4,timeRate = 0.3,size=8,minY=10,maxY=128)
+	@Reg(Keys.oreSolidStone)
+	public static final Block oreSolidStone = new BlockOre().setCommonOre().setHardness(15);
 
 	// 矿块
 	@Reg(Keys.blockCinnabar)
@@ -296,11 +306,15 @@ public final class Blocks
 	public static final Block blockBloodyChiseledQuartz = new BlockBloodyChiseledQuartzBlock(); // 錾制血腥石英块
 	@Reg(Keys.blockTinkerDisintegrator)
 	public static final Block blockTinkerDisintegrator = new BlockTinkerDisintegrator(); // 匠魂粉碎机
+	@Reg(Keys.blockAirPump)
+	public static final Block blockAirPump = new BlockCompressed(); // 气泵
 
 
 	// 一些装饰用方块
 //	@Reg(Keys.blockRoyalEnchantmentTable)
 //	public static final Block blockRoyalEnchantmentTable = new BlockEnchantmentTable(){}; // todo
+	@Reg(Keys.blockColorfulGlass)
+	public static final Block blockColorfulGlass = new BlockCompressed(Material.GLASS).enableTransparent().setHardness(0.2f); // 彩色玻璃
 
 	// 植物
 //	@Reg(Keys.saplingHura)

@@ -331,4 +331,22 @@ public class Info
 
 		return ret;
 	}
+
+	public boolean complete()
+	{
+		return __(enable) &&
+		__(strategyDim) &&
+		__(whitelistDims) &&
+		__(blacklistDims) &&
+		__(strategyBiome) &&
+		__(whitelistBiomes) &&
+		__(blacklistBiomes) &&
+		__(selector) &&
+		__(state) &&
+		__(minY) &&
+		__(maxY) &&
+		__(time) &&
+		__(rate) &&
+		__(size);
+	}
 }

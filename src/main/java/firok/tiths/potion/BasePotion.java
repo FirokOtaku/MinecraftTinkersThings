@@ -1,5 +1,6 @@
 package firok.tiths.potion;
 
+import firok.tiths.TinkersThings;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.entity.EntityLivingBase;
@@ -9,6 +10,10 @@ import net.minecraft.util.ResourceLocation;
 
 public class BasePotion extends Potion
 {
+	protected static ResourceLocation icon(String name)
+	{
+		return new ResourceLocation(TinkersThings.MOD_ID,String.format("textures/potions/%s.png",name));
+	}
 	ResourceLocation rl;
 	boolean show;
 	public BasePotion(ResourceLocation rl,boolean isBadEffect, int color)

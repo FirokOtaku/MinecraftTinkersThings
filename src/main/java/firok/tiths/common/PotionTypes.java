@@ -42,6 +42,13 @@ public final class PotionTypes
 	public static final PotionType icy=new PotionType("icy",
 			new PotionEffect(Potions.icy,3600,0));
 
+	public static final PotionType bubbling=new PotionType("bubbling",
+			new PotionEffect(Potions.bubbling,3600,0));
+	public static final PotionType turbulent=new PotionType("turbulent",
+			new PotionEffect(Potions.turbulent,3600,0));
+//	public static final PotionType forcibleFocused=new PotionType("forcibleFocused",
+//			new PotionEffect(Potions.forcibleFocused,3600,0));
+
 //	public static final PotionType sun_power=new PotionType("sun_power",
 //			new PotionEffect(MobEffects.STRENGTH,3600,0));
 	static
@@ -51,6 +58,8 @@ public final class PotionTypes
 		addMix(WATER,Items.treeRoot,rooted);
 
 		addMix(WATER,Items.brokenIce,icy);
+//
+//		addMix(WATER,Items.dustChloroplast, net.minecraft.init.PotionTypes.WATER_BREATHING);
 	}
 
 	public static void registerPotionTypes()

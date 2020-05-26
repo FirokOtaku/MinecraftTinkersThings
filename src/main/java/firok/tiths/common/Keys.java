@@ -106,6 +106,12 @@ public interface Keys
 	String nameFormerCrystal="former_crystal";
 	String nameTorrentialCrystal="torrential_crystal";
 	String nameThanatonium="thanatonium";
+	String nameTorrentialThruster="torrential_thruster";
+	String nameTube="tube";
+	String nameColorfulGlass="colorful_glass";
+	String nameAirBubble="air_bubble";
+	String nameAirTank="air_tank";
+	String nameDisposableAirTank="disposable_air_tank";
 
 	String nameHardener="hardener";
 	String namePolisher="polisher";
@@ -181,6 +187,7 @@ public interface Keys
 	String blockFurutorin=prefBlock+nameFurutorin;
 	String blockHeavesand=prefBlock+nameHeavesand;
 	String blockTorrentialCrystal=prefBlock+nameTorrentialCrystal;
+	String blockColorfulGlass=prefBlock+nameColorfulGlass;
 
 	String blockFulgurite=prefBlock+nameFulgurite;
 	String blockMeteorolite=prefBlock+nameMeteorolite;
@@ -194,6 +201,7 @@ public interface Keys
 	String blockBloodyQuartz=prefBlock+"bloody_quartz";
 	String blockSearingVent=prefBlock+"searing_vent";
 	String blockTinkerDisintegrator = prefBlock + "tinker_disintegrator";
+	String blockAirPump = prefBlock + "air_bump";
 
 	String blockRoyalEnchantmentTable=prefBlock+"royal_enchantment_table";
 
@@ -242,6 +250,9 @@ public interface Keys
 	String oreFurutorin=prefOre+nameFurutorin;
 	String oreHeavesand=prefOre+nameHeavesand;
 	String oreTorrentialCrystal=prefOre+nameTorrentialCrystal;
+	String oreSolidDirt=prefOre+"solid_dirt";
+	String oreSolidSand=prefOre+"solid_sand";
+	String oreSolidStone=prefOre+"solid_stone";
 
 	// 矿锭
 	String ingotStellarium=prefIngot+nameStellarium;
@@ -286,6 +297,7 @@ public interface Keys
 
 	// 粉末
 	String dustBlackrock=prefDust+nameBlackrock;
+	String dustChloroplast=prefDust+nameChloroplast;
 
 	// 材料颜色
 	int colorEnderDragonSquama=0x180c33;
@@ -344,6 +356,7 @@ public interface Keys
 	int colorAventurine=0x4e8d41;
 	int colorChloroplast=0xb1fa2a;
 	int colorEnderTurbulence=0x5c1491;
+	int colorTorrentialCrystal=0x3e62ba;
 
 	int colorDirtyWater=0x613d1d;
 	int colorAcid=0x0e8c39;
@@ -461,6 +474,11 @@ public interface Keys
 	String nameTraitMeshing="meshing";
 	String nameTraitBuoyant="buoyant";
 	String nameTraitSovereign="sovereign";
+	String nameTraitTubeUpgraded="tube_upgraded";
+	String nameTraitTurbulent="turbulent";
+	String nameTraitBattleFocusing="battle_focusing";
+	String nameTraitTorrential="torrential";
+	String nameTraitHydrating="hydrating";
 
 	// 属性颜色
 	int colorTraitGluttonic=0x752b40;
@@ -540,6 +558,11 @@ public interface Keys
 	int colorTraitMeshing=0x072a5a;
 	int colorTraitBuoyant=0xe5d53a;
 	int colorTraitSovereign=0xf5d723;
+	int colorTraitTubeUpgraded=0xcedef0;
+	int colorTraitTurbulent=0x062147;
+	int colorTraitBattleFocusing=0x2c5203;
+	int colorTraitTorrential=0x254592;
+	int colorTraitHydrating=colorImmersedSilver;
 
 	// 状态效果颜色
 	int colorPotionHeavy=Colors.DarkSeaGreen;
@@ -555,6 +578,8 @@ public interface Keys
 	int colorPotionSoluble=colorNitre;
 	int colorPotionHyper=colorTraitHyper;
 	int colorPotionBuoyant=colorTraitBuoyant;
+	int colorPotionTurbulent=colorTraitTurbulent;
+	int colorPotionForcibleFocused =0x294011;
 
 	// 状态效果属性修饰符uuid
 	String uuidPotionAvatarSpeed="258A83A5-A3BD-4CFD-842C-B2DF39343C91";

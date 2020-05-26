@@ -14,7 +14,7 @@ public class PotionLionheart extends BasePotion
 {
 	public PotionLionheart()
 	{
-		super(new ResourceLocation(TinkersThings.MOD_ID,"textures/potions/lionheart.png"),false, Keys.colorPotionLionheart);
+		super(icon("lionheart"),false, Keys.colorPotionLionheart);
 	}
 
 	@Override

@@ -41,5 +41,8 @@ public final class Potions
 	public static BasePotion hidden_soluble = new PotionHiddenSoluble(); // 特性 - 可溶 (隐藏状态)
 	public static BasePotion fear = new PotionFear(); // 恐惧
 	public static BasePotion hidden_buoyant = new PotionHiddenBuoyant(); // 特性 - 浮力 (隐藏状态)
+	public static BasePotion bubbling = new PotionBubbling(); // 发泡
+	public static BasePotion turbulent = new PotionTurbulent(); // 乱流
+//	public static BasePotion forcibleFocused = new PotionForcibleFocused(); // 强制专注
 
 }

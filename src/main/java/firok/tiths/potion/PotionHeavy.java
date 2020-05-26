@@ -11,7 +11,7 @@ public class PotionHeavy extends BasePotion
 {
 	public PotionHeavy()
 	{
-		super(new ResourceLocation(TinkersThings.MOD_ID,"textures/potions/heavy.png"),true, Keys.colorPotionHeavy);
+		super(icon("heavy"),true, Keys.colorPotionHeavy);
 	}
 
 	@Override

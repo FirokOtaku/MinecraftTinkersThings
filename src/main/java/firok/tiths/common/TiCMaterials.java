@@ -15,8 +15,8 @@ public final class TiCMaterials
 {
 	private TiCMaterials() {}
 
-	@Compo(value = nameImmersedSilver, traitsTool = {nameTraitInsatiable},traitsBow = { nameTraitInsatiable }, traitsArmor = {nameTraitSkeletal})
-	@CompoHead(durability=365,miningspeed=6.7,attack=4,harvestLevel=2,traits={  })
+	@Compo(value = nameImmersedSilver, traitsTool = {nameTraitInsatiable},traitsBow = { nameTraitInsatiable }, traitsArmor = {nameTraitHydrating})
+	@CompoHead(durability=365,miningspeed=6.7,attack=4,harvestLevel=2,traits={ nameTraitTurbulent })
 	@CompoHandle(modifier=0.8,durability=-50,traits={  })
 	@CompoExtra(extraDurability=55,traits={  })
 	@CompoBow(drawSpeed=0.6,range=1.1,bonusDamage=2,traits={  })
@@ -29,7 +29,7 @@ public final class TiCMaterials
 			.setFluid(Fluids.moltenImmersedSilver);
 
 	@Compo(value = nameMithril ,traitsTool = {nameTraitLightweight}, traitsBow = { nameTraitLightweight},traitsArmor = {nameTraitSmooth})
-	@CompoHead(durability=550,miningspeed=7,attack=7,harvestLevel=4,traits={  })
+	@CompoHead(durability=550,miningspeed=7,attack=7,harvestLevel=4,traits={ })
 	@CompoHandle(modifier=0.9,durability=-70,traits={  })
 	@CompoExtra(extraDurability=250,traits={  })
 	@CompoBow(drawSpeed=0.95,range=1.35,bonusDamage=2.5,traits={  })
@@ -570,6 +570,16 @@ public final class TiCMaterials
 	@CompoArmorTrim(extraDurability=8,traits={  })
 	public static final Material lavaCrystal=new $Material(nameLavaCrystal, colorLavaCrystal)
 			.addItemAsIngot(Items.lavaCrystal);
+
+	@Compo(value = nameTorrentialCrystal)
+	@CompoHead(durability = 100,miningspeed = 1,attack = 1,harvestLevel = 4,traits = {nameTraitTorrential})
+	@CompoHandle(modifier=0.98,durability=120,traits={ nameTraitThermalGathering })
+	@CompoExtra(extraDurability=45,traits={ nameTraitFlammable })
+	@CompoArmorCore(durability=5.4,defense=6.8,traits={  })
+	@CompoArmorPlate(modifier=0.8,durability=7,toughness=1.4,traits={  })
+	@CompoArmorTrim(extraDurability=8,traits={  })
+	public static final Material torrentialCrystal=new $Material(nameTorrentialCrystal, colorTorrentialCrystal)
+			.addItemAsIngot(Items.torrentialCrystal);
 
 	@Compo(value = nameSteamium,traitsTool = {  },traitsArmor = {nameTraitAquaspeed})
 	@CompoHead(durability=420,miningspeed=5.5,attack=6,harvestLevel=2,traits={ nameTraitBlowing })

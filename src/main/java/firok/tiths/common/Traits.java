@@ -16,6 +16,7 @@ public final class Traits
 //	static{wrapping.addItem(Items.enderGem);}
 	public static AbstractTrait antiGrav; // 反重力
 	public static AbstractTrait antiPoisonous;
+	public static AbstractTrait battleFocusing; // 战斗专注
 	public static AbstractTrait birefringent; // 双折
 	public static AbstractTrait blowing; // 吹袭
 	public static AbstractTrait carbonizing; // 碳化
@@ -63,7 +64,9 @@ public final class Traits
 	public static AbstractTrait terrifying; // 恐吓
 	public static AbstractTrait thermalGathering; // 热力聚集
 	public static AbstractTrait thunderWaving; // 雷鸣波动
+	public static AbstractTrait torrential; // 激流
 	public static AbstractTrait treasureDetecting; // 宝藏感知
+	public static AbstractTrait turbulent; // 乱流
 	public static AbstractTrait undeadCalling; // 亡灵呼唤
 	public static AbstractTrait unsettled; // 不安定
 	public static AbstractTrait vibrating; // 震动
@@ -76,6 +79,7 @@ public final class Traits
 	{
 		antiGrav = new TraitAntiGrav();
 		antiPoisonous = new AbstractTraitAntiEffect(nameTraitAntiPoisonous, colorTraitAntiPoisonous, 80, 3, 0.6f, MobEffects.POISON);
+//		battleFocusing = new TraitBattleFocusing();
 		birefringent = new TraitBirefringent();
 		blowing = new TraitBlowing();
 		carbonizing = new TraitCarbonizing();
@@ -123,7 +127,9 @@ public final class Traits
 		terrifying = new TraitTerrifying();
 		thermalGathering = new TraitThermalGathering();
 		thunderWaving = new TraitThunderWaving();
+		torrential = new TraitTorrential();
 		treasureDetecting = new TraitTreasureDetecting();
+		turbulent = new TraitTurbulent();
 		undeadCalling = new TraitUndeadCalling();
 		unsettled = new TraitUnsettled();
 		vibrating = new TraitVibrating();
