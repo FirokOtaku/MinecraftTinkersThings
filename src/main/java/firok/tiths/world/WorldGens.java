@@ -82,7 +82,7 @@ public class WorldGens implements IWorldGenerator
 
 					if(infoAnno==null)
 					{
-						if(infoJson.complete())
+						if(infoJson!=null && infoJson.complete())
 						{
 							GenMinable gen=new GenMinable( infoJson);
 

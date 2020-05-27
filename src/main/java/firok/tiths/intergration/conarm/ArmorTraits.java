@@ -45,6 +45,7 @@ public class ArmorTraits
 	public static AbstractArmorTrait thermalGathering; // 热力聚集
 	public static AbstractArmorTrait thresholdLimiting; // 阈限
 	public static AbstractArmorTrait tubeUpgraded; // 导管升级
+	public static AbstractArmorTrait turbulent; // 扰动
 	public static AbstractArmorTrait vibrating; // 震动
 	public static AbstractArmorTrait warmSoft1; // 温软1
 	public static AbstractArmorTrait warmSoft2; // 温软2
@@ -90,6 +91,7 @@ public class ArmorTraits
 		thermalGathering=new TraitArmorThermalGathering();
 		thresholdLimiting=new TraitArmorThresholdLimiting();
 		tubeUpgraded=new TraitArmorTubeUpgraded();
+		turbulent=new TraitArmorTurbulent();
 		vibrating=new TraitArmorVibrating();
 		warmSoft1=new TraitArmorWarmSoft(1);
 		warmSoft2=new TraitArmorWarmSoft(2);

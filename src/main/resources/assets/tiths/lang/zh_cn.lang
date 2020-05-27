@@ -344,6 +344,7 @@ material.steamium.name=气钢
 material.grain.name=谷
 material.aventurine.name=东陵石
 material.chloroplast.name=叶绿
+material.torrential_crystal.name=激流水晶
 
 ## modifiers
 modifier.maiming.name=致残
@@ -458,6 +459,8 @@ modifier.blowing.name=吹袭
 modifier.blowing.desc=§o-25% off§r\n有几率缴械目标
 modifier.sovereign.name=君临
 modifier.sovereign.desc=§o黑皇降临§r\n有几率使怪物恐惧
+modifier.torrential.name=激流
+modifier.torrential.desc=§o水之高兴§r\n在水中或淋雨时增加击退
 
 ## armor modifiers
 modifier.carbonizing_armor.name=碳化
@@ -503,7 +506,7 @@ modifier.deep_parasitic_armor.desc=§o你的还是我的?§r\n吸收穿戴者生
 modifier.life_inspiring_armor.name=生命激发
 modifier.life_inspiring_armor.desc=§o我依旧不会轻易狗带§r\n在穿戴者生命危急时提供生命恢复效果
 modifier.soluble_armor.name=可溶
-modifier.soluble_armor.desc=§o停停停!§r\n在水里快速损失耐久, 会推动穿戴者
+modifier.soluble_armor.desc=§o停停停!§r\n在水里快速损失耐久, 大幅增加游泳速度, 且会推动穿戴者
 modifier.diffuse_reflecting_armor.name=漫反射
 modifier.diffuse_reflecting_armor.desc=§o魔法反射§r\n将受到伤害的一部分反射给附近的怪物
 modifier.widening_armor.name=广域化
@@ -534,6 +537,10 @@ modifier.meshing_armor.name=筛网升级
 modifier.meshing_armor.desc=§o好多鱼§r\n在水中时有几率获得钓鱼产物
 modifier.tube_upgraded_armor.name=导管升级
 modifier.tube_upgraded_armor.desc=§o我不是鱼§r\n自动消耗背包中可用的供氧物为玩家充氧
+modifier.turbulent_armor.name=扰动
+modifier.turbulent_armor.desc=§o不要靠近我啊啊啊§r\n在水中被击时击退攻击者
+modifier.hydrating_armor.name=水合
+modifier.hydrating_armor.desc=§o融为一体§r\n在水中或淋雨时储存水分, 受到攻击时消耗水分并降低伤害
 
 ## potions
 effect.heavy=沉重

@@ -201,7 +201,7 @@ public interface Keys
 	String blockBloodyQuartz=prefBlock+"bloody_quartz";
 	String blockSearingVent=prefBlock+"searing_vent";
 	String blockTinkerDisintegrator = prefBlock + "tinker_disintegrator";
-	String blockAirPump = prefBlock + "air_bump";
+	String blockAirPump = prefBlock + "air_pump";
 
 	String blockRoyalEnchantmentTable=prefBlock+"royal_enchantment_table";
 
@@ -593,6 +593,8 @@ public interface Keys
 	String uuidPotionArmorVoidInfected="9BA4BDC8-7E7F-437A-B526-B2D8CF3588F0";
 	String uuidPotionSpeedHiddenHyper="DF67E659-FB9D-4FAF-802C-8AA2F593A558";
 	String uuidPotionArmorLionheart ="995F5833-14F9-4897-9ED7-2FA85EFF5281";
+
+	String uuidTraitSolubleSwimSpeed="E42481C5-6AA3-4A74-A992-22AD533C88CC";
 
 	// 燃料热值
 	int fuelTimeCoal=1600;

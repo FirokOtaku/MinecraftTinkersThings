@@ -34,6 +34,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTableList;
 
@@ -473,6 +474,34 @@ public final class Actions
 		catch (Exception e)
 		{
 			TinkersThings.log(e);
+		}
+	}
+
+	/**
+	 * 计算单位向量
+	 */
+	public static Vec3d CalcUnitVector(Vec3d vec)
+	{
+		double length=vec.x * vec.x + vec.y * vec.y + vec.z * vec.z;
+		length = Math.sqrt(length);
+
+		if(length!=0) return new Vec3d( vec.x / length, vec.y / length, vec.z / length );
+		else return null;
+	}
+
+	/**
+	 * 将输入值限定在对应正负性的范围内
+	 */
+	public static double rabs(double value,double abs)
+	{
+		double absMath=Math.abs(value); // 数学绝对值
+		if(absMath < abs) // 输入值绝对值在范围内
+		{
+			return value;
+		}
+		else // 输入值不在范围内
+		{
+			return value > 0 ? abs : - abs;
 		}
 	}
 }

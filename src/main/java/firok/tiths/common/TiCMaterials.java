@@ -571,7 +571,7 @@ public final class TiCMaterials
 	public static final Material lavaCrystal=new $Material(nameLavaCrystal, colorLavaCrystal)
 			.addItemAsIngot(Items.lavaCrystal);
 
-	@Compo(value = nameTorrentialCrystal)
+	@Compo(value = nameTorrentialCrystal,traitsArmor = { nameTraitTurbulent })
 	@CompoHead(durability = 100,miningspeed = 1,attack = 1,harvestLevel = 4,traits = {nameTraitTorrential})
 	@CompoHandle(modifier=0.98,durability=120,traits={ nameTraitThermalGathering })
 	@CompoExtra(extraDurability=45,traits={ nameTraitFlammable })

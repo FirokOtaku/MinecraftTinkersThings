@@ -316,6 +316,7 @@ material.steamium.name=Steamium
 material.grain.name=Grain
 material.aventurine.name=Aventurine
 material.chloroplast.name=Chloroplast
+material.torrential_crystal.name=Torrential Crystal
 
 ## modifiers
 modifier.maiming.name=Maiming
@@ -430,6 +431,8 @@ modifier.blowing.name=Blowing
 modifier.blowing.desc=§o-25% off§r\nTo blow away the held item of your target
 modifier.sovereign.name=Sovereign
 modifier.sovereign.desc=§oPower of black king§r\nTo let the target fear with a small chance
+modifier.torrential.name=Torrential
+modifier.torrential.desc=§oHappiness of water§r\nTo increase knockback when in water or rain
 
 ## armor modifiers
 modifier.carbonizing_armor.name=Carbonizing
@@ -475,7 +478,7 @@ modifier.deep_parasitic_armor.desc=§oYours?§r\nYour armor will repair itself b
 modifier.life_inspiring_armor.name=Life Inspiring
 modifier.life_inspiring_armor.desc=§oI won't go die easily too§r\nTo provide regeneration effect when wearer is in danger
 modifier.soluble_armor.name=Soluble
-modifier.soluble_armor.desc=§oStop it!§r\nThe armor will lose duration and push wearer if in the water
+modifier.soluble_armor.desc=§oStop it!§r\nThe armor will lose duration and push wearer if in the water, but give a very speed boost to wearer
 modifier.diffuse_reflecting_armor.name=Diffuse Reflecting
 modifier.diffuse_reflecting_armor.desc=§oMagical reflecting§r\nTo reflect damage to nearby monsters
 modifier.widening_armor.name=Widening
@@ -506,6 +509,10 @@ modifier.meshing_armor.name=Meshing
 modifier.meshing_armor.desc=§oThat's a lot of fish§r\nTo provide fishing products when in water
 modifier.tube_upgraded_armor.name=Tube Upgraded
 modifier.tube_upgraded_armor.desc=§oNot like fish§r\nTo consume air supplies in the inventory to provide oxygen to the wearer
+modifier.turbulent_armor.name=Turbulent
+modifier.turbulent_armor.desc=§oGet away from me!§r\nTo push attacker away when wearer in water
+modifier.hydrating_armor.name=Hydrating
+modifier.hydrating_armor.desc=§oTogether§r\nTo store water when in water or rain to decrease damage
 
 ## potions
 effect.heavy=Heavy

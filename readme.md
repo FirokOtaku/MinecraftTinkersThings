@@ -10,27 +10,12 @@
 
 ## 最近更新 latest update
 
-### 0.3.0.2 _2020-05-26 17:00_
+### 0.3.1.0 _2020-05-27 22:30_
 
-* 加入方块和物品 added blocks and items
-  * 硬实泥土矿 solid dirt ore block
-  * 硬实沙矿 solid sand ore block
-  * 硬实石头矿 solid stone ore block
-  * 叶绿粉 chloroplast dust item
-  * 彩色玻璃块 colorful glass block
-  * 激流推进器 torrential thruster
-  * 导管 tube item
-  * 一次性空气罐 disposable air tank item
-  * 空气罐 air tank item
-  * 空气泵 air pump block
-  * 空气弹 air bomb item
+* 加入材料 added materials
+  * 激流水晶 torrential crystal
 * 加入特性 added traits
-  * 导管升级(护甲) tube upgraded(armor)
-  * 激流 torrential
-  * 水合(护甲) hydrating(armor)
-* 加入状态效果 added potion effects
-  * 发泡 bubbling
-  * 乱流 turbulent
+  * 扰动(护甲) turbulent(armor)
 
 ## 版本间差异 differences between versions
 
