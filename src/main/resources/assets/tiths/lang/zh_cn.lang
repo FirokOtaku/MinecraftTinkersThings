@@ -50,6 +50,9 @@ tile.tiths.ore_chloroplast.name=叶绿矿
 tile.tiths.ore_chloroplast.desc=富含生命力, 会缓慢生长蔓延的矿物
 tile.tiths.ore_chloroplast.more=不会无限蔓延
 tile.tiths.ore_torrential_crystal.name=激流水晶矿 (WIP)
+tile.tiths.ore_solid_dirt.name=硬实泥土矿
+tile.tiths.ore_solid_sand.name=硬实沙矿
+tile.tiths.ore_solid_stone.name=硬实石头矿
 
 ## blocks
 tile.tiths.block_blood_sand.name=血沙
@@ -108,6 +111,7 @@ tile.tiths.block_furutorin.name=泠笛石块
 tile.tiths.block_heavesand.name=沉沙石块
 tile.tiths.block_chloroplast.name=叶绿块
 tile.tiths.block_torrential_crystal.name=激流水晶块 (WIP)
+tile.tiths.block_colorful_glass.name=彩色玻璃块
 
 ## fluids
 fluid.royal_alloy.name=熔融奢华合金
@@ -144,6 +148,7 @@ item.tiths.ink_powder.name=墨粉
 item.tiths.broken_ice.name=碎冰
 item.tiths.broken_ice.desc=打碎冰块获得的材料
 item.tiths.shell.name=贝壳
+item.tiths.shell.desc=钓鱼时会自动消耗背包内贝壳提升钓鱼速度
 item.tiths.sky_crystal.name=天空水晶
 item.tiths.storm_crystal.name=风暴水晶
 item.tiths.phantom_crystal.name=异象水晶
@@ -219,6 +224,9 @@ item.tiths.ingot_oraclium.name=神谕钢锭
 item.tiths.ingot_steamium.name=气钢锭
 item.tiths.ingot_grain.name=谷锭
 item.tiths.ingot_chloroplast.name=叶绿锭
+## dust
+item.tiths.dust_blackrock.name=黑石粉
+item.tiths.dust_chloroplast.name=叶绿粉
 
 ## other item
 item.tiths.hardener.name=硬化剂
@@ -244,6 +252,16 @@ item.tiths.former_crystal.desc=闪映着过去光影的水晶
 item.tiths.former_crystal.more=将当前的状态储存到水晶里, 或是将水晶中储存的状态返还
 item.tiths.mesh.name=筛网
 item.tiths.buoy.name=浮筒
+item.tiths.tube.name=导管
+item.tiths.tube.desc=用于为头盔提供导管升级
+item.tiths.air_bubble.name=气泡
+item.tiths.air_bubble.desc=使用后恢复少量空气
+item.tiths.air_tank.name=气罐
+item.tiths.air_tank.desc=可以经由呼吸面罩或带有导管升级的头盔为玩家提供空气. 可以使用气泵补充空气.
+item.tiths.disposable_air_tank.name=一次性气罐
+item.tiths.disposable_air_tank.desc=使用后恢复中量空气
+item.tiths.air_bomb.name=空气弹
+item.tiths.air_bomb.desc=使用后清空周围的水
 
 tile.tiths.block_searing_vent.name=焦黑通风孔
 tile.tiths.block_mercury_sulfide.name=汞红块
@@ -253,6 +271,8 @@ tile.tiths.block_bloody_quartz.name=血腥石英块
 tile.tiths.block_tinker_disintegrator.name=匠魂粉碎机
 tile.tiths.block_tinker_disintegrator.desc=将工具粉碎成碎片
 tile.tiths.block_tinker_disintegrator.more=手持工具右键执行粉碎
+tile.tiths.block_air_bump.name=气泵
+tile.tiths.block_air_bump.desc=可以为气罐补充空气
 
 ## consumables
 item.tiths.gateway_gem.name=折跃之石
@@ -324,6 +344,7 @@ material.steamium.name=气钢
 material.grain.name=谷
 material.aventurine.name=东陵石
 material.chloroplast.name=叶绿
+material.torrential_crystal.name=激流水晶
 
 ## modifiers
 modifier.maiming.name=致残
@@ -438,6 +459,8 @@ modifier.blowing.name=吹袭
 modifier.blowing.desc=§o-25% off§r\n有几率缴械目标
 modifier.sovereign.name=君临
 modifier.sovereign.desc=§o黑皇降临§r\n有几率使怪物恐惧
+modifier.torrential.name=激流
+modifier.torrential.desc=§o水之高兴§r\n在水中或淋雨时增加击退
 
 ## armor modifiers
 modifier.carbonizing_armor.name=碳化
@@ -483,7 +506,7 @@ modifier.deep_parasitic_armor.desc=§o你的还是我的?§r\n吸收穿戴者生
 modifier.life_inspiring_armor.name=生命激发
 modifier.life_inspiring_armor.desc=§o我依旧不会轻易狗带§r\n在穿戴者生命危急时提供生命恢复效果
 modifier.soluble_armor.name=可溶
-modifier.soluble_armor.desc=§o停停停!§r\n在水里快速损失耐久, 会推动穿戴者
+modifier.soluble_armor.desc=§o停停停!§r\n在水里快速损失耐久, 大幅增加游泳速度, 且会推动穿戴者
 modifier.diffuse_reflecting_armor.name=漫反射
 modifier.diffuse_reflecting_armor.desc=§o魔法反射§r\n将受到伤害的一部分反射给附近的怪物
 modifier.widening_armor.name=广域化
@@ -512,6 +535,12 @@ modifier.buoyant_armor.name=浮筒升级
 modifier.buoyant_armor.desc=§o沉不下去§r\n在水中提供浮力
 modifier.meshing_armor.name=筛网升级
 modifier.meshing_armor.desc=§o好多鱼§r\n在水中时有几率获得钓鱼产物
+modifier.tube_upgraded_armor.name=导管升级
+modifier.tube_upgraded_armor.desc=§o我不是鱼§r\n自动消耗背包中可用的供氧物为玩家充氧
+modifier.turbulent_armor.name=扰动
+modifier.turbulent_armor.desc=§o不要靠近我啊啊啊§r\n在水中被击时击退攻击者
+modifier.hydrating_armor.name=水合
+modifier.hydrating_armor.desc=§o融为一体§r\n在水中或淋雨时储存水分, 受到攻击时消耗水分并降低伤害
 
 ## potions
 effect.heavy=沉重

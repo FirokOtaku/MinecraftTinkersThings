@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "tiths:special",
+  "result": { "item": "tiths:block_colorful_glass", "count": 8 },
+  "ingredients": [
+    { "item": "tiths:opal" },
+    { "type": "forge:ore_dict", "ore": "blockGlass" },
+    { "type": "forge:ore_dict", "ore": "blockGlass" },
+    { "type": "forge:ore_dict", "ore": "blockGlass" },
+    { "type": "forge:ore_dict", "ore": "blockGlass" },
+
+    { "type": "forge:ore_dict", "ore": "blockGlass" },
+    { "type": "forge:ore_dict", "ore": "blockGlass" },
+    { "type": "forge:ore_dict", "ore": "blockGlass" },
+    { "type": "forge:ore_dict", "ore": "blockGlass" }
+  ]
+}

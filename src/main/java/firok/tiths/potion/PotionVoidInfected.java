@@ -12,7 +12,7 @@ public class PotionVoidInfected extends BasePotion
 {
 	public PotionVoidInfected()
 	{
-		super(new ResourceLocation(TinkersThings.MOD_ID,"textures/potions/void_infected.png"),true, Keys.colorPotionRooted);
+		super(icon("void_infected"),true, Keys.colorPotionRooted);
 	}
 
 	@Override

@@ -10,7 +10,7 @@ public class PotionFear extends BasePotion
 {
 	public PotionFear()
 	{
-		super(new ResourceLocation(TinkersThings.MOD_ID,"textures/potions/fear.png"),true,0);
+		super(icon("fear"),true,0);
 	}
 
 //	@Override

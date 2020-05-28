@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tiths:tools",
+  "result": { "item": "tiths:tube", "count": 1 },
+
+  "pattern": [
+    "G G",
+    "G G"
+  ],
+  "key": {
+    "G": { "item": "tiths:block_consolidated_glass" }
+  }
+}

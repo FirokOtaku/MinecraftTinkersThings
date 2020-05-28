@@ -12,7 +12,7 @@ public class PotionHiddenBuoyant extends BasePotion
 {
 	public PotionHiddenBuoyant()
 	{
-		super(new ResourceLocation(TinkersThings.MOD_ID,"textures/potions/buoyant.png"),false, Keys.colorPotionBuoyant, false);
+		super(icon("buoyant"),false, Keys.colorPotionBuoyant, false);
 	}
 
 	@Override

@@ -122,6 +122,11 @@ public class Commands implements ICommand
 
 							break SWITCH;
 						}
+						case "air":
+						{
+							player.setAir(40);
+							break SWITCH;
+						}
 					}
 				}
 			}

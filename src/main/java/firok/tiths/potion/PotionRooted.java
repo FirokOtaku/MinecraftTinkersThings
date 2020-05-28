@@ -17,7 +17,7 @@ public class PotionRooted extends BasePotion
 {
 	public PotionRooted()
 	{
-		super(new ResourceLocation(TinkersThings.MOD_ID,"textures/potions/rooted.png"),true, Keys.colorPotionRooted);
+		super(icon("rooted"),true, Keys.colorPotionRooted);
 	}
 
 	@Override

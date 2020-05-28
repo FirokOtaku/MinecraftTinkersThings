@@ -38,9 +38,9 @@ public final class Items
 	@Reg(nameBrokenIce)
 	public static final Item brokenIce = new ItemCustom(); // 碎冰
 	@Reg(nameShell)
-	public static final Item shell = new ItemFood(1,0.2f,false); // 贝壳
+	public static final Item shell = new ItemCustomFood(1,0.2f,false); // 贝壳
 	@Reg(nameShellCooked)
-	public static final Item shellCooked = new ItemFood(2,0.2f,false); // 熟贝壳
+	public static final Item shellCooked = new ItemCustomFood(2,0.2f,false); // 熟贝壳
 	@Reg(nameEnderCreviceShard)
 	public static final Item enderCreviceShard = new ItemCustom(); // 末影裂隙碎片
 	@Reg(nameMercurySulfide)
@@ -194,6 +194,8 @@ public final class Items
 	// 粉末
 	@Reg(Keys.dustBlackrock)
 	public static final Item dustBlackrock = new ItemCustom(); // 黑石粉
+//	@Reg(Keys.dustChloroplast)
+	public static final Item dustChloroplast = new ItemCustom(); // 叶绿粉末
 
 	// 单纯的原材料
 //	@Reg(nameRoyalPaper)
@@ -245,6 +247,18 @@ public final class Items
 	public static final Item net = new ItemCustom(); // 网
 	@Reg(nameBuoy)
 	public static final Item buoy = new ItemCustom(); // 浮筒
+	@Reg(nameTorrentialThruster)
+	public static final Item torrentialThruster = new ItemTorrentialThruster(); // 激流推进器
+	@Reg(nameTube)
+	public static final Item tube = new ItemCustom(); // 导管
+
+//	@Reg(nameAirBubble)
+	public static final Item airBubble = new ItemAirSupply(50).setMaxStackSize(64); // 气泡
+	@Reg(nameAirTank)
+	public static final Item airTank = new ItemAirTank(); // 空气罐
+	@Reg(nameDisposableAirTank)
+	public static final Item disposableAirTank = new ItemAirSupply(200).setAutoSupply().setMaxStackSize(32); // 一次性空气罐
+
 
 //	@Reg("fluid_ball")
 //	public static final Item fluidBall = new ItemFluidBall(); // 液体球
@@ -256,6 +270,8 @@ public final class Items
 	public static final Item ancientBookIrisia = new ItemXP(true,20); // 艾瑞西亚古籍
 	@Reg(value = nameFormerCrystal,od = {"book"})
 	public static final Item formerCrystal = new ItemFormerCrystal(); // 往昔水晶
+	@Reg("air_bomb")
+	public static final Item airBomb = new ItemAirBomb(); // 空气弹
 
 	// 残页
 	@Reg(value = "page",od = {"paper"})

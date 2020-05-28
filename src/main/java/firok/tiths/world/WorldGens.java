@@ -37,6 +37,14 @@ public class WorldGens implements IWorldGenerator
 	 */
 	List<IChunkGen> generators=new ArrayList<>();
 
+	private static int[] r(int[] ts)
+	{
+		return ts!=null && ts.length>0? ts : null;
+	}
+	private static String[] r(String[] ts)
+	{
+		return ts!=null && ts.length>0? ts : null;
+	}
 	private volatile boolean isLoading=false;
 	public boolean isLoading()
 	{
@@ -58,20 +66,37 @@ public class WorldGens implements IWorldGenerator
 		FieldStream.of(Blocks.class,null,Block.class)
 				.forEach((field, anno, block) -> {
 
-					GenOre genOre=field.getAnnotation(GenOre.class);
-					Info infoAnno=Info.build(
+					GenOre ga=field.getAnnotation(GenOre.class);
+					Info infoAnno=ga!=null?Info.build(
 							block.getDefaultState(),
-							Strategy.NONE_BLACKLIST, null,genOre.dimsBanned(),
-							Strategy.NONE_BLACKLIST, null,null,
-							Predicates::isStone,
-							genOre.minY(),genOre.maxY(),
-							genOre.times(),(float)genOre.timeRate(),
-							genOre.size()
-					);
-					Info infoJson= ConfigJson.getOre(block.getUnlocalizedName());
-					GenMinable gen=new GenMinable(Info.build(infoAnno,infoJson));
 
-					list.add(gen);
+							ga.dim(), r(ga.dimsWL()),r(ga.dimsBL()),
+							ga.biome(), r(ga.biomeWL()),r(ga.biomeBL()),
+							Predicates.getPredicateIBlockState(ga.selector(), Predicates::isStone),
+
+							ga.minY(),ga.maxY(),
+							ga.times(),(float)ga.timeRate(),
+							ga.size()
+					):null;
+					Info infoJson= ConfigJson.getOre(block.getUnlocalizedName());
+
+					if(infoAnno==null)
+					{
+						if(infoJson!=null && infoJson.complete())
+						{
+							GenMinable gen=new GenMinable( infoJson);
+
+							list.add(gen);
+						}
+					}
+					else
+					{
+						GenMinable gen=new GenMinable( Info.build(infoAnno,infoJson) );
+
+						list.add(gen);
+					}
+
+
 				});
 
 		generators=list;

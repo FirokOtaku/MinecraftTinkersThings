@@ -16,7 +16,7 @@ public class PotionAcidWetted extends BasePotion
 {
 	public PotionAcidWetted()
 	{
-		super(new ResourceLocation(TinkersThings.MOD_ID,"textures/potions/acid_wetted.png"),true, Keys.colorPotionAcidWetted);
+		super(icon("acid_wetted"),true, Keys.colorPotionAcidWetted);
 	}
 
 	@Override

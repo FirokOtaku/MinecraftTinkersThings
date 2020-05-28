@@ -13,7 +13,7 @@ public class PotionHiddenSoluble extends BasePotion
 {
 	public PotionHiddenSoluble()
 	{
-		super(new ResourceLocation(TinkersThings.MOD_ID,"textures/potions/speed_boost_soluble.png"),false, Keys.colorPotionSoluble, false);
+		super(icon("speed_boost_soluble"),false, Keys.colorPotionSoluble, false);
 	}
 
 	@Override
