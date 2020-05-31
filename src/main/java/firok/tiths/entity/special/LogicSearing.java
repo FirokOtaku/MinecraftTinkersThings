@@ -73,11 +73,11 @@ public class LogicSearing extends Entity
 	{
 		Block blockInit=world.getBlockState(pos).getBlock();
 //		System.out.println(blockInit.getUnlocalizedName());
-		if(blockInit!=firok.tiths.common.Blocks.blockSearingVent)
-		{
-			this.setDead();
-			return false;
-		}
+//		if(blockInit!=firok.tiths.common.Blocks.blockSearingVent)
+//		{
+//			this.setDead();
+//			return false;
+//		}
 
 		this.ventX=pos.getX();
 		this.ventY=pos.getY();

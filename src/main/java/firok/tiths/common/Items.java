@@ -1,9 +1,11 @@
 package firok.tiths.common;
 
+import baubles.api.BaubleType;
 import firok.tiths.TinkersThings;
 import firok.tiths.item.*;
 import firok.tiths.util.reg.Reg;
 import net.minecraft.init.MobEffects;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
@@ -18,9 +20,9 @@ public final class Items
 	private Items() {}
 
 	@Reg("debug")
-	public static final Item debug = new ItemDebug(); // 调试工具
+	public static final Item debug = new ItemDebug().setRarity(TithsRarity.CreativeOnlu); // 调试工具
 	@Reg("debug_clear_stone")
-	public static final Item debugClearStone = new ItemDebugClearStone(); // 调试工具-清空石头
+	public static final Item debugClearStone = new ItemDebugClearStone().setRarity(TithsRarity.CreativeOnlu); // 调试工具-清空石头
 
 	// 原材料 - 怪物掉落
 	@Reg(nameSpiderLeg)
@@ -28,7 +30,7 @@ public final class Items
 	@Reg(nameHardSpiderLeg)
 	public static final Item hardSpiderLeg = new ItemCustom(); // 坚硬蛛腿
 	@Reg(nameEnderDragonSquama)
-	public static final Item enderDragonSquama = new ItemCustom(); // 末影龙鳞
+	public static final Item enderDragonSquama = new ItemCustom().setRarity(EnumRarity.UNCOMMON); // 末影龙鳞
 
 	// 原材料 - 各种
 	@Reg(value=nameCinnabar,od={"cinnabar","quicksilver","mercury"})
@@ -46,7 +48,9 @@ public final class Items
 	@Reg(nameMercurySulfide)
 	public static final Item mercurySulfide = new ItemCustom(); // 汞红锭
 	@Reg(nameWitheringEssence)
-	public static final Item witheringEssence = new ItemCustom(); // 凋零精华
+	public static final Item witheringEssence = new ItemCustom().setRarity(EnumRarity.UNCOMMON); // 凋零精华
+	@Reg(nameSoul)
+	public static final Item soul = new ItemSoul().setRarity(TithsRarity.Special); // 灵魂
 
 //	public static final Item resplendentGem = new ItemCustom(); // 璀璨宝石
 
@@ -77,9 +81,9 @@ public final class Items
 	public static final Item talcum = new ItemCustom(); // 滑石
 	@Reg(nameTourmaline)
 	public static final Item tourmaline = new ItemCustom(); // 电气石
-	@Reg(value=nameSunStone,od={"gem","gemSunStone","sunStone"})
+	@Reg(value=nameSunStone,od={"gem","gemSunstone","suntone"})
 	public static final Item sunStone = new ItemCustom(); // 日光石
-	@Reg(value=nameMoonStone,od={"gem","gemMoonStone","moonStone"})
+	@Reg(value=nameMoonStone,od={"gem","gemMoonstone","moonstone"})
 	public static final Item moonStone = new ItemCustom(); // 月光石
 	@Reg(nameTreeRoot)
 	public static final Item treeRoot = new ItemCustom(); // 树根
@@ -194,6 +198,10 @@ public final class Items
 	// 粉末
 	@Reg(Keys.dustBlackrock)
 	public static final Item dustBlackrock = new ItemCustom(); // 黑石粉
+	@Reg(value=Keys.dustStone,od={"dustStone"})
+	public static final Item dustStone = new ItemCustom(); // 石粉
+	@Reg(Keys.dustStoneCoal)
+	public static final Item dustStoneCoalMixed = new ItemCustom(); // 石-煤混合粉末
 //	@Reg(Keys.dustChloroplast)
 	public static final Item dustChloroplast = new ItemCustom(); // 叶绿粉末
 
@@ -248,9 +256,11 @@ public final class Items
 	@Reg(nameBuoy)
 	public static final Item buoy = new ItemCustom(); // 浮筒
 	@Reg(nameTorrentialThruster)
-	public static final Item torrentialThruster = new ItemTorrentialThruster(); // 激流推进器
+	public static final Item torrentialThruster = new ItemTorrentialThruster().setRarity(EnumRarity.RARE); // 激流推进器
 	@Reg(nameTube)
 	public static final Item tube = new ItemCustom(); // 导管
+	@Reg(nameChloroplastDressing)
+	public static final Item chloroplastDressing = new ItemCustom(); // 叶绿敷料
 
 //	@Reg(nameAirBubble)
 	public static final Item airBubble = new ItemAirSupply(50).setMaxStackSize(64); // 气泡
@@ -269,9 +279,26 @@ public final class Items
 	@Reg(nameAncientBookIrisia)
 	public static final Item ancientBookIrisia = new ItemXP(true,20); // 艾瑞西亚古籍
 	@Reg(value = nameFormerCrystal,od = {"book"})
-	public static final Item formerCrystal = new ItemFormerCrystal(); // 往昔水晶
-	@Reg("air_bomb")
+	public static final Item formerCrystal = new ItemFormerCrystal().setRarity(EnumRarity.UNCOMMON); // 往昔水晶
+	@Reg(nameAirBomb)
 	public static final Item airBomb = new ItemAirBomb(); // 空气弹
+	@Reg(nameChannelPackStone)
+	public static final Item channelPackWood = new ItemCustom(); // 木制管道包
+	@Reg(nameChannelPackWood)
+	public static final Item channelPackStone = new ItemCustom(); // 石质管道包
+
+	@Reg(nameBeltLeather)
+	public static final Item beltLeather = new ItemBauble(BaubleType.BELT);
+	@Reg(nameBeltStonePhasing)
+	public static final Item beltStonePhasing = new ItemBauble(BaubleType.BELT).setRarity(EnumRarity.UNCOMMON); // 石之相变腰带
+	@Reg(nameAmuletIron)
+	public static final Item amuletIron = new ItemBauble(BaubleType.AMULET); // 铁护身符
+	@Reg(nameAmuletSoulStone)
+	public static final Item amuletSoulStone = new ItemSoulStone().setRarity(EnumRarity.RARE); // 灵魂石护身符
+	@Reg(nameAmuletSoulStone + "_infinite")
+	public static final Item amuletSoulStoneCreative = new ItemSoulStoneCreative().setRarity(TithsRarity.CreativeOnlu); // 创造模式灵魂石护身符
+	@Reg(nameSoulBeacon)
+	public static final Item soulBeacon = new ItemSoulBeacon().setRarity(EnumRarity.RARE); // 灵魂信标
 
 	// 残页
 	@Reg(value = "page",od = {"paper"})

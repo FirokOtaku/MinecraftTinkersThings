@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * 激流推进器
  */
-public class ItemTorrentialThruster extends Item
+public class ItemTorrentialThruster extends ItemCustom
 {
 	public ItemTorrentialThruster()
 	{

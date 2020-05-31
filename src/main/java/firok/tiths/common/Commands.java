@@ -1,8 +1,11 @@
 package firok.tiths.common;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import firok.tiths.TinkersThings;
 import firok.tiths.util.InnerActions;
 import firok.tiths.world.WorldGens;
+import mezz.jei.util.FileUtil;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
@@ -11,13 +14,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.EntityDamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.biome.Biome;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import org.apache.commons.io.FileUtils;
 
 import javax.annotation.Nullable;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.io.File;
+import java.util.*;
 
 public class Commands implements ICommand
 {
@@ -113,7 +118,6 @@ public class Commands implements ICommand
 								System.out.println(map);
 							}
 
-
 							break SWITCH;
 						}
 						case "texture":
@@ -125,6 +129,27 @@ public class Commands implements ICommand
 						case "air":
 						{
 							player.setAir(40);
+							break SWITCH;
+						}
+						case "biomes":
+						{
+							File fileOutput=new File("./biomes.json");
+
+//							JsonObject jsonObject=new JsonObject();
+							Set<ResourceLocation> biomeKeys=Biome.REGISTRY.getKeys();
+
+							JsonArray biomeNames=new JsonArray();
+							for(ResourceLocation biomeKey:biomeKeys)
+							{
+								Biome biome=Biome.REGISTRY.getObject(biomeKey);
+								if(biome==null) continue;
+
+								String name=biome.getRegistryName().toString();
+								biomeNames.add(name);
+							}
+
+							FileUtils.write(fileOutput,biomeNames.toString(),"utf8");
+
 							break SWITCH;
 						}
 					}

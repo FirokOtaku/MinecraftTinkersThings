@@ -227,6 +227,8 @@ item.tiths.ingot_chloroplast.name=叶绿锭
 ## dust
 item.tiths.dust_blackrock.name=黑石粉
 item.tiths.dust_chloroplast.name=叶绿粉
+item.tiths.dust_stone.name=石粉
+item.tiths.dust_stone_coal.name=石煤混合粉末
 
 ## other item
 item.tiths.hardener.name=硬化剂
@@ -238,7 +240,7 @@ item.tiths.inky_slime.desc=为工具提供墨染特性
 item.tiths.driller.name=打孔器
 item.tiths.driller.desc=大幅降低工具耐久, 为工具增加速度并提供额外强化槽
 item.tiths.phasing_gem.name=相变之石
-item.tiths.phasing_gem.desc=为工具提供石之相变特性
+item.tiths.phasing_gem.desc=用于制作饰品的材料
 item.tiths.ender_crevice_shard.name=末影裂隙碎片
 item.tiths.ender_crevice_shard.desc=末影传送时可能出现的碎片
 item.tiths.cinder.name=煤屑
@@ -262,8 +264,27 @@ item.tiths.disposable_air_tank.name=一次性气罐
 item.tiths.disposable_air_tank.desc=使用后恢复中量空气
 item.tiths.air_bomb.name=空气弹
 item.tiths.air_bomb.desc=使用后清空周围的水
+item.tiths.page.name=残页 (WIP)
+item.tiths.soul.name=灵魂
+item.tiths.soul.desc=为灵魂容器物品补充能量
+item.tiths.torrential_thruster.name=激流推进器
+item.tiths.soul_beacon.name=灵魂信标 (WIP)
+item.tiths.channel_pack_stone.name=石梯管道料包
+item.tiths.channel_pack_wood.name=木梯管道料包
+item.tiths.chloroplast_dressing.name=叶绿敷料
+item.tiths.chloroplast_dressing.desc=为护甲提供光合作用特性
 
-tile.tiths.block_searing_vent.name=焦黑通风孔
+## baubles
+item.tiths.amulet_iron.name=铁质护身符
+item.tiths.amulet_soul_stone.name=灵魂石护身符
+item.tiths.amulet_soul_stone.desc=储存收集到的灵魂能量<br>死亡时逸散全部能量
+item.tiths.amulet_soul_stone_infinite.name=无限灵魂石护身符
+item.tiths.amulet_soul_stone_infinite.desc=创造模式可用
+item.tiths.belt_stone_phasing.name=石之相变腰带
+item.tiths.belt_stone_phasing.desc=穿戴时可自动销毁收集到的所有石头
+item.tiths.belt_leather.name=皮革腰带
+
+tile.tiths.block_sea_grass.name=海草 (WIP)
 tile.tiths.block_mercury_sulfide.name=汞红块
 tile.tiths.block_bloody_chiseled_quartz.name=錾制血腥石英块
 tile.tiths.block_bloody_pillar_quartz.name=竖纹血腥石英块
@@ -271,8 +292,11 @@ tile.tiths.block_bloody_quartz.name=血腥石英块
 tile.tiths.block_tinker_disintegrator.name=匠魂粉碎机
 tile.tiths.block_tinker_disintegrator.desc=将工具粉碎成碎片
 tile.tiths.block_tinker_disintegrator.more=手持工具右键执行粉碎
-tile.tiths.block_air_bump.name=气泵
-tile.tiths.block_air_bump.desc=可以为气罐补充空气
+tile.tiths.block_air_pump.name=气泵
+tile.tiths.block_air_pump.desc=可以为气罐补充空气
+tile.tiths.block_channel_placer.name=通道建造器
+tile.tiths.block_channel_placer.desc=手持料包右键可在下方快速建造通道
+tile.tiths.block_channel_placer.more=仅可在空气或水中建造
 
 ## consumables
 item.tiths.gateway_gem.name=折跃之石
@@ -541,6 +565,8 @@ modifier.turbulent_armor.name=扰动
 modifier.turbulent_armor.desc=§o不要靠近我啊啊啊§r\n在水中被击时击退攻击者
 modifier.hydrating_armor.name=水合
 modifier.hydrating_armor.desc=§o融为一体§r\n在水中或淋雨时储存水分, 受到攻击时消耗水分并降低伤害
+modifier.photosynthetic_armor.name=光合作用
+modifier.photosynthetic_armor.desc=§o要有光§r\n在光亮的地方提供氧气
 
 ## potions
 effect.heavy=沉重
@@ -635,6 +661,9 @@ config.tiths.trait=特性设定
 
 ## tooltip
 tooltip.tiths.item_xp.when_use=使用后获得经验:
+tooltip.tiths.beacon_base=可用作信标基座
+tooltip.tiths.soul_storing=灵魂储量 +%d (-%d)
+tooltip.tiths.soul_drop=灵魂击杀掉落增益 +%d
 
 ## page
 page.tiths.null=空页面内容

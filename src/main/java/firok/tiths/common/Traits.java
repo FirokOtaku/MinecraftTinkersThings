@@ -121,7 +121,7 @@ public final class Traits
 		staminaFocusing = new TraitStaminaFocusing();
 		starDashing = new TraitStarDashing();
 		steamy = new TraitSteamy();
-		stonePhasing = new TraitStonePhasing();
+//		stonePhasing = new TraitStonePhasing();
 		sunPower = new TraitSunPower();
 		switching = new TraitSwitching();
 		terrifying = new TraitTerrifying();
@@ -140,6 +140,6 @@ public final class Traits
 	public static void postInit()
 	{
 		inky.addItem(Items.inkySlime);
-		stonePhasing.addItem(Items.phasingGem);
+//		stonePhasing.addItem(Items.phasingGem);
 	}
 }

@@ -18,6 +18,8 @@ public interface Keys
 	String prefDust="dust_";
 	String prefRL= TinkersThings.MOD_ID+':';
 	String suffArmor="_armor";
+	String prefAmulet="amulet_";
+	String prefBelt="belt_";
 
 	// 材料
 	String nameRoyalAlloy="royal_alloy";
@@ -112,6 +114,16 @@ public interface Keys
 	String nameAirBubble="air_bubble";
 	String nameAirTank="air_tank";
 	String nameDisposableAirTank="disposable_air_tank";
+	String nameSoul="soul";
+	String nameAmuletSoulStone=prefAmulet+"soul_stone";
+	String nameBeltStonePhasing=prefBelt+"stone_phasing";
+	String nameBeltLeather=prefBelt+"leather";
+	String nameAirBomb="air_bomb";
+	String nameChannelPackStone="channel_pack_stone";
+	String nameChannelPackWood="channel_pack_wood";
+	String nameSoulBeacon="soul_beacon";
+	String nameChloroplastDressing="chloroplast_dressing";
+	String nameAmuletIron=prefAmulet+"iron";
 
 	String nameHardener="hardener";
 	String namePolisher="polisher";
@@ -150,7 +162,7 @@ public interface Keys
 	String blockInertWitherium=prefBlock+nameInertWitherium;
 	String blockWitherium=prefBlock+nameWitherium;
 	String blockStellariumObsidian=prefBlock+nameStellariumObsidian;
-	String blockRuby= prefBlock + nameRedins;
+	String blockRedins=prefBlock+nameRedins;
 	String blockSpinel=prefBlock+nameSpinel;
 	String blockTalcum=prefBlock+nameTalcum;
 	String blockTourmaline=prefBlock+nameTourmaline;
@@ -298,6 +310,8 @@ public interface Keys
 	// 粉末
 	String dustBlackrock=prefDust+nameBlackrock;
 	String dustChloroplast=prefDust+nameChloroplast;
+	String dustStone=prefDust+"stone";
+	String dustStoneCoal=prefDust+"stone_coal";
 
 	// 材料颜色
 	int colorEnderDragonSquama=0x180c33;
@@ -479,6 +493,8 @@ public interface Keys
 	String nameTraitBattleFocusing="battle_focusing";
 	String nameTraitTorrential="torrential";
 	String nameTraitHydrating="hydrating";
+	String nameTraitDegenerating="degenerating";
+	String nameTraitPhotosynthetic="photosynthetic";
 
 	// 属性颜色
 	int colorTraitGluttonic=0x752b40;
@@ -563,6 +579,8 @@ public interface Keys
 	int colorTraitBattleFocusing=0x2c5203;
 	int colorTraitTorrential=0x254592;
 	int colorTraitHydrating=colorImmersedSilver;
+	int colorTraitDegenerating=0xa0ca72;
+	int colorTraitPhotosynthetic=colorChloroplast;
 
 	// 状态效果颜色
 	int colorPotionHeavy=Colors.DarkSeaGreen;

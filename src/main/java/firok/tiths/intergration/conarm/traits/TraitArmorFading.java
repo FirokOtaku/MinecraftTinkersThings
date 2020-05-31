@@ -8,7 +8,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 import static firok.tiths.common.Keys.colorTraitFading;
 import static firok.tiths.common.Keys.nameTraitFading;
-import static firok.tiths.traits.TraitDichroic.getLight;
+import static firok.tiths.util.Actions.getLight;
 import static firok.tiths.util.Predicates.canTrigger;
 
 /**

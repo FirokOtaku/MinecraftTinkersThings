@@ -29,7 +29,7 @@ public final class Alloys
 					new FluidStack(Fluids.moltenRoyalAlloy, VALUE_Ingot*3),
 					new FluidStack(TinkerFluids.iron,VALUE_Ingot*2),
 					new FluidStack(TinkerFluids.gold,VALUE_Ingot),
-					new FluidStack(TinkerFluids.milk,VALUE_Ingot)
+					new FluidStack(TinkerFluids.milk,200)
 			);
 		}
 		// 艾瑞西亚

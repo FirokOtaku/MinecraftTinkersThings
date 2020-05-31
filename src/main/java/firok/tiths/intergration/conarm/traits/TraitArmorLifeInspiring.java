@@ -1,6 +1,7 @@
 package firok.tiths.intergration.conarm.traits;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import firok.tiths.util.SoulUtil;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
@@ -30,9 +31,11 @@ public class TraitArmorLifeInspiring extends AbstractArmorTrait
 
 			float percent=hp/hpMax;
 
-			if(percent<0.35f)
+			if(percent< 0.35f && SoulUtil.costSoul(player,200,false,false) > 0)
+			{
 				player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION,25,
 						percent<0.15f?2:1));
+			}
 		}
 	}
 }

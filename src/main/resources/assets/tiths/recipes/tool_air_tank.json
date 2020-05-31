@@ -6,10 +6,11 @@
   "pattern": [
     "GTG",
     "G G",
-    "GGG"
+    "GIG"
   ],
   "key": {
     "T": { "item": "tiths:tube" },
-    "G": { "item": "tiths:block_consolidated_glass" }
+    "G": { "item": "tiths:block_consolidated_glass" },
+    "I": { "item": "tiths:ingot_immersed_silver" }
   }
 }

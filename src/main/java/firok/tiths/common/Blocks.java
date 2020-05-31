@@ -185,25 +185,25 @@ public final class Blocks
 	@Reg(Keys.blockInkPowder)
 	public static final Block blockInkPowder = new BlockCompressed(); // 墨粉块
 	@Reg(Keys.blockStellarium)
-	public static final Block blockStellarium = new BlockCompressed(); // 恒星金属块
+	public static final Block blockStellarium = new BlockCompressed().setBeaconBase(); // 恒星金属块
 	@Reg(Keys.blockRoyalAlloy)
-	public static final Block blockRoyalAlloy = new BlockCompressed(); // 奢华合金块
+	public static final Block blockRoyalAlloy = new BlockCompressed().setBeaconBase(); // 奢华合金块
 	@Reg(Keys.blockIrisia)
-	public static final Block blockIrisia = new BlockCompressed(); // 艾瑞希亚块
+	public static final Block blockIrisia = new BlockCompressed().setBeaconBase(); // 艾瑞希亚块
 	@Reg(Keys.blockImmersedSilver)
-	public static final Block blockImmersedSilver = new BlockCompressed(); // 沉银块
+	public static final Block blockImmersedSilver = new BlockCompressed().setBeaconBase(); // 沉银块
 	@Reg(Keys.blockMithril)
-	public static final Block blockMithril = new BlockCompressed(); // 秘银块
+	public static final Block blockMithril = new BlockCompressed().setBeaconBase(); // 秘银块
 	@Reg(Keys.blockAdamantine)
-	public static final Block blockAdamantine = new BlockCompressed(); // 精金块
+	public static final Block blockAdamantine = new BlockCompressed().setBeaconBase(); // 精金块
 	@Reg(Keys.blockBlackrock)
 	public static final Block blockBlackrock = new BlockCompressed(Material.ROCK); // 黑石块
 	@Reg(Keys.blockInertWitherium)
-	public static final Block blockInertWitherium = new BlockCompressed(); // 惰性凋零块
+	public static final Block blockInertWitherium = new BlockCompressed().setBeaconBase(); // 惰性凋零块
 	@Reg(Keys.blockWitherium)
-	public static final Block blockWitherium = new BlockCompressed(); // 凋零块
+	public static final Block blockWitherium = new BlockCompressed().setBeaconBase(); // 凋零块
 	@Reg(Keys.blockCorundum)
-	public static final Block blockCorumdum = new BlockCompressed(Material.ROCK); // 钢玉块
+	public static final Block blockCorumdum = new BlockCompressed(Material.ROCK).setBeaconBase(); // 钢玉块
 	@Reg(Keys.blockNitre)
 	public static final Block blockNitre = new BlockCompressed(Material.ROCK); // 硝石块
 	@Reg(Keys.blockPyrophyllite)
@@ -211,67 +211,67 @@ public final class Blocks
 	@Reg(Keys.blockIcelandSpar)
 	public static final Block blockIcelandSpar = new BlockCompressed(Material.ROCK); // 冰洲石块
 	@Reg(Keys.blockSpinel)
-	public static final Block blockSpinel = new BlockCompressed(Material.ROCK); // 尖晶石块
+	public static final Block blockSpinel = new BlockCompressed(Material.ROCK).setBeaconBase(); // 尖晶石块
 	@Reg(Keys.blockTalcum)
 	public static final Block blockTalcum = new BlockCompressed(Material.ROCK); // 滑石块
 	@Reg(Keys.blockTourmaline)
 	public static final Block blockTourmaline = new BlockCompressed(Material.ROCK); // 电气石块
-	@Reg(Keys.blockRuby)
-	public static final Block blockRuby = new BlockCompressed(Material.ROCK); // 红宝石块
+	@Reg(Keys.blockRedins)
+	public static final Block blockRuby = new BlockCompressed(Material.ROCK).setBeaconBase(); // 虹辉石块
 	@Reg(Keys.blockTitanium)
-	public static final Block blockTitanium = new BlockCompressed(); // 钛块
+	public static final Block blockTitanium = new BlockCompressed().setBeaconBase(); // 钛块
 	@Reg(Keys.blockPolarium)
-	public static final Block blockPolarium = new BlockCompressed(); // 勾陈块
+	public static final Block blockPolarium = new BlockCompressed().setBeaconBase(); // 勾陈块
 	@Reg(Keys.blockHalleium)
-	public static final Block blockHalleium = new BlockCompressed(); // 哈雷块
+	public static final Block blockHalleium = new BlockCompressed().setBeaconBase(); // 哈雷块
 	@Reg(Keys.blockAltairium)
-	public static final Block blockAltairium = new BlockCompressed(); // 河鼓块
+	public static final Block blockAltairium = new BlockCompressed().setBeaconBase(); // 河鼓块
 	@Reg(Keys.blockHothium)
-	public static final Block blockHothium = new BlockCompressed(); // 霍斯块
+	public static final Block blockHothium = new BlockCompressed().setBeaconBase(); // 霍斯块
 	@Reg(Keys.blockTonium)
-	public static final Block blockTonium = new BlockCompressed(); // 钝金块
+	public static final Block blockTonium = new BlockCompressed().setBeaconBase(); // 钝金块
 	@Reg(Keys.blockCocoa)
 	public static final Block blockCocoa = new BlockCompressed(Material.ROCK); // 可可块
 	@Reg(Keys.blockSunStone)
-	public static final Block blockSunStone = new BlockCompressed(Material.ROCK); // 日光石块
+	public static final Block blockSunStone = new BlockCompressed(Material.ROCK).setBeaconBase(); // 日光石块
 	@Reg(Keys.blockMoonStone)
-	public static final Block blockMoonStone = new BlockCompressed(Material.ROCK);// 月光石块
+	public static final Block blockMoonStone = new BlockCompressed(Material.ROCK).setBeaconBase();// 月光石块
 	@Reg(Keys.blockOpal)
-	public static final Block blockOpal = new BlockCompressed(Material.ROCK).enableTransparent(); // 欧珀块
+	public static final Block blockOpal = new BlockCompressed(Material.ROCK).enableTransparent().setBeaconBase(); // 欧珀块
 	@Reg(Keys.blockTopaz)
-	public static final Block blockTopaz = new BlockCompressed(Material.ROCK); // 托帕石块
+	public static final Block blockTopaz = new BlockCompressed(Material.ROCK).setBeaconBase(); // 托帕石块
 	@Reg(Keys.blockLizanite)
-	public static final Block blockLizanite = new BlockCompressed(Material.ROCK); // 坦桑石块
+	public static final Block blockLizanite = new BlockCompressed(Material.ROCK).setBeaconBase(); // 坦桑石块
 	@Reg(Keys.blockCordierite)
-	public static final Block blockCordierite = new BlockCompressed(Material.ROCK); // 堇青石块
+	public static final Block blockCordierite = new BlockCompressed(Material.ROCK).setBeaconBase(); // 堇青石块
 	@Reg(Keys.blockPrehnite)
-	public static final Block blockPrehnite = new BlockCompressed(Material.ROCK); // 葡萄石块
+	public static final Block blockPrehnite = new BlockCompressed(Material.ROCK).setBeaconBase(); // 葡萄石块
 	@Reg(Keys.blockProustite)
 	public static final Block blockProustite = new BlockCompressed(Material.ROCK); // 硫砷银矿
 	@Reg(Keys.blockOraclium)
-	public static final Block blockOraclium = new BlockCompressed(); // 神谕块
+	public static final Block blockOraclium = new BlockCompressed().setBeaconBase(); // 神谕块
 	@Reg(Keys.blockVibratingCrystal)
-	public static final Block blockVibratingCrystal = new BlockCompressed(Material.ROCK); // 振晶块
+	public static final Block blockVibratingCrystal = new BlockCompressed(Material.ROCK).setBeaconBase(); // 振晶块
 	@Reg(Keys.blockLavaCrystal)
-	public static final Block blockLavaCrystal = new BlockCompressed(Material.ROCK); // 岩浆结晶块
+	public static final Block blockLavaCrystal = new BlockCompressed(Material.ROCK).setBeaconBase(); // 岩浆结晶块
 	@Reg(Keys.blockSteamium)
-	public static final Block blockSteamium = new BlockCompressed(); // 气钢块
+	public static final Block blockSteamium = new BlockCompressed().setBeaconBase(); // 气钢块
 	@Reg(Keys.blockAventurine)
-	public static final Block blockAventurine = new BlockCompressed(Material.ROCK); // 东陵石块
+	public static final Block blockAventurine = new BlockCompressed(Material.ROCK).setBeaconBase(); // 东陵石块
 	@Reg(Keys.blockMercurySulfide)
 	public static final Block blockMercurySulfide = new BlockCompressed(); // 汞红块
 	@Reg(Keys.blockUlun)
-	public static final Block blockUlun = new BlockCompressed(Material.ROCK); // 乌润石块
+	public static final Block blockUlun = new BlockCompressed(Material.ROCK).setBeaconBase(); // 乌润石块
 	@Reg(Keys.blockPotos)
-	public static final Block blockPotos = new BlockCompressed(Material.ROCK); // 泊水石块
+	public static final Block blockPotos = new BlockCompressed(Material.ROCK).setBeaconBase(); // 泊水石块
 	@Reg(Keys.blockFurutorin)
-	public static final Block blockFurutorin = new BlockCompressed(Material.ROCK); // 泠笛石块
+	public static final Block blockFurutorin = new BlockCompressed(Material.ROCK).setBeaconBase(); // 泠笛石块
 	@Reg(Keys.blockHeavesand)
-	public static final Block blockHeavesand = new BlockCompressed(Material.ROCK); // 沉沙石块
+	public static final Block blockHeavesand = new BlockCompressed(Material.ROCK).setBeaconBase(); // 沉沙石块
 	@Reg(Keys.blockChloroplast)
-	public static final Block blockChloroplast = new BlockCompressed(); // 叶绿块
+	public static final Block blockChloroplast = new BlockCompressed().setBeaconBase(); // 叶绿块
 	@Reg(Keys.blockTorrentialCrystal)
-	public static final Block blockTorrentialCrystal = new BlockCompressed(Material.ROCK); // 激流水晶块
+	public static final Block blockTorrentialCrystal = new BlockCompressed(Material.ROCK).setBeaconBase(); // 激流水晶块
 
 	@Reg(Keys.blockStellariumObsidian)
 	public static final Block blockStellariumObsidian = new Block(Material.ROCK); // 恒星黑曜石
@@ -296,8 +296,8 @@ public final class Blocks
 
 	@Reg(Keys.blockCoagulatedBloodSand)
 	public static final Block blockCoagulatedBloodSand = new BlockCompressed(Material.SAND); // 凝结血沙
-	@Reg(Keys.blockSearingVent)
-	public static final Block blockSearingVent = new BlockSearingVent(); // 焦黑通风孔
+//	@Reg(Keys.blockSearingVent)
+//	public static final Block blockSearingVent = new BlockSearingVent(); // 焦黑通风孔
 	@Reg(Keys.blockBloodyQuartz)
 	public static final Block blockBloodyQuartz = new BlockCompressed(); // 血腥石英块
 	@Reg(Keys.blockBloodyPillarQuartz)
@@ -308,6 +308,8 @@ public final class Blocks
 	public static final Block blockTinkerDisintegrator = new BlockTinkerDisintegrator(); // 匠魂粉碎机
 	@Reg(Keys.blockAirPump)
 	public static final Block blockAirPump = new BlockCompressed(); // 气泵
+	@Reg("block_channel_placer")
+	public static final Block blockChannelPlacer = new BlockChannelPlacer(); // 通道放置器
 
 
 	// 一些装饰用方块

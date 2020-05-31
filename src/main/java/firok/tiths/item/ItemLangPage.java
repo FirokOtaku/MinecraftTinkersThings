@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * 纸页 - 语言文件相关
  */
-public class ItemLangPage extends Item implements IPage
+public class ItemLangPage extends ItemCustom implements IPage
 {
 	public ItemLangPage()
 	{

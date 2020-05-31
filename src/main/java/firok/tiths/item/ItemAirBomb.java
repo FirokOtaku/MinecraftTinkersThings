@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * 空气弹
  */
-public class ItemAirBomb extends Item
+public class ItemAirBomb extends ItemCustom
 {
 	public ItemAirBomb()
 	{

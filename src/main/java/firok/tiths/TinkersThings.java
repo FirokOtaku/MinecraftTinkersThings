@@ -2,7 +2,6 @@ package firok.tiths;
 
 import firok.tiths.common.*;
 import firok.tiths.gui.Guis;
-import firok.tiths.intergration.baubles.BaubleItems;
 import firok.tiths.intergration.conarm.ArmorModifiers;
 import firok.tiths.intergration.conarm.ArmorRegistryHandler;
 import firok.tiths.util.VersionPhase;
@@ -26,14 +25,14 @@ import java.util.Random;
 		version = TinkersThings.VERSION,
 		dependencies = "required-after:tconstruct@[1.12.2-2.13.0.171,);" +
 		               "required-after:mantle@[1.12-1.3.3.55,);" +
-		               "after:baubles@[1.5.2,);" +
+		               "required-after:baubles@[1.5.2,);" +
 		               "after:conarm@[1.2.5,)"
 )
 public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers' Things";
-	public static final String VERSION = "1.12.2-0.3.1.0";
+	public static final String VERSION = "1.12.2-0.3.2.0";
 	public static final VersionPhase version = VersionPhase.Alpha;
 
 	@Mod.Instance(MOD_ID)
@@ -59,11 +58,6 @@ public class TinkersThings
 	{
 		return hasConarm && Configs.General.enable_conarm;
 	}
-	private static boolean hasBauble=false;
-	public static boolean enableBauble()
-	{
-		return hasBauble && Configs.General.enable_baubles;
-	}
 	@Mod.EventHandler
 	public void preinit(FMLPreInitializationEvent event)
 	{
@@ -84,26 +78,15 @@ public class TinkersThings
 		{
 			log("Armor, armor, armor!");
 		}
-		hasBauble=Loader.isModLoaded("baubles");
-		if(enableBauble())
-		{
-			log("Bauble, bauble, bauble!");
-		}
+		log("Bauble, bauble, bauble!");
 
 		RegistryHandler.registerFluids();
 
 		Items.trigger();
-		if(enableBauble())
-		{
-			BaubleItems.trigger();
-		}
+
 		RegistryHandler.registerBlocks(Blocks.class,TinkersThings.MOD_ID);
 //		RegistryHandler.registerTileEntities();
 		RegistryHandler.registerItems(Items.class,Blocks.class,TinkersThings.MOD_ID);
-		if(enableBauble())
-		{
-			RegistryHandler.registerItems(BaubleItems.class,null,TinkersThings.MOD_ID);
-		}
 		RegistryHandler.registerEntities();
 //		RegistryHandler.registerVillagers();
 
@@ -193,7 +176,13 @@ public class TinkersThings
 
 	public static void main(String[] args)
 	{
-		;
+		int i=10;
+		Random rand=new Random();
+		while(i-->0)
+		{
+			System.out.println(rand.nextInt(1));
+		}
+
 	}
 
 

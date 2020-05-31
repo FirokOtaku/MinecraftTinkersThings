@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * 往昔水晶
  */
-public class ItemFormerCrystal extends Item
+public class ItemFormerCrystal extends ItemCustom
 {
 	public ItemFormerCrystal()
 	{

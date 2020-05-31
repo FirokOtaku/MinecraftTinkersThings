@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 // 右键提供经验值的消耗品
-public class ItemXP extends Item
+public class ItemXP extends ItemCustom
 {
 	boolean isLv;
 	int amount;

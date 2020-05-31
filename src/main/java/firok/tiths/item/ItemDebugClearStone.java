@@ -12,10 +12,10 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import static firok.tiths.util.Predicates.isStone;
+import static firok.tiths.util.Predicates.isAnyStone;
 
 // 调试工具-清空石头
-public class ItemDebugClearStone extends Item
+public class ItemDebugClearStone extends ItemCustom
 {
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
@@ -34,7 +34,7 @@ public class ItemDebugClearStone extends Item
 						Block block=state.getBlock();
 						if( block ==Blocks.LAVA || block==Blocks.FLOWING_LAVA ||
 								block ==Blocks.WATER || block==Blocks.FLOWING_WATER || block==Blocks.BEDROCK
-										|| (isStone(block) || block== Blocks.DIRT || block==Blocks.GRASS) && ! (block instanceof BlockOre) )
+										|| (isAnyStone(block) || block == Blocks.DIRT || block == Blocks.GRASS) && ! (block instanceof BlockOre) )
 						{
 							world.setBlockToAir(pos);
 						}

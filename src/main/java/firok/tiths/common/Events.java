@@ -1,14 +1,17 @@
 package firok.tiths.common;
 
 
+import baubles.api.BaublesApi;
 import firok.tiths.TinkersThings;
 import firok.tiths.entity.special.EnderBeacon;
 import firok.tiths.intergration.conarm.ArmorEvents;
 import firok.tiths.item.IFluid;
-import firok.tiths.item.ItemFluidBall;
+import firok.tiths.item.ISoulGather;
+import firok.tiths.item.ISoulStore;
 import firok.tiths.util.Actions;
 import firok.tiths.util.InnerActions;
 import firok.tiths.util.Ranges;
+import firok.tiths.util.SoulUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockLog;
@@ -28,7 +31,6 @@ import net.minecraft.entity.projectile.EntityFishHook;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemFishingRod;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
@@ -40,7 +42,7 @@ import net.minecraftforge.client.event.sound.PlaySoundEvent;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.event.entity.living.*;
-import net.minecraftforge.event.entity.player.ItemFishedEvent;
+import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import net.minecraftforge.event.world.BlockEvent;
@@ -57,14 +59,14 @@ import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 import slimeknights.tconstruct.smeltery.events.TinkerSmelteryEvent;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 import static firok.tiths.common.Configs.Traits.enable_gluttonic_clear;
 import static firok.tiths.common.Traits.thermalGathering;
+import static firok.tiths.item.ISoulStore.Common;
 import static firok.tiths.traits.TraitStonePhasing.costStone;
 import static firok.tiths.util.Predicates.canTrigger;
+import static firok.tiths.util.Predicates.isAnyStone;
 
 @Mod.EventBusSubscriber(modid=TinkersThings.MOD_ID)
 public class Events
@@ -109,46 +111,33 @@ public class Events
 	}
 
 	@SubscribeEvent
+	public static void onEntityItemPickup(EntityItemPickupEvent event)
+	{
+		EntityItem ei=event.getItem();
+		ItemStack stack=ei.getItem();
+		EntityPlayer player=event.getEntityPlayer();
+		if(stack.getItem()==Items.soul)
+		{
+			int point=stack.getCount() * 1000;
+			SoulUtil.chargeSoul(event.getEntityPlayer(),point);
+			ei.setDead();
+			event.setCanceled(true);
+		}
+		else if(isAnyStone(stack) && BaublesApi.isBaubleEquipped(player,Items.beltStonePhasing)>=0)
+		{
+			ei.setDead();
+			event.setCanceled(true);
+		}
+	}
+	@SubscribeEvent
 	public static void onEntityDead(LivingDeathEvent event)
 	{
-		EntityLivingBase living=event.getEntityLiving();
-		World world=living.world;
+		EntityLivingBase livingDead=event.getEntityLiving();
+		World world=livingDead.world;
 		if(world.isRemote) return;
 		Random rand=world.rand;
 
-		ItemStack stack2drop=null;
-		if(living instanceof EntityCaveSpider) // 洞穴蜘蛛
-		{
-			if(canTrigger(rand,0.35f))
-			{
-				stack2drop=new ItemStack(Items.spiderLeg,1+rand.nextInt(2));
-			}
-		}
-		else if(living instanceof EntitySpider) // 蜘蛛
-		{
-			if(canTrigger(rand,0.45f))
-			{
-				stack2drop=new ItemStack(canTrigger(rand,0.3f)?Items.hardSpiderLeg:Items.spiderLeg,1+rand.nextInt(1));
-			}
-		}
-		else if(living instanceof EntityWitherSkeleton && canTrigger(rand,0.3)) // 凋灵骷髅
-		{
-			stack2drop=new ItemStack(Items.witheringEssence,1);
-		}
-		else if(living instanceof EntityWither) // 凋灵
-		{
-			stack2drop=new ItemStack(Items.witheringEssence,2+rand.nextInt(3));
-		}
-		else if(living instanceof EntityDragon) // 末影龙
-		{
-			stack2drop=new ItemStack(Items.enderDragonSquama);
-		}
-
-		// 掉落物品
-		if(stack2drop!=null)
-		{
-			Actions.CauseSpawnItem(living,stack2drop);
-		}
+		List<ItemStack> stack2drops=new ArrayList<>();
 
 		if(canTrigger(rand,0.005))
 		{
@@ -166,8 +155,89 @@ public class Events
 			{
 				record2drop=new ItemStack(Items.recordTinkersWill);
 			}
-			Actions.CauseSpawnItem(living,record2drop);
+			stack2drops.add(record2drop);
 		}
+
+		EntityLivingBase attacker=livingDead.getRevengeTarget();
+		if(attacker!=null && attacker.isEntityAlive())
+		{
+			Map<ItemStack,ISoulGather> stackSoulGathers=SoulUtil.getAllSoulGathers(attacker);
+
+			int dropBase=0,dropExtra=0,dropTotal=0;
+
+			for(Map.Entry<ItemStack,ISoulGather> entry:stackSoulGathers.entrySet())
+			{
+				ItemStack stackSoulGather=entry.getKey();
+				ISoulGather iSoulGather=entry.getValue();
+
+				dropBase+=iSoulGather.soulDropBase(stackSoulGather);
+				dropExtra+=iSoulGather.soulDropExtra(stackSoulGather,attacker,livingDead);
+			}
+
+			if(dropBase>0) dropTotal+=dropBase;
+			if(dropExtra>0) dropTotal+=rand.nextInt(dropExtra+1);
+
+			stack2drops.add(new ItemStack(Items.soul,dropTotal));
+		}
+
+		if(livingDead instanceof EntityPlayer) // 玩家死亡
+		{
+			EntityPlayer player=(EntityPlayer)livingDead;
+			List<ItemStack> soulStacks=SoulUtil.getAllSoulStores(player);
+			Map<ItemStack,Integer> mapDeathDrainPriorities=new HashMap<>();
+			for(ItemStack soulStack:soulStacks)
+				mapDeathDrainPriorities.put(soulStack,((ISoulStore)soulStack.getItem()).deathDrainPriority(soulStack));
+
+			soulStacks.sort(Comparator.comparing(is -> mapDeathDrainPriorities.getOrDefault(is, Common)));
+
+			DEATH_DRAIN:for(ItemStack soulStack:soulStacks) // 死亡时的灵魂逸散
+			{
+				ISoulStore iSoulStore =(ISoulStore)soulStack.getItem();
+
+				if(!iSoulStore.canDeathDrain(soulStack,world)) continue; // 如果不逸散就直接跳过
+
+				int drain= iSoulStore.countDeathDrain(soulStack,world);
+				if(drain<=0) continue;
+				iSoulStore.costSoul(soulStack,player,drain,true); // 先计算逸散
+
+				boolean interrupted=iSoulStore.onDeathDrain(soulStack,player,drain,event); // 再触发事件
+				if(interrupted) break DEATH_DRAIN;
+			}
+		}
+		else if(livingDead instanceof EntityCaveSpider) // 洞穴蜘蛛
+		{
+			if(canTrigger(rand,0.35f))
+			{
+				stack2drops.add(new ItemStack(Items.spiderLeg,1+rand.nextInt(2)));
+			}
+		}
+		else if(livingDead instanceof EntitySpider) // 蜘蛛
+		{
+			if(canTrigger(rand,0.45f))
+			{
+				stack2drops.add(new ItemStack(canTrigger(rand,0.3f)?Items.hardSpiderLeg:Items.spiderLeg,1+rand.nextInt(1)));
+			}
+		}
+		else if(livingDead instanceof EntityWitherSkeleton && canTrigger(rand,0.3)) // 凋灵骷髅
+		{
+			stack2drops.add(new ItemStack(Items.witheringEssence,1));
+		}
+		else if(livingDead instanceof EntityWither) // 凋灵
+		{
+			stack2drops.add(new ItemStack(Items.witheringEssence,2+rand.nextInt(3)));
+		}
+		else if(livingDead instanceof EntityDragon) // 末影龙
+		{
+			stack2drops.add(new ItemStack(Items.enderDragonSquama));
+		}
+
+		// 掉落物品
+		for(ItemStack stack2drop:stack2drops)
+		{
+			Actions.CauseSpawnItem(livingDead,stack2drop);
+		}
+
+
 	}
 
 	@SubscribeEvent

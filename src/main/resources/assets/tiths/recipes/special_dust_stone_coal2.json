@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "tiths:special",
+  "result": { "item": "tiths:dust_stone_coal", "count": 4 },
+  "ingredients": [
+    { "type": "forge:ore_dict", "ore": "dustStone" },
+    { "type": "forge:ore_dict", "ore": "dustStone" },
+    { "item": "tiths:dust_blackrock" },
+    { "item": "tiths:dust_blackrock" }
+  ]
+}

@@ -191,6 +191,15 @@ public final class Predicates
 		return block==Blocks.GRASS;
 	}
 
+	public static boolean isWater(IBlockState state)
+	{
+		return state!=null && isWater(state.getBlock());
+	}
+	public static boolean isWater(Block block)
+	{
+		return block==Blocks.WATER || block==Blocks.FLOWING_WATER;
+	}
+
 
 	public static Predicate<ItemStack> getPredicateItemStack(String str,Predicate<ItemStack> defaultValue)
 	{

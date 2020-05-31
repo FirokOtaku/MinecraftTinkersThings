@@ -1,8 +1,10 @@
 package firok.tiths.traits;
 
 import firok.tiths.common.Configs;
+import firok.tiths.util.SoulUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
@@ -25,16 +27,18 @@ public class TraitLifeInspiring extends AbstractTrait
 	@Override
 	public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
 	{
-		if(isSelected && !world.isRemote && canTick(world,20,4) && entity instanceof EntityLivingBase && !ToolHelper.isBroken(tool))
+		if(isSelected && !world.isRemote && canTick(world,20,4) && entity instanceof EntityPlayer && !ToolHelper.isBroken(tool))
 		{
-			EntityLivingBase player=(EntityLivingBase)entity;
+			EntityPlayer player=(EntityPlayer) entity;
 			float hp=player.getHealth(),hpMax=player.getMaxHealth();
 
 			float percent=hp/hpMax;
 
-			if(percent < Configs.Traits.factor_life_inspiring_low)
+			if(percent < Configs.Traits.factor_life_inspiring_low && SoulUtil.costSoul(player,200,false,false) > 0)
+			{
 				player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION,25,
 						percent < Configs.Traits.factor_life_inspiring_danger?2:1));
+			}
 		}
 	}
 }

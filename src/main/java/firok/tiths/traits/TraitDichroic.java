@@ -10,6 +10,7 @@ import slimeknights.tconstruct.library.traits.AbstractTrait;
 
 import static firok.tiths.common.Keys.colorTraitDichroic;
 import static firok.tiths.common.Keys.nameTraitDichroic;
+import static firok.tiths.util.Actions.getLight;
 
 // 二色性
 public class TraitDichroic extends AbstractTrait
@@ -19,13 +20,7 @@ public class TraitDichroic extends AbstractTrait
 		super(nameTraitDichroic, colorTraitDichroic);
 	}
 
-	/**
-	 * 获取亮度
-	 */
-	public static int getLight(Entity entity)
-	{
-		return entity.world.getLightFromNeighbors(entity.getPosition());
-	}
+
 
 	@Override
 	public void miningSpeed(ItemStack tool, PlayerEvent.BreakSpeed event)

@@ -34,6 +34,7 @@ public class ArmorTraits
 	public static AbstractArmorTrait moonPower; // 月之力量
 	public static AbstractArmorTrait overHeavy; // 沉重
 	public static AbstractArmorTrait panicking; // 威慑
+	public static AbstractArmorTrait photosynthetic; // 光合作用
 	public static AbstractArmorTrait radiant; // 辉耀
 	public static AbstractArmorTrait sliding; // 软滑
 	public static AbstractArmorTrait smooth; // 光滑
@@ -80,6 +81,7 @@ public class ArmorTraits
 		moonPower=new TraitArmorMoonPower();
 		overHeavy=new TraitArmorOverHeavy();
 //		panicking=new TraitArmorPanicking();
+		photosynthetic=new TraitArmorPhotosynthetic();
 		radiant=new TraitArmorRadiant();
 		sliding=new TraitArmorSliding();
 		smooth=new TraitArmorSmooth();
@@ -107,6 +109,8 @@ public class ArmorTraits
 
 		RecipeMatchHolder.addItem(deadening, net.minecraft.init.Items.WOODEN_SWORD);
 
-		RecipeMatchHolder.addItem(tubeUpgraded, Items.tube);;
+		RecipeMatchHolder.addItem(tubeUpgraded, Items.tube);
+
+		RecipeMatchHolder.addItem(photosynthetic, Items.chloroplastDressing);
 	}
 }

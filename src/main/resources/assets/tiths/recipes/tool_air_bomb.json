@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tiths:tools",
+  "result": { "item": "tiths:air_bomb", "count": 1 },
+
+  "pattern": [
+    "TPT",
+    "PTP",
+    "TPT"
+  ],
+  "key": {
+    "T": { "item": "tiths:disposable_air_tank" },
+    "P": { "type": "forge:ore_dict", "ore": "gunpowder" }
+  }
+}

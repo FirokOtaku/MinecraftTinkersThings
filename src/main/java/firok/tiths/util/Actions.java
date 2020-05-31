@@ -2,6 +2,7 @@ package firok.tiths.util;
 
 import com.google.common.base.Predicate;
 import firok.tiths.TinkersThings;
+import firok.tiths.common.Configs;
 import firok.tiths.common.Potions;
 import firok.tiths.entity.ai.EntityAIAvoidEntityFear;
 import firok.tiths.entity.projectile.ProjectileDashingStar;
@@ -40,6 +41,7 @@ import net.minecraft.world.storage.loot.LootTableList;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Random;
 
@@ -502,6 +504,80 @@ public final class Actions
 		else // 输入值不在范围内
 		{
 			return value > 0 ? abs : - abs;
+		}
+	}
+
+	/**
+	 * 用来求若干点到直线距离
+	 * @param p1 直线上一点坐标
+	 * @param facing 方向向量
+	 * @param points 若干需要求的点
+	 * @return 直线导致这些点的距离
+	 */
+	public static double[] distanceToLine(Vec3d p1,Vec3d facing,Vec3d... points)
+	{
+		if(points==null) return new double[0];
+		double[] ret=new double[points.length];
+
+		Vec3d p2=p1.add(facing); // 第2个点
+
+		double d12=p1.distanceTo(p2); // 底边长度
+		for(int i=0;i<points.length;i++)
+		{
+			// 海伦公式 Heron's formula
+			// https://baike.baidu.com/item/%E6%B5%B7%E4%BC%A6%E5%85%AC%E5%BC%8F
+			Vec3d d3=points[i];
+
+			// 求出剩下两边长
+			double d32=d3.distanceTo(p2);
+			double d31=d3.distanceTo(p1);
+
+			double p=(d12+d32+d31)/2; // 半周长
+			double pp1=Math.abs(p-d12),pp2=Math.abs(p-d32),pp3=Math.abs(p-d31);
+
+			double area= MathHelper.sqrt( p*pp1*pp2*pp3 ); // 三角形面积
+
+			// 三角形面积=底×高÷2 => 三角形面积×2÷底=高
+			ret[i] = area * 2 / d12;
+
+//			System.out.printf("d12[%f],d31[%f],d32[%f],p[%f],area[%f],ret[%f],pp1~3[%f,%f,%f]\n",d12,d31,d32,p,area,ret[i],pp1,pp2,pp3);
+		}
+
+//		System.out.println("到直线距离"+Arrays.toString(ret));
+
+		return ret;
+	}
+
+	private static int _get_light_light=0;
+	private static World _get_light_world=null;
+	private static int _get_light_pos_x=Integer.MIN_VALUE;
+	private static int _get_light_pos_y=Integer.MIN_VALUE;
+	private static int _get_light_pos_z=Integer.MIN_VALUE;
+	/**
+	 * 获取亮度
+	 */
+	public static int getLight(Entity entity)
+	{
+		World world=entity.world;
+		BlockPos pos=entity.getPosition();
+
+		if(Configs.General.enable_single_thread_optimization)
+		{
+			if(world==_get_light_world && _get_light_pos_x==pos.getX() && _get_light_pos_y==pos.getY() && _get_light_pos_z==pos.getZ())
+			{
+				return _get_light_light;
+			}
+			_get_light_world=world;
+			_get_light_pos_x=pos.getX();
+			_get_light_pos_y=pos.getY();
+			_get_light_pos_z=pos.getZ();
+			_get_light_light=world.getLightFromNeighbors(pos);
+
+			return _get_light_light;
+		}
+		else
+		{
+			return world.getLightFromNeighbors(pos);
 		}
 	}
 }

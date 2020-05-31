@@ -5,6 +5,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
@@ -14,8 +15,10 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import slimeknights.tconstruct.library.Util;
 
 import javax.annotation.Nullable;
+import java.util.Collections;
 import java.util.List;
 
 @SuppressWarnings("all")
@@ -36,7 +39,20 @@ public class BlockCompressed extends Block
 		setResistance(30);
 	}
 
-	protected boolean isTransparent =false;
+	protected boolean isTransparent = false;
+	protected boolean isBeaconBase = false;
+
+	public BlockCompressed setBeaconBase()
+	{
+		this.isBeaconBase=true;
+		return this;
+	}
+
+	@Override
+	public boolean isBeaconBase(IBlockAccess worldObj, BlockPos pos, BlockPos beacon)
+	{
+		return this.isBeaconBase;
+	}
 
 	/**
 	 * 启用方块渲染透明度
@@ -93,6 +109,8 @@ public class BlockCompressed extends Block
 	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced)
 	{
 		InnerActions.addInformation(this, tooltip, advanced);
+
+		if(isBeaconBase) tooltip.add(I18n.format("tooltip.tiths.beacon_base"));
 	}
 
 }

@@ -10,7 +10,7 @@ import net.minecraftforge.event.entity.living.LivingKnockBackEvent;
 
 import static firok.tiths.common.Keys.colorTraitDichroic;
 import static firok.tiths.common.Keys.nameTraitDichroic;
-import static firok.tiths.traits.TraitDichroic.getLight;
+import static firok.tiths.util.Actions.getLight;
 
 /**
  * 二色性

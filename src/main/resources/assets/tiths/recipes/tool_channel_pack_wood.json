@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tiths:tools",
+  "result": { "item": "tiths:channel_pack_wood", "count": 1 },
+
+  "pattern": [
+    "GGG",
+    "GLG",
+    "GGG"
+  ],
+  "key": {
+    "G": { "item": "tiths:block_consolidated_glass" },
+    "L": { "item": "minecraft:ladder" }
+  }
+}

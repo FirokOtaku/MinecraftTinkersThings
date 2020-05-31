@@ -19,6 +19,7 @@ import slimeknights.tconstruct.library.materials.MaterialTypes;
 import slimeknights.tconstruct.library.smeltery.CastingRecipe;
 import slimeknights.tconstruct.library.smeltery.MeltingRecipe;
 import slimeknights.tconstruct.library.utils.HarvestLevels;
+import slimeknights.tconstruct.shared.TinkerCommons;
 import slimeknights.tconstruct.shared.TinkerFluids;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 import slimeknights.tconstruct.tools.TinkerTools;
@@ -92,6 +93,15 @@ public final class Craftings
 				new ItemStack(Items.dustBlackrock,1),
 				Ingredient.fromItem(Items.blackrock),
 				Ingredient.fromStacks(stacksSharpeningKitAll)
+		);
+		// 任意磨制工具 + 石头 = 石粉
+		GameRegistry.addShapelessRecipe(
+				new ResourceLocation(TinkersThings.MOD_ID,"special_dust_stone"),
+				(ResourceLocation) null,
+				new ItemStack(Items.dustStone,1),
+				Ingredient.fromItems(Item.getItemFromBlock(net.minecraft.init.Blocks.STONE),Item.getItemFromBlock(net.minecraft.init.Blocks.COBBLESTONE)),
+				Ingredient.fromStacks(stacksSharpeningKitAll)
+
 		);
 	}
 
@@ -335,6 +345,21 @@ public final class Craftings
 						RecipeMatch.of(new ItemStack(Items.nitre)),
 						new FluidStack(FluidRegistry.WATER, 250),
 						true, false));
+
+		// 叶绿粉末
+//		registerTableCasting(
+//				new CastingRecipe(
+//						new ItemStack(Items.dustChloroplast),
+//						RecipeMatch.of(new ItemStack(net.minecraft.init.Items.SUGAR)),
+//						new FluidStack(Fluids.moltenChloroplast,Material.VALUE_Nugget*1),
+//						true,false));
+		// 叶绿敷料
+		registerTableCasting(
+				new CastingRecipe(
+						new ItemStack(Items.chloroplastDressing),
+						RecipeMatch.of(new ItemStack(net.minecraft.init.Items.CLAY_BALL)),
+						new FluidStack(Fluids.moltenChloroplast, Material.VALUE_Ingot * 2),
+						true, false));
 	}
 
 	private static void createBinding(
@@ -411,6 +436,8 @@ public final class Craftings
 	{
 		addSmelting(new ItemStack(Items.shell), new ItemStack(Items.shellCooked), 1);
 		addSmelting(new ItemStack(Items.flesh), new ItemStack(Items.fleshCooked), 5);
+		addSmelting(new ItemStack(Items.dustStoneCoalMixed), new ItemStack(TinkerCommons.materials,1,0), 1);
+
 	}
 
 	// 下面这个以后可能用到
