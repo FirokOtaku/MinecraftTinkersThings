@@ -6,7 +6,7 @@
 
 * 错误修复 bug fixes
   * 现在钝金可用于制作头部部件 now tonium can be used to craft head components
-  * 修复了一个神谕特性在击中目标后导致服务端崩溃的致命错误 fixed a fatal bug that caused by Oracular trait after hitting the target
+  * 修复了一个神谕特性在击中目标后导致服务端崩溃的致命错误 fixed a fatal bug that caused by Oracular trait which will crash the server after hitting target
 
 ## 0.2.77.6 _2020-05-17 11:30_
 
