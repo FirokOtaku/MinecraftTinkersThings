@@ -10,6 +10,9 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.SoundCategory;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static firok.tiths.common.Keys.colorTraitOracular;
 import static firok.tiths.common.Keys.nameTraitOracular;
 import static firok.tiths.util.Predicates.canTrigger;
@@ -29,31 +32,44 @@ public class TraitOracular extends AbstractTrait
 		{
 			boolean playSound=false;
 
+			// 移除目标的增益效果
 			if(Configs.Traits.enable_oracular_remove_target && target.isEntityAlive())
 			{
-				// 移除目标的增益效果
+				List<Potion> potion2removing=new ArrayList<>();
 				for(PotionEffect effect:target.getActivePotionEffects())
 				{
 					Potion potion=effect.getPotion();
 					if(!potion.isBadEffect())
 					{
-						target.removePotionEffect(potion);
-						playSound = true;
+						potion2removing.add(potion);
 					}
 				}
+				for(Potion potion:potion2removing)
+				{
+					target.removePotionEffect(potion);
+				}
+				playSound=potion2removing.size()>0;
 			}
 
 			// 移除玩家的减益效果
 			if(Configs.Traits.enable_oracular_remove_player)
-			for(PotionEffect effect:player.getActivePotionEffects())
 			{
-				Potion potion=effect.getPotion();
-				if(potion.isBadEffect())
+				List<Potion> potion2removing=new ArrayList<>();
+				for(PotionEffect effect:player.getActivePotionEffects())
+				{
+					Potion potion=effect.getPotion();
+					if(potion.isBadEffect())
+					{
+						potion2removing.add(potion);
+					}
+				}
+				for(Potion potion:potion2removing)
 				{
 					player.removePotionEffect(potion);
-					playSound = true;
 				}
+				playSound|=potion2removing.size()>0;
 			}
+
 
 			// 几率回血
 			if(canTrigger(player.world, Configs.Traits.rate_oracular_heal))

@@ -2,7 +2,7 @@
 
 > All Time Stamps: GMT+8
 
-## 0.2.77.7 _2020-06-05 11:00_
+## 0.2.77.7 _2020-06-05 23:00_
 
 * 错误修复 bug fixes
   * 现在钝金可用于制作头部部件 now tonium can be used to craft head components
