@@ -282,6 +282,7 @@ public final class TiCMaterials
 			.setFluid(Fluids.moltenAltairium);
 
 	@Compo(value = nameTonium,traitsTool = {nameTraitRepressing},traitsBow = {nameTraitRepressing},traitsArmor = {nameTraitSteady})
+	@CompoHead(durability = 690,miningspeed = 2.5,attack = 7.8,harvestLevel = 4)
 	@CompoHandle(modifier=0.9,durability=180,traits={  })
 	@CompoExtra(extraDurability=350,traits={  })
 	@CompoBow(drawSpeed=0.6,range=1.4,bonusDamage=4,traits={  })

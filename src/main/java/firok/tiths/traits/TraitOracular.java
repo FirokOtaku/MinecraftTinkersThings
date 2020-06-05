@@ -35,7 +35,7 @@ public class TraitOracular extends AbstractTrait
 				for(PotionEffect effect:target.getActivePotionEffects())
 				{
 					Potion potion=effect.getPotion();
-					if(!potion.isBadEffect() || potion.isBeneficial())
+					if(!potion.isBadEffect())
 					{
 						target.removePotionEffect(potion);
 						playSound = true;

@@ -2,6 +2,12 @@
 
 > All Time Stamps: GMT+8
 
+## 0.2.77.7 _2020-06-05 11:00_
+
+* 错误修复 bug fixes
+  * 现在钝金可用于制作头部部件 now tonium can be used to craft head components
+  * 修复了一个神谕特性在击中目标后导致服务端崩溃的致命错误 fixed a fatal bug that caused by Oracular trait after hitting the target
+
 ## 0.2.77.6 _2020-05-17 11:30_
 
 * 错误修复 bug fixes
