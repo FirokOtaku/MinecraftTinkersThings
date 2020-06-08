@@ -34,6 +34,7 @@ public class WorldGenCloud extends BaseChunkGen
 		final float a2=rx*rx,b2=ry*ry,c2=rz*rz;
 
 		IBlockState cloud=Blocks.blockCloud.getDefaultState();
+		IBlockState ore=Info.state(info,null,cloud);
 
 		FOR_X: for(int ox=-rx; ox<=rx; ox++)
 		{
@@ -51,7 +52,8 @@ public class WorldGenCloud extends BaseChunkGen
 						BlockPos posTemp=new BlockPos(posX+ox,posY+oy,posZ+oz);
 						if(world.isAirBlock(posTemp))
 						{
-							world.setBlockState(posTemp, cloud);
+							boolean isOre=canTrigger(rand,0.00225);
+							world.setBlockState(posTemp, isOre?ore:cloud);
 							ret.add(posTemp);
 						}
 					}

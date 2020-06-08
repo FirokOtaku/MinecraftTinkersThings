@@ -30,6 +30,7 @@ public final class Traits
 	public static AbstractTrait decoying; // 诱食
 	public static AbstractTrait dichroic; // 二色性
 	public static AbstractTrait dragonKiller; // 屠龙者
+	public static AbstractTrait eddying; // 旋流
 	public static AbstractTrait extremeFreezing; // 极寒
 	public static AbstractTrait gluttonic; // 暴食
 	public static AbstractTrait gorgeous; // 斑斓
@@ -93,6 +94,7 @@ public final class Traits
 		decoying = new TraitDecoying();
 		dichroic = new TraitDichroic();
 		dragonKiller = new TraitDragonKiller();
+		eddying = new TraitEddying();
 		extremeFreezing = new TraitExtremeFreezing();
 		gluttonic = new TraitGluttonic();
 		gorgeous = new TraitGorgeous();

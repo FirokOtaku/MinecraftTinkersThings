@@ -5,12 +5,14 @@ import firok.tiths.gui.Guis;
 import firok.tiths.intergration.conarm.ArmorModifiers;
 import firok.tiths.intergration.conarm.ArmorRegistryHandler;
 import firok.tiths.util.VersionPhase;
-import firok.tiths.world.WorldGens;
+import firok.tiths.common.WorldGens;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
 import slimeknights.tconstruct.library.materials.Material;
@@ -32,7 +34,7 @@ public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers' Things";
-	public static final String VERSION = "1.12.2-0.3.2.0";
+	public static final String VERSION = "1.12.2-0.3.3.0";
 	public static final VersionPhase version = VersionPhase.Alpha;
 
 	@Mod.Instance(MOD_ID)
@@ -159,30 +161,27 @@ public class TinkersThings
 		randClient=new Random();
 
 		SelfChecks.checkAll();
+//		log("Has everything been done? might be!");
 	}
 
+	@SideOnly(Side.SERVER)
 	@Mod.EventHandler
 	public void onServerStart(FMLServerStartingEvent event)
 	{
 		event.registerServerCommand(Commands.getInstance());
 
-		ServerDatas.init(event.getServer()); // 初始化服务端数据
+		Datas.Server.init(event.getServer()); // 初始化服务端数据
 	}
+	@SideOnly(Side.SERVER)
 	@Mod.EventHandler
 	public void onServerStop(FMLServerStoppedEvent event)
 	{
-		ServerDatas.uninit(); // 销毁服务端数据
+		Datas.Server.uninit(); // 销毁服务端数据
 	}
 
 	public static void main(String[] args)
 	{
-		int i=10;
-		Random rand=new Random();
-		while(i-->0)
-		{
-			System.out.println(rand.nextInt(1));
-		}
-
+		;
 	}
 
 

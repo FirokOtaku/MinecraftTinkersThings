@@ -1,12 +1,15 @@
 package firok.tiths.item;
 
 import firok.tiths.util.InnerActions;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -165,6 +168,14 @@ public interface ISoulStore
 	default int deathDrainPriority(ItemStack stack)
 	{
 		return Common;
+	}
+
+	@SideOnly(Side.CLIENT)
+	default void addStoreInformation(ItemStack stack, World world, List<String> list, ITooltipFlag flag)
+	{
+		int countStore=this.countSoul(stack);
+		int countDrain=canDeathDrain(stack,world)?countDeathDrain(stack,world):0;
+		list.add(I18n.format("tooltip.tiths.soul_storing",countStore,countDrain));
 	}
 
 

@@ -6,6 +6,7 @@ import c4.conarm.lib.armor.ArmorCore;
 import firok.tiths.common.Items;
 import firok.tiths.item.ISoulGather;
 import firok.tiths.item.ISoulStore;
+import firok.tiths.item.ISoulWatch;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
@@ -233,6 +234,35 @@ public class SoulUtil
 			for(Map.Entry<Enchantment,Integer> entry:enchantments.entrySet())
 			{
 				if(entry.getKey() instanceof ISoulGather) return (ISoulGather)entry.getKey();
+			}
+		}
+
+		return null;
+	}
+	public static ISoulWatch getSoulWatch(ItemStack stack)
+	{
+		if(stack==null || stack.isEmpty()) return null;
+
+		Item item=stack.getItem();
+		if(item instanceof ISoulWatch) return (ISoulWatch) item;
+
+		// 检查特性
+		if(item instanceof ITinkerable)
+		{
+			List<ITrait> traits= TinkerUtil.getTraitsOrdered(stack);
+			for(ITrait trait:traits)
+			{
+				if(trait instanceof ISoulWatch) return (ISoulWatch) trait;
+			}
+		}
+
+		// 检查附魔
+		if(stack.hasTagCompound())
+		{
+			Map<Enchantment,Integer> enchantments=EnchantmentHelper.getEnchantments(stack);
+			for(Map.Entry<Enchantment,Integer> entry:enchantments.entrySet())
+			{
+				if(entry.getKey() instanceof ISoulWatch) return (ISoulWatch) entry.getKey();
 			}
 		}
 

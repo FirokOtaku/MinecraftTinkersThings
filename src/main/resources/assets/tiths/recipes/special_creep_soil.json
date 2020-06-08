@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "tiths:special",
+  "result": { "item": "tiths:block_creep_soil", "count": 1 },
+  "ingredients": [
+    { "item": "minecraft:dirt", "data": 0 },
+    { "item": "tiths:spider_leg" }
+  ]
+}

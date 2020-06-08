@@ -32,7 +32,7 @@ public class ItemDebugClearStone extends ItemCustom
 						BlockPos pos=new BlockPos(tx,ty,tz);
 						IBlockState state=world.getBlockState(pos);
 						Block block=state.getBlock();
-						if( block ==Blocks.LAVA || block==Blocks.FLOWING_LAVA ||
+						if( block ==Blocks.LAVA || block==Blocks.FLOWING_LAVA || block==Blocks.NETHERRACK || block==Blocks.END_STONE ||
 								block ==Blocks.WATER || block==Blocks.FLOWING_WATER || block==Blocks.BEDROCK
 										|| (isAnyStone(block) || block == Blocks.DIRT || block == Blocks.GRASS) && ! (block instanceof BlockOre) )
 						{

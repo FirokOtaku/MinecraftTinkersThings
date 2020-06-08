@@ -1,10 +1,9 @@
-package firok.tiths.world;
+package firok.tiths.common;
 
-import firok.tiths.common.Blocks;
-import firok.tiths.common.ConfigJson;
 import firok.tiths.util.Predicates;
 import firok.tiths.util.reg.FieldStream;
 import firok.tiths.util.reg.GenOre;
+import firok.tiths.world.*;
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -71,7 +70,7 @@ public class WorldGens implements IWorldGenerator
 							block.getDefaultState(),
 
 							ga.dim(), r(ga.dimsWL()),r(ga.dimsBL()),
-							ga.biome(), r(ga.biomeWL()),r(ga.biomeBL()),
+							ga.biome(), r(ga.biomeWL()),r(Keys.getBiomes(ga.biomeBL())),
 							Predicates.getPredicateIBlockState(ga.selector(), Predicates::isStone),
 
 							ga.minY(),ga.maxY(),
@@ -79,23 +78,27 @@ public class WorldGens implements IWorldGenerator
 							ga.size()
 					):null;
 					Info infoJson= ConfigJson.getOre(block.getUnlocalizedName());
+					Info info2add= null;
 
 					if(infoAnno==null)
 					{
 						if(infoJson!=null && infoJson.complete())
 						{
-							GenMinable gen=new GenMinable( infoJson);
-
-							list.add(gen);
+							info2add=infoJson;
 						}
 					}
 					else
 					{
-						GenMinable gen=new GenMinable( Info.build(infoAnno,infoJson) );
-
-						list.add(gen);
+						info2add=Info.build(infoAnno,infoJson);
 					}
 
+					if(info2add==null || !Info.enable(info2add,null,false))
+					{
+						return;
+					}
+
+					GenMinable gen=new GenMinable( info2add );
+					list.add(gen);
 
 				});
 
@@ -105,11 +108,11 @@ public class WorldGens implements IWorldGenerator
 	}
 	public static final Info defaultLavaCrystal=Info.build(
 			Blocks.oreLavaCrystal.getDefaultState(),
+			Strategy.ONLY_WHITELIST,new int[]{-1},null,
 			Strategy.NONE_BLACKLIST,null,null,
-			Strategy.NONE_BLACKLIST,null,null,
-			Predicates::isStone,
-			0,50,
-			1,0.3f,1
+			Predicates::isNetherrack,
+			10,110,
+			4,0.25f,1
 	);
 	public static final Info defaultTreeRoot=Info.build(
 			Blocks.oreTreeRoot.getDefaultState(),
@@ -128,7 +131,7 @@ public class WorldGens implements IWorldGenerator
 			3,0.6f,8
 	);
 	public static final Info defaultCloudInfo=Info.build(
-			Blocks.blockCloud.getDefaultState(),
+			Blocks.oreAventurine.getDefaultState(),
 			Strategy.ONLY_WHITELIST,new int[]{0},null,
 			Strategy.NONE_BLACKLIST,null,null,
 			Predicates::isAir,

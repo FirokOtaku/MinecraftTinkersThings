@@ -1,5 +1,6 @@
 package firok.tiths.common;
 
+import firok.tiths.entity.item.EntityItemSoul;
 import firok.tiths.entity.projectile.ProjectileDashingStar;
 import firok.tiths.entity.projectile.ProjectileLightBall;
 import firok.tiths.entity.special.EnderBeacon;
@@ -30,4 +31,7 @@ public final class Entities
 	public static EnderBeacon ender_beacon;
 	@RegEntity(network = 351)
 	public static LogicSearing logic_searing;
+
+	@RegEntity(network = 400,tracker = 24,updateFrequency = 5)
+	public static EntityItemSoul entity_item_soul;
 }

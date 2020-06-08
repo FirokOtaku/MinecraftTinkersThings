@@ -2,6 +2,7 @@ package firok.tiths.common;
 
 
 import baubles.api.BaublesApi;
+import baubles.api.cap.BaublesContainer;
 import firok.tiths.TinkersThings;
 import firok.tiths.entity.special.EnderBeacon;
 import firok.tiths.intergration.conarm.ArmorEvents;
@@ -48,10 +49,13 @@ import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
+import net.minecraftforge.fml.common.network.FMLNetworkEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.tconstruct.library.events.TinkerCraftingEvent;
@@ -626,5 +630,41 @@ public class Events
 			event.result=fluidStack;
 		}
 
+	}
+
+	@SideOnly(Side.SERVER)
+	@SubscribeEvent
+	public static void onServerTick(TickEvent.ServerTickEvent event)
+	{
+		Datas.Server server=Datas.Server.instance();
+		if(event.phase == TickEvent.Phase.END && server != null)
+		{
+			server.update();
+		}
+	}
+
+	@SideOnly(Side.CLIENT)
+	@SubscribeEvent
+	public static void onClientConnect(FMLNetworkEvent.ClientConnectedToServerEvent event)
+	{
+		Datas.Client.init();
+	}
+
+	@SideOnly(Side.CLIENT)
+	@SubscribeEvent
+	public static void onClientDisconnect(FMLNetworkEvent.ClientDisconnectionFromServerEvent event)
+	{
+		Datas.Client.uninit();
+	}
+
+	@SideOnly(Side.CLIENT)
+	@SubscribeEvent
+	public static void onClientTick(TickEvent.ClientTickEvent event)
+	{
+		Datas.Client client=Datas.Client.instance();
+		if(event.phase == TickEvent.Phase.END && client != null)
+		{
+			client.update();
+		}
 	}
 }

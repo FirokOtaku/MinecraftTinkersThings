@@ -1,6 +1,7 @@
 package firok.tiths.world;
 
 import com.google.gson.JsonObject;
+import firok.tiths.common.Keys;
 import firok.tiths.util.Predicates;
 import net.minecraft.block.state.IBlockState;
 
@@ -273,8 +274,8 @@ public class Info
 		ret.whitelistDims=whitelistDims;
 		ret.blacklistDims=blacklistDims;
 		ret.strategyBiome=strategyBiome;
-		ret.whitelistBiomes =whitelistBiome;
-		ret.blacklistBiomes =blacklistBiome;
+		ret.whitelistBiomes =Keys.getBiomes(whitelistBiome);
+		ret.blacklistBiomes =Keys.getBiomes(blacklistBiome);
 		ret.selector=selector;
 		ret.minY=minY;
 		ret.maxY=maxY;
@@ -320,8 +321,8 @@ public class Info
 		getIntegers(json,"whitelist_dims",v->ret.whitelistDims=__(v)?arr(v):null);
 		getIntegers(json,"blacklist_dims",v->ret.blacklistDims=__(v)?arr(v):null);
 		getStr(json,"strategy_biome",v->ret.strategyBiome=Strategy.getStrategy(v,null));
-		getStrs(json,"whitelist_biomes",v->ret.whitelistBiomes =v);
-		getStrs(json,"blacklist_biomes",v->ret.blacklistBiomes =v);
+		getStrs(json,"whitelist_biomes",v->ret.whitelistBiomes = Keys.getBiomes(v));
+		getStrs(json,"blacklist_biomes",v->ret.blacklistBiomes = Keys.getBiomes(v));
 		getStr(json,"selector",v->ret.selector=Predicates.getPredicateIBlockState(v,null));
 		getInteger(json,"min_y",v->ret.minY=v);
 		getInteger(json,"max_y",v->ret.maxY=v);

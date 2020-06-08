@@ -1,6 +1,5 @@
 package firok.tiths.block;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -9,17 +8,14 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 //@SuppressWarnings("all")
-public class BlockCloud extends Block
+public class BlockCloud extends BlockCompressed
 {
 	protected static final AxisAlignedBB AABB_BOTTOM_HALF = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.5D, 1.0D);
 	public BlockCloud()
@@ -39,6 +35,7 @@ public class BlockCloud extends Block
 		this.setLightOpacity(255);
 		this.setHardness(0.4F);
 		this.setSoundType(SoundType.CLOTH);
+		this.enableTransparent();
 	}
 
 	protected boolean canSilkHarvest()
@@ -95,80 +92,6 @@ public class BlockCloud extends Block
 		return false;
 	}
 
-
-//	@Override
-//	public boolean doesSideBlockRendering(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face)
-//	{
-//		if (net.minecraftforge.common.ForgeModContainer.disableStairSlabCulling)
-//			return super.doesSideBlockRendering(state, world, pos, face);
-//
-//		if ( state.isOpaqueCube() )
-//			return true;
-//
-//		BlockSlab.EnumBlockHalf side = state.getValue(HALF);
-//		return (side == BlockSlab.EnumBlockHalf.TOP && face == EnumFacing.UP) || (side == BlockSlab.EnumBlockHalf.BOTTOM && face == EnumFacing.DOWN);
-//	}
-
-
-	public boolean isFullCube(IBlockState state)
-	{
-		return false;
-	}
-
-	@SideOnly(Side.CLIENT)
-	public BlockRenderLayer getBlockLayer()
-	{
-		return BlockRenderLayer.CUTOUT;
-	}
-
-	@SideOnly(Side.CLIENT)
-	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side)
-	{
-		return super.shouldSideBeRendered(blockState, blockAccess, pos, side);
-//		if (this.isDouble())
-//		{
-//			return super.shouldSideBeRendered(blockState, blockAccess, pos, side);
-//		}
-//		else if (side != EnumFacing.UP && side != EnumFacing.DOWN && !super.shouldSideBeRendered(blockState, blockAccess, pos, side))
-//		{
-//			return false;
-//		}
-//		else if (false) // Forge: Additional logic breaks doesSideBlockRendering and is no longer useful.
-//		{
-//			IBlockState iblockstate = blockAccess.getBlockState(pos.offset(side));
-//			boolean flag = isHalfSlab(iblockstate) && iblockstate.getValue(HALF) == BlockSlab.EnumBlockHalf.TOP;
-//			boolean flag1 = isHalfSlab(blockState) && blockState.getValue(HALF) == BlockSlab.EnumBlockHalf.TOP;
-//
-//			if (flag1)
-//			{
-//				if (side == EnumFacing.DOWN)
-//				{
-//					return true;
-//				}
-//				else if (side == EnumFacing.UP && super.shouldSideBeRendered(blockState, blockAccess, pos, side))
-//				{
-//					return true;
-//				}
-//				else
-//				{
-//					return !isHalfSlab(iblockstate) || !flag;
-//				}
-//			}
-//			else if (side == EnumFacing.UP)
-//			{
-//				return true;
-//			}
-//			else if (side == EnumFacing.DOWN && super.shouldSideBeRendered(blockState, blockAccess, pos, side))
-//			{
-//				return true;
-//			}
-//			else
-//			{
-//				return !isHalfSlab(iblockstate) || flag;
-//			}
-//		}
-//		return super.shouldSideBeRendered(blockState, blockAccess, pos, side);
-	}
 
 	@Override
 	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity en)

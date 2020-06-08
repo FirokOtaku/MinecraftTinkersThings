@@ -1,25 +1,43 @@
 package firok.tiths.client.render;
 
 import firok.tiths.TinkersThings;
+import firok.tiths.client.render.item.RendererEntityItemSoul;
 import firok.tiths.common.Blocks;
 import firok.tiths.common.Fluids;
 import firok.tiths.common.Items;
+import firok.tiths.entity.item.EntityItemSoul;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.client.gui.ScaledResolution;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.ItemMeshDefinition;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
+import net.minecraft.client.renderer.entity.RenderLivingBase;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.IMob;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.event.*;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 
 import java.lang.reflect.Field;
+
+import static firok.tiths.common.Potions.forcibleFocused;
+import static net.minecraft.init.MobEffects.SLOWNESS;
 
 @Mod.EventBusSubscriber(value = Side.CLIENT,modid = TinkersThings.MOD_ID)
 public class RendererRegistry
@@ -48,6 +66,76 @@ public class RendererRegistry
 //	{
 //		;
 //	}
+
+	@SubscribeEvent
+	public static <T extends EntityLivingBase> void onRenderEntity(RenderLivingEvent.Pre<T> event)
+	{
+//		try
+//		{
+//			EntityLivingBase enlb=event.getEntity();
+//			Minecraft mc=Minecraft.getMinecraft();
+//
+//			EntityPlayerSP player=mc.player;
+//			EntityLivingBase attacked=player.getLastAttackedEntity();
+//			int time=player.getLastAttackedEntityTime();
+//
+////			if(player.ticksExisted % 20==0)
+////			{
+////				System.out.println("triggered!");
+////			}
+//
+//			if(enlb.getActivePotionEffect(SLOWNESS)==null) return;
+//
+//
+////			if(/* !(enlb instanceof IMob) || */
+////			   attacked == null || !attacked.isEntityAlive() ||
+////			   mc.player.ticksExisted - time > 100
+////			   ) return;
+//
+//			event.setCanceled(true);
+//			// .objectMouseOver
+////			RenderLivingBase<T> render=event.getRenderer();
+//
+////			if(player.ticksExisted % 20==0)
+////			{
+////				System.out.print("canceled!");
+////			}
+//
+//		}
+//		catch (Exception ignored) { ignored.printStackTrace(); }
+	}
+
+	@SubscribeEvent()
+	public static void onRenderGameOverlayEvent(RenderGameOverlayEvent.Pre event)
+	{
+		if(true) return;
+		renderPumpkinOverlay(event.getResolution());
+	}
+
+	private static ResourceLocation TEXTURE_LIGHT_RING=new ResourceLocation(TinkersThings.MOD_ID,"misc/light_ring.png");
+
+	protected static void renderPumpkinOverlay(ScaledResolution scaledRes)
+	{
+		GlStateManager.disableDepth();
+		GlStateManager.depthMask(false);
+		GlStateManager.tryBlendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
+		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+		GlStateManager.disableAlpha();
+		Minecraft.getMinecraft().getTextureManager().bindTexture(TEXTURE_LIGHT_RING);
+		Tessellator tessellator = Tessellator.getInstance();
+		BufferBuilder bufferbuilder = tessellator.getBuffer();
+		bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX);
+		bufferbuilder.pos(0.0D, (double)scaledRes.getScaledHeight(), -90.0D).tex(0.0D, 1.0D).endVertex();
+		bufferbuilder.pos((double)scaledRes.getScaledWidth(), (double)scaledRes.getScaledHeight(), -90.0D).tex(1.0D, 1.0D).endVertex();
+		bufferbuilder.pos((double)scaledRes.getScaledWidth(), 0.0D, -90.0D).tex(1.0D, 0.0D).endVertex();
+		bufferbuilder.pos(0.0D, 0.0D, -90.0D).tex(0.0D, 0.0D).endVertex();
+		tessellator.draw();
+		GlStateManager.depthMask(true);
+		GlStateManager.enableDepth();
+		GlStateManager.enableAlpha();
+		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+	}
+
 	@SubscribeEvent
 	public static void registerRenderers(ModelRegistryEvent event)
 	{
@@ -59,6 +147,11 @@ public class RendererRegistry
 //				ProjectileItemPotionTransform.class,
 //				RendererProjectileItemPotionTransform::new
 //		);
+
+		RenderingRegistry.registerEntityRenderingHandler(
+				EntityItemSoul.class,
+				RendererEntityItemSoul::new
+		);
 
 		for(Field field: Items.class.getDeclaredFields())
 		{
@@ -75,8 +168,8 @@ public class RendererRegistry
 			}
 			catch (Exception e)
 			{
-				System.out.println("error when registering item texture");
-				System.out.println("field:"+field);
+				TinkersThings.log("error when registering item texture");
+				TinkersThings.log("field:"+field);
 				e.printStackTrace();
 			}
 		}
@@ -96,8 +189,8 @@ public class RendererRegistry
 			}
 			catch (Exception e)
 			{
-				System.out.println("error when registering block texture");
-				System.out.println("field:"+field);
+				TinkersThings.log("error when registering block texture");
+				TinkersThings.log("field:"+field);
 				e.printStackTrace();
 			}
 		}
@@ -127,8 +220,8 @@ public class RendererRegistry
 			}
 			catch (Exception e)
 			{
-				System.out.println("error when registering fluid texture");
-				System.out.println("field:"+field);
+				TinkersThings.log("error when registering fluid texture");
+				TinkersThings.log("field:"+field);
 				e.printStackTrace();
 			}
 		}

@@ -5,7 +5,7 @@ import net.minecraftforge.common.IRarity;
 
 public enum TithsRarity implements IRarity
 {
-	CreativeOnlu("CreativeOnly",TextFormatting.DARK_RED),
+	CreativeOnly("CreativeOnly",TextFormatting.DARK_RED),
 	Indev("Indev",TextFormatting.DARK_GREEN),
 	Special("Special",TextFormatting.BLUE),
 	;

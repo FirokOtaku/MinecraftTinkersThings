@@ -111,6 +111,8 @@ tile.tiths.block_heavesand.name=Block of Heavesand
 tile.tiths.block_chloroplast.name=Block of Chloroplast
 tile.tiths.block_torrential_crystal.name=Block of Torrential Crystal (WIP)
 tile.tiths.block_colorful_glass.name=Colorful Glass Block
+tile.tiths.block_creep_soil.name=Creep Soil
+tile.tiths.block_creep_soil.desc=Heal the arthropoda creatures<br>Only arthropods are allowed to spawn above
 
 ## fluids
 fluid.royal_alloy.name=Molten Royal Alloy
@@ -473,6 +475,10 @@ modifier.sovereign.name=Sovereign
 modifier.sovereign.desc=§oPower of black king§r\nTo let the target fear with a small chance
 modifier.torrential.name=Torrential
 modifier.torrential.desc=§oHappiness of water§r\nTo increase knockback when in water or rain
+modifier.turbulent.name=Turbulent
+modifier.turbulent.desc=§oWhere are you going?§r\nEngage enemies in water in turbulence
+modifier.eddying.name=Eddying
+modifier.eddying.desc=§o §r\nEngage enemies in water in eddy
 
 ## armor modifiers
 modifier.carbonizing_armor.name=Carbonizing
@@ -554,7 +560,7 @@ modifier.turbulent_armor.desc=§oGet away from me!§r\nTo push attacker away whe
 modifier.hydrating_armor.name=Hydrating
 modifier.hydrating_armor.desc=§oTogether§r\nTo store water when in water or rain to decrease damage
 modifier.photosynthetic_armor.name=Photosynthetic
-modifier.photosynthetic_armor.desc=§o要有光§r\n在光亮的地方提供氧气
+modifier.photosynthetic_armor.desc=§oLet there be light§r\nTo provide oxygen in bright places
 
 ## potions
 effect.heavy=Heavy
@@ -623,10 +629,30 @@ splash_potion.effect.icy=Splash Potion of Icy
 tipped_arrow.effect.icy=Arrow of Icy
 lingering_potion.effect.icy=Lingering Potion of Icy
 
+effect.turbulent=Turbulent
+potion.effect.turbulent=Potion of Turbulent
+splash_potion.effect.turbulent=Splash Potion of Turbulent
+tipped_arrow.effect.turbulent=Arrow of Turbulent
+lingering_potion.effect.turbulent=Lingering Potion of Turbulent
+
+effect.eddying=Eddying
+potion.effect.eddying=Potion of Eddying
+splash_potion.effect.eddying=Splash Potion of Eddying
+tipped_arrow.effect.eddying=Arrow of Eddying
+lingering_potion.effect.eddying=Lingering Potion of Eddying
+
+effect.bubbling=Bubbling
+potion.effect.bubbling=Potion of Bubbling
+splash_potion.effect.bubbling=Splash Potion of Bubbling
+tipped_arrow.effect.bubbling=Arrow of Bubbling
+lingering_potion.effect.bubbling=Lingering Potion of Bubbling
+
 ## damage sources
 death.attack.san=%1$s has some mental problem
 death.attack.birefringent=%1$s was refracted into pieces
 death.attack.pyroelectric=Heart of %1$s was paralyzed
+death.attack.dragon_killer=%1$s died of slaughter
+death.attack.diffuse_reflecting=%1$s is reflecting light irregularly
 
 ## warning
 warning.tiths.release=[Tinkers' Things] Welcome to use this mod! (This message can be disabled in config)
@@ -639,3 +665,4 @@ tooltip.tiths.item_xp.when_use=Exp get when used:
 tooltip.tiths.beacon_base=Can be used as beacon base
 tooltip.tiths.soul_storing=Soul Stored +%d (-%d)
 tooltip.tiths.soul_drop=Soul Gathering Boost +%d
+tooltip.tiths.soul_watching=Providing Soul Wathcing

@@ -3,6 +3,7 @@ package firok.tiths.common;
 import firok.tiths.block.*;
 import firok.tiths.util.reg.GenOre;
 import firok.tiths.util.reg.Reg;
+import firok.tiths.world.Strategy;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -32,7 +33,7 @@ public final class Blocks
 	public static final BlockOre oreInkPowder = new BlockOre(Items.inkPowder,2,4,2,2,7).setCommonOre(); // 墨粉矿石
 
 	@Reg(Keys.oreImmersedSilver)
-	@GenOre(times=4,timeRate=0.8,size=6,minY = 12,maxY = 56)
+	@GenOre(times=4,timeRate=0.8,size=6,minY = 12,maxY = 56,biome = Strategy.ONLY_WHITELIST,biomeWL = {})
 	public static final BlockOre oreImmersedSilver = new BlockOre().setVeryRareOre(); // 沉银矿石
 
 	@Reg(value=Keys.oreMithril,od={"oreMithril"})
@@ -95,7 +96,7 @@ public final class Blocks
 	@GenOre(times=2,timeRate = 0.8f,size=6,minY = 24,maxY = 56)
 	public static final BlockOre oreTopaz = new BlockOre(Items.topaz,1,1,1,4,6).setRareOre();
 	@Reg(Keys.oreLizanite)
-	@GenOre(times=2,timeRate = 0.8f,size=6,minY = 24,maxY = 56)
+	@GenOre(times=2,timeRate = 0.8f,size=6,minY = 10,maxY = 120,dim=Strategy.ONLY_WHITELIST,dimsWL = -1,selector = "netherrack")
 	public static final BlockOre oreLizanite = new BlockOre(Items.lizanite,1,1,1,4,6).setRareOre();
 	@Reg(Keys.oreCordierite)
 	@GenOre(times=2,timeRate = 0.8f,size=6,minY = 24,maxY = 56)
@@ -110,7 +111,7 @@ public final class Blocks
 //	@GenOre(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
 	public static final BlockOre oreLavaCrystal = new BlockOre(Items.lavaCrystal,1,1,1,3,6).setVeryRareOre();
 	@Reg(Keys.oreAventurine)
-	@GenOre(times=2,timeRate = 0.8f,size=6,minY = 24,maxY = 56)
+//	@GenOre(times=2,timeRate = 0.8f,size=6,minY = 24,maxY = 56)
 	public static final BlockOre oreAventurine = new BlockOre(Items.aventurine,1,1,1,4,6).setRareOre().enableTransparent();
 	@Reg(Keys.oreUlun)
 	@GenOre(times=2,timeRate = 0.8f,size=6,minY = 24,maxY = 56)
@@ -151,7 +152,7 @@ public final class Blocks
 	@GenOre(times=1,timeRate=0.36,size=5,minY=40,maxY=180)
 	public static final BlockOre oreStellarium = new BlockOre().setEpicOre(); // 恒星金属矿
 	@Reg(Keys.oreVibratingCrystal)
-	@GenOre(times=2,timeRate=0.8f,size=6,minY=16,maxY=32)
+	@GenOre(times=8,timeRate=0.8f,size=12,minY=5,maxY=160,dim=Strategy.ONLY_WHITELIST,dimsWL = 1,selector = "end_stone")
 	public static final BlockOre oreVibratingCrystal = new BlockOre(Items.vibratingCrystal,1,3,1,5,7).setVeryRareOre(); // 振晶矿
 	@Reg(Keys.oreSteamium)
 	@GenOre(times=4,size=9,minY=16,maxY=56)
@@ -317,6 +318,9 @@ public final class Blocks
 //	public static final Block blockRoyalEnchantmentTable = new BlockEnchantmentTable(){}; // todo
 	@Reg(Keys.blockColorfulGlass)
 	public static final Block blockColorfulGlass = new BlockCompressed(Material.GLASS).enableTransparent().setHardness(0.2f); // 彩色玻璃
+
+	@Reg(Keys.blockCreepSoil)
+	public static final Block blockCreepSoil = new BlockCreepSoil(); // 虫苔
 
 	// 植物
 //	@Reg(Keys.saplingHura)

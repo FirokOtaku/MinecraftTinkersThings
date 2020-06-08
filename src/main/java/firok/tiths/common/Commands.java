@@ -1,11 +1,8 @@
 package firok.tiths.common;
 
 import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import firok.tiths.TinkersThings;
 import firok.tiths.util.InnerActions;
-import firok.tiths.world.WorldGens;
-import mezz.jei.util.FileUtil;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
@@ -17,7 +14,6 @@ import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.commons.io.FileUtils;
 
 import javax.annotation.Nullable;

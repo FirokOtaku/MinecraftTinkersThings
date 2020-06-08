@@ -26,10 +26,11 @@ public class TraitArmorPhotosynthetic extends AbstractArmorTrait
 		if(!world.isRemote && canTick(world,20,0))
 		{
 			int light=Actions.getLight(player);
-			if(light>8)
+//			System.out.printf("light:%d\n",light);
+			if(light>6)
 			{
 				int airOrigin=player.getAir();
-				int airNew=Math.min(airOrigin+light-8,300);
+				int airNew=Math.min(airOrigin+(light-6)*2,300);
 				player.setAir(airNew);
 			}
 		}

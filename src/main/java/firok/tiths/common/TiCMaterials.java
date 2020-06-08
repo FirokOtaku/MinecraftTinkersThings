@@ -344,6 +344,7 @@ public final class TiCMaterials
 			.addItemAsIngot(Items.tourmaline);
 
 	@Compo(value = nameTonium,traitsTool = {nameTraitRepressing},traitsBow = {nameTraitRepressing},traitsArmor = {nameTraitSteady})
+	@CompoHead(durability=690,miningspeed=2.5,attack=7.8,harvestLevel=4,traits={  })
 	@CompoHandle(modifier=0.9,durability=180,traits={  })
 	@CompoExtra(extraDurability=350,traits={  })
 	@CompoBow(drawSpeed=0.6,range=1.4,bonusDamage=4,traits={  })
@@ -573,7 +574,7 @@ public final class TiCMaterials
 
 	@Compo(value = nameTorrentialCrystal,traitsArmor = { nameTraitTurbulent })
 	@CompoHead(durability = 100,miningspeed = 1,attack = 1,harvestLevel = 4,traits = {nameTraitTorrential})
-	@CompoHandle(modifier=0.98,durability=120,traits={ nameTraitThermalGathering })
+	@CompoHandle(modifier=0.98,durability=120,traits={ nameTraitEddying })
 	@CompoExtra(extraDurability=45,traits={ nameTraitFlammable })
 	@CompoArmorCore(durability=5.4,defense=6.8,traits={  })
 	@CompoArmorPlate(modifier=0.8,durability=7,toughness=1.4,traits={  })

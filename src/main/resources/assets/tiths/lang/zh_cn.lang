@@ -112,6 +112,8 @@ tile.tiths.block_heavesand.name=沉沙石块
 tile.tiths.block_chloroplast.name=叶绿块
 tile.tiths.block_torrential_crystal.name=激流水晶块 (WIP)
 tile.tiths.block_colorful_glass.name=彩色玻璃块
+tile.tiths.block_creep_soil.name=虫苔
+tile.tiths.block_creep_soil.desc=治愈节肢类生物<br>仅允许节肢生物在上方生成
 
 ## fluids
 fluid.royal_alloy.name=熔融奢华合金
@@ -485,6 +487,10 @@ modifier.sovereign.name=君临
 modifier.sovereign.desc=§o黑皇降临§r\n有几率使怪物恐惧
 modifier.torrential.name=激流
 modifier.torrential.desc=§o水之高兴§r\n在水中或淋雨时增加击退
+modifier.turbulent.name=乱流
+modifier.turbulent.desc=§o你想去哪?§r\n使水中的敌人陷入乱流
+modifier.eddying.name=漩流
+modifier.eddying.desc=§o §r\n使水中的敌人陷入涡流
 
 ## armor modifiers
 modifier.carbonizing_armor.name=碳化
@@ -635,10 +641,30 @@ splash_potion.effect.icy=喷溅型清凉药水
 tipped_arrow.effect.icy=清凉之箭
 lingering_potion.effect.icy=滞留型清凉药水
 
+effect.turbulent=乱流
+potion.effect.turbulent=乱流药水
+splash_potion.effect.turbulent=喷溅型乱流药水
+tipped_arrow.effect.turbulent=乱流之箭
+lingering_potion.effect.turbulent=滞留型乱流药水
+
+effect.eddying=旋流
+potion.effect.eddying=旋流药水
+splash_potion.effect.eddying=喷溅型旋流药水
+tipped_arrow.effect.eddying=旋流之箭
+lingering_potion.effect.eddying=滞留型旋流药水
+
+effect.bubbling=发泡
+potion.effect.bubbling=发泡药水
+splash_potion.effect.bubbling=喷溅型发泡药水
+tipped_arrow.effect.bubbling=发泡之箭
+lingering_potion.effect.bubbling=滞留型发泡药水
+
 ## damage sources
 death.attack.san=%1$s遇到了一点精神问题
 death.attack.birefringent=%1$s被折射成了碎片
 death.attack.pyroelectric=%1$s的心脏陷入了麻痹
+death.attack.dragon_killer=%1$s死于屠宰
+death.attack.diffuse_reflecting=%1$s正在不规则反射光线
 
 ## warning
 warning.tiths.release=[匠魂扩增] 欢迎使用匠魂扩增模组! (可以在配置中禁用此提示信息)
@@ -664,6 +690,7 @@ tooltip.tiths.item_xp.when_use=使用后获得经验:
 tooltip.tiths.beacon_base=可用作信标基座
 tooltip.tiths.soul_storing=灵魂储量 +%d (-%d)
 tooltip.tiths.soul_drop=灵魂击杀掉落增益 +%d
+tooltip.tiths.soul_watching=提供灵魂视野
 
 ## page
 page.tiths.null=空页面内容

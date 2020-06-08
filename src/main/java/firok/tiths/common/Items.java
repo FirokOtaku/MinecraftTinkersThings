@@ -20,9 +20,9 @@ public final class Items
 	private Items() {}
 
 	@Reg("debug")
-	public static final Item debug = new ItemDebug().setRarity(TithsRarity.CreativeOnlu); // 调试工具
+	public static final Item debug = new ItemDebug().setRarity(TithsRarity.CreativeOnly); // 调试工具
 	@Reg("debug_clear_stone")
-	public static final Item debugClearStone = new ItemDebugClearStone().setRarity(TithsRarity.CreativeOnlu); // 调试工具-清空石头
+	public static final Item debugClearStone = new ItemDebugClearStone().setRarity(TithsRarity.CreativeOnly); // 调试工具-清空石头
 
 	// 原材料 - 怪物掉落
 	@Reg(nameSpiderLeg)
@@ -296,7 +296,16 @@ public final class Items
 	@Reg(nameAmuletSoulStone)
 	public static final Item amuletSoulStone = new ItemSoulStone().setRarity(EnumRarity.RARE); // 灵魂石护身符
 	@Reg(nameAmuletSoulStone + "_infinite")
-	public static final Item amuletSoulStoneCreative = new ItemSoulStoneCreative().setRarity(TithsRarity.CreativeOnlu); // 创造模式灵魂石护身符
+	public static final Item amuletSoulStoneCreative = new ItemSoulStoneCreative().setRarity(TithsRarity.CreativeOnly); // 创造模式灵魂石护身符
+	@Reg("ring_soul_gather")
+	public static final Item ringSoulGather = new ItemSoulGatherBauble(BaubleType.RING,1,0);
+	public static final Item ringSoulGatherCreative = new ItemSoulGatherBauble(BaubleType.RING,100,0).setRarity(TithsRarity.CreativeOnly);
+
+	@Reg("charm_soul_watcher")
+	public static final Item charmSoulWatcher = new ItemSoulWatchBauble(BaubleType.CHARM).setRarity(EnumRarity.UNCOMMON);
+	@Reg("belt_soul_watcher")
+	public static final Item beltSoulWatcher = new ItemSoulWatchBauble(BaubleType.BELT).setRarity(EnumRarity.UNCOMMON);
+
 	@Reg(nameSoulBeacon)
 	public static final Item soulBeacon = new ItemSoulBeacon().setRarity(EnumRarity.RARE); // 灵魂信标
 

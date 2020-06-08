@@ -46,6 +46,8 @@ public final class PotionTypes
 			new PotionEffect(Potions.bubbling,3600,0));
 	public static final PotionType turbulent=new PotionType("turbulent",
 			new PotionEffect(Potions.turbulent,3600,0));
+	public static final PotionType eddying=new PotionType("eddying",
+			new PotionEffect(Potions.eddying,3600,0));
 //	public static final PotionType forcibleFocused=new PotionType("forcibleFocused",
 //			new PotionEffect(Potions.forcibleFocused,3600,0));
 
