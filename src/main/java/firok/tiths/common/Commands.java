@@ -37,7 +37,7 @@ public class Commands implements ICommand
 	@Override
 	public String getUsage(ICommandSender sender)
 	{
-		return "/tiths damage [amount]";
+		return "/tiths";
 	}
 
 	@Override
