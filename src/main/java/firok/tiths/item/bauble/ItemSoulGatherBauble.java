@@ -1,6 +1,7 @@
-package firok.tiths.item;
+package firok.tiths.item.bauble;
 
 import baubles.api.BaubleType;
+import firok.tiths.item.ISoulGather;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;

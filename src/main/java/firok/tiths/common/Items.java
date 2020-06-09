@@ -3,6 +3,7 @@ package firok.tiths.common;
 import baubles.api.BaubleType;
 import firok.tiths.TinkersThings;
 import firok.tiths.item.*;
+import firok.tiths.item.bauble.*;
 import firok.tiths.util.reg.Reg;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.EnumRarity;
@@ -154,6 +155,10 @@ public final class Items
 	public static final Item nuggetSteamium = new ItemCustom(); // 气钢粒
 	@Reg(Keys.nuggetChloroplast)
 	public static final Item nuggetChloroplast = new ItemCustom(); // 叶绿粒
+	@Reg(Keys.nuggetTanatonium)
+	public static final Item nuggetTanatonium = new ItemCustom(); // 塔拉特妮姆粒
+	@Reg(Keys.nuggetImitatium)
+	public static final Item nuggetImitatium = new ItemCustom(); // 拟素粒
 
 	// 原材料 - 金属锭
 	@Reg(Keys.ingotStellarium)
@@ -194,6 +199,10 @@ public final class Items
 	public static final Item ingotGrain = new ItemCustom(); // 谷砖
 	@Reg(Keys.ingotChloroplast)
 	public static final Item ingotChloroplast = new ItemCustom(); // 叶绿锭
+	@Reg(Keys.ingotTanatonium)
+	public static final Item ingotTanatonium = new ItemCustom(); // 塔拉特妮姆锭
+	@Reg(Keys.ingotImitatium)
+	public static final Item ingotImitatium = new ItemCustom(); // 拟素锭
 
 	// 粉末
 	@Reg(Keys.dustBlackrock)
@@ -297,6 +306,8 @@ public final class Items
 	public static final Item amuletSoulStone = new ItemSoulStone().setRarity(EnumRarity.RARE); // 灵魂石护身符
 	@Reg(nameAmuletSoulStone + "_infinite")
 	public static final Item amuletSoulStoneCreative = new ItemSoulStoneCreative().setRarity(TithsRarity.CreativeOnly); // 创造模式灵魂石护身符
+	@Reg(nameAmuletPerturbance)
+	public static final Item amuletPerturbance = new ItemAmuletPerturbance().setRarity(EnumRarity.RARE); // 扰动护符
 	@Reg("ring_soul_gather")
 	public static final Item ringSoulGather = new ItemSoulGatherBauble(BaubleType.RING,1,0);
 	public static final Item ringSoulGatherCreative = new ItemSoulGatherBauble(BaubleType.RING,100,0).setRarity(TithsRarity.CreativeOnly);

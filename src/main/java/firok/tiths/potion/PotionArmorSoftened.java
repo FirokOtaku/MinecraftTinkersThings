@@ -1,9 +1,7 @@
 package firok.tiths.potion;
 
-import firok.tiths.TinkersThings;
 import firok.tiths.common.Keys;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.util.ResourceLocation;
 
 import static firok.tiths.common.Keys.uuidPotionArmorSoftenedArmor;
 import static firok.tiths.common.Keys.uuidPotionArmorSoftenedArmorToughness;

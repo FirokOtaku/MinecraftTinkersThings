@@ -45,5 +45,6 @@ public final class Potions
 	public static BasePotion turbulent = new PotionTurbulent(); // 乱流
 	public static BasePotion forcibleFocused = new PotionForcibleFocused(); // 强制专注
 	public static BasePotion eddying = new PotionEddying(); // 旋流
+	public static BasePotion eroded = new PotionEroded(); // 侵蚀
 
 }

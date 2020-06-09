@@ -1,7 +1,8 @@
-package firok.tiths.item;
+package firok.tiths.item.bauble;
 
 import baubles.api.BaubleType;
 import baubles.api.IBauble;
+import firok.tiths.item.ItemCustom;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 

@@ -2,6 +2,7 @@ package firok.tiths.common;
 
 import firok.tiths.traits.*;
 import net.minecraft.init.MobEffects;
+import net.minecraft.item.ItemStack;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
 import static firok.tiths.common.Keys.colorTraitAntiPoisonous;
@@ -14,7 +15,9 @@ public final class Traits
 
 //	public static final AbstractTrait wrapping=new TraitWrapping(); // 折跃
 //	static{wrapping.addItem(Items.enderGem);}
+	public static AbstractTrait annihilating; // 湮灭
 	public static AbstractTrait antiGrav; // 反重力
+	public static AbstractTrait aquatic; // 水生
 	public static AbstractTrait antiPoisonous;
 	public static AbstractTrait battleFocusing; // 战斗专注
 	public static AbstractTrait birefringent; // 双折
@@ -28,9 +31,11 @@ public final class Traits
 	public static AbstractTrait combustionSupporting; // 助燃
 	public static AbstractTrait creaky; // 喀嚓
 	public static AbstractTrait decoying; // 诱食
+	public static AbstractTrait degenerating; // 简并
 	public static AbstractTrait dichroic; // 二色性
 	public static AbstractTrait dragonKiller; // 屠龙者
 	public static AbstractTrait eddying; // 旋流
+	public static AbstractTrait eroding; // 侵蚀
 	public static AbstractTrait extremeFreezing; // 极寒
 	public static AbstractTrait gluttonic; // 暴食
 	public static AbstractTrait gorgeous; // 斑斓
@@ -51,6 +56,7 @@ public final class Traits
 	public static AbstractTrait peaceEnergetic; // 平和能量
 	public static AbstractTrait pyroelectric; // 热释电
 	public static AbstractTrait radiant; // 辉耀
+	public static AbstractTrait recombining; // 重组
 	public static AbstractTrait repressing; // 压制
 	public static AbstractTrait retrospective; // 后知
 	public static AbstractTrait shaking; // 撼击
@@ -78,9 +84,11 @@ public final class Traits
 
 	public static void init()
 	{
+		annihilating = new TraitAnnihilating();
 		antiGrav = new TraitAntiGrav();
+		aquatic = new TraitAquatic();
 		antiPoisonous = new AbstractTraitAntiEffect(nameTraitAntiPoisonous, colorTraitAntiPoisonous, 80, 3, 0.6f, MobEffects.POISON);
-//		battleFocusing = new TraitBattleFocusing();
+		battleFocusing = new TraitBattleFocusing();
 		birefringent = new TraitBirefringent();
 		blowing = new TraitBlowing();
 		carbonizing = new TraitCarbonizing();
@@ -92,9 +100,11 @@ public final class Traits
 		combustionSupporting=new TraitCombustionSupporting();
 		creaky = new TraitCreaky();
 		decoying = new TraitDecoying();
+		degenerating = new TraitDegenerating();
 		dichroic = new TraitDichroic();
 		dragonKiller = new TraitDragonKiller();
 		eddying = new TraitEddying();
+		eroding = new TraitEroding();
 		extremeFreezing = new TraitExtremeFreezing();
 		gluttonic = new TraitGluttonic();
 		gorgeous = new TraitGorgeous();
@@ -115,6 +125,7 @@ public final class Traits
 		peaceEnergetic = new TraitPeaceEnergetic();
 		pyroelectric = new TraitPyroelectric();
 		radiant = new TraitRadiant();
+		recombining = new TraitRecombining();
 		repressing = new TraitRepressing();
 		retrospective = new TraitRetrospective();
 		shaking = new TraitShaking();
@@ -141,6 +152,7 @@ public final class Traits
 
 	public static void postInit()
 	{
+		aquatic.addItem(new ItemStack(Blocks.blockSeaGrass),1,1);
 		inky.addItem(Items.inkySlime);
 //		stonePhasing.addItem(Items.phasingGem);
 	}

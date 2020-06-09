@@ -160,6 +160,10 @@ public final class Blocks
 	@Reg(Keys.oreChloroplast)
 	@GenOre(times=2,timeRate = 1,size=6,minY=56,maxY=128)
 	public static final Block oreChloroplast = new BlockOreChloroplast().setVeryRareOre(); // 叶绿矿
+	@Reg(Keys.oreTanatonium)
+	public static final Block oreTanatonium = new BlockOre().setEpicOre().setLightLevel(0.2f); // 塔拉特妮姆尘埃
+	@Reg(Keys.oreImitatium)
+	public static final Block oreImitatium = new BlockOre(Items.nuggetImitatium,3,6,2,6,10).setEpicOre(); // 拟素矿
 
 	@Reg(Keys.oreTreeRoot)
 	public static final Block oreTreeRoot = new BlockOre(Material.WOOD,Material.WOOD.getMaterialMapColor(),Items.treeRoot,1,3,1,2,4)
@@ -186,7 +190,7 @@ public final class Blocks
 	@Reg(Keys.blockInkPowder)
 	public static final Block blockInkPowder = new BlockCompressed(); // 墨粉块
 	@Reg(Keys.blockStellarium)
-	public static final Block blockStellarium = new BlockCompressed().setBeaconBase(); // 恒星金属块
+	public static final Block blockStellarium = new BlockCompressed().setBeaconBase().setLightLevel(1); // 恒星金属块
 	@Reg(Keys.blockRoyalAlloy)
 	public static final Block blockRoyalAlloy = new BlockCompressed().setBeaconBase(); // 奢华合金块
 	@Reg(Keys.blockIrisia)
@@ -273,6 +277,10 @@ public final class Blocks
 	public static final Block blockChloroplast = new BlockCompressed().setBeaconBase(); // 叶绿块
 	@Reg(Keys.blockTorrentialCrystal)
 	public static final Block blockTorrentialCrystal = new BlockCompressed(Material.ROCK).setBeaconBase(); // 激流水晶块
+	@Reg(Keys.blockTanatonium)
+	public static final Block blockTanatonium = new BlockCompressed().setBeaconBase().setLightLevel(1); // 塔拉特妮姆块
+	@Reg(Keys.blockImitatium)
+	public static final Block blockImitatium = new BlockCompressed().setBeaconBase(); // 拟素块
 
 	@Reg(Keys.blockStellariumObsidian)
 	public static final Block blockStellariumObsidian = new Block(Material.ROCK); // 恒星黑曜石

@@ -52,6 +52,8 @@ tile.tiths.ore_torrential_crystal.name=Torrential Crystal Ore (WIP)
 tile.tiths.ore_solid_dirt.name=Solid Dirt Ore
 tile.tiths.ore_solid_sand.name=Solid Sand Ore
 tile.tiths.ore_solid_stone.name=Solid Stone Ore
+tile.tiths.ore_tanatonium.name=Tanatonium Dust
+tile.tiths.ore_imitatium.name=Imitatium Ore
 
 ## blocks
 tile.tiths.block_blood_sand.name=Blood Sand
@@ -113,6 +115,8 @@ tile.tiths.block_torrential_crystal.name=Block of Torrential Crystal (WIP)
 tile.tiths.block_colorful_glass.name=Colorful Glass Block
 tile.tiths.block_creep_soil.name=Creep Soil
 tile.tiths.block_creep_soil.desc=Heal the arthropoda creatures<br>Only arthropods are allowed to spawn above
+tile.tiths.block_tanatonium.name=Block of Tanatonium
+tile.tiths.block_imitatium.name=Block of Imitatium
 
 ## fluids
 fluid.royal_alloy.name=Molten Royal Alloy
@@ -136,6 +140,7 @@ fluid.steamium.name=Molten Steamium
 fluid.chloroplast.name=Molten Chloroplast
 fluid.ender_turbulence.name=Ender Turbulence
 fluid.dirty_water.name=Dirty Water
+fluid.tanatonium.name=Molten Tanatonium
 
 ## items
 item.tiths.hot_bread.name=Hot Bread
@@ -205,6 +210,8 @@ item.tiths.flesh.name=Flesh (WIP)
 item.tiths.nugget_oraclium.name=Oraclium Nugget
 item.tiths.nugget_steamium.name=Steamium Nugget
 item.tiths.nugget_chloroplast.name=Chloroplast Nugget
+item.tiths.nugget_tanatonium.name=Tanatonium Nugget
+item.tiths.nugget_imitatium.name=Imitatium Nugget
 ## ingot
 item.tiths.ingot_stellarium.name=Stellarium Ingot
 item.tiths.ingot_royal_alloy.name=Royal Alloy Ingot
@@ -226,6 +233,8 @@ item.tiths.ingot_oraclium.name=Oraclium Ingot
 item.tiths.ingot_steamium.name=Steamium Ingot
 item.tiths.ingot_grain.name=Grain Ingot
 item.tiths.ingot_chloroplast.name=Chloroplast Ingot
+item.tiths.ingot_tanatonium.name=Tanatonium Ingot
+item.tiths.ingot_imitatium.name=Imitatium Ingot
 ## dust
 item.tiths.dust_blackrock.name=Blackrock Dust
 item.tiths.dust_chloroplast.name=Chloroplast Dust
@@ -271,6 +280,8 @@ item.tiths.amulet_soul_stone.name=Amulet of Soul Stone
 item.tiths.amulet_soul_stone.desc=To collect and store souls pickuped<br>Drain when wearer died
 item.tiths.amulet_soul_stone_infinite.name=Amulet of Inifinite Soul Stone
 item.tiths.amulet_soul_stone_infinite.desc=Creative Mode Only
+item.tiths.amulet_perturbance.name=Amulet of Perturbance
+item.tiths.amulet_perturbance.desc=To provide invisibility while still in the water
 item.tiths.belt_stone_phasing.name=Belt of Stone Phasing
 item.tiths.belt_stone_phasing.desc=Destroy stones wearer collected
 item.tiths.belt_leather.name=Leather Belt
@@ -478,7 +489,17 @@ modifier.torrential.desc=§oHappiness of water§r\nTo increase knockback when in
 modifier.turbulent.name=Turbulent
 modifier.turbulent.desc=§oWhere are you going?§r\nEngage enemies in water in turbulence
 modifier.eddying.name=Eddying
-modifier.eddying.desc=§o §r\nEngage enemies in water in eddy
+modifier.eddying.desc=§o §r\nTo engage enemies in water in eddy
+modifier.eroding.name=Eroding
+modifier.eroding.desc=§o §r\nTo reduce target max health for a period of time
+modifier.recombining.name=Recombining
+modifier.recombining.desc=§o §r\nAutomatically consume the imitatium nugget to repair itself
+modifier.annihilating.name=Annihilating
+modifier.annihilating.desc=§oThe glow of graviton§r\nWhen using it will consumes a lot of extra durability, pulling the surroundings towards the user, and causing damage to these entities and user himself
+modifier.degenerating.name=Degenerating
+modifier.degenerating.desc=§o §r\nMake the durability tends to be half of the whole
+modifier.aquatic.name=Aquatic
+modifier.aquatic.desc=§o §r\nSlowly restores durability in the water, slowly loses durability after leaving the water
 
 ## armor modifiers
 modifier.carbonizing_armor.name=Carbonizing
@@ -646,6 +667,12 @@ potion.effect.bubbling=Potion of Bubbling
 splash_potion.effect.bubbling=Splash Potion of Bubbling
 tipped_arrow.effect.bubbling=Arrow of Bubbling
 lingering_potion.effect.bubbling=Lingering Potion of Bubbling
+
+effect.eroded=Eroded
+potion.effect.eroded=Potion of Eroding
+splash_potion.effect.eroded=Splash Potion of Eroding
+tipped_arrow.effect.eroded=Arrow of Eroding
+lingering_potion.effect.eroded=Lingering Potion of Eroding
 
 ## damage sources
 death.attack.san=%1$s has some mental problem

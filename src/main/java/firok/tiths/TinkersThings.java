@@ -34,7 +34,7 @@ public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers' Things";
-	public static final String VERSION = "1.12.2-0.3.3.0";
+	public static final String VERSION = "1.12.2-0.3.4.0";
 	public static final VersionPhase version = VersionPhase.Alpha;
 
 	@Mod.Instance(MOD_ID)

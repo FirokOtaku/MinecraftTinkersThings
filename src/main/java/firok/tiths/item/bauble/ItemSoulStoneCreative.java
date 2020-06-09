@@ -1,4 +1,4 @@
-package firok.tiths.item;
+package firok.tiths.item.bauble;
 
 
 import net.minecraft.entity.EntityLivingBase;

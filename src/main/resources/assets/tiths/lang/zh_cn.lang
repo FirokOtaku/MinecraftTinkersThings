@@ -53,6 +53,8 @@ tile.tiths.ore_torrential_crystal.name=激流水晶矿 (WIP)
 tile.tiths.ore_solid_dirt.name=硬实泥土矿
 tile.tiths.ore_solid_sand.name=硬实沙矿
 tile.tiths.ore_solid_stone.name=硬实石头矿
+tile.tiths.ore_tanatonium.name=塔拉特妮姆尘埃
+tile.tiths.ore_imitatium.name=拟素矿
 
 ## blocks
 tile.tiths.block_blood_sand.name=血沙
@@ -114,6 +116,8 @@ tile.tiths.block_torrential_crystal.name=激流水晶块 (WIP)
 tile.tiths.block_colorful_glass.name=彩色玻璃块
 tile.tiths.block_creep_soil.name=虫苔
 tile.tiths.block_creep_soil.desc=治愈节肢类生物<br>仅允许节肢生物在上方生成
+tile.tiths.block_tanatonium.name=塔拉特妮姆块
+tile.tiths.block_imitatium.name=拟素块
 
 ## fluids
 fluid.royal_alloy.name=熔融奢华合金
@@ -137,6 +141,7 @@ fluid.steamium.name=熔融气钢
 fluid.chloroplast.name=熔融叶绿
 fluid.ender_turbulence.name=末影乱流
 fluid.dirty_water.name=污水
+fluid.tanatonium.name=熔融塔拉特妮姆
 
 ## items
 item.tiths.hot_bread.name=炽热面包
@@ -205,6 +210,8 @@ item.tiths.nugget_irisia.name=艾瑞西亚粒
 item.tiths.nugget_oraclium.name=神谕钢粒
 item.tiths.nugget_steamium.name=气钢粒
 item.tiths.nugget_chloroplast.name=叶绿粒
+item.tiths.nugget_tanatonium.name=塔拉特妮姆粒
+item.tiths.nugget_imitatium.name=拟素粒
 ## ingot
 item.tiths.ingot_stellarium.name=恒星金属锭
 item.tiths.ingot_royal_alloy.name=奢华合金锭
@@ -226,6 +233,8 @@ item.tiths.ingot_oraclium.name=神谕钢锭
 item.tiths.ingot_steamium.name=气钢锭
 item.tiths.ingot_grain.name=谷锭
 item.tiths.ingot_chloroplast.name=叶绿锭
+item.tiths.ingot_tanatonium.name=塔拉特妮姆锭
+item.tiths.ingot_imitatium.name=拟素锭
 ## dust
 item.tiths.dust_blackrock.name=黑石粉
 item.tiths.dust_chloroplast.name=叶绿粉
@@ -282,9 +291,13 @@ item.tiths.amulet_soul_stone.name=灵魂石护身符
 item.tiths.amulet_soul_stone.desc=储存收集到的灵魂能量<br>死亡时逸散全部能量
 item.tiths.amulet_soul_stone_infinite.name=无限灵魂石护身符
 item.tiths.amulet_soul_stone_infinite.desc=创造模式可用
+item.tiths.amulet_perturbance.name=扰动护符
+item.tiths.amulet_perturbance.desc=在水中静止时提供隐身
 item.tiths.belt_stone_phasing.name=石之相变腰带
 item.tiths.belt_stone_phasing.desc=穿戴时可自动销毁收集到的所有石头
 item.tiths.belt_leather.name=皮革腰带
+item.tiths.amulet_perturbance.name=扰动护符
+item.tiths.amulet_perturbance.desc=在水中静止一段时间后提供隐身
 
 tile.tiths.block_sea_grass.name=海草 (WIP)
 tile.tiths.block_mercury_sulfide.name=汞红块
@@ -491,6 +504,16 @@ modifier.turbulent.name=乱流
 modifier.turbulent.desc=§o你想去哪?§r\n使水中的敌人陷入乱流
 modifier.eddying.name=漩流
 modifier.eddying.desc=§o §r\n使水中的敌人陷入涡流
+modifier.eroding.name=侵蚀
+modifier.eroding.desc=§o §r\n一段时间内降低目标生命上限
+modifier.recombining.name=重组
+modifier.recombining.desc=§o §r\n自动消耗携带的纳米材料修复自身
+modifier.annihilating.name=湮灭
+modifier.annihilating.desc=§o重力子的辉光§r\n使用时额外消耗大量耐久, 将周围实体向使用者牵引, 并对这些实体和使用者造成伤害
+modifier.degenerating.name=简并
+modifier.degenerating.desc=§o §r\n使耐久趋于整体的一半
+modifier.aquatic.name=水生
+modifier.aquatic.desc=§o §r\n在水中缓慢恢复耐久, 离开水后缓慢损失耐久
 
 ## armor modifiers
 modifier.carbonizing_armor.name=碳化
@@ -573,6 +596,12 @@ modifier.hydrating_armor.name=水合
 modifier.hydrating_armor.desc=§o融为一体§r\n在水中或淋雨时储存水分, 受到攻击时消耗水分并降低伤害
 modifier.photosynthetic_armor.name=光合作用
 modifier.photosynthetic_armor.desc=§o要有光§r\n在光亮的地方提供氧气
+modifier.klein_fielded_armor.name=克莱因力场
+modifier.klein_fielded_armor.desc=§o §r\n储存一定数量的伤害, 这些伤害会随时间慢慢消散\n储存伤害越多, 随时间损失越多耐久
+modifier.recombining_armor.name=重组
+modifier.recombining_armor.desc=§o §r\n自动消耗携带的纳米材料修复自身
+modifier..name=拟态
+modifier..desc=§o §r\n对于越高的物理伤害有越强的抗性
 
 ## potions
 effect.heavy=沉重
@@ -658,6 +687,12 @@ potion.effect.bubbling=发泡药水
 splash_potion.effect.bubbling=喷溅型发泡药水
 tipped_arrow.effect.bubbling=发泡之箭
 lingering_potion.effect.bubbling=滞留型发泡药水
+
+effect.eroded=侵蚀
+potion.effect.eroded=侵蚀药水
+splash_potion.effect.eroded=喷溅型侵蚀药水
+tipped_arrow.effect.eroded=侵蚀之箭
+lingering_potion.effect.eroded=滞留型侵蚀药水
 
 ## damage sources
 death.attack.san=%1$s遇到了一点精神问题

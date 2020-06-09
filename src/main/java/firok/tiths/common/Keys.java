@@ -128,6 +128,9 @@ public interface Keys
 	String nameChloroplastDressing = "chloroplast_dressing";
 	String nameAmuletIron = prefAmulet + "iron";
 	String nameCreepSoil = "creep_soil";
+	String nameImitatium = "imitatium";
+	String nameTanatonium = "tanatonium";
+	String nameAmuletPerturbance = prefAmulet + "perturbance";
 
 	String nameHardener = "hardener";
 	String namePolisher = "polisher";
@@ -205,6 +208,8 @@ public interface Keys
 	String blockTorrentialCrystal = prefBlock + nameTorrentialCrystal;
 	String blockColorfulGlass = prefBlock + nameColorfulGlass;
 	String blockCreepSoil = prefBlock + nameCreepSoil;
+	String blockTanatonium = prefBlock + nameTanatonium;
+	String blockImitatium = prefBlock + nameImitatium;
 
 	String blockFulgurite = prefBlock + nameFulgurite;
 	String blockMeteorolite = prefBlock + nameMeteorolite;
@@ -270,6 +275,8 @@ public interface Keys
 	String oreSolidDirt = prefOre + "solid_dirt";
 	String oreSolidSand = prefOre + "solid_sand";
 	String oreSolidStone = prefOre + "solid_stone";
+	String oreTanatonium = prefOre + nameTanatonium;
+	String oreImitatium = prefOre + nameImitatium;
 
 	// 矿锭
 	String ingotStellarium = prefIngot + nameStellarium;
@@ -291,6 +298,8 @@ public interface Keys
 	String ingotSteamium = prefIngot + nameSteamium;
 	String ingotGrain = prefIngot + nameGrain;
 	String ingotChloroplast = prefIngot + nameChloroplast;
+	String ingotTanatonium = prefIngot + nameTanatonium;
+	String ingotImitatium = prefIngot + nameImitatium;
 
 	// 矿粒
 	String nuggetStellarium = prefNugget + nameStellarium;
@@ -311,6 +320,8 @@ public interface Keys
 	String nuggetOraclium = prefNugget + nameOraclium;
 	String nuggetSteamium = prefNugget + nameSteamium;
 	String nuggetChloroplast = prefNugget + nameChloroplast;
+	String nuggetTanatonium = prefNugget + nameTanatonium;
+	String nuggetImitatium = prefNugget + nameImitatium;
 
 	// 粉末
 	String dustBlackrock = prefDust + nameBlackrock;
@@ -376,6 +387,8 @@ public interface Keys
 	int colorChloroplast = 0xb1fa2a;
 	int colorEnderTurbulence = 0x5c1491;
 	int colorTorrentialCrystal = 0x3e62ba;
+	int colorTanatonium = 0x5b0d76;
+	int colorImitatium = Colors.Silver;
 
 	int colorDirtyWater = 0x613d1d;
 	int colorAcid = 0x0e8c39;
@@ -501,6 +514,10 @@ public interface Keys
 	String nameTraitDegenerating = "degenerating";
 	String nameTraitPhotosynthetic = "photosynthetic";
 	String nameTraitEddying = "eddying";
+	String nameTraitEroding = "eroding";
+	String nameTraitAnnihilating = "annihilating";
+	String nameTraitRecombining = "recombining";
+	String nameTraitAquatic = "aquatic";
 
 	// 属性颜色
 	int colorTraitGluttonic = 0x752b40;
@@ -588,6 +605,10 @@ public interface Keys
 	int colorTraitDegenerating = 0xa0ca72;
 	int colorTraitPhotosynthetic = colorChloroplast;
 	int colorTraitEddying = 0x3f516b;
+	int colorTraitEroding = 0x8a0d82;
+	int colorTraitAnnihilating = 0x5b0d76;
+	int colorTraitAquatic = 0x32bda7;
+	int colorTraitRecombining = 0xd6863b;
 
 	// 状态效果颜色
 	int colorPotionHeavy = Colors.DarkSeaGreen;
@@ -606,6 +627,7 @@ public interface Keys
 	int colorPotionTurbulent = colorTraitTurbulent;
 	int colorPotionForcibleFocused = 0x294011;
 	int colorPotionEddying = colorTraitEddying;
+	int colorPotionEroded = colorTraitEroding;
 
 	// 状态效果属性修饰符uuid
 	String uuidPotionAvatarSpeed = "258A83A5-A3BD-4CFD-842C-B2DF39343C91";
@@ -619,6 +641,7 @@ public interface Keys
 	String uuidPotionArmorVoidInfected = "9BA4BDC8-7E7F-437A-B526-B2D8CF3588F0";
 	String uuidPotionSpeedHiddenHyper = "DF67E659-FB9D-4FAF-802C-8AA2F593A558";
 	String uuidPotionArmorLionheart = "995F5833-14F9-4897-9ED7-2FA85EFF5281";
+	String uuidPotionErodedMaxHealth = "1E27A82D-E92E-465F-988A-0B1BE6B8E273";
 
 	String uuidTraitSolubleSwimSpeed = "E42481C5-6AA3-4A74-A992-22AD533C88CC";
 

@@ -147,6 +147,14 @@ public final class Craftings
 		createBinding(null,Blocks.blockIrisia,Fluids.moltenIrisia,Items.ingotIrisia,Items.nuggetIrisia);
 		createBinding(Blocks.oreSteamium,Blocks.blockSteamium,Fluids.moltenSteamium,Items.ingotSteamium,Items.nuggetSteamium);
 		createBinding(Blocks.oreChloroplast,Blocks.blockChloroplast,Fluids.moltenChloroplast,Items.ingotChloroplast,Items.nuggetChloroplast);
+		createBinding(null,Blocks.blockTanatonium,Fluids.moltenTanatonium,Items.ingotTanatonium,Items.nuggetTanatonium);
+
+		TinkerRegistry.registerMelting(
+				new ItemStack(Blocks.oreTanatonium),
+				Fluids.moltenTanatonium,
+				Material.VALUE_Nugget
+		);
+		addSmelting(Blocks.oreTanatonium,new ItemStack(Items.nuggetTanatonium),8);
 
 		TinkerRegistry.registerMelting(
 				new ItemStack(net.minecraft.init.Items.DYE,1,EnumDyeColor.BROWN.getDyeDamage()),
