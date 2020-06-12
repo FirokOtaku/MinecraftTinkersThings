@@ -8,6 +8,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -330,5 +331,20 @@ public final class Predicates
 	public static boolean canOreGenOther(IBlockState state)
 	{
 		return canOreGenWorld(state);
+	}
+
+	/**
+	 * 护甲是否可以处理这类伤害
+	 */
+	public static boolean canDealWith(DamageSource source,Boolean isBlockable,Boolean isMagic,Boolean isFire,Boolean isExplosion,Boolean isProjectile)
+	{
+
+		return source!=null &&
+		       (isBlockable==null || isBlockable==!source.isUnblockable()) &&
+		       (isMagic==null || isMagic==source.isMagicDamage()) &&
+		       (isFire==null || isFire==source.isFireDamage()) &&
+		       (isExplosion==null || isExplosion==source.isExplosion()) &&
+		       (isProjectile==null || isProjectile==source.isProjectile())
+				;
 	}
 }

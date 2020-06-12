@@ -131,6 +131,7 @@ public interface Keys
 	String nameImitatium = "imitatium";
 	String nameTanatonium = "tanatonium";
 	String nameAmuletPerturbance = prefAmulet + "perturbance";
+	String nameBlueSteel = "blue_steel";
 
 	String nameHardener = "hardener";
 	String namePolisher = "polisher";
@@ -518,6 +519,7 @@ public interface Keys
 	String nameTraitAnnihilating = "annihilating";
 	String nameTraitRecombining = "recombining";
 	String nameTraitAquatic = "aquatic";
+	String nameTraitLeavesHiding = "leaves_hiding";
 
 	// 属性颜色
 	int colorTraitGluttonic = 0x752b40;
@@ -609,6 +611,7 @@ public interface Keys
 	int colorTraitAnnihilating = 0x5b0d76;
 	int colorTraitAquatic = 0x32bda7;
 	int colorTraitRecombining = 0xd6863b;
+	int colorTraitLeavesHiding = Colors.Green;
 
 	// 状态效果颜色
 	int colorPotionHeavy = Colors.DarkSeaGreen;
@@ -628,6 +631,7 @@ public interface Keys
 	int colorPotionForcibleFocused = 0x294011;
 	int colorPotionEddying = colorTraitEddying;
 	int colorPotionEroded = colorTraitEroding;
+	int colorPotionLeavesHiding = Colors.Green;
 
 	// 状态效果属性修饰符uuid
 	String uuidPotionAvatarSpeed = "258A83A5-A3BD-4CFD-842C-B2DF39343C91";

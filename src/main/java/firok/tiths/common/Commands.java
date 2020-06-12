@@ -14,6 +14,7 @@ import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import org.apache.commons.io.FileUtils;
 
 import javax.annotation.Nullable;
@@ -47,7 +48,7 @@ public class Commands implements ICommand
 	}
 
 	@Override
-	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException
+	public void execute(MinecraftServer server, ICommandSender sender, String[] args)
 	{
 		try
 		{
@@ -110,7 +111,7 @@ public class Commands implements ICommand
 							NBTTagCompound nbt=stackHeld.getTagCompound();
 							if(nbt!=null)
 							{
-								Map<String,Object> map=(Map) InnerActions.get(NBTTagCompound.class,"tagMap",nbt);
+								Map<String,Object> map= ObfuscationReflectionHelper.getPrivateValue(NBTTagCompound.class,nbt,"field_74784_a"); // (Map) InnerActions.get(NBTTagCompound.class,"tagMap",nbt);
 								System.out.println(map);
 							}
 

@@ -167,13 +167,16 @@ public final class TiCMaterials
 	@CompoHead(durability=365,miningspeed=6.7,attack=4,harvestLevel=2,traits={ nameTraitAnnihilating })
 	@CompoHandle(modifier=0.8,durability=-50,traits={  })
 	@CompoExtra(extraDurability=55,traits={  })
-	public static final Material tanatonium=new $Material(nameTanatonium, colorTanatonium);
+	public static final Material tanatonium=new $Material(nameTanatonium, colorTanatonium)
+			.addItemAsIngot(Items.ingotTanatonium)
+			.setFluid(Fluids.moltenTanatonium);
 
 	@Compo(value = nameImitatium,traitsTool = { nameTraitRecombining })
 	@CompoHead(durability=365,miningspeed=6.7,attack=4,harvestLevel=2,traits={  })
 	@CompoHandle(modifier=0.8,durability=-50,traits={  })
 	@CompoExtra(extraDurability=55,traits={  })
-	public static final Material imitatium=new $Material(nameImitatium,colorImitatium);
+	public static final Material imitatium=new $Material(nameImitatium,colorImitatium)
+			.addItemAsIngot(Items.ingotImitatium);
 
 	@Compo(value = nameTitanium,traitsTool = {nameTraitSharp,nameTraitLightweight},traitsBow = {nameTraitLightweight},traitsArmor = {nameTraitLightweight})
 	@CompoHead(durability=780,miningspeed=4.9,attack=4,harvestLevel=3,traits={  })
@@ -396,7 +399,7 @@ public final class TiCMaterials
 	public static final Material icelandSpar=new $Material(nameIcelandSpar,colorIcelandSpar)
 			.addItemAsIngot(Items.icelandSpar);
 
-	@Compo(value = namePyrophyllite,traitsTool = {nameTraitEcological},traitsBow = {nameTraitEcological},traitsArmor = {nameTraitEcological})
+	@Compo(value = namePyrophyllite,traitsTool = {nameTraitEcological},traitsBow = {nameTraitEcological},traitsArmor = {nameTraitLeavesHiding})
 	@CompoHead(durability=240,miningspeed=1.9,attack=4,harvestLevel=1,traits={  })
 	@CompoHandle(modifier=0.75,durability=-250,traits={  })
 	@CompoExtra(extraDurability=65,traits={  })

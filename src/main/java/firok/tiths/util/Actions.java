@@ -31,6 +31,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntityChest;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
@@ -38,6 +39,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTableList;
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
@@ -432,7 +434,8 @@ public final class Actions
 				if(ai instanceof EntityAINearestAttackableTarget)
 				{
 					EntityAINearestAttackableTarget<?> aiAtk=(EntityAINearestAttackableTarget)ai;
-					Class<? extends EntityLivingBase> targetClass=(Class) get(EntityAINearestAttackableTarget.class,"targetClass",aiAtk);
+					Class<? extends EntityLivingBase> targetClass=
+							ObfuscationReflectionHelper.getPrivateValue(EntityAINearestAttackableTarget.class,aiAtk,"field_75307_b"); // (Class) get(EntityAINearestAttackableTarget.class,"targetClass",aiAtk);
 					if(targetClass.isAssignableFrom(EntityPlayer.class))
 					{
 						living.targetTasks.removeTask(ai);
@@ -546,6 +549,11 @@ public final class Actions
 //		System.out.println("到直线距离"+Arrays.toString(ret));
 
 		return ret;
+	}
+
+	public static int withShift(int minValue,int maxValue,float minRange,float maxRange,float current)
+	{
+		return (int)( minValue + (maxValue-minValue)*(current-minRange)/(maxRange-minRange) );
 	}
 
 	private static int _get_light_light=0;

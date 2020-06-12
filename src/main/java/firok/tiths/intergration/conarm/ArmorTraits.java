@@ -27,6 +27,7 @@ public class ArmorTraits
 	public static AbstractArmorTrait hiding; // 匿踪
 	public static AbstractArmorTrait hyper; // 振奋
 	public static AbstractArmorTrait icy; // 冰凉
+	public static AbstractArmorTrait leavesHiding; // 蔽叶
 	public static AbstractArmorTrait lifeInspiring; // 生命激发
 	public static AbstractArmorTrait lifting; // 扬升
 	public static AbstractArmorTrait luxurious; // 奢华
@@ -74,6 +75,7 @@ public class ArmorTraits
 		hiding=new TraitArmorHiding();
 		hyper=new TraitArmorHyper();
 		icy=new TraitArmorIcy();
+		leavesHiding=new TraitArmorLeavesHiding();
 		lifeInspiring=new TraitArmorLifeInspiring();
 		lifting=new TraitArmorLifting();
 		luxurious=new TraitArmorLuxurious();

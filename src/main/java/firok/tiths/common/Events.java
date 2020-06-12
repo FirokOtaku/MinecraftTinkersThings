@@ -16,6 +16,7 @@ import firok.tiths.util.SoulUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockLog;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -31,15 +32,18 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.entity.projectile.EntityFishHook;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.sound.PlaySoundEvent;
+import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.event.entity.living.*;
@@ -47,11 +51,13 @@ import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.event.world.GetCollisionBoxesEvent;
 import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -666,5 +672,70 @@ public class Events
 		{
 			client.update();
 		}
+	}
+
+	@SubscribeEvent
+	public static void onCollideWith(GetCollisionBoxesEvent event)
+	{
+		try
+		{
+			Entity entity=event.getEntity();
+			AxisAlignedBB aabb=event.getAabb();
+			List<AxisAlignedBB> listCollect=event.getCollisionBoxesList();
+			CHECK_REMOVE:if(entity instanceof EntityPlayer)
+			{
+				EntityPlayer player=(EntityPlayer)entity;
+
+				if(player.getActivePotionEffect(Potions.leaves_hiding)==null) break CHECK_REMOVE;
+
+				World world=player.world;
+				BlockPos posPlayer=player.getPosition();
+				BlockPos posTemp;
+				FOR_X:for(int tempX=-1;tempX<=1;tempX++)
+				{
+					FOR_Z:for(int tempZ=-1;tempZ<=1;tempZ++)
+					{
+						FOR_Y:for(int tempY=-1;tempY<=2;tempY++)
+						{
+							posTemp=posPlayer.add(tempX,tempY,tempZ);
+							IBlockState stateTemp=world.getBlockState(posTemp);
+							Block blockTemp=stateTemp.getBlock();
+							boolean shouldRemove=false;
+							if( blockTemp instanceof IShearable)
+							{
+								shouldRemove=true;
+							}
+
+							if(shouldRemove)
+							{
+								List<AxisAlignedBB> listTemp=new ArrayList<>(2);
+								// IBlockState state, World worldIn, BlockPos pos,
+								// AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes,
+								// @Nullable Entity entityIn, boolean p_185477_7_
+								blockTemp.addCollisionBoxToList(
+										stateTemp,world,posTemp,
+										aabb,listTemp,player,false
+								);
+								for(AxisAlignedBB aabbTemp:listTemp)
+								{
+									if(aabbTemp==null) continue;
+									Iterator<AxisAlignedBB> iterCollect=listCollect.iterator();
+									while(iterCollect.hasNext())
+									{
+										AxisAlignedBB aabbCollect= iterCollect.next();
+										if(aabbCollect==null) continue;
+										if(aabbTemp.equals(aabbCollect))
+										{
+											iterCollect.remove();
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		catch (Exception ignored) { }
 	}
 }

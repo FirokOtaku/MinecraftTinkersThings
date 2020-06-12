@@ -48,6 +48,9 @@ public final class PotionTypes
 			new PotionEffect(Potions.turbulent,3600,0));
 	public static final PotionType eddying=new PotionType("eddying",
 			new PotionEffect(Potions.eddying,3600,0));
+
+	public static final PotionType leaves_hiding=new PotionType("leaves_hiding",
+			new PotionEffect(Potions.leaves_hiding,3600,0));
 //	public static final PotionType forcibleFocused=new PotionType("forcibleFocused",
 //			new PotionEffect(Potions.forcibleFocused,3600,0));
 

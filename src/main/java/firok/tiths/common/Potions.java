@@ -46,5 +46,6 @@ public final class Potions
 	public static BasePotion forcibleFocused = new PotionForcibleFocused(); // 强制专注
 	public static BasePotion eddying = new PotionEddying(); // 旋流
 	public static BasePotion eroded = new PotionEroded(); // 侵蚀
+	public static BasePotion leaves_hiding = new PotionLeavesHiding(); // 蔽叶
 
 }

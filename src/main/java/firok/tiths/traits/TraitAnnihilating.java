@@ -37,10 +37,10 @@ public class TraitAnnihilating extends AbstractTrait
 			for(Entity surrounding:surroundings)
 			{
 				double tx=surrounding.posX,ty=surrounding.posY,tz=surrounding.posZ;
-				double mx=(tx-5)/5,my=(ty-5)/5,mz=(tz-5)/5;
+				double mx=(player.posX-tx)/3,my=(player.posY-ty)/3,mz=(player.posZ-tz)/3;
 
 				surrounding.motionX+=mx;
-				surrounding.motionY+=my + 0.06;
+				surrounding.motionY+=my + 0.085;
 				surrounding.motionZ+=mz;
 
 				surrounding.attackEntityFrom(DamageSource.MAGIC,4);
