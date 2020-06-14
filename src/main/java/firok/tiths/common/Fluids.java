@@ -38,6 +38,7 @@ public final class Fluids
 	public static final FluidMolten moltenSteamium=$(nameSteamium, colorSteamium);
 	public static final FluidMolten moltenChloroplast=$(nameChloroplast, colorChloroplast);
 	public static final FluidMolten moltenTanatonium=$(nameTanatonium, colorTanatonium);
+	public static final FluidMolten moltenDecurrium=$(nameDecurrium, colorDecurrium);
 	@FluidBlock(BlockMoltenEnderTurbulence.class)
 	public static final FluidMolten moltenEnderTurbulence=$(nameEnderTurbulence, colorEnderTurbulence);
 	@FluidBlock(BlockDirtyWater.class)

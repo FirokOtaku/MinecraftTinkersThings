@@ -150,7 +150,7 @@ public final class TiCMaterials
 	public static final Material torrentialCrystal=new $Material(nameTorrentialCrystal, colorTorrentialCrystal)
 			.addItemAsIngot(Items.torrentialCrystal);
 
-	@Compo(value = nameImmersedSilver, traitsTool = {nameTraitInsatiable},traitsBow = { nameTraitInsatiable }, traitsArmor = {nameTraitSkeletal})
+	@Compo(value = nameImmersedSilver, traitsTool = {nameTraitRespecting},traitsBow = { nameTraitInsatiable }, traitsArmor = {nameTraitSkeletal})
 	@CompoHead(durability=365,miningspeed=6.7,attack=4,harvestLevel=2,traits={  })
 	@CompoHandle(modifier=0.8,durability=-50,traits={  })
 	@CompoExtra(extraDurability=55,traits={  })
@@ -162,6 +162,29 @@ public final class TiCMaterials
 	public static final Material immersedSilver=new $Material(nameImmersedSilver, colorImmersedSilver)
 			.addItemAsIngot(Items.ingotImmersedSilver)
 			.setFluid(Fluids.moltenImmersedSilver);
+
+	@Compo(value = nameDecurrium, traitsTool = { nameTraitDegenerating }, traitsArmor = { nameTraitSurging })
+	@CompoHead(durability=365,miningspeed=6.7,attack=4,harvestLevel=2,traits={  })
+	@CompoHandle(modifier=0.8,durability=-50,traits={  })
+	@CompoExtra(extraDurability=55,traits={  })
+	@CompoBow(drawSpeed=0.6,range=1.1,bonusDamage=2,traits={  })
+	@CompoArmorCore(durability=15,defense=18.6,traits={  })
+	@CompoArmorPlate(modifier=0.8,durability=6,toughness=1,traits={  })
+	@CompoArmorTrim(extraDurability=5,traits={  })
+	public static final Material decurrium=new $Material(nameDecurrium, colorDecurrium)
+			.addItemAsIngot(Items.ingotDecurrium)
+			.setFluid(Fluids.moltenDecurrium);
+
+	@Compo(value = nameIcelit, traitsTool = { nameTraitIlluminating }, traitsArmor = { nameTraitQuickFreezing })
+	@CompoHead(durability=365,miningspeed=6.7,attack=4,harvestLevel=2,traits={  })
+	@CompoHandle(modifier=0.8,durability=-50,traits={  })
+	@CompoExtra(extraDurability=55,traits={  })
+	@CompoBow(drawSpeed=0.6,range=1.1,bonusDamage=2,traits={  })
+	@CompoArmorCore(durability=15,defense=18.6,traits={  })
+	@CompoArmorPlate(modifier=0.8,durability=6,toughness=1,traits={  })
+	@CompoArmorTrim(extraDurability=5,traits={  })
+	public static final Material icelit=new $Material(nameIcelit, colorIcelit)
+			.addItemAsIngot(Items.icelit);
 
 	@Compo(value = nameTanatonium,traitsTool = { nameTraitEroding })
 	@CompoHead(durability=365,miningspeed=6.7,attack=4,harvestLevel=2,traits={ nameTraitAnnihilating })
@@ -332,15 +355,15 @@ public final class TiCMaterials
 			.addItemAsIngot(Items.ingotOraclium)
 			.setFluid(Fluids.moltenOraclium);
 
-	@Compo(value = nameSteamium,traitsTool = {  },traitsArmor = {nameTraitAquaspeed})
+	@Compo(value = nameSteamium,traitsTool = {  },traitsArmor = {})
 	@CompoHead(durability=420,miningspeed=5.5,attack=6,harvestLevel=2,traits={ nameTraitBlowing })
 	@CompoHandle(modifier=0.65,durability=100,traits={ nameTraitSteamy })
 	@CompoExtra(extraDurability=-80,traits={ nameTraitSteamy })
 	@CompoBow(drawSpeed=0.7,range=1.55,bonusDamage=6,traits={ nameTraitBlowing })
 	@CompoArrowShaft(modifier=1,bonusAmmo=20,traits={ nameTraitBlowing })
-	@CompoArmorCore(durability=13.5,defense=13,traits={  })
-	@CompoArmorPlate(modifier=1.18,durability=6,toughness=3,traits={  })
-	@CompoArmorTrim(extraDurability=8.6,traits={  })
+	@CompoArmorCore(durability=13.5,defense=13,traits={ nameTraitBuoyant })
+	@CompoArmorPlate(modifier=1.18,durability=6,toughness=3,traits={ nameTraitAquaspeed })
+	@CompoArmorTrim(extraDurability=8.6,traits={ nameTraitAquaspeed })
 	public static final Material steamium=new $Material(nameSteamium, colorSteamium)
 			.addItemAsIngot(Items.ingotSteamium)
 			.setFluid(Fluids.moltenSteamium);

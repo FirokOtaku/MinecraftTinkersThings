@@ -50,6 +50,12 @@ public final class Alloys
 				new FluidStack(TinkerFluids.dirt, VALUE_Ingot),
 				new FluidStack(FluidRegistry.WATER, VALUE_Ingot)
 		);
+		// 深流钢
+		registerAlloy(
+				new FluidStack(Fluids.moltenDecurrium, VALUE_Ingot * 2),
+				new FluidStack(Fluids.moltenSteamium, VALUE_Ingot),
+				new FluidStack(Fluids.moltenImmersedSilver, VALUE_Ingot)
+		);
 	}
 
 	private static void registerAlloy(FluidStack output,FluidStack...inputs)

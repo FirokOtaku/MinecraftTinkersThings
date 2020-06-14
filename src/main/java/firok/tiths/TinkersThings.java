@@ -11,8 +11,6 @@ import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
 import slimeknights.tconstruct.library.materials.Material;
@@ -34,7 +32,7 @@ public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers' Things";
-	public static final String VERSION = "1.12.2-0.3.4.0";
+	public static final String VERSION = "1.12.2-0.3.5.5";
 	public static final VersionPhase version = VersionPhase.Alpha;
 
 	@Mod.Instance(MOD_ID)
@@ -164,7 +162,6 @@ public class TinkersThings
 //		log("Has everything been done? might be!");
 	}
 
-	@SideOnly(Side.SERVER)
 	@Mod.EventHandler
 	public void onServerStart(FMLServerStartingEvent event)
 	{
@@ -172,7 +169,6 @@ public class TinkersThings
 
 		Datas.Server.init(event.getServer()); // 初始化服务端数据
 	}
-	@SideOnly(Side.SERVER)
 	@Mod.EventHandler
 	public void onServerStop(FMLServerStoppedEvent event)
 	{

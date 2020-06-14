@@ -39,7 +39,9 @@ public final class Items
 	@Reg(value = nameAventurine, od = {"gem", "gemAventurine", "aventurine"})
 	public static final Item aventurine = new ItemCustom(); // 东陵石
 	@Reg(nameBeltLeather)
-	public static final Item beltLeather = new ItemBauble(BaubleType.BELT);
+	public static final Item beltLeather = new ItemBauble(BaubleType.BELT); // 皮腰带
+	@Reg(nameBeltOceanic)
+	public static final Item beltOceanic = new ItemBeltOceanic(); // 远洋腰带
 	@Reg("belt_soul_watcher")
 	public static final Item beltSoulWatcher = new ItemSoulWatchBauble(BaubleType.BELT).setRarity(EnumRarity.UNCOMMON);
 	@Reg(nameBeltStonePhasing)
@@ -127,6 +129,8 @@ public final class Items
 	public static final Item hotFish = new ItemHotFood(6, 0.6f, false); // 灼热鱼
 	@Reg(nameIcelandSpar)
 	public static final Item icelandSpar = new ItemCustom(); // 冰洲石
+	@Reg(nameIcelit)
+	public static final Item icelit = new ItemCustom(); // 灯明冻玉
 	@Reg(value = Keys.ingotAdamantine, od = {"ingotAdamantine"})
 	public static final Item ingotAdamantine = new ItemCustom(); // 精金锭
 	@Reg(Keys.ingotAltairium)
@@ -135,6 +139,8 @@ public final class Items
 	public static final Item ingotChloroplast = new ItemCustom(); // 叶绿锭
 	@Reg(Keys.ingotCocoa)
 	public static final Item ingotCocoa = new ItemCustom(); // 可可锭
+	@Reg(Keys.ingotDecurrium)
+	public static final Item ingotDecurrium = new ItemCustom(); // 深流钢锭
 	@Reg(Keys.ingotGrain)
 	public static final Item ingotGrain = new ItemCustom(); // 谷砖
 	@Reg(Keys.ingotHalleium)
@@ -159,7 +165,6 @@ public final class Items
 	public static final Item ingotRoyalAlloy = new ItemCustom(); // 奢华合金锭
 	@Reg(Keys.ingotSteamium)
 	public static final Item ingotSteamium = new ItemCustom(); // 气钢锭
-	// 原材料 - 金属锭
 	@Reg(Keys.ingotStellarium)
 	public static final Item ingotStellarium = new ItemCustom(); // 恒星金属锭
 	@Reg(Keys.ingotTanatonium)
@@ -194,6 +199,8 @@ public final class Items
 	public static final Item nuggetChloroplast = new ItemCustom(); // 叶绿粒
 	@Reg(Keys.nuggetCocoa)
 	public static final Item nuggetCocoa = new ItemCustom(); // 可可粒
+	@Reg(Keys.nuggetDecurrium)
+	public static final Item nuggetDecurrium = new ItemCustom(); // 深流钢粒
 	@Reg(Keys.nuggetHalleium)
 	public static final Item nuggetHalleium = new ItemCustom(); // 哈雷粒
 	@Reg(Keys.nuggetHothium)
@@ -216,7 +223,6 @@ public final class Items
 	public static final Item nuggetRoyalAlloy = new ItemCustom(); // 奢华合金粒
 	@Reg(Keys.nuggetSteamium)
 	public static final Item nuggetSteamium = new ItemCustom(); // 气钢粒
-	// 金属粒
 	@Reg(Keys.nuggetStellarium)
 	public static final Item nuggetStellarium = new ItemCustom(); // 恒星金属粒
 	@Reg(Keys.nuggetTanatonium)
@@ -229,7 +235,6 @@ public final class Items
 	public static final Item nuggetWitherium = new ItemCustom(); // 凋零粒
 	@Reg(value = nameOpal, od = {"gem", "gemOpal", "opal"})
 	public static final Item opal = new ItemCustom(); // 欧珀
-	// 残页
 	@Reg(value = "page", od = {"paper"})
 	public static final ItemLangPage page = new ItemLangPage();
 	@Reg(value = namePhasingGem, od = {"gem"})

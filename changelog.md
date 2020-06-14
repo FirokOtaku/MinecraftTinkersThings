@@ -2,6 +2,33 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.5.5 _2020-06-14 17:00_
+
+* 调整矿物世界生成 modified ore generations
+* 修改部分材质 modified some textures
+* 增加方块和物品 added blocks and items
+  * 远洋腰带 belt oceanic item
+  * 灯明冻玉矿 icelit ore block
+  * 灯明冻玉 icelit item
+  * 灯明冻玉块 icelit block
+  * 深流钢块 decurrium block
+  * 深流钢锭 decurrium ingot item
+  * 深流钢粒 decurrium nugget item
+* 增加液体 added fluids
+  * 熔融深流钢 molten decurrium
+* 增加材料 added materials
+  * 深流钢 decurrium
+  * 灯明冻玉 icelit
+* 增加特性 added traits
+  * 尊重 respecting
+  * 蔽叶(护甲) leaves hiding(armor)
+  * 浪涌(护甲) surging(armor)
+  * 灯明 illuminating
+  * 速冻(护甲) quick freezing(armor)
+* 增加状态效果 added potion effects
+  * 蔽叶 leaves hiding
+  * 灯明 illuminating
+
 ## 0.3.4.0 _2020-06-09 12:30_
 
 * 增加方块和物品 added blocks and items

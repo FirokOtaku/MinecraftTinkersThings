@@ -25,7 +25,7 @@ public class ItemAmuletPerturbance extends ItemBauble
 		{
 			if(player.isServerWorld() && canTick(player.world,40,0))
 			{
-				if(Math.abs(player.motionX) + Math.abs(player.motionY) + Math.abs(player.motionZ) < 0.3)
+				if(Math.abs(player.motionX) + Math.abs(player.motionY) + Math.abs(player.motionZ) < 0.025)
 				{
 					player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY,60,0));
 				}

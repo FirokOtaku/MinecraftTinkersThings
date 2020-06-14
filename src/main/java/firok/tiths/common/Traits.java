@@ -42,6 +42,7 @@ public final class Traits
 	public static AbstractTrait hemolytic; // 溶血
 	public static AbstractTrait hyper; // 振奋
 	public static AbstractTrait icy; // 冰冷
+	public static AbstractTrait illuminating; // 灯明
 	public static AbstractTrait infernalBlazing; // 狱炎
 	public static AbstractTrait inky; // 墨染
 	public static AbstractTrait lifeInspiring; // 生命激发
@@ -57,6 +58,7 @@ public final class Traits
 	public static AbstractTrait pyroelectric; // 热释电
 	public static AbstractTrait radiant; // 辉耀
 	public static AbstractTrait recombining; // 重组
+	public static AbstractTrait respecting; // 尊重
 	public static AbstractTrait repressing; // 压制
 	public static AbstractTrait retrospective; // 后知
 	public static AbstractTrait shaking; // 撼击
@@ -111,6 +113,7 @@ public final class Traits
 		hemolytic = new TraitHemolytic();
 		hyper = new TraitHyper();
 		icy = new TraitIcy();
+		illuminating = new TraitIlluminating();
 		infernalBlazing = new TraitInfernalBlazing();
 		inky = new TraitInky();
 		lifeInspiring = new TraitLifeInspiring();
@@ -126,6 +129,7 @@ public final class Traits
 		pyroelectric = new TraitPyroelectric();
 		radiant = new TraitRadiant();
 		recombining = new TraitRecombining();
+		respecting = new TraitRespecting();
 		repressing = new TraitRepressing();
 		retrospective = new TraitRetrospective();
 		shaking = new TraitShaking();

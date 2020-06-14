@@ -36,6 +36,7 @@ public class ArmorTraits
 	public static AbstractArmorTrait overHeavy; // 沉重
 	public static AbstractArmorTrait panicking; // 威慑
 	public static AbstractArmorTrait photosynthetic; // 光合作用
+	public static AbstractArmorTrait quickFreezing; // 速冻
 	public static AbstractArmorTrait radiant; // 辉耀
 	public static AbstractArmorTrait sliding; // 软滑
 	public static AbstractArmorTrait smooth; // 光滑
@@ -43,6 +44,7 @@ public class ArmorTraits
 	public static AbstractArmorTrait staminaFocusing; // 精力汇聚
 	public static AbstractArmorTrait starDashing; // 星绽
 	public static AbstractArmorTrait sunPower; // 日之力量
+	public static AbstractArmorTrait surging; // 浪涌
 	public static AbstractArmorTrait switching; // 换位
 	public static AbstractArmorTrait thermalGathering; // 热力聚集
 	public static AbstractArmorTrait thresholdLimiting; // 阈限
@@ -84,6 +86,7 @@ public class ArmorTraits
 		overHeavy=new TraitArmorOverHeavy();
 //		panicking=new TraitArmorPanicking();
 		photosynthetic=new TraitArmorPhotosynthetic();
+		quickFreezing=new TraitArmorQuickFreezing();
 		radiant=new TraitArmorRadiant();
 		sliding=new TraitArmorSliding();
 		smooth=new TraitArmorSmooth();
@@ -91,6 +94,7 @@ public class ArmorTraits
 		staminaFocusing=new TraitArmorStaminaFocusing();
 		starDashing=new TraitArmorStarDashing();
 		sunPower=new TraitArmorSunPower();
+		surging=new TraitArmorSurging();
 		switching=new TraitArmorSwitching();
 		thermalGathering=new TraitArmorThermalGathering();
 		thresholdLimiting=new TraitArmorThresholdLimiting();

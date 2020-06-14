@@ -64,6 +64,8 @@ public final class Blocks
 	public static final Block blockCorumdum = new BlockCompressed(Material.ROCK).setBeaconBase(); // 钢玉块
 	@Reg(Keys.blockCreepSoil)
 	public static final Block blockCreepSoil = new BlockCreepSoil(); // 虫苔
+	@Reg(Keys.blockDecurrium)
+	public static final Block blockDecurrium = new BlockCompressed(); // 深流钢块
 	@Reg(Keys.blockFulgurite)
 	public static final Block blockFulgurite = new BlockOre().setVeryRareOre(); // 闪电熔岩
 	@Reg(Keys.blockFurutorin)
@@ -76,6 +78,10 @@ public final class Blocks
 	public static final Block blockHothium = new BlockCompressed().setBeaconBase(); // 霍斯块
 	@Reg(Keys.blockIcelandSpar)
 	public static final Block blockIcelandSpar = new BlockCompressed(Material.ROCK); // 冰洲石块
+	@Reg(Keys.blockIcelit)
+	public static final Block blockIcelit = new BlockCompressed(Material.ROCK).setLightLevel(1); // 灯明冻玉块
+	@Reg("icelit_glow")
+	public static final Block blockIcelitGlow = new BlockIcelitGlow(); // 灯明 光点
 	@Reg(Keys.blockImitatium)
 	public static final Block blockImitatium = new BlockCompressed().setBeaconBase(); // 拟素块
 	@Reg(Keys.blockImmersedSilver)
@@ -203,6 +209,8 @@ public final class Blocks
 	@Reg(Keys.oreIcelandSpar)
 	@GenOre(times = 10, timeRate = 0.6f, size = 2, minY = 0, maxY = 50, biome = Strategy.ONLY_WHITELIST, biomeWL = {"$cool","$cold"})
 	public static final BlockOre oreIcelandSpar = new BlockOre(Items.icelandSpar, 1, 2, 1, 3, 5).setCommonOre(); // 冰洲石矿
+	@Reg(Keys.oreIcelit)
+	public static final Block oreIcelit = new BlockOre(Items.icelit, 1, 1, 1, 3,5).setLightLevel(0.6f); // 灯明冻玉矿
 	@Reg(Keys.oreImitatium)
 	public static final Block oreImitatium = new BlockOre(Items.nuggetImitatium, 3, 6, 2, 6, 10).setEpicOre(); // 拟素矿
 	@Reg(Keys.oreImmersedSilver)
