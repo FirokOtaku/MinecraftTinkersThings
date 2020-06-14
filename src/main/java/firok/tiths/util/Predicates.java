@@ -34,6 +34,7 @@ public final class Predicates
 	static final Item blockAir=Item.getItemFromBlock(Blocks.AIR);
 	static final Item blockDirt=Item.getItemFromBlock(Blocks.DIRT);
 	static final Item blockGrass=Item.getItemFromBlock(Blocks.GRASS);
+	static final Item blockSand=Item.getItemFromBlock(Blocks.SAND);
 
 	public static boolean any(Object... obj)
 	{
@@ -156,6 +157,23 @@ public final class Predicates
 		return block==Blocks.AIR;
 	}
 
+	/* ---- 判断是否是沙子 ---- */
+	public static boolean isSand(ItemStack stack)
+	{
+		return stack != null && !stack.isEmpty() && stack.getItem() == blockSand;
+	}
+	public static boolean isSand(IBlockState state)
+	{
+		return state!=null && isSand(state.getBlock());
+	}
+	public static boolean isSand(Item item)
+	{
+		return item==blockSand;
+	}
+	public static boolean isSand(Block block)
+	{
+		return block==Blocks.SAND;
+	}
 	/* ---- 判断是否是土方块 ---- */
 	public static boolean isDirt(ItemStack stack)
 	{
@@ -217,6 +235,7 @@ public final class Predicates
 			case "netherrack": return Predicates::isNetherrack;
 			case "grass": return Predicates::isGrass;
 			case "dirt": return Predicates::isDirt;
+			case "sand": return Predicates::isSand;
 			default: return defaultValue;
 		}
 	}
@@ -235,6 +254,7 @@ public final class Predicates
 			case "netherrack": return Predicates::isNetherrack;
 			case "grass": return Predicates::isGrass;
 			case "dirt": return Predicates::isDirt;
+			case "sand": return Predicates::isSand;
 			default: return defaultValue;
 		}
 	}
@@ -253,6 +273,7 @@ public final class Predicates
 			case "netherrack": return Predicates::isNetherrack;
 			case "grass": return Predicates::isGrass;
 			case "dirt": return Predicates::isDirt;
+			case "sand": return Predicates::isSand;
 			default: return defaultValue;
 		}
 	}
@@ -271,6 +292,7 @@ public final class Predicates
 			case "netherrack": return Predicates::isNetherrack;
 			case "grass": return Predicates::isGrass;
 			case "dirt": return Predicates::isDirt;
+			case "sand": return Predicates::isSand;
 			default: return defaultValue;
 		}
 	}
