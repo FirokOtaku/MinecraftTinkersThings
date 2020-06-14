@@ -15,6 +15,7 @@ public final class Traits
 
 //	public static final AbstractTrait wrapping=new TraitWrapping(); // 折跃
 //	static{wrapping.addItem(Items.enderGem);}
+	public static AbstractTrait ablaze; // 灯明
 	public static AbstractTrait annihilating; // 湮灭
 	public static AbstractTrait antiGrav; // 反重力
 	public static AbstractTrait aquatic; // 水生
@@ -42,7 +43,6 @@ public final class Traits
 	public static AbstractTrait hemolytic; // 溶血
 	public static AbstractTrait hyper; // 振奋
 	public static AbstractTrait icy; // 冰冷
-	public static AbstractTrait illuminating; // 灯明
 	public static AbstractTrait infernalBlazing; // 狱炎
 	public static AbstractTrait inky; // 墨染
 	public static AbstractTrait lifeInspiring; // 生命激发
@@ -86,6 +86,7 @@ public final class Traits
 
 	public static void init()
 	{
+		ablaze = new TraitAblaze();
 		annihilating = new TraitAnnihilating();
 		antiGrav = new TraitAntiGrav();
 		aquatic = new TraitAquatic();
@@ -113,7 +114,6 @@ public final class Traits
 		hemolytic = new TraitHemolytic();
 		hyper = new TraitHyper();
 		icy = new TraitIcy();
-		illuminating = new TraitIlluminating();
 		infernalBlazing = new TraitInfernalBlazing();
 		inky = new TraitInky();
 		lifeInspiring = new TraitLifeInspiring();

@@ -175,7 +175,7 @@ public final class TiCMaterials
 			.addItemAsIngot(Items.ingotDecurrium)
 			.setFluid(Fluids.moltenDecurrium);
 
-	@Compo(value = nameIcelit, traitsTool = { nameTraitIlluminating }, traitsArmor = { nameTraitQuickFreezing })
+	@Compo(value = nameIcelit, traitsTool = {nameTraitAblaze}, traitsArmor = { nameTraitQuickFreezing })
 	@CompoHead(durability=365,miningspeed=6.7,attack=4,harvestLevel=2,traits={  })
 	@CompoHandle(modifier=0.8,durability=-50,traits={  })
 	@CompoExtra(extraDurability=55,traits={  })

@@ -533,7 +533,7 @@ public interface Keys
 	String nameTraitRespecting = "respecting";
 	String nameTraitQuickFreezing = "quick_freezing";
 	String nameTraitSurging = "surging";
-	String nameTraitIlluminating = "illuminating";
+	String nameTraitAblaze = "ablaze";
 
 	// 属性颜色
 	int colorTraitGluttonic = 0x752b40;

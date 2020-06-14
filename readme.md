@@ -31,11 +31,11 @@
   * 尊重 respecting
   * 蔽叶(护甲) leaves hiding(armor)
   * 浪涌(护甲) surging(armor)
-  * 灯明 illuminating
+  * 灯明 ablaze
   * 速冻(护甲) quick freezing(armor)
 * 增加状态效果 added potion effects
   * 蔽叶 leaves hiding
-  * 灯明 illuminating
+  * 灯明 ablaze
 
 ## 版本间差异 differences between versions
 
