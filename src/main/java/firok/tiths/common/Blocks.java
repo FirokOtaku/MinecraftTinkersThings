@@ -223,7 +223,7 @@ public final class Blocks
 	@GenOre(times = 1, timeRate = 0.5f, size = 10, minY = 40, maxY = 80)
 	public static final BlockOre oreInkPowder = new BlockOre(Items.inkPowder, 2, 4, 2, 2, 7).setCommonOre(); // 墨粉矿石
 	@Reg(Keys.oreLavaCrystal)
-//	@GenOre(times=2,timeRate = 0.8f,size=4,minY = 50,maxY = 100)
+	@GenOre(times = 10, timeRate = 1, size = 3, minY = 32, maxY = 33, dim = Strategy.ONLY_WHITELIST, dimsWL = -1, selector = "lava")
 	public static final BlockOre oreLavaCrystal = new BlockOre(Items.lavaCrystal, 1, 1, 1, 3, 6).setVeryRareOre(); // 熔岩水晶矿
 	@Reg(Keys.oreLizanite)
 	@GenOre(times = 5, timeRate = 0.6f, size = 6, minY = 6, maxY = 80, dim = Strategy.ONLY_WHITELIST, dimsWL = -1, selector = "netherrack")

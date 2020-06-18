@@ -35,6 +35,7 @@ public final class Predicates
 	static final Item blockDirt=Item.getItemFromBlock(Blocks.DIRT);
 	static final Item blockGrass=Item.getItemFromBlock(Blocks.GRASS);
 	static final Item blockSand=Item.getItemFromBlock(Blocks.SAND);
+	static final Item blockLAVA=Item.getItemFromBlock(Blocks.LAVA);
 
 	public static boolean any(Object... obj)
 	{
@@ -119,6 +120,24 @@ public final class Predicates
 	public static boolean isNetherrack(Block block)
 	{
 		return block==Blocks.NETHERRACK;
+	}
+
+	/* ---- 判断是否是岩浆源 ---- */
+	public static boolean isLAVA(ItemStack stack)
+	{
+		return stack!=null && !stack.isEmpty() && stack.getItem() == blockLAVA;
+	}
+	public static boolean isLAVA(IBlockState state)
+	{
+		return state!=null && isLAVA(state.getBlock());
+	}
+	public static boolean isLAVA(Item item)
+	{
+		return item==blockLAVA;
+	}
+	public static boolean isLAVA(Block block)
+	{
+		return block==Blocks.LAVA;
 	}
 
 	/* ---- 判断是否是末地石 ---- */
@@ -236,6 +255,7 @@ public final class Predicates
 			case "grass": return Predicates::isGrass;
 			case "dirt": return Predicates::isDirt;
 			case "sand": return Predicates::isSand;
+			case "lava": return Predicates::isLAVA;
 			default: return defaultValue;
 		}
 	}
@@ -255,6 +275,7 @@ public final class Predicates
 			case "grass": return Predicates::isGrass;
 			case "dirt": return Predicates::isDirt;
 			case "sand": return Predicates::isSand;
+			case "lava": return Predicates::isLAVA;
 			default: return defaultValue;
 		}
 	}
@@ -274,6 +295,7 @@ public final class Predicates
 			case "grass": return Predicates::isGrass;
 			case "dirt": return Predicates::isDirt;
 			case "sand": return Predicates::isSand;
+			case "lava": return Predicates::isLAVA;
 			default: return defaultValue;
 		}
 	}
@@ -293,6 +315,7 @@ public final class Predicates
 			case "grass": return Predicates::isGrass;
 			case "dirt": return Predicates::isDirt;
 			case "sand": return Predicates::isSand;
+			case "lava": return Predicates::isLAVA;
 			default: return defaultValue;
 		}
 	}
