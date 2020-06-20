@@ -3,6 +3,7 @@ package firok.tiths.common;
 import com.google.gson.JsonArray;
 import firok.tiths.TinkersThings;
 import firok.tiths.util.InnerActions;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
@@ -13,6 +14,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import org.apache.commons.io.FileUtils;
@@ -20,6 +22,9 @@ import org.apache.commons.io.FileUtils;
 import javax.annotation.Nullable;
 import java.io.File;
 import java.util.*;
+
+import static firok.tiths.common.Blocks.*;
+import static net.minecraft.init.Blocks.*;
 
 public class Commands implements ICommand
 {
@@ -149,6 +154,82 @@ public class Commands implements ICommand
 
 							break SWITCH;
 						}
+						case "gen": {
+
+							IBlockState stateAir = AIR.getDefaultState();
+							IBlockState stateCOAL_ORE = COAL_ORE.getDefaultState();
+							IBlockState stateDIAMOND_ORE = DIAMOND_ORE.getDefaultState();
+							IBlockState stateEMERALD_ORE = EMERALD_ORE.getDefaultState();
+							IBlockState stateIRON_ORE = IRON_ORE.getDefaultState();
+							IBlockState stateGOLD_ORE = GOLD_ORE.getDefaultState();
+							IBlockState stateLAPIS_ORE = LAPIS_ORE.getDefaultState();
+							IBlockState stateREDSTONE_ORE = REDSTONE_ORE.getDefaultState();
+
+							World world = player.world;
+							double ppx = player.posX, ppy = player.posY, ppz = player.posZ; // player pos 玩家位置
+							int R;
+							do {
+								int Max = 8; // 最大半径
+								R = (int) (Math.random() * Max);
+							} while (R <= 4); // 最小半径
+							int r = R * 2/3;
+							int BlockScalar = (int) ((int) Math.PI * (R * R * R - r * r * r ) * 3/4);
+							class block {
+								int ix;
+								int iy;
+								int iz;
+
+								block(int ix, int iy, int iz) {
+									this.ix = ix;
+									this.iy = iy;
+									this.iz = iz;
+								}
+							}
+							int i = 0;
+							block[] block = new block[BlockScalar];
+							FOR_x:
+							for (int Ix = -R; Ix < R; Ix++) {
+								for (int Iy = -R; Iy < R; Iy++) {
+									for (int Iz = -R; Iz < R; Iz++) {
+										if (Ix * Ix + Iy * Iy + Iz * Iz > r * r && Ix * Ix + Iy * Iy + Iz * Iz <= R * R) { // 球壳内方块随机填为矿物
+											double j=Math.random();
+											if (j<0.3){ // 球壳内方块填充为矿物概率
+												block[i] = new block(Ix,Iy,Iz);
+												i++;
+											}
+										}
+										if (i==BlockScalar) {
+											break FOR_x;
+										}
+									}
+								}
+							}
+							for (int Ix = -R; Ix < R; Ix++) {
+								for (int Iy = -R; Iy < R; Iy++) {
+									for (int Iz = -R; Iz < R; Iz++) {
+										if (Ix * Ix + Iy * Iy + Iz * Iz <= R * R) {
+											BlockPos posTemp = new BlockPos(Ix+ppx,Iy+ppy,Iz+ppz);
+											world.setBlockState(posTemp,stateAir);
+										}
+									}
+								}
+							}
+
+							for (i=0;i<=BlockScalar;i++){
+								BlockPos posTemp = new BlockPos(block[i].ix+ppx,block[i].iy+ppy,block[i].iz+ppz);
+								switch ((int)(Math.random()*7)+1){
+									case 1:world.setBlockState(posTemp,stateCOAL_ORE);break;
+									case 2:world.setBlockState(posTemp,stateDIAMOND_ORE);break ;
+									case 3:world.setBlockState(posTemp,stateEMERALD_ORE);break ;
+									case 4:world.setBlockState(posTemp,stateGOLD_ORE);break ;
+									case 5:world.setBlockState(posTemp,stateIRON_ORE);break ;
+									case 6:world.setBlockState(posTemp,stateLAPIS_ORE);break ;
+									case 7:world.setBlockState(posTemp,stateREDSTONE_ORE);break ;
+								}
+							}
+							break SWITCH;
+						}
+
 					}
 				}
 			}
