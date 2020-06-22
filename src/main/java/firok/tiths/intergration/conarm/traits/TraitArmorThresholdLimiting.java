@@ -9,6 +9,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 import static firok.tiths.common.Keys.colorTraitThresholdLimiting;
 import static firok.tiths.common.Keys.nameTraitThresholdLimiting;
+import static firok.tiths.util.Predicates.canDealWith;
 
 /**
  * 阈限 - 护甲
@@ -23,18 +24,22 @@ public class TraitArmorThresholdLimiting extends AbstractArmorTrait
 	@Override
 	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
 	{
-		if(newDamage<=4) return newDamage;
-		float damageMax = player.getHealth()/4;
-		if(newDamage>damageMax)
+		if(canDealWith(source,true,null,null,null,null))
 		{
-			ArmorHelper.damageArmor(armor,source,1,player);
-			newDamage= damageMax<1?1:damageMax;
-		}
+			if(newDamage<=4) return newDamage;
+			float damageMax = player.getHealth()/4;
+			if(newDamage>damageMax)
+			{
+				ArmorHelper.damageArmor(armor,source,1,player);
+				newDamage= damageMax<1?1:damageMax;
+			}
 //		if(player.isServerWorld())
 //		{
 //			System.out.println("newDamage: "+newDamage);
 //		}
 
-		return newDamage;
+			return newDamage;
+		}
+		else return newDamage;
 	}
 }

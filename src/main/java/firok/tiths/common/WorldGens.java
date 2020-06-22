@@ -131,7 +131,7 @@ public class WorldGens implements IWorldGenerator
 			3,0.6f,8
 	);
 	public static final Info defaultCloudInfo=Info.build(
-			Blocks.oreAventurine.getDefaultState(),
+			Blocks.oreBrumeJade.getDefaultState(),
 			Strategy.ONLY_WHITELIST,new int[]{0},null,
 			Strategy.NONE_BLACKLIST,null,null,
 			Predicates::isAir,

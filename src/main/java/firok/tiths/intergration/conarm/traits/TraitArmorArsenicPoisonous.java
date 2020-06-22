@@ -13,6 +13,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 import static firok.tiths.common.Keys.colorTraitPoisonous;
 import static firok.tiths.common.Keys.nameTraitArsenicPoisonous;
+import static firok.tiths.util.Predicates.canDealWith;
 
 /**
  * 砷毒 - 护甲
@@ -27,7 +28,7 @@ public class TraitArmorArsenicPoisonous extends AbstractArmorTrait
 	@Override
 	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
 	{
-		if(source instanceof EntityDamageSource)
+		if(source instanceof EntityDamageSource && canDealWith(source,true,null,null,null,false))
 		{
 
 			EntityDamageSource ends=(EntityDamageSource)source;

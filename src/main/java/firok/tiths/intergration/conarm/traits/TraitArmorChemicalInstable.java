@@ -10,6 +10,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import static firok.tiths.common.Keys.colorTraitChemicalInstable;
 import static firok.tiths.common.Keys.nameTraitChemicalInstable;
 import static firok.tiths.traits.TraitChemicalInstable.boom;
+import static firok.tiths.util.Predicates.canDealWith;
 import static firok.tiths.util.Predicates.canTrigger;
 
 /**
@@ -25,7 +26,7 @@ public class TraitArmorChemicalInstable extends AbstractArmorTrait
 	@Override
 	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
 	{
-		if(canTrigger(player.world, Configs.ArmorTraits.rate_chemical_instable_hit))
+		if(canDealWith(source,true,null,null,null,null) && canTrigger(player.world, Configs.ArmorTraits.rate_chemical_instable_hit))
 		{
 			boom(player,player.posX,player.posY,player.posZ);
 		}

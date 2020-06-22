@@ -34,7 +34,7 @@ public interface IAirSupply
 	/**
 	 * 检查能否经由头盔为玩家补充氧气. 注意: 这个方法需要由特性来调用
 	 * @param stack 物品
-	 * @param helmet 尝试补充氧气的头盔
+	 * @param helmet 尝试补充氧气的头盔. 可能是有特性的匠魂护甲, 或者是氧气面罩
 	 */
 	boolean canAutoSupply(ItemStack stack,ItemStack helmet,EntityLivingBase enlb);
 }

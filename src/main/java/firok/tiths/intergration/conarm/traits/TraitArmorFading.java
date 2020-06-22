@@ -26,6 +26,7 @@ public class TraitArmorFading extends AbstractArmorTrait
 	{
 		int light=getLight(player);
 		float rate=50-6.25f*light;
+		if(source.isUnblockable()) rate-=0.4f;
 		if(source.isProjectile()) rate+=0.2f;
 		if(source.isExplosion()) rate-=0.4f;
 

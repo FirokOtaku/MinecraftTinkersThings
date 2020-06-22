@@ -10,7 +10,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class BasePotion extends Potion
 {
-	protected static ResourceLocation icon(String name)
+	public static ResourceLocation icon(String name)
 	{
 		return new ResourceLocation(TinkersThings.MOD_ID,String.format("textures/potions/%s.png",name));
 	}

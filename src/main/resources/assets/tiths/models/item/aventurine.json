@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "tiths:items/aventurine"
+    "layer0": "tiths:items/brume_jade"
   }
 }

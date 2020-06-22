@@ -10,6 +10,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 import static firok.tiths.common.Keys.colorTraitVibrating;
 import static firok.tiths.common.Keys.nameTraitVibrating;
+import static firok.tiths.util.Predicates.canDealWith;
 import static firok.tiths.util.Predicates.canTick;
 
 /**
@@ -26,9 +27,13 @@ public class TraitArmorVibrating extends AbstractArmorTrait
 	@Override
 	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
 	{
-		float fre=TraitVibrating.addFrequency(armor,12, 144);
-		float percent=fre/144 * 0.6f;
-		return newDamage * (1-percent);
+		if(canDealWith(source,true,null,null,null,null))
+		{
+			float fre=TraitVibrating.addFrequency(armor,12, 144);
+			float percent=fre/144 * 0.6f;
+			return newDamage * (1-percent);
+		}
+		return newDamage;
 	}
 
 	@Override

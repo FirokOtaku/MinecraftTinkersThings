@@ -207,7 +207,8 @@ public final class InnerActions
 	}
 
 	/**
-	 * 用反射抓数据
+	 * 用反射读数据
+	 * @see ObfuscationReflectionHelper
 	 */
 	@Deprecated
 	public static Object get(Class<?> clasz,String fieldName,Object obj) throws NoSuchFieldException, IllegalAccessException
@@ -216,6 +217,11 @@ public final class InnerActions
 		field.setAccessible(true);
 		return field.get(obj);
 	}
+
+	/**
+	 * 用反射写数据
+	 * @see ObfuscationReflectionHelper
+	 */
 	@Deprecated
 	public static void set(Class<?> clasz,String fieldName,Object obj,Object value) throws NoSuchFieldException, IllegalAccessException
 	{

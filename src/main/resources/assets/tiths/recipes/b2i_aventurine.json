@@ -1,8 +1,8 @@
 {
 	"type": "minecraft:crafting_shapeless",
 	"group": "tiths:block_to_ingot",
-	"result": { "item": "tiths:aventurine", "count": 9 },
+	"result": { "item": "tiths:brume_jade", "count": 9 },
 	"ingredients": [
-	  { "item": "tiths:block_aventurine" }
+	  { "item": "tiths:block_brume_jade" }
 	]
 }

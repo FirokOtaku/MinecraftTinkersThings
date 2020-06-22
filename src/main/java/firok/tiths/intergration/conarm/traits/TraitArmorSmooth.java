@@ -8,6 +8,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 import static firok.tiths.common.Keys.colorTraitSmooth;
 import static firok.tiths.common.Keys.nameTraitSmooth;
+import static firok.tiths.util.Predicates.canDealWith;
 import static firok.tiths.util.Predicates.canTrigger;
 
 /**
@@ -23,8 +24,12 @@ public class TraitArmorSmooth extends AbstractArmorTrait
 	@Override
 	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
 	{
-		float rate=player.motionX * player.motionX + player.motionY * player.motionY + player.motionZ * player.motionZ > 0 ?
-				0.5f : 0.2f;
-		return canTrigger(player.world,rate)? 0 : newDamage;
+		if(canDealWith(source,true,null,null,null,null))
+		{
+			float rate=player.motionX * player.motionX + player.motionY * player.motionY + player.motionZ * player.motionZ > 0 ?
+					0.5f : 0.2f;
+			return canTrigger(player.world,rate)? 0 : newDamage;
+		}
+		return newDamage;
 	}
 }

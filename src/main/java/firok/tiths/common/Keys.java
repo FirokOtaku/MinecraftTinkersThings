@@ -98,7 +98,7 @@ public interface Keys
 	String nameGrain = "grain";
 	String nameEnderCreviceShard = "ender_crevice_shard";
 	String nameMercurySulfide = "mercury_sulfide";
-	String nameAventurine = "aventurine";
+	String nameBrumeJade = "brume_jade";
 	String nameCinder = "cinder";
 	String nameUlun = "ulun";
 	String namePotos = "potos";
@@ -122,8 +122,6 @@ public interface Keys
 	String nameBeltStonePhasing = prefBelt + "stone_phasing";
 	String nameBeltLeather = prefBelt + "leather";
 	String nameAirBomb = "air_bomb";
-	String nameChannelPackStone = "channel_pack_stone";
-	String nameChannelPackWood = "channel_pack_wood";
 	String nameSoulBeacon = "soul_beacon";
 	String nameChloroplastDressing = "chloroplast_dressing";
 	String nameAmuletIron = prefAmulet + "iron";
@@ -135,6 +133,10 @@ public interface Keys
 	String nameBeltOceanic = prefBelt + "oceanic";
 	String nameDecurrium = "decurrium";
 	String nameIcelit = "icelit";
+	String nameChannel = "channel";
+	String nameShiningGel = "shining_gel";
+	String nameFluidBall = "fluid_ball";
+	String nameFluidCollector = "fluid_collector";
 
 	String nameHardener = "hardener";
 	String namePolisher = "polisher";
@@ -202,7 +204,7 @@ public interface Keys
 	String blockVibratingCrystal = prefBlock + nameVibratingCrystal;
 	String blockLavaCrystal = prefBlock + nameLavaCrystal;
 	String blockSteamium = prefBlock + nameSteamium;
-	String blockAventurine = prefBlock + nameAventurine;
+	String blockBrumeJade = prefBlock + nameBrumeJade;
 	String blockMercurySulfide = prefBlock + nameMercurySulfide;
 	String blockChloroplast = prefBlock + nameChloroplast;
 	String blockUlun = prefBlock + nameUlun;
@@ -230,6 +232,7 @@ public interface Keys
 	String blockSearingVent = prefBlock + "searing_vent";
 	String blockTinkerDisintegrator = prefBlock + "tinker_disintegrator";
 	String blockAirPump = prefBlock + "air_pump";
+	String blockChannel = prefBlock + nameChannel;
 
 	String blockRoyalEnchantmentTable = prefBlock + "royal_enchantment_table";
 
@@ -271,7 +274,7 @@ public interface Keys
 	String oreVibratingCrystal = prefOre + nameVibratingCrystal;
 	String oreLavaCrystal = prefOre + nameLavaCrystal;
 	String oreSteamium = prefOre + nameSteamium;
-	String oreAventurine = prefOre + nameAventurine;
+	String oreBrumeJade = prefOre + nameBrumeJade;
 	String oreChloroplast = prefOre + nameChloroplast;
 	String oreUlun = prefOre + nameUlun;
 	String orePotos = prefOre + namePotos;
@@ -392,7 +395,7 @@ public interface Keys
 	int colorLavaCrystal = 0xa9174f;
 	int colorSteamium = 0xb7d3f5;
 	int colorGrain = 0xea9b32;
-	int colorAventurine = 0x4e8d41;
+	int colorBrumeJade = 0x4e8d41;
 	int colorChloroplast = 0xb1fa2a;
 	int colorEnderTurbulence = 0x5c1491;
 	int colorTorrentialCrystal = 0x3e62ba;
@@ -403,6 +406,7 @@ public interface Keys
 
 	int colorDirtyWater = 0x613d1d;
 	int colorAcid = 0x0e8c39;
+	int colorShiningGel = 0xfff89d;
 
 	// 匠魂自带属性
 	String nameTraitLightweight = "lightweight";
@@ -465,7 +469,7 @@ public interface Keys
 	String nameTraitPyroelectric = "pyroelectric";
 	String nameTraitShaking = "shaking";
 	String nameTraitAntiGrav = "anti_grav";
-	String nameTraitStonePhasing = "stone_phasing";
+//	String nameTraitStonePhasing = "stone_phasing";
 	String nameTraitTreasureDetecting = "treasure_detecting";
 	String nameTraitCreaky = "creaky";
 	String nameTraitUndeadCalling = "undead_calling";
@@ -534,6 +538,10 @@ public interface Keys
 	String nameTraitQuickFreezing = "quick_freezing";
 	String nameTraitSurging = "surging";
 	String nameTraitAblaze = "ablaze";
+	String nameTraitPhasing = "phasing";
+	String nameTraitLingering = "lingering";
+	String nameTraitDeepPressured = "deep_pressured";
+
 
 	// 属性颜色
 	int colorTraitGluttonic = 0x752b40;
@@ -561,7 +569,7 @@ public interface Keys
 	int colorTraitPyroelectric = Colors.Navy;
 	int colorTraitShaking = Colors.Fuchsia;
 	int colorTraitAntiGrav = Colors.LightGoldenRodYellow;
-	int colorTraitStonePhasing = Colors.LimeGreen;
+//	int colorTraitStonePhasing = Colors.LimeGreen;
 	int colorTraitTreasureDetecting = Colors.GoldenRod;
 	int colorTraitCreaky = Colors.DarkSlateGray;
 	int colorTraitUndeadCalling = Colors.Gray;
@@ -630,6 +638,9 @@ public interface Keys
 	int colorTraitQuickFreezing = Colors.DarkBlue;
 	int colorTraitSurging = Colors.DarkSlateBlue;
 	int colorTraitIlluminating = 0xcbd92a;
+	int colorTraitPhasing = Colors.LimeGreen;
+	int colorTraitLingering = Colors.LightSeaGreen;
+	int colorTraitDeepPressured = 0x21404c;
 
 	// 状态效果颜色
 	int colorPotionHeavy = Colors.DarkSeaGreen;
@@ -651,6 +662,8 @@ public interface Keys
 	int colorPotionEroded = colorTraitEroding;
 	int colorPotionLeavesHiding = Colors.Green;
 	int colorPotionIlluminating = 0xebf756;
+	int colorPotionBruming = 0xb6c5dc;
+	int colorPotionFear = 0x921b28;
 
 	// 状态效果属性修饰符uuid
 	String uuidPotionAvatarSpeed = "258A83A5-A3BD-4CFD-842C-B2DF39343C91";

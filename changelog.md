@@ -2,6 +2,34 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.6.0 _2020-06-23 01:00_
+
+* 增加方块和物品 added blocks and items
+  * 氧气面罩 oxygen mask item
+  * 浮漂 buoy block
+  * 浮灯 buoyant light block
+  * 通道 channel
+  * 沉重腰带 heavy belt
+  * 冻灯 ice light
+  * 液体收集器 fluid collector
+  * 液体球 fluid ball
+  * 云砖 cloud brick block
+* 移除方块和物品 removed blocks and items
+  * 木梯管道料包 channel pack wood
+  * 石梯管道料包 channel pack stone
+* 增加液体 added fluids
+  * 闪光凝胶 shining gel
+* 增加特性 added traits
+  * 缭绕(护甲) lingering(armor)
+  * 绿意 green
+* 增加状态效果 added potion effects
+  * 云雾 bruming
+* 材料重命名 renamed materials
+  * 东陵石 -> 云玉 aventurine -> brume jade
+* 错误修复 bug fixes
+  * 部分特性不再会对无视护甲的伤害做出反应 now some of armor traits will not react to damage sources which bypass armor
+  * 不再使用直接反射读写MC内部类字段 we no longer use direct reflection to read or write values of classes of Minecraft
+
 ## 0.3.5.5 _2020-06-14 17:00_
 
 * 调整矿物世界生成 modified ore generations

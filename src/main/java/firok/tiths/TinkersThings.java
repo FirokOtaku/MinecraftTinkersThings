@@ -7,9 +7,11 @@ import firok.tiths.intergration.conarm.ArmorRegistryHandler;
 import firok.tiths.util.VersionPhase;
 import firok.tiths.common.WorldGens;
 import net.minecraft.client.Minecraft;
+import net.minecraft.util.math.Vec3i;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.*;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
@@ -32,7 +34,7 @@ public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers' Things";
-	public static final String VERSION = "1.12.2-0.3.5.5";
+	public static final String VERSION = "1.12.2-0.3.6.0";
 	public static final VersionPhase version = VersionPhase.Alpha;
 
 	@Mod.Instance(MOD_ID)
@@ -135,7 +137,7 @@ public class TinkersThings
 		GameRegistry.registerWorldGenerator(WorldGens.getInstance(), 0);
 		//  // GameRegistry.registerFuelHandler(new FuelHandler());  Registeres fuels' burn times
 
-		new Guis();
+		NetworkRegistry.INSTANCE.registerGuiHandler(TinkersThings.INSTANCE, Guis.getInstance());
 
 		RegistryHandler.registerMaterialTraits();
 		if(enableConarm())

@@ -3,6 +3,7 @@ package firok.tiths.common;
 import firok.tiths.block.fluid.BlockDirtyWater;
 import firok.tiths.block.fluid.BlockMoltenEnderTurbulence;
 import firok.tiths.block.fluid.BlockMoltenHothium;
+import firok.tiths.block.fluid.BlockShiningGel;
 import firok.tiths.util.reg.FluidBlock;
 import firok.tiths.util.reg.RegSmelteryFuel;
 import net.minecraft.util.ResourceLocation;
@@ -43,6 +44,8 @@ public final class Fluids
 	public static final FluidMolten moltenEnderTurbulence=$(nameEnderTurbulence, colorEnderTurbulence);
 	@FluidBlock(BlockDirtyWater.class)
 	public static final FluidColored dirtyWater=$$(nameDirtyWater, colorDirtyWater);
+	@FluidBlock(BlockShiningGel.class)
+	public static final FluidColored shiningGel=$$(nameShiningGel, colorShiningGel);
 
 	static FluidMolten $(String name,int color)
 	{

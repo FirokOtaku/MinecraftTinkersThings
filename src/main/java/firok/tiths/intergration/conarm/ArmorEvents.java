@@ -21,6 +21,7 @@ import net.minecraftforge.client.event.sound.PlaySoundEvent;
 import net.minecraftforge.client.event.sound.SoundEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -128,34 +129,26 @@ public class ArmorEvents
 			}
 
 			ISound soundNew=null;
+			ISound s=event.getSound();
 
-			if(hasDeadening)
+			if(hasDeadening && s instanceof PositionedSound)
 			{
-				ISound s=event.getSound();
+				PositionedSound sound=(PositionedSound)s;
 
-				;
+				final String field_name="field_147662_b"; // volume
 
-				float volume=(float) InnerActions.get(PositionedSound.class,"volume",s);
-				InnerActions.set(PositionedSound.class,"volume",s,volume*0.15f);
+				float volume= ObfuscationReflectionHelper.getPrivateValue(PositionedSound.class,sound,field_name);
+
+				volume*=0.15;
+
+				ObfuscationReflectionHelper.setPrivateValue(PositionedSound.class,sound,volume,field_name);
+
+//				InnerActions.set(PositionedSound.class,"volume",s,volume*0.15f);
 
 				soundNew=s;
-//				if(s instanceof PositionedSoundRecord)
-//				{
-//					PositionedSoundRecord s2=(PositionedSoundRecord)s;
-//					soundNew=new PositionedSoundRecord(
-//							s2.getSoundLocation(),s2.getCategory(),
-//							s2.getVolume() * 0.2f,s2.getPitch(),
-//							s2.canRepeat(),s2.getRepeatDelay(),s2.getAttenuationType(),
-//							s2.getXPosF(),s2.getYPosF(),s2.getZPosF()
-//					);
-//				}
-//				else if(s instanceof ElytraSound)
-//				{
-//					;
-//				}
-
-				event.setResultSound(soundNew);
 			}
+
+			if(soundNew!=null) event.setResultSound(soundNew);
 		}
 		catch (Exception e)
 		{

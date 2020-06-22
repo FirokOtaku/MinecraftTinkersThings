@@ -14,6 +14,7 @@ import java.util.List;
 
 import static firok.tiths.common.Keys.colorTraitHydrating;
 import static firok.tiths.common.Keys.nameTraitHydrating;
+import static firok.tiths.util.Predicates.canDealWith;
 import static firok.tiths.util.Predicates.canTick;
 
 /**
@@ -96,15 +97,19 @@ public class TraitArmorHydrating extends AbstractArmorTrait
 	@Override
 	public float onDamaged(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingDamageEvent evt)
 	{
-		int costMax=(int)(newDamage*100);
-		int costReal=cost(armor,costMax);
-
-		if(costReal>0)
+		if(canDealWith(source,true,null,null,null,null))
 		{
-			newDamage-= costReal/100f;
-			// todo 播放音效
-		}
+			int costMax=(int)(newDamage*100);
+			int costReal=cost(armor,costMax);
 
+			if(costReal>0)
+			{
+				newDamage-= costReal/100f;
+				// todo 播放音效
+			}
+
+			return newDamage;
+		}
 		return newDamage;
 	}
 

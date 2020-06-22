@@ -614,7 +614,7 @@ public final class TiCMaterials
 	public static final Material grain=new $Material(nameGrain, colorGrain)
 			.addItemAsIngot(Items.ingotGrain);
 
-	@Compo(value = nameAventurine,traitsTool = {nameTraitStaminaFocusing},traitsBow = {  },traitsArmor = {nameTraitStaminaFocusing})
+	@Compo(value = nameBrumeJade,traitsTool = {nameTraitStaminaFocusing},traitsBow = {  },traitsArmor = {nameTraitStaminaFocusing})
 	@CompoHead(durability=720,miningspeed=6,attack=7,harvestLevel=3,traits={  })
 	@CompoHandle(modifier=0.9,durability=40,traits={  })
 	@CompoExtra(extraDurability=50,traits={  })
@@ -622,8 +622,8 @@ public final class TiCMaterials
 	@CompoArmorCore(durability=8.5,defense=4,traits={  })
 	@CompoArmorPlate(modifier=0.68,durability=5,toughness=0.5,traits={  })
 	@CompoArmorTrim(extraDurability=5.6,traits={  })
-	public static final Material aventurine =new $Material(nameAventurine, colorAventurine)
-			.addItemAsIngot(Items.aventurine);
+	public static final Material brumeJade =new $Material(nameBrumeJade, colorBrumeJade)
+			.addItemAsIngot(Items.brumeJade);
 
 	@Compo(value = nameFlesh,traitsTool = {nameTraitGluttonic},traitsArmor = {nameTraitDeepParasitic})
 	@CompoHead(durability=220,miningspeed=3.8,attack=4,harvestLevel=0,traits={  })

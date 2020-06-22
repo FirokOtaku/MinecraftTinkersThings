@@ -51,6 +51,10 @@ public final class PotionTypes
 
 	public static final PotionType leaves_hiding=new PotionType("leaves_hiding",
 			new PotionEffect(Potions.leaves_hiding,3600,0));
+	public static final PotionType illuminating=new PotionType("illuminating",
+			new PotionEffect(Potions.illuminating,3600,0));
+	public static final PotionType bruming=new PotionType("bruming",
+			new PotionEffect(Potions.bruming,3600,0));
 //	public static final PotionType forcibleFocused=new PotionType("forcibleFocused",
 //			new PotionEffect(Potions.forcibleFocused,3600,0));
 

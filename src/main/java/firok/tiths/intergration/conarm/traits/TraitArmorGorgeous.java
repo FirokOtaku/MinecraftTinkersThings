@@ -9,6 +9,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import static firok.tiths.common.Keys.colorTraitGorgeous;
 import static firok.tiths.common.Keys.nameTraitGorgeous;
 import static firok.tiths.traits.TraitGorgeous.factorGorgeous;
+import static firok.tiths.util.Predicates.canDealWith;
 
 /**
  * 斑斓 - 护甲
@@ -22,6 +23,10 @@ public class TraitArmorGorgeous extends AbstractArmorTrait
 	@Override
 	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
 	{
-		return newDamage / factorGorgeous(player);
+		if(canDealWith(source,true,null,null,null,null))
+		{
+			return newDamage / factorGorgeous(player);
+		}
+		else return newDamage;
 	}
 }

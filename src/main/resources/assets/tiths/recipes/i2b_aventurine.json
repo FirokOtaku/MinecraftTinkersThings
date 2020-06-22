@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shapeless",
   "group": "tiths:ingot_to_block",
-  "result": { "item": "tiths:block_aventurine", "count": 1 },
+  "result": { "item": "tiths:block_brume_jade", "count": 1 },
   "ingredients": [
-    { "item": "tiths:aventurine" },
-    { "item": "tiths:aventurine" },
-    { "item": "tiths:aventurine" },
+    { "item": "tiths:brume_jade" },
+    { "item": "tiths:brume_jade" },
+    { "item": "tiths:brume_jade" },
 
-    { "item": "tiths:aventurine" },
-    { "item": "tiths:aventurine" },
-    { "item": "tiths:aventurine" },
+    { "item": "tiths:brume_jade" },
+    { "item": "tiths:brume_jade" },
+    { "item": "tiths:brume_jade" },
 
-    { "item": "tiths:aventurine" },
-    { "item": "tiths:aventurine" },
-    { "item": "tiths:aventurine" }
+    { "item": "tiths:brume_jade" },
+    { "item": "tiths:brume_jade" },
+    { "item": "tiths:brume_jade" }
   ]
 }

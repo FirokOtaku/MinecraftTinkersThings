@@ -9,6 +9,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 import static firok.tiths.common.Keys.colorTraitSliding;
 import static firok.tiths.common.Keys.nameTraitSliding;
+import static firok.tiths.util.Predicates.canDealWith;
 import static firok.tiths.util.Predicates.canTrigger;
 
 /**
@@ -24,7 +25,7 @@ public class TraitArmorSliding extends AbstractArmorTrait
 	@Override
 	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
 	{
-		if(canTrigger(player.world,0.15f))
+		if(canDealWith(source,true,null,null,null,null) && canTrigger(player.world,0.15f))
 		{
 			ArmorHelper.damageArmor( armor, source, (int)(newDamage*5), player, 0 );
 			return 0;

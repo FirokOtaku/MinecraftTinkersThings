@@ -2,7 +2,6 @@ package firok.tiths.common;
 
 
 import baubles.api.BaublesApi;
-import baubles.api.cap.BaublesContainer;
 import firok.tiths.TinkersThings;
 import firok.tiths.entity.special.EnderBeacon;
 import firok.tiths.intergration.conarm.ArmorEvents;
@@ -10,13 +9,11 @@ import firok.tiths.item.IFluid;
 import firok.tiths.item.ISoulGather;
 import firok.tiths.item.ISoulStore;
 import firok.tiths.util.Actions;
-import firok.tiths.util.InnerActions;
 import firok.tiths.util.Ranges;
 import firok.tiths.util.SoulUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockLog;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -32,11 +29,9 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.entity.projectile.EntityFishHook;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -54,7 +49,6 @@ import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.event.world.GetCollisionBoxesEvent;
 import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
@@ -74,7 +68,6 @@ import java.util.*;
 import static firok.tiths.common.Configs.Traits.enable_gluttonic_clear;
 import static firok.tiths.common.Traits.thermalGathering;
 import static firok.tiths.item.ISoulStore.Common;
-import static firok.tiths.traits.TraitStonePhasing.costStone;
 import static firok.tiths.util.Predicates.canTrigger;
 import static firok.tiths.util.Predicates.isAnyStone;
 
@@ -256,34 +249,34 @@ public class Events
 		World world=event.getWorld();
 		if(world.isRemote) return;
 
-		try
-		{
-			// 石之相变
-			Entity entity=event.getEntity();
-			if(entity instanceof EntityPlayer)
-			{
-				BlockPos posClicked=event.getPos();
-				BlockPos posReplace=posClicked.offset(event.getFace());
-				boolean canReplace=world.getBlockState(posReplace).getBlock().isReplaceable(world,posReplace);
-
-				if(canReplace)
-				{
-					EntityPlayer player=(EntityPlayer)entity;
-					ItemStack stackMain=player.getHeldItem(EnumHand.MAIN_HAND);
-					ItemStack stackSub=player.getHeldItem(EnumHand.OFF_HAND);
-
-
-					if(costStone(stackMain) || costStone(stackSub))
-					{
-						world.setBlockState(posReplace,Blocks.COBBLESTONE.getDefaultState());
-					}
-				}
-			}
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
+//		try
+//		{
+//			// 石之相变
+//			Entity entity=event.getEntity();
+//			if(entity instanceof EntityPlayer)
+//			{
+//				BlockPos posClicked=event.getPos();
+//				BlockPos posReplace=posClicked.offset(event.getFace());
+//				boolean canReplace=world.getBlockState(posReplace).getBlock().isReplaceable(world,posReplace);
+//
+//				if(canReplace)
+//				{
+//					EntityPlayer player=(EntityPlayer)entity;
+//					ItemStack stackMain=player.getHeldItem(EnumHand.MAIN_HAND);
+//					ItemStack stackSub=player.getHeldItem(EnumHand.OFF_HAND);
+//
+//
+//					if(costStone(stackMain) || costStone(stackSub))
+//					{
+//						world.setBlockState(posReplace,Blocks.COBBLESTONE.getDefaultState());
+//					}
+//				}
+//			}
+//		}
+//		catch (Exception e)
+//		{
+//			e.printStackTrace();
+//		}
 	}
 
 	@SubscribeEvent
@@ -354,9 +347,12 @@ public class Events
 
 					hook.setLureSpeed(1);
 
-					int lureSpeed=(int) InnerActions.get(EntityFishHook.class,"lureSpeed",hook);
+//					int lureSpeed=(int) InnerActions.get(EntityFishHook.class,"lureSpeed",hook);
+					final String field_name="field_191519_ax";
+					int lureSpeed=ObfuscationReflectionHelper.getPrivateValue(EntityFishHook.class,hook,field_name);
 					lureSpeed++;
-					InnerActions.set(EntityFishHook.class,"lureSpeed",hook,lureSpeed);
+//					InnerActions.set(EntityFishHook.class,"lureSpeed",hook,lureSpeed);
+					ObfuscationReflectionHelper.setPrivateValue(EntityFishHook.class,hook,lureSpeed,field_name);
 
 					break;
 				}
@@ -682,51 +678,54 @@ public class Events
 			Entity entity=event.getEntity();
 			AxisAlignedBB aabb=event.getAabb();
 			List<AxisAlignedBB> listCollect=event.getCollisionBoxesList();
-			CHECK_REMOVE:if(entity instanceof EntityPlayer)
+			if(entity instanceof EntityPlayer)
 			{
 				EntityPlayer player=(EntityPlayer)entity;
 
-				if(player.getActivePotionEffect(Potions.leaves_hiding)==null) break CHECK_REMOVE;
-
-				World world=player.world;
-				BlockPos posPlayer=player.getPosition();
-				BlockPos posTemp;
-				FOR_X:for(int tempX=-1;tempX<=1;tempX++)
+				CHECK_REMOVE:
 				{
-					FOR_Z:for(int tempZ=-1;tempZ<=1;tempZ++)
-					{
-						FOR_Y:for(int tempY=-1;tempY<=2;tempY++)
-						{
-							posTemp=posPlayer.add(tempX,tempY,tempZ);
-							IBlockState stateTemp=world.getBlockState(posTemp);
-							Block blockTemp=stateTemp.getBlock();
-							boolean shouldRemove=false;
-							if( blockTemp instanceof IShearable)
-							{
-								shouldRemove=true;
-							}
+					if(player.getActivePotionEffect(Potions.leaves_hiding)==null) break CHECK_REMOVE;
 
-							if(shouldRemove)
+					World world=player.world;
+					BlockPos posPlayer=player.getPosition();
+					BlockPos posTemp;
+					FOR_X:for(int tempX=-1;tempX<=1;tempX++)
+					{
+						FOR_Z:for(int tempZ=-1;tempZ<=1;tempZ++)
+						{
+							FOR_Y:for(int tempY=-1;tempY<=2;tempY++)
 							{
-								List<AxisAlignedBB> listTemp=new ArrayList<>(2);
-								// IBlockState state, World worldIn, BlockPos pos,
-								// AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes,
-								// @Nullable Entity entityIn, boolean p_185477_7_
-								blockTemp.addCollisionBoxToList(
-										stateTemp,world,posTemp,
-										aabb,listTemp,player,false
-								);
-								for(AxisAlignedBB aabbTemp:listTemp)
+								posTemp=posPlayer.add(tempX,tempY,tempZ);
+								IBlockState stateTemp=world.getBlockState(posTemp);
+								Block blockTemp=stateTemp.getBlock();
+								boolean shouldRemove=false;
+								if( blockTemp instanceof IShearable)
 								{
-									if(aabbTemp==null) continue;
-									Iterator<AxisAlignedBB> iterCollect=listCollect.iterator();
-									while(iterCollect.hasNext())
+									shouldRemove=true;
+								}
+
+								if(shouldRemove)
+								{
+									List<AxisAlignedBB> listTemp=new ArrayList<>(2);
+									// IBlockState state, World worldIn, BlockPos pos,
+									// AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes,
+									// @Nullable Entity entityIn, boolean p_185477_7_
+									blockTemp.addCollisionBoxToList(
+											stateTemp,world,posTemp,
+											aabb,listTemp,player,false
+									);
+									for(AxisAlignedBB aabbTemp:listTemp)
 									{
-										AxisAlignedBB aabbCollect= iterCollect.next();
-										if(aabbCollect==null) continue;
-										if(aabbTemp.equals(aabbCollect))
+										if(aabbTemp==null) continue;
+										Iterator<AxisAlignedBB> iterCollect=listCollect.iterator();
+										while(iterCollect.hasNext())
 										{
-											iterCollect.remove();
+											AxisAlignedBB aabbCollect= iterCollect.next();
+											if(aabbCollect==null) continue;
+											if(aabbTemp.equals(aabbCollect))
+											{
+												iterCollect.remove();
+											}
 										}
 									}
 								}
@@ -734,6 +733,7 @@ public class Events
 						}
 					}
 				}
+
 			}
 		}
 		catch (Exception ignored) { }

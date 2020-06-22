@@ -30,6 +30,7 @@ public class ArmorTraits
 	public static AbstractArmorTrait leavesHiding; // 蔽叶
 	public static AbstractArmorTrait lifeInspiring; // 生命激发
 	public static AbstractArmorTrait lifting; // 扬升
+	public static AbstractArmorTrait lingering; // 缭绕
 	public static AbstractArmorTrait luxurious; // 奢华
 	public static AbstractArmorTrait meshing; // 筛网
 	public static AbstractArmorTrait moonPower; // 月之力量
@@ -80,6 +81,7 @@ public class ArmorTraits
 		leavesHiding=new TraitArmorLeavesHiding();
 		lifeInspiring=new TraitArmorLifeInspiring();
 		lifting=new TraitArmorLifting();
+		lingering=new TraitArmorLingering();
 		luxurious=new TraitArmorLuxurious();
 		meshing=new TraitArmorMeshing();
 		moonPower=new TraitArmorMoonPower();

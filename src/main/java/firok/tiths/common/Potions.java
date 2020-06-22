@@ -3,6 +3,9 @@ package firok.tiths.common;
 import firok.tiths.potion.*;
 import firok.tiths.util.Selectors;
 
+import static firok.tiths.common.Keys.*;
+import static firok.tiths.potion.BasePotion.icon;
+
 /*
 关于实体属性修饰符operation
 
@@ -39,7 +42,7 @@ public final class Potions
 	public static BasePotion lionheart = new PotionLionheart(); // 狮心
 	public static BasePotion icy = new PotionIcy(); // 清凉
 	public static BasePotion hidden_soluble = new PotionHiddenSoluble(); // 特性 - 可溶 (隐藏状态)
-	public static BasePotion fear = new PotionFear(); // 恐惧
+	public static BasePotion fear = new BasePotion(icon("fear"),true, colorPotionFear); // 恐惧
 	public static BasePotion hidden_buoyant = new PotionHiddenBuoyant(); // 特性 - 浮力 (隐藏状态)
 	public static BasePotion bubbling = new PotionBubbling(); // 发泡
 	public static BasePotion turbulent = new PotionTurbulent(); // 乱流
@@ -48,5 +51,6 @@ public final class Potions
 	public static BasePotion eroded = new PotionEroded(); // 侵蚀
 	public static BasePotion leaves_hiding = new PotionLeavesHiding(); // 蔽叶
 	public static BasePotion illuminating = new PotionIlluminating(); // 灯明
+	public static BasePotion bruming = new BasePotion(icon("bruming"),false,colorPotionBruming); // 云雾
 
 }

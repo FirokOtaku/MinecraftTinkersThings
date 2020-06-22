@@ -5,6 +5,7 @@ import firok.tiths.client.render.item.RendererEntityItemSoul;
 import firok.tiths.common.Blocks;
 import firok.tiths.common.Fluids;
 import firok.tiths.common.Items;
+import firok.tiths.common.Potions;
 import firok.tiths.entity.item.EntityItemSoul;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -70,39 +71,14 @@ public class RendererRegistry
 	@SubscribeEvent
 	public static <T extends EntityLivingBase> void onRenderEntity(RenderLivingEvent.Pre<T> event)
 	{
-//		try
-//		{
-//			EntityLivingBase enlb=event.getEntity();
-//			Minecraft mc=Minecraft.getMinecraft();
-//
-//			EntityPlayerSP player=mc.player;
-//			EntityLivingBase attacked=player.getLastAttackedEntity();
-//			int time=player.getLastAttackedEntityTime();
-//
-////			if(player.ticksExisted % 20==0)
-////			{
-////				System.out.println("triggered!");
-////			}
-//
-//			if(enlb.getActivePotionEffect(SLOWNESS)==null) return;
-//
-//
-////			if(/* !(enlb instanceof IMob) || */
-////			   attacked == null || !attacked.isEntityAlive() ||
-////			   mc.player.ticksExisted - time > 100
-////			   ) return;
-//
-//			event.setCanceled(true);
-//			// .objectMouseOver
-////			RenderLivingBase<T> render=event.getRenderer();
-//
-////			if(player.ticksExisted % 20==0)
-////			{
-////				System.out.print("canceled!");
-////			}
-//
-//		}
-//		catch (Exception ignored) { ignored.printStackTrace(); }
+		EntityLivingBase enlb=event.getEntity();
+		EntityPlayerSP playerSP=Minecraft.getMinecraft().player;
+		if(enlb==null || playerSP==null) return;
+
+		if(enlb.getActivePotionEffect(Potions.bruming)!=null && enlb.getDistanceSqToEntity(playerSP)> 25)
+		{
+			event.setCanceled(true);
+		}
 	}
 
 	@SubscribeEvent()

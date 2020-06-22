@@ -6,6 +6,7 @@ import firok.tiths.common.Configs;
 import firok.tiths.common.Potions;
 import firok.tiths.entity.ai.EntityAIAvoidEntityFear;
 import firok.tiths.entity.projectile.ProjectileDashingStar;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
@@ -48,6 +49,7 @@ import java.util.Iterator;
 import java.util.Random;
 
 import static firok.tiths.util.InnerActions.*;
+import static firok.tiths.util.Predicates.canTrigger;
 
 // 所有的行为封装
 public final class Actions
@@ -416,70 +418,115 @@ public final class Actions
 		}
 	}
 
-	/**
-	 * 清除实体对玩家的攻击AI
-	 */
-	public static void CauseAIIgnore(EntityLiving living)
+	public static void CauseLiquidFroze(World world,BlockPos center,int radius,float rate)
 	{
-		Iterator< EntityAITasks.EntityAITaskEntry > iter= living.targetTasks.taskEntries.iterator();
-		EntityAINearestAttackableTarget<?> aiAtkOld=null;
-		int pri=-1;
-		while(iter.hasNext())
+		if(!world.isRemote && center!=null && radius>0 && rate>0)
 		{
-			EntityAITasks.EntityAITaskEntry aiEntry=iter.next();
-			EntityAIBase ai=aiEntry.action;
-			try
+			final IBlockState stateIce=Blocks.ICE.getDefaultState();
+			final IBlockState stateObsidian=Blocks.OBSIDIAN.getDefaultState();
+			final IBlockState stateStone=Blocks.STONE.getDefaultState();
+			FOR_X:for(int ox=-radius;ox<=radius;ox++)
 			{
-
-				if(ai instanceof EntityAINearestAttackableTarget)
+				FOR_Z:for(int oz=-radius;oz<=radius;oz++)
 				{
-					EntityAINearestAttackableTarget<?> aiAtk=(EntityAINearestAttackableTarget)ai;
-					Class<? extends EntityLivingBase> targetClass=
-							ObfuscationReflectionHelper.getPrivateValue(EntityAINearestAttackableTarget.class,aiAtk,"field_75307_b"); // (Class) get(EntityAINearestAttackableTarget.class,"targetClass",aiAtk);
-					if(targetClass.isAssignableFrom(EntityPlayer.class))
+					FOR_Y:for(int oy=-radius;oy<=radius;oy++)
 					{
-						living.targetTasks.removeTask(ai);
+						BlockPos posTemp=center.add(ox,oy,oz);
+						if(center.distanceSq(posTemp)>16 || !canTrigger(world,rate)) continue FOR_Y;
 
-						aiAtkOld=aiAtk;
-						pri=aiEntry.priority;
+						IBlockState stateTemp=world.getBlockState(posTemp);
+						Block blockTemp=stateTemp.getBlock();
+
+						IBlockState stateNew=null;
+
+						if( blockTemp == Blocks.WATER || blockTemp == Blocks.FLOWING_WATER)
+						{
+							stateNew = stateIce;
+						}
+						else if(blockTemp == Blocks.LAVA)
+						{
+							stateNew = stateObsidian;
+						}
+						else if(blockTemp == Blocks.FLOWING_LAVA)
+						{
+							stateNew = stateStone;
+						}
+
+						if(stateNew != null)
+						{
+							world.setBlockState(posTemp, stateNew);
+						}
 					}
 				}
 			}
-			catch (Exception e)
-			{
-				TinkersThings.log(e);
-			}
 		}
+	}
 
-		try
-		{
-			if(aiAtkOld!=null)
-			{
-				living.setAttackTarget(null); // 清空实体索敌信息
-
-				// 获取基类EntityAITarget参数 // RE-RE-REFLECTION !!! HELL YEAH !!!
-				EntityCreature creature=(EntityCreature) get(EntityAITarget.class,"taskOwner",aiAtkOld);
-				boolean shouldCheckSight=(boolean) get(EntityAITarget.class,"shouldCheckSight",aiAtkOld);
-				boolean nearbyOnly=(boolean) get(EntityAITarget.class,"nearbyOnly",aiAtkOld);
-
-				Class<?> classTarget=(Class<?>) get(EntityAINearestAttackableTarget.class,"targetClass",aiAtkOld);
-				int targetChance=(int) get(EntityAINearestAttackableTarget.class,"targetChance",aiAtkOld);
-				Predicate<EntityLivingBase> targetEntitySelectorOrigin=(Predicate<EntityLivingBase>) get(EntityAINearestAttackableTarget.class,"targetEntitySelector",aiAtkOld);
-
-				Predicate<EntityLivingBase> pre= target ->
-				{
-					if(target instanceof EntityPlayer) return false;
-					return targetEntitySelectorOrigin.apply(target);
-				};
-
-				EntityAINearestAttackableTarget<?> aiNew=new EntityAINearestAttackableTarget(creature,classTarget,targetChance,shouldCheckSight,nearbyOnly,pre);
-				living.targetTasks.addTask(pri,aiNew);
-			}
-		}
-		catch (Exception e)
-		{
-			TinkersThings.log(e);
-		}
+	/**
+	 * 清除实体对玩家的攻击AI
+	 */
+	@Deprecated // 暂时没啥用了 估计要删掉
+	public static void CauseAIIgnore(EntityLiving living)
+	{
+//		Iterator< EntityAITasks.EntityAITaskEntry > iter= living.targetTasks.taskEntries.iterator();
+//		EntityAINearestAttackableTarget<?> aiAtkOld=null;
+//		int pri=-1;
+//		while(iter.hasNext())
+//		{
+//			EntityAITasks.EntityAITaskEntry aiEntry=iter.next();
+//			EntityAIBase ai=aiEntry.action;
+//			try
+//			{
+//
+//				if(ai instanceof EntityAINearestAttackableTarget)
+//				{
+//					EntityAINearestAttackableTarget<?> aiAtk=(EntityAINearestAttackableTarget)ai;
+//					Class<? extends EntityLivingBase> targetClass=
+//							ObfuscationReflectionHelper.getPrivateValue(EntityAINearestAttackableTarget.class,aiAtk,"field_75307_b"); // (Class) get(EntityAINearestAttackableTarget.class,"targetClass",aiAtk);
+//					if(targetClass.isAssignableFrom(EntityPlayer.class))
+//					{
+//						living.targetTasks.removeTask(ai);
+//
+//						aiAtkOld=aiAtk;
+//						pri=aiEntry.priority;
+//					}
+//				}
+//			}
+//			catch (Exception e)
+//			{
+//				TinkersThings.log(e);
+//			}
+//		}
+//
+//		try
+//		{
+//			if(aiAtkOld!=null)
+//			{
+//				living.setAttackTarget(null); // 清空实体索敌信息
+//
+//				// 获取基类EntityAITarget参数 // RE-RE-REFLECTION !!! HELL YEAH !!!
+//				EntityCreature creature=(EntityCreature) get(EntityAITarget.class,"taskOwner",aiAtkOld);
+//				boolean shouldCheckSight=(boolean) get(EntityAITarget.class,"shouldCheckSight",aiAtkOld);
+//				boolean nearbyOnly=(boolean) get(EntityAITarget.class,"nearbyOnly",aiAtkOld);
+//
+//				Class<?> classTarget=(Class<?>) get(EntityAINearestAttackableTarget.class,"targetClass",aiAtkOld);
+//				int targetChance=(int) get(EntityAINearestAttackableTarget.class,"targetChance",aiAtkOld);
+//				Predicate<EntityLivingBase> targetEntitySelectorOrigin=(Predicate<EntityLivingBase>) get(EntityAINearestAttackableTarget.class,"targetEntitySelector",aiAtkOld);
+//
+//				Predicate<EntityLivingBase> pre= target ->
+//				{
+//					if(target instanceof EntityPlayer) return false;
+//					return targetEntitySelectorOrigin.apply(target);
+//				};
+//
+//				EntityAINearestAttackableTarget<?> aiNew=new EntityAINearestAttackableTarget(creature,classTarget,targetChance,shouldCheckSight,nearbyOnly,pre);
+//				living.targetTasks.addTask(pri,aiNew);
+//			}
+//		}
+//		catch (Exception e)
+//		{
+//			TinkersThings.log(e);
+//		}
 	}
 
 	/**
@@ -587,5 +634,13 @@ public final class Actions
 		{
 			return world.getLightFromNeighbors(pos);
 		}
+	}
+
+	@SafeVarargs
+	public static <T> T oneOf(Random rand,T...values)
+	{
+		if(rand==null || values==null || values.length<=0) return null;
+
+		return values[rand.nextInt(values.length)];
 	}
 }

@@ -1,16 +1,22 @@
 package firok.tiths.util;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockStone;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
+import slimeknights.tconstruct.library.tinkering.ITinkerable;
+import slimeknights.tconstruct.library.traits.ITrait;
+import slimeknights.tconstruct.library.utils.ToolHelper;
 
+import java.util.List;
 import java.util.Random;
 import java.util.function.Predicate;
 
@@ -123,19 +129,19 @@ public final class Predicates
 	}
 
 	/* ---- 判断是否是岩浆源 ---- */
-	public static boolean isLAVA(ItemStack stack)
+	public static boolean isLava(ItemStack stack)
 	{
 		return stack!=null && !stack.isEmpty() && stack.getItem() == blockLAVA;
 	}
-	public static boolean isLAVA(IBlockState state)
+	public static boolean isLava(IBlockState state)
 	{
-		return state!=null && isLAVA(state.getBlock());
+		return state!=null && isLava(state.getBlock());
 	}
-	public static boolean isLAVA(Item item)
+	public static boolean isLava(Item item)
 	{
 		return item==blockLAVA;
 	}
-	public static boolean isLAVA(Block block)
+	public static boolean isLava(Block block)
 	{
 		return block==Blocks.LAVA;
 	}
@@ -255,7 +261,7 @@ public final class Predicates
 			case "grass": return Predicates::isGrass;
 			case "dirt": return Predicates::isDirt;
 			case "sand": return Predicates::isSand;
-			case "lava": return Predicates::isLAVA;
+			case "lava": return Predicates::isLava;
 			default: return defaultValue;
 		}
 	}
@@ -275,7 +281,7 @@ public final class Predicates
 			case "grass": return Predicates::isGrass;
 			case "dirt": return Predicates::isDirt;
 			case "sand": return Predicates::isSand;
-			case "lava": return Predicates::isLAVA;
+			case "lava": return Predicates::isLava;
 			default: return defaultValue;
 		}
 	}
@@ -295,7 +301,7 @@ public final class Predicates
 			case "grass": return Predicates::isGrass;
 			case "dirt": return Predicates::isDirt;
 			case "sand": return Predicates::isSand;
-			case "lava": return Predicates::isLAVA;
+			case "lava": return Predicates::isLava;
 			default: return defaultValue;
 		}
 	}
@@ -315,9 +321,24 @@ public final class Predicates
 			case "grass": return Predicates::isGrass;
 			case "dirt": return Predicates::isDirt;
 			case "sand": return Predicates::isSand;
-			case "lava": return Predicates::isLAVA;
+			case "lava": return Predicates::isLava;
 			default: return defaultValue;
 		}
+	}
+
+	/**
+	 * 判断是否是植物<br>
+	 * @apiNote 这个断言目前只用于工具特性, 不用于世界生成
+	 */
+	public static boolean isPlants(IBlockState state)
+	{
+		if(state==null) return false;
+		Material material=state.getMaterial();
+		return material==Material.LEAVES ||
+		       material==Material.WOOD ||
+		       material==Material.GRASS ||
+		       material==Material.PLANTS ||
+		       material==Material.CACTUS;
 	}
 
 //	public static boolean canReplaceWithOre(IBlockState state, IBlockAccess world, BlockPos pos)
@@ -337,15 +358,23 @@ public final class Predicates
 //		);
 //	}
 
+	public static boolean canTrigger(Entity entity,double rate)
+	{
+		return entity!=null && canTrigger(entity.world,rate);
+	}
 	public static boolean canTrigger(World world,double rate)
 	{
-		return canTrigger(world.rand,rate);
+		return world!=null && canTrigger(world.rand,rate);
 	}
 	public static boolean canTrigger(Random rand,double rate)
 	{
-		return rate > 0 && rand.nextDouble() < rate;
+		return rand!=null && rate > 0 && rand.nextDouble() < rate;
 	}
 
+	/**
+	 * @deprecated 将来会移除这个断言
+	 */
+	@Deprecated
 	public static boolean canOreGenWorld(IBlockState state)
 	{
 		if(state==null) return false;
@@ -353,6 +382,10 @@ public final class Predicates
 
 		return block==Blocks.STONE && state.getValue(BlockStone.VARIANT).isNatural();
 	}
+	/**
+	 * @deprecated 将来会移除这个断言
+	 */
+	@Deprecated
 	public static boolean canMeteoGen(IBlockState state)
 	{
 		if(state==null) return false;
@@ -365,21 +398,33 @@ public final class Predicates
 				block == Blocks.SAND ||
 				block == Blocks.GRASS;
 	}
+	/**
+	 * @deprecated 将来会移除这个断言
+	 */
+	@Deprecated
 	public static boolean canOreGenNether(IBlockState state)
 	{
 		return state!=null && state.getBlock()==Blocks.NETHERRACK;
 	}
+	/**
+	 * @deprecated 将来会移除这个断言
+	 */
+	@Deprecated
 	public static boolean canOreGenEnd(IBlockState state)
 	{
 		return state!=null && state.getBlock()==Blocks.END_STONE;
 	}
+	/**
+	 * @deprecated 将来会移除这个断言
+	 */
+	@Deprecated
 	public static boolean canOreGenOther(IBlockState state)
 	{
 		return canOreGenWorld(state);
 	}
 
 	/**
-	 * 护甲是否可以处理这类伤害
+	 * 护甲是否可以处理指定伤害类型
 	 */
 	public static boolean canDealWith(DamageSource source,Boolean isBlockable,Boolean isMagic,Boolean isFire,Boolean isExplosion,Boolean isProjectile)
 	{
@@ -391,5 +436,30 @@ public final class Predicates
 		       (isExplosion==null || isExplosion==source.isExplosion()) &&
 		       (isProjectile==null || isProjectile==source.isProjectile())
 				;
+	}
+
+	public static boolean canIgnoredByCreeper(EntityPlayer player)
+	{
+		if(player==null || player.inventory==null || player.inventory.armorInventory==null) return false;
+		try
+		{
+			for(ItemStack stackArmor:player.inventory.armorInventory)
+			{
+				if(stackArmor==null || stackArmor.isEmpty()) continue;
+				Item itemArmor=stackArmor.getItem();
+				if(!(itemArmor instanceof ITinkerable)) continue;
+
+				List<ITrait> traits= ToolHelper.getTraits(stackArmor);
+				if(traits.contains(1)) // fixme 改成正确的特性
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+		catch (Exception e)
+		{
+			return false;
+		}
 	}
 }

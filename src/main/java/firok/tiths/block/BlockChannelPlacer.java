@@ -1,5 +1,6 @@
 package firok.tiths.block;
 
+import firok.tiths.common.Blocks;
 import firok.tiths.common.Items;
 import firok.tiths.util.Actions;
 import firok.tiths.util.Predicates;
@@ -11,7 +12,6 @@ import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
@@ -95,15 +95,19 @@ public class BlockChannelPlacer extends Block // BlockDirectional
 		if(stackHeld.isEmpty()) return false;
 
 		Item itemHeld=stackHeld.getItem();
-//		if(itemHeld == net.minecraft.init.Items.IRON_SWORD)
-//		{
-//			world.setBlockState(
-//					pos,
-//					state.withProperty(FACING,facing)
-//			);
-//			return true;
-//		}
+		Item channel=Item.getItemFromBlock(Blocks.blockChannel);
 
+		if(itemHeld==channel)
+		{
+			;
+
+		}
+
+		return true;
+	}
+
+/*
+下面的代码暂时用不到了
 		if((itemHeld==Items.channelPackStone || itemHeld==Items.channelPackWood) &&
 		   (facing==EnumFacing.NORTH ||
 		   facing==EnumFacing.SOUTH ||
@@ -182,7 +186,5 @@ public class BlockChannelPlacer extends Block // BlockDirectional
 			if(channelBack>0) Actions.CauseSpawnItem(player,new ItemStack(firok.tiths.common.Blocks.blockConsolidatedGlass));
 			if(posLadder==null) Actions.CauseSpawnItem(player,new ItemStack(stateChannel.getBlock()));
 		}
-
-		return true;
-	}
+* */
 }

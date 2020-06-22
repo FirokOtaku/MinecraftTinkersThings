@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Random;
 
 @SuppressWarnings("all")
-public class BlockOre extends Block
+public class BlockOre extends BlockCompressed
 {
 	private Item itemDropped;
 	private int minDropped,maxDropped,interval,luckBonus,minExp,maxExp,intervalExp;
@@ -65,6 +65,18 @@ public class BlockOre extends Block
 	}
 	public BlockOre(Item itemDropped,int minDropped,int maxDropped,int luckBonus,int minExp,int maxExp) {
 		super(Material.ROCK, Material.ROCK.getMaterialMapColor());
+		this.itemDropped=itemDropped;
+		this.minDropped=minDropped;
+		this.maxDropped=maxDropped;
+		this.interval=maxDropped-minDropped;
+		this.luckBonus=luckBonus;
+		this.minExp=minExp;
+		this.maxExp=maxExp;
+		this.intervalExp=this.maxExp-minExp;
+		setHardness(3.0F).setResistance(5.0F);
+	}
+	public BlockOre(Material material,Item itemDropped,int minDropped,int maxDropped,int luckBonus,int minExp,int maxExp) {
+		super(material, material.getMaterialMapColor());
 		this.itemDropped=itemDropped;
 		this.minDropped=minDropped;
 		this.maxDropped=maxDropped;
@@ -163,61 +175,7 @@ public class BlockOre extends Block
 		return new ItemStack(this);
 	}
 
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced)
-	{
-		InnerActions.addInformation(this, tooltip, advanced);
-	}
-
 	//	public int damageDropped(IBlockState p_damageDropped_1_) {
 //		return this == Blocks.LAPIS_ORE ? EnumDyeColor.BLUE.getDyeDamage() : 0;
 //	}
-
-	protected boolean isTransparent =false;
-
-	/**
-	 * 启用方块渲染透明度
-	 */
-	public BlockOre enableTransparent()
-	{
-		this.isTransparent =true;
-		return this;
-	}
-
-	@SideOnly(Side.CLIENT)
-	public boolean shouldSideBeRendered(IBlockState blockstateThis, IBlockAccess world, BlockPos pos, EnumFacing side)
-	{
-		if(!isTransparent) return super.shouldSideBeRendered(blockstateThis, world, pos, side);
-
-		IBlockState blockstateNearby = world.getBlockState(pos.offset(side));
-		Block block = blockstateNearby.getBlock();
-
-		if (blockstateThis != blockstateNearby)
-		{
-			return true;
-		}
-
-		if (block == this)
-		{
-			return false;
-		}
-
-		return super.shouldSideBeRendered(blockstateThis, world, pos, side);
-	}
-
-	@SideOnly(Side.CLIENT)
-	public BlockRenderLayer getBlockLayer()
-	{
-		return isTransparent ? BlockRenderLayer.TRANSLUCENT: BlockRenderLayer.SOLID;
-	}
-
-	public boolean isFullCube(IBlockState state)
-	{
-		return !isTransparent;
-	}
-
-	public boolean isOpaqueCube(IBlockState state) {
-		return !isTransparent;
-	}
 }

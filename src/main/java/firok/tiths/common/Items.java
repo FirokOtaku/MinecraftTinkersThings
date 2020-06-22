@@ -36,8 +36,10 @@ public final class Items
 	public static final Item amuletSoulStoneCreative = new ItemSoulStoneCreative().setRarity(TithsRarity.CreativeOnly); // 创造模式灵魂石护身符
 	@Reg(nameAncientBookIrisia)
 	public static final Item ancientBookIrisia = new ItemXP(true, 20); // 艾瑞西亚古籍
-	@Reg(value = nameAventurine, od = {"gem", "gemAventurine", "aventurine"})
-	public static final Item aventurine = new ItemCustom(); // 东陵石
+	@Reg(value = nameBrumeJade, od = {"gem", "jade"})
+	public static final Item brumeJade = new ItemCustom(); // 云玉
+	@Reg(prefBelt+nameTraitHeavy)
+	public static final Item beltHeavy = new ItemBaubleEffect(BaubleType.BELT,Potions.heavy); // 沉重腰带
 	@Reg(nameBeltLeather)
 	public static final Item beltLeather = new ItemBauble(BaubleType.BELT); // 皮腰带
 	@Reg(nameBeltOceanic)
@@ -63,11 +65,9 @@ public final class Items
 	public static final Item brokenIce = new ItemCustom(); // 碎冰
 
 	@Reg(nameBuoy)
-	public static final Item buoy = new ItemCustom(); // 浮筒
-	@Reg(nameChannelPackWood)
-	public static final Item channelPackStone = new ItemCustom(); // 石质管道包
-	@Reg(nameChannelPackStone)
-	public static final Item channelPackWood = new ItemCustom(); // 木制管道包
+	public static final Item buoy = new ItemBuoy(); // 浮筒
+	@Reg("buoyant_light")
+	public static final Item buoyantLight = new ItemBuoyantLight(); // 浮灯
 	@Reg("charm_soul_watcher")
 	public static final Item charmSoulWatcher = new ItemSoulWatchBauble(BaubleType.CHARM).setRarity(EnumRarity.UNCOMMON);
 	@Reg(nameChloroplastDressing)
@@ -109,6 +109,10 @@ public final class Items
 	@Reg(nameFleshCooked)
 	public static final Item fleshCooked = new ItemFood(14, 1f, false)
 			.setPotionEffect(new PotionEffect(MobEffects.STRENGTH, 600, 0), 1); // 熟血肉
+	@Reg(nameFluidBall)
+	public static final ItemFluidBall fluidBall = new ItemFluidBall(); // 液体球
+	@Reg(nameFluidCollector)
+	public static final ItemFluidCollector fluidCollector = new ItemFluidCollector(); // 液体收集器
 	@Reg(value = nameFormerCrystal, od = {"book"})
 	public static final Item formerCrystal = new ItemFormerCrystal().setRarity(EnumRarity.UNCOMMON); // 往昔水晶
 	@Reg(nameFurutorin)
@@ -235,6 +239,8 @@ public final class Items
 	public static final Item nuggetWitherium = new ItemCustom(); // 凋零粒
 	@Reg(value = nameOpal, od = {"gem", "gemOpal", "opal"})
 	public static final Item opal = new ItemCustom(); // 欧珀
+	@Reg("oxygen_mask")
+	public static final Item oxygenMask = new ItemOxygenMask(); // 氧气面罩
 	@Reg(value = "page", od = {"paper"})
 	public static final ItemLangPage page = new ItemLangPage();
 	@Reg(value = namePhasingGem, od = {"gem"})

@@ -11,6 +11,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 import static firok.tiths.common.Keys.colorTraitCarbonizing;
 import static firok.tiths.common.Keys.nameTraitCarbonizing;
+import static firok.tiths.util.Predicates.canDealWith;
 import static firok.tiths.util.Predicates.canTrigger;
 
 /**
@@ -32,10 +33,14 @@ public class TraitArmorCarbonizing extends AbstractArmorTrait
 	@Override
 	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
 	{
-		if(!player.world.isRemote && canTrigger(player.world, Configs.Traits.rate_carbonizing_drop))
+		if(canDealWith(source,true,null,null,null,null))
 		{
-			Actions.CauseSpawnItem(player,new ItemStack(Items.cinder));
+			if(!player.world.isRemote && canTrigger(player.world, Configs.Traits.rate_carbonizing_drop))
+			{
+				Actions.CauseSpawnItem(player,new ItemStack(Items.cinder));
+			}
+			return newDamage * (source.isFireDamage()? 1.5f: 0.95f);
 		}
-		return newDamage * (source.isFireDamage()? 1.5f: 0.95f);
+		return newDamage;
 	}
 }
