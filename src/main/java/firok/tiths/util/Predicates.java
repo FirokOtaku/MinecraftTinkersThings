@@ -1,6 +1,7 @@
 package firok.tiths.util;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockStone;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -42,6 +43,7 @@ public final class Predicates
 	static final Item blockGrass=Item.getItemFromBlock(Blocks.GRASS);
 	static final Item blockSand=Item.getItemFromBlock(Blocks.SAND);
 	static final Item blockLAVA=Item.getItemFromBlock(Blocks.LAVA);
+	static final Item blockMagma=Item.getItemFromBlock(Blocks.MAGMA);
 
 	public static boolean any(Object... obj)
 	{
@@ -126,6 +128,24 @@ public final class Predicates
 	public static boolean isNetherrack(Block block)
 	{
 		return block==Blocks.NETHERRACK;
+	}
+
+	/* ---- 判断是否是岩浆块 ---- */
+	public static boolean isMagma(ItemStack stack)
+	{
+		return stack!=null && !stack.isEmpty() && stack.getItem() == blockMagma;
+	}
+	public static boolean isMagma(IBlockState state)
+	{
+		return state!=null && isMagma(state.getBlock());
+	}
+	public static boolean isMagma(Item item)
+	{
+		return item==blockMagma;
+	}
+	public static boolean isMagma(Block block)
+	{
+		return block==Blocks.MAGMA;
 	}
 
 	/* ---- 判断是否是岩浆源 ---- */
@@ -262,6 +282,7 @@ public final class Predicates
 			case "dirt": return Predicates::isDirt;
 			case "sand": return Predicates::isSand;
 			case "lava": return Predicates::isLava;
+			case "magma": return Predicates::isMagma;
 			default: return defaultValue;
 		}
 	}
@@ -282,6 +303,7 @@ public final class Predicates
 			case "dirt": return Predicates::isDirt;
 			case "sand": return Predicates::isSand;
 			case "lava": return Predicates::isLava;
+			case "magma": return Predicates::isMagma;
 			default: return defaultValue;
 		}
 	}
@@ -302,6 +324,7 @@ public final class Predicates
 			case "dirt": return Predicates::isDirt;
 			case "sand": return Predicates::isSand;
 			case "lava": return Predicates::isLava;
+			case "magma": return Predicates::isMagma;
 			default: return defaultValue;
 		}
 	}
@@ -322,6 +345,7 @@ public final class Predicates
 			case "dirt": return Predicates::isDirt;
 			case "sand": return Predicates::isSand;
 			case "lava": return Predicates::isLava;
+			case "magma": return Predicates::isMagma;
 			default: return defaultValue;
 		}
 	}
