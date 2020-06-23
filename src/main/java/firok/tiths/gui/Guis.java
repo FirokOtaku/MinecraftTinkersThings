@@ -1,6 +1,5 @@
 package firok.tiths.gui;
 
-import firok.tiths.TinkersThings;
 import firok.tiths.gui.client.GuiContainerGemBrewingStand;
 import firok.tiths.gui.client.GuiContainerPage;
 import net.minecraft.entity.player.EntityPlayer;
@@ -8,17 +7,23 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
-import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 public class Guis implements IGuiHandler
 {
 	public static final int GUI_PAGE = 1;
 	public static final int GUI_GEM_BREWING_STAND = 2;
 
-	public Guis()
+	private static Guis instance;
+	public static Guis getInstance()
 	{
-		NetworkRegistry.INSTANCE.registerGuiHandler(TinkersThings.INSTANCE, this);
+		if(instance==null)
+		{
+			instance=new Guis();
+		}
+		return instance;
 	}
+
+	public Guis() { }
 
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
