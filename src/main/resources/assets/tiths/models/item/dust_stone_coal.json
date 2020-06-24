@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "tiths:items/dust_stone_coal"
+  }
+}
