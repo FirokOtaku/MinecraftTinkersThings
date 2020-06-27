@@ -225,7 +225,7 @@ public final class Blocks
 	@GenOre(times = 8, timeRate = 0.5, size = 7, minY = 0, maxY = 30, biome = Strategy.ONLY_WHITELIST, biomeWL = {"minecraft:deep_ocean"})
 	public static final Block oreImmersedSilver = new BlockOre().setVeryRareOre(); // 沉银矿石
 	@Reg(Keys.oreInertWitherium)
-	@GenOre(times = 2, timeRate = 0.5, size = 3, dim = Strategy.ONLY_WHITELIST, dimsWL = -1)
+	@GenOre(times = 2, timeRate = 0.5, size = 3, dim = Strategy.ONLY_WHITELIST, dimsWL = -1, selector = "netherrack")
 	public static final Block oreInertWitherium = new BlockOre().setVeryRareOre(); // 惰性凋零矿
 	@Reg(Keys.oreInkPowder)
 	@GenOre(times = 1, timeRate = 0.5f, size = 10, minY = 40, maxY = 80)
