@@ -5,6 +5,7 @@ import firok.tiths.common.Keys;
 import firok.tiths.util.Predicates;
 import net.minecraft.block.state.IBlockState;
 
+import java.util.Objects;
 import java.util.function.Predicate;
 
 import static firok.tiths.util.InnerActions.*;
@@ -79,117 +80,117 @@ public class Info
 
 	public static boolean enable(Info info1,Info info2,boolean defaultValue)
 	{
-		return __(info2) && __(info2.enable) ?
+		return Objects.nonNull(info2) && Objects.nonNull(info2.enable) ?
 				info2.enable :
-				__(info1) && __(info1.enable) ?
+				Objects.nonNull(info1) && Objects.nonNull(info1.enable) ?
 						info1.enable :
 						defaultValue ;
 	}
 
 	public static Strategy strategyDim(Info info1,Info info2,Strategy defaultValue)
 	{
-		return __(info2) && __(info2.strategyDim) ?
+		return Objects.nonNull(info2) && Objects.nonNull(info2.strategyDim) ?
 				info2.strategyDim :
-				__(info1) && __(info1.strategyDim) ?
+				Objects.nonNull(info1) && Objects.nonNull(info1.strategyDim) ?
 						info1.strategyDim :
 						defaultValue;
 	}
 	public static int[] whitelistDim(Info info1,Info info2,int[] defaultValue)
 	{
-		return __(info2) && __(info2.whitelistDims) ?
+		return Objects.nonNull(info2) && Objects.nonNull(info2.whitelistDims) ?
 				info2.whitelistDims :
-				__(info1) && __(info1.whitelistDims) ?
+				Objects.nonNull(info1) && Objects.nonNull(info1.whitelistDims) ?
 						info1.whitelistDims :
 						defaultValue;
 	}
 	public static int[] blacklistDim(Info info1,Info info2,int[] defaultValue)
 	{
-		return __(info2) && __(info2.blacklistDims) ?
+		return Objects.nonNull(info2) && Objects.nonNull(info2.blacklistDims) ?
 				info2.blacklistDims :
-				__(info1) && __(info1.blacklistDims) ?
+				Objects.nonNull(info1) && Objects.nonNull(info1.blacklistDims) ?
 						info1.blacklistDims :
 						defaultValue;
 	}
 	public static Strategy strategyBiome(Info info1,Info info2,Strategy defaultValue)
 	{
-		return __(info2) && __(info2.strategyBiome) ?
+		return Objects.nonNull(info2) && Objects.nonNull(info2.strategyBiome) ?
 				info2.strategyBiome :
-				__(info1) && __(info1.strategyBiome) ?
+				Objects.nonNull(info1) && Objects.nonNull(info1.strategyBiome) ?
 						info1.strategyBiome :
 						defaultValue;
 	}
 	public static String[] whitelistBiomes(Info info1, Info info2,String[] defaultValue)
 	{
-		return __(info2) && __(info2.whitelistBiomes) ?
+		return Objects.nonNull(info2) && Objects.nonNull(info2.whitelistBiomes) ?
 				info2.whitelistBiomes :
-				__(info1) && __(info1.whitelistBiomes) ?
+				Objects.nonNull(info1) && Objects.nonNull(info1.whitelistBiomes) ?
 						info1.whitelistBiomes :
 						defaultValue;
 	}
 	public static String[] blacklistBiomes(Info info1, Info info2,String[] defaultValue)
 	{
-		return __(info2) && __(info2.blacklistBiomes) ?
+		return Objects.nonNull(info2) && Objects.nonNull(info2.blacklistBiomes) ?
 				info2.blacklistBiomes :
-				__(info1) && __(info1.blacklistBiomes) ?
+				Objects.nonNull(info1) && Objects.nonNull(info1.blacklistBiomes) ?
 						info1.blacklistBiomes :
 						defaultValue;
 	}
 
 	public static Predicate<IBlockState> selector(Info info1,Info info2,Predicate<IBlockState> defaultValue)
 	{
-		return __(info2) && __(info2.selector) ?
+		return Objects.nonNull(info2) && Objects.nonNull(info2.selector) ?
 				info2.selector :
-				__(info1) && __(info1.selector) ?
+				Objects.nonNull(info1) && Objects.nonNull(info1.selector) ?
 						info1.selector :
 						defaultValue;
 	}
 
 	public static IBlockState state(Info info1,Info info2,IBlockState defaultValue)
 	{
-		return __(info2) && __(info2.state) ?
+		return Objects.nonNull(info2) && Objects.nonNull(info2.state) ?
 				info2.state :
-				__(info1) && __(info1.state) ?
+				Objects.nonNull(info1) && Objects.nonNull(info1.state) ?
 						info1.state :
 						defaultValue;
 	}
 
 	public static int minY(Info info1,Info info2,int defaultValue)
 	{
-		return __(info2) && __(info2.minY) ?
+		return Objects.nonNull(info2) && Objects.nonNull(info2.minY) ?
 				info2.minY :
-				__(info1) && __(info1.minY) ?
+				Objects.nonNull(info1) && Objects.nonNull(info1.minY) ?
 						info1.minY :
 						defaultValue;
 	}
 	public static int maxY(Info info1,Info info2,int defaultValue)
 	{
-		return __(info2) && __(info2.maxY) ?
+		return Objects.nonNull(info2) && Objects.nonNull(info2.maxY) ?
 				info2.maxY :
-				__(info1) && __(info1.maxY) ?
+				Objects.nonNull(info1) && Objects.nonNull(info1.maxY) ?
 						info1.maxY :
 						defaultValue;
 	}
 	public static int time(Info info1,Info info2,int defaultValue)
 	{
-		return __(info2) && __(info2.time) ?
+		return Objects.nonNull(info2) && Objects.nonNull(info2.time) ?
 				info2.time :
-				__(info1) && __(info1.time) ?
+				Objects.nonNull(info1) && Objects.nonNull(info1.time) ?
 						info1.time :
 						defaultValue;
 	}
 	public static float rate(Info info1,Info info2,float defaultValue)
 	{
-		return __(info2) && __(info2.rate) ?
+		return Objects.nonNull(info2) && Objects.nonNull(info2.rate) ?
 				info2.rate :
-				__(info1) && __(info1.rate) ?
+				Objects.nonNull(info1) && Objects.nonNull(info1.rate) ?
 						info1.rate :
 						defaultValue;
 	}
 	public static int size(Info info1,Info info2,int defaultValue)
 	{
-		return __(info2) && __(info2.size) ?
+		return Objects.nonNull(info2) && Objects.nonNull(info2.size) ?
 				info2.size :
-				__(info1) && __(info1.size) ?
+				Objects.nonNull(info1) && Objects.nonNull(info1.size) ?
 						info1.size :
 						defaultValue;
 	}
@@ -318,8 +319,8 @@ public class Info
 
 		getBool(json,"enable",v->ret.enable=v);
 		getStr(json,"strategy_dim",v->ret.strategyDim=Strategy.getStrategy(v,null));
-		getIntegers(json,"whitelist_dims",v->ret.whitelistDims=__(v)?arr(v):null);
-		getIntegers(json,"blacklist_dims",v->ret.blacklistDims=__(v)?arr(v):null);
+		getIntegers(json,"whitelist_dims",v->ret.whitelistDims=Objects.nonNull(v)?arr(v):null);
+		getIntegers(json,"blacklist_dims",v->ret.blacklistDims=Objects.nonNull(v)?arr(v):null);
 		getStr(json,"strategy_biome",v->ret.strategyBiome=Strategy.getStrategy(v,null));
 		getStrs(json,"whitelist_biomes",v->ret.whitelistBiomes = Keys.getBiomes(v));
 		getStrs(json,"blacklist_biomes",v->ret.blacklistBiomes = Keys.getBiomes(v));
@@ -335,19 +336,19 @@ public class Info
 
 	public boolean complete()
 	{
-		return __(enable) &&
-		__(strategyDim) &&
-		__(whitelistDims) &&
-		__(blacklistDims) &&
-		__(strategyBiome) &&
-		__(whitelistBiomes) &&
-		__(blacklistBiomes) &&
-		__(selector) &&
-		__(state) &&
-		__(minY) &&
-		__(maxY) &&
-		__(time) &&
-		__(rate) &&
-		__(size);
+		return Objects.nonNull(enable) &&
+		Objects.nonNull(strategyDim) &&
+		Objects.nonNull(whitelistDims) &&
+		Objects.nonNull(blacklistDims) &&
+		Objects.nonNull(strategyBiome) &&
+		Objects.nonNull(whitelistBiomes) &&
+		Objects.nonNull(blacklistBiomes) &&
+		Objects.nonNull(selector) &&
+		Objects.nonNull(state) &&
+		Objects.nonNull(minY) &&
+		Objects.nonNull(maxY) &&
+		Objects.nonNull(time) &&
+		Objects.nonNull(rate) &&
+		Objects.nonNull(size);
 	}
 }

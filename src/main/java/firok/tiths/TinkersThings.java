@@ -7,7 +7,6 @@ import firok.tiths.intergration.conarm.ArmorRegistryHandler;
 import firok.tiths.util.VersionPhase;
 import firok.tiths.common.WorldGens;
 import net.minecraft.client.Minecraft;
-import net.minecraft.util.math.Vec3i;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.*;
@@ -34,8 +33,10 @@ public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers' Things";
-	public static final String VERSION = "1.12.2-0.3.6.0";
+	public static final String VERSION = "1.12.2-0.3.7.0";
 	public static final VersionPhase version = VersionPhase.Alpha;
+
+	public static final String CONARM_ID = "conarm";
 
 	@Mod.Instance(MOD_ID)
 	public static TinkersThings INSTANCE;
@@ -75,7 +76,7 @@ public class TinkersThings
 		if(Configs.General.enable_ore_gen_customization) ConfigJson.readOres();
 		if(Configs.General.enable_tool_craft_functions) ConfigJson.readMFs();
 
-		hasConarm=Loader.isModLoaded("conarm");
+		hasConarm=Loader.isModLoaded(CONARM_ID);
 		if(enableConarm())
 		{
 			log("Armor, armor, armor!");

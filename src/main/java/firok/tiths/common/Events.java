@@ -8,6 +8,7 @@ import firok.tiths.intergration.conarm.ArmorEvents;
 import firok.tiths.item.IFluid;
 import firok.tiths.item.ISoulGather;
 import firok.tiths.item.ISoulStore;
+import firok.tiths.item.bauble.ItemCharmLapsing;
 import firok.tiths.util.Actions;
 import firok.tiths.util.Ranges;
 import firok.tiths.util.SoulUtil;
@@ -318,8 +319,13 @@ public class Events
 						}
 						else
 						{
-							if(block==Blocks.STONE || block==Blocks.COBBLESTONE)
+							if(isAnyStone(block))
 								world.setBlockState(posTemp,stateFulgurite);
+							else
+							{
+								if(block==Blocks.DIRT || block==Blocks.SAND || block==Blocks.GRASS || block instanceof BlockLeaves || block instanceof BlockLog)
+									world.setBlockToAir(posTemp);
+							}
 						}
 					}
 				}
@@ -412,6 +418,17 @@ public class Events
 				event.setAmount( originDamage / 2 );
 			}
 
+		}
+
+		LAPSING:if(enlb instanceof EntityPlayer)
+		{
+			EntityPlayer player=(EntityPlayer)enlb;
+			ItemCharmLapsing itemCharm=(ItemCharmLapsing)Items.lapsingCharm;
+
+			ItemStack stackCharm=itemCharm.getCharmNoneCD(player);
+
+			if(stackCharm==null) break LAPSING;
+			itemCharm.lapse(stackCharm,player);
 		}
 	}
 
@@ -670,6 +687,7 @@ public class Events
 		}
 	}
 
+	@SuppressWarnings("all")
 	@SubscribeEvent
 	public static void onCollideWith(GetCollisionBoxesEvent event)
 	{

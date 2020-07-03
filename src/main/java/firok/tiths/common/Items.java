@@ -72,6 +72,8 @@ public final class Items
 	public static final Item charmSoulWatcher = new ItemSoulWatchBauble(BaubleType.CHARM).setRarity(EnumRarity.UNCOMMON);
 	@Reg(nameChloroplastDressing)
 	public static final Item chloroplastDressing = new ItemCustom(); // 叶绿敷料
+	@Reg(nameChloroplastLight)
+	public static final Item chloroplastLight = new ItemChloroplastLight(); // 叶绿提灯
 
 	@Reg(nameCinder)
 	public static final Item cinder = new ItemCustom(); // 煤屑
@@ -183,6 +185,8 @@ public final class Items
 	public static final Item inkPowder = new ItemCustom(); // 墨粉
 	@Reg(nameInkySlime)
 	public static final Item inkySlime = new ItemCustom(); // 墨染粘液
+	@Reg(nameLapsingCharm)
+	public static final Item lapsingCharm = new ItemCharmLapsing(); // 回溯纹章
 	@Reg(nameLavaCrystal)
 	public static final Item lavaCrystal = new ItemCustom(); // 岩浆结晶
 	@Reg(value = nameLizanite, od = {"gem"})

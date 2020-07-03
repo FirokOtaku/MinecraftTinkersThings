@@ -16,6 +16,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
@@ -39,10 +40,7 @@ import slimeknights.tconstruct.library.utils.TagUtil;
 
 import javax.annotation.Nullable;
 import java.lang.reflect.Field;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
@@ -366,7 +364,7 @@ public final class InnerActions
 
 	public static int[] arr(Integer[] arr)
 	{
-		if(!__(arr) || arr.length<=0) return new int[0];
+		if(!Objects.nonNull(arr) || arr.length <= 0) return new int[0];
 		int[] ret=new int[arr.length];
 		for(int i=0;i<arr.length;i++) ret[i]=arr[i];
 		return ret;
@@ -409,8 +407,23 @@ public final class InnerActions
 	 */
 	public static final float FAC=(float) Math.PI/180;
 
-	public static boolean __(Object test)
+	public static boolean isTrue(Object object)
 	{
-		return test!=null;
+		return object instanceof Boolean && (Boolean) object;
+	}
+	public static boolean isFalse(Object obj)
+	{
+		return obj==null || (obj instanceof Boolean && !(Boolean)obj);
+	}
+
+	public static NBTTagCompound getNBT(ItemStack stack)
+	{
+		NBTTagCompound nbt=stack.getTagCompound();
+		if(nbt==null)
+		{
+			nbt=new NBTTagCompound();
+			stack.setTagCompound(nbt);
+		}
+		return nbt;
 	}
 }

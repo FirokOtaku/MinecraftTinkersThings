@@ -23,6 +23,8 @@ public interface Keys
 	String suffArmor = "_armor";
 	String prefAmulet = "amulet_";
 	String prefBelt = "belt_";
+	String prefRing = "ring_";
+	String prefCharm = "charm_";
 
 	// 材料
 	String nameRoyalAlloy = "royal_alloy";
@@ -137,6 +139,8 @@ public interface Keys
 	String nameShiningGel = "shining_gel";
 	String nameFluidBall = "fluid_ball";
 	String nameFluidCollector = "fluid_collector";
+	String nameLapsingCharm = prefCharm + "lapsing";
+	String nameChloroplastLight = "chloroplast_light";
 
 	String nameHardener = "hardener";
 	String namePolisher = "polisher";
