@@ -2,6 +2,21 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.8.0 _2020-07-04 12:00_
+
+* 增加物品 added items
+  * 荧光凝胶 fluorescent gel
+* 增加特性 added traits
+  * 透蚀 infiltrating
+* 错误修复 bug fixes
+  * 现在可以正常在游戏内调整配置项 now configurations can be modified correctly
+
+## 0.3.7.0 _2020-07-03 11:30_
+
+* 增加物品 added items
+  * 回溯纹章 lapsing charm item
+  * 叶绿提灯 chloroplast light item
+
 ## 0.3.6.0 _2020-06-23 01:00_
 
 * 增加方块和物品 added blocks and items
