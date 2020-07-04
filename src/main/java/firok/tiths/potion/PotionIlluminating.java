@@ -35,6 +35,7 @@ public class PotionIlluminating extends BasePotion
 			BlockPos pos = entity.getPosition();
 			for(BlockPos candidate : new BlockPos[]{pos, pos.up(), pos.north(), pos.east(), pos.south(), pos.west(), pos.down()}) {
 				// addGlow tries all directions if the passed one doesn't work
+				if(!world.isAirBlock(candidate)) continue;
 				if(((BlockGlow)Blocks.blockIcelitGlow).addGlow(world, candidate, EnumFacing.values()[world.rand.nextInt(6)])) {
 					return;
 				}

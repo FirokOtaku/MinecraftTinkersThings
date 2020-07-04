@@ -24,6 +24,7 @@
     "steamium":  [ { "custom": { "fluid": "steamium" } } ],
     "chloroplast": [ { "custom": { "fluid": "chloroplast" } } ],
     "ender_turbulence": [ { "custom": { "fluid": "ender_turbulence" } } ],
-    "dirty_water": [ { "custom": { "fluid": "dirty_water" } } ]
+    "dirty_water": [ { "custom": { "fluid": "dirty_water" } } ],
+    "shining_gel": [ { "custom": { "fluid": "shining_gel" } } ]
   }
 }

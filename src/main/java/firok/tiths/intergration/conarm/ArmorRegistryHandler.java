@@ -5,7 +5,6 @@ import c4.conarm.lib.materials.CoreMaterialStats;
 import c4.conarm.lib.materials.PlatesMaterialStats;
 import c4.conarm.lib.materials.TrimMaterialStats;
 import c4.conarm.lib.traits.AbstractArmorTrait;
-import firok.tiths.TinkersThings;
 import firok.tiths.common.ConfigJson;
 import firok.tiths.common.RegistryHandler;
 import firok.tiths.common.TiCMaterials;
@@ -19,11 +18,11 @@ import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.Material;
 
 import java.lang.reflect.Field;
+import java.util.Objects;
 
 import static c4.conarm.lib.materials.ArmorMaterialType.*;
 import static firok.tiths.TinkersThings.log;
-import static firok.tiths.util.InnerActions.addMaterialTraits;
-import static firok.tiths.util.InnerActions.__;
+import static firok.tiths.util.InnerActions.*;
 
 public class ArmorRegistryHandler
 {
@@ -55,7 +54,7 @@ public class ArmorRegistryHandler
 					if(compo==null||TinkerRegistry.getMaterial(material.identifier)==Material.UNKNOWN) continue;
 
 					MaterialInfo info= ConfigJson.getMat(material.identifier);
-					boolean i=__(info);
+					boolean i=Objects.nonNull(info);
 
 					// 基底
 					{
@@ -63,8 +62,8 @@ public class ArmorRegistryHandler
 						if(compoArmorCore!=null)
 						{
 							CoreMaterialStats statCore=new CoreMaterialStats(
-									i && __(info.core_durability)? info.core_durability:(float)compoArmorCore.durability(),
-									i && __(info.core_dense)? info.core_dense:(float)compoArmorCore.defense()
+									i && Objects.nonNull(info.core_durability)? info.core_durability:(float)compoArmorCore.durability(),
+									i && Objects.nonNull(info.core_dense)? info.core_dense:(float)compoArmorCore.defense()
 							);
 							material.addStats(statCore);
 						}
@@ -75,9 +74,9 @@ public class ArmorRegistryHandler
 						if(compoArmorPlate!=null)
 						{
 							PlatesMaterialStats statPlate=new PlatesMaterialStats(
-									i && __(info.plate_modifier)? info.plate_modifier:(float)compoArmorPlate.modifier(),
-									i && __(info.plate_durability)? info.plate_durability:(float)compoArmorPlate.durability(),
-									i && __(info.plate_toughness)? info.plate_toughness:(float)compoArmorPlate.toughness()
+									i && Objects.nonNull(info.plate_modifier)? info.plate_modifier:(float)compoArmorPlate.modifier(),
+									i && Objects.nonNull(info.plate_durability)? info.plate_durability:(float)compoArmorPlate.durability(),
+									i && Objects.nonNull(info.plate_toughness)? info.plate_toughness:(float)compoArmorPlate.toughness()
 							);
 							material.addStats(statPlate);
 						}
@@ -88,7 +87,7 @@ public class ArmorRegistryHandler
 						if(compoArmorTrim!=null)
 						{
 							TrimMaterialStats statTrim=new TrimMaterialStats(
-									i && __(info.trim_durability)? info.trim_durability:(float)compoArmorTrim.extraDurability()
+									i && Objects.nonNull(info.trim_durability)? info.trim_durability:(float)compoArmorTrim.extraDurability()
 							);
 							material.addStats(statTrim);
 						}
@@ -123,34 +122,38 @@ public class ArmorRegistryHandler
 					if(compo==null||TinkerRegistry.getMaterial(material.identifier)==Material.UNKNOWN) continue;
 
 					MaterialInfo info=ConfigJson.getMat(material.identifier);
-					boolean i=__(info);
+					boolean i=Objects.nonNull(info);
+					if(i&&isTrue(info.disable)) return;
 
 					// 基底
+					if(!i||isFalse(info.disableCore))
 					{
 						CompoArmorCore compoArmorCore=field.getAnnotation(CompoArmorCore.class);
 						if(compoArmorCore!=null)
 						{
-							addMaterialTraits(material,i && __(info.core_traits)?info.core_traits:compoArmorCore.traits(),CORE,true);
+							addMaterialTraits(material,i && Objects.nonNull(info.core_traits)?info.core_traits:compoArmorCore.traits(),CORE,true);
 						}
 					}
 					// 护甲板
+					if(!i||isFalse(info.disablePlate))
 					{
 						CompoArmorPlate compoArmorPlate=field.getAnnotation(CompoArmorPlate.class);
 						if(compoArmorPlate!=null)
 						{
-							addMaterialTraits(material,i && __(info.plate_traits)?info.plate_traits:compoArmorPlate.traits(),PLATES,true);
+							addMaterialTraits(material,i && Objects.nonNull(info.plate_traits)?info.plate_traits:compoArmorPlate.traits(),PLATES,true);
 						}
 					}
 					// 夹板
+					if(!i||isFalse(info.disableTrim))
 					{
 						CompoArmorTrim compoArmorTrim=field.getAnnotation(CompoArmorTrim.class);
 						if(compoArmorTrim!=null)
 						{
-							addMaterialTraits(material,i && __(info.trim_traits)?info.trim_traits:compoArmorTrim.traits(),TRIM,true);
+							addMaterialTraits(material,i && Objects.nonNull(info.trim_traits)?info.trim_traits:compoArmorTrim.traits(),TRIM,true);
 						}
 					}
 
-					String[] traitsArmor=i && __(info.traits_armor)? info.traits_armor :compo.traitsArmor();
+					String[] traitsArmor=i && Objects.nonNull(info.traits_armor)? info.traits_armor :compo.traitsArmor();
 
 					addMaterialTraits(material,traitsArmor, CORE,true);
 					addMaterialTraits(material,traitsArmor, PLATES,true);

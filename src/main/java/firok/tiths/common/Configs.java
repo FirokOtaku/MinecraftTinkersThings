@@ -14,7 +14,7 @@ public final class Configs
 	static final String c="config.tiths.";
 	static final String pg="config.tiths.general.";
 	static final String pgp="config.tiths.gameplay.";
-	@Config(modid= TinkersThings.MOD_ID)
+	@Config(name=TinkersThings.MOD_ID+"_general",modid= TinkersThings.MOD_ID)
 	@LangKey(c+"general")
 	public static class General // 全局设置
 	{
@@ -81,7 +81,7 @@ public final class Configs
 	}
 
 
-	@Config(modid= TinkersThings.MOD_ID,category = "gameplay")
+	@Config(name=TinkersThings.MOD_ID+"_gameplay",modid= TinkersThings.MOD_ID,category = "gameplay")
 	@LangKey(c+"gameplay")
 	public static class Gameplay
 	{
@@ -93,7 +93,7 @@ public final class Configs
 		public static boolean enable_royal_alloy_easy_crafting=false;
 	}
 
-	@Config(modid= TinkersThings.MOD_ID,category = "traits")
+	@Config(name=TinkersThings.MOD_ID+"_trait",modid= TinkersThings.MOD_ID,category = "traits")
 	@LangKey(c+"trait")
 	public static class Traits // 属性相关的设置
 	{
@@ -107,6 +107,9 @@ public final class Configs
 
 		@LangKey(pgp+"blacklist_blowing_entity")
 		public static String[] blacklist_blowing_entity = new String[0];
+
+		@LangKey(pgp+"enable_blow_plyaer")
+		public static boolean enable_blow_player = true;
 
 		@LangKey(pgp+"rate_carbonizing_transform")
 		@RangeDouble(min=0,max=1)

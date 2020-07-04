@@ -115,6 +115,8 @@ public final class Items
 	public static final ItemFluidBall fluidBall = new ItemFluidBall(); // 液体球
 	@Reg(nameFluidCollector)
 	public static final ItemFluidCollector fluidCollector = new ItemFluidCollector(); // 液体收集器
+	@Reg(nameFluorescentGel)
+	public static final Item fluorescentGel = new ItemFluorescentGel(); // 荧光凝胶
 	@Reg(value = nameFormerCrystal, od = {"book"})
 	public static final Item formerCrystal = new ItemFormerCrystal().setRarity(EnumRarity.UNCOMMON); // 往昔水晶
 	@Reg(nameFurutorin)

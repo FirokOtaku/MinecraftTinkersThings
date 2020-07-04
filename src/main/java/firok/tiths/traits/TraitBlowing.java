@@ -4,6 +4,7 @@ import firok.tiths.common.Configs;
 import firok.tiths.common.SoundEvents;
 import firok.tiths.util.Actions;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
@@ -25,6 +26,8 @@ public class TraitBlowing extends AbstractTrait
 	@Override
 	public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean isCritical)
 	{
+		if(target instanceof EntityPlayer && !Configs.Traits.enable_blow_player) return;
+
 		World world=target.world;
 		if(!world.isRemote && canTrigger(world, Configs.Traits.rate_blowing))
 		{

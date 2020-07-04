@@ -44,6 +44,7 @@ public final class Traits
 	public static AbstractTrait hyper; // 振奋
 	public static AbstractTrait icy; // 冰冷
 	public static AbstractTrait infernalBlazing; // 狱炎
+	public static AbstractTrait infiltrating; // 透蚀
 	public static AbstractTrait inky; // 墨染
 	public static AbstractTrait lifeInspiring; // 生命激发
 	public static AbstractTrait lionheart; // 狮心
@@ -115,6 +116,7 @@ public final class Traits
 		hyper = new TraitHyper();
 		icy = new TraitIcy();
 		infernalBlazing = new TraitInfernalBlazing();
+		infiltrating = new TraitInfiltrating();
 		inky = new TraitInky();
 		lifeInspiring = new TraitLifeInspiring();
 		lionheart = new TraitLionheart();

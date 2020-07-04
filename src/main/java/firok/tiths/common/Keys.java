@@ -141,6 +141,7 @@ public interface Keys
 	String nameFluidCollector = "fluid_collector";
 	String nameLapsingCharm = prefCharm + "lapsing";
 	String nameChloroplastLight = "chloroplast_light";
+	String nameFluorescentGel = "fluorescent_gel";
 
 	String nameHardener = "hardener";
 	String namePolisher = "polisher";
@@ -160,9 +161,6 @@ public interface Keys
 	String logBlood = prefLog + nameBlood;
 	String leafBlood = prefLeaf + nameBlood;
 	String saplingBlood = prefSapling + nameBlood;
-
-	// 逻辑用方块
-	String blockLogicSearing = prefLogic + "searing";
 
 	// 矿块
 	String blockStellarium = prefBlock + nameStellarium;
@@ -545,7 +543,7 @@ public interface Keys
 	String nameTraitPhasing = "phasing";
 	String nameTraitLingering = "lingering";
 	String nameTraitDeepPressured = "deep_pressured";
-
+	String nameTraitInfiltrating = "infiltrating";
 
 	// 属性颜色
 	int colorTraitGluttonic = 0x752b40;
@@ -645,6 +643,7 @@ public interface Keys
 	int colorTraitPhasing = Colors.LimeGreen;
 	int colorTraitLingering = Colors.LightSeaGreen;
 	int colorTraitDeepPressured = 0x21404c;
+	int colorTraitInfiltrating = 0x6a6a78;
 
 	// 状态效果颜色
 	int colorPotionHeavy = Colors.DarkSeaGreen;
@@ -813,7 +812,7 @@ public interface Keys
 	String[] biomes_common = {biome_extreme_hills,biome_taiga,biome_taiga_hills,biome_smaller_extreme_hills,biome_stone_beach,biome_redwood_taiga,biome_redwood_taiga_hills,biome_extreme_hills_with_trees,biome_mutated_extreme_hills,biome_mutated_taiga,biome_mutated_redwood_taiga,biome_mutated_redwood_taiga_hills,biome_mutated_extreme_hills_with_trees};
 	String[] biomes_cool = {biome_ocean,biome_mushroom_island,biome_mushroom_island_shore,biome_deep_ocean};
 	String[] biomes_cold = {biome_frozen_ocean,biome_frozen_river,biome_ice_flats,biome_ice_mountains,biome_cold_beach,biome_taiga_cold,biome_taiga_cold_hills,biome_mutated_ice_flats,biome_mutated_taiga_cold};
-	public static String[] getBiomes(String...keys)
+	static String[] getBiomes(String...keys)
 	{
 		if(keys==null || keys.length==0) return new String[0];
 

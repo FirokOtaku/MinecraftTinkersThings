@@ -97,11 +97,11 @@ public final class Blocks
 	@Reg(Keys.blockInertWitherium)
 	public static final Block blockInertWitherium = new BlockCompressed().setBeaconBase(); // 惰性凋零块
 	@Reg(Keys.blockInkPowder)
-	public static final Block blockInkPowder = new BlockCompressed(); // 墨粉块
+	public static final Block blockInkPowder = new BlockCompressed(Material.SAND); // 墨粉块
 	@Reg(Keys.blockIrisia)
 	public static final Block blockIrisia = new BlockCompressed().setBeaconBase(); // 艾瑞希亚块
 	@Reg(Keys.blockLavaCrystal)
-	public static final Block blockLavaCrystal = new BlockCompressed(Material.ROCK).setBeaconBase(); // 岩浆结晶块
+	public static final Block blockLavaCrystal = new BlockCompressed(Material.ROCK).setBeaconBase().setLightLevel(1); // 岩浆结晶块
 	@Reg(Keys.blockLizanite)
 	public static final Block blockLizanite = new BlockCompressed(Material.ROCK).setBeaconBase(); // 坦桑石块
 	@Reg(Keys.blockMercurySulfide)
@@ -232,7 +232,7 @@ public final class Blocks
 	public static final Block oreInkPowder = new BlockOre(Items.inkPowder, 2, 4, 2, 2, 7).setCommonOre(); // 墨粉矿石
 	@Reg(Keys.oreLavaCrystal)
 	@GenOre(times = 10, timeRate = 1, size = 3, minY = 32, maxY = 33, dim = Strategy.ONLY_WHITELIST, dimsWL = -1, selector = "lava")
-	public static final Block oreLavaCrystal = new BlockOre(Items.lavaCrystal, 1, 1, 1, 3, 6).setVeryRareOre(); // 熔岩水晶矿
+	public static final Block oreLavaCrystal = new BlockOre(Items.lavaCrystal, 1, 1, 1, 3, 6).setVeryRareOre().setLightLevel(1); // 熔岩水晶矿
 	@Reg(Keys.oreLizanite)
 	@GenOre(times = 4, timeRate = 0.5f, size = 5, minY = 6, maxY = 50, dim = Strategy.ONLY_WHITELIST, dimsWL = -1, selector = "netherrack")
 	public static final Block oreLizanite = new BlockOre(Items.lizanite, 1, 1, 1, 4, 6).setRareOre(); // 丽辰石矿

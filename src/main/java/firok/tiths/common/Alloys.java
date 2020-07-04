@@ -52,7 +52,7 @@ public final class Alloys
 		);
 		// 深流钢
 		registerAlloy(
-				new FluidStack(Fluids.moltenDecurrium, VALUE_Ingot * 2),
+				new FluidStack(Fluids.moltenDecurrium, VALUE_Ingot),
 				new FluidStack(Fluids.moltenSteamium, VALUE_Ingot),
 				new FluidStack(Fluids.moltenImmersedSilver, VALUE_Ingot)
 		);

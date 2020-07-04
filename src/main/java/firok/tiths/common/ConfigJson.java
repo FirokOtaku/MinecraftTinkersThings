@@ -7,7 +7,6 @@ import firok.tiths.TinkersThings;
 import firok.tiths.modding.ModdingFactory;
 import firok.tiths.modding.ModdingInfo;
 import firok.tiths.util.conf.MaterialInfo;
-import firok.tiths.util.conf.OreGenInfo;
 import firok.tiths.world.Info;
 
 import java.io.File;
@@ -74,63 +73,148 @@ public final class ConfigJson
 			mat.name=nameMaterial;
 			JsonObject obj=entry.getValue().getAsJsonObject();
 
-			log("we found customized material: "+nameMaterial);
+			if(isTrue(mat.disable=getBool(obj,"disable")))
+			{
+				log("disabled material: "+nameMaterial);
+				return;
+			}
+
+			log("customized material: "+nameMaterial);
 
 			getStrs(obj,"traits_tool",v->mat.traits_tool =v);
+			getStrs(obj,"traits_bow",v->mat.traits_bow =v);
 			getStrs(obj,"traits_armor",v->mat.traits_armor =v);
 
-			getObj(obj,"head",attrHead->{
-				getInteger(attrHead,"durability",v->mat.head_durability=v);
-				getFloat(attrHead,"mining_speed",v->mat.head_mining_speed=v);
-				getFloat(attrHead,"attack",v->mat.head_attack=v);
-				getByte(attrHead,"harvest_level",v->mat.head_harvest_level=v);
-				getStrs(attrHead,"traits",v->mat.head_traits =v);
-			});
-			getObj(obj,"handle",attrHandle->{
-				getInteger(attrHandle,"durability",v->mat.handle_durability=v);
-				getFloat(attrHandle,"modifier",v->mat.handle_modifier=v);
-				getStrs(attrHandle,"traits",v->mat.handle_traits=v);
-			});
-			getObj(obj,"extra",attrExtra->{
-				getInteger(attrExtra,"durability",v->mat.extra_durability=v);
-				getStrs(attrExtra,"traits",v->mat.extra_traits=v);
-			});
-			getObj(obj,"bow",attrBow->{
-				getFloat(attrBow,"draw_speed",v->mat.bow_draw_speed=v);
-				getFloat(attrBow,"range",v->mat.bow_range=v);
-				getFloat(attrBow,"bonus_damage",v->mat.bow_bonus_damage=v);
-				getStrs(attrBow,"traits",v->mat.bow_traits=v);
-			});
-			getObj(obj,"bowstring",attrString->{
-				getFloat(attrString,"modifier",v->mat.string_modifier=v);
-				getStrs(attrString,"traits",v->mat.string_traits=v);
-			});
-			getObj(obj,"fletching",attrFletching->{
-				getFloat(attrFletching,"accuracy",v->mat.fletching_accuracy=v);
-				getFloat(attrFletching,"modifier",v->mat.fletching_modifier=v);
-				getStrs(attrFletching,"traits",v->mat.fletching_traits=v);
-			});
-			getObj(obj,"arrowshaft",attrShaft->{
-				getFloat(attrShaft,"modifier",v->mat.shaft_modifier=v);
-				getInteger(attrShaft,"bonus_ammo",v->mat.shaft_bonus_ammo=v);
-				getStrs(attrShaft,"traits",v->mat.shaft_traits=v);
-			});
+			if(isTrue(mat.disableHead=getBool(obj,"disable_head")))
+			{
+				log("disabled head stats");
+			}
+			else
+			{
+				getObj(obj,"head",attrHead->{
+					getInteger(attrHead,"durability",v->mat.head_durability=v);
+					getFloat(attrHead,"mining_speed",v->mat.head_mining_speed=v);
+					getFloat(attrHead,"attack",v->mat.head_attack=v);
+					getByte(attrHead,"harvest_level",v->mat.head_harvest_level=v);
+					getStrs(attrHead,"traits",v->mat.head_traits =v);
+				});
+			}
 
-			getObj(obj,"core",attrCore->{
-				getFloat(attrCore,"durability",v->mat.core_durability=v);
-				getFloat(attrCore,"dense",v->mat.core_dense=v);
-				getStrs(attrCore,"traits",v->mat.core_traits=v);
-			});
-			getObj(obj,"trim",attrTrim->{
-				getFloat(attrTrim,"durability",v->mat.trim_durability=v);
-				getStrs(attrTrim,"traits",v->mat.trim_traits=v);
-			});
-			getObj(obj,"plate",attrPlate->{
-				getFloat(attrPlate,"modifier",v->mat.plate_modifier=v);
-				getFloat(attrPlate,"durability",v->mat.plate_durability=v);
-				getFloat(attrPlate,"toughness",v->mat.plate_toughness=v);
-				getStrs(attrPlate,"traits",v->mat.plate_traits=v);
-			});
+			if(isTrue(mat.disableHandle=getBool(obj,"disable_handle")))
+			{
+				log("disabled handle stats");
+			}
+			else
+			{
+				getObj(obj,"handle",attrHandle->{
+					getInteger(attrHandle,"durability",v->mat.handle_durability=v);
+					getFloat(attrHandle,"modifier",v->mat.handle_modifier=v);
+					getStrs(attrHandle,"traits",v->mat.handle_traits=v);
+				});
+			}
+
+			if(isTrue(mat.disableExtra=getBool(obj,"disable_extra")))
+			{
+				log("disabled extra stats");
+			}
+			else
+			{
+				getObj(obj,"extra",attrExtra->{
+					getInteger(attrExtra,"durability",v->mat.extra_durability=v);
+					getStrs(attrExtra,"traits",v->mat.extra_traits=v);
+				});
+			}
+
+			if(isTrue(mat.disableBow=getBool(obj,"disable_bow")))
+			{
+				log("disabled bow stats");
+			}
+			else
+			{
+				getObj(obj,"bow",attrBow->{
+					getFloat(attrBow,"draw_speed",v->mat.bow_draw_speed=v);
+					getFloat(attrBow,"range",v->mat.bow_range=v);
+					getFloat(attrBow,"bonus_damage",v->mat.bow_bonus_damage=v);
+					getStrs(attrBow,"traits",v->mat.bow_traits=v);
+				});
+			}
+
+			if(isTrue(mat.disableString=getBool(obj,"disable_string")))
+			{
+				log("disabled string stats");
+			}
+			else
+			{
+				getObj(obj,"bowstring",attrString->{
+					getFloat(attrString,"modifier",v->mat.string_modifier=v);
+					getStrs(attrString,"traits",v->mat.string_traits=v);
+				});
+			}
+
+			if(isTrue(mat.disableFletching=getBool(obj,"disable_fletching")))
+			{
+				log("disabled fletching stats");
+			}
+			else
+			{
+				getObj(obj,"fletching",attrFletching->{
+					getFloat(attrFletching,"accuracy",v->mat.fletching_accuracy=v);
+					getFloat(attrFletching,"modifier",v->mat.fletching_modifier=v);
+					getStrs(attrFletching,"traits",v->mat.fletching_traits=v);
+				});
+			}
+
+			if(isTrue(mat.disableShaft=getBool(obj,"disable_shaft")))
+			{
+				log("disabled shaft stats");
+			}
+			else
+			{
+				getObj(obj,"arrowshaft",attrShaft->{
+					getFloat(attrShaft,"modifier",v->mat.shaft_modifier=v);
+					getInteger(attrShaft,"bonus_ammo",v->mat.shaft_bonus_ammo=v);
+					getStrs(attrShaft,"traits",v->mat.shaft_traits=v);
+				});
+			}
+
+			if(isTrue(mat.disableCore=getBool(obj,"disable_core")))
+			{
+				log("disabled core stats");
+			}
+			else
+			{
+				getObj(obj,"core",attrCore->{
+					getFloat(attrCore,"durability",v->mat.core_durability=v);
+					getFloat(attrCore,"dense",v->mat.core_dense=v);
+					getStrs(attrCore,"traits",v->mat.core_traits=v);
+				});
+			}
+
+			if(isTrue(mat.disableTrim=getBool(obj,"disable_trim")))
+			{
+				log("disabled trim stats");
+			}
+			else
+			{
+				getObj(obj,"trim",attrTrim->{
+					getFloat(attrTrim,"durability",v->mat.trim_durability=v);
+					getStrs(attrTrim,"traits",v->mat.trim_traits=v);
+				});
+			}
+
+			if(isTrue(mat.disablePlate=getBool(obj,"disable_plate")))
+			{
+				log("disabled plate stats");
+			}
+			else
+			{
+				getObj(obj,"plate",attrPlate->{
+					getFloat(attrPlate,"modifier",v->mat.plate_modifier=v);
+					getFloat(attrPlate,"durability",v->mat.plate_durability=v);
+					getFloat(attrPlate,"toughness",v->mat.plate_toughness=v);
+					getStrs(attrPlate,"traits",v->mat.plate_traits=v);
+				});
+			}
 
 			mats.put(mat.name,mat);
 		}));
