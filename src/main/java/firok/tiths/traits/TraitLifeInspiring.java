@@ -34,8 +34,11 @@ public class TraitLifeInspiring extends AbstractTrait
 
 			float percent=hp/hpMax;
 
-			if(percent < Configs.Traits.factor_life_inspiring_low && SoulUtil.costSoul(player,200,false,false) > 0)
+//			System.out.printf("xp: %d\n"+player.experienceTotal);
+
+			if(percent < Configs.Traits.factor_life_inspiring_low && player.experienceTotal >= 4)
 			{
+				player.addExperience(-4);
 				player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION,25,
 						percent < Configs.Traits.factor_life_inspiring_danger?2:1));
 			}

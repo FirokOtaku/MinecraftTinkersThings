@@ -31,8 +31,9 @@ public class TraitArmorLifeInspiring extends AbstractArmorTrait
 
 			float percent=hp/hpMax;
 
-			if(percent< 0.35f && SoulUtil.costSoul(player,200,false,false) > 0)
+			if(percent< 0.35f && player.experienceTotal>=4)
 			{
+				player.addExperience(-4);
 				player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION,25,
 						percent<0.15f?2:1));
 			}

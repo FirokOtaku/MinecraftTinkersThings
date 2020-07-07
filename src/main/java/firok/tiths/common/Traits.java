@@ -3,6 +3,7 @@ package firok.tiths.common;
 import firok.tiths.traits.*;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
+import slimeknights.tconstruct.library.traits.AbstractProjectileTrait;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
 import static firok.tiths.common.Keys.colorTraitAntiPoisonous;
@@ -85,6 +86,10 @@ public final class Traits
 //	public static AbstractTrait phantasmic=new TraitPhantasmic(); // 异象
 //	static{phantasmic.addItem(Items.phantomCrystal,8,8);}
 
+	public static AbstractProjectileTrait cracking; // 崩裂
+	public static AbstractProjectileTrait frost_jack; // 冰霜杰克
+	public static AbstractProjectileTrait stellar_falling; // 金乌坠落
+
 	public static void init()
 	{
 		ablaze = new TraitAblaze();
@@ -154,6 +159,10 @@ public final class Traits
 		vibrating = new TraitVibrating();
 		watery = new TraitWatery();
 		wither_flowing = new TraitWitherFlowing();
+
+		cracking = new TraitCracking();
+		frost_jack = new TraitFrostJack();
+		stellar_falling = new TraitStellarFalling();
 	}
 
 	public static void postInit()

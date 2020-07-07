@@ -139,8 +139,6 @@ public final class Items
 	public static final Item icelandSpar = new ItemCustom(); // 冰洲石
 	@Reg(nameIcelit)
 	public static final Item icelit = new ItemCustom(); // 灯明冻玉
-	@Reg(value = Keys.ingotAdamantine, od = {"ingotAdamantine"})
-	public static final Item ingotAdamantine = new ItemCustom(); // 精金锭
 	@Reg(Keys.ingotAltairium)
 	public static final Item ingotAltairium = new ItemCustom(); // 河鼓锭
 	@Reg(Keys.ingotChloroplast)
@@ -163,14 +161,16 @@ public final class Items
 	public static final Item ingotInertWitherium = new ItemCustom(); // 惰性凋零锭
 	@Reg(Keys.ingotIrisia)
 	public static final Item ingotIrisia = new ItemCustom(); // 艾瑞西亚锭
-	@Reg(value = Keys.ingotMithril, od = {"ingotMithril"})
-	public static final Item ingotMithril = new ItemCustom(); // 秘银锭
+	@Reg(value = Keys.ingotMagiga)
+	public static final Item ingotMagiga = new ItemCustom(); // 伽钢锭
 	@Reg(Keys.ingotOraclium)
 	public static final Item ingotOraclium = new ItemCustom(); // 神谕锭
 	@Reg(Keys.ingotPolarium)
 	public static final Item ingotPolarium = new ItemCustom(); // 勾陈锭
 	@Reg(Keys.ingotRoyalAlloy)
 	public static final Item ingotRoyalAlloy = new ItemCustom(); // 奢华合金锭
+	@Reg(value = Keys.ingotSolita)
+	public static final Item ingotSolita = new ItemCustom(); // 坚金锭
 	@Reg(Keys.ingotSteamium)
 	public static final Item ingotSteamium = new ItemCustom(); // 气钢锭
 	@Reg(Keys.ingotStellarium)
@@ -191,6 +191,8 @@ public final class Items
 	public static final Item lapsingCharm = new ItemCharmLapsing(); // 回溯纹章
 	@Reg(nameLavaCrystal)
 	public static final Item lavaCrystal = new ItemCustom(); // 岩浆结晶
+	@Reg(nameBeltLeveling)
+	public static final Item levelingBelt = new ItemBeltLeveling(); // 地平腰带
 	@Reg(value = nameLizanite, od = {"gem"})
 	public static final Item lizanite = new ItemCustom(); // 丽辰石
 	@Reg(nameMercurySulfide)
@@ -201,8 +203,6 @@ public final class Items
 	public static final Item net = new ItemCustom(); // 网
 	@Reg(value = nameNitre, od = {"dyeGray"})
 	public static final Item nitre = new ItemCustom(); // 硝石
-	@Reg(value = Keys.nuggetAdamantine, od = {"nuggetAdamantine"})
-	public static final Item nuggetAdamantine = new ItemCustom(); // 精金粒
 	@Reg(Keys.nuggetAltairium)
 	public static final Item nuggetAltairium = new ItemCustom(); // 河鼓粒
 	@Reg(Keys.nuggetChloroplast)
@@ -223,14 +223,16 @@ public final class Items
 	public static final Item nuggetInertWitherium = new ItemCustom(); // 惰性凋零粒
 	@Reg(Keys.nuggetIrisia)
 	public static final Item nuggetIrisia = new ItemCustom(); // 艾瑞西亚粒
-	@Reg(value = Keys.nuggetMithril, od = {"nuggetMithril"})
-	public static final Item nuggetMithril = new ItemCustom(); // 秘银粒
+	@Reg(value = Keys.nuggetMagiga)
+	public static final Item nuggetMagiga = new ItemCustom(); // 伽钢粒
 	@Reg(Keys.nuggetOraclium)
 	public static final Item nuggetOraclium = new ItemCustom(); // 神谕粒
 	@Reg(Keys.nuggetPolarium)
 	public static final Item nuggetPolarium = new ItemCustom(); // 勾陈粒
 	@Reg(Keys.nuggetRoyalAlloy)
 	public static final Item nuggetRoyalAlloy = new ItemCustom(); // 奢华合金粒
+	@Reg(value = Keys.nuggetSolita)
+	public static final Item nuggetSolita = new ItemCustom(); // 坚金粒
 	@Reg(Keys.nuggetSteamium)
 	public static final Item nuggetSteamium = new ItemCustom(); // 气钢粒
 	@Reg(Keys.nuggetStellarium)

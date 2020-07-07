@@ -17,7 +17,6 @@ import slimeknights.tconstruct.library.materials.HeadMaterialStats;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.materials.MaterialTypes;
 import slimeknights.tconstruct.library.smeltery.CastingRecipe;
-import slimeknights.tconstruct.library.smeltery.MeltingRecipe;
 import slimeknights.tconstruct.library.utils.HarvestLevels;
 import slimeknights.tconstruct.shared.TinkerCommons;
 import slimeknights.tconstruct.shared.TinkerFluids;
@@ -132,8 +131,8 @@ public final class Craftings
 		createBinding(Blocks.oreStellarium,Blocks.blockStellarium,Fluids.moltenStellarium,Items.ingotStellarium,Items.nuggetStellarium);
 		createBinding(null,Blocks.blockRoyalAlloy,Fluids.moltenRoyalAlloy,Items.ingotRoyalAlloy,Items.nuggetRoyalAlloy);
 		createBinding(Blocks.oreImmersedSilver,Blocks.blockImmersedSilver,Fluids.moltenImmersedSilver,Items.ingotImmersedSilver,Items.nuggetImmersedSilver);
-		createBinding(Blocks.oreMithril,Blocks.blockMithril,Fluids.moltenMithril,Items.ingotMithril,Items.nuggetMithril);
-		createBinding(Blocks.oreAdamantine,Blocks.blockAdamantine,Fluids.moltenAdamantine,Items.ingotAdamantine,Items.nuggetAdamantine);
+		createBinding(null,Blocks.blockSolita,Fluids.moltenSolita,Items.ingotSolita,Items.nuggetSolita);
+		createBinding(null,Blocks.blockMagiga,Fluids.moltenMagiga,Items.ingotMagiga,Items.nuggetMagiga);
 		createBinding(Blocks.oreInertWitherium,Blocks.blockInertWitherium,Fluids.moltenInertWitherium,Items.ingotInertWitherium,Items.nuggetInertWitherium);
 		createBinding(Blocks.oreWitherium,Blocks.blockWitherium,Fluids.moltenWitherium,Items.ingotWitherium,Items.nuggetWitherium);
 		createBinding(Blocks.oreTitanium,Blocks.blockTitanium,Fluids.moltenTitanium,Items.ingotTitanium,Items.nuggetTitanium);

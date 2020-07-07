@@ -10,14 +10,22 @@
 
 ## 最近更新 latest update
 
-### 0.3.8.0 _2020-07-04 12:00_
+### 0.3.9.0 _2020-07-08 00:30_
 
 * 增加物品 added items
-  * 荧光凝胶 fluorescent gel
+  * 地平腰带 leveling belt item
+* 移除方块和物品 removed blocks and items
+  * 秘银矿 mithril ore block
+  * 精金矿 adamantine ore block
+* 重命名材料 renamed materials
+  * 精金 -> 伽钢 adamantine -> magiga
+  * 秘银 -> 坚金 mithril -> solita
 * 增加特性 added traits
-  * 透蚀 infiltrating
-* 错误修复 bug fixes
-  * 现在可以正常在游戏内调整配置项 now configurations can be modified correctly
+  * 洞藏(护甲) cavious(armor)
+  * 金乌坠落(投射物) stellar falling(projectile)
+  * 崩裂(投射物) cracking(projectile)
+* 调整特性 modified traits
+  * 生命激发和生命激发(护甲)现在变为消耗经验 life inspiring and life inspiring(armor) now cost exp
 
 ## 版本间差异 differences between versions
 

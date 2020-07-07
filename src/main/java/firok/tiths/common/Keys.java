@@ -43,8 +43,8 @@ public interface Keys
 	String nameConsolidatedGlass = "consolidated_glass";
 	String nameBrokenIce = "broken_ice";
 	String nameImmersedSilver = "immersed_silver";
-	String nameMithril = "mithril";
-	String nameAdamantine = "adamantine";
+	String nameSolita = "solita";
+	String nameMagiga = "magiga";
 	String nameBlackrock = "blackrock";
 	String nameInertWitherium = "inert_witherium";
 	String nameWitherium = "witherium";
@@ -142,6 +142,7 @@ public interface Keys
 	String nameLapsingCharm = prefCharm + "lapsing";
 	String nameChloroplastLight = "chloroplast_light";
 	String nameFluorescentGel = "fluorescent_gel";
+	String nameBeltLeveling = prefBelt + "leveling";
 
 	String nameHardener = "hardener";
 	String namePolisher = "polisher";
@@ -171,8 +172,8 @@ public interface Keys
 	String blockInkPowder = prefBlock + nameInkPowder;
 	String blockCinnabar = prefBlock + nameCinnabar;
 	String blockImmersedSilver = prefBlock + nameImmersedSilver;
-	String blockMithril = prefBlock + nameMithril;
-	String blockAdamantine = prefBlock + nameAdamantine;
+	String blockSolita = prefBlock + nameSolita;
+	String blockMagiga = prefBlock + nameMagiga;
 	String blockBlackrock = prefBlock + nameBlackrock;
 	String blockInertWitherium = prefBlock + nameInertWitherium;
 	String blockWitherium = prefBlock + nameWitherium;
@@ -245,8 +246,6 @@ public interface Keys
 	String oreStellarium = prefOre + nameStellarium;
 	String oreInkPowder = prefOre + nameInkPowder;
 	String oreImmersedSilver = prefOre + nameImmersedSilver;
-	String oreMithril = prefOre + nameMithril;
-	String oreAdamantine = prefOre + nameAdamantine;
 	String oreBlackrock = prefOre + nameBlackrock;
 	String oreInertWitherium = prefOre + nameInertWitherium;
 	String oreWitherium = prefOre + nameWitherium;
@@ -296,8 +295,8 @@ public interface Keys
 	String ingotTonium = prefIngot + nameTonium;
 	String ingotRoyalAlloy = prefIngot + nameRoyalAlloy;
 	String ingotImmersedSilver = prefIngot + nameImmersedSilver;
-	String ingotMithril = prefIngot + nameMithril;
-	String ingotAdamantine = prefIngot + nameAdamantine;
+	String ingotSolita = prefIngot + nameSolita;
+	String ingotMagiga = prefIngot + nameMagiga;
 	String ingotInertWitherium = prefIngot + nameInertWitherium;
 	String ingotWitherium = prefIngot + nameWitherium;
 	String ingotTitanium = prefIngot + nameTitanium;
@@ -320,8 +319,8 @@ public interface Keys
 	String nuggetTonium = prefNugget + nameTonium;
 	String nuggetRoyalAlloy = prefNugget + nameRoyalAlloy;
 	String nuggetImmersedSilver = prefNugget + nameImmersedSilver;
-	String nuggetMithril = prefNugget + nameMithril;
-	String nuggetAdamantine = prefNugget + nameAdamantine;
+	String nuggetSolita = prefNugget + nameSolita;
+	String nuggetMagiga = prefNugget + nameMagiga;
 	String nuggetInertWitherium = prefNugget + nameInertWitherium;
 	String nuggetWitherium = prefNugget + nameWitherium;
 	String nuggetTitanium = prefNugget + nameTitanium;
@@ -361,8 +360,8 @@ public interface Keys
 	int colorConsolidatedGlass = Colors.LightBlue;
 	int colorBrokenIce = Colors.LightSkyBlue;
 	int colorImmersedSilver = 0x1e4575;
-	int colorMithril = 0xa0d9eb;
-	int colorAdamantine = 0xd4c6e5;
+	int colorSolita = 0xa0d9eb;
+	int colorMagiga = 0xd4c6e5;
 	int colorBlackrock = 0x2c1c0c;
 	int colorInertWitherium = Colors.DarkGray;
 	int colorWitherium = Colors.DimGray;
@@ -544,6 +543,11 @@ public interface Keys
 	String nameTraitLingering = "lingering";
 	String nameTraitDeepPressured = "deep_pressured";
 	String nameTraitInfiltrating = "infiltrating";
+	String nameTraitCavious = "cavious";
+	String nameTraitSteadfast = "steadfast";
+	String nameTraitFrostJack = "frost_jack";
+	String nameTraitStellarFalling = "stellar_falling";
+	String nameTraitCracking = "cracking";
 
 	// 属性颜色
 	int colorTraitGluttonic = 0x752b40;
@@ -644,6 +648,11 @@ public interface Keys
 	int colorTraitLingering = Colors.LightSeaGreen;
 	int colorTraitDeepPressured = 0x21404c;
 	int colorTraitInfiltrating = 0x6a6a78;
+	int colorTraitCavious = 0x4a301a;
+	int colorTraitSteadfast = 0xa14113;
+	int colorTraitFrostJack = 0x1feb9d;
+	int colorTraitStellarFalling = 0xeb471f;
+	int colorTraitCracking = 0x4d4133;
 
 	// 状态效果颜色
 	int colorPotionHeavy = Colors.DarkSeaGreen;

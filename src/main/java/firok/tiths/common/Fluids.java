@@ -24,8 +24,8 @@ public final class Fluids
 	public static final FluidMolten moltenHothium=$(nameHothium, colorHothium);
 	public static final FluidMolten moltenCinnabar=$(nameCinnabar, colorCinnabar);
 	public static final FluidMolten moltenImmersedSilver=$(nameImmersedSilver, colorImmersedSilver);
-	public static final FluidMolten moltenMithril=$(nameMithril, colorMithril);
-	public static final FluidMolten moltenAdamantine=$(nameAdamantine, colorAdamantine);
+	public static final FluidMolten moltenSolita=$(nameSolita, colorSolita);
+	public static final FluidMolten moltenMagiga=$(nameMagiga, colorMagiga);
 	public static final FluidMolten moltenInertWitherium=$(nameInertWitherium, colorInertWitherium);
 	public static final FluidMolten moltenWitherium=$(nameWitherium, colorWitherium);
 	public static final FluidMolten moltenPolarium=$(namePolarium, colorPolarium);

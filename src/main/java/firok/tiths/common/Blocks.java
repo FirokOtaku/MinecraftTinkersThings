@@ -14,8 +14,6 @@ public final class Blocks
 {
 	private Blocks() {}
 
-	@Reg(Keys.blockAdamantine)
-	public static final Block blockAdamantine = new BlockCompressed().setBeaconBase(); // 精金块
 	@Reg(Keys.blockAirPump)
 	public static final Block blockAirPump = new BlockCompressed(); // 气泵
 	@Reg(Keys.blockAltairium)
@@ -104,13 +102,13 @@ public final class Blocks
 	public static final Block blockLavaCrystal = new BlockCompressed(Material.ROCK).setBeaconBase().setLightLevel(1); // 岩浆结晶块
 	@Reg(Keys.blockLizanite)
 	public static final Block blockLizanite = new BlockCompressed(Material.ROCK).setBeaconBase(); // 坦桑石块
+	@Reg(Keys.blockMagiga)
+	public static final Block blockMagiga = new BlockCompressed().setBeaconBase(); // 伽钢块
 	@Reg(Keys.blockMercurySulfide)
 	public static final Block blockMercurySulfide = new BlockCompressed(); // 汞红块
 	@Reg(value = Keys.blockMeteorolite, od = {"meteorolite"})
 	@GenOre(times = 1, timeRate = 0.6f, size = 15, minY = 10, maxY = 70, biome = Strategy.ONLY_WHITELIST, biomeWL ={"$desert"})
 	public static final BlockOre blockMeteorolite = new BlockOre().setEpicOre(); // 陨石
-	@Reg(Keys.blockMithril)
-	public static final Block blockMithril = new BlockCompressed().setBeaconBase(); // 秘银块
 	@Reg(Keys.blockMoonStone)
 	public static final Block blockMoonStone = new BlockCompressed(Material.ROCK).setBeaconBase();// 月光石块
 	@Reg(Keys.blockNitre)
@@ -135,6 +133,8 @@ public final class Blocks
 	public static final Block blockRuby = new BlockCompressed(Material.ROCK).setBeaconBase(); // 虹辉石块
 	@Reg("block_sea_grass")
 	public static final Block blockSeaGrass = new BlockSeaGrass(); // 海草
+	@Reg(Keys.blockSolita)
+	public static final Block blockSolita = new BlockCompressed().setBeaconBase(); // 坚金块
 	@Reg(Keys.blockSpinel)
 	public static final Block blockSpinel = new BlockCompressed(Material.ROCK).setBeaconBase(); // 尖晶石块
 	@Reg(Keys.blockSteamium)
@@ -167,9 +167,6 @@ public final class Blocks
 	public static final Block blockVibratingCrystal = new BlockCompressed(Material.ROCK).setBeaconBase(); // 振晶块
 	@Reg(Keys.blockWitherium)
 	public static final Block blockWitherium = new BlockCompressed().setBeaconBase(); // 凋零块
-	@Reg(value = Keys.oreAdamantine, od = {"oreAdamantine"})
-	@GenOre(times = 2, timeRate = 1, size = 9, minY = 0, maxY = 38, biome = Strategy.ONLY_WHITELIST, biomeWL ={"$forests"})
-	public static final Block oreAdamantine = new BlockOre().setEpicOre(); // 精金矿石
 	@Reg(Keys.oreAltairium)
 //	@GenMeteoWorld
 	@GenOre(times = 1, timeRate = 1, size = 3, minY = 10, maxY = 70, biome = Strategy.ONLY_WHITELIST, biomeWL ={"$desert"})
@@ -236,9 +233,6 @@ public final class Blocks
 	@Reg(Keys.oreLizanite)
 	@GenOre(times = 4, timeRate = 0.5f, size = 5, minY = 6, maxY = 50, dim = Strategy.ONLY_WHITELIST, dimsWL = -1, selector = "netherrack")
 	public static final Block oreLizanite = new BlockOre(Items.lizanite, 1, 1, 1, 4, 6).setRareOre(); // 丽辰石矿
-	@Reg(value = Keys.oreMithril, od = {"oreMithril"})
-	@GenOre(times = 5, timeRate = 1, size = 8, minY = 40, maxY = 200, biome = Strategy.ONLY_WHITELIST, biomeWL = {"$forests","$mesas","$hills"})
-	public static final Block oreMithril = new BlockOre().setEpicOre(); // 秘银矿石
 	@Reg(Keys.oreMoonStone)
 	@GenOre(times = 3, timeRate = 0.8f, size = 4, minY = 0, maxY = 64, biome = Strategy.ONLY_WHITELIST, biomeWL = {"$cold"})
 	public static final Block oreMoonStone = new BlockOre(Items.moonStone, 1, 1, 1, 4, 6).setRareOre(); // 月光石矿

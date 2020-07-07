@@ -12,6 +12,7 @@ public class ArmorTraits
 	public static AbstractArmorTrait arsenicPoisonous; // 砷毒
 	public static AbstractArmorTrait buoyant; // 浮力
 	public static AbstractArmorTrait carbonizing; // 碳化
+	public static AbstractArmorTrait cavious; // 洞藏
 	public static AbstractArmorTrait chemicalInstable; // 化学不稳定
 	@Indev public static AbstractArmorTrait deadening; // 吸音
 	public static AbstractArmorTrait deepParasitic; // 深触寄生
@@ -63,6 +64,7 @@ public class ArmorTraits
 		arsenicPoisonous=new TraitArmorArsenicPoisonous();
 		buoyant=new TraitArmorBuoyant();
 		carbonizing=new TraitArmorCarbonizing();
+		cavious=new TraitArmorCavious();
 		chemicalInstable=new TraitArmorChemicalInstable();
 //		deadening=new TraitArmorDeadening();
 		deepParasitic =new TraitArmorDeepParasitic();
