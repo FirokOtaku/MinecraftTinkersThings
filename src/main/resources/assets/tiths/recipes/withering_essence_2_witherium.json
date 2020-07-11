@@ -5,10 +5,10 @@
   "ingredients": [
     { "item": "tiths:withering_essence" },
 
-    { "item": "tiths:ingot_adamantine" },
-    { "item": "tiths:ingot_adamantine" },
-    { "item": "tiths:ingot_adamantine" },
-    { "item": "tiths:ingot_adamantine" }
+    { "item": "tiths:ingot_magiga" },
+    { "item": "tiths:ingot_magiga" },
+    { "item": "tiths:ingot_magiga" },
+    { "item": "tiths:ingot_magiga" }
 
   ]
 }

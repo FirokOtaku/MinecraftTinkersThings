@@ -113,7 +113,7 @@ public class ItemFluidCollector extends ItemCustom
 			stackEmptyFluidBall.shrink(1);
 			ItemStack stackFluidBall=new ItemStack(Items.fluidBall);
 			Items.fluidBall.setFluidStack(stackFluidBall,new FluidStack(fluidType,amount));
-			Actions.CauseSpawnItem(player, stackFluidBall);
+			if(!world.isRemote) Actions.CauseSpawnItem(player, stackFluidBall);
 		}
 
 		return ActionResult.newResult(EnumActionResult.SUCCESS, stackHeld);

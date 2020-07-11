@@ -2,6 +2,12 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.10.0 _2020-07-11 16:00_
+
+* 增加特性 added traits
+  * 农场主 farmer
+  * 牧场主 rancher
+
 ## 0.3.9.0 _2020-07-08 00:30_
 
 * 增加物品 added items

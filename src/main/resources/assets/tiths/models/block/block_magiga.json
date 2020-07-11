@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "tiths:blocks/block_magiga",
+    "down": "tiths:blocks/block_magiga",
+    "up": "tiths:blocks/block_magiga",
+    "north": "tiths:blocks/block_magiga",
+    "south": "tiths:blocks/block_magiga",
+    "west": "tiths:blocks/block_magiga",
+    "east": "tiths:blocks/block_magiga"
+  }
+}

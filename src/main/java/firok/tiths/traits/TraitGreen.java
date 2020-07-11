@@ -4,6 +4,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
+import static firok.tiths.common.Keys.colorTraitGreen;
+import static firok.tiths.common.Keys.nameTraitGreen;
 import static firok.tiths.util.Predicates.isPlants;
 
 /**
@@ -13,7 +15,7 @@ public class TraitGreen extends AbstractTrait
 {
 	public TraitGreen()
 	{
-		super("green",0);
+		super(nameTraitGreen,colorTraitGreen);
 	}
 
 	@Override

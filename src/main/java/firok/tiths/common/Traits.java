@@ -39,8 +39,10 @@ public final class Traits
 	public static AbstractTrait eddying; // 旋流
 	public static AbstractTrait eroding; // 侵蚀
 	public static AbstractTrait extremeFreezing; // 极寒
+	public static AbstractTrait farmer; // 农场主
 	public static AbstractTrait gluttonic; // 暴食
 	public static AbstractTrait gorgeous; // 斑斓
+	public static AbstractTrait green; // 绿意
 	public static AbstractTrait hemolytic; // 溶血
 	public static AbstractTrait hyper; // 振奋
 	public static AbstractTrait icy; // 冰冷
@@ -59,6 +61,7 @@ public final class Traits
 	public static AbstractTrait peaceEnergetic; // 平和能量
 	public static AbstractTrait pyroelectric; // 热释电
 	public static AbstractTrait radiant; // 辉耀
+	public static AbstractTrait rancher; // 牧场主
 	public static AbstractTrait recombining; // 重组
 	public static AbstractTrait respecting; // 尊重
 	public static AbstractTrait repressing; // 压制
@@ -115,8 +118,10 @@ public final class Traits
 		eddying = new TraitEddying();
 		eroding = new TraitEroding();
 		extremeFreezing = new TraitExtremeFreezing();
+		farmer = new TraitFarmer();
 		gluttonic = new TraitGluttonic();
 		gorgeous = new TraitGorgeous();
+		green = new TraitGreen();
 		hemolytic = new TraitHemolytic();
 		hyper = new TraitHyper();
 		icy = new TraitIcy();
@@ -135,6 +140,7 @@ public final class Traits
 		peaceEnergetic = new TraitPeaceEnergetic();
 		pyroelectric = new TraitPyroelectric();
 		radiant = new TraitRadiant();
+		rancher = new TraitRancher();
 		recombining = new TraitRecombining();
 		respecting = new TraitRespecting();
 		repressing = new TraitRepressing();

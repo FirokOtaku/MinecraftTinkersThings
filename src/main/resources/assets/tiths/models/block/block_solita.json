@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "tiths:blocks/block_solita",
+    "down": "tiths:blocks/block_solita",
+    "up": "tiths:blocks/block_solita",
+    "north": "tiths:blocks/block_solita",
+    "south": "tiths:blocks/block_solita",
+    "west": "tiths:blocks/block_solita",
+    "east": "tiths:blocks/block_solita"
+  }
+}

@@ -548,6 +548,11 @@ public interface Keys
 	String nameTraitFrostJack = "frost_jack";
 	String nameTraitStellarFalling = "stellar_falling";
 	String nameTraitCracking = "cracking";
+	String nameTraitGreen = "green";
+	String nameTraitFarmer = "farmer";
+	String nameTraitRancher = "rancher";
+	String nameTraitSourcing = "sourcing";
+	String nameTraitPonderous = "ponderous";
 
 	// 属性颜色
 	int colorTraitGluttonic = 0x752b40;
@@ -653,6 +658,11 @@ public interface Keys
 	int colorTraitFrostJack = 0x1feb9d;
 	int colorTraitStellarFalling = 0xeb471f;
 	int colorTraitCracking = 0x4d4133;
+	int colorTraitGreen = Colors.Green;
+	int colorTraitFarmer = Colors.ForestGreen;
+	int colorTraitRancher = Colors.Brown;
+	int colorTraitSourcing = Colors.Beige;
+	int colorTraitPonderous = colorBrokenBedrock;
 
 	// 状态效果颜色
 	int colorPotionHeavy = Colors.DarkSeaGreen;

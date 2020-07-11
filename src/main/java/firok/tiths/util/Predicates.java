@@ -3,9 +3,14 @@ package firok.tiths.util;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockStone;
+import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.IMob;
+import net.minecraft.entity.passive.EntitySheep;
+import net.minecraft.entity.passive.IAnimals;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
@@ -13,6 +18,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
+import net.minecraftforge.common.IPlantable;
 import slimeknights.tconstruct.library.tinkering.ITinkerable;
 import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.ToolHelper;
@@ -351,7 +357,7 @@ public final class Predicates
 	}
 
 	/**
-	 * 判断是否是植物<br>
+	 * 判断是否是植物
 	 * @apiNote 这个断言目前只用于工具特性, 不用于世界生成
 	 */
 	public static boolean isPlants(IBlockState state)
@@ -363,6 +369,26 @@ public final class Predicates
 		       material==Material.GRASS ||
 		       material==Material.PLANTS ||
 		       material==Material.CACTUS;
+	}
+
+	/**
+	 * 判断是否是作物
+	 * @apiNote 这个断言目前只用于工具特性, 不用于世界生成
+	 */
+	public static boolean isCrops(IBlockState state)
+	{
+		if(state==null) return false;
+		Block block=state.getBlock();
+		return block instanceof IPlantable || block instanceof IGrowable;
+	}
+
+	/**
+	 * 判断是否是动物
+	 * @apiNote 这个断言目前只用于工具特性
+	 */
+	public static boolean isAnimals(EntityLivingBase enlb)
+	{
+		return enlb instanceof IAnimals && ! (enlb instanceof IMob);
 	}
 
 //	public static boolean canReplaceWithOre(IBlockState state, IBlockAccess world, BlockPos pos)

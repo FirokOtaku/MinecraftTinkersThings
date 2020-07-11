@@ -422,7 +422,7 @@ public final class TiCMaterials
 	public static final Material icelandSpar=new $Material(nameIcelandSpar,colorIcelandSpar)
 			.addItemAsIngot(Items.icelandSpar);
 
-	@Compo(value = namePyrophyllite,traitsTool = {nameTraitEcological},traitsBow = {nameTraitEcological},traitsArmor = {nameTraitLeavesHiding})
+	@Compo(value = namePyrophyllite,traitsTool = {nameTraitGreen,nameTraitRancher,nameTraitFarmer},traitsBow = {nameTraitEcological},traitsArmor = {nameTraitLeavesHiding})
 	@CompoHead(durability=240,miningspeed=1.9,attack=4,harvestLevel=1,traits={  })
 	@CompoHandle(modifier=0.75,durability=-250,traits={  })
 	@CompoExtra(extraDurability=65,traits={  })
