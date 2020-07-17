@@ -2,16 +2,23 @@ package firok.tiths.intergration.conarm;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
 import c4.conarm.lib.utils.RecipeMatchHolder;
+import firok.tiths.common.Datas;
 import firok.tiths.common.Items;
 import firok.tiths.intergration.conarm.traits.*;
+import firok.tiths.intergration.conarm.traits.TraitArmorTemptUpgraded;
 import firok.tiths.util.reg.Indev;
+
+import static firok.tiths.common.Keys.*;
+import static firok.tiths.util.Selectors.*;
 
 // ABCDE FGHIJ KLMNO PQRST UVWXY Z
 public class ArmorTraits
 {
 	public static AbstractArmorTrait arsenicPoisonous; // 砷毒
+	public static AbstractArmorTrait beetrootUpgraded; // 甜菜升级
 	public static AbstractArmorTrait buoyant; // 浮力
 	public static AbstractArmorTrait carbonizing; // 碳化
+	public static AbstractArmorTrait carrotUpgraded; // 萝卜
 	public static AbstractArmorTrait cavious; // 洞藏
 	public static AbstractArmorTrait chemicalInstable; // 化学不稳定
 	@Indev public static AbstractArmorTrait deadening; // 吸音
@@ -22,6 +29,7 @@ public class ArmorTraits
 	public static AbstractArmorTrait endothermic; // 吸热
 	public static AbstractArmorTrait extremeFreezing; // 极寒
 	public static AbstractArmorTrait fading; // 影淡
+	public static AbstractArmorTrait fishUpgraded; // 鱼腥
 	public static AbstractArmorTrait gorgeous; // 斑斓
 	public static AbstractArmorTrait hemolytic; // 溶血
 	public static AbstractArmorTrait hydrating; // 水合
@@ -40,6 +48,7 @@ public class ArmorTraits
 	public static AbstractArmorTrait photosynthetic; // 光合作用
 	public static AbstractArmorTrait quickFreezing; // 速冻
 	public static AbstractArmorTrait radiant; // 辉耀
+	public static AbstractArmorTrait seedUpgraded; // 种子升级
 	public static AbstractArmorTrait sliding; // 软滑
 	public static AbstractArmorTrait smooth; // 光滑
 	public static AbstractArmorTrait soluble; // 可溶
@@ -56,14 +65,22 @@ public class ArmorTraits
 	public static AbstractArmorTrait warmSoft1; // 温软1
 	public static AbstractArmorTrait warmSoft2; // 温软2
 	public static AbstractArmorTrait warmSoft3; // 温软3
+	public static AbstractArmorTrait wheatUpgraded; // 小麦升级
 	public static AbstractArmorTrait widening; // 广域化
 	public static AbstractArmorTrait witherFlowing; // 凋零流动
 
+	@SuppressWarnings("unchecked")
 	public static void init()
 	{
 		arsenicPoisonous=new TraitArmorArsenicPoisonous();
+		beetrootUpgraded= new TraitArmorTemptUpgraded(nameTraitBeetrootUpgraded,colorTraitBeetrootUpgraded,player->Datas.Server.instance().hasBeetrootTempt(player))
+				.always(player->Datas.Server.instance().regBeetrootTempt(player))
+				.toEntity(pigAlive);
 		buoyant=new TraitArmorBuoyant();
 		carbonizing=new TraitArmorCarbonizing();
+		carrotUpgraded=new TraitArmorTemptUpgraded(nameTraitCarrotUpgraded,colorTraitCarrotUpgraded,player->Datas.Server.instance().hasCarrotTempt(player))
+				.always(player->Datas.Server.instance().regCarrotTempt(player))
+				.toEntity(pigAlive,rabbitAlive);
 		cavious=new TraitArmorCavious();
 		chemicalInstable=new TraitArmorChemicalInstable();
 //		deadening=new TraitArmorDeadening();
@@ -74,6 +91,9 @@ public class ArmorTraits
 		endothermic=new TraitArmorEndothermic();
 		extremeFreezing=new TraitArmorExtremeFreezing();
 		fading=new TraitArmorFading();
+		fishUpgraded=new TraitArmorTemptUpgraded(nameTraitFishUpgraded,colorTraitFishUpgraded,player->Datas.Server.instance().hasFishTempt(player))
+				.always(player->Datas.Server.instance().regFishTempt(player))
+				.toEntity(catAlive);
 		gorgeous=new TraitArmorGorgeous();
 		hemolytic=new TraitArmorHemolytic();
 		hydrating=new TraitArmorHydrating();
@@ -92,6 +112,9 @@ public class ArmorTraits
 		photosynthetic=new TraitArmorPhotosynthetic();
 		quickFreezing=new TraitArmorQuickFreezing();
 		radiant=new TraitArmorRadiant();
+		seedUpgraded=new TraitArmorTemptUpgraded(nameTraitSeedUpgraded,colorTraitSeedUpgraded,player->Datas.Server.instance().hasSeedTempt(player))
+				.always(player->Datas.Server.instance().regSeedTempt(player))
+				.toEntity(chickenAlive);
 		sliding=new TraitArmorSliding();
 		smooth=new TraitArmorSmooth();
 		soluble=new TraitArmorSoluble();
@@ -108,11 +131,20 @@ public class ArmorTraits
 		warmSoft1=new TraitArmorWarmSoft(1);
 		warmSoft2=new TraitArmorWarmSoft(2);
 		warmSoft3=new TraitArmorWarmSoft(3);
+		wheatUpgraded=new TraitArmorTemptUpgraded(nameTraitWheatUpgraded,colorTraitWheatUpgraded,player->Datas.Server.instance().hasWheatTempt(player))
+				.always(player->Datas.Server.instance().regWheatTempt(player))
+				.toEntity(cowAlive,sheepAlive);
 		widening=new TraitArmorWidening();
 		witherFlowing=new TraitArmorWitherFlowing();
 	}
 	public static void postinit()
 	{
+		RecipeMatchHolder.addItem(beetrootUpgraded, Items.beetrootStack);
+		RecipeMatchHolder.addItem(seedUpgraded, Items.seedStack);
+		RecipeMatchHolder.addItem(carrotUpgraded, Items.carrotStack);
+		RecipeMatchHolder.addItem(wheatUpgraded, Items.wheatStack);
+		RecipeMatchHolder.addItem(fishUpgraded, Items.fishStack);
+
 		RecipeMatchHolder.addItem(buoyant, Items.buoy);
 
 		RecipeMatchHolder.addItem(meshing, Items.net);

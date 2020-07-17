@@ -1,5 +1,5 @@
 {
   "variants": {
-    "normal": { "model": "tiths:block_sea_grass" }
+    "level=15": { "model": "tiths:block_sea_grass" }
   }
 }

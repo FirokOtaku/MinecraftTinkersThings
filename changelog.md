@@ -2,6 +2,22 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.11.0 _2020-07-17 11:30_
+
+* 增加物品 added items
+  * 萝卜捆 carrot stack
+  * 小麦捆 wheat stack
+  * 鱼捆 fish stack
+  * 甜菜捆 beetroot stack
+  * 种子捆 seed stack
+* 增加特性 added traits
+  * 重磅(投射物) ponderous(projectile)
+  * 萝卜升级(护甲) carrot upgraded(armor)
+  * 小麦升级(护甲) wheat upgraded(armor)
+  * 鱼升级(护甲) fish upgraded(armor)
+  * 甜菜升级(护甲) beetroot upgraded(armor)
+  * 种子升级(护甲) seed upgraded(armor)
+
 ## 0.3.10.0 _2020-07-11 16:00_
 
 * 增加特性 added traits
@@ -74,9 +90,9 @@
 * 修改部分材质 modified some textures
 * 增加方块和物品 added blocks and items
   * 远洋腰带 belt oceanic item
-  * 灯明冻玉矿 icelit ore block
-  * 灯明冻玉 icelit item
-  * 灯明冻玉块 icelit block
+  * 冰明玉矿 icelit ore block
+  * 冰明玉 icelit item
+  * 冰明玉块 icelit block
   * 深流钢块 decurrium block
   * 深流钢锭 decurrium ingot item
   * 深流钢粒 decurrium nugget item
@@ -84,7 +100,7 @@
   * 熔融深流钢 molten decurrium
 * 增加材料 added materials
   * 深流钢 decurrium
-  * 灯明冻玉 icelit
+  * 冰明玉 icelit
 * 增加特性 added traits
   * 尊重 respecting
   * 蔽叶(护甲) leaves hiding(armor)

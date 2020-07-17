@@ -46,18 +46,18 @@ public class BlockShiningGel extends BlockTinkerFluid
 	@Override
 	public void updateTick(@Nonnull World world, @Nonnull BlockPos pos, @Nonnull IBlockState state, @Nonnull Random rand)
 	{
-		if(world!=null && world.isRemote)
-		{
-			int i=2;
-			while(i-->0)
-			{
-				world.spawnParticle(
-						EnumParticleTypes.CRIT,
-						pos.getX(),pos.getY(),pos.getZ(),
-						0,1,0
-				);
-			}
-		}
+//		if(world!=null && world.isRemote)
+//		{
+//			int i=2;
+//			while(i-->0)
+//			{
+//				world.spawnParticle(
+//						EnumParticleTypes.CRIT,
+//						pos.getX(),pos.getY(),pos.getZ(),
+//						0,1,0
+//				);
+//			}
+//		}
 	}
 
 	@Override

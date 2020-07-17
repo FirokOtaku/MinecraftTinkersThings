@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "tiths:blocks/block_imitatium",
+    "down": "tiths:blocks/block_imitatium",
+    "up": "tiths:blocks/block_imitatium",
+    "north": "tiths:blocks/block_imitatium",
+    "south": "tiths:blocks/block_imitatium",
+    "west": "tiths:blocks/block_imitatium",
+    "east": "tiths:blocks/block_imitatium"
+  }
+}

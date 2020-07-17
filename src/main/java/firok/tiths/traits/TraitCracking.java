@@ -42,13 +42,13 @@ public class TraitCracking extends AbstractProjectileTrait
 		{
 			int times=8;
 			int id=Block.getStateId(Blocks.STONE.getDefaultState());
-			while(times-->0)
+			while(times-->0) // fixme 粒子效果显示有问题
 			{
 				world.spawnParticle(
 						EnumParticleTypes.BLOCK_CRACK,
-						target.posX + rand.nextFloat() * 0.8 -0.4,
-						target.posY + target.getEyeHeight()/2 + rand.nextFloat() * 0.8 -0.4,
-						target.posZ + rand.nextFloat() * 0.8 -0.4,
+						target.posX + rand.nextFloat() * 0.8 -0.4 + 0.5,
+						target.posY + target.getEyeHeight()/2 + rand.nextFloat() * 0.8 -0.4 + 1,
+						target.posZ + rand.nextFloat() * 0.8 -0.4 + 0.5,
 						 + rand.nextFloat() * 0.4 - 0.2,
 						 + rand.nextFloat() * 0.4 - 0.2,
 						 + rand.nextFloat() * 0.4 - 0.2,

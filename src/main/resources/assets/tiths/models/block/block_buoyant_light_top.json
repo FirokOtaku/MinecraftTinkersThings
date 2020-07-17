@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "tiths:blocks/block_buoyant_light_top",
+    "down": "tiths:blocks/block_buoyant_light_top",
+    "up": "tiths:blocks/block_buoyant_light_top",
+    "north": "tiths:blocks/block_buoyant_light_top",
+    "south": "tiths:blocks/block_buoyant_light_top",
+    "west": "tiths:blocks/block_buoyant_light_top",
+    "east": "tiths:blocks/block_buoyant_light_top"
+  }
+}

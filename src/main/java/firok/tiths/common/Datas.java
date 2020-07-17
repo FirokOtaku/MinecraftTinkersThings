@@ -3,23 +3,23 @@ package firok.tiths.common;
 import baubles.api.BaublesApi;
 import baubles.api.cap.IBaublesItemHandler;
 import firok.tiths.TinkersThings;
+import firok.tiths.intergration.conarm.ArmorTraits;
+import firok.tiths.util.InnerActions;
 import firok.tiths.util.SoulUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.management.PlayerList;
 import net.minecraft.util.ITickable;
-import net.minecraft.util.math.BlockPos;
-import net.minecraftforge.fml.common.network.NetworkRegistry;
-import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
-import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import net.minecraft.world.WorldServer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import slimeknights.tconstruct.library.traits.ITrait;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
+
+import static firok.tiths.util.Predicates.canTick;
 
 /**
  * 服务端数据管理器
@@ -53,7 +53,108 @@ public class Datas
 		@Override
 		public void update()
 		{
-			;
+			WorldServer[] worlds;
+			long time;
+			PlayerList players;
+			try
+			{
+				if(server==null) return;
+				worlds=server.worlds;
+				if(worlds==null || worlds.length<=0) return;
+				time=worlds[0].getTotalWorldTime();
+				players=server.getPlayerList();
+
+				if(TinkersThings.enableConarm() && canTick(time,40,2))
+				{
+					checkTempt(players);
+				}
+			}
+			catch (Exception ignored) {
+				ignored.printStackTrace();
+			}
+		}
+
+		private void checkTempt(PlayerList players)
+		{
+			for(Map.Entry<UUID,Integer> entry:mapTemptMutex.entrySet())
+			{
+				UUID uuid=entry.getKey();
+				if(uuid==null) continue;
+
+				EntityPlayer player=players.getPlayerByUUID(uuid);
+				if(player==null) continue;
+
+				int mutex=0;
+				Set<ITrait> traitsArmor= InnerActions.getArmorTraits(player);
+				mutex |= traitsArmor.contains(ArmorTraits.seedUpgraded) ? mutexSeed : 0;
+				mutex |= traitsArmor.contains(ArmorTraits.fishUpgraded) ? mutexFish : 0;
+				mutex |= traitsArmor.contains(ArmorTraits.wheatUpgraded) ? mutexWheat : 0;
+				mutex |= traitsArmor.contains(ArmorTraits.carrotUpgraded) ? mutexCarrot : 0;
+				mutex |= traitsArmor.contains(ArmorTraits.beetrootUpgraded) ? mutexBeetroot : 0;
+
+				entry.setValue(mutex);
+			}
+		}
+		private final Map<UUID,Integer> mapTemptMutex=new HashMap<>();
+
+		/*
+		b 0000 0001 fish
+		b 0000 0010 wheat
+		b 0000 0100 carrot
+		b 0000 1000 beetroot
+		b 0001 0000 seed
+		*/
+		public static final int mutexFish=0b0000_0001;
+		public static final int mutexWheat=0b0000_0010;
+		public static final int mutexCarrot=0b0000_0100;
+		public static final int mutexBeetroot=0b0000_1000;
+		public static final int mutexSeed=0b0001_0000;
+
+		public void regCarrotTempt(EntityPlayer player)
+		{
+			if(player==null) return;
+			mapTemptMutex.compute(player.getUniqueID(),(uuid,mutexOld)-> mutexCarrot | (mutexOld == null?0:mutexOld));
+		}
+		public boolean hasCarrotTempt(EntityPlayer player)
+		{
+			return player!=null && (mapTemptMutex.getOrDefault(player.getUniqueID(),0) & mutexCarrot ) > 0;
+		}
+		public void regFishTempt(EntityPlayer player)
+		{
+			if(player==null) return;
+			mapTemptMutex.compute(player.getUniqueID(),(uuid,mutexOld)-> mutexFish | (mutexOld == null?0:mutexOld));
+		}
+		public boolean hasFishTempt(EntityPlayer player)
+		{
+			return player!=null && (mapTemptMutex.getOrDefault(player.getUniqueID(),0) & mutexFish ) > 0;
+
+		}
+		public void regWheatTempt(EntityPlayer player)
+		{
+			if(player==null) return;
+			mapTemptMutex.compute(player.getUniqueID(),(uuid,mutexOld)-> mutexWheat | (mutexOld == null?0:mutexOld));
+		}
+		public boolean hasWheatTempt(EntityPlayer player)
+		{
+			return player!=null && (mapTemptMutex.getOrDefault(player.getUniqueID(),0) & mutexWheat ) > 0;
+		}
+		public void regBeetrootTempt(EntityPlayer player)
+		{
+			if(player==null) return;
+			mapTemptMutex.compute(player.getUniqueID(),(uuid,mutexOld)-> mutexBeetroot | (mutexOld == null?0:mutexOld));
+		}
+		public boolean hasBeetrootTempt(EntityPlayer player)
+		{
+			return player!=null && (mapTemptMutex.getOrDefault(player.getUniqueID(),0) & mutexBeetroot) > 0;
+		}
+		public void regSeedTempt(EntityPlayer player)
+		{
+			if(player==null) return;
+			mapTemptMutex.compute(player.getUniqueID(),(uuid,mutexOld)-> mutexSeed | (mutexOld == null?0:mutexOld));
+		}
+		public boolean hasSeedTempt(EntityPlayer player)
+		{
+			return player!=null && (mapTemptMutex.getOrDefault(player.getUniqueID(),0) & mutexSeed ) > 0;
 		}
 	}
 

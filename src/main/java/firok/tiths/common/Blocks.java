@@ -85,7 +85,7 @@ public final class Blocks
 	@Reg("block_ice_light")
 	public static final Block blockIceLight = new BlockIceLight(); // 冻灯
 	@Reg(Keys.blockIcelit)
-	public static final Block blockIcelit = new BlockCompressed(Material.ROCK).setLightLevel(1); // 灯明冻玉块
+	public static final Block blockIcelit = new BlockCompressed(Material.ROCK).setLightLevel(1); // 冰明玉块
 	@Reg("icelit_glow")
 	public static final Block blockIcelitGlow = new BlockIcelitGlow(); // 灯明 光点
 	@Reg(Keys.blockImitatium)
@@ -132,7 +132,7 @@ public final class Blocks
 	@Reg(Keys.blockRedins)
 	public static final Block blockRuby = new BlockCompressed(Material.ROCK).setBeaconBase(); // 虹辉石块
 	@Reg("block_sea_grass")
-	public static final Block blockSeaGrass = new BlockSeaGrass(); // 海草
+	public static final BlockSeaGrass blockSeaGrass = new BlockSeaGrass(); // 海草
 	@Reg(Keys.blockSolita)
 	public static final Block blockSolita = new BlockCompressed().setBeaconBase(); // 坚金块
 	@Reg(Keys.blockSpinel)
@@ -215,7 +215,7 @@ public final class Blocks
 	@GenOre(times = 8, timeRate = 0.6f, size = 3, minY = 0, maxY = 50, biome = Strategy.ONLY_WHITELIST, biomeWL = {"$cool","$cold"})
 	public static final Block oreIcelandSpar = new BlockOre(Items.icelandSpar, 1, 2, 1, 3, 5).setCommonOre(); // 冰洲石矿
 	@Reg(Keys.oreIcelit)
-	public static final Block oreIcelit = new BlockOre(Items.icelit, 1, 1, 1, 3,5).setLightLevel(0.6f); // 灯明冻玉矿
+	public static final Block oreIcelit = new BlockOre(Items.icelit, 1, 1, 1, 3,5).setLightLevel(0.6f); // 冰明玉矿
 	@Reg(Keys.oreImitatium)
 	public static final Block oreImitatium = new BlockOreImitatium(); // 拟素矿
 	@Reg(Keys.oreImmersedSilver)

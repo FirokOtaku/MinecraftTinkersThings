@@ -109,13 +109,10 @@ public final class Actions
 	// 末影传送
 	public static void CauseEnderTeleport(EntityLivingBase entity)
 	{
-		for (int i = 0; i < 1; ++i)
+		if (teleportRandomly(entity))
 		{
-			if (teleportRandomly(entity))
-			{
-				entity.setPositionNonDirty();
-				return;
-			}
+			entity.setPositionNonDirty();
+			return;
 		}
 	}
 

@@ -14,6 +14,7 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -33,10 +34,12 @@ import slimeknights.tconstruct.library.Util;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
 import slimeknights.tconstruct.library.tinkering.Category;
+import slimeknights.tconstruct.library.tinkering.ITinkerable;
 import slimeknights.tconstruct.library.tools.ToolNBT;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
+import slimeknights.tconstruct.library.utils.ToolHelper;
 
 import javax.annotation.Nullable;
 import java.lang.reflect.Field;
@@ -425,5 +428,25 @@ public final class InnerActions
 			stack.setTagCompound(nbt);
 		}
 		return nbt;
+	}
+
+	/**
+	 * 获取某个玩家穿戴的护甲的所有特性
+	 */
+	public static Set<ITrait> getArmorTraits(EntityPlayer player)
+	{
+		Set<ITrait> ret=new HashSet<>();
+		if(player!=null)
+		{
+			for(ItemStack stackArmor:player.getArmorInventoryList())
+			{
+				if(stackArmor==null || stackArmor.isEmpty() || !(stackArmor.getItem() instanceof ITinkerable)) continue;
+
+				List<ITrait> traits= ToolHelper.getTraits(stackArmor);
+
+				ret.addAll(traits);
+			}
+		}
+		return ret;
 	}
 }

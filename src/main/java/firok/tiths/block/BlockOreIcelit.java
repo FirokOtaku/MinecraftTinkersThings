@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 /**
- * 灯明冻玉矿
+ * 冰明玉矿
  */
 public class BlockOreIcelit extends BlockOre
 {

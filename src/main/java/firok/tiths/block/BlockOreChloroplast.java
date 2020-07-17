@@ -179,7 +179,7 @@ public class BlockOreChloroplast extends BlockOre
 					{
 						if(ox==0 && oy==0 && oz==0) continue FOR_Z;
 						BlockPos posTemp=pos.add(ox,oy,oz);
-						if(canSpawnOn(world,pos,blocksNearby[2+ox][2+oy][2+oz])) // fixme 以后改成 canSpawnOn
+						if(canSpawnOn(world,pos,blocksNearby[2+ox][2+oy][2+oz]))
 						{
 							listPos.add(posTemp); // 能用的生成位置
 						}

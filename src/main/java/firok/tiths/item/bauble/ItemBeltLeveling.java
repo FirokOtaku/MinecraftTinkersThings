@@ -152,7 +152,7 @@ public class ItemBeltLeveling extends ItemBauble
 
 	public boolean placeBlockAt(ItemStack stackBlock, EntityPlayer player, World world, BlockPos pos, IBlockState stateNew)
 	{
-		if (!world.setBlockState(pos, stateNew, 11)) return false;
+		if (!world.setBlockState(pos, stateNew, 2)) return false;
 
 		setTileEntityNBT(world, player, pos, stackBlock);
 		stateNew.getBlock().onBlockPlacedBy(world, pos, stateNew, player, stackBlock);

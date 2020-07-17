@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "tiths:blocks/block_tanatonium",
+    "down": "tiths:blocks/block_tanatonium",
+    "up": "tiths:blocks/block_tanatonium",
+    "north": "tiths:blocks/block_tanatonium",
+    "south": "tiths:blocks/block_tanatonium",
+    "west": "tiths:blocks/block_tanatonium",
+    "east": "tiths:blocks/block_tanatonium"
+  }
+}

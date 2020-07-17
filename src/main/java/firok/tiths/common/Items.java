@@ -36,6 +36,8 @@ public final class Items
 	public static final Item amuletSoulStoneCreative = new ItemSoulStoneCreative().setRarity(TithsRarity.CreativeOnly); // 创造模式灵魂石护身符
 	@Reg(nameAncientBookIrisia)
 	public static final Item ancientBookIrisia = new ItemXP(true, 20); // 艾瑞西亚古籍
+	@Reg(nameBeetrootStack)
+	public static final Item beetrootStack = new ItemCustom(); // 甜菜捆
 	@Reg(value = nameBrumeJade, od = {"gem", "jade"})
 	public static final Item brumeJade = new ItemCustom(); // 云玉
 	@Reg(prefBelt+nameTraitHeavy)
@@ -68,6 +70,8 @@ public final class Items
 	public static final Item buoy = new ItemBuoy(); // 浮筒
 	@Reg("buoyant_light")
 	public static final Item buoyantLight = new ItemBuoyantLight(); // 浮灯
+	@Reg(nameCarrotStack)
+	public static final Item carrotStack = new ItemCustom(); // 萝卜捆
 	@Reg("charm_soul_watcher")
 	public static final Item charmSoulWatcher = new ItemSoulWatchBauble(BaubleType.CHARM).setRarity(EnumRarity.UNCOMMON);
 	@Reg(nameChloroplastDressing)
@@ -111,6 +115,8 @@ public final class Items
 	@Reg(nameFleshCooked)
 	public static final Item fleshCooked = new ItemFood(14, 1f, false)
 			.setPotionEffect(new PotionEffect(MobEffects.STRENGTH, 600, 0), 1); // 熟血肉
+	@Reg(nameFishStack)
+	public static final Item fishStack = new ItemCustom(); // 鱼捆
 	@Reg(nameFluidBall)
 	public static final ItemFluidBall fluidBall = new ItemFluidBall(); // 液体球
 	@Reg(nameFluidCollector)
@@ -138,7 +144,7 @@ public final class Items
 	@Reg(nameIcelandSpar)
 	public static final Item icelandSpar = new ItemCustom(); // 冰洲石
 	@Reg(nameIcelit)
-	public static final Item icelit = new ItemCustom(); // 灯明冻玉
+	public static final Item icelit = new ItemCustom(); // 冰明玉
 	@Reg(Keys.ingotAltairium)
 	public static final Item ingotAltairium = new ItemCustom(); // 河鼓锭
 	@Reg(Keys.ingotChloroplast)
@@ -275,9 +281,8 @@ public final class Items
 	@Reg("ring_soul_gather")
 	public static final Item ringSoulGather = new ItemSoulGatherBauble(BaubleType.RING, 1, 0);
 	public static final Item ringSoulGatherCreative = new ItemSoulGatherBauble(BaubleType.RING, 100, 0).setRarity(TithsRarity.CreativeOnly);
-
-//	@Reg("fluid_ball")
-//	public static final Item fluidBall = new ItemFluidBall(); // 液体球
+	@Reg(nameSeedStack)
+	public static final Item seedStack = new ItemCustom(); // 种子捆
 	@Reg(nameShell)
 	public static final Item shell = new ItemCustomFood(1, 0.2f, false); // 贝壳
 	@Reg(nameShellCooked)
@@ -311,6 +316,8 @@ public final class Items
 	public static final Item ulun = new ItemCustom(); // 乌润石
 	@Reg(nameVibratingCrystal)
 	public static final Item vibratingCrystal = new ItemCustom(); // 振晶
+	@Reg(nameWheatStack)
+	public static final Item wheatStack = new ItemCustom(); // 小麦捆
 	@Reg(nameWitheringEssence)
 	public static final Item witheringEssence = new ItemCustom().setRarity(EnumRarity.UNCOMMON); // 凋零精华
 

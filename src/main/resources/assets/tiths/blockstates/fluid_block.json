@@ -25,6 +25,8 @@
     "chloroplast": [ { "custom": { "fluid": "chloroplast" } } ],
     "ender_turbulence": [ { "custom": { "fluid": "ender_turbulence" } } ],
     "dirty_water": [ { "custom": { "fluid": "dirty_water" } } ],
-    "shining_gel": [ { "custom": { "fluid": "shining_gel" } } ]
+    "shining_gel": [ { "custom": { "fluid": "shining_gel" } } ],
+    "tanatonium": [ { "custom": { "fluid": "tanatonium" } } ],
+    "decurrium": [ { "custom": { "fluid": "decurrium" } } ]
   }
 }

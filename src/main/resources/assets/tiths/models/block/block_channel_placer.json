@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "tiths:blocks/block_channel_placer",
+    "down": "tiths:blocks/block_channel_placer",
+    "up": "tiths:blocks/block_channel_placer",
+    "north": "tiths:blocks/block_channel_placer",
+    "south": "tiths:blocks/block_channel_placer",
+    "west": "tiths:blocks/block_channel_placer",
+    "east": "tiths:blocks/block_channel_placer"
+  }
+}

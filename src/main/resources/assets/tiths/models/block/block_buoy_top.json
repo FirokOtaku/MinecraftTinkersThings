@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "tiths:blocks/block_buoy_top",
+    "down": "tiths:blocks/block_buoy_top",
+    "up": "tiths:blocks/block_buoy_top",
+    "north": "tiths:blocks/block_buoy_top",
+    "south": "tiths:blocks/block_buoy_top",
+    "west": "tiths:blocks/block_buoy_top",
+    "east": "tiths:blocks/block_buoy_top"
+  }
+}

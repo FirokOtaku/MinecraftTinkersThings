@@ -9,6 +9,7 @@ import firok.tiths.item.IFluid;
 import firok.tiths.item.ISoulGather;
 import firok.tiths.item.ISoulStore;
 import firok.tiths.item.bauble.ItemCharmLapsing;
+import firok.tiths.traits.IHitBlockProjectile;
 import firok.tiths.util.Actions;
 import firok.tiths.util.Ranges;
 import firok.tiths.util.SoulUtil;
@@ -41,6 +42,7 @@ import net.minecraft.network.play.client.CPacketPlayerDigging;
 import net.minecraft.network.play.server.SPacketBlockChange;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -77,6 +79,7 @@ import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
+import slimeknights.tconstruct.shared.block.BlockGlow;
 import slimeknights.tconstruct.smeltery.events.TinkerSmelteryEvent;
 
 import java.util.*;
@@ -383,81 +386,39 @@ public class Events
 	}
 
 	@SubscribeEvent
-	public void onHitBlock(ProjectileEvent.OnHitBlock event) {
-		if(event.projectile != null) {
+	public static void onHitBlock(ProjectileEvent.OnHitBlock event)
+	{
+		try
+		{
+			if(event.projectile != null)
+			{
+				final BlockPos posHit=event.pos;
+				final World world=event.projectile.world;
+				final IBlockState stateHit=event.blockState;
+				final Random rand=world.rand;
+				final ItemStack stackAmmo = event.projectile.tinkerProjectile.getItemStack();
+//					final NBTTagCompound nbtAmmo = TagUtil.getTagSafe(stackAmmo);
+//					final NBTTagList tagAmmoTraits = TagUtil.getTraitsTagList(nbtAmmo);
+//					final int sizeAmmoTraits = tagAmmoTraits.tagCount();
+				final Entity shootingEntity = event.projectile.shootingEntity;
 
-			BlockPos posHit=event.pos;
-			World world=event.projectile.world;
-			Random rand=world.rand;
-			ItemStack stackAmmo = event.projectile.tinkerProjectile.getItemStack();
-			NBTTagCompound nbtAmmo = TagUtil.getTagSafe(stackAmmo);
-			NBTTagList tagAmmoTraits = TagUtil.getTraitsTagList(nbtAmmo);
-			final int sizeAmmoTraits = tagAmmoTraits.tagCount();
 
-			boolean hasPonderous = false;
-
-			for(int i = 0; i < sizeAmmoTraits; i++) {
-				String idTraits = tagAmmoTraits.getStringTagAt(i);
-				switch (idTraits)
+				List<ITrait> traits=ToolHelper.getTraits(stackAmmo);
+				for(ITrait trait:traits)
 				{
-					case nameTraitPonderous: hasPonderous = true; continue;
+					if(!(trait instanceof IHitBlockProjectile)) continue;
+
+					((IHitBlockProjectile) trait).hitBlock(
+							event,posHit,world,stateHit,rand,stackAmmo,shootingEntity
+					);
+
+					if(event.isCanceled()) break;
 				}
 			}
-
-//			if(hasPonderous) // 重磅
-//			{
-//				for(int ox=-1;ox<=1;ox++)
-//				{
-//					for(int oy=-1;oy<=1;oy++)
-//					{
-//						for(int oz=-1;oz<=1;oz++)
-//						{
-//							BlockPos posTemp=posHit.add(ox,oy,oz);
-//							IBlockState stateTemp=world.getBlockState(posTemp);
-//							Block blockTemp=stateTemp.getBlock();
-//							boolean hasTile=blockTemp.hasTileEntity(stateTemp);
-//							float hardness=stateTemp.getBlockHardness(world,posTemp);
-//							ItemStack stack=null;
-//
-//							if(!hasTile && hardness <= 1.55)
-//							{
-//								if(!world.isRemote) // server sided handling
-//								{
-//									// send the blockbreak event
-//									int xp = ForgeHooks.onBlockBreakEvent(world, ((EntityPlayerMP) player).interactionManager.getGameType(), (EntityPlayerMP) player, posTemp);
-//									if(xp == -1) {
-//										return;
-//									}
-//
-//									// serverside we reproduce ItemInWorldManager.tryHarvestBlock
-//
-//									TileEntity tileEntity = world.getTileEntity(posTemp);
-//									// ItemInWorldManager.removeBlock
-//									if(blockTemp.removedByPlayer(stateTemp, world, posTemp, player, true)) { // boolean is if block can be harvested, checked above
-//										blockTemp.onBlockDestroyedByPlayer(world, posTemp, stateTemp);
-//										blockTemp.harvestBlock(world, player, posTemp, stateTemp, tileEntity, stack);
-//										blockTemp.dropXpOnBlockBreak(world, posTemp, xp);
-//									}
-//
-//									// always send block update to client
-//									TinkerNetwork.sendPacket(player, new SPacketBlockChange(world, posTemp));
-//								}
-//								else // client sided handling
-//								{
-//									// clientside we do a "this clock has been clicked on long enough to be broken" call. This should not send any new packets
-//									// the code above, executed on the server, sends a block-updates that give us the correct state of the block we destroy.
-//
-//									// following code can be found in PlayerControllerMP.onPlayerDestroyBlock
-//									world.playBroadcastSound(2001, posTemp, Block.getStateId(stateTemp));
-//									if(blockTemp.removedByPlayer(stateTemp, world, posTemp, player, true)) {
-//										blockTemp.onBlockDestroyedByPlayer(world, posTemp, stateTemp);
-//									}
-//								}
-//							}
-//						}
-//					}
-//				}
-//			}
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
 		}
 	}
 
@@ -756,7 +717,6 @@ public class Events
 
 	}
 
-	@SideOnly(Side.SERVER)
 	@SubscribeEvent
 	public static void onServerTick(TickEvent.ServerTickEvent event)
 	{

@@ -614,12 +614,12 @@ public final class TiCMaterials
 	public static final Material grain=new $Material(nameGrain, colorGrain)
 			.addItemAsIngot(Items.ingotGrain);
 
-	@Compo(value = nameBrumeJade,traitsTool = {nameTraitStaminaFocusing},traitsBow = {  },traitsArmor = {nameTraitStaminaFocusing})
+	@Compo(value = nameBrumeJade,traitsTool = {nameTraitStaminaFocusing},traitsBow = {  },traitsArmor = { nameTraitLingering })
 	@CompoHead(durability=720,miningspeed=6,attack=7,harvestLevel=3,traits={  })
 	@CompoHandle(modifier=0.9,durability=40,traits={  })
 	@CompoExtra(extraDurability=50,traits={  })
 	@CompoArrowShaft(modifier=1.3,bonusAmmo=0,traits={  })
-	@CompoArmorCore(durability=8.5,defense=4,traits={  })
+	@CompoArmorCore(durability=8.5,defense=4,traits={ nameTraitStaminaFocusing, })
 	@CompoArmorPlate(modifier=0.68,durability=5,toughness=0.5,traits={  })
 	@CompoArmorTrim(extraDurability=5.6,traits={  })
 	public static final Material brumeJade =new $Material(nameBrumeJade, colorBrumeJade)
@@ -639,6 +639,7 @@ public final class TiCMaterials
 	@CompoHead(durability = 1850,miningspeed = 0.5,attack = 1.5,harvestLevel = 4,traits={nameTraitDense})
 	@CompoHandle(modifier = 1.35,durability = 160)
 	@CompoExtra(extraDurability = 270)
+	@CompoArrowShaft(modifier=1.15,bonusAmmo=15,traits={ nameTraitPonderous })
 	@CompoArmorCore(durability = 32.5,defense = 4)
 	@CompoArmorPlate(modifier = 0.5,durability = 16,toughness = 0)
 	@CompoArmorTrim(extraDurability = 25)

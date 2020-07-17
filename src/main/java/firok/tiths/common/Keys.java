@@ -143,6 +143,11 @@ public interface Keys
 	String nameChloroplastLight = "chloroplast_light";
 	String nameFluorescentGel = "fluorescent_gel";
 	String nameBeltLeveling = prefBelt + "leveling";
+	String nameCarrotStack = "carrot_stack";
+	String nameFishStack = "fish_stack";
+	String nameSeedStack = "seed_stack";
+	String nameWheatStack = "wheat_stack";
+	String nameBeetrootStack = "beetroot_stack";
 
 	String nameHardener = "hardener";
 	String namePolisher = "polisher";
@@ -553,6 +558,11 @@ public interface Keys
 	String nameTraitRancher = "rancher";
 	String nameTraitSourcing = "sourcing";
 	String nameTraitPonderous = "ponderous";
+	String nameTraitFishUpgraded = "fish_upgraded";
+	String nameTraitWheatUpgraded = "wheat_upgraded";
+	String nameTraitCarrotUpgraded = "carrot_upgraded";
+	String nameTraitSeedUpgraded = "seed_upgraded";
+	String nameTraitBeetrootUpgraded = "beetroot_upgraded";
 
 	// 属性颜色
 	int colorTraitGluttonic = 0x752b40;
@@ -663,6 +673,11 @@ public interface Keys
 	int colorTraitRancher = Colors.Brown;
 	int colorTraitSourcing = Colors.Beige;
 	int colorTraitPonderous = colorBrokenBedrock;
+	int colorTraitFishUpgraded = 0x648fcc;
+	int colorTraitWheatUpgraded = 0xd8a345;
+	int colorTraitCarrotUpgraded = 0xfcbe3c;
+	int colorTraitSeedUpgraded = 0x9eca6c;
+	int colorTraitBeetrootUpgraded = 0xde4557;
 
 	// 状态效果颜色
 	int colorPotionHeavy = Colors.DarkSeaGreen;

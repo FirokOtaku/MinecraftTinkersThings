@@ -62,6 +62,8 @@ public class WorldGens implements IWorldGenerator
 
 		list.add(new WorldGenCloud(defaultCloudInfo,"CLOUD"));
 
+		list.add(new WorldGenSeaGlass(defaultSeaGrassInfo,"SEA_GRASS"));
+
 		FieldStream.of(Blocks.class,null,Block.class)
 				.forEach((field, anno, block) -> {
 
@@ -136,7 +138,15 @@ public class WorldGens implements IWorldGenerator
 			Strategy.NONE_BLACKLIST,null,null,
 			Predicates::isAir,
 			150,180,
-			1,0.04f,7
+			1,0.015f,7
+	);
+	public static final Info defaultSeaGrassInfo=Info.build(
+			Blocks.blockSeaGrass.getDefaultState(),
+			Strategy.ONLY_WHITELIST,new int[]{0},null,
+			Strategy.ONLY_WHITELIST,Keys.biomes_sea,null,
+			Predicates::isWater,
+			120,80,
+			4,0.8f,1
 	);
 
 

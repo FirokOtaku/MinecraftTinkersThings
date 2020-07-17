@@ -91,6 +91,7 @@ public final class Traits
 
 	public static AbstractProjectileTrait cracking; // 崩裂
 	public static AbstractProjectileTrait frost_jack; // 冰霜杰克
+	public static AbstractProjectileTrait ponderous; // 重磅
 	public static AbstractProjectileTrait stellar_falling; // 金乌坠落
 
 	public static void init()
@@ -168,6 +169,7 @@ public final class Traits
 
 		cracking = new TraitCracking();
 		frost_jack = new TraitFrostJack();
+		ponderous = new TraitPonderous();
 		stellar_falling = new TraitStellarFalling();
 	}
 
