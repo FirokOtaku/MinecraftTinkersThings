@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tiths:tools",
+  "result": { "item": "tiths:fish_stack", "count": 1 },
+  "pattern": [
+    "SFS",
+    "FFF",
+    "SFS"
+  ],
+  "key": {
+    "S": { "item": "minecraft:string" },
+    "F": { "item": "minecraft:fish", "data": 0 }
+  }
+}

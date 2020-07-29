@@ -2,7 +2,10 @@ package firok.tiths.common;
 
 import com.google.gson.JsonArray;
 import firok.tiths.TinkersThings;
+import firok.tiths.util.Actions;
+import firok.tiths.util.Colors;
 import firok.tiths.util.InnerActions;
+import firok.tiths.util.Predicates;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.state.IBlockState;
@@ -22,9 +25,13 @@ import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import org.apache.commons.io.FileUtils;
 
 import javax.annotation.Nullable;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.*;
+import java.util.List;
 
+import static firok.tiths.TinkersThings.log;
 import static firok.tiths.common.Blocks.*;
 import static net.minecraft.init.Blocks.*;
 import static slimeknights.tconstruct.TConstruct.random;
@@ -60,13 +67,14 @@ public class Commands implements ICommand
 	{
 		try
 		{
-			System.out.println(Arrays.toString(args));
+			log(Arrays.toString(args));
 			if(sender instanceof EntityPlayer)
 			{
 				EntityPlayer player=(EntityPlayer)sender;
 				if(args.length>=1)
 				{
-					SWITCH:switch(args[0])
+					final String arg=args[0];
+					SWITCH:switch(arg)
 					{
 						case "worldgen":
 						{
@@ -75,15 +83,15 @@ public class Commands implements ICommand
 								WorldGens instance=WorldGens.getInstance();
 								if(instance.isLoading())
 								{
-									TinkersThings.tell("generator is reloading now");
+									log("generator is reloading now");
 								}
 								else
 								{
 									new Thread(() -> {
-										TinkersThings.tell("generator now start to reload");
+										log("generator now start to reload");
 										ConfigJson.readOres();
 										WorldGens.getInstance().reload();
-										TinkersThings.tell("generator reloading finished");
+										log("generator reloading finished");
 									}).start();
 								}
 							}
@@ -92,14 +100,13 @@ public class Commands implements ICommand
 						case "damage":
 						{
 							float amount=Float.parseFloat(args[1]);
-							player.attackEntityFrom(EntityDamageSource.GENERIC, amount);
+							player.attackEntityFrom(DamageSources.TestDamage, amount);
 							break SWITCH;
 						}
 						case "heal":
 						{
 							player.heal(20);
 							player.getFoodStats().setFoodLevel(20);
-							player.getFoodStats().setFoodSaturationLevel(20);
 
 							break SWITCH;
 						}
@@ -133,11 +140,17 @@ public class Commands implements ICommand
 						}
 						case "air":
 						{
-							player.setAir(40);
+							int amount= 300;
+							try { if(args.length > 1) amount=Double.valueOf(args[1]).intValue(); } catch (Exception ignored) { }
+							if(amount<0) amount=0;
+							if(amount>10000) amount=10000;
+							player.setAir(amount);
 							break SWITCH;
 						}
-						case "biomes":
+						case "export":
 						{
+							if(!"biomes".equals(args[1])) break SWITCH;
+
 							File fileOutput=new File("./biomes.json");
 
 //							JsonObject jsonObject=new JsonObject();
@@ -159,92 +172,23 @@ public class Commands implements ICommand
 						}
 						case "gen":
 						{
-							IBlockState stateAir = AIR.getDefaultState();
-							IBlockState stateCOAL_ORE = COAL_ORE.getDefaultState();
-							IBlockState stateDIAMOND_ORE = DIAMOND_ORE.getDefaultState();
-							IBlockState stateEMERALD_ORE = EMERALD_ORE.getDefaultState();
-							IBlockState stateIRON_ORE = IRON_ORE.getDefaultState();
-							IBlockState stateGOLD_ORE = GOLD_ORE.getDefaultState();
-							IBlockState stateLAPIS_ORE = LAPIS_ORE.getDefaultState();
-							IBlockState stateREDSTONE_ORE = REDSTONE_ORE.getDefaultState();
-							IBlockState stateStellarium_ORE = oreStellarium.getDefaultState();
 
-							World world = player.world;
-							double ppx = player.posX, ppy = player.posY, ppz = player.posZ; // player pos 玩家位置
 
-							int R;
-							do {
-								int Max = 8; // 最大半径
-								R = random.nextInt(Max);
-							} while (R <= 4); // 最小半径
-							int r = R * 2/3; //内球半径
+							break SWITCH;
+						}
+						case "nbt":
+						{
+							ItemStack stack=player.getHeldItemMainhand();
+							if(!stack.hasTagCompound()) break SWITCH;
 
-							int BlockScalar = (int) (Math.PI * (R * R * R) * 3/4);
-							class block {
-								int ix;
-								int iy;
-								int iz;
+							NBTTagCompound nbt=stack.getTagCompound();
+							System.out.println(nbt);
 
-								block(int ix, int iy, int iz) {
-									this.ix = ix;
-									this.iy = iy;
-									this.iz = iz;
-								}
-							}
-							block[] block = new block[BlockScalar]; // 定义类组，存储替换为矿物的坐标
+							break SWITCH;
+						}
+						case "text":
+						{
 
-							int i = 0;
-							FOR_x:
-							for (int Ix = -R; Ix <= R; Ix++) {
-								for (int Iy = -R; Iy <= R; Iy++) {
-									for (int Iz = -R; Iz <= R; Iz++) {
-										if (Ix * Ix + Iy * Iy + Iz * Iz > r * r && Ix * Ix + Iy * Iy + Iz * Iz <= R * R) { // 球壳内方块随机填为矿物
-											BlockPos posold = new BlockPos(Ix+ppx,Iy+ppy,Iz+ppz);
-											IBlockState stateold = world.getBlockState(posold);
-											Block blockold = stateold.getBlock();
-											double j=Math.random();
-											if (j<0.3 && blockold != AIR){ // 球壳内方块填充为矿物概率 && 非空气方块替换
-												block[i] = new block(Ix,Iy,Iz);
-												i++;
-											}
-										}
-									}
-								}
-							}
-							for (int Ix = -R; Ix < R; Ix++) {
-								for (int Iy = -R; Iy < R; Iy++) {
-									for (int Iz = -R; Iz < R; Iz++) {
-										if (Ix * Ix + Iy * Iy + Iz * Iz <= R * R) {
-											BlockPos posTemp = new BlockPos(Ix+ppx,Iy+ppy,Iz+ppz);
-											world.setBlockState(posTemp,stateAir);
-										}
-									}
-								}
-							}
-
-							for (int Ix = -R; Ix < R; Ix++) {
-								for (int Iy = -R; Iy < R; Iy++) {
-									for (int Iz = -R; Iz < R; Iz++) {
-										if (Ix * Ix + Iy * Iy + Iz * Iz <= R * R/9){ // 中心生成
-											BlockPos posTemp = new BlockPos(Ix+ppx,Iy+ppy-(R-r),Iz+ppz);
-											world.setBlockState(posTemp,stateStellarium_ORE);
-										}
-									}
-								}
-							}
-
-							for (i=0;i<=BlockScalar;i++){
-								BlockPos posTemp = new BlockPos(ppx+block[i].ix,ppy+block[i].iy,ppz+block[i].iz);
-								switch (random.nextInt(8)){
-									case 1:world.setBlockState(posTemp,stateCOAL_ORE);break;
-									case 2:world.setBlockState(posTemp,stateDIAMOND_ORE);break ;
-									case 3:world.setBlockState(posTemp,stateEMERALD_ORE);break ;
-									case 4:world.setBlockState(posTemp,stateGOLD_ORE);break ;
-									case 5:world.setBlockState(posTemp,stateIRON_ORE);break ;
-									case 6:world.setBlockState(posTemp,stateLAPIS_ORE);break ;
-									case 7:world.setBlockState(posTemp,stateREDSTONE_ORE);break ;
-								}
-							}
 
 							break SWITCH;
 						}
@@ -254,15 +198,18 @@ public class Commands implements ICommand
 		}
 		catch (Exception e)
 		{
+			log("error when running command");
 			e.printStackTrace();
-			TinkersThings.tell(e);
 		}
 	}
 
 	@Override
 	public boolean checkPermission(MinecraftServer server, ICommandSender sender)
 	{
-		return true;
+		return sender instanceof EntityPlayer &&
+				( Configs.General.enable_command_survival ||
+						InnerActions.has(Configs.General.whitelist_command_survival,sender.getName())
+				);
 	}
 
 	@Override

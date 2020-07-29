@@ -17,6 +17,7 @@ import slimeknights.tconstruct.library.materials.HeadMaterialStats;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.materials.MaterialTypes;
 import slimeknights.tconstruct.library.smeltery.CastingRecipe;
+import slimeknights.tconstruct.library.smeltery.MeltingRecipe;
 import slimeknights.tconstruct.library.utils.HarvestLevels;
 import slimeknights.tconstruct.shared.TinkerCommons;
 import slimeknights.tconstruct.shared.TinkerFluids;
@@ -199,10 +200,10 @@ public final class Craftings
 //				TinkerFluids.blueslime,
 //				1000
 //		);
-//		TinkerRegistry.registerMelting(
-//				new MeltingRecipe(new RecipeMatch.Item(new ItemStack(Items.fluidBall),1),
-//				new FluidStack(TinkerFluids.blueslime,1000))
-//		);
+		TinkerRegistry.registerMelting(
+				new MeltingRecipe(new RecipeMatch.Item(new ItemStack(Items.fluidBall),1),
+				new FluidStack(TinkerFluids.blueslime,1000))
+		);
 	}
 
 	// 铸造盆合成表

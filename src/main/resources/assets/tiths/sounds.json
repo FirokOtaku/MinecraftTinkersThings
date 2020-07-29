@@ -76,5 +76,33 @@
       "tiths:effects/forward2",
       "tiths:effects/forward3"
     ]
+  },
+  "force_field_effect": {
+    "category": "master",
+    "subtitle": "tiths.sound.force_field_effect",
+    "sounds": [
+      "tiths:effects/force_field_1",
+      "tiths:effects/force_field_2",
+      "tiths:effects/force_field_3"
+    ]
+  },
+  "bubble_effect": {
+    "category": "master",
+    "subtitle": "tiths.sound.bubble_effect",
+    "sounds": [
+      "tiths:effects/bubble_1",
+      "tiths:effects/bubble_2",
+      "tiths:effects/bubble_3",
+      "tiths:effects/bubble_4"
+    ]
+  },
+  "friction_effect": {
+    "category": "master",
+    "subtitle": "tiths.sound.friction_effect",
+    "sounds": [
+      "tiths:effects/friction_1",
+      "tiths:effects/friction_2",
+      "tiths:effects/friction_3"
+    ]
   }
 }

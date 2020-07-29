@@ -78,6 +78,27 @@ public final class Configs
 			}
 			else return true;
 		}
+
+		/**
+		 * 是否为所有指令启用生存模式可用性
+		 */
+		@LangKey(pg+"enable_command_survival")
+		public static boolean enable_command_survival=false;
+
+		/**
+		 * 单独为指定玩家开启指令生存模式可用性
+		 */
+		@LangKey(pg+"whitelist_command_survival")
+		public static String[] whitelist_command_survival= {};
+
+		/**
+		 * 强制禁用跨区块的世界生成
+		 * 默认的生成配置下, 跨区块生成的情况并不频繁, 所以不需要启用此选项
+		 * 当由于更改了生成配置或其它一些情况导致频繁出现跨区块生成行为, 而降低世界生成性能时, 可以开启此选项
+		 * 开启后将会强制禁用对跨区块坐标的读写, 避免跨区块生成, 但是这可能会导致世界生成时在区块交界处出现切面
+		 */
+		@LangKey(pg+"block_cross_chunk_generation")
+		public static boolean block_cross_chunk_generation = false;
 	}
 
 

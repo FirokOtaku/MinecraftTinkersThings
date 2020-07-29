@@ -17,7 +17,9 @@ public class ArmorTraits
 	public static AbstractArmorTrait arsenicPoisonous; // 砷毒
 	public static AbstractArmorTrait beetrootUpgraded; // 甜菜升级
 	public static AbstractArmorTrait buoyant; // 浮力
+	public static AbstractArmorTrait capacitor; // 电容
 	public static AbstractArmorTrait carbonizing; // 碳化
+	public static AbstractArmorTrait carrier; // 载流
 	public static AbstractArmorTrait carrotUpgraded; // 萝卜
 	public static AbstractArmorTrait cavious; // 洞藏
 	public static AbstractArmorTrait chemicalInstable; // 化学不稳定
@@ -36,18 +38,21 @@ public class ArmorTraits
 	public static AbstractArmorTrait hiding; // 匿踪
 	public static AbstractArmorTrait hyper; // 振奋
 	public static AbstractArmorTrait icy; // 冰凉
+	public static AbstractArmorTrait kleinField; // 克莱因力场
 	public static AbstractArmorTrait leavesHiding; // 蔽叶
 	public static AbstractArmorTrait lifeInspiring; // 生命激发
 	public static AbstractArmorTrait lifting; // 扬升
 	public static AbstractArmorTrait lingering; // 缭绕
 	public static AbstractArmorTrait luxurious; // 奢华
 	public static AbstractArmorTrait meshing; // 筛网
+	public static AbstractArmorTrait moist; // 湿润
 	public static AbstractArmorTrait moonPower; // 月之力量
 	public static AbstractArmorTrait overHeavy; // 沉重
 	public static AbstractArmorTrait panicking; // 威慑
 	public static AbstractArmorTrait photosynthetic; // 光合作用
 	public static AbstractArmorTrait quickFreezing; // 速冻
 	public static AbstractArmorTrait radiant; // 辉耀
+	public static AbstractArmorTrait recombining; // 重组
 	public static AbstractArmorTrait seedUpgraded; // 种子升级
 	public static AbstractArmorTrait sliding; // 软滑
 	public static AbstractArmorTrait smooth; // 光滑
@@ -77,7 +82,9 @@ public class ArmorTraits
 				.always(player->Datas.Server.instance().regBeetrootTempt(player))
 				.toEntity(pigAlive);
 		buoyant=new TraitArmorBuoyant();
+		capacitor=new TraitArmorCapacitor();
 		carbonizing=new TraitArmorCarbonizing();
+		carrier=new TraitArmorCarrier();
 		carrotUpgraded=new TraitArmorTemptUpgraded(nameTraitCarrotUpgraded,colorTraitCarrotUpgraded,player->Datas.Server.instance().hasCarrotTempt(player))
 				.always(player->Datas.Server.instance().regCarrotTempt(player))
 				.toEntity(pigAlive,rabbitAlive);
@@ -100,18 +107,21 @@ public class ArmorTraits
 		hiding=new TraitArmorHiding();
 		hyper=new TraitArmorHyper();
 		icy=new TraitArmorIcy();
+		kleinField=new TraitArmorKleinField();
 		leavesHiding=new TraitArmorLeavesHiding();
 		lifeInspiring=new TraitArmorLifeInspiring();
 		lifting=new TraitArmorLifting();
 		lingering=new TraitArmorLingering();
 		luxurious=new TraitArmorLuxurious();
 		meshing=new TraitArmorMeshing();
+		moist=new TraitArmorMoist();
 		moonPower=new TraitArmorMoonPower();
 		overHeavy=new TraitArmorOverHeavy();
 //		panicking=new TraitArmorPanicking();
 		photosynthetic=new TraitArmorPhotosynthetic();
 		quickFreezing=new TraitArmorQuickFreezing();
 		radiant=new TraitArmorRadiant();
+		recombining=new TraitArmorRecombining();
 		seedUpgraded=new TraitArmorTemptUpgraded(nameTraitSeedUpgraded,colorTraitSeedUpgraded,player->Datas.Server.instance().hasSeedTempt(player))
 				.always(player->Datas.Server.instance().regSeedTempt(player))
 				.toEntity(chickenAlive);

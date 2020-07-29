@@ -246,7 +246,12 @@ public final class RegistryHandler
 
 					MaterialInfo info=ConfigJson.getMat(material.identifier);
 					boolean i=Objects.nonNull(info);
-					if(i&&isTrue(info.disable)) return;
+					System.out.println("检查是否跳过:"+material.identifier+" : "+(i?info.disable:"null_mat_info"));
+					if(i&&isTrue(info.disable))
+					{
+						log("跳过材料: "+info.name);
+						return;
+					}
 
 
 					// 顶端

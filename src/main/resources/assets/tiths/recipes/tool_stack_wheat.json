@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tiths:tools",
+  "result": { "item": "tiths:wheat_stack", "count": 1 },
+  "pattern": [
+    "SBS",
+    "BBB",
+    "SBS"
+  ],
+  "key": {
+    "S": { "item": "minecraft:string" },
+    "B": { "item": "minecraft:wheat" }
+  }
+}

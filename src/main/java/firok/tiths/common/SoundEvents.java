@@ -32,6 +32,9 @@ public final class SoundEvents
 	public static final SoundEvent effectSwing=$(Keys.soundSwingEffect);
 	public static final SoundEvent effectTransforming=$(Keys.soundTransformingEffect);
 	public static final SoundEvent effectForward=$(Keys.soundForwardEffect);
+	public static final SoundEvent effectForceField=$(Keys.soundForceFieldEffect);
+	public static final SoundEvent effectBubble=$(Keys.soundBubbleEffect);
+	public static final SoundEvent effectFriction=$(Keys.soundFrictionEffect);
 
 	/**
 	 @see net.minecraft.util.SoundCategory

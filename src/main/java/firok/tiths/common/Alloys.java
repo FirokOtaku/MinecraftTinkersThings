@@ -56,6 +56,29 @@ public final class Alloys
 				new FluidStack(Fluids.moltenSteamium, VALUE_Ingot),
 				new FluidStack(Fluids.moltenImmersedSilver, VALUE_Ingot)
 		);
+
+		// 伽钢
+		registerAlloy(
+				new FluidStack(Fluids.moltenMagiga, VALUE_Ingot),
+				new FluidStack(TinkerFluids.manyullyn, VALUE_Ingot),
+				new FluidStack(TinkerFluids.iron, VALUE_Ingot),
+				new FluidStack(TinkerFluids.gold, VALUE_Ingot)
+		);
+		// 坚金
+		registerAlloy(
+				new FluidStack(Fluids.moltenSolita, VALUE_Ingot),
+				new FluidStack(TinkerFluids.cobalt, VALUE_Ingot),
+				new FluidStack(TinkerFluids.iron, VALUE_Ingot),
+				new FluidStack(TinkerFluids.gold, VALUE_Ingot)
+		);
+
+		// 气钢 -> 铁
+		registerAlloy(
+				new FluidStack(TinkerFluids.iron, VALUE_Ingot * 2),
+				new FluidStack(Fluids.moltenSteamium, VALUE_Ingot),
+				new FluidStack(TinkerFluids.iron, VALUE_Ingot),
+				new FluidStack(FluidRegistry.WATER, 100)
+		);
 	}
 
 	private static void registerAlloy(FluidStack output,FluidStack...inputs)

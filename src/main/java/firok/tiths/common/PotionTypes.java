@@ -55,6 +55,8 @@ public final class PotionTypes
 			new PotionEffect(Potions.illuminating,3600,0));
 	public static final PotionType bruming=new PotionType("bruming",
 			new PotionEffect(Potions.bruming,3600,0));
+	public static final PotionType paralysed=new PotionType("paralysed",
+			new PotionEffect(Potions.paralysed,3600,0));
 //	public static final PotionType forcibleFocused=new PotionType("forcibleFocused",
 //			new PotionEffect(Potions.forcibleFocused,3600,0));
 
@@ -67,6 +69,8 @@ public final class PotionTypes
 		addMix(WATER,Items.treeRoot,rooted);
 
 		addMix(WATER,Items.brokenIce,icy);
+
+		addMix(WATER,Items.tourmaline,paralysed);
 //
 //		addMix(WATER,Items.dustChloroplast, net.minecraft.init.PotionTypes.WATER_BREATHING);
 	}

@@ -563,6 +563,12 @@ public interface Keys
 	String nameTraitCarrotUpgraded = "carrot_upgraded";
 	String nameTraitSeedUpgraded = "seed_upgraded";
 	String nameTraitBeetrootUpgraded = "beetroot_upgraded";
+	String nameTraitMoist = "moist";
+	String nameTraitKleinField = "klein_field";
+	String nameTraitInductance = "inductance";
+	String nameTraitCapacitor = "capacitor";
+	String nameTraitCarrier = "carrier";
+	String nameTraitEmpathy = "empathy";
 
 	// 属性颜色
 	int colorTraitGluttonic = 0x752b40;
@@ -678,6 +684,12 @@ public interface Keys
 	int colorTraitCarrotUpgraded = 0xfcbe3c;
 	int colorTraitSeedUpgraded = 0x9eca6c;
 	int colorTraitBeetrootUpgraded = 0xde4557;
+	int colorTraitMoist = Colors.PowderBlue;
+	int colorTraitKleinField = Colors.RoyalBlue;
+	int colorTraitInductance = 0x135cc7;
+	int colorTraitCapacitor = 0xded3b0;
+	int colorTraitCarrier = 0x235170;
+	int colorTraitEmpathy = 0x538c19;
 
 	// 状态效果颜色
 	int colorPotionHeavy = Colors.DarkSeaGreen;
@@ -701,6 +713,8 @@ public interface Keys
 	int colorPotionIlluminating = 0xebf756;
 	int colorPotionBruming = 0xb6c5dc;
 	int colorPotionFear = 0x921b28;
+	int colorPotionParalysed = 0xdbab23;
+	int colorPotionEmpathic = colorTraitEmpathy;
 
 	// 状态效果属性修饰符uuid
 	String uuidPotionAvatarSpeed = "258A83A5-A3BD-4CFD-842C-B2DF39343C91";
@@ -715,6 +729,8 @@ public interface Keys
 	String uuidPotionSpeedHiddenHyper = "DF67E659-FB9D-4FAF-802C-8AA2F593A558";
 	String uuidPotionArmorLionheart = "995F5833-14F9-4897-9ED7-2FA85EFF5281";
 	String uuidPotionErodedMaxHealth = "1E27A82D-E92E-465F-988A-0B1BE6B8E273";
+	String uuidPotionParalysedDamage = "BE910A56-9FBA-42C2-AC8E-CDDE3E0F86E1";
+	String uuidPotionParalysedSpeed = "4AEC0B29-61D4-40EB-9D7C-B642BD6A1D96";
 
 	String uuidTraitSolubleSwimSpeed = "E42481C5-6AA3-4A74-A992-22AD533C88CC";
 
@@ -745,6 +761,9 @@ public interface Keys
 	String soundSwingEffect = "swing_effect";
 	String soundTransformingEffect = "transforming_effect";
 	String soundForwardEffect = "forward_effect";
+	String soundForceFieldEffect = "force_field_effect";
+	String soundBubbleEffect = "bubble_effect";
+	String soundFrictionEffect = "friction_effect";
 
 //	String configBase="config."+TinkersThings.MOD_ID+'.';
 //	String cateGeneral=configBase+"general";

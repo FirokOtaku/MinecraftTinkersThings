@@ -1,18 +1,28 @@
 package firok.tiths.block;
 
+import com.google.common.collect.ImmutableList;
 import net.minecraft.block.*;
+import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialLogic;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
+import net.minecraftforge.common.property.IUnlistedProperty;
+import net.minecraftforge.common.property.PropertyFloat;
+import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fluids.IFluidBlock;
 
+import javax.annotation.Nonnull;
 import java.util.Random;
 
 import static net.minecraft.util.EnumFacing.*;
@@ -22,24 +32,76 @@ import static net.minecraft.util.EnumFacing.*;
  */
 public class BlockSeaGrass extends BlockBush implements IGrowable
 {
-	static final Material materialSeaGrass=new Material(MapColor.FOLIAGE){
-		{
-			setNoPushMobility();
-			setBurning();
-			setImmovableMobility();
-		}
-
-		public boolean isSolid()
-		{
-			return false;
-		}
-	};
+//	static final Material materialSeaGrass=new Material(MapColor.FOLIAGE){
+//		{
+//			setNoPushMobility();
+//		}
+//
+//		public EnumPushReaction getMobilityFlag()
+//		{
+//			return EnumPushReaction.DESTROY;
+//		}
+//
+//		/**
+//		 * Returns true if the block is a considered solid. This is true by default.
+//		 */
+//		public boolean isSolid()
+//		{
+//			return false;
+//		}
+//
+//		/**
+//		 * Will prevent grass from growing on dirt underneath and kill any grass below it if it returns true
+//		 */
+//		public boolean blocksLight()
+//		{
+//			return false;
+//		}
+//
+//		/**
+//		 * Returns if this material is considered solid or not
+//		 */
+//		public boolean blocksMovement()
+//		{
+//			return false;
+//		}
+//	};
+	public static final PropertyInteger LEVEL = PropertyInteger.create("level", 0, 15);
 	public BlockSeaGrass()
 	{
-		super(materialSeaGrass);
+		super(Material.WATER);
 		this.setHardness(0.0F);
 		this.setSoundType(SoundType.PLANT);
 		this.setLightOpacity(1);
+		this.setDefaultState(blockState.getBaseState().withProperty(LEVEL, 15));
+	}
+
+	@Override
+	@Nonnull
+	protected BlockStateContainer createBlockState()
+	{
+		return new BlockStateContainer.Builder(this)
+				.add(LEVEL)
+				.build();
+	}
+
+	/**
+	 * Convert the BlockState into the correct metadata value
+	 */
+	@Override
+	public int getMetaFromState(@Nonnull IBlockState state)
+	{
+		return 0;
+	}
+	/**
+	 * Convert the given metadata into a BlockState for this Block
+	 */
+	@Override
+	@Deprecated
+	@Nonnull
+	public IBlockState getStateFromMeta(int meta)
+	{
+		return this.getDefaultState().withProperty(LEVEL, 15);
 	}
 
 	// 水生植物
@@ -96,7 +158,7 @@ public class BlockSeaGrass extends BlockBush implements IGrowable
 	{
 //		if(state.getBlock()==this) return true;
 		Material mat=state.getMaterial();
-		return mat==materialSeaGrass || mat==Material.ROCK || mat==Material.GRASS || mat==Material.SAND || mat==Material.GROUND;
+		return state.getBlock()==this || mat==Material.ROCK || mat==Material.GRASS || mat==Material.SAND || mat==Material.GROUND;
 	}
 
 	public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
@@ -151,8 +213,8 @@ public class BlockSeaGrass extends BlockBush implements IGrowable
 //		return false;
 //	}
 
-	public boolean isFullCube(IBlockState state)
-	{
-		return true;
-	}
+//	public boolean isFullCube(IBlockState state)
+//	{
+//		return false;
+//	}
 }

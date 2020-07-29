@@ -46,6 +46,7 @@ public final class Traits
 	public static AbstractTrait hemolytic; // 溶血
 	public static AbstractTrait hyper; // 振奋
 	public static AbstractTrait icy; // 冰冷
+	public static AbstractTrait inductance; // 电感
 	public static AbstractTrait infernalBlazing; // 狱炎
 	public static AbstractTrait infiltrating; // 透蚀
 	public static AbstractTrait inky; // 墨染
@@ -126,6 +127,7 @@ public final class Traits
 		hemolytic = new TraitHemolytic();
 		hyper = new TraitHyper();
 		icy = new TraitIcy();
+		inductance = new TraitInductance();
 		infernalBlazing = new TraitInfernalBlazing();
 		infiltrating = new TraitInfiltrating();
 		inky = new TraitInky();

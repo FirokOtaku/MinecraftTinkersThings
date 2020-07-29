@@ -23,7 +23,7 @@ public class WorldGenMinableBedrock extends BaseChunkGen
 //	private static IBlockState stateBrokenBedrock=firok.tiths.common.Blocks.oreBrokenBedrock.getDefaultState();
 
 	@Override
-	public List<BlockPos> genAtRealPos(World world, int posX, int posY, int posZ, Random rand)
+	public List<BlockPos> genAtRealPos(World world, int posX, int posY, int posZ, int chunkVX, int chunkVZ, Random rand)
 	{
 		List<BlockPos> ret=new ArrayList<>();
 		IBlockState stateOre=Info.state(info,null,null);
@@ -53,7 +53,7 @@ public class WorldGenMinableBedrock extends BaseChunkGen
 				FOR_FIND_Y:for(int tempY=1;tempY<6;tempY++) // 开始从下往上寻找一个能生成矿物的y坐标
 				{
 					BlockPos posFindBedrockTop=new BlockPos(tempTargetX,tempY,tempTargetZ);
-					Block block=world.getBlockState(posFindBedrockTop).getBlock(); // 获取目标坐标方块类型
+					Block block=IChunkGen.getState(world,posFindBedrockTop,chunkVX,chunkVZ).getBlock(); // 获取目标坐标方块类型
 
 					if(block==Blocks.BEDROCK) // 找到一块基岩
 					{
@@ -79,15 +79,15 @@ public class WorldGenMinableBedrock extends BaseChunkGen
 				BlockPos posTryGenOre=new BlockPos(tempTargetX,ys[ox][oz],tempTargetZ);
 				if(isThisTimeFound) // 如果这个y坐标是这一次找到的 那说明这个y坐标肯定是石头 不需要额外判断了
 				{
-					world.setBlockState(posTryGenOre,stateOre); // 直接生成矿物
+					IChunkGen.setState(world,posTryGenOre,stateOre,chunkVX,chunkVZ); // 直接生成矿物
 					ret.add(posTryGenOre);
 				}
 				else // 这个坐标是上次生成矿物的时候计算的 上面可能已经不是可以用于生成矿物的石头了
 				{
-					Block block=world.getBlockState(posTryGenOre).getBlock();
+					Block block=IChunkGen.getState(world,posTryGenOre,chunkVX,chunkVZ).getBlock();
 					if(block==Blocks.STONE || block==Blocks.COBBLESTONE) // 判断方块类型是不是石头
 					{
-						world.setBlockState(posTryGenOre,stateOre); // 可以生成矿物
+						IChunkGen.setState(world,posTryGenOre,stateOre,chunkVX,chunkVZ); // 可以生成矿物
 						ret.add(posTryGenOre);
 					}
 					else // 不是石头的话

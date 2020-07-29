@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "tiths:tools",
+  "result": { "item": "tiths:oxygen_mask", "count": 1 },
+
+  "ingredients": [
+    { "item": "minecraft:iron_helmet" },
+    { "item": "tiths:tube" }
+  ]
+}

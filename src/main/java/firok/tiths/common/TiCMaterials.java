@@ -194,10 +194,13 @@ public final class TiCMaterials
 			.addItemAsIngot(Items.ingotTanatonium)
 			.setFluid(Fluids.moltenTanatonium);
 
-	@Compo(value = nameImitatium,traitsTool = { nameTraitRecombining })
+	@Compo(value = nameImitatium,traitsTool = { nameTraitRecombining },traitsArmor = {nameTraitRecombining})
 	@CompoHead(durability=365,miningspeed=6.7,attack=4,harvestLevel=2,traits={  })
 	@CompoHandle(modifier=0.8,durability=-50,traits={  })
 	@CompoExtra(extraDurability=55,traits={  })
+	@CompoArmorCore(durability=20.9,defense=17.3,traits={ nameTraitKleinField }) // fixme 需要改属性
+	@CompoArmorPlate(modifier=1.15,durability=9.6,toughness=5.7,traits={  })
+	@CompoArmorTrim(extraDurability=14.4,traits={  })
 	public static final Material imitatium=new $Material(nameImitatium,colorImitatium)
 			.addItemAsIngot(Items.ingotImitatium);
 
@@ -455,11 +458,11 @@ public final class TiCMaterials
 			.addItemAsIngot(Items.talcum);
 
 	@Compo(value = nameTourmaline,traitsTool = {nameTraitPyroelectric},traitsBow = {nameTraitPyroelectric},traitsArmor={nameTraitVoltaic})
-	@CompoHead(durability=350,miningspeed=3.5,attack=4,harvestLevel=2,traits={  })
+	@CompoHead(durability=350,miningspeed=3.5,attack=4,harvestLevel=2,traits={ nameTraitInductance })
 	@CompoHandle(modifier=0.6,durability=-150,traits={  })
 	@CompoExtra(extraDurability=55,traits={  })
 	@CompoArrowShaft(modifier=0.7,bonusAmmo=0,traits={  })
-	@CompoArmorCore(durability=6.9,defense=6.8,traits={  })
+	@CompoArmorCore(durability=6.9,defense=6.8,traits={ nameTraitCapacitor })
 	@CompoArmorPlate(modifier=0.86,durability=-3,toughness=0.3,traits={  })
 	@CompoArmorTrim(extraDurability=4.7,traits={  })
 	public static final Material tourmaline=new $Material(nameTourmaline,colorTourmaline)
@@ -505,13 +508,13 @@ public final class TiCMaterials
 //			.addPartTrait(lionheart,HEAD)
 //			.addPartTrait(enderference,HEAD); // fixme
 
-	@Compo(value = nameFulgurite,traitsTool = {nameTraitThunderWaving},traitsBow = {nameTraitThunderWaving})
+	@Compo(value = nameFulgurite,traitsTool = {nameTraitThunderWaving},traitsBow = {nameTraitThunderWaving},traitsArmor = nameTraitCarrier)
 	@CompoHead(durability=515,miningspeed=5.7,attack=7,harvestLevel=3,traits={  })
 	@CompoExtra(extraDurability=120,traits={  })
 	@CompoArrowShaft(modifier=0.55,bonusAmmo=5,traits={  })
-//	@CompoArmorCore(durability=6.9,defense=14,traits={  })
-//	@CompoArmorPlate(modifier=0.9,durability=3.2,toughness=0.6,traits={  })
-//	@CompoArmorTrim(extraDurability=5,traits={  })
+	@CompoArmorCore(durability=6.9,defense=14,traits={  })
+	@CompoArmorPlate(modifier=0.9,durability=3.2,toughness=0.6,traits={  })
+	@CompoArmorTrim(extraDurability=5,traits={  })
 	public static final Material fulgurite=new $Material(nameFulgurite,colorFulgurite)
 			.addItemAsIngot(Blocks.blockFulgurite);
 

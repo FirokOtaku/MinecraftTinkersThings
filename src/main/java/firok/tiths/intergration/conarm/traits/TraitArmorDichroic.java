@@ -39,8 +39,6 @@ public class TraitArmorDichroic extends AbstractArmorTrait
 		strength /=(float)( 1 + (light - Configs.Traits.factor_dichroic_light_mid ) / Configs.Traits.factor_dichroic_light );
 
 		evt.setStrength( strength );
-
-		super.onKnockback(armor, player, evt);
 	}
 	// todo
 }

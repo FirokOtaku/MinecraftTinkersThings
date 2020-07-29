@@ -39,7 +39,7 @@ public class BlockShiningGel extends BlockTinkerFluid
 
 		if (!worldIn.isRemote && entityIn instanceof EntityLivingBase)
 		{
-			((EntityLivingBase) entityIn).addPotionEffect(new PotionEffect(Potions.illuminating,100,0));
+			((EntityLivingBase) entityIn).addPotionEffect(new PotionEffect(Potions.illuminating,1200,0));
 		}
 	}
 

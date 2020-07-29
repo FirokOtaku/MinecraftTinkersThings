@@ -40,7 +40,7 @@ Shaking Effect|Warrior bass T|mixmitch62|无 none|CC0 1.0|[Link](https://freesou
 Fire Effect|Fire sound|CTCollab|变速 speed changed|CC BY 3.0|[Link](https://freesound.org/people/CTCollab/sounds/223610/)
 Fire Effect|Fire Ball Release|CTCollab|变速 speed changed|CC BY 3.0|[Link](https://freesound.org/people/CTCollab/sounds/223611/)
 Fire Effect|Fireball 1|CTCollab|变速 speed changed|CC BY 3.0|[Link](https://freesound.org/people/CTCollab/sounds/223615/)
-Swing Effect|Bamboo Swing, A14|InspectorJ|裁剪 trimed|CC BY 3.0|[Link](https://freesound.org/people/InspectorJ/sounds/394418/)
+Swing Effect|Bamboo Swing, A14|InspectorJ|裁剪 trimmed|CC BY 3.0|[Link](https://freesound.org/people/InspectorJ/sounds/394418/)
 Swing Effect|Whoosch sound|nitramdoh|调整音量 volume changed|CC0 1.0|[Link](https://freesound.org/people/nitramdoh/sounds/351152/)
 Swing Effect|stick-1|_def|无 none|CC BY 3.0|[Link](https://freesound.org/people/_def/sounds/346557/)
 Transforming Effect|Whoosh woow mk1|Speedenza|无 none|CC BY NC 3.0|[Link](https://freesound.org/people/Speedenza/sounds/168177/)
@@ -49,6 +49,9 @@ Transforming Effect|Whoosh woow mk3|Speedenza|无 none|CC BY NC 3.0|[Link](https
 Forward Effect|shimmer_synth_1|wangzhuokun|无 none|CC0 1.0|[Link](https://freesound.org/people/wangzhuokun/sounds/434600/)
 Forward Effect|shimmer_synth_2|wangzhuokun|无 none|CC BY 3.0|[Link](https://freesound.org/people/wangzhuokun/sounds/434599/)
 Forward Effect|shimmer_synth_3|wangzhuokun|无 none|CC0 1.0|[Link](https://freesound.org/people/wangzhuokun/sounds/434601/)
+Force Field Effect|Force Field 02|Glitchedtones|变速 speed changed|CC 0|[Link](https://freesound.org/people/Glitchedtones/sounds/375918/)
+Bubble Effect|Boiling Water, Large, A|InspectorJ|裁剪 trimmed|CC BY 3.0|[Link](https://freesound.org/people/InspectorJ/sounds/412843/)
+Friction Effect|dragging|caoimhe_s1|裁剪 trimmed|CC 0|[Link](https://freesound.org/people/caoimhe_s1/sounds/268909/)
 
 ## 关于CC协议 About Creative Commons License
 

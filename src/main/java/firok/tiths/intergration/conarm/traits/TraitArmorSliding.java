@@ -3,8 +3,10 @@ package firok.tiths.intergration.conarm.traits;
 import c4.conarm.common.armor.utils.ArmorHelper;
 import c4.conarm.lib.traits.AbstractArmorTrait;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundCategory;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 import static firok.tiths.common.Keys.colorTraitSliding;
@@ -27,6 +29,11 @@ public class TraitArmorSliding extends AbstractArmorTrait
 	{
 		if(canDealWith(source,true,null,null,null,null) && canTrigger(player.world,0.15f))
 		{
+			if(!player.world.isRemote)
+			player.world.playSound(
+					null,player.posX,player.posY,player.posZ,
+					SoundEvents.BLOCK_STONE_BREAK, SoundCategory.MASTER,
+					1, 1);
 			ArmorHelper.damageArmor( armor, source, (int)(newDamage*5), player, 0 );
 			return 0;
 		}

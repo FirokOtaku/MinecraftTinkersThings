@@ -1,32 +1,28 @@
 package firok.tiths.intergration.conarm;
 
-import c4.conarm.common.armor.utils.ArmorHelper;
-import c4.conarm.common.armor.utils.ArmorTagUtil;
 import c4.conarm.lib.capabilities.ArmorAbilityHandler;
 import firok.tiths.intergration.conarm.traits.TraitArmorWidening;
-import firok.tiths.util.Actions;
-import firok.tiths.util.InnerActions;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.*;
 import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPotion;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.sound.PlaySoundEvent;
-import net.minecraftforge.client.event.sound.SoundEvent;
+import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import slimeknights.tconstruct.library.modifiers.IModifier;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
+import slimeknights.tconstruct.library.tinkering.ITinkerable;
 import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
@@ -103,6 +99,29 @@ public class ArmorEvents
 			e.printStackTrace();
 		}
 	}
+
+	public static void onEntityStruckByLightning(EntityStruckByLightningEvent event)
+	{
+		Entity entityStruck=event.getEntity();
+		if(entityStruck instanceof EntityPlayer)
+		{
+			EntityPlayer player=(EntityPlayer) entityStruck;
+			for(ItemStack stackArmor:player.getArmorInventoryList())
+			{
+				if(stackArmor==null || stackArmor.isEmpty()) continue;
+
+				Item itemArmor=stackArmor.getItem();
+
+				if(!(itemArmor instanceof ITinkerable)) continue;
+
+				if(ToolHelper.getTraits(stackArmor).contains(ArmorTraits.carrier))
+				{
+					ToolHelper.healTool(stackArmor,300,player);
+				}
+			}
+		}
+	}
+
 	@Optional.Method(modid="conarm")
 	private static int getLv(ItemStack stack,ITrait trait)
 	{

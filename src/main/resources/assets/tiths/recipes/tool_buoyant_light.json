@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tiths:tools",
+  "result": { "item": "tiths:buoyant_light", "count": 1 },
+  "pattern": [
+    "   ",
+    "GBG",
+    "   "
+  ],
+  "key": {
+    "B": { "item": "tiths:buoy" },
+    "G": { "item": "minecraft:glowstone_dust" }
+  }
+}

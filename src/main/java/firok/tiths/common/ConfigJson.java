@@ -72,6 +72,7 @@ public final class ConfigJson
 			MaterialInfo mat=new MaterialInfo();
 			mat.name=nameMaterial;
 			JsonObject obj=entry.getValue().getAsJsonObject();
+			mats.put(mat.name,mat);
 
 			if(isTrue(mat.disable=getBool(obj,"disable")))
 			{
@@ -216,7 +217,6 @@ public final class ConfigJson
 				});
 			}
 
-			mats.put(mat.name,mat);
 		}));
 		if(mats.size()>0) log("customized materials: " + mats.keySet());
 	}

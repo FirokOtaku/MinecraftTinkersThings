@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tiths:tools",
+  "result": { "item": "tiths:carrot_stack", "count": 1 },
+  "pattern": [
+    "SCS",
+    "CCC",
+    "SCS"
+  ],
+  "key": {
+    "S": { "item": "minecraft:string" },
+    "C": { "item": "minecraft:carrot" }
+  }
+}

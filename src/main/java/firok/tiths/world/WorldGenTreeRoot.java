@@ -23,10 +23,10 @@ public class WorldGenTreeRoot extends BaseChunkGen
 	}
 
 	@Override
-	public List<BlockPos> genAtRealPos(World world, int posX, int posY, int posZ, Random rand)
+	public List<BlockPos> genAtRealPos(World world, int posX, int posY, int posZ, int chunkVX, int chunkVZ, Random rand)
 	{
 		List<BlockPos> ret=new ArrayList<>();
-		BlockPos posCenterTop=world.getTopSolidOrLiquidBlock(new BlockPos(posX,0,posZ));
+		BlockPos posCenterTop=world.getTopSolidOrLiquidBlock(new BlockPos(posX,0,posZ)); // fixme 这个很可能需要包装一层 用来限制跨区块生成
 
 		TempCategory tempCate=world.getBiome(posCenterTop).getTempCategory();
 		if(tempCate== TempCategory.COLD || tempCate==TempCategory.OCEAN) return ret; // 不在寒冷和海洋生物群系生成
@@ -39,7 +39,7 @@ public class WorldGenTreeRoot extends BaseChunkGen
 		{
 			for(int oz=-2;oz<=2;oz++)
 			{
-				ret.addAll(tryGen(world,posCenterTop.getX()+ox,posCenterTop.getY(),posCenterTop.getZ()+oz,rand,stateOre));
+				ret.addAll(tryGen(world,posCenterTop.getX()+ox,posCenterTop.getY(),posCenterTop.getZ()+oz,rand,stateOre,chunkVX,chunkVZ));
 			}
 		}
 
@@ -48,7 +48,7 @@ public class WorldGenTreeRoot extends BaseChunkGen
 
 
 
-	private static List<BlockPos> tryGen(World world,int posX,int posY,int posZ,Random rand,IBlockState stateOre)
+	private static List<BlockPos> tryGen(World world,int posX,int posY,int posZ,Random rand,IBlockState stateOre, int chunkVX,int chunkVZ)
 	{
 		List<BlockPos> ret=new ArrayList<>();
 		int times=0;
@@ -60,7 +60,7 @@ public class WorldGenTreeRoot extends BaseChunkGen
 		while(times<depth && posY>1)
 		{
 			BlockPos pos2get=new BlockPos(posX,posY,posZ);
-			Block block=world.getBlockState(pos2get).getBlock();
+			Block block=IChunkGen.getState(world,pos2get,chunkVX,chunkVZ).getBlock();
 
 			if(block instanceof BlockOre) return ret; // 已经生成过一次 不再继续生成
 
@@ -73,7 +73,7 @@ public class WorldGenTreeRoot extends BaseChunkGen
 			{
 				if(canGen && (block== Blocks.DIRT || block==Blocks.STONE || block==Blocks.COBBLESTONE))
 				{
-					world.setBlockState(pos2get,stateOre);
+					IChunkGen.setState(world,pos2get,stateOre,chunkVX,chunkVZ);
 					ret.add(pos2get);
 				}
 			}

@@ -14,6 +14,10 @@ public final class DamageSources
 			.setMagicDamage()
 			.setDamageBypassesArmor();
 
+	// 测试伤害 // 仅能使用指令给予
+	public static final String TypeTest="test";
+	public static DamageSource TestDamage=new DamageSource(TypeTest);
+
 	// 双折伤害
 	public static final String TypeBirefringent="birefringent";
 	public static EntityDamageSource Birefringent(Entity source)

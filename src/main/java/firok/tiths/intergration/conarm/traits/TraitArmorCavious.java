@@ -6,9 +6,11 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -17,7 +19,7 @@ import static firok.tiths.common.Keys.colorTraitCavious;
 import static firok.tiths.common.Keys.nameTraitCavious;
 
 /**
- * @author Firok
+ * 洞藏
  */
 public class TraitArmorCavious extends AbstractArmorTrait
 {
@@ -47,6 +49,7 @@ public class TraitArmorCavious extends AbstractArmorTrait
 						IBlockState stateTemp=world.getBlockState(posTemp);
 						Block blockTemp=stateTemp.getBlock();
 						if (blockTemp != Blocks.STONE &&
+							blockTemp != Blocks.COBBLESTONE &&
 						    blockTemp != Blocks.DIRT &&
 						    blockTemp != Blocks.SAND &&
 						    blockTemp != Blocks.AIR
@@ -77,6 +80,7 @@ public class TraitArmorCavious extends AbstractArmorTrait
 
 				player.setPositionAndUpdate(player.posX,player.posY-2,player.posZ);
 				player.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS,200,0));
+				world.playSound(null,player.posX,player.posY,player.posZ, SoundEvents.BLOCK_ANVIL_BREAK, SoundCategory.MASTER,1,1);
 			}
 		}
 		return super.onHurt(armor, player, source, damage, newDamage, evt);

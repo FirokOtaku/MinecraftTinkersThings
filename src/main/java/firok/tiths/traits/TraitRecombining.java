@@ -30,6 +30,9 @@ public class TraitRecombining extends AbstractTrait
 		{
 			int durNow= ToolHelper.getCurrentDurability(tool);
 			int durMax= ToolHelper.getMaxDurability(tool);
+
+			if(durNow >= durMax / 5 * 4) return;
+
 			EntityPlayer player=(EntityPlayer)entity;
 			InventoryPlayer inv=player.inventory;
 			ItemStack stackImitatium=null;
@@ -41,7 +44,7 @@ public class TraitRecombining extends AbstractTrait
 				stackImitatium=stackInv;
 			}
 
-			if(stackImitatium != null && durNow < durMax / 5)
+			if(stackImitatium != null)
 			{
 				ToolHelper.healTool(tool,durMax/5,player);
 				stackImitatium.shrink(1);

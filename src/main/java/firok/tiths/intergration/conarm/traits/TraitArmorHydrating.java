@@ -2,11 +2,14 @@ package firok.tiths.intergration.conarm.traits;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
 import com.google.common.collect.ImmutableList;
-import firok.tiths.TinkersThings;
+import firok.tiths.common.SoundEvents;
+import firok.tiths.util.ITraitData;
+import firok.tiths.util.TraitExtraData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 
@@ -20,56 +23,42 @@ import static firok.tiths.util.Predicates.canTick;
 /**
  * 水合 - 护甲
  */
-public class TraitArmorHydrating extends AbstractArmorTrait
+public class TraitArmorHydrating extends AbstractArmorTrait implements ITraitData<TraitArmorHydrating.HydratingData>
 {
-	public static final String NBTKey= TinkersThings.MOD_ID+'_'+nameTraitHydrating;
 	public TraitArmorHydrating()
 	{
 		super(nameTraitHydrating,colorTraitHydrating);
 	}
 
-	public static void regen(ItemStack stack,int point,int max)
+	public void regen(ItemStack stack,int point,int max)
 	{
 		if(stack==null) return;
 
-		NBTTagCompound nbt=stack.hasTagCompound()?stack.getTagCompound():new NBTTagCompound();
-		assert nbt!=null;
-		stack.setTagCompound(nbt);
-
-		int origin=nbt.hasKey(NBTKey)?nbt.getInteger(NBTKey):0;
-		int after=origin+point;
-		if(after>max) after=max;
-		nbt.setInteger(NBTKey,after);
+		HydratingData data=this.readExtraDataFromStack(stack);
+		data.point+=point;
+		if(data.point>max) data.point=max;
+		this.writeExtraDataToStack(stack,data);
 	}
-	public static int cost(ItemStack stack,int cost)
+	public int cost(ItemStack stack,int cost)
 	{
-		if(stack==null) return 0;
+		if(stack==null || cost<0) return 0;
 
-		NBTTagCompound nbt=stack.hasTagCompound()?stack.getTagCompound():new NBTTagCompound();
-		assert nbt!=null;
-		stack.setTagCompound(nbt);
-
-		int origin=nbt.hasKey(NBTKey)?nbt.getInteger(NBTKey):0;
-		if(origin<0) origin=0;
-
-		if(origin<=cost)
+		HydratingData data=this.readExtraDataFromStack(stack);
+		if(data.point<cost)
 		{
-			nbt.setInteger(NBTKey,0);
-			return origin;
+			cost=data.point;
+			data.point=0;
 		}
-		else
+		else // point >= cost
 		{
-			nbt.setInteger(NBTKey,origin-cost);
-			return cost;
+			data.point -= cost;
 		}
+		this.writeExtraDataToStack(stack,data);
+		return cost;
 	}
-	public static int get(ItemStack stack)
+	public int get(ItemStack stack)
 	{
-		if(stack==null || !stack.hasTagCompound()) return 0;
-
-		NBTTagCompound nbt=stack.getTagCompound();
-		assert nbt!=null;
-		return nbt.hasKey(NBTKey)?nbt.getInteger(NBTKey):0;
+		return this.readExtraDataFromStack(stack).point;
 	}
 
 	/*
@@ -105,7 +94,11 @@ public class TraitArmorHydrating extends AbstractArmorTrait
 			if(costReal>0)
 			{
 				newDamage-= costReal/100f;
-				// todo 播放音效
+				if(player.isServerWorld())
+				{
+					player.world.playSound(null,player.posX,player.posY,player.posZ,
+							SoundEvents.effectBubble, SoundCategory.MASTER,1,1);
+				}
 			}
 
 			return newDamage;
@@ -116,18 +109,45 @@ public class TraitArmorHydrating extends AbstractArmorTrait
 	@Override
 	public List<String> getExtraInfo(ItemStack tool, NBTTagCompound modifierTag)
 	{
-		int point=get(tool);
+		HydratingData data=readExtraDataFromStack(tool);
 
-		if(point<=100) return ImmutableList.of();
+		if(data.point<=100) return ImmutableList.of();
 
 		StringBuilder info=new StringBuilder().append("§3");
-		while(point>0)
+		while(data.point>0)
 		{
-			if(point>=100) info.append("●");
-			point-=100;
+			if(data.point>=100) info.append("●");
+			data.point-=100;
 		}
 		info.append("§r");
 
 		return ImmutableList.of(info.toString());
+	}
+	
+	public static class HydratingData implements TraitExtraData
+	{
+		public int point;
+	}
+
+	@Override
+	public String getDataKey()
+	{
+		return "HydratingData";
+	}
+
+	@Override
+	public HydratingData readExtraData(NBTTagCompound nbtExtraData)
+	{
+		HydratingData data=new HydratingData();
+		data.point = nbtExtraData!=null && nbtExtraData.hasKey("point") ? nbtExtraData.getInteger("point") : 0;
+		return data;
+	}
+
+	@Override
+	public NBTTagCompound writeExtraData(HydratingData data)
+	{
+		NBTTagCompound nbt=new NBTTagCompound();
+		nbt.setInteger("point",data.point);
+		return nbt;
 	}
 }

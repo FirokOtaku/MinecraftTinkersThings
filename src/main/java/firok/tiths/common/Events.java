@@ -17,8 +17,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.boss.EntityDragon;
@@ -29,32 +27,23 @@ import net.minecraft.entity.monster.EntityCaveSpider;
 import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.entity.monster.EntityWitherSkeleton;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.entity.projectile.EntityFishHook;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.network.play.client.CPacketPlayerDigging;
-import net.minecraft.network.play.server.SPacketBlockChange;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.sound.PlaySoundEvent;
-import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
-import net.minecraftforge.event.ForgeEventFactory;
+import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -72,20 +61,15 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.network.FMLNetworkEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import slimeknights.tconstruct.common.TinkerNetwork;
 import slimeknights.tconstruct.library.events.ProjectileEvent;
 import slimeknights.tconstruct.library.events.TinkerCraftingEvent;
 import slimeknights.tconstruct.library.traits.ITrait;
-import slimeknights.tconstruct.library.utils.TagUtil;
-import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
-import slimeknights.tconstruct.shared.block.BlockGlow;
 import slimeknights.tconstruct.smeltery.events.TinkerSmelteryEvent;
 
 import java.util.*;
 
 import static firok.tiths.common.Configs.Traits.enable_gluttonic_clear;
-import static firok.tiths.common.Keys.*;
 import static firok.tiths.common.Traits.thermalGathering;
 import static firok.tiths.item.ISoulStore.Common;
 import static firok.tiths.util.Predicates.*;
@@ -382,6 +366,15 @@ public class Events
 				}
 			}
 			catch (Exception ignored) { }
+		}
+	}
+
+	@SubscribeEvent
+	public static void onEntityStruckByLightning(EntityStruckByLightningEvent event)
+	{
+		if(TinkersThings.enableConarm())
+		{
+			ArmorEvents.onEntityStruckByLightning(event);
 		}
 	}
 

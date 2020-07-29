@@ -2,6 +2,22 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.12.0 _2020-07-29 19:00_
+
+* 增加特性 added traits
+  * 湿润(护甲) moist(armor)
+  * 克莱茵力场(护甲) klein field(armor)
+  * 电感 inductance
+  * 电容(护甲) capacitor(armor)
+  * 载流(护甲) carrier(armor)
+  * 重组(护甲) recombining(armor)
+  * 共感(护甲) empathy
+* 增加状态效果 added effects
+  * 麻痹 paralysed
+* 重写特性数据储存方式 rewrite the way that saving data of some traits
+* 为指令增加了权限控制 added permission checking to commands
+* 为世界生成增加了跨区块生成检测 added cross-chunk checking to world generations
+
 ## 0.3.11.0 _2020-07-17 11:30_
 
 * 增加物品 added items

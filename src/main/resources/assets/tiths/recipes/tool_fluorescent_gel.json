@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "tiths:tools",
+  "result": { "item": "tiths:fluorescent_gel", "count": 1 },
+  "ingredients": [
+    {
+      "type": "forge:ore_dict",
+      "ore": "slimeBall"
+    },
+    { "item": "minecraft:glass_bottle" },
+    { "item": "minecraft:glowstone_dust" }
+  ]
+}

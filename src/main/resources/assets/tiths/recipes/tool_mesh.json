@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tiths:tools",
+  "result": { "item": "tiths:mesh", "count": 1 },
+  "pattern": [
+    "WSW",
+    "SSS",
+    "WSW"
+  ],
+  "key": {
+    "S": { "item": "minecraft:string" },
+    "W": {
+      "type": "forge:ore_dict",
+      "ore": "plankWood"
+    }
+  }
+}

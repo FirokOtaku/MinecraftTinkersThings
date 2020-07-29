@@ -22,7 +22,7 @@ public class WorldGenLavaCrystal extends BaseChunkGen
 	}
 
 	@Override
-	public List<BlockPos> genAtRealPos(World world, int posX, int posY, int posZ, Random rand)
+	public List<BlockPos> genAtRealPos(World world, int posX, int posY, int posZ, int chunkVertexX, int chunkVertexZ, Random rand)
 	{
 		List<BlockPos> ret=new ArrayList<>();
 
@@ -39,7 +39,7 @@ public class WorldGenLavaCrystal extends BaseChunkGen
 
 					BlockPos posTemp=new BlockPos(posX+ox,posY+oy,posZ+oz);
 
-					IBlockState stateTemp=world.getBlockState(posTemp);
+					IBlockState stateTemp=IChunkGen.getState(world,posTemp,chunkVertexX,chunkVertexZ);
 
 					if(!Predicates.isStone(stateTemp) && stateTemp.getBlock() != Blocks.NETHERRACK)
 					{
@@ -69,12 +69,13 @@ public class WorldGenLavaCrystal extends BaseChunkGen
 					boolean isCentral=distance<=1;
 
 					BlockPos posTemp=new BlockPos(posX+ox,posY+oy,posZ+oz);
-					world.setBlockState(posTemp,
+					IChunkGen.setState(world,posTemp,
 							isCentral?
 									blockCentral:
 									(canTrigger(rand,0.185f)?
 											blockRandom:
-											blockSurrounding)
+											blockSurrounding),
+							chunkVertexX,chunkVertexZ
 					);
 					ret.add(posTemp);
 				}

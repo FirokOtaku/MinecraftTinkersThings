@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tiths:baubles",
+  "result": { "item": "tiths:amulet_perturbance", "count": 1 },
+
+  "pattern": [
+    " D ",
+    "DID",
+    "   "
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" },
+    "D": { "item": "tiths:ingot_decurrium" }
+  }
+}

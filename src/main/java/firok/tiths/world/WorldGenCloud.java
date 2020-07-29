@@ -24,7 +24,7 @@ public class WorldGenCloud extends BaseChunkGen
 	}
 
 	@Override
-	public List<BlockPos> genAtRealPos(World world, final int posX, final int posY, final int posZ, Random rand)
+	public List<BlockPos> genAtRealPos(World world, final int posX, final int posY, final int posZ, int chunkVertexX, int chunkVertexZ, Random rand)
 	{
 		// 一种二次曲面，是椭圆在三维空间的推广。
 		// 椭球在xyz-笛卡尔坐标系中的方程是：x2 / a2+y2 / b2+z2 / c2=1。
@@ -50,10 +50,10 @@ public class WorldGenCloud extends BaseChunkGen
 					if(inside)
 					{
 						BlockPos posTemp=new BlockPos(posX+ox,posY+oy,posZ+oz);
-						if(world.isAirBlock(posTemp))
+						if(IChunkGen.isAirBlock(world,posTemp,chunkVertexX,chunkVertexZ))
 						{
 							boolean isOre=canTrigger(rand,0.00225);
-							world.setBlockState(posTemp, isOre?ore:cloud);
+							IChunkGen.setState(world, posTemp, isOre?ore:cloud, chunkVertexX,chunkVertexZ);
 							ret.add(posTemp);
 						}
 					}

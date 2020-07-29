@@ -20,7 +20,7 @@ public class GenMinable extends BaseChunkGen
 		super(info);
 	}
 	@Override
-	public List<BlockPos> genAtRealPos(World world, int posX, int posY, int posZ, Random rand)
+	public List<BlockPos> genAtRealPos(World world, int posX, int posY, int posZ, int chunkVertexX, int chunkVertexZ, Random rand)
 	{
 		List<BlockPos> ret=new ArrayList<>();
 
@@ -35,6 +35,9 @@ public class GenMinable extends BaseChunkGen
 		float d3 = ((float)(posZ + 8) - MathHelper.cos(radius) * (float)numberOfBlocks / 8.0F);
 		float d4 = (posY + rand.nextInt(3) - 2);
 		float d5 = (posY + rand.nextInt(3) - 2);
+
+		IBlockState stateOre=Info.state(info,null,null);
+		Predicate<IBlockState> selector=Info.selector(info,null,null);
 
 		// 下面的都是原版的代码
 		for(int iBlock = 0; iBlock < numberOfBlocks; ++iBlock)
@@ -53,9 +56,6 @@ public class GenMinable extends BaseChunkGen
 			int j1 = MathHelper.floor(d7 + d11 / 2.0D);
 			int k1 = MathHelper.floor(d8 + d10 / 2.0D);
 
-			IBlockState stateOre=Info.state(info,null,null);
-			Predicate<IBlockState> selector=Info.selector(info,null,null);
-
 			for(int l1 = j; l1 <= i1; ++l1)
 			{
 				double d12 = ((double)l1 + 0.5D - d6) / (d10 / 2.0D);
@@ -72,10 +72,10 @@ public class GenMinable extends BaseChunkGen
 								if (d12 * d12 + d13 * d13 + d14 * d14 < 1.0D)
 								{
 									BlockPos blockpos = new BlockPos(l1, i2, j2);
-									IBlockState stateOrigin = world.getBlockState(blockpos);
+									IBlockState stateOrigin = IChunkGen.getState(world,blockpos,chunkVertexX,chunkVertexZ);
 									if (stateOrigin.getBlock().isReplaceableOreGen(stateOrigin, world, blockpos, selector::test))
 									{
-										world.setBlockState(blockpos, stateOre, SEND_TO_CLIENTS);
+										IChunkGen.setState(world, blockpos, stateOre, SEND_TO_CLIENTS,chunkVertexX,chunkVertexZ);
 										ret.add(blockpos);
 									}
 								}

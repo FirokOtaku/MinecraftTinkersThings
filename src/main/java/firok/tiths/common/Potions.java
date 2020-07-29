@@ -52,5 +52,5 @@ public final class Potions
 	public static BasePotion leaves_hiding = new PotionLeavesHiding(); // 蔽叶
 	public static BasePotion illuminating = new PotionIlluminating(); // 灯明
 	public static BasePotion bruming = new BasePotion(icon("bruming"),false,colorPotionBruming); // 云雾
-
+	public static BasePotion paralysed = new PotionParalysed(); // 麻痹
 }

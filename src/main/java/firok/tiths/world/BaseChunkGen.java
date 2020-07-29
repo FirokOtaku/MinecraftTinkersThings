@@ -3,6 +3,7 @@ package firok.tiths.world;
 
 import firok.tiths.common.ConfigJson;
 import firok.tiths.util.Predicates;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -43,7 +44,7 @@ public abstract class BaseChunkGen implements IChunkGen
 			if(!canTrigger(rand,rate)) continue;
 
 			BlockPos realPos=genRealPos(world, chunkVertexX, chunkVertexZ, rand);
-			ret.addAll(genAtRealPos(world, realPos.getX(), realPos.getY(), realPos.getZ(), rand));
+			ret.addAll(genAtRealPos(world, realPos.getX(), realPos.getY(), realPos.getZ(), chunkVertexX, chunkVertexZ, rand));
 		}
 		return ret;
 	}

@@ -406,6 +406,19 @@ public final class InnerActions
 	}
 
 	/**
+	 * 判断数组里有没有指定元素
+	 */
+	public static <T> boolean has(T[] array,T bean)
+	{
+		if(array==null || array.length<=0) return false;
+		for(T obj : array)
+		{
+			if((obj==null && bean==null) || (obj.equals(bean))) return true;
+		}
+		return false;
+	}
+
+	/**
 	 * 角度弧度互相换算用的
 	 */
 	public static final float FAC=(float) Math.PI/180;
