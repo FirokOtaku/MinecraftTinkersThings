@@ -27,8 +27,10 @@ public class TraitArmorKleinField extends AbstractArmorTrait implements ITraitDa
 		super(nameTraitKleinField,colorTraitKleinField);
 	}
 
+
+
 	@Override
-	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
+	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source,final float damage, float newDamage, LivingHurtEvent evt)
 	{
 		if(!player.world.isRemote)
 		{
@@ -40,10 +42,21 @@ public class TraitArmorKleinField extends AbstractArmorTrait implements ITraitDa
 			KleinFieldData data=readExtraDataFromStack(armor);
 			if(data.point>=0)
 			{
-				data.point+=newDamage;
-				newDamage=0;
+				data.point+=damage/4;
+				newDamage-=damage/4;
+				if(newDamage<0) newDamage=0;
+				player.world.playSound(null,player.posX,player.posY,player.posZ,
+						SoundEvents.effectForceField,SoundCategory.MASTER,1,1);
 
-				if(data.point>20);
+				if(data.point>=15) // 吸收15点伤害
+				{
+					data.point=-120; // 120点恢复期 每秒4点 = 30秒
+					player.world.playSound(null,player.posX,player.posY,player.posZ,
+							SoundEvents.effectTransforming,SoundCategory.MASTER,1,1);
+
+				}
+
+				writeExtraDataToStack(armor,data);
 			}
 		}
 
@@ -58,7 +71,9 @@ public class TraitArmorKleinField extends AbstractArmorTrait implements ITraitDa
 			KleinFieldData data=readExtraDataFromStack(tool);
 
 			if(data.point<0) // 已经超过吸收上限 正在恢复CD
-			{}
+			{
+				data.point-=1;
+			}
 			else // data.point>=0 仍然在吸收伤害
 			{
 				data.point-=0.25; // 每秒

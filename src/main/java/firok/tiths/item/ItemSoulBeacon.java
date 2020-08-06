@@ -1,6 +1,7 @@
 package firok.tiths.item;
 
 import firok.tiths.util.EntityFinders;
+import firok.tiths.util.InnerActions;
 import firok.tiths.util.SoulUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -46,7 +47,7 @@ public class ItemSoulBeacon extends ItemCustom
 		else
 		{
 			Random rand=world.rand;
-			Vec3d facing=player.getForward();
+			Vec3d facing= InnerActions.getEntityForward(player);
 			Vec3d scale=facing.scale(rand.nextFloat() * 5);
 
 			world.spawnParticle(EnumParticleTypes.FLAME,

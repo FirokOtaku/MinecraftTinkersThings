@@ -24,6 +24,7 @@ import net.minecraft.nbt.NBTTagString;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.border.WorldBorder;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
@@ -416,6 +417,15 @@ public final class InnerActions
 			if((obj==null && bean==null) || (obj.equals(bean))) return true;
 		}
 		return false;
+	}
+
+	/**
+	 * 因为{@link Entity#getForward}是客户端专有方法, 所以做了一个封装方法
+	 */
+	public static Vec3d getEntityForward(Entity entity)
+	{
+		if(entity == null) return new Vec3d(0,0,0);
+		else return Vec3d.fromPitchYaw(entity.rotationPitch, entity.rotationYaw);
 	}
 
 	/**

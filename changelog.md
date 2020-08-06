@@ -2,6 +2,15 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.13.0 _2020-08-06 10:00_
+
+* 增加特性 added traits
+  * 水生(护甲) aquatic(armor)
+* 增加状态效果 added effects
+  * 共感 empathic
+* 错误修复 bug fixes
+  * 修复了数个可能服务端崩溃的问题 fixed several possible server-side crashes
+
 ## 0.3.12.0 _2020-07-29 19:00_
 
 * 增加特性 added traits

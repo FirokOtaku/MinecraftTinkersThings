@@ -250,6 +250,7 @@ tile.tiths.block_pyrophyllite.name=叶蜡石块
 tile.tiths.block_redins.name=虹辉石块
 tile.tiths.block_royal_alloy.name=奢华合金块
 tile.tiths.block_sea_grass.name=海草 (WIP)
+tile.tiths.block_sea_grass.desc=为工具和护甲增加水生特性
 tile.tiths.block_solita.name=坚金块
 tile.tiths.block_spinel.name=尖晶石块
 tile.tiths.block_steamium.name=气钢块
@@ -492,7 +493,7 @@ modifier.life_inspiring.desc=§o我不会轻易狗带§r\n在使用者生命危�
 modifier.life_inspiring.name=生命激发
 modifier.lionheart.desc=§o你不再恐惧§r\n每次命中敌人都会叠加一个狮心效果
 modifier.lionheart.name=狮心
-modifier.luxurious.desc=§o有钱人喜欢的玩意§r\n维修时恢复更少耐久
+modifier.luxurious.desc=§o富裕人喜欢的玩意§r\n维修时恢复更少耐久
 modifier.luxurious.name=奢华
 modifier.maiming.desc=§o凭什么和我打?§r\n减速并虚弱敌人
 modifier.maiming.name=致残
@@ -570,6 +571,8 @@ modifier.wither_flowing.name=凋零流动
 
 ## modifier armor
 
+modifier.aquatic_armor.desc=§o §r\n在水中缓慢恢复耐久, 离开水后缓慢损失耐久
+modifier.aquatic_armor.name=水生
 modifier.arsenic_poisonous_armor.desc=§o并非完全不含铅!§r\n使攻击者中毒
 modifier.arsenic_poisonous_armor.name=砷毒
 modifier.beetroot_upgraded_armor.name=甜菜升级
@@ -618,7 +621,7 @@ modifier.hyper_armor.desc=§o我嗨起来了§r\n周围怪物数量越多, 提�
 modifier.hyper_armor.name=振奋
 modifier.icy_armor.desc=§o清凉一下§r\n在寒冷的地方缓慢恢复耐久\n在炎热的地方缓慢损失耐久
 modifier.icy_armor.name=冰凉
-modifier.klein_field_armor.desc=§o §r\n储存一定数量的伤害, 这些伤害会随时间慢慢消散\n储存伤害越多, 随时间损失越多耐久
+modifier.klein_field_armor.desc=§o §r\n吸收一定量的伤害\n短时间内只能吸收一定量伤害; 达到抵消上限时, 会对护甲造成损伤, 且一段时间内不能再抵消
 modifier.klein_field_armor.name=克莱因力场
 modifier.leaves_hiding_armor.desc=§o树在说话§r\n树叶不再是障碍
 modifier.leaves_hiding_armor.name=蔽叶
@@ -626,7 +629,9 @@ modifier.life_inspiring_armor.desc=§o我依旧不会轻易狗带§r\n在穿戴�
 modifier.life_inspiring_armor.name=生命激发
 modifier.lifting_armor.desc=§o慢慢的§r\n渐缓坠落速度并降低坠落伤害
 modifier.lifting_armor.name=扬升
-modifier.luxurious_armor.desc=§o这也是有钱人喜欢的玩意§r\n降低耐久恢复
+modifier.lingering_armor.name=缭绕
+modifier.lingering_armor.desc=§o你看不见我§r\n一定距离之外将无法被看见
+modifier.luxurious_armor.desc=§o这也是富裕人喜欢的玩意§r\n降低耐久恢复
 modifier.luxurious_armor.name=奢华
 modifier.meshing_armor.desc=§o好多鱼§r\n在水中时有几率获得钓鱼产物
 modifier.meshing_armor.name=筛网升级
@@ -718,6 +723,12 @@ lingering_potion.effect.eddying=滞留型旋流药水
 splash_potion.effect.eddying=喷溅型旋流药水
 tipped_arrow.effect.eddying=旋流之箭
 
+effect.empathic=共感
+potion.effect.empathic=共感药水
+lingering_potion.effect.empathic=滞留型共感药水
+splash_potion.effect.empathic=喷溅型共感药水
+tipped_arrow.effect.empathic=共感之箭
+
 effect.eroded=侵蚀
 potion.effect.eroded=侵蚀药水
 lingering_potion.effect.eroded=滞留型侵蚀药水
@@ -802,6 +813,8 @@ death.attack.diffuse_reflecting=%1$s正在不规则反射光线
 death.attack.dragon_killer=%1$s死于屠宰
 death.attack.pyroelectric=%1$s的心脏陷入了麻痹
 death.attack.san=%1$s遇到了一点精神问题
+death.attack.test=%1$s死于测试
+death.attack.empathic=%1$s陷入共情无法自拔
 
 ## config
 
@@ -829,19 +842,7 @@ warning.tiths.alpha=[匠魂扩增] 警告: 您正在使用一份§1预览版§r�
 warning.tiths.beta=[匠魂扩增] 警告: 您正在使用一份§1测试版§r模组文件, 用于§2预览和测试§r, 任何已有内容在未来的更新中都可能出现§6删改§r. 此版本模组文件§4不推荐§r用于服务器生存. (可以在配置中禁用此提示信息)   如果您有任何问题/建议/创意, 可以加入交流群反馈: 938590850
 warning.tiths.indev=[匠魂扩增] 警告: 您正在使用一份§1开发测试§r版本的模组文件, 此版本仅用于内部预览和测试使用, 请§4不要§r随意分发此版本模组文件!
 warning.tiths.release=[匠魂扩增] 欢迎使用匠魂扩增模组! (可以在配置中禁用此提示信息)
-item.tiths.ingot_adamantine.name=Adamantine Ingot
-item.tiths.ingot_mithril.name=Mithril Ingot
-item.tiths.nugget_adamantine.name=Adamantine Nugget
-item.tiths.nugget_mithril.name=Mithril Nugget
-tile.tiths.block_adamantine.name=Block of Adamantine
-tile.tiths.block_mithril.name=Block of Mithril
-tile.tiths.ore_adamantine.name=Adamantine Ore
-tile.tiths.ore_mithril.name=Mithril Ore
-fluid.adamantine.name=Molten Adamantine
-fluid.mithril.name=Molten Mithril
-material.adamantine.name=Adamantine
-material.glass.name=Glass
-material.mithril.name=Mithril
+
 modifier.klein_fielded_armor.desc=§o §r\n储存一定数量的伤害, 这些伤害会随时间慢慢消散\n储存伤害越多, 随时间损失越多耐久
 modifier.klein_fielded_armor.name=克莱因力场
 item.tiths.ingot_mithril.name=Mithril Ingot

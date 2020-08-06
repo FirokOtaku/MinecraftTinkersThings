@@ -62,4 +62,13 @@ public final class DamageSources
 		ret.setMagicDamage();
 		return ret;
 	}
+
+	public static final String TypeEmpathic="empathic";
+	// 共感伤害
+	public static EntityDamageSource Empathic(Entity source)
+	{
+		EntityDamageSource ret=new EntityDamageSource(TypeEmpathic,source);
+		ret.setDamageBypassesArmor();
+		return ret;
+	}
 }

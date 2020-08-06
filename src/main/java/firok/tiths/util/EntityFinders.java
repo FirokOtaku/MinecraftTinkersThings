@@ -61,15 +61,15 @@ public final class EntityFinders
 
 	public static List<Entity> Facing(Entity center,final double distanceFacingMax,final double distanceLineMax, Predicate<? super Entity> predicate)
 	{
-		return Facing(center.world, center, center.getPositionVector(),center.getForward(),distanceFacingMax,distanceLineMax,predicate);
+		return Facing(center.world, center, center.getPositionVector(),InnerActions.getEntityForward(center),distanceFacingMax,distanceLineMax,predicate);
 	}
 	public static List<Entity> FacingEye(Entity center,final double distanceFacingMax,final double distanceLineMax, Predicate<? super Entity> predicate)
 	{
-		return Facing(center.world,center,center.getPositionVector().addVector(0,center.getEyeHeight(),0),center.getForward(),distanceFacingMax,distanceLineMax,predicate);
+		return Facing(center.world,center,center.getPositionVector().addVector(0,center.getEyeHeight(),0),InnerActions.getEntityForward(center),distanceFacingMax,distanceLineMax,predicate);
 	}
 	public static List<Entity> FacingHeight(Entity center,final double height,final double distanceFacingMax,final double distanceLineMax, Predicate<? super Entity> predicate)
 	{
-		return Facing(center.world,center,center.getPositionVector().addVector(0,height,0),center.getForward(),distanceFacingMax,distanceLineMax,predicate);
+		return Facing(center.world,center,center.getPositionVector().addVector(0,height,0),InnerActions.getEntityForward(center),distanceFacingMax,distanceLineMax,predicate);
 	}
 
 	public static List<Entity> Facing(World world,Entity excluding,Vec3d center,Vec3d facing,final double distanceFacingMax,final double distanceLineMax, Predicate<? super Entity> predicate)

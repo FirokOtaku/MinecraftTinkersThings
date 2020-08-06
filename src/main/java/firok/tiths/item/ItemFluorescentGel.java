@@ -1,6 +1,7 @@
 package firok.tiths.item;
 
 import firok.tiths.common.Fluids;
+import firok.tiths.util.InnerActions;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -23,7 +24,7 @@ public class ItemFluorescentGel extends ItemCustom
 	{
 		ItemStack stackHeld=player.getHeldItem(hand);
 
-		Vec3d vecTarget=player.getForward().scale(2).add(player.getPositionVector());
+		Vec3d vecTarget= InnerActions.getEntityForward(player).scale(2).add(player.getPositionVector());
 		BlockPos posTarget=new BlockPos(vecTarget.x, vecTarget.y + player.eyeHeight,vecTarget.z);
 
 		IBlockState stateTarget=world.getBlockState(posTarget);

@@ -33,11 +33,11 @@ public class TraitGluttonic extends AbstractTrait
 				FoodStats stats=player.getFoodStats();
 
 				int foodLevel=stats.getFoodLevel();
-				float saturationLevel=stats.getSaturationLevel();
+//				float saturationLevel=stats.getSaturationLevel();
 
 				// 增加饱食度
 				stats.setFoodLevel(foodLevel + Configs.Traits.factor_gluttonic_food);
-				stats.setFoodSaturationLevel(saturationLevel + Configs.Traits.factor_gluttonic_food);
+//				stats.setFoodSaturationLevel(saturationLevel + Configs.Traits.factor_gluttonic_food);
 			}
 		}
 	}

@@ -2,6 +2,7 @@ package firok.tiths.intergration.conarm;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
 import c4.conarm.lib.utils.RecipeMatchHolder;
+import firok.tiths.common.Blocks;
 import firok.tiths.common.Datas;
 import firok.tiths.common.Items;
 import firok.tiths.intergration.conarm.traits.*;
@@ -14,6 +15,7 @@ import static firok.tiths.util.Selectors.*;
 // ABCDE FGHIJ KLMNO PQRST UVWXY Z
 public class ArmorTraits
 {
+	public static AbstractArmorTrait aquatic; // 水生
 	public static AbstractArmorTrait arsenicPoisonous; // 砷毒
 	public static AbstractArmorTrait beetrootUpgraded; // 甜菜升级
 	public static AbstractArmorTrait buoyant; // 浮力
@@ -77,6 +79,7 @@ public class ArmorTraits
 	@SuppressWarnings("unchecked")
 	public static void init()
 	{
+		aquatic=new TraitArmorAquatic();
 		arsenicPoisonous=new TraitArmorArsenicPoisonous();
 		beetrootUpgraded= new TraitArmorTemptUpgraded(nameTraitBeetrootUpgraded,colorTraitBeetrootUpgraded,player->Datas.Server.instance().hasBeetrootTempt(player))
 				.always(player->Datas.Server.instance().regBeetrootTempt(player))
@@ -149,6 +152,8 @@ public class ArmorTraits
 	}
 	public static void postinit()
 	{
+		RecipeMatchHolder.addItem(aquatic, Blocks.blockSeaGrass, 1);
+
 		RecipeMatchHolder.addItem(beetrootUpgraded, Items.beetrootStack);
 		RecipeMatchHolder.addItem(seedUpgraded, Items.seedStack);
 		RecipeMatchHolder.addItem(carrotUpgraded, Items.carrotStack);

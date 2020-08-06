@@ -70,7 +70,7 @@ public class ItemFormerCrystal extends ItemCustom
 					FormerStatus status=FormerStatus.fromPlayer(player);
 
 					player.getFoodStats().setFoodLevel(1);
-					player.getFoodStats().setFoodSaturationLevel(1);
+//					player.getFoodStats().setFoodSaturationLevel(1);
 					player.setHealth(1);
 					player.clearActivePotions();
 
@@ -101,6 +101,7 @@ public class ItemFormerCrystal extends ItemCustom
 	}
 
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, World worldIn, List<String> list, ITooltipFlag flagIn)
 	{
 		InnerActions.addInformation(this,list,flagIn);

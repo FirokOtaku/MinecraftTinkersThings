@@ -10,9 +10,7 @@ import firok.tiths.item.ISoulGather;
 import firok.tiths.item.ISoulStore;
 import firok.tiths.item.bauble.ItemCharmLapsing;
 import firok.tiths.traits.IHitBlockProjectile;
-import firok.tiths.util.Actions;
-import firok.tiths.util.Ranges;
-import firok.tiths.util.SoulUtil;
+import firok.tiths.util.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockLog;
@@ -33,6 +31,7 @@ import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -488,6 +487,26 @@ public class Events
 
 			if(stackCharm==null) break LAPSING;
 			itemCharm.lapse(stackCharm,player);
+		}
+
+		EMPATHIC: if(!DamageSources.TypeEmpathic.equals(source.getDamageType())) // 共感伤害不会触发共感
+		{
+			List<Entity> entitiesSurroundings = EntityFinders.Nearby( enlb, 8, Selectors.livingBaseAlive );
+			float damageOriginal = event.getAmount();
+			for(Entity entitySurrounding:entitiesSurroundings)
+			{
+				EntityLivingBase enlbSurrounding = (EntityLivingBase) entitySurrounding;
+
+				PotionEffect pe = enlbSurrounding.getActivePotionEffect(Potions.empathic);
+				if(pe == null) continue;
+
+				float hpNow = enlbSurrounding.getHealth(); // 当前血量
+				float damagePer = damageOriginal * 0.2f; // 受到最大共感伤害
+				float damageNow = Math.min( hpNow-1, damagePer ); // 最大只会削减hp到1
+				if(damageNow <= 0) continue;
+
+				enlbSurrounding.attackEntityFrom(DamageSources.Empathic(enlb),damageNow);
+			}
 		}
 	}
 

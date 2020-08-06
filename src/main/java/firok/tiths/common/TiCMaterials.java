@@ -143,7 +143,7 @@ public final class TiCMaterials
 	@Compo(value = nameTorrentialCrystal,traitsArmor = { nameTraitTurbulent })
 	@CompoHead(durability = 100,miningspeed = 1,attack = 1,harvestLevel = 4,traits = {nameTraitTorrential})
 	@CompoHandle(modifier=0.98,durability=120,traits={ nameTraitEddying })
-	@CompoExtra(extraDurability=45,traits={  })
+	@CompoExtra(extraDurability=45,traits={ nameTraitEddying })
 	@CompoArmorCore(durability=5.4,defense=6.8,traits={  })
 	@CompoArmorPlate(modifier=0.8,durability=7,toughness=1.4,traits={  })
 	@CompoArmorTrim(extraDurability=8,traits={  })

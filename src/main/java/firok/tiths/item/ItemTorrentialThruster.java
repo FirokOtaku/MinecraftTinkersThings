@@ -12,6 +12,8 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
 
@@ -41,7 +43,7 @@ public class ItemTorrentialThruster extends ItemCustom
 		if(player.isInWater()/* && heldItem.getItem()==this */)
 		{
 
-			Vec3d forward=player.getForward();
+			Vec3d forward=InnerActions.getEntityForward(player);
 			double factor=0.65;
 
 			player.motionX += forward.x * factor;
@@ -82,6 +84,7 @@ public class ItemTorrentialThruster extends ItemCustom
 	}
 
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, World worldIn, List<String> list, ITooltipFlag flagIn)
 	{
 		InnerActions.addInformation(this,list,flagIn);

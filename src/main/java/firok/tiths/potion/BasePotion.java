@@ -7,6 +7,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BasePotion extends Potion
 {
@@ -66,11 +68,13 @@ public class BasePotion extends Potion
 	// 其中 x 和 y 是纹理上的坐标（u、v），
 	// 需要通过 index % 8 和 index / 8 转换回来。
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void renderHUDEffect(int x, int y, PotionEffect effect, Minecraft mc, float alpha) {
 
 		this.render(x+4,y+4,effect,mc,1);
 	}
 
+	@SideOnly(Side.CLIENT)
 	public void render(int x, int y, PotionEffect effect, Minecraft mc, float alpha) {
 		// 绘制逻辑
 		if(rl==null) return;

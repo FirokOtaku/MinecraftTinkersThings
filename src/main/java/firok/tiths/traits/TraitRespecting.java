@@ -1,6 +1,7 @@
 package firok.tiths.traits;
 
 import firok.tiths.util.Actions;
+import firok.tiths.util.InnerActions;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Vec3d;
@@ -30,8 +31,8 @@ public class TraitRespecting extends AbstractTrait
 		Vec3d directionReal=Actions.CalcUnitVector(new Vec3d(tx-px,ty-py,tz-pz));
 		if(directionReal==null) return false;
 
-		Vec3d directionPlayerLook=player.getForward();
-		Vec3d directionTargetLook=target.getForward();
+		Vec3d directionPlayerLook= InnerActions.getEntityForward(player);
+		Vec3d directionTargetLook= InnerActions.getEntityForward(target);
 
 		// 下面是几个单位向量的点乘
 		return directionPlayerLook.dotProduct(directionReal) > 0.85 && directionPlayerLook.dotProduct(directionTargetLook) < -0.9;

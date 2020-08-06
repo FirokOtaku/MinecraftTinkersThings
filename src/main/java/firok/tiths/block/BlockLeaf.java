@@ -73,7 +73,8 @@ public class BlockLeaf extends BlockLeaves
 	}
 
 	@Override
-	public boolean shouldSideBeRendered(@Nonnull IBlockState blockState, @Nonnull IBlockAccess blockAccess, @Nonnull BlockPos pos, @Nonnull EnumFacing side) {
+	@SideOnly(Side.CLIENT)
+	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
 		// isOpaqueCube returns !leavesFancy to us. We have to fix the variable before calling super
 		this.leavesFancy = !Blocks.LEAVES.isOpaqueCube(blockState);
 

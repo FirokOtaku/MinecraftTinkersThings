@@ -731,6 +731,7 @@ public interface Keys
 	String uuidPotionErodedMaxHealth = "1E27A82D-E92E-465F-988A-0B1BE6B8E273";
 	String uuidPotionParalysedDamage = "BE910A56-9FBA-42C2-AC8E-CDDE3E0F86E1";
 	String uuidPotionParalysedSpeed = "4AEC0B29-61D4-40EB-9D7C-B642BD6A1D96";
+	String uuidPotionEmpathicDamage = "60D5F3B9-BD6C-4417-B426-3BCAE347B947";
 
 	String uuidTraitSolubleSwimSpeed = "E42481C5-6AA3-4A74-A992-22AD533C88CC";
 
