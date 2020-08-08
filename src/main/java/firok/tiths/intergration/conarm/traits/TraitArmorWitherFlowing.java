@@ -1,6 +1,7 @@
 package firok.tiths.intergration.conarm.traits;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import firok.tiths.common.Configs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -35,8 +36,8 @@ public class TraitArmorWitherFlowing extends AbstractArmorTrait
 			{
 				EntityLivingBase enlb=(EntityLivingBase)entity;
 
-				enlb.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS,160,2));
-				enlb.addPotionEffect(new PotionEffect(MobEffects.WITHER,160,1));
+				enlb.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, Configs.ArmorTraits.factor_wither_flowing,2));
+				enlb.addPotionEffect(new PotionEffect(MobEffects.WITHER, Configs.ArmorTraits.factor_wither_flowing,1));
 			}
 		}
 		return newDamage;

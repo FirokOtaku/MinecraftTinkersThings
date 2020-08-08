@@ -293,7 +293,7 @@ public final class TiCMaterials
 			.addItemAsIngot(Items.ingotHothium)
 			.setFluid(Fluids.moltenHothium);
 
-	@Compo(value = namePolarium,traitsTool = {nameTraitUnnatural},traitsArmor = {nameTraitBouncy})
+	@Compo(value = namePolarium,traitsTool = {nameTraitUnnatural},traitsArmor = {nameTraitEmpathy})
 	@CompoHead(durability=620,miningspeed=4.8,attack=4,harvestLevel=4,traits={  })
 	@CompoHandle(modifier=1.1,durability=90,traits={  })
 	@CompoExtra(extraDurability=90,traits={  })

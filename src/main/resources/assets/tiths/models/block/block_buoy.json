@@ -2,8 +2,8 @@
   "parent": "block/cube",
   "textures": {
     "particle": "tiths:blocks/block_buoy_side",
-    "down": "tiths:blocks/block_buoy_side",
-    "up": "tiths:blocks/block_buoy_side",
+    "down": "tiths:blocks/block_buoy_top",
+    "up": "tiths:blocks/block_buoy_top",
     "north": "tiths:blocks/block_buoy_side",
     "south": "tiths:blocks/block_buoy_side",
     "west": "tiths:blocks/block_buoy_side",

@@ -1,6 +1,7 @@
 package firok.tiths.intergration.conarm.traits;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import firok.tiths.common.Configs;
 import firok.tiths.util.EntityFinders;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.entity.Entity;
@@ -31,7 +32,7 @@ public class TraitArmorSurging extends AbstractArmorTrait
 	{
 		if(!world.isRemote && player.isSprinting())
 		{
-			List<Entity> list=EntityFinders.Nearby(player,5, EntitySelectors.IS_ALIVE);
+			List<Entity> list=EntityFinders.Nearby(player, Configs.ArmorTraits.range_surging, EntitySelectors.IS_ALIVE);
 			for(Entity en:list)
 			{
 				if(en==null || en instanceof IProjectile) continue;

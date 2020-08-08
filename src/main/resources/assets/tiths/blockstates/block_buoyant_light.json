@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "tiths:ore_adamantine"
+      "model": "tiths:block_buoyant_light"
     }
   }
 }

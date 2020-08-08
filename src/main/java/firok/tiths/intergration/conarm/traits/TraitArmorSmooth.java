@@ -1,6 +1,7 @@
 package firok.tiths.intergration.conarm.traits;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import firok.tiths.common.Configs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
@@ -26,8 +27,8 @@ public class TraitArmorSmooth extends AbstractArmorTrait
 	{
 		if(canDealWith(source,true,null,null,null,null))
 		{
-			float rate=player.motionX * player.motionX + player.motionY * player.motionY + player.motionZ * player.motionZ > 0 ?
-					0.5f : 0.2f;
+			float rate=(float) (player.motionX * player.motionX + player.motionY * player.motionY + player.motionZ * player.motionZ > 0 ?
+					Configs.ArmorTraits.rate_smooth_moving : Configs.ArmorTraits.rate_smooth_standing );
 			return canTrigger(player.world,rate)? 0 : newDamage;
 		}
 		return newDamage;

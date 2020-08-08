@@ -1,6 +1,7 @@
 package firok.tiths.intergration.conarm.traits;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import firok.tiths.common.Configs;
 import firok.tiths.common.SoundEvents;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -27,10 +28,11 @@ public class TraitArmorDevouring extends AbstractArmorTrait
 	{
 		if(source!=null && source.isMagicDamage())
 		{
-			if(!player.world.isRemote && newDamage > 0 && canTrigger(player.world,0.2))
+			if(!player.world.isRemote && newDamage > 0 && canTrigger(player.world, Configs.ArmorTraits.rate_devouring))
 			{
 				player.world.playSound(null,player.posX,player.posY,player.posZ, SoundEvents.effectTransforming, SoundCategory.PLAYERS,2,1);
-				player.heal(newDamage * 0.5f);
+				if(Configs.ArmorTraits.factor_devouring>0)
+					player.heal(newDamage * (float) Configs.ArmorTraits.factor_devouring);
 			}
 
 			return 0;

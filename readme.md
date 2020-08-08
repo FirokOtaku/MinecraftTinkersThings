@@ -10,14 +10,10 @@
 
 ## 最近更新 latest update
 
-### 0.3.13.0 _2020-08-06 10:00_
+### 0.3.14.0 _2020-08-08 19:00_
 
-* 增加特性 added traits
-  * 水生(护甲) aquatic(armor)
-* 增加状态效果 added effects
-  * 共感 empathic
-* 错误修复 bug fixes
-  * 修复了数个可能服务端崩溃的问题 fixed several possible server-side crashes
+* 更新语言文件 updated lang files
+* 为更多特性增加配置文件支持 more traits are configurable now
 
 ## 版本间差异 differences between versions
 

@@ -22,12 +22,15 @@ public class TraitArmorDichroic extends AbstractArmorTrait
 		super(nameTraitDichroic,colorTraitDichroic);
 	}
 
+	final int light_mid = 7;
+	final int fac_light = 35;
+
 	@Override
 	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
 	{
 		int light=getLight(player);
 
-		return newDamage / (float)( 1 + (light - Configs.Traits.factor_dichroic_light_mid ) / Configs.Traits.factor_dichroic_light );
+		return newDamage / (float)( 1 + (light - light_mid ) / fac_light );
 	}
 
 	@Override
@@ -36,7 +39,7 @@ public class TraitArmorDichroic extends AbstractArmorTrait
 		int light=getLight(player);
 
 		float strength=evt.getStrength(); // todo 估计只改这个没用
-		strength /=(float)( 1 + (light - Configs.Traits.factor_dichroic_light_mid ) / Configs.Traits.factor_dichroic_light );
+		strength /=(float)( 1 + (light - light_mid ) / fac_light );
 
 		evt.setStrength( strength );
 	}

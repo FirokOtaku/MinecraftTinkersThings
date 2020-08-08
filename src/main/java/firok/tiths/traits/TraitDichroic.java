@@ -20,7 +20,8 @@ public class TraitDichroic extends AbstractTrait
 		super(nameTraitDichroic, colorTraitDichroic);
 	}
 
-
+	final int light_mid = 7;
+	final int fac_light = 35;
 
 	@Override
 	public void miningSpeed(ItemStack tool, PlayerEvent.BreakSpeed event)
@@ -28,9 +29,9 @@ public class TraitDichroic extends AbstractTrait
 		EntityPlayer player=event.getEntityPlayer();
 		int light=getLight(player);
 
-		if(light > Configs.Traits.factor_dichroic_light_mid)
+		if(light > light_mid)
 		{
-			event.setNewSpeed((float)( event.getNewSpeed() * ( 1 + ( light - Configs.Traits.factor_dichroic_light_mid ) / Configs.Traits.factor_dichroic_light ) ));
+			event.setNewSpeed((float)( event.getNewSpeed() * ( 1 + ( light - light_mid ) / fac_light ) ));
 		}
 	}
 
@@ -39,8 +40,8 @@ public class TraitDichroic extends AbstractTrait
 	{
 		int light=getLight(player);
 
-		return light < Configs.Traits.factor_dichroic_light_mid?
-				newDamage * (float)(1 + ((Configs.Traits.factor_dichroic_light_mid- light ) / Configs.Traits.factor_dichroic_light )):
+		return light < light_mid?
+				newDamage * (float)(1 + ((light_mid- light ) / fac_light )):
 				newDamage;
 	}
 }

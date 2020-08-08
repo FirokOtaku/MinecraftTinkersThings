@@ -1,6 +1,7 @@
 package firok.tiths.intergration.conarm.traits;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import firok.tiths.common.Configs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
@@ -32,6 +33,6 @@ public class TraitArmorLuxurious extends AbstractArmorTrait
 
 	@Override
 	public int onArmorHeal(ItemStack armor, DamageSource source, int amount, int newAmount, EntityPlayer player, int slot) {
-		return newAmount - amount / 5;
+		return (int)(newAmount - amount * Configs.Traits.factor_luxurious_durability);
 	}
 }

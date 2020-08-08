@@ -29,7 +29,7 @@ public class TraitArmorHiding extends AbstractArmorTrait
 	{
 		if(!player.world.isRemote && canTrigger(player.world, Configs.ArmorTraits.rate_hiding_hit))
 		{
-			Actions.CauseAccumEffect(player,new PotionEffect(MobEffects.INVISIBILITY,160,0));
+			Actions.CauseAccumEffect(player,new PotionEffect(MobEffects.INVISIBILITY, Configs.ArmorTraits.factor_hiding_hit,0));
 		}
 		return newDamage;
 	}

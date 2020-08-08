@@ -1,6 +1,7 @@
 package firok.tiths.intergration.conarm.traits;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import firok.tiths.common.Configs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -36,7 +37,7 @@ public class TraitArmorArsenicPoisonous extends AbstractArmorTrait
 			if(entity instanceof EntityLivingBase)
 			{
 				EntityLivingBase enlb=(EntityLivingBase)entity;
-				enlb.addPotionEffect(new PotionEffect(MobEffects.POISON,120,1));
+				enlb.addPotionEffect(new PotionEffect(MobEffects.POISON, Configs.ArmorTraits.arsenic_poisonous_duration, 1));
 			}
 		}
 		return newDamage;

@@ -1,6 +1,7 @@
 package firok.tiths.intergration.conarm.traits;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import firok.tiths.common.Configs;
 import firok.tiths.util.EntityFinders;
 import firok.tiths.util.Selectors;
 import net.minecraft.entity.EntityLivingBase;
@@ -34,7 +35,7 @@ public class TraitArmorWidening extends AbstractArmorTrait
 			for (PotionEffect potioneffect : effects)
 			{
 				int amplifier=potioneffect.getAmplifier();
-				List<EntityLivingBase> entities= (List)EntityFinders.Nearby(enlb,8, Selectors.livingBaseAlive);
+				List<EntityLivingBase> entities= (List)EntityFinders.Nearby(enlb, Configs.ArmorTraits.range_widening, Selectors.livingBaseAlive);
 				for(EntityLivingBase entity:entities)
 				{
 					if(world.isRemote) // 客户端创建粒子效果

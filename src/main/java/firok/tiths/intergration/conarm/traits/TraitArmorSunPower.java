@@ -2,6 +2,7 @@ package firok.tiths.intergration.conarm.traits;
 
 import c4.conarm.common.armor.utils.ArmorHelper;
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import firok.tiths.common.Configs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -25,7 +26,7 @@ public class TraitArmorSunPower extends AbstractArmorTrait
 	{
 		if(checkHealSun(world))
 		{
-			ArmorHelper.healArmor(tool,1,player,0);
+			ArmorHelper.healArmor(tool, Configs.Traits.factor_sun_power,player,0);
 		}
 	}
 }

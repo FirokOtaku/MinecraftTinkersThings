@@ -25,7 +25,7 @@ public class TraitChemicalInstable extends AbstractTrait
 	public static void boom(EntityLivingBase player,double posX,double posY,double posZ)
 	{
 		player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE,10,1));
-		player.world.createExplosion(null,posX,posY,posZ,1,true);
+		player.world.createExplosion(null,posX,posY,posZ, (float)Configs.Traits.factor_chemical_instable,true);
 	}
 	public static void boom(EntityLivingBase player,EntityLivingBase target)
 	{

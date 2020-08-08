@@ -35,7 +35,7 @@ public class TraitArmorCarbonizing extends AbstractArmorTrait
 	{
 		if(canDealWith(source,true,null,null,null,null))
 		{
-			if(!player.world.isRemote && canTrigger(player.world, Configs.Traits.rate_carbonizing_drop))
+			if(!player.world.isRemote && canTrigger(player.world, Configs.ArmorTraits.rate_carbonizing_drop))
 			{
 				Actions.CauseSpawnItem(player,new ItemStack(Items.cinder));
 			}

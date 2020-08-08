@@ -1,6 +1,7 @@
 package firok.tiths.intergration.conarm.traits;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import firok.tiths.common.Configs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -29,11 +30,11 @@ public class TraitArmorAquatic extends AbstractArmorTrait
 			EntityLivingBase enlb=(EntityLivingBase)entity;
 			if(entity.isInWater())
 			{
-				ToolHelper.healTool(tool,1,enlb);
+				ToolHelper.healTool(tool, Configs.ArmorTraits.factor_aquatic_heal, enlb);
 			}
 			else
 			{
-				ToolHelper.damageTool(tool,1,enlb);
+				ToolHelper.damageTool(tool, Configs.ArmorTraits.factor_aquatic_damage, enlb);
 			}
 		}
 	}

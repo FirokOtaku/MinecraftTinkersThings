@@ -36,29 +36,35 @@ public class TraitClustering extends AbstractTrait
 
 		durability=Math.max(1,(int)(durability*0.95f));
 
+		final int fac_durability = 550;
+		final double fac_atk = 2;
+		final double fac_spd = 1;
+		final double fac_mspd = 1;
+		final double fac_dspd = 0.08;
+
 		// 计算因数 大于指定耐久度的百分比
 		float factor ; // =Math.abs(1f * durability / Configs.Traits.factor_clustering_durability - 1);
 
 //		factor=Math.max(factor,0.45f); // 因数最大为 0.45
 
-		if(durability > Configs.Traits.factor_clustering_durability) // 大于指定耐久度
+		if(durability > fac_durability) // 大于指定耐久度
 		{
-			factor = (durability - Configs.Traits.factor_clustering_durability)/(float)Configs.Traits.factor_clustering_durability;
+			factor = (durability - fac_durability)/(float)fac_durability;
 			if(factor>0.45f) factor=0.45f;
 
-			attack += factor * Configs.Traits.factor_clustering_atk;
+			attack += factor * fac_atk;
 			tag.setFloat(Tags.ATTACK,attack);
 		}
 		else // 小于指定耐久度
 		{
-			factor = (Configs.Traits.factor_clustering_durability - durability)/(float)Configs.Traits.factor_clustering_durability;
+			factor = (fac_durability - durability)/(float)fac_durability;
 			if(factor>0.45f) factor=0.45f;
-			speed += factor * Configs.Traits.factor_clustering_speed_mining;
-			mineSpeed += factor * Configs.Traits.factor_clustering_speed;
+			speed += factor * fac_mspd;
+			mineSpeed += factor * fac_spd;
 
 			if(TinkerUtil.hasCategory(rootCompound, Category.LAUNCHER)) {
 				ProjectileLauncherNBT launcherData = new ProjectileLauncherNBT(TagUtil.getToolTag(rootCompound));
-				launcherData.drawSpeed += launcherData.drawSpeed * Configs.Traits.factor_clustering_speed_draw;
+				launcherData.drawSpeed += launcherData.drawSpeed * fac_dspd;
 				TagUtil.setToolTag(rootCompound, launcherData.get());
 			}
 			tag.setFloat(Tags.MININGSPEED,mineSpeed);

@@ -1,7 +1,9 @@
 package firok.tiths.intergration.conarm.traits;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import firok.tiths.common.Configs;
 import firok.tiths.common.Potions;
+import firok.tiths.util.EntityFinders;
 import firok.tiths.util.Ranges;
 import firok.tiths.util.Selectors;
 import net.minecraft.entity.player.EntityPlayer;
@@ -29,7 +31,7 @@ public class TraitArmorHyper extends AbstractArmorTrait
 	{
 		if(!world.isRemote && canTick(world,60,4))
 		{
-			int size=world.getEntitiesInAABBexcluding(player,Ranges.Neighbour(player,5), Selectors.mobAlive).size();
+			int size= EntityFinders.Nearby(player, Configs.ArmorTraits.range_hyper,Selectors.mobAlive).size();
 			int level= MathHelper.log2DeBruijn(size)-1;
 			if(level>=0)
 			{

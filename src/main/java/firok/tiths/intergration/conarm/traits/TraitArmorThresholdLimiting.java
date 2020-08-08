@@ -38,8 +38,7 @@ public class TraitArmorThresholdLimiting extends AbstractArmorTrait
 //			System.out.println("newDamage: "+newDamage);
 //		}
 
-			return newDamage;
 		}
-		else return newDamage;
+		return newDamage;
 	}
 }

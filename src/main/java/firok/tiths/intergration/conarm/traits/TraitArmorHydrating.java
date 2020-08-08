@@ -2,6 +2,7 @@ package firok.tiths.intergration.conarm.traits;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
 import com.google.common.collect.ImmutableList;
+import firok.tiths.common.Configs;
 import firok.tiths.common.SoundEvents;
 import firok.tiths.util.ITraitData;
 import firok.tiths.util.TraitExtraData;
@@ -32,7 +33,7 @@ public class TraitArmorHydrating extends AbstractArmorTrait implements ITraitDat
 
 	public void regen(ItemStack stack,int point,int max)
 	{
-		if(stack==null) return;
+		if(stack==null || point<=0) return;
 
 		HydratingData data=this.readExtraDataFromStack(stack);
 		data.point+=point;
@@ -41,7 +42,7 @@ public class TraitArmorHydrating extends AbstractArmorTrait implements ITraitDat
 	}
 	public int cost(ItemStack stack,int cost)
 	{
-		if(stack==null || cost<0) return 0;
+		if(stack==null || cost<=0) return 0;
 
 		HydratingData data=this.readExtraDataFromStack(stack);
 		if(data.point<cost)
@@ -74,11 +75,11 @@ public class TraitArmorHydrating extends AbstractArmorTrait implements ITraitDat
 		{
 			if(player.isInWater())
 			{
-				regen(tool,10,500);
+				regen(tool, Configs.ArmorTraits.factor_hydrating_water,500);
 			}
 			else if(world.isRainingAt(player.getPosition()))
 			{
-				regen(tool,7,500);
+				regen(tool, Configs.ArmorTraits.factor_hydrating_rain,500);
 			}
 		}
 	}

@@ -1,10 +1,12 @@
 package firok.tiths.common;
 
+import firok.tiths.util.InnerActions;
 import firok.tiths.util.Predicates;
 import firok.tiths.util.reg.FieldStream;
 import firok.tiths.util.reg.GenOre;
 import firok.tiths.world.*;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
@@ -13,9 +15,9 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.io.OutputStream;
+import java.io.PrintStream;
+import java.util.*;
 
 
 public class WorldGens implements IWorldGenerator
@@ -167,13 +169,37 @@ public class WorldGens implements IWorldGenerator
 		Biome biome=world.getBiome(new BlockPos(chunkVX+8,1,chunkVZ+8));
 		String targetBiomeName=String.valueOf(biome.getRegistryName());
 
-		for(IChunkGen genWorld:generators) // 检查能不能生成在指定世界
-		{
-			boolean canGen=genWorld.canGenAtDim(targetDimId,world,provider) &&
-			               genWorld.canGenAtBiome(targetBiomeName, world, biome);
-			if(!canGen) continue;
+		if(InnerActions.has(Configs.General.blacklist_dim_generation,targetDimId) ||
+				InnerActions.has(Configs.General.blacklist_dim_generation,targetBiomeName)
+		){
+			return; // 被全局黑名单禁用
+		}
 
-			genWorld.genAtChunk(world, chunkVX, chunkVZ, rand);
+		if(Configs.General.log_chunk_generation) // 启用世界生成日志
+		{
+			for(IChunkGen genWorld:generators) // 检查能不能生成在指定世界
+			{
+				boolean canGen=genWorld.canGenAtDim(targetDimId,world,provider) &&
+						genWorld.canGenAtBiome(targetBiomeName, world, biome);
+				if(!canGen) continue;
+
+				List<BlockPos> listGeneration = genWorld.genAtChunk(world, chunkVX, chunkVZ, rand);
+
+				IBlockState state=genWorld.getMainState();
+				countGenerator(targetDimId,chunkX,chunkZ,state,listGeneration);
+			}
+			countChunk();
+		}
+		else // 不启用生成日志
+		{
+			for(IChunkGen genWorld:generators) // 检查能不能生成在指定世界
+			{
+				boolean canGen=genWorld.canGenAtDim(targetDimId,world,provider) &&
+						genWorld.canGenAtBiome(targetBiomeName, world, biome);
+				if(!canGen) continue;
+
+				genWorld.genAtChunk(world, chunkVX, chunkVZ, rand);
+			}
 		}
 	}
 
@@ -181,5 +207,110 @@ public class WorldGens implements IWorldGenerator
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
 	{
 		gen(world,chunkX,chunkZ,random);
+	}
+
+	private static List<GenerationLog> cacheLog = new ArrayList<>(500);
+	public static void countGenerator(int dim,int chunkX,int chunkZ,IBlockState state, List<BlockPos> listGeneration)
+	{
+		try
+		{
+			GenerationLog log=new GenerationLog();
+			log.dim=dim;
+			log.state=state;
+			log.size=listGeneration.size();
+			log.pos=log.size>0?listGeneration.get(0):null;
+			log.chunkX=chunkX;
+			log.chunkZ=chunkZ;
+			cacheLog.add(log);
+		}
+		catch (Exception ignored) { }
+	}
+	private static int tempChunk = 0;
+	public static void countChunk()
+	{
+		tempChunk++;
+		if(tempChunk>=Configs.General.log_chunk_generation_cache)
+		{
+			flush();
+			tempChunk=0;
+		}
+	}
+	private static void flush()
+	{
+		TRY:try
+		{
+			if(os==null) break TRY;
+
+			int total=0;
+
+			for(GenerationLog gl : cacheLog)
+			{
+				if(gl.size<=0) continue;
+				StringBuilder str=
+				new StringBuilder("generated {").append(gl.state.getBlock().getLocalizedName()).append("} × ").append(gl.size).append(" at [")
+						.append(gl.pos.getX()).append(",").append(gl.pos.getY()).append(",").append(gl.pos.getZ())
+						.append("](").append(gl.chunkX).append(",").append(gl.chunkZ)
+						.append(") in dim ").append(gl.dim);
+
+				total+=gl.size;
+
+				os.println(str.toString());
+			}
+
+			Map<IBlockState,Integer> mapStateCount=new HashMap<>();
+			for(GenerationLog gl : cacheLog)
+			{
+				if(gl.size<=0) continue;
+				mapStateCount.compute(gl.state, (key,old)->(old!=null?old:0) + gl.size);
+			}
+			os.print("======== ");
+			os.print(total);
+			os.print(" in ");
+			os.print(Configs.General.log_chunk_generation_cache);
+			os.println(" chunk(s) ========");
+			for(Map.Entry<IBlockState,Integer> entry:mapStateCount.entrySet())
+			{
+				IBlockState state=entry.getKey();
+				int count=entry.getValue();
+				os.print(state.getBlock().getLocalizedName());
+				os.print(" × ");
+				os.println(count);
+			}
+
+			os.flush();
+		}
+		catch (Exception ignored) { }
+		cacheLog.clear();
+	}
+
+	private static class GenerationLog
+	{
+		int dim;
+		int chunkX;
+		int chunkZ;
+		IBlockState state;
+		int size;
+		BlockPos pos;
+	}
+
+	/**
+	 * 世界生成输出流
+	 */
+	private static PrintStream os;
+	public static void setOutStream(OutputStream os)
+	{
+		cacheLog.clear();
+		if(os==null) return;
+		WorldGens.os=new PrintStream(os);
+	}
+	public static void closeOutStream()
+	{
+		try
+		{
+			cacheLog.clear();
+			os.flush();
+			os.close();
+		}
+		catch (Exception ignored) {}
 	}
 }

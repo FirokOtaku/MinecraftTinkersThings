@@ -2,6 +2,7 @@ package firok.tiths.intergration.conarm.traits;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
 import com.google.common.collect.Multimap;
+import firok.tiths.common.Configs;
 import firok.tiths.common.Potions;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -36,7 +37,7 @@ public class TraitArmorSoluble extends AbstractArmorTrait
 		{
 			if( canTick(world,15,2) )
 			{
-				ToolHelper.damageTool(tool, 3, player);
+				ToolHelper.damageTool(tool, Configs.Traits.factor_soluble, player);
 			}
 
 			if( canTick(world,4,0) )

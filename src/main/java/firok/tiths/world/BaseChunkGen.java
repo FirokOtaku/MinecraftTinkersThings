@@ -20,6 +20,12 @@ public abstract class BaseChunkGen implements IChunkGen
 {
 	protected Info info;
 
+	@Override
+	public IBlockState getMainState()
+	{
+		return Info.state(info,null,null);
+	}
+
 	public BaseChunkGen(Info info)
 	{
 		this.info=info;

@@ -215,9 +215,11 @@ public final class Blocks
 	@GenOre(times = 8, timeRate = 0.6f, size = 3, minY = 0, maxY = 50, biome = Strategy.ONLY_WHITELIST, biomeWL = {"$cool","$cold"})
 	public static final Block oreIcelandSpar = new BlockOre(Items.icelandSpar, 1, 2, 1, 3, 5).setCommonOre(); // 冰洲石矿
 	@Reg(Keys.oreIcelit)
+	@GenOre(times = 6, timeRate = 0.8, size = 6, minY = 5, maxY = 50, biome = Strategy.ONLY_WHITELIST, biomeWL = "$sea")
 	public static final Block oreIcelit = new BlockOre(Items.icelit, 1, 1, 1, 3,5).setLightLevel(0.6f); // 冰明玉矿
 	@Reg(Keys.oreImitatium)
-	public static final Block oreImitatium = new BlockOreImitatium(); // 拟素矿
+	public static final Block oreImitatium = new BlockOre(Material.ROCK, Items.nuggetImitatium, 3, 6, 2, 6, 10)
+			.setEpicOre().setLightLevel(0.1f); // 拟素矿
 	@Reg(Keys.oreImmersedSilver)
 	@GenOre(times = 8, timeRate = 0.5, size = 7, minY = 0, maxY = 30, biome = Strategy.ONLY_WHITELIST, biomeWL = {"minecraft:deep_ocean"})
 	public static final Block oreImmersedSilver = new BlockOre().setVeryRareOre(); // 沉银矿石
@@ -240,7 +242,7 @@ public final class Blocks
 	@GenOre(times = 4, timeRate = 1, size = 8, minY = 30, maxY = 50, biome = Strategy.ONLY_WHITELIST, biomeWL = {"$desert"})
 	public static final Block oreNitre = new BlockOre(Items.nitre, 1, 3, 1, 3, 5).setCommonOre(); // 硝石矿
 	@Reg(Keys.oreOpal)
-	@GenOre(times = 4, timeRate = 1, size = 7, minY = 0, maxY = 24, biome = Strategy.ONLY_WHITELIST, biomeWL = {"$desert"})
+	@GenOre(times = 4, timeRate = 1, size = 5, minY = 0, maxY = 24, biome = Strategy.ONLY_WHITELIST, biomeWL = {"$desert"})
 	public static final Block oreOpal = new BlockOre(Items.opal, 1, 1, 1, 4, 6).setRareOre(); // 欧泊
 	@Reg(Keys.orePolarium)
 //	@GenMeteoWorld
@@ -286,7 +288,8 @@ public final class Blocks
 	@GenOre(times = 10,timeRate = 0.7f, size = 9, minY = 20, maxY = 64,biome = Strategy.ONLY_WHITELIST, biomeWL = {"minecraft:swampland"})
 	public static final Block oreTalcum = new BlockOre(Items.talcum, 1, 2, 1, 3, 5).setCommonOre(); // 滑石矿
 	@Reg(Keys.oreTanatonium)
-	public static final Block oreTanatonium = new BlockOreTanatonium(); // 塔拉特妮姆尘埃
+	@GenOre(times = 6, timeRate = 0.8, size = 6, minY = 5, maxY = 50, biome = Strategy.ONLY_WHITELIST, biomeWL = "$sea")
+	public static final Block oreTanatonium = new BlockOre().setEpicOre().setLightLevel(0.2f); // 塔拉特妮姆矿
 	@Reg(Keys.oreRutile)
 	@GenOre(times = 3, timeRate = 0.8f, size = 6, minY = 0, maxY = 60,biome = Strategy.ONLY_WHITELIST, biomeWL = {"$plains"})
 	public static final Block oreTitanium = new BlockOre().setEpicOre(); // 金红石矿

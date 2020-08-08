@@ -19,6 +19,8 @@ import org.apache.logging.log4j.Logger;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.Collection;
 import java.util.Random;
 
@@ -35,7 +37,7 @@ public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers' Things";
-	public static final String VERSION = "1.12.2-0.3.12.0";
+	public static final String VERSION = "1.12.2-0.3.14.0";
 	public static final VersionPhase version = VersionPhase.Alpha;
 
 	public static final String CONARM_ID = "conarm";
@@ -174,16 +176,33 @@ public class TinkersThings
 		event.registerServerCommand(Commands.getInstance());
 
 		Datas.Server.init(event.getServer()); // 初始化服务端数据
+
+		if(Configs.General.log_chunk_generation)
+		{
+			try
+			{
+				new File("./tiths").mkdirs();
+				File file=new File("./tiths","log_world_generation_"+event.getServer().getFolderName()+"_"+System.currentTimeMillis()+".txt");
+				FileOutputStream ofs=new FileOutputStream(file);
+				WorldGens.setOutStream(ofs);
+			}
+			catch (Exception ignored) { }
+		}
 	}
 	@Mod.EventHandler
 	public void onServerStop(FMLServerStoppedEvent event)
 	{
 		Datas.Server.uninit(); // 销毁服务端数据
+
+		if(Configs.General.log_chunk_generation)
+		{
+			WorldGens.closeOutStream();
+		}
 	}
 
 	public static void main(String[] args)
 	{
-		;
+		System.out.println(1);
 	}
 
 

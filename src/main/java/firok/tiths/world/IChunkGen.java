@@ -19,6 +19,11 @@ import java.util.Random;
 public interface IChunkGen
 {
 	/**
+	 * 获取此生成器主要生成的{@link IBlockState}
+	 */
+	IBlockState getMainState();
+
+	/**
 	 * 在指定区块生成结构
 	 * @param world 世界
 	 * @param chunkVertexX 区块顶点坐标

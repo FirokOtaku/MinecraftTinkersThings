@@ -34,12 +34,14 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.lang.reflect.Field;
 
 import static firok.tiths.common.Potions.forcibleFocused;
 import static net.minecraft.init.MobEffects.SLOWNESS;
 
+@SideOnly(Side.CLIENT)
 @Mod.EventBusSubscriber(value = Side.CLIENT,modid = TinkersThings.MOD_ID)
 public class RendererRegistry
 {
@@ -74,6 +76,8 @@ public class RendererRegistry
 		EntityLivingBase enlb=event.getEntity();
 		EntityPlayerSP playerSP=Minecraft.getMinecraft().player;
 		if(enlb==null || playerSP==null) return;
+
+		Object obj=enlb.getActivePotionEffect(Potions.bruming);
 
 		if(enlb.getActivePotionEffect(Potions.bruming)!=null && enlb.getDistanceSqToEntity(playerSP)> 25)
 		{
@@ -170,7 +174,6 @@ public class RendererRegistry
 				e.printStackTrace();
 			}
 		}
-		// 下面是匠魂的代码 // fixme high !
 		for(Field field: Fluids.class.getDeclaredFields())
 		{
 			try

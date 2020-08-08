@@ -30,6 +30,7 @@ public class ArmorTraits
 	public static AbstractArmorTrait devouring; // 吞噬
 	public static AbstractArmorTrait dichroic; // 二色性
 	public static AbstractArmorTrait diffuseReflecting; // 漫反射
+	public static AbstractArmorTrait empathy; // 共感
 	public static AbstractArmorTrait endothermic; // 吸热
 	public static AbstractArmorTrait extremeFreezing; // 极寒
 	public static AbstractArmorTrait fading; // 影淡
@@ -98,6 +99,7 @@ public class ArmorTraits
 		devouring = new TraitArmorDevouring();
 		dichroic=new TraitArmorDichroic();
 		diffuseReflecting=new TraitArmorDiffuseReflecting();
+		empathy=new TraitArmorEmpathy();
 		endothermic=new TraitArmorEndothermic();
 		extremeFreezing=new TraitArmorExtremeFreezing();
 		fading=new TraitArmorFading();

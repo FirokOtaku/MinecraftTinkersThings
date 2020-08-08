@@ -1,6 +1,7 @@
 package firok.tiths.intergration.conarm.traits;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import firok.tiths.common.Configs;
 import firok.tiths.common.Potions;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -23,6 +24,6 @@ public class TraitArmorCapacitor extends AbstractArmorTrait
 	public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean isCritical)
 	{
 		if(target.isEntityAlive())
-			target.addPotionEffect(new PotionEffect(Potions.paralysed,100,0));
+			target.addPotionEffect(new PotionEffect(Potions.paralysed, Configs.ArmorTraits.capacitor_duration, 0));
 	}
 }

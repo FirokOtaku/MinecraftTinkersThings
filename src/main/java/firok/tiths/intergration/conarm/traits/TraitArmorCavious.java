@@ -1,6 +1,7 @@
 package firok.tiths.intergration.conarm.traits;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import firok.tiths.common.Configs;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -78,8 +79,8 @@ public class TraitArmorCavious extends AbstractArmorTrait
 					}
 				}
 
-				player.setPositionAndUpdate(player.posX,player.posY-2,player.posZ);
-				player.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS,200,0));
+				player.setPositionAndUpdate(player.posX,player.posY-3,player.posZ);
+				player.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, Configs.ArmorTraits.cavious_weakness_duration, 0));
 				world.playSound(null,player.posX,player.posY,player.posZ, SoundEvents.BLOCK_ANVIL_BREAK, SoundCategory.MASTER,1,1);
 			}
 		}

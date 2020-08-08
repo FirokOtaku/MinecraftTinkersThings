@@ -14,7 +14,7 @@ import static firok.tiths.util.Predicates.canDealWith;
 import static firok.tiths.util.Predicates.canTrigger;
 
 /**
- * 化学不稳定 - 护甲
+ * 不稳定化合 - 护甲
  */
 public class TraitArmorChemicalInstable extends AbstractArmorTrait
 {

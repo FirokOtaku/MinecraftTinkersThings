@@ -2,6 +2,7 @@ package firok.tiths.intergration.conarm.traits;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
 import firok.tiths.TinkersThings;
+import firok.tiths.common.Configs;
 import firok.tiths.util.Actions;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
@@ -39,7 +40,7 @@ public class TraitArmorMeshing extends AbstractArmorTrait
 	@Override
 	public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
 	{
-		if(!world.isRemote && player.isInWater() && canTick(world,80,0) && canTrigger(world,0.15f))
+		if(!world.isRemote && player.isInWater() && canTick(world,80,0) && canTrigger(world, Configs.ArmorTraits.rate_meshing))
 		{
 			try
 			{
@@ -54,7 +55,7 @@ public class TraitArmorMeshing extends AbstractArmorTrait
 					Actions.CauseSpawnItem(player,itemstack);
 				}
 
-				ToolHelper.damageTool(tool,result.size() * 6,player);
+				ToolHelper.damageTool(tool,result.size() * Configs.ArmorTraits.factor_meshing,player);
 			}
 			catch (Exception e)
 			{

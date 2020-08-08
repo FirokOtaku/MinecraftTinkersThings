@@ -1,6 +1,7 @@
 package firok.tiths.intergration.conarm.traits;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import firok.tiths.common.Configs;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -90,7 +91,7 @@ public class TraitArmorQuickFreezing extends AbstractArmorTrait
 		if(player.isServerWorld())
 		{
 			World world=player.world;
-			if(canTrigger(world,0.4))
+			if(canTrigger(world, Configs.ArmorTraits.rate_quick_freezing))
 			{
 				BlockPos center=player.getPosition();
 				IBlockState stateIce=Blocks.FROSTED_ICE.getDefaultState();

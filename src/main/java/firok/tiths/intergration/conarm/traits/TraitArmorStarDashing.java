@@ -1,6 +1,7 @@
 package firok.tiths.intergration.conarm.traits;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import firok.tiths.common.Configs;
 import firok.tiths.util.Actions;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -25,7 +26,10 @@ public class TraitArmorStarDashing extends AbstractArmorTrait
 	{
 		if(player.isServerWorld())
 		{
-			Actions.CauseStarDashing(player.world,player.posX,player.posY,player.posZ,3,0.2f,5);
+			Actions.CauseStarDashing(player.world,player.posX,player.posY,player.posZ,
+					Configs.Traits.factor_star_dashing_amount,
+					(float) Configs.Traits.factor_star_dashing_speed,
+					(float) (0.4* Configs.Traits.factor_star_dashing_damage));
 		}
 		return newDamage;
 	}

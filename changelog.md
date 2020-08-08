@@ -2,6 +2,11 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.14.0 _2020-08-08 19:00_
+
+* 更新语言文件 updated lang files
+* 为更多特性增加配置文件支持 more traits are configurable now
+
 ## 0.3.13.0 _2020-08-06 10:00_
 
 * 增加特性 added traits
