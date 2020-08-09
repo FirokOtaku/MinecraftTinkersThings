@@ -2,6 +2,10 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.15.0 _2020-08-09 20:00_
+
+* 更新部分合成表 updated some recipes
+
 ## 0.3.14.0 _2020-08-08 19:00_
 
 * 更新语言文件 updated lang files

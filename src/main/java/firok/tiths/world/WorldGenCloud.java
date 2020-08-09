@@ -30,7 +30,7 @@ public class WorldGenCloud extends BaseChunkGen
 		// 椭球在xyz-笛卡尔坐标系中的方程是：x2 / a2+y2 / b2+z2 / c2=1。
 
 		List<BlockPos> ret=new ArrayList<>();
-		final int rx=5+rand.nextInt(8),ry=2+rand.nextInt(3),rz=5+rand.nextInt(8);
+		final int rx=3+rand.nextInt(4),ry=1+rand.nextInt(2),rz=3+rand.nextInt(4);
 		final float a2=rx*rx,b2=ry*ry,c2=rz*rz;
 
 		IBlockState cloud=Blocks.blockCloud.getDefaultState();

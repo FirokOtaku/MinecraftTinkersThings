@@ -97,10 +97,24 @@ public class BlockChannelPlacer extends Block // BlockDirectional
 		Item itemHeld=stackHeld.getItem();
 		Item channel=Item.getItemFromBlock(Blocks.blockChannel);
 
-		if(itemHeld==channel)
-		{
-			;
+		if(itemHeld!=channel) return false;
 
+//		System.out.printf("%s %f %f %f\n",facing.getName(),hitX,hitY,hitZ);
+		int offsetY=hitY>0.5?1:-1;
+		for(int step=1;step<=16;step++)
+		{
+			BlockPos posTemp = pos.add(0,step*offsetY,0);
+			IBlockState stateTemp = world.getBlockState(posTemp);
+			Block blockTemp = stateTemp.getBlock();
+
+			if(!Predicates.isAir(blockTemp) && !Predicates.isWater(blockTemp) && !(blockTemp instanceof BlockChannel))
+				return false;
+
+			if(blockTemp instanceof BlockChannel) continue;
+
+			world.setBlockState(posTemp,Blocks.blockChannel.getDefaultState());
+			stackHeld.shrink(1);
+			return true;
 		}
 
 		return true;

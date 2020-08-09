@@ -1,5 +1,7 @@
 package firok.tiths.block;
 
+import firok.tiths.common.Blocks;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -100,5 +102,12 @@ public class BlockCloud extends BlockCompressed
 		en.motionX*=0.4;
 		if(en.motionY<0) en.motionY*=0.4;
 		en.motionZ*=0.4;
+	}
+
+	@Override
+	public boolean shouldSideBeRendered(IBlockState blockstateThis, IBlockAccess world, BlockPos pos, EnumFacing side)
+	{
+		Block block=world.getBlockState(pos.offset(side)).getBlock();
+		return block != Blocks.oreBrumeJade && block != this;
 	}
 }

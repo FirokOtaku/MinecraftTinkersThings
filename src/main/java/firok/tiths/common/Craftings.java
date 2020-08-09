@@ -242,7 +242,7 @@ public final class Craftings
 				new CastingRecipe(
 						new ItemStack(Blocks.blockConsolidatedGlass),
 						RecipeMatch.of(new ItemStack(net.minecraft.init.Blocks.IRON_BARS)),
-						new FluidStack(TinkerFluids.glass, Material.VALUE_Block),
+						new FluidStack(TinkerFluids.glass, 1000),
 						true, false));
 		// 血腥石英块
 		registerBasinCasting(

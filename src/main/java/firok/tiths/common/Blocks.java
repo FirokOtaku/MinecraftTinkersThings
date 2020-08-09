@@ -173,7 +173,7 @@ public final class Blocks
 	public static final Block oreAltairium = new BlockOre().setEpicOre(); // 河鼓矿
 	@Reg(Keys.oreBrumeJade)
 //	@GenOre(times=2,timeRate = 0.8f,size=6,minY = 24,maxY = 56)
-	public static final Block oreBrumeJade = new BlockOre(Items.brumeJade, 1, 1, 1, 4, 6).setRareOre().enableTransparent(); // 云玉矿
+	public static final Block oreBrumeJade = new BlockOreBrumeJade(); // 云玉矿
 	@Reg(Keys.oreBlackrock)
 	@GenOre(times = 5, timeRate = 0.7, size = 20, minY = 40, maxY = 80)
 	public static final Block oreBlackrock = new BlockOre(Items.blackrock, 1, 3, 2, 1, 6).setCommonOre(); // 黑石矿石

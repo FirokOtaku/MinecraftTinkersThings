@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tiths:tools",
+  "result": { "item": "tiths:block_channel", "count": 6 },
+  "pattern": [
+    "G G",
+    "G G",
+    "G G"
+  ],
+  "key": {
+    "G": { "item": "tiths:block_consolidated_glass" }
+  }
+}

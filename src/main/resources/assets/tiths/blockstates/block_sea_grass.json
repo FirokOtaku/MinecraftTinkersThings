@@ -1,5 +1,8 @@
 {
   "variants": {
-    "level=15": { "model": "tiths:block_sea_grass" }
+    "level=15": { "model": "tiths:block_sea_grass" },
+    "level=14": { "model": "tiths:block_sea_grass" },
+    "level=13": { "model": "tiths:block_sea_grass" },
+    "level=12": { "model": "tiths:block_sea_grass" }
   }
 }
