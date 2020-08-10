@@ -4,16 +4,20 @@ import firok.tiths.common.Blocks;
 import firok.tiths.util.InnerActions;
 import firok.tiths.util.Predicates;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockHorizontal;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockFaceShape;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
+import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -26,31 +30,38 @@ import java.util.List;
 
 import static firok.tiths.util.InnerActions.addWhenIntersect;
 
-/**
- * 通道
- */
-public class BlockChannel extends BlockCompressed
+public class BlockChannelDoor extends BlockHorizontal
 {
-	public BlockChannel()
+	public BlockChannelDoor()
 	{
+		super(Material.GLASS);
 		this.setHardness(0.1f);
 		this.setResistance(0.5f);
 	}
 
-	static final AxisAlignedBB aabb1=new AxisAlignedBB(0,0,0,0.1,1,1);
-	static final AxisAlignedBB aabb2=new AxisAlignedBB(0.9,0,0,1,1,1);
-	static final AxisAlignedBB aabb3=new AxisAlignedBB(0.1,0,0,0.9,1,0.1);
-	static final AxisAlignedBB aabb4=new AxisAlignedBB(0.1,0,0.9,0.9,1,1);
+	static final AxisAlignedBB aabbN=new AxisAlignedBB(0,0,0,1,1,0.1);
+	static final AxisAlignedBB aabbS=new AxisAlignedBB(0,0,0.9,1,1,1);
+	static final AxisAlignedBB aabbW=new AxisAlignedBB(0,0,0,0.1,1,1);
+	static final AxisAlignedBB aabbE=new AxisAlignedBB(0.9,0,0,1,1,1);
 
 	@Override
 	public void addCollisionBoxToList(IBlockState state, World world, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> list, @Nullable Entity entity, boolean p_185477_7_)
 	{
 		if (entityBox == null) return;
 
-		addWhenIntersect(entityBox, aabb1, pos, list);
-		addWhenIntersect(entityBox, aabb2, pos, list);
-		addWhenIntersect(entityBox, aabb3, pos, list);
-		addWhenIntersect(entityBox, aabb4, pos, list);
+		EnumFacing facing = state.getValue(FACING);
+		int dir=facing.getIndex();
+		//DOWN 0
+		//UP 1
+		//NORTH 2
+		//SOUTH 3
+		//WEST 4
+		//EAST 5
+
+		if(dir!=2) addWhenIntersect(entityBox, aabbN, pos, list);
+		if(dir!=3) addWhenIntersect(entityBox, aabbS, pos, list);
+		if(dir!=4) addWhenIntersect(entityBox, aabbW, pos, list);
+		if(dir!=5) addWhenIntersect(entityBox, aabbE, pos, list);
 	}
 
 	@Override
@@ -122,4 +133,60 @@ public class BlockChannel extends BlockCompressed
 	{
 		return BlockFaceShape.UNDEFINED;
 	}
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced)
+	{
+		InnerActions.addInformation(this, tooltip, advanced);
+	}
+
+	/**
+	 * Returns the blockstate with the given rotation from the passed blockstate. If inapplicable, returns the passed
+	 * blockstate.
+	 */
+	public IBlockState withRotation(IBlockState state, Rotation rot)
+	{
+		return state.withProperty(FACING, rot.rotate(state.getValue(FACING)));
+	}
+
+	/**
+	 * Returns the blockstate with the given mirror of the passed blockstate. If inapplicable, returns the passed
+	 * blockstate.
+	 */
+	public IBlockState withMirror(IBlockState state, Mirror mirrorIn)
+	{
+		return state.withRotation(mirrorIn.toRotation(state.getValue(FACING)));
+	}
+
+	/**
+	 * Called by ItemBlocks just before a block is actually set in the world, to allow for adjustments to the
+	 * IBlockstate
+	 */
+	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
+	{
+		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
+	}
+
+	/**
+	 * Convert the given metadata into a BlockState for this Block
+	 */
+	public IBlockState getStateFromMeta(int meta)
+	{
+		return this.getDefaultState().withProperty(FACING, EnumFacing.getHorizontal(meta));
+	}
+
+	/**
+	 * Convert the BlockState into the correct metadata value
+	 */
+	public int getMetaFromState(IBlockState state)
+	{
+		return (state.getValue(FACING)).getHorizontalIndex();
+	}
+
+	protected BlockStateContainer createBlockState()
+	{
+		return new BlockStateContainer(this, FACING);
+	}
+
 }

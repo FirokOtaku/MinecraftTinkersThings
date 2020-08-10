@@ -472,4 +472,17 @@ public final class InnerActions
 		}
 		return ret;
 	}
+
+	/**
+	 * 添加方块碰撞箱
+	 * @param box1 碰撞箱1
+	 * @param box2 碰撞箱2
+	 * @param offset 偏移坐标
+	 * @param list 碰撞箱列表
+	 */
+	public static void addWhenIntersect(AxisAlignedBB box1, AxisAlignedBB box2, BlockPos offset, List<AxisAlignedBB> list)
+	{
+		box2=box2.offset(offset);
+		if(box1.intersects(box2)) list.add(box2);
+	}
 }

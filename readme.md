@@ -10,6 +10,13 @@
 
 ## 最近更新 latest update
 
+### 0.3.16.0 _2020-08-10 20:00_
+
+* 移除方块 removed blocks
+  * 通道建造器 channel placer
+* 增加方块 added blocks
+  * 通道门 channel door
+
 ### 0.3.15.0 _2020-08-09 20:00_
 
 * 更新部分合成表 updated some recipes

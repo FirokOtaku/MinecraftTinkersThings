@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "tiths:block_channel_door", "y": 180 },
+    "facing=west": { "model": "tiths:block_channel_door", "y": 90 },
+    "facing=south": { "model": "tiths:block_channel_door" },
+    "facing=east": { "model": "tiths:block_channel_door", "y": 270 }
+  }
+}

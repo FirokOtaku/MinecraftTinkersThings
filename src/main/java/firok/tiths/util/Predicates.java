@@ -1,5 +1,7 @@
 package firok.tiths.util;
 
+import firok.tiths.block.BlockChannel;
+import firok.tiths.block.BlockChannelDoor;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockStone;
@@ -380,6 +382,19 @@ public final class Predicates
 		if(state==null) return false;
 		Block block=state.getBlock();
 		return block instanceof IPlantable || block instanceof IGrowable;
+	}
+
+	/**
+	 * 判断是否是管道组成部分
+	 * @apiNote 这个断言目前只用于管道方块, 不用于世界生成
+	 */
+//	public static boolean isChannelComponent(IBlockState state)
+//	{
+//		return state!=null && isChannelComponent(state.getBlock());
+//	}
+	public static boolean isChannelComponent(Block block)
+	{
+		return block instanceof BlockChannel || block instanceof BlockChannelDoor;
 	}
 
 	/**

@@ -38,8 +38,10 @@ public final class Blocks
 	public static final Block blockBuoyantLight = new BlockBuoyantLight(); // 浮灯
 	@Reg(Keys.blockChannel)
 	public static final Block blockChannel = new BlockChannel(); // 通道
-	@Reg(Keys.blockChannel+"_placer")
-	public static final Block blockChannelPlacer = new BlockChannelPlacer(); // 通道放置器
+	@Reg(Keys.blockChannel+"_door")
+	public static final Block blockChannelDoor = new BlockChannelDoor(); // 通道门
+//	@Reg(Keys.blockChannel+"_placer")
+//	public static final Block blockChannelPlacer = new BlockChannelPlacer(); // 通道放置器
 	@Reg(Keys.blockChloroplast)
 	public static final Block blockChloroplast = new BlockCompressed().setBeaconBase(); // 叶绿块
 	// 矿块
