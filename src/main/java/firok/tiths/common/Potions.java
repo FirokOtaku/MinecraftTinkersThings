@@ -54,4 +54,5 @@ public final class Potions
 	public static BasePotion bruming = new BasePotion(icon("bruming"),false,colorPotionBruming); // 云雾
 	public static BasePotion paralysed = new PotionParalysed(); // 麻痹
 	public static BasePotion empathic = new PotionEmpathic(); // 共感
+	public static BasePotion hard_ice = new PotionHardIce(); // 坚冰
 }

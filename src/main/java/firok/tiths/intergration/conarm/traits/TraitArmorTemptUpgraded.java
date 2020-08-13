@@ -3,11 +3,9 @@ package firok.tiths.intergration.conarm.traits;
 import c4.conarm.common.armor.utils.ArmorTagUtil;
 import c4.conarm.lib.armor.ArmorNBT;
 import c4.conarm.lib.traits.AbstractArmorTrait;
-import firok.tiths.common.Datas;
 import firok.tiths.entity.ai.EntityAITemptPlayer;
 import firok.tiths.util.EntityFinders;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAITasks;
@@ -24,8 +22,6 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-import static firok.tiths.common.Keys.colorTraitCarrotUpgraded;
-import static firok.tiths.common.Keys.nameTraitCarrotUpgraded;
 import static firok.tiths.util.Predicates.canTick;
 
 /**

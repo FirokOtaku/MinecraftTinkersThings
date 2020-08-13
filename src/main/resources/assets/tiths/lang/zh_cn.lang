@@ -20,7 +20,6 @@ item.tiths.amulet_soul_stone_infinite.name=无限灵魂石护身符 (WIP)
 item.tiths.ancient_book_irisia.name=艾瑞西亚古籍 (WIP)
 item.tiths.anti_grav_crystal.name=反重力水晶 (WIP)
 item.tiths.beetroot_stack.name=甜菜捆
-item.tiths.beetroot_stack.desc=捆到护甲上!
 item.tiths.belt_heavy.name=沉重腰带
 item.tiths.belt_heavy.desc=提供沉重效果
 item.tiths.belt_leather.name=皮革腰带
@@ -42,7 +41,6 @@ item.tiths.buoy.desc=为护甲提供漂浮特性<br>右键可以在水中放置
 item.tiths.buoyant_light.name=浮灯
 item.tiths.buoyant_light.desc=右键可以在水中放置
 item.tiths.carrot_stack.name=萝卜捆
-item.tiths.carrot_stack.desc=捆到护甲上!
 item.tiths.charm_lapsing.name=回溯纹章
 item.tiths.charm_lapsing.desc=受到伤害时回到5秒之前的位置
 item.tiths.chloroplast_dressing.desc=为护甲提供光合作用特性
@@ -67,7 +65,6 @@ item.tiths.ender_crevice_shard.desc=末影传送时可能出现的碎片
 item.tiths.ender_crevice_shard.name=末影裂隙碎片
 item.tiths.ender_dragon_squama.name=末影龙鳞
 item.tiths.fish_stack.name=鱼捆
-item.tiths.fish_stack.desc=捆到护甲上!
 item.tiths.flesh.name=血肉 (WIP)
 item.tiths.flesh_cooked.name=熟血肉
 item.tiths.fluid_ball.name=液体球
@@ -161,7 +158,6 @@ item.tiths.record_tinkers_imagination.name=音乐唱片
 item.tiths.record_tinkers_will.name=音乐唱片
 item.tiths.redins.name=虹辉石
 item.tiths.seed_stack.name=种子捆
-item.tiths.seed_stack.desc=捆到护甲上!
 item.tiths.shell.desc=钓鱼时会自动消耗背包内贝壳提升钓鱼速度
 item.tiths.shell.name=贝壳
 item.tiths.shell_cooked.name=熟贝壳
@@ -184,7 +180,6 @@ item.tiths.tube.name=导管
 item.tiths.ulun.name=乌润石 (WIP)
 item.tiths.vibrating_crystal.name=振晶
 item.tiths.wheat_stack.name=小麦捆
-item.tiths.wheat_stack.desc=捆到护甲上!
 item.tiths.withering_essence.name=凋零精尘
 
 ## block
@@ -250,10 +245,22 @@ tile.tiths.block_polarium.name=勾陈块
 tile.tiths.block_potos.name=泊水石块
 tile.tiths.block_prehnite.name=葡萄石块
 tile.tiths.block_proustite.name=硫砷银块
+tile.tiths.block_punji_cloud.name=云钉
+tile.tiths.block_punji_cloud.desc=软绵绵的, 不会造成伤害
+tile.tiths.block_punji_cobblestone.name=圆石钉
+tile.tiths.block_punji_cobblestone.desc=
+tile.tiths.block_punji_iron.name=铁钉
+tile.tiths.block_punji_iron.desc=比一般钉子更加锋利, 但是不会造成减速
+tile.tiths.block_punji_netherrack.name=地狱岩钉
+tile.tiths.block_punji_netherrack.desc=
+tile.tiths.block_punji_obsidian.name=黑曜石钉
+tile.tiths.block_punji_obsidian.desc=
+tile.tiths.block_punji_sponge.name=海绵钉
+tile.tiths.block_punji_sponge.desc=软绵绵的, 不会造成伤害
 tile.tiths.block_pyrophyllite.name=叶蜡石块
 tile.tiths.block_redins.name=虹辉石块
 tile.tiths.block_royal_alloy.name=奢华合金块
-tile.tiths.block_sea_grass.name=海草 (WIP)
+tile.tiths.block_sea_grass.name=海草
 tile.tiths.block_sea_grass.desc=为工具和护甲增加水生特性
 tile.tiths.block_solita.name=坚金块
 tile.tiths.block_spinel.name=尖晶石块
@@ -745,6 +752,12 @@ lingering_potion.effect.estrous=滞留型发情药水
 splash_potion.effect.estrous=喷溅型发情药水
 tipped_arrow.effect.estrous=发情之箭
 
+effect.hard_ice=坚冰
+potion.effect.hard_ice=坚冰药水
+lingering_potion.effect.hard_ice=滞留型坚冰药水
+splash_potion.effect.hard_ice=喷溅型坚冰药水
+tipped_arrow.effect.hard_ice=坚冰之箭
+
 effect.heavy=沉重
 potion.effect.heavy=沉重药水
 lingering_potion.effect.heavy=滞留型沉重药水
@@ -815,10 +828,11 @@ tipped_arrow.effect.weakened_pestilential=弱化瘟疫之箭
 death.attack.birefringent=%1$s被折射成了碎片
 death.attack.diffuse_reflecting=%1$s正在不规则反射光线
 death.attack.dragon_killer=%1$s死于屠宰
+death.attack.empathic=%1$s陷入共情无法自拔
+death.attack.punji=%1$s被扎死了
 death.attack.pyroelectric=%1$s的心脏陷入了麻痹
 death.attack.san=%1$s遇到了一点精神问题
 death.attack.test=%1$s死于测试
-death.attack.empathic=%1$s陷入共情无法自拔
 
 ## config
 
@@ -912,7 +926,7 @@ config.tiths.trait.factor_watery_out=水化-离开水后作用系数
 
 config.tiths.trait_armor=护甲特性设定
 config.tiths.trait_armor.tooltip=调整各类护甲特性的参数
-config.tiths.trait_armor.rate_carbonizing_drop=碳化掉落几率
+config.tiths.trait_armor.rate_carbonizing_drop=碳化-掉落几率
 config.tiths.trait_armor.factor_aquatic_heal=水生-耐久回复量
 config.tiths.trait_armor.factor_aquatic_damage=水生-耐久损失量
 config.tiths.trait_armor.arsenic_poisonous_duration=砷毒-中毒持续时间(tick)
@@ -944,6 +958,8 @@ tooltip.tiths.item_xp.when_use=使用后获得经验:
 tooltip.tiths.soul_drop=灵魂击杀掉落增益 +%d
 tooltip.tiths.soul_storing=灵魂储量 +%d (-%d)
 tooltip.tiths.soul_watching=提供灵魂视野
+tooltip.tiths.item_bait=右键对地面使用可扔下一些碎屑, 吸引动物; 或者可以在护甲工作台里绑到护甲上!
+tooltip.tiths.block_bait=周围的动物会被吸引过来吃掉这些碎屑, 同时会恢复一点点血量
 
 ## warning
 
@@ -955,5 +971,3 @@ warning.tiths.release=[匠魂扩增] 欢迎使用匠魂扩增模组! (可以在�
 modifier.klein_fielded_armor.desc=§o §r\n储存一定数量的伤害, 这些伤害会随时间慢慢消散\n储存伤害越多, 随时间损失越多耐久
 modifier.klein_fielded_armor.name=克莱因力场
 material.glass.name=Glass
-modifier.klein_fielded_armor.desc=§o §r\n储存一定数量的伤害, 这些伤害会随时间慢慢消散\n储存伤害越多, 随时间损失越多耐久
-modifier.klein_fielded_armor.name=克莱因力场

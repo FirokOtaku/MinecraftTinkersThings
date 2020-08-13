@@ -226,6 +226,8 @@ public interface Keys
 	String blockImitatium = prefBlock + nameImitatium;
 	String blockDecurrium = prefBlock + nameDecurrium;
 	String blockIcelit = prefBlock + nameIcelit;
+	String blockPunji = prefBlock + "punji";
+	String blockBait = prefBlock + "bait";
 
 	String blockFulgurite = prefBlock + nameFulgurite;
 	String blockMeteorolite = prefBlock + nameMeteorolite;
@@ -715,6 +717,7 @@ public interface Keys
 	int colorPotionFear = 0x921b28;
 	int colorPotionParalysed = 0xdbab23;
 	int colorPotionEmpathic = colorTraitEmpathy;
+	int colorPotionHardIce = 0x7da5dc;
 
 	// 状态效果属性修饰符uuid
 	String uuidPotionAvatarSpeed = "258A83A5-A3BD-4CFD-842C-B2DF39343C91";
@@ -732,6 +735,8 @@ public interface Keys
 	String uuidPotionParalysedDamage = "BE910A56-9FBA-42C2-AC8E-CDDE3E0F86E1";
 	String uuidPotionParalysedSpeed = "4AEC0B29-61D4-40EB-9D7C-B642BD6A1D96";
 	String uuidPotionEmpathicDamage = "60D5F3B9-BD6C-4417-B426-3BCAE347B947";
+	String uuidPotionHardIceDefense = "C72FA61D-1459-406A-A38A-6EB7EC3A2D94";
+	String uuidPotionHardIceToughness = "F8FABC23-01C9-4A47-8339-4B90DD8C6345";
 
 	String uuidTraitSolubleSwimSpeed = "E42481C5-6AA3-4A74-A992-22AD533C88CC";
 

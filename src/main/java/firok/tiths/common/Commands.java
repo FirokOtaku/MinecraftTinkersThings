@@ -1,6 +1,7 @@
 package firok.tiths.common;
 
 import com.google.gson.JsonArray;
+import com.sun.org.apache.xml.internal.serializer.ToHTMLSAXHandler;
 import firok.tiths.TinkersThings;
 import firok.tiths.util.Actions;
 import firok.tiths.util.Colors;
@@ -23,6 +24,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import org.apache.commons.io.FileUtils;
+import slimeknights.tconstruct.library.utils.ToolHelper;
 
 import javax.annotation.Nullable;
 import java.awt.*;
@@ -33,6 +35,7 @@ import java.util.List;
 
 import static firok.tiths.TinkersThings.log;
 import static firok.tiths.common.Blocks.*;
+import static firok.tiths.util.Predicates.canTrigger;
 import static net.minecraft.init.Blocks.*;
 import static slimeknights.tconstruct.TConstruct.random;
 
@@ -190,6 +193,31 @@ public class Commands implements ICommand
 						{
 
 
+							break SWITCH;
+						}
+						case "rand":
+						{
+							Random rand=player.world.rand;
+
+							final int W = 10000;
+							for(float rate=0.95f; rate>0; rate-=0.1)
+							{
+								int count=0;
+								for(int i=0;i<W;i++) count += canTrigger(rand, rate) ? 1 : 0;
+								System.out.printf("rate %f = %d/%d (%f)\n",rate,count,W,(count/(float)W));
+							}
+
+
+							break SWITCH;
+						}
+						case "tic":
+						{
+							ItemStack stackHeld = player.getHeldItemMainhand();
+							System.out.printf("ds %d    dm %d    dc %d\n",
+									ToolHelper.getDurabilityStat(stackHeld),
+									ToolHelper.getMaxDurability(stackHeld),
+									ToolHelper.getCurrentDurability(stackHeld)
+									);
 							break SWITCH;
 						}
 					}

@@ -18,6 +18,9 @@ public final class DamageSources
 	public static final String TypeTest="test";
 	public static DamageSource TestDamage=new DamageSource(TypeTest);
 
+	public static final String TypePunji="punji";
+	public static DamageSource PunjiDamage=new DamageSource(TypePunji);
+
 	// 双折伤害
 	public static final String TypeBirefringent="birefringent";
 	public static EntityDamageSource Birefringent(Entity source)

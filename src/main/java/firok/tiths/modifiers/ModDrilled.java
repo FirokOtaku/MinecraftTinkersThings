@@ -1,9 +1,6 @@
 package firok.tiths.modifiers;
 
-import firok.tiths.common.Modifiers;
 import firok.tiths.util.InnerActions;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.init.Enchantments;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import slimeknights.tconstruct.library.modifiers.IToolMod;
@@ -11,6 +8,7 @@ import slimeknights.tconstruct.library.modifiers.ModifierAspect;
 import slimeknights.tconstruct.library.tools.ProjectileLauncherNBT;
 import slimeknights.tconstruct.library.tools.ToolNBT;
 import slimeknights.tconstruct.library.utils.TagUtil;
+import slimeknights.tconstruct.library.utils.ToolHelper;
 import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.TinkerTraits;
 import slimeknights.tconstruct.tools.modifiers.ToolModifier;
@@ -31,8 +29,8 @@ public class ModDrilled extends ToolModifier
 	@Override
 	protected boolean canApplyCustom(ItemStack stack)
 	{
-		ToolNBT data=TagUtil.getToolStats(TagUtil.getTagSafe(stack));
-		return data.durability>850 && data.attack>2;
+//		ToolNBT data=TagUtil.getToolStats(TagUtil.getTagSafe(stack));
+		return ToolHelper.getMaxDurability(stack) >850 && ToolHelper.getActualAttack(stack)>2;
 	}
 
 	@Override

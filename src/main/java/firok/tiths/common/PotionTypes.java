@@ -28,19 +28,19 @@ public final class PotionTypes
 	public static final PotionType avatar=new PotionType("avatar",
 			new PotionEffect(Potions.avatar,3600,0));
 	public static final PotionType rooted=new PotionType("rooted",
-			new PotionEffect(Potions.rooted,3600,0));
+			new PotionEffect(Potions.rooted,600,0));
 	public static final PotionType armor_softened=new PotionType("armor_softened",
 			new PotionEffect(Potions.armor_softened,3600,0));
 
 	public static final PotionType void_infected=new PotionType("void_infected",
-			new PotionEffect(Potions.void_infected,3600,0));
+			new PotionEffect(Potions.void_infected,1200,0));
 	public static final PotionType acid_wetted=new PotionType("acid_wetted",
 			new PotionEffect(Potions.acid_wetted,3600,0));
 	public static final PotionType lionheart=new PotionType("lionheart",
 			new PotionEffect(Potions.lionheart,3600,0));
 
 	public static final PotionType icy=new PotionType("icy",
-			new PotionEffect(Potions.icy,3600,0));
+			new PotionEffect(Potions.icy,300,0));
 
 	public static final PotionType bubbling=new PotionType("bubbling",
 			new PotionEffect(Potions.bubbling,3600,0));
@@ -56,9 +56,11 @@ public final class PotionTypes
 	public static final PotionType bruming=new PotionType("bruming",
 			new PotionEffect(Potions.bruming,3600,0));
 	public static final PotionType paralysed=new PotionType("paralysed",
-			new PotionEffect(Potions.paralysed,3600,0));
+			new PotionEffect(Potions.paralysed,600,0));
 //	public static final PotionType forcibleFocused=new PotionType("forcibleFocused",
 //			new PotionEffect(Potions.forcibleFocused,3600,0));
+	public static final PotionType hard_ice=new PotionType("hard_ice",
+			new PotionEffect(Potions.hard_ice,3600,0));
 
 //	public static final PotionType sun_power=new PotionType("sun_power",
 //			new PotionEffect(MobEffects.STRENGTH,3600,0));

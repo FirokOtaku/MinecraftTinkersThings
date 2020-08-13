@@ -10,12 +10,14 @@
 
 ## 最近更新 latest update
 
-### 0.3.16.0 _2020-08-10 20:00_
+### 0.3.17.0 _2020-08-13 23:30_
 
-* 移除方块 removed blocks
-  * 通道建造器 channel placer
 * 增加方块 added blocks
-  * 通道门 channel door
+  * 铁钉 iron punji block
+  * 海绵钉 sponge punji block
+  * 云钉 cloud punji block
+* 增加状态效果 added potion effects
+  * 坚冰 hard ice
 
 ### 0.3.15.0 _2020-08-09 20:00_
 

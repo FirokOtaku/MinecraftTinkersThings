@@ -3,14 +3,14 @@
     "modid": "tiths",
     "name": "Tinkers' Things",
     "description": "A mod adding several things to Tinkers' Construct",
-    "version": "1.12.2-0.3.16.0",
+    "version": "1.12.2-0.3.17.0",
     "mcversion": "${mcversion}",
     "url": "https://github.com/351768593/MinecraftTinkersThings",
     "updateUrl": "",
     "authorList": [
       "Firok"
     ],
-    "credits": "Forge guys, MCP guys, TiC guys, TAIGA guys, Harbinger guys, FreeSounds guys and all guys helped me during development",
+    "credits": "Forge guys, MCP guys, TiC guys, TAIGA guys, Harbinger guys, FreeSounds guys and all other guys helped me during development",
     "logoFile": "tiths_logo.png",
     "screenshots": [],
     "dependencies": []

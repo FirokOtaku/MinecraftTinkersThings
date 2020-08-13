@@ -170,7 +170,7 @@ public class WorldGens implements IWorldGenerator
 		String targetBiomeName=String.valueOf(biome.getRegistryName());
 
 		if(InnerActions.has(Configs.General.blacklist_dim_generation,targetDimId) ||
-				InnerActions.has(Configs.General.blacklist_dim_generation,targetBiomeName)
+			InnerActions.has(Configs.General.blacklist_biome_generation,targetBiomeName)
 		){
 			return; // 被全局黑名单禁用
 		}

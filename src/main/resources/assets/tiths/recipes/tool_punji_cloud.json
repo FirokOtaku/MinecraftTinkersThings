@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tiths:tools",
+  "result": { "item": "tiths:block_punji_cloud", "count": 1 },
+  "pattern": [
+    "S S",
+    " S ",
+    "S S"
+  ],
+  "key":
+  {
+    "S": {
+      "type": "tiths:tool_rod_ingredient",
+      "material": "cloud"
+    }
+  }
+}

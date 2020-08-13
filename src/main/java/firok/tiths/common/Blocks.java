@@ -1,6 +1,8 @@
 package firok.tiths.common;
 
 import firok.tiths.block.*;
+import firok.tiths.block.BlockBait;
+import firok.tiths.block.punji.*;
 import firok.tiths.util.reg.GenOre;
 import firok.tiths.util.reg.Reg;
 import firok.tiths.world.Strategy;
@@ -8,6 +10,10 @@ import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import slimeknights.tconstruct.library.utils.HarvestLevels;
+
+import java.util.function.Predicate;
+
+import static firok.tiths.util.Selectors.*;
 
 @SuppressWarnings("all")
 public final class Blocks
@@ -18,6 +24,16 @@ public final class Blocks
 	public static final Block blockAirPump = new BlockCompressed(); // 气泵
 	@Reg(Keys.blockAltairium)
 	public static final Block blockAltairium = new BlockCompressed().setBeaconBase(); // 河鼓块
+	@Reg(Keys.blockBait+"_beetroot")
+	public static final Block blockBaitBeetrood = new BlockBait((Predicate) pigAlive); // 甜菜诱饵方块
+	@Reg(Keys.blockBait+"_carrot")
+	public static final Block blockBaitCarrot = new BlockBait((Predicate) rabbitAlive, (Predicate) pigAlive); // 萝卜诱饵方块
+	@Reg(Keys.blockBait+"_fish")
+	public static final Block blockBaitFish = new BlockBait((Predicate) catAlive); // 萝卜诱饵方块
+	@Reg(Keys.blockBait+"_seed")
+	public static final Block blockBaitSeed= new BlockBait((Predicate) chickenAlive); // 种子诱饵方块
+	@Reg(Keys.blockBait+"_wheat")
+	public static final Block blockBaitWheat = new BlockBait((Predicate) sheepAlive,(Predicate) cowAlive); // 小麦诱饵方块
 	@Reg(Keys.blockBrumeJade)
 	public static final Block blockBrumeJade = new BlockCompressed(Material.ROCK).setBeaconBase(); // 云玉块
 	@Reg(Keys.blockBlackrock)
@@ -127,6 +143,18 @@ public final class Blocks
 	public static final Block blockPrehnite = new BlockCompressed(Material.ROCK).setBeaconBase(); // 葡萄石块
 	@Reg(Keys.blockProustite)
 	public static final Block blockProustite = new BlockCompressed(Material.ROCK); // 硫砷银矿
+	@Reg(Keys.blockPunji+"_cloud")
+	public static final Block blockPunjiCloud = new BlockPunjiSoft(); // 云钉
+//	@Reg(Keys.blockPunji+"_cobblestone")
+//	public static final Block blockPunjiCobblestone = new BlockPunjiCobblestone(); // 圆石钉
+	@Reg(Keys.blockPunji+"_iron")
+	public static final Block blockPunjiIron = new BlockPunjiIron(); // 铁钉
+//	@Reg(Keys.blockPunji+"_netherrack")
+//	public static final Block blockPunjiNetherrack = new BlockPunjiNetherrack(); // 下界岩钉
+//	@Reg(Keys.blockPunji+"_obsidian")
+//	public static final Block blockPunjiObsidian = new BlockPunjiObsidian(); // 黑曜石钉
+	@Reg(Keys.blockPunji+"_sponge")
+	public static final Block blockPunjiSponge = new BlockPunjiSoft(); // 海绵钉
 	@Reg(Keys.blockPyrophyllite)
 	public static final Block blockPyrophyllite = new BlockCompressed(Material.ROCK); // 叶蜡石块
 	@Reg(Keys.blockRoyalAlloy)
