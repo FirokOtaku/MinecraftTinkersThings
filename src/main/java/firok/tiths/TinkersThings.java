@@ -31,13 +31,15 @@ import java.util.Random;
 		dependencies = "required-after:tconstruct@[1.12.2-2.13.0.171,);" +
 		               "required-after:mantle@[1.12-1.3.3.55,);" +
 		               "required-after:baubles@[1.5.2,);" +
-		               "after:conarm@[1.2.5,)"
+		               "after:conarm@[1.2.5,);"+
+				       "after:hammercore@[1.12.2-2.0.6.17,);"+
+				       "after:lux@[1.12.2,)"
 )
 public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers' Things";
-	public static final String VERSION = "1.12.2-0.3.17.0";
+	public static final String VERSION = "1.12.2-0.3.18.0";
 	public static final VersionPhase version = VersionPhase.Alpha;
 
 	public static final String CONARM_ID = "conarm";

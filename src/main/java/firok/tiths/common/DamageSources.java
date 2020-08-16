@@ -3,6 +3,7 @@ package firok.tiths.common;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSource;
+import net.minecraft.util.EntityDamageSourceIndirect;
 
 public final class DamageSources
 {
@@ -37,6 +38,15 @@ public final class DamageSources
 	{
 		EntityDamageSource ret=new EntityDamageSource(TypePyroelectric,source);
 		ret.setMagicDamage();
+		return ret;
+	}
+
+	// 星绽伤害
+	public static final String TypeDashingStat="dashing_star";
+	public static EntityDamageSource DashingStar(Entity source,Entity indirect)
+	{
+		EntityDamageSourceIndirect ret=new EntityDamageSourceIndirect(TypeDashingStat,indirect,source);
+		ret.setFireDamage();
 		return ret;
 	}
 

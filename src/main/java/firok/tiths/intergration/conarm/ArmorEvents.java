@@ -1,7 +1,9 @@
 package firok.tiths.intergration.conarm;
 
 import c4.conarm.lib.capabilities.ArmorAbilityHandler;
+import firok.tiths.common.Configs;
 import firok.tiths.intergration.conarm.traits.TraitArmorWidening;
+import firok.tiths.util.InnerActions;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.*;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -12,10 +14,12 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPotion;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.sound.PlaySoundEvent;
 import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.Optional;
@@ -28,9 +32,45 @@ import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
 import java.util.List;
+import java.util.Set;
+
+import static firok.tiths.util.Predicates.canDealWith;
+import static firok.tiths.util.Predicates.canTrigger;
 
 public class ArmorEvents
 {
+	public static void onPlayerHurt(LivingHurtEvent event,EntityPlayer player)
+	{
+		DamageSource source=event.getSource();
+		Set<ITrait> traitsArmor= InnerActions.getArmorTraits(player);
+
+		if(traitsArmor.contains(ArmorTraits.thresholdLimiting)) // 阈限
+		{
+			float damage=event.getAmount();
+			if(damage > 4 && canDealWith(source,true,null,null,null,null))
+			{
+				float damageMax = player.getHealth()/4;
+//				System.out.println("damage max "+damageMax+" damage "+damage);
+				if(damage>damageMax)
+				{
+					event.setAmount(damageMax<1?1:damageMax);
+				}
+			}
+		}
+		else if(traitsArmor.contains(ArmorTraits.smooth) && !player.world.isRemote) // 光滑
+		{
+			if(canDealWith(source,true,null,null,null,null))
+			{
+				float rate=(float) (player.motionX * player.motionX + player.motionY * player.motionY + player.motionZ * player.motionZ > 0 ?
+						Configs.ArmorTraits.rate_smooth_moving : Configs.ArmorTraits.rate_smooth_standing );
+				if(canTrigger(player.world,rate))
+				{
+					event.setAmount(0);
+					event.setCanceled(true);
+				}
+			}
+		}
+	}
 	public static void onItemUsed(LivingEntityUseItemEvent.Finish event)
 	{
 		EntityLivingBase enlb=event.getEntityLiving();

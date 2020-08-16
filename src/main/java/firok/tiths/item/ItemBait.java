@@ -1,10 +1,15 @@
 package firok.tiths.item;
 
+import firok.tiths.block.BlockBait;
+import firok.tiths.util.Actions;
 import firok.tiths.util.InnerActions;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.BlockFaceShape;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -16,6 +21,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
 
+import static firok.tiths.util.Predicates.canTrigger;
+
 public class ItemBait extends ItemCustom
 {
 	Block bait;
@@ -26,16 +33,26 @@ public class ItemBait extends ItemCustom
 	}
 
 	@Override
-	public EnumActionResult onItemUseFirst(EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand)
+	public EnumActionResult onItemUseFirst(EntityPlayer player, World world, BlockPos posBase, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand)
 	{
 		ItemStack stackHeld=player.getHeldItem(hand);
-		BlockPos posTarget=pos.offset(side);
-		if(world.isAirBlock(posTarget))
-		{
-//			if(!player.isCreative()) stackHeld.shrink(1);
-			// fixme 几率损耗
 
-			world.setBlockState(posTarget, bait.getDefaultState());
+		IBlockState stateBase=world.getBlockState(posBase);
+		BlockFaceShape shapeBase=stateBase.getBlockFaceShape(world,posBase,side);
+
+		BlockPos posTarget=posBase.offset(side);
+		if(shapeBase==BlockFaceShape.SOLID && world.isAirBlock(posTarget))
+		{
+			if(!world.isRemote)
+			{
+				if(!player.isCreative() && canTrigger(world.rand,0.125))
+				{
+					stackHeld.shrink(1);
+					Actions.CauseSpawnItem(player,new ItemStack(Items.STRING,4));
+				}
+
+				world.setBlockState(posTarget, bait.getDefaultState().withProperty(BlockBait.FACING,side.getOpposite()));
+			}
 
 			return EnumActionResult.SUCCESS;
 		}

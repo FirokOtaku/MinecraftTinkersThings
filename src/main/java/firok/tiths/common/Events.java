@@ -72,6 +72,7 @@ import static firok.tiths.common.Configs.Traits.enable_gluttonic_clear;
 import static firok.tiths.common.Traits.thermalGathering;
 import static firok.tiths.item.ISoulStore.Common;
 import static firok.tiths.util.Predicates.*;
+import static net.minecraftforge.fml.common.eventhandler.EventPriority.HIGHEST;
 
 @Mod.EventBusSubscriber(modid=TinkersThings.MOD_ID)
 public class Events
@@ -460,14 +461,15 @@ public class Events
 
 	}
 
-	@SubscribeEvent
-	public static void onEntityDamaged(LivingHurtEvent event)
+	@SubscribeEvent(priority = HIGHEST)
+	public static void onLivingHurt(LivingHurtEvent event)
 	{
-		EntityLivingBase enlb=event.getEntityLiving();
-		DamageSource source=event.getSource();
-		float originDamage=event.getAmount();
+		final EntityLivingBase enlb=event.getEntityLiving();
+		final DamageSource source=event.getSource();
+
 		if(source.isFireDamage()) // 判断是不是火焰伤害
 		{
+			float originDamage=event.getAmount();
 			List<ITrait> traits=new ArrayList<>();
 			traits.addAll(ToolHelper.getTraits(enlb.getHeldItemMainhand()));
 			traits.addAll(ToolHelper.getTraits(enlb.getHeldItemOffhand()));
@@ -478,14 +480,21 @@ public class Events
 
 		}
 
-		LAPSING:if(enlb instanceof EntityPlayer)
+		WHEN_PLAYER:if(enlb instanceof EntityPlayer) // 玩家相关的逻辑判断
 		{
 			EntityPlayer player=(EntityPlayer)enlb;
+
+			if(TinkersThings.enableConarm())
+			{
+				ArmorEvents.onPlayerHurt(event,player);
+				if(event.getAmount()<=0 || event.isCanceled()) return; // 如果在执行护甲效果时被取消则直接return
+			}
+
 			ItemCharmLapsing itemCharm=(ItemCharmLapsing)Items.lapsingCharm;
 
 			ItemStack stackCharm=itemCharm.getCharmNoneCD(player);
 
-			if(stackCharm==null) break LAPSING;
+			if(stackCharm==null) break WHEN_PLAYER;
 			itemCharm.lapse(stackCharm,player);
 		}
 

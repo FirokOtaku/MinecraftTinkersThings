@@ -29,7 +29,8 @@ public class TraitArmorStarDashing extends AbstractArmorTrait
 			Actions.CauseStarDashing(player.world,player.posX,player.posY,player.posZ,
 					Configs.Traits.factor_star_dashing_amount,
 					(float) Configs.Traits.factor_star_dashing_speed,
-					(float) (0.4* Configs.Traits.factor_star_dashing_damage));
+					(float) (0.4* Configs.Traits.factor_star_dashing_damage),
+					player);
 		}
 		return newDamage;
 	}

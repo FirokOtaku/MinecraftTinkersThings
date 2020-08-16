@@ -2,6 +2,16 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.18.0 _2020-08-16 19:30_
+
+* 错误修复 bug fixes
+  * 现在气动特性可以正常增加击退
+  now Steamy trait can deal knockback correctly
+  * 现在阈限和光滑特性可以正常降低伤害
+  now Threshold Limiting and Smooth traits can reduce damage correctly
+  * 现在星绽不会对自己和属于自己的驯化生物造成伤害
+  now Star Dashing trait cannot deal damage to player himself and entities tamed by him
+
 ## 0.3.17.0 _2020-08-13 23:30_
 
 * 增加方块 added blocks

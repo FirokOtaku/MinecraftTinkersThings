@@ -823,10 +823,12 @@ potion.effect.weakened_pestilential=Potion of Weakened Pestilential
 lingering_potion.effect.weakened_pestilential=Lingering Potion of Weakened Pestilential
 splash_potion.effect.weakened_pestilential=Splash Potion of Weakened Pestilential
 tipped_arrow.effect.weakened_pestilential=Arrow of Weakened Pestilential
+
 ## death
 
 death.attack.birefringent=%1$s was refracted into pieces
 death.attack.diffuse_reflecting=%1$s is reflecting light irregularly
+death.attack.dashing_star=%1$s dashed too much
 death.attack.dragon_killer=%1$s died of slaughter
 death.attack.punji=%1$s was stabbed to death
 death.attack.pyroelectric=Heart of %1$s was paralyzed

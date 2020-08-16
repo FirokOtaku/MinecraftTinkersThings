@@ -823,10 +823,12 @@ potion.effect.weakened_pestilential=弱化瘟疫药水
 lingering_potion.effect.weakened_pestilential=滞留型弱化瘟疫药水
 splash_potion.effect.weakened_pestilential=喷溅型弱化瘟疫药水
 tipped_arrow.effect.weakened_pestilential=弱化瘟疫之箭
+
 ## death
 
 death.attack.birefringent=%1$s被折射成了碎片
 death.attack.diffuse_reflecting=%1$s正在不规则反射光线
+death.attack.dashing_star=%1$s如同希望之花绽放
 death.attack.dragon_killer=%1$s死于屠宰
 death.attack.empathic=%1$s陷入共情无法自拔
 death.attack.punji=%1$s被扎死了

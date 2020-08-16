@@ -1,7 +1,9 @@
 package firok.tiths.entity.projectile;
 
 import firok.tiths.TinkersThings;
+import firok.tiths.common.DamageSources;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.IEntityOwnable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -18,7 +20,7 @@ public class ProjectileDashingStar extends EntityProjectileBase
 {
 	public float speed,damage;
 	public int ticks=40;
-	public String shotter=null;
+//	public String shotter=null;
 
 	public ProjectileDashingStar(World world) {
 		super(world);
@@ -54,16 +56,17 @@ public class ProjectileDashingStar extends EntityProjectileBase
 //
 //	}
 
-	public static final DamageSource DamageSource=new DamageSource("DASHING_STAR").setProjectile().setMagicDamage();
 	public void onHitEntity(RayTraceResult raytraceResult) {
 
 		Entity entityHit = raytraceResult.entityHit;
+		System.out.println("shooting entity : "+shootingEntity);
 
-		if(entityHit instanceof EntityPlayer && ((EntityPlayer) entityHit).getDisplayNameString().equals(shotter))
-			return;
+		if(entityHit == shootingEntity) return;
+		if(entityHit instanceof IEntityOwnable && ((IEntityOwnable) entityHit).getOwner() == shootingEntity) return;
 
 		entityHit.hurtResistantTime=0;
-		entityHit.attackEntityFrom(DamageSource,damage);
+		entityHit.setFire(1);
+		entityHit.attackEntityFrom(DamageSources.DashingStar(shootingEntity,this),damage);
 		playHitEntitySound();
 		setDead();
 	}
@@ -101,7 +104,7 @@ public class ProjectileDashingStar extends EntityProjectileBase
 		this.speed=tags.getFloat("p_speed");
 		this.damage=tags.getFloat("p_damage");
 		this.ticks=tags.hasKey("p_ticks")?tags.getInteger("p_ticks"):40;
-		this.shotter=tags.hasKey("p_shotter")?tags.getString("p_shotter"):null;
+//		this.shotter=tags.hasKey("p_shotter")?tags.getString("p_shotter"):null;
 	}
 
 	@Override
@@ -111,6 +114,6 @@ public class ProjectileDashingStar extends EntityProjectileBase
 		tags.setFloat("p_speed",speed);
 		tags.setFloat("p_damage",damage);
 		tags.setInteger("p_ticks",ticks);
-		tags.setString("p_shotter",shotter);
+//		tags.setString("p_shotter",shotter);
 	}
 }

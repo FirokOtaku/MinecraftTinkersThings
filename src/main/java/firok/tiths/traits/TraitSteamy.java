@@ -24,6 +24,6 @@ public class TraitSteamy extends AbstractTrait
 	@Override
 	public float knockBack(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float knockback, float newKnockback, boolean isCritical)
 	{
-		return newKnockback * 1.25f;
+		return (newKnockback + 0.25f) * 1.25f;
 	}
 }

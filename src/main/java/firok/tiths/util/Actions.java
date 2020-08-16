@@ -318,10 +318,11 @@ public final class Actions
 	}
 
 	// 星绽 - 创建粒子
-	public static ProjectileDashingStar CauseStarDashing(World world,double fromX,double fromY,double fromZ,double toX,double toY,double toZ,float speed,float damage)
+	public static ProjectileDashingStar CauseStarDashing(World world,double fromX,double fromY,double fromZ,double toX,double toY,double toZ,float speed,float damage,Entity shootingEntity)
 	{
 //		TinkersThings.log("gen star..."+System.currentTimeMillis());
 		ProjectileDashingStar star=new ProjectileDashingStar(world,fromX,fromY,fromZ);
+		star.shootingEntity=shootingEntity;
 
 		double mod= (fromX-toX)*(fromX-toX)+(fromY-toY)*(fromY-toY)+(fromZ-toZ)*(fromZ-toZ);
 		mod= MathHelper.sqrt(mod);
@@ -335,18 +336,14 @@ public final class Actions
 		world.spawnEntity(star);
 		return star;
 	}
-	public static ProjectileDashingStar CauseStarDashing(Entity from,Entity to,float speed,float damage)
+	public static ProjectileDashingStar CauseStarDashing(Entity from,Entity to,float speed,float damage,Entity shootingEntity)
 	{
-		ProjectileDashingStar star=CauseStarDashing(from.world,from.posX,from.posY+3,from.posZ,to.posX,to.posY+to.getEyeHeight(),to.posZ,speed,damage);
-		if(from instanceof EntityPlayer)
-		{
-			star.shotter=((EntityPlayer) from).getDisplayNameString();
-		}
+		ProjectileDashingStar star=CauseStarDashing(from.world,from.posX,from.posY+3,from.posZ,to.posX,to.posY+to.getEyeHeight(),to.posZ,speed,damage,shootingEntity);
 		return star;
 	}
 	private static final float OffsetY=0.866f;
 	private static final float OffsetY2=1.732f;
-	public static ProjectileDashingStar[] CauseStarDashing(final World world,final double centerX,final double centerY,final double centerZ,final int amount,final float speed,final float damage)
+	public static ProjectileDashingStar[] CauseStarDashing(final World world,final double centerX,final double centerY,final double centerZ,final int amount,final float speed,final float damage,Entity shootingEntity)
 	{
 		ProjectileDashingStar[] ret=new ProjectileDashingStar[amount];
 		Random rand=world.rand;
@@ -365,7 +362,7 @@ public final class Actions
 			double toX=fromX+ MathHelper.cos(rotXZ2);
 			double toZ=fromZ+ MathHelper.sin(rotXZ2);
 
-			ret[i]=CauseStarDashing(world,fromX,fromY,fromZ,toX,toY,toZ,speed,damage);
+			ret[i]=CauseStarDashing(world,fromX,fromY,fromZ,toX,toY,toZ,speed,damage,shootingEntity);
 
 //			world.spawnEntity(ret[i]);
 		}
