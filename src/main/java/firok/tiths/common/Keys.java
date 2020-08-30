@@ -856,56 +856,56 @@ public interface Keys
 
 	// 组合
 	// 环境
-	String[] biomes_plains = { biome_plains, biome_savanna_rock, biome_savanna, biome_mutated_ice_flats, biome_ice_flats, biome_mutated_plains };
-	String[] biomes_forests = { biome_jungle, biome_jungle_edge, biome_forest, biome_birch_forest, biome_taiga_cold, biome_redwood_taiga, biome_taiga, biome_roofed_forest, biome_mutated_taiga_cold, biome_mutated_jungle_edge, biome_mutated_savanna_rock, biome_mutated_redwood_taiga, biome_mutated_forest, biome_mutated_taiga, biome_mutated_birch_forest, biome_mutated_roofed_forest, biome_mutated_jungle, biome_mutated_savanna };
-	String[] biomes_mesas = {biome_mesa, biome_mesa_rock, biome_mesa_clear_rock, biome_mutated_mesa, biome_mutated_mesa_clear_rock, biome_mutated_mesa_rock };
-	String[] biomes_hills = { biome_taiga_cold_hills, biome_forest_hills, biome_ice_mountains, biome_jungle_hills, biome_taiga_hills, biome_redwood_taiga_hills, biome_extreme_hills_with_trees, biome_extreme_hills, biome_smaller_extreme_hills, biome_mutated_extreme_hills, biome_mutated_redwood_taiga_hills, biome_mutated_extreme_hills_with_trees, biome_mutated_birch_forest_hills, biome_birch_forest_hills };
-	String[] biomes_desert = { biome_desert, biome_desert_hills, biome_mutated_desert };
-	String[] biomes_water = { biome_river, biome_frozen_river, biome_swampland, biome_mutated_swampland };
-	String[] biomes_sea = { biome_frozen_ocean, biome_ocean, biome_deep_ocean, biome_cold_beach, biome_stone_beach, biome_beaches };
-	String[] biomes_water_sea = { biome_river, biome_frozen_river, biome_swampland, biome_mutated_swampland, biome_frozen_ocean, biome_ocean, biome_deep_ocean, biome_cold_beach, biome_stone_beach, biome_beaches };
-	String[] biomes_special = { biome_void, biome_hell, biome_sky, biome_mushroom_island_shore, biome_mushroom_island };
-	// 温度
-	String[] biomes_hot = {biome_desert,biome_desert_hills,biome_mutated_savanna,biome_mutated_savanna_rock,biome_mesa,biome_mesa_rock,biome_mesa_clear_rock,biome_mutated_desert,biome_mutated_savanna,biome_mutated_savanna_rock,biome_mutated_mesa,biome_mutated_mesa_clear_rock,biome_mutated_mesa_rock};
-	String[] biomes_warm = {biome_plains,biome_forest,biome_swampland,biome_river,biome_beaches,biome_forest_hills,biome_jungle,biome_jungle_hills,biome_jungle_edge,biome_birch_forest,biome_birch_forest_hills,biome_roofed_forest,biome_mutated_plains,biome_mutated_forest,biome_mutated_swampland,biome_mutated_jungle,biome_mutated_jungle_edge,biome_mutated_birch_forest,biome_mutated_birch_forest_hills,biome_mutated_roofed_forest};
-	String[] biomes_common = {biome_extreme_hills,biome_taiga,biome_taiga_hills,biome_smaller_extreme_hills,biome_stone_beach,biome_redwood_taiga,biome_redwood_taiga_hills,biome_extreme_hills_with_trees,biome_mutated_extreme_hills,biome_mutated_taiga,biome_mutated_redwood_taiga,biome_mutated_redwood_taiga_hills,biome_mutated_extreme_hills_with_trees};
-	String[] biomes_cool = {biome_ocean,biome_mushroom_island,biome_mushroom_island_shore,biome_deep_ocean};
-	String[] biomes_cold = {biome_frozen_ocean,biome_frozen_river,biome_ice_flats,biome_ice_mountains,biome_cold_beach,biome_taiga_cold,biome_taiga_cold_hills,biome_mutated_ice_flats,biome_mutated_taiga_cold};
-	static String[] getBiomes(String...keys)
-	{
-		if(keys==null || keys.length==0) return new String[0];
-
-		Set<String> set=new HashSet<>();
-		FOR_KEY:for(String keyTemp:keys)
-		{
-			if(keyTemp==null) continue;
-			String[] keysTemp;
-			switch (keyTemp)
-			{
-				case "$plains": keysTemp=biomes_plains; break;
-				case "$forests": keysTemp=biomes_forests; break;
-				case "$mesas": keysTemp=biomes_mesas; break;
-				case "$hills": keysTemp=biomes_hills; break;
-				case "$desert": keysTemp=biomes_desert; break;
-				case "$water": keysTemp=biomes_water; break;
-				case "$sea": keysTemp=biomes_sea; break;
-				case "$water_sea": keysTemp=biomes_water_sea; break;
-				case "$special": keysTemp=biomes_special; break;
-				case "$hot" : keysTemp=biomes_hot; break;
-				case "$warm" : keysTemp=biomes_warm; break;
-				case "$common" : keysTemp=biomes_common; break;
-				case "$cool" : keysTemp=biomes_cool; break;
-				case "$cold" : keysTemp=biomes_cold; break;
-				default:
-				{
-					set.add(keyTemp);
-					continue FOR_KEY;
-				}
-			}
-			for(String kt:keysTemp) set.add(kt);
-		}
-
-		return set.toArray(new String[set.size()]);
-
-	}
+//	String[] biomes_plains = { biome_plains, biome_savanna_rock, biome_savanna, biome_mutated_ice_flats, biome_ice_flats, biome_mutated_plains };
+//	String[] biomes_forests = { biome_jungle, biome_jungle_edge, biome_forest, biome_birch_forest, biome_taiga_cold, biome_redwood_taiga, biome_taiga, biome_roofed_forest, biome_mutated_taiga_cold, biome_mutated_jungle_edge, biome_mutated_savanna_rock, biome_mutated_redwood_taiga, biome_mutated_forest, biome_mutated_taiga, biome_mutated_birch_forest, biome_mutated_roofed_forest, biome_mutated_jungle, biome_mutated_savanna };
+//	String[] biomes_mesas = {biome_mesa, biome_mesa_rock, biome_mesa_clear_rock, biome_mutated_mesa, biome_mutated_mesa_clear_rock, biome_mutated_mesa_rock };
+//	String[] biomes_hills = { biome_taiga_cold_hills, biome_forest_hills, biome_ice_mountains, biome_jungle_hills, biome_taiga_hills, biome_redwood_taiga_hills, biome_extreme_hills_with_trees, biome_extreme_hills, biome_smaller_extreme_hills, biome_mutated_extreme_hills, biome_mutated_redwood_taiga_hills, biome_mutated_extreme_hills_with_trees, biome_mutated_birch_forest_hills, biome_birch_forest_hills };
+//	String[] biomes_desert = { biome_desert, biome_desert_hills, biome_mutated_desert };
+//	String[] biomes_water = { biome_river, biome_frozen_river, biome_swampland, biome_mutated_swampland };
+//	String[] biomes_sea = { biome_frozen_ocean, biome_ocean, biome_deep_ocean, biome_cold_beach, biome_stone_beach, biome_beaches };
+//	String[] biomes_water_sea = { biome_river, biome_frozen_river, biome_swampland, biome_mutated_swampland, biome_frozen_ocean, biome_ocean, biome_deep_ocean, biome_cold_beach, biome_stone_beach, biome_beaches };
+//	String[] biomes_special = { biome_void, biome_hell, biome_sky, biome_mushroom_island_shore, biome_mushroom_island };
+//	// 温度
+//	String[] biomes_hot = {biome_desert,biome_desert_hills,biome_mutated_savanna,biome_mutated_savanna_rock,biome_mesa,biome_mesa_rock,biome_mesa_clear_rock,biome_mutated_desert,biome_mutated_savanna,biome_mutated_savanna_rock,biome_mutated_mesa,biome_mutated_mesa_clear_rock,biome_mutated_mesa_rock};
+//	String[] biomes_warm = {biome_plains,biome_forest,biome_swampland,biome_river,biome_beaches,biome_forest_hills,biome_jungle,biome_jungle_hills,biome_jungle_edge,biome_birch_forest,biome_birch_forest_hills,biome_roofed_forest,biome_mutated_plains,biome_mutated_forest,biome_mutated_swampland,biome_mutated_jungle,biome_mutated_jungle_edge,biome_mutated_birch_forest,biome_mutated_birch_forest_hills,biome_mutated_roofed_forest};
+//	String[] biomes_common = {biome_extreme_hills,biome_taiga,biome_taiga_hills,biome_smaller_extreme_hills,biome_stone_beach,biome_redwood_taiga,biome_redwood_taiga_hills,biome_extreme_hills_with_trees,biome_mutated_extreme_hills,biome_mutated_taiga,biome_mutated_redwood_taiga,biome_mutated_redwood_taiga_hills,biome_mutated_extreme_hills_with_trees};
+//	String[] biomes_cool = {biome_ocean,biome_mushroom_island,biome_mushroom_island_shore,biome_deep_ocean};
+//	String[] biomes_cold = {biome_frozen_ocean,biome_frozen_river,biome_ice_flats,biome_ice_mountains,biome_cold_beach,biome_taiga_cold,biome_taiga_cold_hills,biome_mutated_ice_flats,biome_mutated_taiga_cold};
+//	static String[] getBiomes(String...keys)
+//	{
+//		if(keys==null || keys.length==0) return new String[0];
+//
+//		Set<String> set=new HashSet<>();
+//		FOR_KEY:for(String keyTemp:keys)
+//		{
+//			if(keyTemp==null) continue;
+//			String[] keysTemp;
+//			switch (keyTemp)
+//			{
+//				case "$plains": keysTemp=biomes_plains; break;
+//				case "$forests": keysTemp=biomes_forests; break;
+//				case "$mesas": keysTemp=biomes_mesas; break;
+//				case "$hills": keysTemp=biomes_hills; break;
+//				case "$desert": keysTemp=biomes_desert; break;
+//				case "$water": keysTemp=biomes_water; break;
+//				case "$sea": keysTemp=biomes_sea; break;
+//				case "$water_sea": keysTemp=biomes_water_sea; break;
+//				case "$special": keysTemp=biomes_special; break;
+//				case "$hot" : keysTemp=biomes_hot; break;
+//				case "$warm" : keysTemp=biomes_warm; break;
+//				case "$common" : keysTemp=biomes_common; break;
+//				case "$cool" : keysTemp=biomes_cool; break;
+//				case "$cold" : keysTemp=biomes_cold; break;
+//				default:
+//				{
+//					set.add(keyTemp);
+//					continue FOR_KEY;
+//				}
+//			}
+//			for(String kt:keysTemp) set.add(kt);
+//		}
+//
+//		return set.toArray(new String[set.size()]);
+//
+//	}
 }

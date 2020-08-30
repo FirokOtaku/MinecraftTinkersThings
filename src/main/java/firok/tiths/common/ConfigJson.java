@@ -7,7 +7,6 @@ import firok.tiths.TinkersThings;
 import firok.tiths.modding.ModdingFactory;
 import firok.tiths.modding.ModdingInfo;
 import firok.tiths.util.conf.MaterialInfo;
-import firok.tiths.world.Info;
 
 import java.io.File;
 import java.io.FileReader;
@@ -250,22 +249,22 @@ public final class ConfigJson
 //		}));
 //		if(ores.size()>0) log("customized ore gens: "+ ores.keySet());
 //	}
-	private static final Map<String, Info> ores=new HashMap<>();
-	public static Info getOre(String name)
-	{
-		return ores.get(name);
-	}
-	public static void readOres()
-	{
-		ores.clear();
-		readJsonConfig(nameConfigOres,objectConfig-> objectConfig.entrySet().forEach(entry->{
-			String name=entry.getKey();
-			JsonObject obj=entry.getValue().getAsJsonObject();
-			Info info=Info.build(obj);
-
-			ores.put(name,info);
-		}));
-	}
+//	private static final Map<String, Info> ores=new HashMap<>();
+//	public static Info getOre(String name)
+//	{
+//		return ores.get(name);
+//	}
+//	public static void readOres()
+//	{
+//		ores.clear();
+//		readJsonConfig(nameConfigOres,objectConfig-> objectConfig.entrySet().forEach(entry->{
+//			String name=entry.getKey();
+//			JsonObject obj=entry.getValue().getAsJsonObject();
+//			Info info=Info.build(obj);
+//
+//			ores.put(name,info);
+//		}));
+//	}
 
 	/* ---- 自定义工具处理方法 ---- */
 	public static void readMFs()

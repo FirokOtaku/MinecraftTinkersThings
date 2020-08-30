@@ -51,6 +51,11 @@ repositories {
         name 'thiakil'
         url 'https://maven.thiakil.com'
     }
+    maven {
+        name "CurseForge"
+        url "https://minecraft.curseforge.com/api/maven/"
+    }
+
     flatDir { dirs './libs' }
 }
 
@@ -59,6 +64,7 @@ dependencies {
     deobfCompile "mezz.jei:jei_1.12.2:4.15.0.293"
     deobfCompile "slimeknights:TConstruct:1.12.2-2.13.0.171:deobf"
     deobfCompile "com.azanor.baubles:Baubles:1.12-1.5.+"
+//    deobfCompile "tk.zeitheron.HammerLib:HammerLib-1.12.2:2.0.6.17:deobf"
 //    	Baubles-1.12-1.5.2
 }
 

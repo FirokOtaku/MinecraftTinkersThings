@@ -838,10 +838,28 @@ death.attack.empathic=%1$s is falling into empathy
 
 ## config
 
+config.tiths.biome_groups=Biome Groups
+config.tiths.biome_groups.tooltip=我们预设了数个生物群系组, 供各种生成和逻辑判断使用
+config.tiths.biome_groups.plain=Plain (plain)
+config.tiths.biome_groups.forest=Forest (forest)
+config.tiths.biome_groups.mesa=Mesa (mesa)
+config.tiths.biome_groups.hill=Hill (hill)
+config.tiths.biome_groups.desert=Desert (desert)
+config.tiths.biome_groups.water=Water (water)
+config.tiths.biome_groups.sea=Sea (sea)
+config.tiths.biome_groups.water_sea=Water and Sea (water_sea)
+config.tiths.biome_groups.special=Special (special)
+config.tiths.biome_groups.hot=Hot (hot)
+config.tiths.biome_groups.warm=Warm (warm)
+config.tiths.biome_groups.common=Common (common)
+config.tiths.biome_groups.cool=Cool (cool)
+config.tiths.biome_groups.cold=Cold (cold)
+
 config.tiths.gameplay=Gameplay
 config.tiths.gameplay.tooltip=Adjust gameplay settings
 config.tiths.gameplay.enable_royal=Enable easy crafting of royal alloy
 config.tiths.gameplay.enable_royal.tooltip=If enabled, the royal alloy will be crafted by iron + gold, otherwise it will be iron + gold + milk
+config.tiths.gameplay.enable_fulgurite_generation=Enable Fulgurite Generation
 
 config.tiths.general=General
 config.tiths.general.tooltip=Adjust general settings
@@ -952,6 +970,51 @@ config.tiths.trait_armor.rate_smooth_standing=Smooth-rate when standing
 config.tiths.trait_armor.range_surging=Surging-range
 config.tiths.trait_armor.range_widening=Widening-range
 config.tiths.trait_armor.factor_wither_flowing=Wither Flowing-duration of debuff(tick)
+
+config.tiths.world_gens=World Generations
+config.tiths.world_gens.tooltip=Adjust world generations
+config.tiths.world_gens.enable_world_gen=Enable world generations
+config.tiths.world_gens.enable_world_gen.tooltip=We won't generate any ores if disabled
+config.tiths.world_gens.altairium=Altairium
+config.tiths.world_gens.brume_jade=Brume Jade
+config.tiths.world_gens.blackrock=Blackrock
+config.tiths.world_gens.broken_bedrock=Broken Bedrock
+config.tiths.world_gens.chloroplast=Chloroplast
+config.tiths.world_gens.cinnabar=Cinnabar
+config.tiths.world_gens.corundum=Corundum
+config.tiths.world_gens.halleium=Halleium
+config.tiths.world_gens.hothium=Hothium
+config.tiths.world_gens.iceland_spar=Iceland_spar
+config.tiths.world_gens.icelit=Icelit
+config.tiths.world_gens.immersed_silver=Immersed Silver
+config.tiths.world_gens.inert_witherium=Inert Witherium
+config.tiths.world_gens.ink_powder=Ink Powder
+config.tiths.world_gens.lava_crystal=Lava Crystal
+config.tiths.world_gens.lizanite=Lizanite
+config.tiths.world_gens.moon_stone=Moon Stone
+config.tiths.world_gens.nitre=Nitre
+config.tiths.world_gens.opal=Opal
+config.tiths.world_gens.polarium=Polarium
+config.tiths.world_gens.prehnite=Prehnite
+config.tiths.world_gens.proustite=Proustite
+config.tiths.world_gens.pyrophyllite=Pyrophyllite
+config.tiths.world_gens.redins=Redins
+config.tiths.world_gens.solid_dirt=Solid Dirt
+config.tiths.world_gens.solid_sand=Solid Sand
+config.tiths.world_gens.solid_stone=Solid Stone
+config.tiths.world_gens.spinel=Spinel
+config.tiths.world_gens.steamium=Steamium
+config.tiths.world_gens.stellarium=Stellarium
+config.tiths.world_gens.sun_stone=Sun Stone
+config.tiths.world_gens.talcum=Talcum
+config.tiths.world_gens.tanatonium=Tanatonium
+config.tiths.world_gens.titanium=Titanium
+config.tiths.world_gens.tonium=Tonium
+config.tiths.world_gens.topaz=Topaz
+config.tiths.world_gens.tourmaline=Tourmaline
+config.tiths.world_gens.tree_root=Tree Root
+config.tiths.world_gens.vibrating_crystal=Vibrating Crystal
+
 
 ## tooltip
 

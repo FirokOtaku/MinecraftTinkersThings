@@ -1,6 +1,5 @@
 package firok.tiths.world;
 
-import firok.tiths.TinkersThings;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -9,24 +8,41 @@ import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import static firok.tiths.util.Predicates.canTrigger;
 
-public class WorldGenMinableBedrock extends BaseChunkGen
+public class WorldGenMinableBedrock extends AbstractChunkGen
 {
-	public WorldGenMinableBedrock(Info defaultInfo,String specialKey)
-	{
-		super(defaultInfo, specialKey);
-	}
-
 //	private static IBlockState stateBrokenBedrock=firok.tiths.common.Blocks.oreBrokenBedrock.getDefaultState();
+
+	/**
+	 * 生成多少矿物
+	 */
+	protected int size;
+
+	/**
+	 * 单次成功概率
+	 */
+	protected float rate;
+
+	@Override
+	public void init(Map<String, String> raw, IBlockState... states)
+	{
+		super.init(raw, states);
+
+		String strSize=raw.get("size"), strRate=raw.get("rate");
+		if(strSize==null) errorMissingKey("size");
+		this.size=parseInt("size",strSize);
+		this.rate=strRate!=null?parseFloat("rate",strRate,0,1):0.8f;
+	}
 
 	@Override
 	public List<BlockPos> genAtRealPos(World world, int posX, int posY, int posZ, int chunkVX, int chunkVZ, Random rand)
 	{
 		List<BlockPos> ret=new ArrayList<>();
-		IBlockState stateOre=Info.state(info,null,null);
+		IBlockState stateOre=getMainState();
 		// 小小地应用一下动态规划算法
 		int[][] ys=new int[][]{ // 记录偏移坐标的位置多高是可以生成矿物的y坐标 (其实是上次循环尝试生成的y坐标)(所以用这个坐标生成矿物的时候需要自增1)
 				{-1,-1,-1},
@@ -34,11 +50,11 @@ public class WorldGenMinableBedrock extends BaseChunkGen
 				{-1,-1,-1},
 		}; // -1 代表还未寻找 -2表示已经不能生成了
 
-		int countMax=Info.time(info,null,1);
+		int countMax=this.size;
 
 		FOR_TIMES_GEN_ORE:for(int time=0;time<countMax;time++) // 每次生成指定块矿物
 		{
-			if(!canTrigger(rand,0.8)) continue FOR_TIMES_GEN_ORE;
+			if(!canTrigger(rand,rate)) continue FOR_TIMES_GEN_ORE;
 
 			int ox=rand.nextInt(3),oz=rand.nextInt(3); // 随机生成对本次生成中心位置的偏移x z坐标
 			final int tempTargetX=posX-1+ox,tempTargetZ=posZ-1+oz; // 本次要尝试生成矿物的真实x z坐标
@@ -53,7 +69,7 @@ public class WorldGenMinableBedrock extends BaseChunkGen
 				FOR_FIND_Y:for(int tempY=1;tempY<6;tempY++) // 开始从下往上寻找一个能生成矿物的y坐标
 				{
 					BlockPos posFindBedrockTop=new BlockPos(tempTargetX,tempY,tempTargetZ);
-					Block block=IChunkGen.getState(world,posFindBedrockTop,chunkVX,chunkVZ).getBlock(); // 获取目标坐标方块类型
+					Block block= AbstractChunkGen.getState(world,posFindBedrockTop,chunkVX,chunkVZ).getBlock(); // 获取目标坐标方块类型
 
 					if(block==Blocks.BEDROCK) // 找到一块基岩
 					{
@@ -79,15 +95,15 @@ public class WorldGenMinableBedrock extends BaseChunkGen
 				BlockPos posTryGenOre=new BlockPos(tempTargetX,ys[ox][oz],tempTargetZ);
 				if(isThisTimeFound) // 如果这个y坐标是这一次找到的 那说明这个y坐标肯定是石头 不需要额外判断了
 				{
-					IChunkGen.setState(world,posTryGenOre,stateOre,chunkVX,chunkVZ); // 直接生成矿物
+					AbstractChunkGen.setState(world,posTryGenOre,stateOre,chunkVX,chunkVZ); // 直接生成矿物
 					ret.add(posTryGenOre);
 				}
 				else // 这个坐标是上次生成矿物的时候计算的 上面可能已经不是可以用于生成矿物的石头了
 				{
-					Block block=IChunkGen.getState(world,posTryGenOre,chunkVX,chunkVZ).getBlock();
+					Block block= AbstractChunkGen.getState(world,posTryGenOre,chunkVX,chunkVZ).getBlock();
 					if(block==Blocks.STONE || block==Blocks.COBBLESTONE) // 判断方块类型是不是石头
 					{
-						IChunkGen.setState(world,posTryGenOre,stateOre,chunkVX,chunkVZ); // 可以生成矿物
+						AbstractChunkGen.setState(world,posTryGenOre,stateOre,chunkVX,chunkVZ); // 可以生成矿物
 						ret.add(posTryGenOre);
 					}
 					else // 不是石头的话
@@ -100,7 +116,6 @@ public class WorldGenMinableBedrock extends BaseChunkGen
 		}
 
 //		System.out.printf("gen at [%d,%d,%d] with [%d]\n",posX,posY,posZ,ret.size());
-
 
 		return ret;
 	}

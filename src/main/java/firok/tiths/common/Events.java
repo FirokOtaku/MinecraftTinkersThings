@@ -290,7 +290,7 @@ public class Events
 		if(world.isRemote) return; // 只在服务端进行
 
 		Entity en=event.getEntity();
-		if(en instanceof EntityLightningBolt)
+		if(en instanceof EntityLightningBolt && Configs.Gameplay.enable_fulgurite_generation)
 		{
 			BlockPos pos=en.getPosition(); // 中心位置
 
@@ -306,29 +306,31 @@ public class Events
 						BlockPos posTemp=pos.add(ox,oy,oz);
 						Block block=world.getBlockState(posTemp).getBlock();
 
+						if(isAnyStone(block) || isDirt(block) || isEndStone(block))
+							world.setBlockState(posTemp,stateFulgurite);
 
-						if(ox==oz && ox==0 && oy!=depth)
-						{
-							if(block==Blocks.STONE ||
-								block==Blocks.COBBLESTONE ||
-								block==Blocks.DIRT ||
-								block==Blocks.SAND ||
-								block instanceof BlockFluidBase ||
-								block instanceof BlockLeaves ||
-								block instanceof BlockLog
-							)
-								world.setBlockToAir(posTemp);
-						}
-						else
-						{
-							if(isAnyStone(block))
-								world.setBlockState(posTemp,stateFulgurite);
-							else
-							{
-								if(block==Blocks.DIRT || block==Blocks.SAND || block==Blocks.GRASS || block instanceof BlockLeaves || block instanceof BlockLog)
-									world.setBlockToAir(posTemp);
-							}
-						}
+//						if(ox==oz && ox==0 && oy!=depth)
+//						{
+//							if(block==Blocks.STONE ||
+//								block==Blocks.COBBLESTONE ||
+//								block==Blocks.DIRT ||
+//								block==Blocks.SAND ||
+//								block instanceof BlockFluidBase ||
+//								block instanceof BlockLeaves ||
+//								block instanceof BlockLog
+//							)
+//								world.setBlockToAir(posTemp);
+//						}
+//						else
+//						{
+//							if(isAnyStone(block))
+//								world.setBlockState(posTemp,stateFulgurite);
+//							else
+//							{
+//								if(block==Blocks.DIRT || block==Blocks.SAND || block==Blocks.GRASS || block instanceof BlockLeaves || block instanceof BlockLog)
+//									world.setBlockToAir(posTemp);
+//							}
+//						}
 					}
 				}
 			}
@@ -565,6 +567,9 @@ public class Events
 		if (event.getModID().equals(TinkersThings.MOD_ID))
 		{
 			ConfigManager.sync(TinkersThings.MOD_ID, Config.Type.INSTANCE);
+//			TinkersThings.log("config changed : "+event.getConfigID());
+			// 重载世界生成器
+			WorldGens.getInstance().reload();
 		}
 	}
 

@@ -3,6 +3,7 @@ package firok.tiths.common;
 import firok.tiths.block.*;
 import firok.tiths.block.BlockBait;
 import firok.tiths.block.punji.*;
+import firok.tiths.util.reg.GenConfig;
 import firok.tiths.util.reg.GenOre;
 import firok.tiths.util.reg.Reg;
 import firok.tiths.world.Strategy;
@@ -199,25 +200,31 @@ public final class Blocks
 	public static final Block blockWitherium = new BlockCompressed().setBeaconBase(); // 凋零块
 	@Reg(Keys.oreAltairium)
 //	@GenMeteoWorld
+	@GenConfig(Keys.nameAltairium)
 	@GenOre(times = 1, timeRate = 1, size = 3, minY = 10, maxY = 70, biome = Strategy.ONLY_WHITELIST, biomeWL ={"$desert"})
 	public static final Block oreAltairium = new BlockOre().setEpicOre(); // 河鼓矿
 	@Reg(Keys.oreBrumeJade)
+	@GenConfig(Keys.nameBrumeJade)
 //	@GenOre(times=2,timeRate = 0.8f,size=6,minY = 24,maxY = 56)
 	public static final Block oreBrumeJade = new BlockOreBrumeJade(); // 云玉矿
 	@Reg(Keys.oreBlackrock)
-	@GenOre(times = 5, timeRate = 0.7, size = 20, minY = 40, maxY = 80)
+	@GenConfig(Keys.nameBlackrock)
+//	@GenOre(times = 5, timeRate = 0.7, size = 20, minY = 40, maxY = 80)
 	public static final Block oreBlackrock = new BlockOre(Items.blackrock, 1, 3, 2, 1, 6).setCommonOre(); // 黑石矿石
 	@Reg(Keys.oreBrokenBedrock)
+	@GenConfig(Keys.nameBrokenBedrock)
 	public static final Block oreBrokenBedrock = new BlockOre(Items.brokenBedrock, 1, 2, 1, 6, 10)
 	{{
 		setHarvestLevel("pickaxe", HarvestLevels.COBALT);
 	}}
 			.setHardness(80f).setResistance(1000); // 破碎基岩
 	@Reg(Keys.oreChloroplast)
-	@GenOre(times = 2, timeRate = 0.1, size = 3, minY = 60, maxY = 70)
+//	@GenOre(times = 2, timeRate = 0.1, size = 3, minY = 60, maxY = 70)
+	@GenConfig(Keys.nameChloroplast)
 	public static final Block oreChloroplast = new BlockOreChloroplast().setVeryRareOre(); // 叶绿矿
 	@Reg(value = Keys.oreCinnabar, od = {"oreCinnabar", "oreQuicksilver", "oreMercury"})
-	@GenOre(times = 4, size = 9, minY = 18, maxY = 56)
+//	@GenOre(times = 4, size = 9, minY = 18, maxY = 56)
+	@GenConfig(Keys.nameCinnabar)
 	public static final Block oreCinnabar = new BlockOre(Items.cinnabar, 1, 3, 2, 3, 5).setCommonOre(); // 辰砂矿石
 	@Reg(Keys.oreCordierite)
 	@GenOre(times = 6, timeRate = 0.5f, size = 15, minY = 10, maxY = 55, biome = Strategy.ONLY_WHITELIST, biomeWL = {"minecraft:taiga_cold","minecraft:redwood_taiga","minecraft:taiga","minecraft:mutated_taiga_cold","minecraft:mutated_redwood_taiga","minecraft:mutated_taiga"})
@@ -225,117 +232,150 @@ public final class Blocks
 	//	@Reg(Keys.oreShell)
 //	public static final BlockOreShell oreShell = new BlockOreShell(Items.shell,3,6,1,4,6); // 散贝壳方块
 	@Reg(Keys.oreCorundum)
-	@GenOre(times = 4, timeRate = 0.7, size = 7, minY = 0, maxY = 28, biome = Strategy.ONLY_WHITELIST, biomeWL = {"$hills"})
+//	@GenOre(times = 4, timeRate = 0.7, size = 7, minY = 0, maxY = 28, biome = Strategy.ONLY_WHITELIST, biomeWL = {"$hill"})
+	@GenConfig(Keys.nameCorundum)
 	public static final Block oreCorundum = new BlockOre(Items.corundum, 1, 1, 1, 2, 4).setRareOre(); // 刚玉矿
 	@Reg(Keys.oreFurutorin)
 //	@GenOre(times = 2, timeRate = 0.8f, size = 6, minY = 24, maxY = 56)
 	public static final Block oreFurutorin = new BlockOre(Items.furutorin, 1, 1, 1, 4, 6).setRareOre(); // 泠笛石矿
 	@Reg(Keys.oreHalleium)
 //	@GenMeteoWorld
-	@GenOre(times = 2, timeRate = 0.5, size = 4, minY = 15, maxY = 18)
+//	@GenOre(times = 2, timeRate = 0.5, size = 4, minY = 15, maxY = 18)
+	@GenConfig(Keys.nameHalleium)
 	public static final Block oreHalleium = new BlockOre().setEpicOre(); // 哈雷矿
 	@Reg(Keys.oreHeavesand)
 //	@GenOre(times = 2, timeRate = 0.8f, size = 6, minY = 24, maxY = 56)
 	public static final Block oreHeavesand = new BlockOre(Items.heavesand, 1, 1, 1, 4, 6).setRareOre(); // 沉沙石矿
 	@Reg(Keys.oreHothium)
 //	@GenMeteoWorld
-	@GenOre(times = 5, timeRate = 0.6, size = 3, minY = 0, maxY = 60, biome = Strategy.ONLY_WHITELIST, biomeWL = {"$cold"})
+//	@GenOre(times = 5, timeRate = 0.6, size = 3, minY = 0, maxY = 60, biome = Strategy.ONLY_WHITELIST, biomeWL = {"$cold"})
+	@GenConfig(Keys.nameHothium)
 	public static final Block oreHothium = new BlockOre().setEpicOre(); // 霍斯矿
 	@Reg(Keys.oreIcelandSpar)
-	@GenOre(times = 8, timeRate = 0.6f, size = 3, minY = 0, maxY = 50, biome = Strategy.ONLY_WHITELIST, biomeWL = {"$cool","$cold"})
+//	@GenOre(times = 8, timeRate = 0.6f, size = 3, minY = 0, maxY = 50, biome = Strategy.ONLY_WHITELIST, biomeWL = {"$cool","$cold"})
+	@GenConfig(Keys.nameIcelandSpar)
 	public static final Block oreIcelandSpar = new BlockOre(Items.icelandSpar, 1, 2, 1, 3, 5).setCommonOre(); // 冰洲石矿
 	@Reg(Keys.oreIcelit)
-	@GenOre(times = 6, timeRate = 0.8, size = 6, minY = 5, maxY = 50, biome = Strategy.ONLY_WHITELIST, biomeWL = "$sea")
+//	@GenOre(times = 6, timeRate = 0.8, size = 6, minY = 5, maxY = 50, biome = Strategy.ONLY_WHITELIST, biomeWL = "$sea")
+	@GenConfig(Keys.nameIcelit)
 	public static final Block oreIcelit = new BlockOre(Items.icelit, 1, 1, 1, 3,5).setLightLevel(0.6f); // 冰明玉矿
 	@Reg(Keys.oreImitatium)
+//	@GenConfig(Keys.nameImitatium)
 	public static final Block oreImitatium = new BlockOre(Material.ROCK, Items.nuggetImitatium, 3, 6, 2, 6, 10)
 			.setEpicOre().setLightLevel(0.1f); // 拟素矿
 	@Reg(Keys.oreImmersedSilver)
-	@GenOre(times = 8, timeRate = 0.5, size = 7, minY = 0, maxY = 30, biome = Strategy.ONLY_WHITELIST, biomeWL = {"minecraft:deep_ocean"})
+	@GenConfig(Keys.nameImmersedSilver)
+//	@GenOre(times = 8, timeRate = 0.5, size = 7, minY = 0, maxY = 30, biome = Strategy.ONLY_WHITELIST, biomeWL = {"minecraft:deep_ocean"})
 	public static final Block oreImmersedSilver = new BlockOre().setVeryRareOre(); // 沉银矿石
 	@Reg(Keys.oreInertWitherium)
-	@GenOre(times = 2, timeRate = 0.5, size = 3, dim = Strategy.ONLY_WHITELIST, dimsWL = -1, selector = "netherrack")
+	@GenConfig(Keys.nameInertWitherium)
+//	@GenOre(times = 2, timeRate = 0.5, size = 3, dim = Strategy.ONLY_WHITELIST, dimsWL = -1, selector = "netherrack")
 	public static final Block oreInertWitherium = new BlockOre().setVeryRareOre(); // 惰性凋零矿
 	@Reg(Keys.oreInkPowder)
-	@GenOre(times = 1, timeRate = 0.5f, size = 10, minY = 40, maxY = 80)
+//	@GenOre(times = 1, timeRate = 0.5f, size = 10, minY = 40, maxY = 80)
+	@GenConfig(Keys.nameInkPowder)
 	public static final Block oreInkPowder = new BlockOre(Items.inkPowder, 2, 4, 2, 2, 7).setCommonOre(); // 墨粉矿石
 	@Reg(Keys.oreLavaCrystal)
-	@GenOre(times = 10, timeRate = 1, size = 3, minY = 32, maxY = 33, dim = Strategy.ONLY_WHITELIST, dimsWL = -1, selector = "lava")
+//	@GenOre(times = 10, timeRate = 1, size = 3, minY = 32, maxY = 33, dim = Strategy.ONLY_WHITELIST, dimsWL = -1, selector = "lava")
+	@GenConfig(Keys.nameLavaCrystal)
 	public static final Block oreLavaCrystal = new BlockOre(Items.lavaCrystal, 1, 1, 1, 3, 6).setVeryRareOre().setLightLevel(1); // 熔岩水晶矿
 	@Reg(Keys.oreLizanite)
-	@GenOre(times = 4, timeRate = 0.5f, size = 5, minY = 6, maxY = 50, dim = Strategy.ONLY_WHITELIST, dimsWL = -1, selector = "netherrack")
+//	@GenOre(times = 4, timeRate = 0.5f, size = 5, minY = 6, maxY = 50, dim = Strategy.ONLY_WHITELIST, dimsWL = -1, selector = "netherrack")
+	@GenConfig(Keys.nameLizanite)
 	public static final Block oreLizanite = new BlockOre(Items.lizanite, 1, 1, 1, 4, 6).setRareOre(); // 丽辰石矿
 	@Reg(Keys.oreMoonStone)
-	@GenOre(times = 3, timeRate = 0.8f, size = 4, minY = 0, maxY = 64, biome = Strategy.ONLY_WHITELIST, biomeWL = {"$cold"})
+	@GenConfig(Keys.nameMoonStone)
+//	@GenOre(times = 3, timeRate = 0.8f, size = 4, minY = 0, maxY = 64, biome = Strategy.ONLY_WHITELIST, biomeWL = {"$cold"})
 	public static final Block oreMoonStone = new BlockOre(Items.moonStone, 1, 1, 1, 4, 6).setRareOre(); // 月光石矿
 	@Reg(Keys.oreNitre)
-	@GenOre(times = 4, timeRate = 1, size = 8, minY = 30, maxY = 50, biome = Strategy.ONLY_WHITELIST, biomeWL = {"$desert"})
+//	@GenOre(times = 4, timeRate = 1, size = 8, minY = 30, maxY = 50, biome = Strategy.ONLY_WHITELIST, biomeWL = {"$desert"})
+	@GenConfig(Keys.nameNitre)
 	public static final Block oreNitre = new BlockOre(Items.nitre, 1, 3, 1, 3, 5).setCommonOre(); // 硝石矿
 	@Reg(Keys.oreOpal)
-	@GenOre(times = 4, timeRate = 1, size = 5, minY = 0, maxY = 24, biome = Strategy.ONLY_WHITELIST, biomeWL = {"$desert"})
+	@GenConfig(Keys.nameOpal)
+//	@GenOre(times = 4, timeRate = 1, size = 5, minY = 0, maxY = 24, biome = Strategy.ONLY_WHITELIST, biomeWL = {"$desert"})
 	public static final Block oreOpal = new BlockOre(Items.opal, 1, 1, 1, 4, 6).setRareOre(); // 欧泊
 	@Reg(Keys.orePolarium)
 //	@GenMeteoWorld
-	@GenOre(times = 6, timeRate = 1, size = 5, minY = 0, maxY = 180, dim = Strategy.ONLY_WHITELIST, dimsWL = 1, selector = "end_stone")
+//	@GenOre(times = 6, timeRate = 1, size = 5, minY = 0, maxY = 180, dim = Strategy.ONLY_WHITELIST, dimsWL = 1, selector = "end_stone")
+	@GenConfig(Keys.namePolarium)
 	public static final Block orePolarium = new BlockOre().setEpicOre(); // 勾陈矿
 	@Reg(Keys.orePotos)
 //	@GenOre(times = 2, timeRate = 0.8f, size = 6, minY = 24, maxY = 56)
 	public static final Block orePotos = new BlockOre(Items.potos, 1, 1, 1, 4, 6).setRareOre(); // 泊水石矿
 	@Reg(Keys.orePrehnite)
-	@GenOre(times = 8, timeRate = 0.3f, size = 5, minY = 0, maxY = 11)
+//	@GenOre(times = 8, timeRate = 0.3f, size = 5, minY = 0, maxY = 11)
+	@GenConfig(Keys.namePrehnite)
 	public static final Block orePrehnite = new BlockOre(Items.prehnite, 1, 1, 1, 4, 6).setRareOre(); // 葡萄石矿
 	@Reg(Keys.oreProustite)
-	@GenOre(times = 5,timeRate = 1, size = 9, minY = 20, maxY = 100,dim = Strategy.ONLY_WHITELIST, dimsWL = -1, selector = "netherrack")
+//	@GenOre(times = 5,timeRate = 1, size = 9, minY = 20, maxY = 100,dim = Strategy.ONLY_WHITELIST, dimsWL = -1, selector = "netherrack")
+	@GenConfig(Keys.nameProustite)
 	public static final Block oreProustite = new BlockOre(Items.proustite, 1, 1, 1, 4, 6).setRareOre(); // 硫砷银矿
 	@Reg(Keys.orePyrophyllite)
-	@GenOre(times = 4,timeRate = 1, size = 6, minY = 30, maxY = 80, biome = Strategy.ONLY_WHITELIST, biomeWL = {"$forests"})
+//	@GenOre(times = 4,timeRate = 1, size = 6, minY = 30, maxY = 80, biome = Strategy.ONLY_WHITELIST, biomeWL = {"$forests"})
+	@GenConfig(Keys.namePyrophyllite)
 	public static final Block orePyrophyllite = new BlockOre(Items.pyrophyllite, 1, 2, 1, 3, 5).setCommonOre(); // 叶蜡石矿
 	@Reg(value = Keys.oreRedins)
-	@GenOre(times = 3, timeRate = 0.8f, size = 5, minY = 0, maxY = 40)
+	@GenConfig(Keys.nameRedins)
+//	@GenOre(times = 3, timeRate = 0.8f, size = 5, minY = 0, maxY = 40)
 	public static final Block oreRedins = new BlockOre(Items.redins, 1, 1, 1, 6, 10).setRareOre(); // 虹辉石矿
 	@Reg(Keys.oreSolidDirt)
-	@GenOre(times = 4, timeRate = 0.3, size = 8, minY = 10, maxY = 128, selector = "dirt")
+//	@GenOre(times = 4, timeRate = 0.3, size = 8, minY = 10, maxY = 128, selector = "dirt")
+	@GenConfig("solid_dirt")
 	public static final Block oreSolidDirt = new BlockOre().setCommonOre().setHardness(15); // 硬实泥土
 	@Reg(Keys.oreSolidSand)
-	@GenOre(times = 4, timeRate = 0.3, size = 8, minY = 10, maxY = 128, selector = "sand")
+	@GenConfig("solid_sand")
+//	@GenOre(times = 4, timeRate = 0.3, size = 8, minY = 10, maxY = 128, selector = "sand")
 	public static final Block oreSolidSand = new BlockOre().setCommonOre().setHardness(15); // 硬实沙子
 	@Reg(Keys.oreSolidStone)
-	@GenOre(times = 4, timeRate = 0.3, size = 8, minY = 10, maxY = 128, selector = "stone")
+	@GenConfig("solid_stone")
+//	@GenOre(times = 4, timeRate = 0.3, size = 8, minY = 10, maxY = 128, selector = "stone")
 	public static final Block oreSolidStone = new BlockOre().setCommonOre().setHardness(15); // 硬实石头
 	@Reg(value = Keys.oreSpinel, od = {"oreSpinel"})
-	@GenOre(times = 5, timeRate = 1, size = 4, minY = 40, maxY = 100,biome = Strategy.ONLY_WHITELIST, biomeWL = {"$forests","$mesas","$hills"})
+//	@GenOre(times = 5, timeRate = 1, size = 4, minY = 40, maxY = 100,biome = Strategy.ONLY_WHITELIST, biomeWL = {"$forests","$mesas","$hills"})
+	@GenConfig(Keys.nameSpinel)
 	public static final Block oreSpinel = new BlockOre(Items.spinel, 1, 1, 1, 3, 5).setVeryRareOre(); // 尖晶石矿
 	@Reg(Keys.oreSteamium)
-	@GenOre(times = 7,timeRate = 0.7f, size = 9, minY = 0, maxY = 60)
+//	@GenOre(times = 7,timeRate = 0.7f, size = 9, minY = 0, maxY = 60)
+	@GenConfig(Keys.nameSteamium)
 	public static final Block oreSteamium = new BlockOre().setRareOre(); // 气钢矿
 	@Reg(Keys.oreStellarium)
-	@GenOre(times = 8, timeRate = 0.1f, size = 3, minY = 20, maxY = 60, biome = Strategy.ONLY_WHITELIST, biomeWL = {"$desert"})
+//	@GenOre(times = 8, timeRate = 0.1f, size = 3, minY = 20, maxY = 60, biome = Strategy.ONLY_WHITELIST, biomeWL = {"$desert"})
+	@GenConfig(Keys.nameStellarium)
 	public static final Block oreStellarium = new BlockOre().setEpicOre(); // 恒星金属矿
 	@Reg(Keys.oreSunStone)
-	@GenOre(times = 2, timeRate = 0.8f, size = 3, minY = 30, maxY = 100, biome = Strategy.ONLY_WHITELIST, biomeWL = {"$hot"})
+//	@GenOre(times = 2, timeRate = 0.8f, size = 3, minY = 30, maxY = 100, biome = Strategy.ONLY_WHITELIST, biomeWL = {"$hot"})
+	@GenConfig(Keys.nameSunStone)
 	public static final Block oreSunStone = new BlockOre(Items.sunStone, 1, 1, 1, 4, 6).setRareOre(); // 日光石矿
 	@Reg(Keys.oreTalcum)
-	@GenOre(times = 10,timeRate = 0.7f, size = 9, minY = 20, maxY = 64,biome = Strategy.ONLY_WHITELIST, biomeWL = {"minecraft:swampland"})
+//	@GenOre(times = 10,timeRate = 0.7f, size = 9, minY = 20, maxY = 64,biome = Strategy.ONLY_WHITELIST, biomeWL = {"minecraft:swampland"})
+	@GenConfig(Keys.nameTalcum)
 	public static final Block oreTalcum = new BlockOre(Items.talcum, 1, 2, 1, 3, 5).setCommonOre(); // 滑石矿
 	@Reg(Keys.oreTanatonium)
-	@GenOre(times = 6, timeRate = 0.8, size = 6, minY = 5, maxY = 50, biome = Strategy.ONLY_WHITELIST, biomeWL = "$sea")
+//	@GenOre(times = 6, timeRate = 0.8, size = 6, minY = 5, maxY = 50, biome = Strategy.ONLY_WHITELIST, biomeWL = "$sea")
+	@GenConfig(Keys.nameTanatonium)
 	public static final Block oreTanatonium = new BlockOre().setEpicOre().setLightLevel(0.2f); // 塔拉特妮姆矿
 	@Reg(Keys.oreRutile)
-	@GenOre(times = 3, timeRate = 0.8f, size = 6, minY = 0, maxY = 60,biome = Strategy.ONLY_WHITELIST, biomeWL = {"$plains"})
+//	@GenOre(times = 3, timeRate = 0.8f, size = 6, minY = 0, maxY = 60,biome = Strategy.ONLY_WHITELIST, biomeWL = {"$plains"})
+	@GenConfig(Keys.nameTitanium)
 	public static final Block oreTitanium = new BlockOre().setEpicOre(); // 金红石矿
 	@Reg(Keys.oreTonium)
 //	@GenMeteoWorld
-	@GenOre(times = 2, timeRate = 1, size = 3, minY = 0, maxY = 30, biome = Strategy.ONLY_WHITELIST, biomeWL = {"minecraft:deep_ocean"})
+//	@GenOre(times = 2, timeRate = 1, size = 3, minY = 0, maxY = 30, biome = Strategy.ONLY_WHITELIST, biomeWL = {"minecraft:deep_ocean"})
+	@GenConfig(Keys.nameTonium)
 	public static final Block oreTonium = new BlockOre().setEpicOre(); // 钝金矿
 	@Reg(Keys.oreTopaz)
-	@GenOre(times = 5, timeRate = 1, size = 3, minY = 0, maxY = 64,biome = Strategy.ONLY_WHITELIST, biomeWL = {"$hills"})
+//	@GenOre(times = 5, timeRate = 1, size = 3, minY = 0, maxY = 64,biome = Strategy.ONLY_WHITELIST, biomeWL = {"$hills"})
+	@GenConfig(Keys.nameTopaz)
 	public static final Block oreTopaz = new BlockOre(Items.topaz, 1, 1, 1, 4, 6).setRareOre(); // 托帕石矿
 	@Reg(Keys.oreTorrentialCrystal)
 	public static final Block oreTorrentialCrystal = new BlockOre(Items.torrentialCrystal, 1, 1, 1, 4, 6).setRareOre(); // 激流水晶矿
 	@Reg(Keys.oreTourmaline)
-	@GenOre(times = 2, timeRate = 0.8f, size = 6, minY = 10, maxY = 40)
+//	@GenOre(times = 2, timeRate = 0.8f, size = 6, minY = 10, maxY = 40)
+	@GenConfig(Keys.nameTourmaline)
 	public static final Block oreTourmaline = new BlockOre(Items.tourmaline, 1, 2, 1, 2, 4).setRareOre(); // 电气石矿
 	@Reg(Keys.oreTreeRoot)
+	@GenConfig(Keys.nameTreeRoot)
 	public static final Block oreTreeRoot = new BlockOre(Material.WOOD, Material.WOOD.getMaterialMapColor(), Items.treeRoot, 1, 3, 1, 2, 4)
 	{{
 		setSoundType(SoundType.WOOD);
@@ -346,7 +386,8 @@ public final class Blocks
 //	@GenOre(times = 2, timeRate = 0.8f, size = 6, minY = 24, maxY = 56)
 	public static final Block oreUlun = new BlockOre(Items.ulun, 1, 1, 1, 4, 6).setRareOre(); // 乌润石矿
 	@Reg(Keys.oreVibratingCrystal)
-	@GenOre(times = 7, timeRate = 0.5f, size = 5, minY = 5, maxY = 160, dim = Strategy.ONLY_WHITELIST, dimsWL = 1, selector = "end_stone")
+//	@GenOre(times = 7, timeRate = 0.5f, size = 5, minY = 5, maxY = 160, dim = Strategy.ONLY_WHITELIST, dimsWL = 1, selector = "end_stone")
+	@GenConfig(Keys.nameVibratingCrystal)
 	public static final Block oreVibratingCrystal = new BlockOre(Items.vibratingCrystal, 1, 3, 1, 5, 7).setVeryRareOre(); // 振晶矿
 	@Reg(Keys.oreWitherium)
 	public static final Block oreWitherium = new BlockOre().setVeryRareOre(); // 凋零矿

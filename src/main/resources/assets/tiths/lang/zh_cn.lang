@@ -838,10 +838,28 @@ death.attack.test=%1$s死于测试
 
 ## config
 
+config.tiths.biome_groups=生物群系组
+config.tiths.biome_groups.tooltip=我们预设了数个生物群系组, 供各种生成和逻辑判断使用
+config.tiths.biome_groups.plain=平原 (plain)
+config.tiths.biome_groups.forest=森林 (forest)
+config.tiths.biome_groups.mesa=恶地 (mesa)
+config.tiths.biome_groups.hill=高山 (hill)
+config.tiths.biome_groups.desert=沙漠 (desert)
+config.tiths.biome_groups.water=水 (water)
+config.tiths.biome_groups.sea=海洋 (sea)
+config.tiths.biome_groups.water_sea=水和海洋 (water_sea)
+config.tiths.biome_groups.special=特殊 (special)
+config.tiths.biome_groups.hot=炎热 (hot)
+config.tiths.biome_groups.warm=温暖 (warm)
+config.tiths.biome_groups.common=普通温度 (common)
+config.tiths.biome_groups.cool=凉爽 (cool)
+config.tiths.biome_groups.cold=寒冷 (cold)
+
 config.tiths.gameplay=游戏性设定
 config.tiths.gameplay.tooltip=调整游戏性设定
 config.tiths.gameplay.enable_royal=启用奢华合金简易合成
 config.tiths.gameplay.enable_royal.tooltip=若启用, 奢华合金将使用铁+金配方合成, 否则是铁+金+牛奶
+config.tiths.gameplay.enable_fulgurite_generation=启用闪电熔岩生成
 
 config.tiths.general=整体设定
 config.tiths.general.tooltip=调整模组基础设定
@@ -952,6 +970,50 @@ config.tiths.trait_armor.rate_smooth_standing=光滑-静止触发几率
 config.tiths.trait_armor.range_surging=潮涌-影响范围
 config.tiths.trait_armor.range_widening=广域化-影响范围
 config.tiths.trait_armor.factor_wither_flowing=凋零流动-负面效果持续时间(tick)
+
+config.tiths.world_gens=世界生成设定
+config.tiths.world_gens.tooltip=调整各类矿物的生成
+config.tiths.world_gens.enable_world_gen=启用世界生成
+config.tiths.world_gens.enable_world_gen.tooltip=若关闭, 我们将不会生成任何矿物
+config.tiths.world_gens.altairium=河鼓
+config.tiths.world_gens.brume_jade=云玉
+config.tiths.world_gens.blackrock=黑石
+config.tiths.world_gens.broken_bedrock=破碎基岩
+config.tiths.world_gens.chloroplast=叶绿
+config.tiths.world_gens.cinnabar=水银
+config.tiths.world_gens.corundum=堇青石
+config.tiths.world_gens.halleium=哈雷
+config.tiths.world_gens.hothium=霍斯
+config.tiths.world_gens.iceland_spar=冰洲石
+config.tiths.world_gens.icelit=冰明
+config.tiths.world_gens.immersed_silver=沉银
+config.tiths.world_gens.inert_witherium=惰性凋零
+config.tiths.world_gens.ink_powder=墨粉
+config.tiths.world_gens.lava_crystal=岩浆水晶
+config.tiths.world_gens.lizanite=丽辰石
+config.tiths.world_gens.moon_stone=月光石
+config.tiths.world_gens.nitre=硝石
+config.tiths.world_gens.opal=欧珀
+config.tiths.world_gens.polarium=勾陈
+config.tiths.world_gens.prehnite=葡萄石
+config.tiths.world_gens.proustite=硫砷银
+config.tiths.world_gens.pyrophyllite=叶蜡石
+config.tiths.world_gens.redins=虹辉石
+config.tiths.world_gens.solid_dirt=硬实泥土
+config.tiths.world_gens.solid_sand=硬实啥子
+config.tiths.world_gens.solid_stone=硬实石头
+config.tiths.world_gens.spinel=尖晶石
+config.tiths.world_gens.steamium=气钢
+config.tiths.world_gens.stellarium=恒星
+config.tiths.world_gens.sun_stone=日光石
+config.tiths.world_gens.talcum=滑石
+config.tiths.world_gens.tanatonium=塔拉特妮姆
+config.tiths.world_gens.titanium=金红石
+config.tiths.world_gens.tonium=钝金
+config.tiths.world_gens.topaz=托帕石
+config.tiths.world_gens.tourmaline=电气石
+config.tiths.world_gens.tree_root=树根
+config.tiths.world_gens.vibrating_crystal=振晶
 
 ## tooltip
 

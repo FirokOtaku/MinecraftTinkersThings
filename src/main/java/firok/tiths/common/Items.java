@@ -34,7 +34,7 @@ public final class Items
 	public static final Item amuletSoulStone = new ItemSoulStone().setRarity(EnumRarity.RARE); // 灵魂石护身符
 	@Reg(nameAmuletSoulStone + "_infinite")
 	public static final Item amuletSoulStoneCreative = new ItemSoulStoneCreative().setRarity(TithsRarity.CreativeOnly); // 创造模式灵魂石护身符
-	@Reg(nameAncientBookIrisia)
+	@Reg(value=nameAncientBookIrisia, od = {"book"})
 	public static final Item ancientBookIrisia = new ItemXP(true, 20); // 艾瑞西亚古籍
 	@Reg(nameBeetrootStack)
 	public static final Item beetrootStack = new ItemBait(Blocks.blockBaitBeetrood); // 甜菜捆
@@ -123,7 +123,7 @@ public final class Items
 	public static final ItemFluidCollector fluidCollector = new ItemFluidCollector(); // 液体收集器
 	@Reg(nameFluorescentGel)
 	public static final Item fluorescentGel = new ItemFluorescentGel(); // 荧光凝胶
-	@Reg(value = nameFormerCrystal, od = {"book"})
+	@Reg(value = nameFormerCrystal)
 	public static final Item formerCrystal = new ItemFormerCrystal().setRarity(EnumRarity.UNCOMMON); // 往昔水晶
 	@Reg(nameFurutorin)
 	public static final Item furutorin = new ItemCustom(); // 泠笛石

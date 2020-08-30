@@ -2,8 +2,15 @@ package firok.tiths.common;
 
 import firok.tiths.TinkersThings;
 import firok.tiths.util.VersionPhase;
+import firok.tiths.util.reg.GenOre;
+import firok.tiths.world.Strategy;
 import net.minecraftforge.common.config.Config;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+import static firok.tiths.common.Keys.*;
 import static net.minecraftforge.common.config.Config.*;
 
 // 配置文件
@@ -17,6 +24,8 @@ public final class Configs
 	static final String pgt="config.tiths.trait.";
 	static final String pga="config.tiths.trait_armor.";
 	static final String pgg="config.tiths.gameplay.";
+	static final String pbg="config.tiths.biome_groups.";
+	static final String pwg="config.tiths.world_gens";
 	@Config(name=TinkersThings.MOD_ID+"_general",modid= TinkersThings.MOD_ID)
 	@LangKey(c+"general")
 	public static class General // 全局设置
@@ -141,9 +150,15 @@ public final class Configs
 		/**
 		 * 启用奢华合金简易合成
 		 */
-		@LangKey(pgg+"enable_royal")
+		@LangKey(pgp+"enable_royal")
 		@RequiresMcRestart
 		public static boolean enable_royal_alloy_easy_crafting=false;
+
+		/**
+		 * 启用闪电熔岩生成
+		 */
+		@LangKey(pgp+"enable_fulgurite_generation")
+		public static boolean enable_fulgurite_generation=true;
 	}
 
 	@Config(name=TinkersThings.MOD_ID+"_trait",modid= TinkersThings.MOD_ID,category = "trait")
@@ -469,6 +484,233 @@ public final class Configs
 		@LangKey(pga+"factor_wither_flowing")
 		@RangeInt(min=1,max=1200)
 		public static int factor_wither_flowing = 160;
+	}
+
+	@Config(name=TinkersThings.MOD_ID+"_world_gens",modid= TinkersThings.MOD_ID,category = "world_gens")
+	@LangKey(c+"world_gens")
+	@SuppressWarnings("unused")
+	public static class WorldGens // 世界生成相关设置
+	{
+		@LangKey(pwg+"enable_world_gen")
+		public static boolean enable_world_gen=true;
+
+		@LangKey(pwg+nameAltairium) // 河鼓
+		public static String altairium="type=common; min_y=10; max_y=70; size=3; strategy_biome=ONLY_WHITELIST; biomes=$desert";
+
+		@LangKey(pwg+nameBrumeJade) // 云玉
+		public static String brume_jade="type=cloud; rate_chunk=0.015";
+
+		@LangKey(pwg+nameBlackrock) // 黑石
+		public static String blackrock="type=common; time_chunk=5; rate_single=0.7; size=20; min_y=40; max_y=80";
+
+		@LangKey(pwg+nameBrokenBedrock) // 破碎基岩
+		public static String broken_bedrock="type=bedrock; time_chunk=3; rate_single=0.6; size=8";
+
+		@LangKey(pwg+nameChloroplast) // 叶绿矿
+		public static String chloroplast="type=common; time_chunk=2; rate_single=0.1; size=3; min_y=60; max_y=70";
+
+		@LangKey(pwg+nameCinnabar) // 水银
+		public static String cinnabar="type=common; time_chunk=4; size=9; min_y=18; max_y=56";
+
+		@LangKey(pwg+nameCordierite) // 堇青石
+		public static String cordierite="type=common; time_chunk=6; rate_single=0.5; size=15; min_y=10; max_y=55; strategy_biome=ONLY_WHITELIST; biomes=minecraft:taiga_cold,minecraft:redwood_taiga,minecraft:taiga,minecraft:mutated_taiga_cold,minecraft:mutated_redwood_taiga,minecraft:mutated_taiga";
+
+		@LangKey(pwg+nameCorundum) // 刚玉
+		public static String corundum="type=common; time_chunk=4; rate_single=0.7; size=7; min_y=0; max_y=28; strategy_biome=ONLY_WHITELIST; biomes=$hill";
+
+//		public static String furutorin; // 泠笛石
+
+		@LangKey(pwg+nameHalleium) // 哈雷
+		public static String halleium="type=common; time_chunk=2; rate_single=0.5; size=4; min_y=15; max_y=18";
+
+//		public static String heavesand=""; // 沉沙石
+
+		@LangKey(pwg+nameHothium) // 霍斯
+		public static String hothium="type=common; time_chunk=5; rate_single=0.6; size=3; min_y=0; max_y=60; strategy_biome=ONLY_WHITELIST; biomes=$cold";
+
+		@LangKey(pwg+nameIcelandSpar) // 冰州石
+		public static String iceland_spar="type=common; time_chunk=8; rate_single=0.6; size=3; min_y=0; max_y=50; strategy_biome=ONLY_WHITELIST; biomes=$cold";
+
+		@LangKey(pwg+nameIcelit) // 冰明
+		public static String icelit="type=common; time_chunk=6; rate_single=0.8; size=6; min_y=5; max_y=50; strategy_biome=ONLY_WHITELIST; biomes=$sea";
+
+//		@LangKey(nameImitatium) // 拟素
+//		public static String imitatium="type=common; time_chunk=";
+
+		@LangKey(pwg+nameImmersedSilver) // 沉银
+		public static String immersed_silver="type=common; time_chunk=8; rate_single=0.5; size=7; min_y=0; max_y=30; strategy_biome=ONLY_WHITELIST; biomes=$sea";
+
+		@LangKey(pwg+nameInertWitherium) // 惰性凋零
+		public static String inert_witherium="type=common; time_chunk=2; min_y=5; max_y=128; rate_single=0.5; size=3; strategy_dim=ONLY_WHITELIST; dims=-1; selector=netherrack";
+
+		@LangKey(pwg+nameInkPowder) // 墨粉
+		public static String ink_powder="type=common; rate_chunk=0.5; size=10; min_y=40; max_y=80";
+
+		@LangKey(pwg+nameLavaCrystal) // 岩浆水晶
+		public static String lava_crystal="type=common; time_chunk=10; size=3; min_y=32; max_y=33; strategy_dim=ONLY_WHITELIST; dims=-1; selector=lava";
+
+		@LangKey(pwg+nameLizanite) // 丽辰石
+		public static String lizanite="type=common; time_chunk=4; rate_single=0.5; size=5; min_y=6; max_y=50; strategy_dim=ONLY_WHITELIST; dims=-1; selector=netherrack";
+
+		@LangKey(pwg+nameMoonStone) // 月光石
+		public static String moon_stone="type=common; time_chunk=3; rate_single=0.8; size=5; min_y=5; max_y=50; strategy_biome=ONLY_WHITELIST; biomes=$cold";
+
+		@LangKey(pwg+nameNitre) // 硝石
+		public static String nitre="type=common; time_chunk=4; size=8; min_y=30; max_y=50; strategy_biome=ONLY_WHITELIST; biomes=$desert";
+
+		@LangKey(pwg+nameOpal) // 欧珀
+		public static String opal="type=common; size=5; min_y=0; max_y=24; strategy_biome=ONLY_WHITELIST; biome=$desert";
+
+		@LangKey(pwg+namePolarium) // 勾陈
+		public static String polarium="type=common; time_chunk=6; size=5; min_y=0; max_y=180; strategy_dim=ONLY_WHITELIST; dims=1; selector=end_stone";
+
+		@LangKey(pwg+namePrehnite) // 葡萄石
+		public static String prehnite="type=common; time_chunk=8; rate_single=0.3; size=5; min_y=0; max_y=11";
+
+		@LangKey(pwg+nameProustite) // 硫砷银矿
+		public static String proustite="type=common; time_chunk=5; size=9; min_y=20; max_y=100; strategy_dim=ONLY_WHITELIST; dims=-1; selector=netherrack";
+
+		@LangKey(pwg+namePyrophyllite) // 叶蜡石
+		public static String pyrophyllite="type=common; time_chunk=4; size=6; min_y=30; max_y=80; strategy_biome=ONLY_WHITELIST; biomes=$forest";
+
+		@LangKey(pwg+nameRedins) // 虹辉石
+		public static String redins="type=common; time_chunk=3; rate_single=0.8; size=5; min_y=0; max_y=40";
+
+		@LangKey(pwg+"solid_dirt") // 硬实泥土
+		public static String solid_dirt="type=common; time_chunk=4; rate_single=0.3; size=8; min_y=10; max_y=128; selector=dirt";
+
+		@LangKey(pwg+"solid_sand") // 硬实沙子
+		public static String solid_sand="type=common; time_chunk=4; rate_single=0.3; size=8; min_y=10; max_y=128; selector=sand";
+
+		@LangKey(pwg+"solid_stone") // 硬实石头
+		public static String solid_stone="type=common; time_chunk=4; rate_single=0.3; size=8; min_y=10; max_y=128; selector=stone";
+
+		@LangKey(pwg+nameSpinel) // 尖晶石矿
+		public static String spinel="type=common; time_chunk=5; rate_single=0.5; size=4; min_y=40; max_y=100; strategy_biome=ONLY_WHITELIST; biomes=$forest,$mesa,$hill";
+
+		@LangKey(pwg+nameSteamium) // 气钢
+		public static String steamium="type=common; time_chunk=7; rate_single=0.7; size=9; min_y=0; max_y=60";
+
+		@LangKey(pwg+nameStellarium) // 恒星
+		public static String stellarium="type=common; time_chunk=0.1; size=3; min_y=20; max_y=60; strategy_biome=ONLY_WHITELIST; biomes=$desert";
+
+		@LangKey(pwg+nameSunStone) // 日光石
+		public static String sun_stone="type=common; time_chunk=2; rate_single=0.8; size=3; min_y=30; max_y=100; strategy_biome=ONLY_WHITELIST; biomes=$hot";
+
+		@LangKey(pwg+nameTalcum) // 滑石
+		public static String talcum="type=common; time_chunk=10; rate_single=0.7; size=9; min_y=20; max_y=64; strategy_biome=ONLY_WHITELIST; biomes=minecraft:swampland";
+
+		@LangKey(pwg+nameTanatonium) // 拉特特妮姆
+		public static String tanatonium="type=common; time_chunk=6; rate_single=0.6; size=6; min_y=5; max_y=50; strategy_biome=ONLY_WHITELIST; biomes=$sea";
+
+		@LangKey(pwg+nameTitanium) // 金红石 钛
+		public static String titanium="type=common; time_chunk=3; rate_single=0.8; size=6; min_y=0; max_y=60; strategy_biome=ONLY_WHITELIST; biomes=$plain";
+
+		@LangKey(pwg+nameTonium) // 钝金
+		public static String tonium="type=common; time_chunk=2; size=3; min_y=0; max_y=30; strategy_biome=ONLY_WHITELIST; biomes=minecraft:deep_ocean";
+
+		@LangKey(pwg+nameTopaz) // 托帕石
+		public static String topaz="type=common; time_chunk=5; size=3; min_y=0; max_y=64; strategy_biome=ONLY_WHITELIST; biomes=$hill";
+
+		@LangKey(pwg+nameTourmaline) // 电气石矿
+		public static String tourmaline="type=common; time_chunk=2; rate_single=0.8; size=6; min_y=10; max_y=40";
+
+		@LangKey(pwg+nameTreeRoot) // 树根
+		public static String tree_root="type=tree_root";
+
+		@LangKey(pwg+nameVibratingCrystal) // 振晶
+		public static String vibrating_crystal="type=common; time_chunk=7; rate_single=0.5; size=5; min_y=5; max_y=160; strategy_dim=ONLY_WHITELIST; dims=1; selector=end_stone";
+	}
+
+	@Config(name=TinkersThings.MOD_ID+"_biome_groups",modid= TinkersThings.MOD_ID,category = "biome_groups")
+	@LangKey(c+"biome_groups")
+	public static class BiomeGroups
+	{
+		// 组合
+		// 环境
+		@LangKey(pbg+"plain")
+		public static String[] biomes_plain = { biome_plains, biome_savanna_rock, biome_savanna, biome_mutated_ice_flats, biome_ice_flats, biome_mutated_plains };
+
+		@LangKey(pbg+"forest")
+		public static String[] biomes_forest = { biome_jungle, biome_jungle_edge, biome_forest, biome_birch_forest, biome_taiga_cold, biome_redwood_taiga, biome_taiga, biome_roofed_forest, biome_mutated_taiga_cold, biome_mutated_jungle_edge, biome_mutated_savanna_rock, biome_mutated_redwood_taiga, biome_mutated_forest, biome_mutated_taiga, biome_mutated_birch_forest, biome_mutated_roofed_forest, biome_mutated_jungle, biome_mutated_savanna };
+
+		@LangKey(pbg+"mesa")
+		public static String[] biomes_mesa = {biome_mesa, biome_mesa_rock, biome_mesa_clear_rock, biome_mutated_mesa, biome_mutated_mesa_clear_rock, biome_mutated_mesa_rock };
+
+		@LangKey(pbg+"hill")
+		public static String[] biomes_hill = { biome_taiga_cold_hills, biome_forest_hills, biome_ice_mountains, biome_jungle_hills, biome_taiga_hills, biome_redwood_taiga_hills, biome_extreme_hills_with_trees, biome_extreme_hills, biome_smaller_extreme_hills, biome_mutated_extreme_hills, biome_mutated_redwood_taiga_hills, biome_mutated_extreme_hills_with_trees, biome_mutated_birch_forest_hills, biome_birch_forest_hills };
+
+		@LangKey(pbg+"desert")
+		public static String[] biomes_desert = { biome_desert, biome_desert_hills, biome_mutated_desert };
+
+		@LangKey(pbg+"water")
+		public static String[] biomes_water = { biome_river, biome_frozen_river, biome_swampland, biome_mutated_swampland };
+
+		@LangKey(pbg+"sea")
+		public static String[] biomes_sea = { biome_frozen_ocean, biome_ocean, biome_deep_ocean, biome_cold_beach, biome_stone_beach, biome_beaches };
+
+		@LangKey(pbg+"water_sea")
+		public static String[] biomes_water_sea = { biome_river, biome_frozen_river, biome_swampland, biome_mutated_swampland, biome_frozen_ocean, biome_ocean, biome_deep_ocean, biome_cold_beach, biome_stone_beach, biome_beaches };
+
+		@LangKey(pbg+"special")
+		public static String[] biomes_special = { biome_void, biome_hell, biome_sky, biome_mushroom_island_shore, biome_mushroom_island };
+
+		// 温度
+		@LangKey(pbg+"hot")
+		public static String[] biomes_hot = {biome_desert,biome_desert_hills,biome_mutated_savanna,biome_mutated_savanna_rock,biome_mesa,biome_mesa_rock,biome_mesa_clear_rock,biome_mutated_desert,biome_mutated_savanna,biome_mutated_savanna_rock,biome_mutated_mesa,biome_mutated_mesa_clear_rock,biome_mutated_mesa_rock};
+
+		@LangKey(pbg+"warm")
+		public static String[] biomes_warm = {biome_plains,biome_forest,biome_swampland,biome_river,biome_beaches,biome_forest_hills,biome_jungle,biome_jungle_hills,biome_jungle_edge,biome_birch_forest,biome_birch_forest_hills,biome_roofed_forest,biome_mutated_plains,biome_mutated_forest,biome_mutated_swampland,biome_mutated_jungle,biome_mutated_jungle_edge,biome_mutated_birch_forest,biome_mutated_birch_forest_hills,biome_mutated_roofed_forest};
+
+		@LangKey(pbg+"common")
+		public static String[] biomes_common = {biome_extreme_hills,biome_taiga,biome_taiga_hills,biome_smaller_extreme_hills,biome_stone_beach,biome_redwood_taiga,biome_redwood_taiga_hills,biome_extreme_hills_with_trees,biome_mutated_extreme_hills,biome_mutated_taiga,biome_mutated_redwood_taiga,biome_mutated_redwood_taiga_hills,biome_mutated_extreme_hills_with_trees};
+
+		@LangKey(pbg+"cool")
+		public static String[] biomes_cool = {biome_ocean,biome_mushroom_island,biome_mushroom_island_shore,biome_deep_ocean};
+
+		@LangKey(pbg+"cold")
+		public static String[] biomes_cold = {biome_frozen_ocean,biome_frozen_river,biome_ice_flats,biome_ice_mountains,biome_cold_beach,biome_taiga_cold,biome_taiga_cold_hills,biome_mutated_ice_flats,biome_mutated_taiga_cold};
+
+		/**
+		 * 获取生物群系列表, 会自动将参数中的组合key转换为对应的生物群系
+		 * @param keys 生物群系id列表, 可以包含组合key
+		 * @return 组装后的生物群系列表
+		 */
+		public static String[] getBiomes(String...keys)
+		{
+			if(keys==null || keys.length==0) return new String[0];
+
+			Set<String> set=new HashSet<>();
+			FOR_KEY:for(String keyTemp:keys)
+			{
+				if(keyTemp==null) continue;
+				String[] keysTemp;
+				SWITCH: switch (keyTemp)
+				{
+					case "$plain": keysTemp= biomes_plain; break SWITCH;
+					case "$forest": keysTemp= biomes_forest; break SWITCH;
+					case "$mesa": keysTemp= biomes_mesa; break SWITCH;
+					case "$hill": keysTemp= biomes_hill; break SWITCH;
+					case "$desert": keysTemp=biomes_desert; break SWITCH;
+					case "$water": keysTemp=biomes_water; break SWITCH;
+					case "$sea": keysTemp=biomes_sea; break SWITCH;
+					case "$water_sea": keysTemp=biomes_water_sea; break SWITCH;
+					case "$special": keysTemp=biomes_special; break SWITCH;
+					case "$hot" : keysTemp=biomes_hot; break SWITCH;
+					case "$warm" : keysTemp=biomes_warm; break SWITCH;
+					case "$common" : keysTemp=biomes_common; break SWITCH;
+					case "$cool" : keysTemp=biomes_cool; break SWITCH;
+					case "$cold" : keysTemp=biomes_cold; break SWITCH;
+					default:
+					{
+						set.add(keyTemp);
+						continue FOR_KEY;
+					}
+				}
+				set.addAll(Arrays.asList(keysTemp));
+			}
+			return set.toArray(new String[0]);
+		}
 	}
 
 }

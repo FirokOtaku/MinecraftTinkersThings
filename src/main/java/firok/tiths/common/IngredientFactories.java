@@ -10,6 +10,7 @@ import slimeknights.tconstruct.library.materials.Material;
 @SuppressWarnings("all")
 public class IngredientFactories
 {
+	public static void trigger(){};
 	public static class ToolRodIngredientFactory implements IIngredientFactory
 	{
 		@Override

@@ -1,9 +1,9 @@
 package firok.tiths.common;
 
+import firok.tiths.TinkersThings;
 import firok.tiths.util.InnerActions;
-import firok.tiths.util.Predicates;
 import firok.tiths.util.reg.FieldStream;
-import firok.tiths.util.reg.GenOre;
+import firok.tiths.util.reg.GenConfig;
 import firok.tiths.world.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -14,9 +14,11 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import org.apache.logging.log4j.Level;
 
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.lang.reflect.Field;
 import java.util.*;
 
 
@@ -36,7 +38,7 @@ public class WorldGens implements IWorldGenerator
 	/**
 	 * 生成器列表
 	 */
-	List<IChunkGen> generators=new ArrayList<>();
+	List<AbstractChunkGen> generators=new ArrayList<>();
 
 	private static int[] r(int[] ts)
 	{
@@ -54,102 +56,139 @@ public class WorldGens implements IWorldGenerator
 	public void reload()
 	{
 		if(isLoading) return;
+		List<AbstractChunkGen> list=new ArrayList<>();
 
-		isLoading=true;
-		List<IChunkGen> list=new ArrayList<>();
-
-		list.add(new WorldGenTreeRoot(defaultTreeRoot,"TREE_ROOT"));
-		list.add(new WorldGenMinableBedrock(defaultBrokenBedrockInfo,"BROKEN_BEDROCK"));
-		list.add(new WorldGenLavaCrystal(defaultLavaCrystal,"LAVA_CRYSTAL"));
-
-		list.add(new WorldGenCloud(defaultCloudInfo,"CLOUD"));
-
-		list.add(new WorldGenSeaGlass(defaultSeaGrassInfo,"SEA_GRASS"));
-
-		FieldStream.of(Blocks.class,null,Block.class)
-				.forEach((field, anno, block) -> {
-
-					GenOre ga=field.getAnnotation(GenOre.class);
-					Info infoAnno=ga!=null?Info.build(
-							block.getDefaultState(),
-
-							ga.dim(), r(ga.dimsWL()),r(ga.dimsBL()),
-							ga.biome(), r(ga.biomeWL()),r(Keys.getBiomes(ga.biomeBL())),
-							Predicates.getPredicateIBlockState(ga.selector(), Predicates::isStone),
-
-							ga.minY(),ga.maxY(),
-							ga.times(),(float)ga.timeRate(),
-							ga.size()
-					):null;
-					Info infoJson= ConfigJson.getOre(block.getUnlocalizedName());
-					Info info2add= null;
-
-					if(infoAnno==null)
-					{
-						if(infoJson!=null && infoJson.complete())
+		if(Configs.WorldGens.enable_world_gen) // 允许世界生成
+		{
+			FieldStream.of(Blocks.class,null,Block.class, GenConfig.class)
+					.forEach(((field, annoConfig, block) -> {
+						try
 						{
-							info2add=infoJson;
+							IBlockState state=block.getDefaultState();
+
+							Field fieldConfig=Configs.WorldGens.class.getDeclaredField(annoConfig.value());
+							String fieldConfigValue=(String)fieldConfig.get(null);
+
+							AbstractChunkGen gen= WorldGeneratorFactory.create(fieldConfigValue,state);
+
+							System.out.println(annoConfig.value());
+
+							list.add(gen);
 						}
-					}
-					else
-					{
-						info2add=Info.build(infoAnno,infoJson);
-					}
-
-					if(info2add==null || !Info.enable(info2add,null,false))
-					{
-						return;
-					}
-
-					GenMinable gen=new GenMinable( info2add );
-					list.add(gen);
-
-				});
-
+						catch (Exception e)
+						{
+							TinkersThings.log("An error occurred while creating world generator | "+annoConfig.value()+" | "+e.getMessage(), Level.WARN);
+						}
+					}));
+			TinkersThings.log("Successfully reloaded "+list.size()+" generator(s)");
+		}
+		else
+		{
+			TinkersThings.log("Passing reloading generators");
+		}
 		generators=list;
 
 		isLoading=false;
 	}
-	public static final Info defaultLavaCrystal=Info.build(
-			Blocks.oreLavaCrystal.getDefaultState(),
-			Strategy.ONLY_WHITELIST,new int[]{-1},null,
-			Strategy.NONE_BLACKLIST,null,null,
-			Predicates::isNetherrack,
-			10,110,
-			4,0.25f,1
-	);
-	public static final Info defaultTreeRoot=Info.build(
-			Blocks.oreTreeRoot.getDefaultState(),
-			Strategy.NONE_BLACKLIST,null,null,
-			Strategy.NONE_BLACKLIST,null,null,
-			Predicates::isDirt,
-			0,255,
-			1,1,1
-	);
-	public static final Info defaultBrokenBedrockInfo=Info.build(
-			Blocks.oreBrokenBedrock.getDefaultState(),
-			Strategy.NONE_BLACKLIST,null,null,
-			Strategy.NONE_BLACKLIST,null,null,
-			Predicates::isStone,
-			0,5,
-			3,0.6f,8
-	);
-	public static final Info defaultCloudInfo=Info.build(
-			Blocks.oreBrumeJade.getDefaultState(),
-			Strategy.ONLY_WHITELIST,new int[]{0},null,
-			Strategy.NONE_BLACKLIST,null,null,
-			Predicates::isAir,
-			150,180,
-			1,0.015f,7
-	);
-	public static final Info defaultSeaGrassInfo=Info.build(
-			Blocks.blockSeaGrass.getDefaultState(),
-			Strategy.ONLY_WHITELIST,new int[]{0},null,
-			Strategy.ONLY_WHITELIST,Keys.biomes_sea,null,
-			Predicates::isWater,
-			120,80,
-			4,0.8f,1
-	);
+	public void reload2()
+	{
+//		if(isLoading) return;
+//
+//		isLoading=true;
+//		List<AbstractChunkGen> list=new ArrayList<>();
+//
+//		list.add(new WorldGenTreeRoot(defaultTreeRoot,"TREE_ROOT"));
+//		list.add(new WorldGenMinableBedrock(defaultBrokenBedrockInfo,"BROKEN_BEDROCK"));
+//		list.add(new WorldGenLavaCrystal(defaultLavaCrystal,"LAVA_CRYSTAL"));
+//
+//		list.add(new WorldGenCloud(defaultCloudInfo,"CLOUD"));
+//
+//		list.add(new WorldGenSeaGlass(defaultSeaGrassInfo,"SEA_GRASS"));
+//
+//		FieldStream.of(Blocks.class,null,Block.class)
+//				.forEach((field, anno, block) -> {
+//
+//					GenOre ga=field.getAnnotation(GenOre.class);
+//					Info infoAnno=ga!=null?Info.build(
+//							block.getDefaultState(),
+//
+//							ga.dim(), r(ga.dimsWL()),r(ga.dimsBL()),
+//							ga.biome(), r(ga.biomeWL()),r(getBiomes(ga.biomeBL())),
+//							Predicates.getPredicateIBlockState(ga.selector(), Predicates::isStone),
+//
+//							ga.minY(),ga.maxY(),
+//							ga.times(),(float)ga.timeRate(),
+//							ga.size()
+//					):null;
+//					Info infoJson= ConfigJson.getOre(block.getUnlocalizedName());
+//					Info info2add= null;
+//
+//					if(infoAnno==null)
+//					{
+//						if(infoJson!=null && infoJson.complete())
+//						{
+//							info2add=infoJson;
+//						}
+//					}
+//					else
+//					{
+//						info2add=Info.build(infoAnno,infoJson);
+//					}
+//
+//					if(info2add==null || !Info.enable(info2add,null,false))
+//					{
+//						return;
+//					}
+//
+//					WorldGenMinable gen=new WorldGenMinable( info2add );
+//					list.add(gen);
+//
+//				});
+//
+//		generators=list;
+//
+//		isLoading=false;
+	}
+//	public static final Info defaultLavaCrystal=Info.build(
+//			Blocks.oreLavaCrystal.getDefaultState(),
+//			Strategy.ONLY_WHITELIST,new int[]{-1},null,
+//			Strategy.NONE_BLACKLIST,null,null,
+//			Predicates::isNetherrack,
+//			10,110,
+//			4,0.25f,1
+//	);
+//	public static final Info defaultTreeRoot=Info.build(
+//			Blocks.oreTreeRoot.getDefaultState(),
+//			Strategy.NONE_BLACKLIST,null,null,
+//			Strategy.NONE_BLACKLIST,null,null,
+//			Predicates::isDirt,
+//			0,255,
+//			1,1,1
+//	);
+//	public static final Info defaultBrokenBedrockInfo=Info.build(
+//			Blocks.oreBrokenBedrock.getDefaultState(),
+//			Strategy.NONE_BLACKLIST,null,null,
+//			Strategy.NONE_BLACKLIST,null,null,
+//			Predicates::isStone,
+//			0,5,
+//			3,0.6f,8
+//	);
+//	public static final Info defaultCloudInfo=Info.build(
+//			Blocks.oreBrumeJade.getDefaultState(),
+//			Strategy.ONLY_WHITELIST,new int[]{0},null,
+//			Strategy.NONE_BLACKLIST,null,null,
+//			Predicates::isAir,
+//			150,180,
+//			1,0.015f,7
+//	);
+//	public static final Info defaultSeaGrassInfo=Info.build(
+//			Blocks.blockSeaGrass.getDefaultState(),
+//			Strategy.ONLY_WHITELIST,new int[]{0},null,
+//			Strategy.ONLY_WHITELIST,Keys.biomes_sea,null,
+//			Predicates::isWater,
+//			120,80,
+//			4,0.8f,1
+//	);
 
 
 	int preChunkX=Integer.MIN_VALUE, preChunkZ =Integer.MIN_VALUE;
@@ -177,7 +216,7 @@ public class WorldGens implements IWorldGenerator
 
 		if(Configs.General.log_chunk_generation) // 启用世界生成日志
 		{
-			for(IChunkGen genWorld:generators) // 检查能不能生成在指定世界
+			for(AbstractChunkGen genWorld:generators) // 检查能不能生成在指定世界
 			{
 				boolean canGen=genWorld.canGenAtDim(targetDimId,world,provider) &&
 						genWorld.canGenAtBiome(targetBiomeName, world, biome);
@@ -192,7 +231,7 @@ public class WorldGens implements IWorldGenerator
 		}
 		else // 不启用生成日志
 		{
-			for(IChunkGen genWorld:generators) // 检查能不能生成在指定世界
+			for(AbstractChunkGen genWorld:generators) // 检查能不能生成在指定世界
 			{
 				boolean canGen=genWorld.canGenAtDim(targetDimId,world,provider) &&
 						genWorld.canGenAtBiome(targetBiomeName, world, biome);

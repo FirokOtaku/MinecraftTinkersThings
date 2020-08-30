@@ -14,16 +14,12 @@ import static net.minecraft.init.Blocks.*;
 import static slimeknights.tconstruct.TConstruct.random;
 
 /**
- * 生成随机矿物球 by hidfug
+ * 生成随机矿物球 当前仍未实装
+ * @author hidfug
+ * @since 0.3.19.0 第三次世界生成模块修改
  */
-public class WorldGenOreBall extends BaseChunkGen
+public class WorldGenOreBall extends AbstractChunkGen
 {
-
-	public WorldGenOreBall(Info info)
-	{
-		super(info);
-	}
-
 	@Override
 	public List<BlockPos> genAtRealPos(World world, final int posX,final int posY,final int posZ, int chunkVertexX, int chunkVertexZ, Random rand)
 	{
@@ -56,7 +52,7 @@ public class WorldGenOreBall extends BaseChunkGen
 					int distance = Ix * Ix + Iy * Iy + Iz * Iz;
 					if (distance > r * r && distance <= R * R) { // 球壳内方块随机填为矿物
 						BlockPos posold = new BlockPos(Ix+ (double) posX,Iy+ (double) posY,Iz+ (double) posZ);
-						IBlockState stateold = IChunkGen.getState(world,posold,chunkVertexX,chunkVertexZ);
+						IBlockState stateold = AbstractChunkGen.getState(world,posold,chunkVertexX,chunkVertexZ);
 						Block blockold = stateold.getBlock();
 						double j=Math.random();
 						if (j<0.3 && blockold != AIR){ // 球壳内方块填充为矿物概率 && 非空气方块替换
@@ -72,7 +68,7 @@ public class WorldGenOreBall extends BaseChunkGen
 				for (int Iz = -R; Iz < R; Iz++) {
 					if (Ix * Ix + Iy * Iy + Iz * Iz <= R * R) {
 						BlockPos posTemp = new BlockPos(Ix+ (double) posX,Iy+ (double) posY,Iz+ (double) posZ);
-						IChunkGen.setState(world,posTemp,stateAir,chunkVertexX,chunkVertexZ);
+						AbstractChunkGen.setState(world,posTemp,stateAir,chunkVertexX,chunkVertexZ);
 					}
 				}
 			}
@@ -83,7 +79,7 @@ public class WorldGenOreBall extends BaseChunkGen
 				for (int Iz = -R; Iz < R; Iz++) {
 					if (Ix * Ix + Iy * Iy + Iz * Iz <= R * R/9){ // 中心生成
 						BlockPos posTemp = new BlockPos(Ix+ (double) posX,Iy+ (double) posY -(R-r),Iz+ (double) posZ);
-						IChunkGen.setState(world,posTemp,stateStellarium_ORE,chunkVertexX,chunkVertexZ);
+						AbstractChunkGen.setState(world,posTemp,stateStellarium_ORE,chunkVertexX,chunkVertexZ);
 					}
 				}
 			}
@@ -92,13 +88,20 @@ public class WorldGenOreBall extends BaseChunkGen
 		for (i=0;i<=BlockScalar;i++){
 			BlockPos posTemp = new BlockPos((double) posX +block[i].getX(), (double) posY +block[i].getY(), (double) posZ +block[i].getZ());
 			switch (random.nextInt(8)){
-				case 1:IChunkGen.setState(world,posTemp,stateCOAL_ORE,chunkVertexX,chunkVertexZ);break;
-				case 2:IChunkGen.setState(world,posTemp,stateDIAMOND_ORE,chunkVertexX,chunkVertexZ);break ;
-				case 3:IChunkGen.setState(world,posTemp,stateEMERALD_ORE,chunkVertexX,chunkVertexZ);break ;
-				case 4:IChunkGen.setState(world,posTemp,stateGOLD_ORE,chunkVertexX,chunkVertexZ);break ;
-				case 5:IChunkGen.setState(world,posTemp,stateIRON_ORE,chunkVertexX,chunkVertexZ);break ;
-				case 6:IChunkGen.setState(world,posTemp,stateLAPIS_ORE,chunkVertexX,chunkVertexZ);break ;
-				case 7:IChunkGen.setState(world,posTemp,stateREDSTONE_ORE,chunkVertexX,chunkVertexZ);break ;
+				case 1:
+					AbstractChunkGen.setState(world,posTemp,stateCOAL_ORE,chunkVertexX,chunkVertexZ);break;
+				case 2:
+					AbstractChunkGen.setState(world,posTemp,stateDIAMOND_ORE,chunkVertexX,chunkVertexZ);break ;
+				case 3:
+					AbstractChunkGen.setState(world,posTemp,stateEMERALD_ORE,chunkVertexX,chunkVertexZ);break ;
+				case 4:
+					AbstractChunkGen.setState(world,posTemp,stateGOLD_ORE,chunkVertexX,chunkVertexZ);break ;
+				case 5:
+					AbstractChunkGen.setState(world,posTemp,stateIRON_ORE,chunkVertexX,chunkVertexZ);break ;
+				case 6:
+					AbstractChunkGen.setState(world,posTemp,stateLAPIS_ORE,chunkVertexX,chunkVertexZ);break ;
+				case 7:
+					AbstractChunkGen.setState(world,posTemp,stateREDSTONE_ORE,chunkVertexX,chunkVertexZ);break ;
 			}
 		}
 

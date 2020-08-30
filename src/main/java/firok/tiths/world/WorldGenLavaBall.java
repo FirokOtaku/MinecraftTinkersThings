@@ -13,14 +13,13 @@ import java.util.Random;
 
 import static firok.tiths.util.Predicates.canTrigger;
 
-// 生成岩浆水晶
-public class WorldGenLavaCrystal extends BaseChunkGen
+/**
+ * 岩浆球矿
+ * @author Firok
+ * @since 0.3.19.0 第三次世界生成模块修改
+ */
+public class WorldGenLavaBall extends AbstractChunkGen
 {
-	public WorldGenLavaCrystal(Info defaultInfo, String specialKey)
-	{
-		super(defaultInfo, specialKey);
-	}
-
 	@Override
 	public List<BlockPos> genAtRealPos(World world, int posX, int posY, int posZ, int chunkVertexX, int chunkVertexZ, Random rand)
 	{
@@ -39,7 +38,7 @@ public class WorldGenLavaCrystal extends BaseChunkGen
 
 					BlockPos posTemp=new BlockPos(posX+ox,posY+oy,posZ+oz);
 
-					IBlockState stateTemp=IChunkGen.getState(world,posTemp,chunkVertexX,chunkVertexZ);
+					IBlockState stateTemp= AbstractChunkGen.getState(world,posTemp,chunkVertexX,chunkVertexZ);
 
 					if(!Predicates.isStone(stateTemp) && stateTemp.getBlock() != Blocks.NETHERRACK)
 					{
@@ -52,7 +51,7 @@ public class WorldGenLavaCrystal extends BaseChunkGen
 
 		if(hasSomeNoneStone) return ret; // 有不是石头的东西
 
-		IBlockState blockCentral= firok.tiths.common.Blocks.oreLavaCrystal.getDefaultState(); // 中间是矿
+		IBlockState blockCentral= getMainState(); // 中间是矿
 		IBlockState blockSurrounding= Blocks.LAVA.getDefaultState(); // 岩浆球
 		IBlockState blockRandom= Blocks.OBSIDIAN.getDefaultState(); // 夹杂着黑曜石
 
@@ -69,7 +68,7 @@ public class WorldGenLavaCrystal extends BaseChunkGen
 					boolean isCentral=distance<=1;
 
 					BlockPos posTemp=new BlockPos(posX+ox,posY+oy,posZ+oz);
-					IChunkGen.setState(world,posTemp,
+					AbstractChunkGen.setState(world,posTemp,
 							isCentral?
 									blockCentral:
 									(canTrigger(rand,0.185f)?

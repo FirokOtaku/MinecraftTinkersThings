@@ -1,43 +1,27 @@
 package firok.tiths.common;
 
 import com.google.gson.JsonArray;
-import com.sun.org.apache.xml.internal.serializer.ToHTMLSAXHandler;
-import firok.tiths.TinkersThings;
-import firok.tiths.util.Actions;
-import firok.tiths.util.Colors;
 import firok.tiths.util.InnerActions;
-import firok.tiths.util.Predicates;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.MapColor;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import org.apache.commons.io.FileUtils;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
 import javax.annotation.Nullable;
-import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.*;
 import java.util.List;
 
 import static firok.tiths.TinkersThings.log;
-import static firok.tiths.common.Blocks.*;
 import static firok.tiths.util.Predicates.canTrigger;
-import static net.minecraft.init.Blocks.*;
-import static slimeknights.tconstruct.TConstruct.random;
 
 public class Commands implements ICommand
 {
@@ -79,27 +63,27 @@ public class Commands implements ICommand
 					final String arg=args[0];
 					SWITCH:switch(arg)
 					{
-						case "worldgen":
-						{
-							if("reload".equals(args[1]))
-							{
-								WorldGens instance=WorldGens.getInstance();
-								if(instance.isLoading())
-								{
-									log("generator is reloading now");
-								}
-								else
-								{
-									new Thread(() -> {
-										log("generator now start to reload");
-										ConfigJson.readOres();
-										WorldGens.getInstance().reload();
-										log("generator reloading finished");
-									}).start();
-								}
-							}
-							break SWITCH;
-						}
+//						case "worldgen":
+//						{
+//							if("reload".equals(args[1]))
+//							{
+//								WorldGens instance=WorldGens.getInstance();
+//								if(instance.isLoading())
+//								{
+//									log("generator is reloading now");
+//								}
+//								else
+//								{
+//									new Thread(() -> {
+//										log("generator now start to reload");
+//										ConfigJson.readOres();
+//										WorldGens.getInstance().reload();
+//										log("generator reloading finished");
+//									}).start();
+//								}
+//							}
+//							break SWITCH;
+//						}
 						case "damage":
 						{
 							float amount=Float.parseFloat(args[1]);
