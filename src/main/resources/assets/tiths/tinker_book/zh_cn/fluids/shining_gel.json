@@ -1,0 +1,20 @@
+{
+    "title":"多一点液体",
+    "text": [
+        {
+            "text": "§l闪光凝胶§r\n对水使用荧光剂得到."
+        },
+        {
+            "text": "闪光凝胶会给予接触到的生物灯明状态效果.",
+            "paragraph": true
+        }
+    ],
+    "stacks": [
+        {
+            "item": "tiths:fluorescent_gel"
+        },
+        {
+            "item": "tiths:molten_shining_gel"
+        }
+    ]
+}

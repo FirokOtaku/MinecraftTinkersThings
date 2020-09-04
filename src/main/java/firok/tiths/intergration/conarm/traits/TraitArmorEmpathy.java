@@ -26,7 +26,7 @@ public class TraitArmorEmpathy extends AbstractArmorTrait
 	{
 		if(!world.isRemote && canTick(world,5,0))
 		{
-			player.addPotionEffect(new PotionEffect(Potions.empathic,80,0));
+			player.addPotionEffect(new PotionEffect(Potions.empathic,80,0,false,false));
 		}
 	}
 }

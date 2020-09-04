@@ -9,6 +9,7 @@ import firok.tiths.common.WorldGens;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -39,13 +40,20 @@ public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers' Things";
-	public static final String VERSION = "1.12.2-0.3.19.0";
+	public static final String VERSION = "1.12.2-0.3.20.0";
 	public static final VersionPhase version = VersionPhase.Alpha;
 
 	public static final String CONARM_ID = "conarm";
 
 	@Mod.Instance(MOD_ID)
 	public static TinkersThings INSTANCE;
+
+	@SidedProxy(
+			serverSide = "firok.tiths.CommonProxy",
+			clientSide = "firok.tiths.ClientProxy",
+			modId = MOD_ID
+	)
+	public static CommonProxy proxy;
 
 	/**
 	 * 一些客户端效果用的random

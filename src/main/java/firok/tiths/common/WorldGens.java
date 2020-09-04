@@ -71,7 +71,7 @@ public class WorldGens implements IWorldGenerator
 
 							AbstractChunkGen gen= WorldGeneratorFactory.create(fieldConfigValue,state);
 
-							System.out.println(annoConfig.value());
+//							System.out.println(annoConfig.value());
 
 							list.add(gen);
 						}

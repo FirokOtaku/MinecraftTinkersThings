@@ -1,0 +1,11 @@
+[
+  {
+    "name": "tiths",
+    "data": "tiths.json",
+    "icon": {
+      "item": {
+        "id": "tiths:blackrock"
+      }
+    }
+  }
+]

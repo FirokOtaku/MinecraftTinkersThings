@@ -4,7 +4,6 @@ import c4.conarm.lib.traits.AbstractArmorTrait;
 import firok.tiths.common.Configs;
 import firok.tiths.common.Potions;
 import firok.tiths.util.EntityFinders;
-import firok.tiths.util.Ranges;
 import firok.tiths.util.Selectors;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -35,7 +34,7 @@ public class TraitArmorHyper extends AbstractArmorTrait
 			int level= MathHelper.log2DeBruijn(size)-1;
 			if(level>=0)
 			{
-				player.addPotionEffect(new PotionEffect(Potions.hidden_hyper,65,level));
+				player.addPotionEffect(new PotionEffect(Potions.hidden_hyper,65,level,false,false));
 			}
 		}
 	}

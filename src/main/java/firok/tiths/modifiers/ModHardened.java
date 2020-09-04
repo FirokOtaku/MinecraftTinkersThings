@@ -27,7 +27,7 @@ public class ModHardened extends ToolModifier
 		InnerActions.apply(rootCompound, modifierTag, ModHardened::applyInner);
 	}
 
-	public static void applyInner(NBTTagCompound rootCompound, ToolNBT data,int level,boolean harvest,boolean weapon,boolean launcher)
+	public static void applyInner(NBTTagCompound rootCompound, NBTTagCompound modifierTag, ToolNBT data,int level,boolean harvest,boolean weapon,boolean launcher)
 	{
 		while(level-->0)
 		{

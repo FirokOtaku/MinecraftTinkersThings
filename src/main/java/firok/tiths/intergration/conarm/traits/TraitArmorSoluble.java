@@ -42,7 +42,7 @@ public class TraitArmorSoluble extends AbstractArmorTrait
 
 			if( canTick(world,4,0) )
 			{
-				player.addPotionEffect( new PotionEffect(Potions.hidden_soluble, 5, 0 ));
+				player.addPotionEffect( new PotionEffect(Potions.hidden_soluble, 5, 0, false, false ));
 			}
 		}
 	}

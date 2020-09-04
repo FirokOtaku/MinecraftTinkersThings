@@ -18,9 +18,11 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.JsonToNBT;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
+import net.minecraft.potion.Potion;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -70,7 +72,7 @@ public final class InnerActions
 		ToolNBT data = TagUtil.getToolStats(rootCompound);
 		int level = modData.current;
 
-		fun.apply(rootCompound, data,level,harvest,weapon,launcher);
+		fun.apply(rootCompound, modifierTag, data,level,harvest,weapon,launcher);
 	}
 
 
@@ -484,5 +486,79 @@ public final class InnerActions
 	{
 		box2=box2.offset(offset);
 		if(box1.intersects(box2)) list.add(box2);
+	}
+
+	public static ItemStack JSON2stack(JsonObject json)
+	{
+		try
+		{
+			ItemStack stack=null;
+
+			String id= json.get("item").getAsString();
+			int count= json.has("count") ? json.get("count").getAsInt() : 1;
+			int damage= json.has("damage") ? json.get("damage").getAsInt() : 0;
+			NBTTagCompound nbt= json.has("nbt") ? JsonToNBT.getTagFromJson(json.get("nbt").getAsString()) : null;
+			Item item= Item.getByNameOrId(id);
+
+			stack=new ItemStack(item,count);
+			stack.setItemDamage(damage);
+			if(nbt!=null) stack.setTagCompound(nbt);
+
+			return stack;
+		}
+		catch (Exception e)
+		{
+			return null;
+		}
+	}
+	public static ItemStack[] ARRAY2stacks(JsonArray array)
+	{
+		try
+		{
+			List<ItemStack> stacks=new ArrayList<>();
+
+			array.forEach(jsonElement -> {
+				try
+				{
+					JsonObject json=jsonElement.getAsJsonObject();
+					stacks.add(JSON2stack(json));
+				} catch (Exception ignored) {}
+
+			});
+
+			return stacks.toArray(new ItemStack[stacks.size()]);
+		}
+		catch (Exception e)
+		{
+			return null;
+		}
+	}
+
+	public static Potion JSON2potion(JsonElement json)
+	{
+		try
+		{
+			return Potion.getPotionFromResourceLocation(json.getAsString());
+		}
+		catch (Exception e)
+		{
+			return null;
+		}
+	}
+	public static Potion[] ARRAY2potions(JsonArray array)
+	{
+		try
+		{
+			List<Potion> potions=new ArrayList<>();
+			array.forEach(jsonElement -> {
+				Potion p=JSON2potion(jsonElement);
+				if(p!=null) potions.add(p);
+			});
+			return potions.toArray(new Potion[potions.size()]);
+		}
+		catch (Exception e)
+		{
+			return null;
+		}
 	}
 }

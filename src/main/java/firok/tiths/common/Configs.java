@@ -498,7 +498,7 @@ public final class Configs
 		public static String altairium="type=common; min_y=10; max_y=70; size=3; strategy_biome=ONLY_WHITELIST; biomes=$desert";
 
 		@LangKey(pwg+nameBrumeJade) // 云玉
-		public static String brume_jade="type=cloud; rate_chunk=0.015";
+		public static String brume_jade="type=cloud; rate_chunk=0.015; strategy_dim=ONLY_WHITELSIT; dims=0";
 
 		@LangKey(pwg+nameBlackrock) // 黑石
 		public static String blackrock="type=common; time_chunk=5; rate_single=0.7; size=20; min_y=40; max_y=80";

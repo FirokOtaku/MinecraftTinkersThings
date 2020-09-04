@@ -26,7 +26,7 @@ public class TraitArmorLeavesHiding extends AbstractArmorTrait
 	{
 		if(!world.isRemote && canTick(world,80,6))
 		{
-			player.addPotionEffect(new PotionEffect(Potions.leaves_hiding,85,0));
+			player.addPotionEffect(new PotionEffect(Potions.leaves_hiding,85,0,false,false));
 		}
 	}
 }

@@ -54,7 +54,7 @@ public class ModDrilled extends ToolModifier
 		       otherModifier != TinkerTraits.dense;
 	}
 
-	public static void applyInner(NBTTagCompound rootCompound, ToolNBT data, int level, boolean harvest, boolean weapon, boolean launcher)
+	public static void applyInner(NBTTagCompound rootCompound, NBTTagCompound modifierTag, ToolNBT data, int level, boolean harvest, boolean weapon, boolean launcher)
 	{
 		while(level-->0)
 		{

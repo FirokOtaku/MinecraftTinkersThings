@@ -1,0 +1,22 @@
+{
+    "title":"多一点状态",
+    "text": [
+        {
+            "text": "§l沉重§r\n大幅增加下落速度和摔落伤害."
+        },
+        {
+            "text": "§l瘟疫|弱化瘟疫§r\n随机给予各种负面效果, 并且向附近的生物传播\n§o弱化瘟疫仅在怪物之间传播§r",
+            "paragraph": true
+        },
+        {
+            "text": "§l酸蚀§r\n手持和身穿的装备会快速损失耐久",
+            "paragraph": true
+        }
+    ],
+    "potions": [
+        "tiths:heavy",
+        "tiths:pestilential",
+        "tiths:weakened_pestilential",
+        "tiths:acid_wetted"
+    ]
+}

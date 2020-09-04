@@ -24,6 +24,6 @@ public class TraitArmorCapacitor extends AbstractArmorTrait
 	public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean isCritical)
 	{
 		if(target.isEntityAlive())
-			target.addPotionEffect(new PotionEffect(Potions.paralysed, Configs.ArmorTraits.capacitor_duration, 0));
+			target.addPotionEffect(new PotionEffect(Potions.paralysed, Configs.ArmorTraits.capacitor_duration, 0,false,false));
 	}
 }

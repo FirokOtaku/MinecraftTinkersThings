@@ -31,7 +31,7 @@ public class TraitArmorBuoyant extends AbstractArmorTrait
 	{
 		if(player.isInWater() && canTick(player.world,4,0))
 		{
-			player.addPotionEffect(new PotionEffect(Potions.hidden_buoyant,5,0));
+			player.addPotionEffect(new PotionEffect(Potions.hidden_buoyant,5,0,false,false));
 		}
 	}
 }

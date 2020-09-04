@@ -5,5 +5,5 @@ import slimeknights.tconstruct.library.tools.ToolNBT;
 
 public interface Applier
 {
-	void apply(NBTTagCompound rootCompound, ToolNBT data, int level, boolean harvest, boolean weapon, boolean launcher);
+	void apply(NBTTagCompound rootCompound, NBTTagCompound modifierTag, ToolNBT data, int level, boolean harvest, boolean weapon, boolean launcher);
 }

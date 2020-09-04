@@ -1,6 +1,7 @@
 package firok.tiths.potion;
 
 import firok.tiths.TinkersThings;
+import firok.tiths.util.IResourceLocationContainer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.entity.EntityLivingBase;
@@ -10,7 +11,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BasePotion extends Potion
+public class BasePotion extends Potion implements IResourceLocationContainer
 {
 	public static ResourceLocation icon(String name)
 	{
@@ -27,6 +28,12 @@ public class BasePotion extends Potion
 		super(isBadEffect, color);
 		this.rl=rl;
 		this.show=show;
+	}
+
+	@Override
+	public ResourceLocation getResourceLocation()
+	{
+		return rl;
 	}
 
 	@Override
@@ -57,6 +64,13 @@ public class BasePotion extends Potion
 	}
 
 	@Override
+	public boolean shouldRenderHUD(PotionEffect effect)
+	{
+		return show;
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
 	public void renderInventoryEffect(int x, int y, PotionEffect effect, Minecraft mc)
 	{
 		this.render(x+8, y+8, effect, mc, 1);

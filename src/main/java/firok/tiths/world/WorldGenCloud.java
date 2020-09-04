@@ -116,6 +116,15 @@ public class WorldGenCloud extends AbstractChunkGen
 	}
 
 	@Override
+	public BlockPos genRealPos(World world, int chunkVertexX, int chunkVertexZ, Random rand, int padding)
+	{
+		final int posX=chunkVertexX+padding+rand.nextInt(16-padding*2);
+		final int posY=minHeight + (maxHeight>minHeight? rand.nextInt(maxHeight-minHeight): 0);
+		final int posZ=chunkVertexZ+padding+rand.nextInt(16-padding*2);
+		return new BlockPos(posX,posY,posZ);
+	}
+
+	@Override
 	public List<BlockPos> genAtRealPos(World world, final int posX, final int posY, final int posZ, int chunkVertexX, int chunkVertexZ, Random rand)
 	{
 		// 一种二次曲面，是椭圆在三维空间的推广。

@@ -26,7 +26,7 @@ public class TraitArmorLingering extends AbstractArmorTrait
 	{
 		if(!world.isRemote && canTick(world,80,0))
 		{
-			player.addPotionEffect(new PotionEffect(Potions.bruming,85,0));
+			player.addPotionEffect(new PotionEffect(Potions.bruming,85,0,false,false));
 		}
 	}
 }

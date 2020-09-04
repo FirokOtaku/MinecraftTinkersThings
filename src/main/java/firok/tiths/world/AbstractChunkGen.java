@@ -302,7 +302,7 @@ public abstract class AbstractChunkGen
 
 	static boolean crossChunk(BlockPos pos,int chunkVX,int chunkVZ)
 	{
-		return pos.getX()<= chunkVX || pos.getX()> chunkVX+15 || pos.getZ()<=chunkVZ || pos.getZ()>chunkVZ+15;
+		return pos.getX()< chunkVX || pos.getX()> chunkVX+15 || pos.getZ()<chunkVZ || pos.getZ()>chunkVZ+15;
 	}
 
 	/**

@@ -3,7 +3,7 @@
     "modid": "tiths",
     "name": "Tinkers' Things",
     "description": "A mod adding several things to Tinkers' Construct",
-    "version": "1.12.2-0.3.19.0",
+    "version": "1.12.2-0.3.20.0",
     "mcversion": "${mcversion}",
     "url": "https://github.com/351768593/MinecraftTinkersThings",
     "updateUrl": "",

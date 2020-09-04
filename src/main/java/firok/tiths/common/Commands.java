@@ -63,27 +63,6 @@ public class Commands implements ICommand
 					final String arg=args[0];
 					SWITCH:switch(arg)
 					{
-//						case "worldgen":
-//						{
-//							if("reload".equals(args[1]))
-//							{
-//								WorldGens instance=WorldGens.getInstance();
-//								if(instance.isLoading())
-//								{
-//									log("generator is reloading now");
-//								}
-//								else
-//								{
-//									new Thread(() -> {
-//										log("generator now start to reload");
-//										ConfigJson.readOres();
-//										WorldGens.getInstance().reload();
-//										log("generator reloading finished");
-//									}).start();
-//								}
-//							}
-//							break SWITCH;
-//						}
 						case "damage":
 						{
 							float amount=Float.parseFloat(args[1]);
@@ -119,12 +98,12 @@ public class Commands implements ICommand
 
 							break SWITCH;
 						}
-						case "texture":
-						{
-//							Ignore_MaterialTextureHandler.gen();
-
-							break SWITCH;
-						}
+//						case "texture":
+//						{
+////							Ignore_MaterialTextureHandler.gen();
+//
+//							break SWITCH;
+//						}
 						case "air":
 						{
 							int amount= 300;
@@ -157,12 +136,6 @@ public class Commands implements ICommand
 
 							break SWITCH;
 						}
-						case "gen":
-						{
-
-
-							break SWITCH;
-						}
 						case "nbt":
 						{
 							ItemStack stack=player.getHeldItemMainhand();
@@ -170,12 +143,6 @@ public class Commands implements ICommand
 
 							NBTTagCompound nbt=stack.getTagCompound();
 							System.out.println(nbt);
-
-							break SWITCH;
-						}
-						case "text":
-						{
-
 
 							break SWITCH;
 						}
