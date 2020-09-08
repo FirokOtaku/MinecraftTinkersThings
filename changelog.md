@@ -2,6 +2,18 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.21.0 _2020-09-08 22:00_
+
+* 修改部分材质 modified some textures
+
+## 0.3.20.0 _2020-09-04 16:30_
+
+* 增加新的手册书页类型 added new type of book pages
+
+## 0.3.19.0 _2020-08-30 18:30_
+
+* 重写世界生成模块 rewrote world generations
+
 ## 0.3.18.0 _2020-08-16 19:30_
 
 * 错误修复 bug fixes
@@ -147,7 +159,7 @@
 ## 0.3.5.5 _2020-06-14 17:00_
 
 * 调整矿物世界生成 modified ore generations
-* 修改部分材质 modified some textures
+S
 * 增加方块和物品 added blocks and items
   * 远洋腰带 belt oceanic item
   * 冰明玉矿 icelit ore block

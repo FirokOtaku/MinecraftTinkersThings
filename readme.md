@@ -10,23 +10,17 @@
 
 ## 最近更新 latest update
 
-### 0.3.17.0 _2020-08-13 23:30_
+### 0.3.21.0 _2020-09-08 22:00_
 
-* 增加方块 added blocks
-  * 铁钉 iron punji block
-  * 海绵钉 sponge punji block
-  * 云钉 cloud punji block
-* 增加状态效果 added potion effects
-  * 坚冰 hard ice
+* 修改部分材质 modified some textures
 
-### 0.3.15.0 _2020-08-09 20:00_
+## 0.3.20.0 _2020-09-04 16:30_
 
-* 更新部分合成表 updated some recipes
+* 增加新的手册书页类型 added new type of book pages
 
-### 0.3.14.0 _2020-08-08 19:00_
+### 0.3.19.0 _2020-08-30 18:30_
 
-* 更新语言文件 updated lang files
-* 为更多特性增加配置文件支持 more traits are configurable now
+* 重写世界生成模块 rewrote world generations
 
 ## 版本间差异 differences between versions
 
