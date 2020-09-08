@@ -1,0 +1,16 @@
+{
+    "title":"A little more effects",
+    "text": [
+        {
+            "text": "§l麻痹§r\n降低移动速度和攻击伤害."
+        },
+        {
+            "text": "§l共感§r\n每当周围有生物受到伤害时, 你也会受到伤害.\n共感伤害不会触发共感效果.\n共感伤害不会致死.",
+            "paragraph": true
+        }
+    ],
+    "potions": [
+        "tiths:paralysed",
+        "tiths:empathic"
+    ]
+}

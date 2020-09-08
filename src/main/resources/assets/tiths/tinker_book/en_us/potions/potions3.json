@@ -1,0 +1,26 @@
+{
+    "title":"A little more effects",
+    "text": [
+        {
+            "text": "§l发泡§r\n获得浮力并缓慢恢复氧气."
+        },
+        {
+            "text": "§l乱流§r\n处于水中的生物将会随机漂流.",
+            "paragraph": true
+        },
+        {
+            "text": "§l旋流§r\n处于水中的生物将会螺旋下沉.",
+            "paragraph": true
+        },
+        {
+            "text": "§l灯明§r\n在走过的路上留下一条光明轨迹, 一段时间后消失.",
+            "paragraph": true
+        }
+    ],
+    "potions": [
+        "tiths:bubbling",
+        "tiths:turbulent",
+        "tiths:eddying",
+        "tiths:illuminating"
+    ]
+}

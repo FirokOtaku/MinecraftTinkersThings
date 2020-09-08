@@ -1,0 +1,17 @@
+{
+    "title":"A little more fluids",
+    "text": [
+        {
+            "text": "§l污水§r\n将水和泥土混合可以得到."
+        },
+        {
+            "text": "这种液体让接触到的生物虚弱.",
+            "paragraph": true
+        }
+    ],
+    "stacks": [
+        {
+            "item": "tiths:molten_ender_turbulence"
+        }
+    ]
+}

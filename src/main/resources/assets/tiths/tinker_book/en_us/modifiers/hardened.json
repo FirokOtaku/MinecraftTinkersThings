@@ -1,0 +1,15 @@
+{
+    "demoTool": [
+        "tconstruct:pickaxe"
+    ],
+    "effects": [
+        "提升攻击力",
+        "降低速度"
+    ],
+    "modifier": "hardened",
+    "text": [
+        {
+            "text": "稍微增重"
+        }
+    ]
+}

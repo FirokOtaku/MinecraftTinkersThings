@@ -40,7 +40,7 @@ public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers' Things";
-	public static final String VERSION = "1.12.2-0.3.20.0";
+	public static final String VERSION = "1.12.2-0.3.21.0";
 	public static final VersionPhase version = VersionPhase.Alpha;
 
 	public static final String CONARM_ID = "conarm";
