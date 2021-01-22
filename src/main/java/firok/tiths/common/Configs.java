@@ -20,7 +20,7 @@ public final class Configs
 
 	static final String c="config.tiths.";
 	static final String pg="config.tiths.general.";
-	static final String pgp="config.tiths.gameplay.";
+	static final String pgp="config.tiths.potion.";
 	static final String pgt="config.tiths.trait.";
 	static final String pga="config.tiths.trait_armor.";
 	static final String pgg="config.tiths.gameplay.";
@@ -150,15 +150,26 @@ public final class Configs
 		/**
 		 * 启用奢华合金简易合成
 		 */
-		@LangKey(pgp+"enable_royal")
+		@LangKey(pgg+"enable_royal")
 		@RequiresMcRestart
 		public static boolean enable_royal_alloy_easy_crafting=false;
 
 		/**
 		 * 启用闪电熔岩生成
 		 */
-		@LangKey(pgp+"enable_fulgurite_generation")
+		@LangKey(pgg+"enable_fulgurite_generation")
 		public static boolean enable_fulgurite_generation=true;
+	}
+
+	@Config(name=TinkersThings.MOD_ID+"_potion",modid= TinkersThings.MOD_ID,category = "potion")
+	@LangKey(c+"potion")
+	public static class Potion
+	{
+		/**
+		 * 触发迈达斯之视掉落几率
+		 */
+		@LangKey(pgp)
+		public static float rate_midas_vision_drop=0.24f;
 	}
 
 	@Config(name=TinkersThings.MOD_ID+"_trait",modid= TinkersThings.MOD_ID,category = "trait")

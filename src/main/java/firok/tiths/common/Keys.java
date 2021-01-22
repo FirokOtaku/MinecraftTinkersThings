@@ -718,6 +718,7 @@ public interface Keys
 	int colorPotionParalysed = 0xdbab23;
 	int colorPotionEmpathic = colorTraitEmpathy;
 	int colorPotionHardIce = 0x7da5dc;
+	int colorPotionMidasVision = 0xffd02e;
 
 	// 状态效果属性修饰符uuid
 	String uuidPotionAvatarSpeed = "258A83A5-A3BD-4CFD-842C-B2DF39343C91";

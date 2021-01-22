@@ -117,6 +117,23 @@ public class Events
 	}
 
 	@SubscribeEvent
+	public static void onPlayerBreakBlock(BlockEvent.BreakEvent event)
+	{
+		World world=event.getWorld();
+		Random rand=world.rand;
+		if(world.isRemote || !canTrigger(rand, Configs.Potion.rate_midas_vision_drop)) return;
+
+		EntityPlayer player = event.getPlayer();
+		PotionEffect peMidasVision=player.getActivePotionEffect(Potions.midas_vision);
+		int maxGoldenNugget = peMidasVision!=null ? (peMidasVision.getAmplifier()+1) : 0;
+		if(maxGoldenNugget>0) maxGoldenNugget=rand.nextInt(maxGoldenNugget);
+		if(maxGoldenNugget>0)
+		{
+			Actions.CauseSpawnItem(player,new ItemStack(net.minecraft.init.Items.GOLD_NUGGET,maxGoldenNugget));
+		}
+	}
+
+	@SubscribeEvent
 	public static void onEntityItemPickup(EntityItemPickupEvent event)
 	{
 		EntityItem ei=event.getItem();

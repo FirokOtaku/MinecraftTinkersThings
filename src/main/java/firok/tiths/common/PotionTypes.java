@@ -62,6 +62,13 @@ public final class PotionTypes
 	public static final PotionType hard_ice=new PotionType("hard_ice",
 			new PotionEffect(Potions.hard_ice,3600,0));
 
+	public static final PotionType midas_vision1=new PotionType("midas_vision",
+			new PotionEffect(Potions.midas_vision,1800,0));
+	public static final PotionType midas_vision2=new PotionType("midas_vision",
+			new PotionEffect(Potions.midas_vision,1800,1));
+	public static final PotionType midas_vision3=new PotionType("midas_vision",
+			new PotionEffect(Potions.midas_vision,1800,2));
+
 //	public static final PotionType sun_power=new PotionType("sun_power",
 //			new PotionEffect(MobEffects.STRENGTH,3600,0));
 	static

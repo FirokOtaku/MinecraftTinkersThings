@@ -55,4 +55,5 @@ public final class Potions
 	public static BasePotion paralysed = new PotionParalysed(); // 麻痹
 	public static BasePotion empathic = new PotionEmpathic(); // 共感
 	public static BasePotion hard_ice = new PotionHardIce(); // 坚冰
+	public static BasePotion midas_vision = new BasePotion(icon("midas_vision"),false,colorPotionMidasVision); // 迈达斯之视
 }

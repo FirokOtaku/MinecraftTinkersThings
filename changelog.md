@@ -2,6 +2,11 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.22.0 _2021-01-22 11:00_
+
+* 增加状态效果 add potion effects
+  * 迈达斯之视 midas vision
+
 ## 0.3.21.0 _2020-09-08 22:00_
 
 * 修改部分材质 modified some textures
