@@ -571,6 +571,10 @@ public interface Keys
 	String nameTraitCapacitor = "capacitor";
 	String nameTraitCarrier = "carrier";
 	String nameTraitEmpathy = "empathy";
+	String nameTraitFarmlandProtective = "farmland_protective";
+	String nameTraitAngerOfFarmer = "anger_of_farmer";
+	String nameTraitCherishing = "cherishing";
+	String nameTraitAntiGriefing = "anti_griefing";
 
 	// 属性颜色
 	int colorTraitGluttonic = 0x752b40;
@@ -692,6 +696,10 @@ public interface Keys
 	int colorTraitCapacitor = 0xded3b0;
 	int colorTraitCarrier = 0x235170;
 	int colorTraitEmpathy = 0x538c19;
+	int colorTraitFarmlandProtective = 0x28da34;
+	int colorTraitAngerOfFarmer = 0x7c3923;
+	int colorTraitCherishing = 0x4bcab3;
+	int colorTraitAntiGriefing = 0x538566;
 
 	// 状态效果颜色
 	int colorPotionHeavy = Colors.DarkSeaGreen;
@@ -719,6 +727,7 @@ public interface Keys
 	int colorPotionEmpathic = colorTraitEmpathy;
 	int colorPotionHardIce = 0x7da5dc;
 	int colorPotionMidasVision = 0xffd02e;
+	int colorPotionFarmlandTrampler = 0x5a5919;
 
 	// 状态效果属性修饰符uuid
 	String uuidPotionAvatarSpeed = "258A83A5-A3BD-4CFD-842C-B2DF39343C91";

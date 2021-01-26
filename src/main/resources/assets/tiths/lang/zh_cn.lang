@@ -434,6 +434,8 @@ modifier.2.desc=§o §r\n对于处于身后的敌人造成的伤害提供额外�
 modifier.2.name=钢背
 modifier.ablaze.name=灯明
 modifier.ablaze.desc=§o §r\n使敌人留下一条光明路径
+modifier.anger_of_farmer.name=农夫之怒
+modifier.anger_of_farmer.desc=§o你走开§r\n对践踏耕地的目标造成更多伤害
 modifier.annihilating.desc=§o重力子的辉光§r\n使用时额外消耗大量耐久, 将周围实体向使用者牵引, 并对这些实体和使用者造成伤害
 modifier.annihilating.name=湮灭
 modifier.anti_grav.desc=§o轻飘飘的§r\n使目标漂浮
@@ -452,6 +454,8 @@ modifier.champing.desc=§o自由§r\n增加暴击几率和暴击伤害
 modifier.champing.name=强袭
 modifier.chemical_instable.desc=§o让我想想...§r\n使用时有几率产生小爆炸
 modifier.chemical_instable.name=不稳定化合
+modifier.cherishing.name=缅怀
+modifier.cherishing.desc=§oD-A-I-S-I-E-S§r\n击杀敌人后留下花朵
 modifier.clustering.desc=§o啥?§r\n得到的工具工具总耐久高时会增加额外攻击力, 反之会增加速度
 modifier.clustering.name=群簇
 modifier.combustion_supporting.desc=§oFFF!§r\n当目标着火时损失更多耐久造成更多伤害
@@ -582,6 +586,8 @@ modifier.wither_flowing.name=凋零流动
 
 ## modifier armor
 
+modifier.anti_griefing.name=破坏压制
+modifier.anti_griefing.desc=§o我不管你是谁§r\n怪物不能破坏你附近的方块
 modifier.aquatic_armor.desc=§o §r\n在水中缓慢恢复耐久, 离开水后缓慢损失耐久
 modifier.aquatic_armor.name=水生
 modifier.arsenic_poisonous_armor.desc=§o并非完全不含铅!§r\n使攻击者中毒
@@ -618,6 +624,8 @@ modifier.extreme_freezing_armor.desc=§o寒霜之心§r\n减速周围的怪物
 modifier.extreme_freezing_armor.name=极寒
 modifier.fading_armor.desc=§o阴影之中§r\n亮度越低越容易闪避攻击
 modifier.fading_armor.name=影淡
+modifier.farmland_protective.name=耕地保护
+modifier.farmland_protective.desc=§o真好§r\n你不会再践踏耕地
 modifier.fish_upgraded_armor.name=鱼升级
 modifier.fish_upgraded_armor.desc=§o这味道一般§r\n它们喜欢你
 modifier.gorgeous_armor.desc=§o黑的五彩斑斓§r\n降低受到的伤害

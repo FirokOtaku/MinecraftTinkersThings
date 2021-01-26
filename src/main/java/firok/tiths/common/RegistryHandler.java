@@ -216,9 +216,10 @@ public final class RegistryHandler
 	public static void registerTileEntities()
 	{
 		FieldStream.of(TileEntities.class,null,TileEntity.class)
+				.whenFail(Throwable::printStackTrace)
 				.forEach((field, anno, tileEntity) -> {
 					Class classField=field.getType();
-					if(!TileEntity.class.isAssignableFrom(classField)) return;
+//					if(!TileEntity.class.isAssignableFrom(classField)) return;
 					String name=field.getName();
 					GameRegistry.registerTileEntity(
 							classField,

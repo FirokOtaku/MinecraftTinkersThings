@@ -2,6 +2,14 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.23.0 _2021-01-26 09:30_
+
+* 增加特性 added traits
+  * 护田(护甲) farmland protective(armor)
+  * 农夫之怒 anger of farmer
+  * 缅怀 cherishing
+  * 破坏压制(护甲) anti griefing
+
 ## 0.3.22.0 _2021-01-22 11:00_
 
 * 增加状态效果 add potion effects

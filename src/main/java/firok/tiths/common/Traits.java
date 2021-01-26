@@ -17,6 +17,7 @@ public final class Traits
 //	public static final AbstractTrait wrapping=new TraitWrapping(); // 折跃
 //	static{wrapping.addItem(Items.enderGem);}
 	public static AbstractTrait ablaze; // 灯明
+	public static AbstractTrait angerOfFarmer; // 农夫之怒
 	public static AbstractTrait annihilating; // 湮灭
 	public static AbstractTrait antiGrav; // 反重力
 	public static AbstractTrait aquatic; // 水生
@@ -29,6 +30,7 @@ public final class Traits
 	public static AbstractTrait champing2; // 强袭2
 	public static AbstractTrait champing3; // 强袭3
 	public static AbstractTrait chemicalInstable; // 化学不稳定
+	public static AbstractTrait cherishing; // 缅怀
 	public static AbstractTrait clustering; // 群簇
 	public static AbstractTrait combustionSupporting; // 助燃
 	public static AbstractTrait creaky; // 喀嚓
@@ -98,6 +100,7 @@ public final class Traits
 	public static void init()
 	{
 		ablaze = new TraitAblaze();
+		angerOfFarmer = new TraitAngerOfFarmer();
 		annihilating = new TraitAnnihilating();
 		antiGrav = new TraitAntiGrav();
 		aquatic = new TraitAquatic();
@@ -110,6 +113,7 @@ public final class Traits
 		champing2=new TraitChamping(2);
 		champing3=new TraitChamping(3);
 		chemicalInstable = new TraitChemicalInstable();
+		cherishing = new TraitCherishing();
 		clustering = new TraitClustering();
 		combustionSupporting=new TraitCombustionSupporting();
 		creaky = new TraitCreaky();

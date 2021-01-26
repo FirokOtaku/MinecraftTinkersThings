@@ -82,6 +82,9 @@ public final class PotionTypes
 		addMix(WATER,Items.tourmaline,paralysed);
 //
 //		addMix(WATER,Items.dustChloroplast, net.minecraft.init.PotionTypes.WATER_BREATHING);
+		addMix(WATER,Items.nuggetRoyalAlloy,midas_vision1);
+		addMix(midas_vision1,Items.nuggetRoyalAlloy,midas_vision2);
+		addMix(midas_vision2,Items.nuggetRoyalAlloy,midas_vision3);
 	}
 
 	public static void registerPotionTypes()

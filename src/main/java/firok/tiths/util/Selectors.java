@@ -6,6 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.passive.*;
+import net.minecraft.entity.player.EntityPlayer;
 
 @SuppressWarnings("all")
 public final class Selectors
@@ -15,6 +16,8 @@ public final class Selectors
 	public static final Predicate<? super Entity> mobAlive = en -> (en instanceof EntityLivingBase) && (en instanceof IMob) && en.isEntityAlive();
 
 	public static final Predicate<? super Entity> livingBaseAlive = en -> (en instanceof EntityLivingBase) && en.isEntityAlive();
+
+	public static final Predicate<? super Entity> playerAlive = en -> (en instanceof EntityPlayer) && en.isEntityAlive();
 
 	public static final Predicate<? super Entity> beaconActive = en -> en instanceof EnderBeacon;
 

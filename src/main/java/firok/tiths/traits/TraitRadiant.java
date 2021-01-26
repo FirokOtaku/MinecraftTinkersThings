@@ -31,7 +31,6 @@ import java.util.Random;
 import static firok.tiths.common.Keys.colorTraitRadiant;
 import static firok.tiths.common.Keys.nameTraitRadiant;
 import static firok.tiths.util.Predicates.canTick;
-import static firok.tiths.util.Predicates.isAnyStone;
 
 /**
  * 辉耀
@@ -75,6 +74,7 @@ public class TraitRadiant extends AbstractTrait
 	/**
 	 * 粒子效果
 	 */
+	@SuppressWarnings("all")
 	public static void particle(World world, Entity entity, Random random)
 	{
 		world.spawnParticle(EnumParticleTypes.FLAME,
@@ -82,6 +82,12 @@ public class TraitRadiant extends AbstractTrait
 				entity.posY + random.nextDouble(),
 				entity.posZ + random.nextDouble() -0.5,
 				0.0D, 0.0D, 0.0D);
+
+//		Particles.spawnParticle(Particles.RADIANT,world,
+//				entity.posX + random.nextDouble() -0.5,
+//				entity.posY + random.nextDouble() + 1,
+//				entity.posZ + random.nextDouble() -0.5,
+//				0,0,0);
 	}
 	@Override
 	public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)

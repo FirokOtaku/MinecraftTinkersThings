@@ -7,5 +7,5 @@ public final class TileEntities
 {
 	private TileEntities() {}
 
-	public static BlockSpecialBrewingStand gem_brewing_stand;
+//	public static BlockSpecialBrewingStand gem_brewing_stand;
 }

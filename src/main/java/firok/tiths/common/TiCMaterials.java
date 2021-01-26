@@ -202,7 +202,8 @@ public final class TiCMaterials
 	@CompoArmorPlate(modifier=1.15,durability=9.6,toughness=5.7,traits={  })
 	@CompoArmorTrim(extraDurability=14.4,traits={  })
 	public static final Material imitatium=new $Material(nameImitatium,colorImitatium)
-			.addItemAsIngot(Items.ingotImitatium);
+//			.addItemAsIngot(Items.ingotImitatium); // fixme 特性做好之前先不提供制作方法
+	;
 
 	@Compo(value = nameTitanium,traitsTool = {nameTraitSharp,nameTraitLightweight},traitsBow = {nameTraitLightweight},traitsArmor = {nameTraitLightweight})
 	@CompoHead(durability=780,miningspeed=4.9,attack=4,harvestLevel=3,traits={  })

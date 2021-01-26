@@ -12,9 +12,11 @@ import firok.tiths.item.bauble.ItemCharmLapsing;
 import firok.tiths.traits.IHitBlockProjectile;
 import firok.tiths.util.*;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockFarmland;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.command.EntitySelector;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.boss.EntityDragon;
@@ -32,28 +34,33 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EntitySelectors;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.client.event.sound.PlaySoundEvent;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
+import net.minecraftforge.event.entity.EntityMobGriefingEvent;
 import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.event.world.ChunkEvent;
 import net.minecraftforge.event.world.GetCollisionBoxesEvent;
-import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
+import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -761,6 +768,15 @@ public class Events
 	}
 
 	@SubscribeEvent
+	public static void onMobGriefing(EntityMobGriefingEvent event)
+	{
+		if(TinkersThings.enableConarm())
+		{
+			ArmorEvents.onMobGriefing(event);
+		}
+	}
+
+	@SubscribeEvent
 	public static void onServerTick(TickEvent.ServerTickEvent event)
 	{
 		Datas.Server server=Datas.Server.instance();
@@ -769,6 +785,55 @@ public class Events
 			server.update();
 		}
 	}
+
+//	/**
+//	 * 区块加载事件
+//	 * <ul>
+//	 *     <li>维护{@code IChunkListener}</li>
+//	 * </ul>
+//	 */
+//	@SubscribeEvent
+//	public static void onChunkLoad(ChunkEvent.Load event)
+//	{
+//		if(event.getWorld().isRemote) return;
+//
+//		Chunk chunk=event.getChunk();
+////		ChunkPos posChunk=chunk.getPos();
+//		Map<BlockPos,TileEntity> mapTE=chunk.getTileEntityMap();
+//		for(Map.Entry<BlockPos,TileEntity> entry:mapTE.entrySet())
+//		{
+////			BlockPos pos=entry.getKey();
+//			TileEntity te=entry.getValue();
+//			if(te instanceof IChunkListener)
+//			{
+//				((IChunkListener) te).beforeChunkLoaded();
+//			}
+//		}
+//	}
+//	/**
+//	 * 区块卸载事件
+//	 * <ul>
+//	 *     <li>维护{@code IChunkListener}</li>
+//	 * </ul>
+//	 */
+//	@SubscribeEvent
+//	public static void onChunkUnload(ChunkEvent.Unload event)
+//	{
+//		if(event.getWorld().isRemote) return;
+//
+//		Chunk chunk=event.getChunk();
+////		ChunkPos posChunk=chunk.getPos();
+//		Map<BlockPos,TileEntity> mapTE=chunk.getTileEntityMap();
+//		for(Map.Entry<BlockPos,TileEntity> entry:mapTE.entrySet())
+//		{
+////			BlockPos pos=entry.getKey();
+//			TileEntity te=entry.getValue();
+//			if(te instanceof IChunkListener)
+//			{
+//				((IChunkListener) te).beforeChunkUnloaded();
+//			}
+//		}
+//	}
 
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
@@ -795,6 +860,29 @@ public class Events
 		}
 	}
 
+	@SubscribeEvent
+	public static void onTrample(BlockEvent.FarmlandTrampleEvent event)
+	{
+		if(TinkersThings.enableConarm())
+		{
+			ArmorEvents.onTrample(event);
+		}
+
+		Entity entity = event.getEntity();
+		if(entity instanceof EntityLivingBase)
+		{
+			// 你踩老子田 你完了 你等死吧
+			EntityLivingBase living=(EntityLivingBase)entity;
+			living.addPotionEffect(new PotionEffect(Potions.farmland_trampler,300,0));
+		}
+	}
+
+	/**
+	 * <ul>
+	 *     <li>特性 - 蔽叶</li>
+	 * </ul>
+	 * @param event 方块碰撞箱检测事件
+	 */
 	@SuppressWarnings("all")
 	@SubscribeEvent
 	public static void onCollideWith(GetCollisionBoxesEvent event)

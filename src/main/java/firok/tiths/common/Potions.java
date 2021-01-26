@@ -56,4 +56,5 @@ public final class Potions
 	public static BasePotion empathic = new PotionEmpathic(); // 共感
 	public static BasePotion hard_ice = new PotionHardIce(); // 坚冰
 	public static BasePotion midas_vision = new BasePotion(icon("midas_vision"),false,colorPotionMidasVision); // 迈达斯之视
+	public static BasePotion farmland_trampler = new BasePotion(icon("farmland_trampler"),true,colorPotionFarmlandTrampler,false); // 践踏农田 (隐藏状态)
 }

@@ -40,7 +40,7 @@ public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers' Things";
-	public static final String VERSION = "1.12.2-0.3.21.0";
+	public static final String VERSION = "1.12.2-0.3.23.0";
 	public static final VersionPhase version = VersionPhase.Alpha;
 
 	public static final String CONARM_ID = "conarm";
@@ -102,7 +102,7 @@ public class TinkersThings
 		Items.trigger();
 
 		RegistryHandler.registerBlocks(Blocks.class,TinkersThings.MOD_ID);
-//		RegistryHandler.registerTileEntities();
+		RegistryHandler.registerTileEntities();
 		RegistryHandler.registerItems(Items.class,Blocks.class,TinkersThings.MOD_ID);
 		RegistryHandler.registerEntities();
 //		RegistryHandler.registerVillagers();

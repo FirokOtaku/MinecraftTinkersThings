@@ -8,6 +8,7 @@ import firok.tiths.common.Items;
 import firok.tiths.intergration.conarm.traits.*;
 import firok.tiths.intergration.conarm.traits.TraitArmorTemptUpgraded;
 import firok.tiths.util.reg.Indev;
+import slimeknights.tconstruct.library.traits.AbstractTrait;
 
 import static firok.tiths.common.Keys.*;
 import static firok.tiths.util.Selectors.*;
@@ -15,6 +16,7 @@ import static firok.tiths.util.Selectors.*;
 // ABCDE FGHIJ KLMNO PQRST UVWXY Z
 public class ArmorTraits
 {
+	public static AbstractArmorTrait antiGriefing; // 破坏压制
 	public static AbstractArmorTrait aquatic; // 水生
 	public static AbstractArmorTrait arsenicPoisonous; // 砷毒
 	public static AbstractArmorTrait beetrootUpgraded; // 甜菜升级
@@ -34,6 +36,7 @@ public class ArmorTraits
 	public static AbstractArmorTrait endothermic; // 吸热
 	public static AbstractArmorTrait extremeFreezing; // 极寒
 	public static AbstractArmorTrait fading; // 影淡
+	public static AbstractArmorTrait farmlandProtective; // 护田
 	public static AbstractArmorTrait fishUpgraded; // 鱼腥
 	public static AbstractArmorTrait gorgeous; // 斑斓
 	public static AbstractArmorTrait hemolytic; // 溶血
@@ -80,6 +83,7 @@ public class ArmorTraits
 	@SuppressWarnings("unchecked")
 	public static void init()
 	{
+		antiGriefing=new TraitAntiGriefing();
 		aquatic=new TraitArmorAquatic();
 		arsenicPoisonous=new TraitArmorArsenicPoisonous();
 		beetrootUpgraded= new TraitArmorTemptUpgraded(nameTraitBeetrootUpgraded,colorTraitBeetrootUpgraded,player->Datas.Server.instance().hasBeetrootTempt(player))
@@ -103,6 +107,7 @@ public class ArmorTraits
 		endothermic=new TraitArmorEndothermic();
 		extremeFreezing=new TraitArmorExtremeFreezing();
 		fading=new TraitArmorFading();
+		farmlandProtective=new TraitArmorFarmlandProtective();
 		fishUpgraded=new TraitArmorTemptUpgraded(nameTraitFishUpgraded,colorTraitFishUpgraded,player->Datas.Server.instance().hasFishTempt(player))
 				.always(player->Datas.Server.instance().regFishTempt(player))
 				.toEntity(catAlive);

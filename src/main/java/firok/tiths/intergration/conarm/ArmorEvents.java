@@ -2,8 +2,12 @@ package firok.tiths.intergration.conarm;
 
 import c4.conarm.lib.capabilities.ArmorAbilityHandler;
 import firok.tiths.common.Configs;
+import firok.tiths.common.Potions;
+import firok.tiths.common.Traits;
 import firok.tiths.intergration.conarm.traits.TraitArmorWidening;
+import firok.tiths.util.EntityFinders;
 import firok.tiths.util.InnerActions;
+import firok.tiths.util.Selectors;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.*;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -14,15 +18,19 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPotion;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.sound.PlaySoundEvent;
+import net.minecraftforge.event.entity.EntityMobGriefingEvent;
 import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
+import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.Optional;
+import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
@@ -212,6 +220,41 @@ public class ArmorEvents
 		catch (Exception e)
 		{
 			e.printStackTrace();
+		}
+	}
+
+	public static void onTrample(BlockEvent.FarmlandTrampleEvent event)
+	{
+		World world=event.getWorld();
+		if(world.isRemote) return;
+
+		Entity entity=event.getEntity();
+		if(entity instanceof EntityPlayer)
+		{
+			EntityPlayer player=(EntityPlayer) entity;
+			Set<ITrait> traits=InnerActions.getArmorTraits(player);
+
+			// 很好 我很喜欢
+			if(traits.contains(ArmorTraits.farmlandProtective))
+			{
+				event.setCanceled(true);
+			}
+		}
+	}
+
+	public static void onMobGriefing(EntityMobGriefingEvent event)
+	{
+		Entity entity = event.getEntity();
+		List<Entity> listPlayers = EntityFinders.Nearby(entity,16, Selectors.playerAlive);
+		for(Entity en : listPlayers)
+		{
+			EntityPlayer player = (EntityPlayer) en;
+			Set<ITrait> traits = InnerActions.getArmorTraits(player);
+
+			if(traits.contains(ArmorTraits.antiGriefing)) // 破坏压制
+			{
+				event.setResult(Event.Result.DENY);
+			}
 		}
 	}
 }

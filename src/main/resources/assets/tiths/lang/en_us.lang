@@ -433,6 +433,8 @@ modifier..desc=§o §r\n对于越高的物理伤害有越强的抗性
 modifier..name=拟态
 modifier.ablaze.name=Ablaze
 modifier.ablaze.desc=§o §r\nMake the enemy leave a bright path
+modifier.anger_of_farmer.name=Anger of Farmer
+modifier.anger_of_farmer.desc=§oGet out!§r\nTo deal more damage to who trample farmlands
 modifier.annihilating.desc=§oThe glow of graviton§r\nWhen using it will consumes a lot of extra durability, pulling the surroundings towards the user, and causing damage to these entities and user himself
 modifier.annihilating.name=Annihilating
 modifier.anti_grav.desc=§oI’m flying.§r\nRaise the target in air
@@ -451,6 +453,8 @@ modifier.champing.desc=§oYou are free§r\nTo increase the rate of critical and 
 modifier.champing.name=Champing
 modifier.chemical_instable.desc=§oLet me see...§r\nTo explode with a small chance when using
 modifier.chemical_instable.name=Chemical Instable
+modifier.cherishing.name=Cherishing
+modifier.cherishing.desc=§oD-A-I-S-I-E-S§r\nTo plant flowers after killing something
 modifier.clustering.desc==§oHuh?§rMore total durability then more damage, or more speed
 modifier.clustering.name=Clustering
 modifier.combustion_supporting.desc=§oYou are fired!§r\nTo increase damage when target is in burning
@@ -581,6 +585,8 @@ modifier.wither_flowing.name=Wither Flowing
 
 ## modifier armor
 
+modifier.anti_griefing.name=Anti Griefing
+modifier.anti_griefing.desc=§oI don't care who you are§r\nNo more griefing around you
 modifier.aquatic_armor.desc=§o §r\nSlowly restores durability in the water, slowly loses durability after leaving the water
 modifier.aquatic_armor.name=Aquatic
 modifier.arsenic_poisonous_armor.desc=§oNot exactly lead-free!§r\nPoisons enemies on hit
@@ -617,6 +623,8 @@ modifier.extreme_freezing_armor.desc=§oHeart of the frost§r\nTo slow down the 
 modifier.extreme_freezing_armor.name=Extreme Freezing
 modifier.fading_armor.desc=§oInside the shadow§r\nThe lower the brightness, the easier to dodge attack
 modifier.fading_armor.name=Fading
+modifier.farmland_protective.name=Farmland Protective
+modifier.farmland_protective.desc=§oYes!§r\nYou no longer trample farmlands
 modifier.fish_upgraded_armor.name=Fish Upgraded
 modifier.fish_upgraded_armor.desc=§oIt doesn't smell good§r\nThey like you
 modifier.gorgeous_armor.desc=§oColorful black§r\nTo decrease the damage
