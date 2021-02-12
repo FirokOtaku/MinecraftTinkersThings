@@ -51,7 +51,7 @@ public final class TiCMaterials
 
 	@Compo(value = nameSpiderLeg,traitsTool = {nameTraitSharp, nameTraitArsenicPoisonous},traitsArmor = {nameTraitRough, nameTraitArsenicPoisonous})
 	@CompoHead(durability=45,miningspeed=0.55,attack=3,harvestLevel=0,traits={  })
-	@CompoArrowShaft(modifier=0.5,bonusAmmo=0,traits={  })
+	@CompoArrowShaft(modifier=0.5,bonusAmmo=0,traits={ nameTraitNetting })
 	public static final Material spiderLeg=new $Material(nameSpiderLeg, colorSpiderLeg)
 			.addItemAsIngot(Items.spiderLeg);
 
@@ -541,7 +541,7 @@ public final class TiCMaterials
 			.addItemAsIngot(Items.opal);
 
 	@Compo(value = nameTopaz,traitsTool = {nameTraitPeaceEnergetic},traitsBow = {  },traitsArmor = {nameTraitVoltaic})
-	@CompoHead(durability=490,miningspeed=5.6,attack=4,harvestLevel=3,traits={  })
+	@CompoHead(durability=490,miningspeed=5.6,attack=4,harvestLevel=3,traits={ nameTraitTranquilizing })
 	@CompoHandle(modifier=1.15,durability=90,traits={  })
 	@CompoExtra(extraDurability=280,traits={  })
 	@CompoArrowShaft(modifier=1.15,bonusAmmo=20,traits={  })

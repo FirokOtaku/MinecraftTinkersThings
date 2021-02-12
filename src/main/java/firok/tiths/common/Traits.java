@@ -60,8 +60,10 @@ public final class Traits
 	public static AbstractTrait moonPower; // 月之力量
 	public static AbstractTrait moonlight; // 月光
 	public static AbstractTrait natualBlessing; // 自然祝福
+	public static AbstractTrait netting; // 捕网
 	public static AbstractTrait oracular; // 神谕
 	public static AbstractTrait peaceEnergetic; // 平和能量
+	public static AbstractTrait piercing; // 锥心
 	public static AbstractTrait pyroelectric; // 热释电
 	public static AbstractTrait radiant; // 辉耀
 	public static AbstractTrait rancher; // 牧场主
@@ -81,6 +83,7 @@ public final class Traits
 	public static AbstractTrait terrifying; // 恐吓
 	public static AbstractTrait thermalGathering; // 热力聚集
 	public static AbstractTrait thunderWaving; // 雷鸣波动
+	public static AbstractTrait tranquilizing; // 镇定
 	public static AbstractTrait torrential; // 激流
 	public static AbstractTrait treasureDetecting; // 宝藏感知
 	public static AbstractTrait turbulent; // 乱流
@@ -143,8 +146,10 @@ public final class Traits
 		moonPower = new TraitMoonPower();
 		moonlight = new TraitMoonlight();
 		natualBlessing = new TraitNatureBlessing();
+		netting = new TraitNetting();
 		oracular = new TraitOracular();
 		peaceEnergetic = new TraitPeaceEnergetic();
+		piercing = new TraitPiercing();
 		pyroelectric = new TraitPyroelectric();
 		radiant = new TraitRadiant();
 		rancher = new TraitRancher();
@@ -164,6 +169,7 @@ public final class Traits
 		terrifying = new TraitTerrifying();
 		thermalGathering = new TraitThermalGathering();
 		thunderWaving = new TraitThunderWaving();
+		tranquilizing = new TraitTranquilizing();
 		torrential = new TraitTorrential();
 		treasureDetecting = new TraitTreasureDetecting();
 		turbulent = new TraitTurbulent();

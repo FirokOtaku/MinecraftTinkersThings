@@ -2,13 +2,24 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.24.0 _2021-02-12 17:30_
+
+* 增加特性 added traits
+  * 锥心 piercing
+  * 镇定 tranquilizing
+  * 捕网(投射物) netting(projectile)
+* 增加状态效果 added effects
+  * 镇定 tranquilized
+* 增加方块 added blocks
+  * 影火 shadow fire
+
 ## 0.3.23.0 _2021-01-26 09:30_
 
 * 增加特性 added traits
   * 护田(护甲) farmland protective(armor)
   * 农夫之怒 anger of farmer
   * 缅怀 cherishing
-  * 破坏压制(护甲) anti griefing
+  * 破坏压制(护甲) anti griefing(armor)
 
 ## 0.3.22.0 _2021-01-22 11:00_
 

@@ -404,6 +404,9 @@ public class Events
 		}
 	}
 
+	/**
+	 * todo 后面可能要改成 ProjectileImpactEvent.Throwable
+	 */
 	@SubscribeEvent
 	public static void onHitBlock(ProjectileEvent.OnHitBlock event)
 	{

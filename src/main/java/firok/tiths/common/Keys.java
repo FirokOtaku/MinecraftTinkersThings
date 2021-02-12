@@ -228,6 +228,7 @@ public interface Keys
 	String blockIcelit = prefBlock + nameIcelit;
 	String blockPunji = prefBlock + "punji";
 	String blockBait = prefBlock + "bait";
+	String blockShadowFire = prefBlock + "shadow_fire";
 
 	String blockFulgurite = prefBlock + nameFulgurite;
 	String blockMeteorolite = prefBlock + nameMeteorolite;
@@ -575,6 +576,9 @@ public interface Keys
 	String nameTraitAngerOfFarmer = "anger_of_farmer";
 	String nameTraitCherishing = "cherishing";
 	String nameTraitAntiGriefing = "anti_griefing";
+	String nameTraitPiercing = "piercing";
+	String nameTraitTranquilizing = "tranquilizing";
+	String nameTraitNetting = "netting";
 
 	// 属性颜色
 	int colorTraitGluttonic = 0x752b40;
@@ -700,6 +704,9 @@ public interface Keys
 	int colorTraitAngerOfFarmer = 0x7c3923;
 	int colorTraitCherishing = 0x4bcab3;
 	int colorTraitAntiGriefing = 0x538566;
+	int colorTraitPiercing = 0xa11355;
+	int colorTraitTranquilizing = 0xedf02c;
+	int colorTraitNetting = 0x838539;
 
 	// 状态效果颜色
 	int colorPotionHeavy = Colors.DarkSeaGreen;
@@ -728,6 +735,7 @@ public interface Keys
 	int colorPotionHardIce = 0x7da5dc;
 	int colorPotionMidasVision = 0xffd02e;
 	int colorPotionFarmlandTrampler = 0x5a5919;
+	int colorPotionTranquilized = colorTraitTranquilizing;
 
 	// 状态效果属性修饰符uuid
 	String uuidPotionAvatarSpeed = "258A83A5-A3BD-4CFD-842C-B2DF39343C91";
@@ -747,7 +755,7 @@ public interface Keys
 	String uuidPotionEmpathicDamage = "60D5F3B9-BD6C-4417-B426-3BCAE347B947";
 	String uuidPotionHardIceDefense = "C72FA61D-1459-406A-A38A-6EB7EC3A2D94";
 	String uuidPotionHardIceToughness = "F8FABC23-01C9-4A47-8339-4B90DD8C6345";
-
+	String uuidPotionTranquilizedFollowRange = "4658DD50-1608-4EB3-BAF9-1AFECDE7EF6B";
 	String uuidTraitSolubleSwimSpeed = "E42481C5-6AA3-4A74-A992-22AD533C88CC";
 
 	// 燃料热值

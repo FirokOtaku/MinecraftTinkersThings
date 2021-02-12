@@ -21,6 +21,7 @@ Wu|💡
 海参|💡 🌼
 諾炎|💡
 夜凌_yorin|💡 🌼
+银明|💡
 
 ## 关于音效和音乐 About sounds and musics
 

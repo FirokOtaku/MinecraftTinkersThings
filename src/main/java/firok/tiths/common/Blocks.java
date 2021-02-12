@@ -162,6 +162,8 @@ public final class Blocks
 	public static final Block blockRuby = new BlockCompressed(Material.ROCK).setBeaconBase(); // 虹辉石块
 	@Reg("block_sea_grass")
 	public static final BlockSeaGrass blockSeaGrass = new BlockSeaGrass(); // 海草
+	@Reg(Keys.blockShadowFire)
+	public static final BlockShadowFire blockShadowFire = new BlockShadowFire(); // 影炎
 	@Reg(Keys.blockSolita)
 	public static final Block blockSolita = new BlockCompressed().setBeaconBase(); // 坚金块
 	@Reg(Keys.blockSpinel)
