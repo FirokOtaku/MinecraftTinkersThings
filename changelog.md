@@ -2,6 +2,11 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.25.0 _2021-02-19 14:30_
+
+* 现在世界生成依赖于[MMD Ore Spawn](https://github.com/MinecraftModDevelopmentMods/OreSpawn)  
+  now world generations depend on [MMD Ore Spawn](https://github.com/MinecraftModDevelopmentMods/OreSpawn)
+
 ## 0.3.24.0 _2021-02-12 17:30_
 
 * 增加特性 added traits

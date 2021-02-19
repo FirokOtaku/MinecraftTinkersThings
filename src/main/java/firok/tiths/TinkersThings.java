@@ -12,7 +12,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.Level;
@@ -34,13 +33,14 @@ import java.util.Random;
 		               "required-after:baubles@[1.5.2,);" +
 		               "after:conarm@[1.2.5,);"+
 				       "after:hammercore@[1.12.2-2.0.6.17,);"+
-				       "after:lux@[1.12.2,)"
+				       "after:lux@[1.12.2,);"+
+					   "required-after:orespawn[3.3.1,)"
 )
 public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers' Things";
-	public static final String VERSION = "1.12.2-0.3.24.0";
+	public static final String VERSION = "1.12.2-0.3.25.0";
 	public static final VersionPhase version = VersionPhase.Alpha;
 
 	public static final String CONARM_ID = "conarm";
@@ -150,7 +150,7 @@ public class TinkersThings
 		//  proxy.regsiterKeyBindings();
 		//
 		//  Fluids.registerfromItem(); // Registers some special smeltery recipes (not alloying)
-		GameRegistry.registerWorldGenerator(WorldGens.getInstance(), 0);
+//		GameRegistry.registerWorldGenerator(WorldGens.getInstance(), 0); // 临时禁用这边的世界生成器
 		//  // GameRegistry.registerFuelHandler(new FuelHandler());  Registeres fuels' burn times
 
 		NetworkRegistry.INSTANCE.registerGuiHandler(TinkersThings.INSTANCE, Guis.getInstance());
