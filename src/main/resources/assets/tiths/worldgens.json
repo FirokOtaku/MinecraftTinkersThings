@@ -36,7 +36,7 @@
     },
     "feature": "default",
     "parameters": {
-      "size": 20,
+      "size": 14,
       "variation": 2,
       "frequency": 5,
       "minHeight": 40,
@@ -59,8 +59,8 @@
     },
     "feature": "default",
     "parameters": {
-      "size": 3,
-      "variation": 2,
+      "size": 1,
+      "variation": 0,
       "frequency": 2,
       "minHeight": 60,
       "maxHeight": 70
@@ -112,7 +112,7 @@
     },
     "feature": "default",
     "parameters": {
-      "size": 15,
+      "size": 7,
       "variation": 2,
       "frequency": 6,
       "minHeight": 10,
@@ -150,7 +150,7 @@
     },
     "feature": "default",
     "parameters": {
-      "size": 7,
+      "size": 4,
       "variation": 2,
       "frequency": 4,
       "minHeight": 1,
@@ -173,7 +173,7 @@
     },
     "feature": "default",
     "parameters": {
-      "size": 4,
+      "size": 2,
       "variation": 2,
       "frequency": 2,
       "minHeight": 15,
@@ -206,8 +206,8 @@
     },
     "feature": "default",
     "parameters": {
-      "size": 3,
-      "variation": 2,
+      "size": 1,
+      "variation": 1,
       "frequency": 5,
       "minHeight": 1,
       "maxHeight": 60
@@ -239,8 +239,8 @@
     },
     "feature": "default",
     "parameters": {
-      "size": 3,
-      "variation": 2,
+      "size": 1,
+      "variation": 1,
       "frequency": 8,
       "minHeight": 1,
       "maxHeight": 50
@@ -269,7 +269,7 @@
     },
     "feature": "default",
     "parameters": {
-      "size": 6,
+      "size": 4,
       "variation": 2,
       "frequency": 6,
       "minHeight": 5,
@@ -299,7 +299,7 @@
     },
     "feature": "default",
     "parameters": {
-      "size": 7,
+      "size": 3,
       "variation": 2,
       "frequency": 8,
       "minHeight": 1,
@@ -326,8 +326,8 @@
     },
     "feature": "default",
     "parameters": {
-      "size": 3,
-      "variation": 2,
+      "size": 1,
+      "variation": 1,
       "frequency": 2,
       "minHeight": 5,
       "maxHeight": 128
@@ -349,7 +349,7 @@
     },
     "feature": "default",
     "parameters": {
-      "size": 10,
+      "size": 5,
       "variation": 2,
       "frequency": 1,
       "minHeight": 40,
@@ -403,7 +403,7 @@
     },
     "feature": "default",
     "parameters": {
-      "size": 5,
+      "size": 2,
       "variation": 2,
       "frequency": 4,
       "minHeight": 6,
@@ -436,7 +436,7 @@
     },
     "feature": "default",
     "parameters": {
-      "size": 5,
+      "size": 4,
       "variation": 2,
       "frequency": 3,
       "minHeight": 5,
@@ -538,8 +538,8 @@
     },
     "feature": "default",
     "parameters": {
-      "size": 5,
-      "variation": 2,
+      "size": 1,
+      "variation": 1,
       "frequency": 8,
       "minHeight": 1,
       "maxHeight": 11
@@ -630,7 +630,7 @@
     },
     "feature": "default",
     "parameters": {
-      "size": 5,
+      "size": 4,
       "variation": 2,
       "frequency": 3,
       "minHeight": 1,
@@ -653,7 +653,7 @@
     },
     "feature": "default",
     "parameters": {
-      "size": 8,
+      "size": 2,
       "variation": 2,
       "frequency": 4,
       "minHeight": 10,
@@ -676,7 +676,7 @@
     },
     "feature": "default",
     "parameters": {
-      "size": 8,
+      "size": 2,
       "variation": 2,
       "frequency": 4,
       "minHeight": 10,
@@ -699,7 +699,7 @@
     },
     "feature": "default",
     "parameters": {
-      "size": 8,
+      "size": 2,
       "variation": 2,
       "frequency": 4,
       "minHeight": 10,
@@ -761,7 +761,7 @@
     },
     "feature": "default",
     "parameters": {
-      "size": 4,
+      "size": 2,
       "variation": 2,
       "frequency": 5,
       "minHeight": 40,
@@ -784,7 +784,7 @@
     },
     "feature": "default",
     "parameters": {
-      "size": 9,
+      "size": 6,
       "variation": 2,
       "frequency": 7,
       "minHeight": 1,
@@ -848,7 +848,7 @@
     },
     "feature": "default",
     "parameters": {
-      "size": 3,
+      "size": 2,
       "variation": 2,
       "frequency": 2,
       "minHeight": 30,
@@ -873,7 +873,7 @@
     },
     "feature": "default",
     "parameters": {
-      "size": 9,
+      "size": 6,
       "variation": 2,
       "frequency": 10,
       "minHeight": 20,
@@ -903,7 +903,7 @@
     },
     "feature": "default",
     "parameters": {
-      "size": 6,
+      "size": 3,
       "variation": 2,
       "frequency": 6,
       "minHeight": 5,
@@ -933,7 +933,7 @@
     },
     "feature": "default",
     "parameters": {
-      "size": 6,
+      "size": 4,
       "variation": 2,
       "frequency": 3,
       "minHeight": 1,
@@ -1019,7 +1019,7 @@
     },
     "feature": "default",
     "parameters": {
-      "size": 6,
+      "size": 4,
       "variation": 2,
       "frequency": 2,
       "minHeight": 10,
@@ -1046,7 +1046,7 @@
     },
     "feature": "default",
     "parameters": {
-      "size": 5,
+      "size": 2,
       "variation": 2,
       "frequency": 7,
       "minHeight": 5,

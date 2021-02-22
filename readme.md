@@ -2,37 +2,42 @@
 
 一个匠魂的附属模组. An addon of Tinkers' Construct.
 
-* 变更日志 change log: [changelog.md](changelog.md)
-* 贡献者列表 contributors: [contributors.md](contributors.md)
+* 变更日志 change log:  
+  [changelog.md](changelog.md)
+* 贡献者列表 contributors:  
+  [contributors.md](contributors.md)
+* 如何自定义材料属性  
+  how to customize material stats:  
+  [customize_materials.md](customize_materials.md)
+* 如何自定义世界生成
+  how to customize world generations:  
+  [MMD Ore Spawn GitHub Wiki](https://github.com/MinecraftModDevelopmentMods/OreSpawn/wiki)
 
-* 如何自定义材料属性 how to customize material stats: [customize_materials.md](customize_materials.md)
-* 如何自定义矿物生成 how to customize ore generations: [customize_ore_gen.md](customize_ore_gen.md)
+> 0.3.25.0版本之后的世界生成功能基于**MMD Ore Spawn**,  
+> 如果需要自定义世界生成, 请查阅此模组提供的文档  
+> (原文档为英文)
+  
+> **MMD Ore Spawn**会在首次启动时, 将模组文件内置的世界生成配置输出至`.minecraft/config/orespawn/`目录  
+> 此后, 当模组内世界生成配置文件发生变化时 (这常发生在更新模组版本时) 并**不会**再次导出  
+> 大部分情况下, 您可以通过删除`.minecraft/config/orespawn/`目录然后重启游戏以触发重新导出
+
+> All world generations depend on **MMD Ore Spawn** after 0.3.25.0  
+> If you want to customize generations, please check the docs provided by this mod
+
+> **MMD Ore Spawn** will export the generation-configs to `.minecraft/config/orespawn/`  
+> and it **will not** re-export unless deleting those files manully
+> When updating this or some other mods, you may need to delete those files and make **MMD Ore Spawn** export configs again, or the new generations (if there is some) **may not** take effect
 
 ## 最近更新 latest update
+
+### 0.3.25.1 _2021-02-22 16:00_
+
+* 修改部分材质 modified some textures
 
 ### 0.3.25.0 _2021-02-19 14:30_
 
 * 现在世界生成依赖于[MMD Ore Spawn](https://github.com/MinecraftModDevelopmentMods/OreSpawn)  
   now world generations depend on [MMD Ore Spawn](https://github.com/MinecraftModDevelopmentMods/OreSpawn)
-
-### 0.3.24.0 _2021-02-12 17:30_
-
-* 增加特性 added traits
-  * 锥心 piercing
-  * 镇定 tranquilizing
-  * 捕网(投射物) netting(projectile)
-* 增加状态效果 added effects
-  * 镇定 tranquilized
-* 增加方块 added blocks
-  * 影火 shadow fire
-
-### 0.3.23.0 _2021-01-26 09:30_
-
-* 增加特性 added traits
-  * 护田(护甲) farmland protective(armor)
-  * 农夫之怒 anger of farmer
-  * 缅怀 cherishing
-  * 破坏压制(护甲) anti griefing
 
 ## 版本间差异 differences between versions
 

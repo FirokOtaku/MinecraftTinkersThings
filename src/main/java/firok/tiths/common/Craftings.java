@@ -202,7 +202,7 @@ public final class Craftings
 //		);
 		TinkerRegistry.registerMelting(
 				new MeltingRecipe(new RecipeMatch.Item(new ItemStack(Items.fluidBall),1),
-				new FluidStack(TinkerFluids.blueslime,1000))
+				new FluidStack(TinkerFluids.purpleSlime,250))
 		);
 	}
 
@@ -265,6 +265,20 @@ public final class Craftings
 						RecipeMatch.of(new ItemStack(net.minecraft.init.Blocks.QUARTZ_BLOCK,1,2)),
 						new FluidStack(TinkerFluids.blood, Material.VALUE_Ingot),
 						true, false));
+		// 云
+		registerBasinCasting(
+				new CastingRecipe(
+						new ItemStack(Blocks.blockCloud),
+						RecipeMatch.of(new ItemStack(net.minecraft.init.Blocks.ICE)),
+						new FluidStack(FluidRegistry.WATER,1000),
+						true,false));
+		// 空液体球
+		registerBasinCasting(
+				new CastingRecipe(
+						new ItemStack(Items.fluidBall),
+						RecipeMatch.of(new ItemStack(Items.brokenIce)),
+						new FluidStack(TinkerFluids.purpleSlime,250),
+						true,false));
 	}
 	// 铸造台合成表
 	private static void registerTableCastings()

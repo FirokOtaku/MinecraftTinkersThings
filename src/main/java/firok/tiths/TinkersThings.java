@@ -34,16 +34,17 @@ import java.util.Random;
 		               "after:conarm@[1.2.5,);"+
 				       "after:hammercore@[1.12.2-2.0.6.17,);"+
 				       "after:lux@[1.12.2,);"+
-					   "required-after:orespawn[3.3.1,)"
+					   "required-after:orespawn@[3.3.1,)"
 )
 public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers' Things";
-	public static final String VERSION = "1.12.2-0.3.25.0";
+	public static final String VERSION = "1.12.2-0.3.25.1";
 	public static final VersionPhase version = VersionPhase.Alpha;
 
 	public static final String CONARM_ID = "conarm";
+	public static final String OREWPAWN_ID = "orespawn";
 
 	@Mod.Instance(MOD_ID)
 	public static TinkersThings INSTANCE;
@@ -87,7 +88,6 @@ public class TinkersThings
 
 		ConfigJson.setConfigDir(Loader.instance().getConfigDir());
 		if(Configs.General.enable_material_customization) ConfigJson.readMats();
-//		if(Configs.General.enable_ore_gen_customization) ConfigJson.readOres();
 		if(Configs.General.enable_tool_craft_functions) ConfigJson.readMFs();
 
 		hasConarm=Loader.isModLoaded(CONARM_ID);
@@ -124,8 +124,6 @@ public class TinkersThings
 		RegistryHandler.registerPotions();
 		PotionTypes.registerPotionTypes();
 
-		//  proxy.initConfig();
-		//
 		RegistryHandler.registerMaterials();
 		if(enableConarm())
 		{

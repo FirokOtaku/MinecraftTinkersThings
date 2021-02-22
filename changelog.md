@@ -2,6 +2,10 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.25.1 _2021-02-22 16:00_
+
+* 修改部分材质 modified some textures
+
 ## 0.3.25.0 _2021-02-19 14:30_
 
 * 现在世界生成依赖于[MMD Ore Spawn](https://github.com/MinecraftModDevelopmentMods/OreSpawn)  
