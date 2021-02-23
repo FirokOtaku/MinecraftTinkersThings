@@ -26,29 +26,6 @@
       }
     ]
   },
-  "blackrock": {
-    "retrogen": false,
-    "enabled": true,
-    "replaces": "default",
-    "dimensions": [],
-    "biomes": {
-      "excludes": []
-    },
-    "feature": "default",
-    "parameters": {
-      "size": 14,
-      "variation": 2,
-      "frequency": 5,
-      "minHeight": 40,
-      "maxHeight": 80
-    },
-    "blocks": [
-      {
-        "name": "tiths:blackrock",
-        "chance": 100
-      }
-    ]
-  },
   "chloroplast": {
     "retrogen": false,
     "enabled": true,

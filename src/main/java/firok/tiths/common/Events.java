@@ -103,6 +103,17 @@ public class Events
 			world.spawnEntity(ei); // spawn broken ice
 			break TRY_DROP_BROKEN_ICE;
 		}
+		else TRY_DROP_BLACKROCK: if(block == Blocks.COAL_ORE)
+		{
+			if(!canTrigger(world,0.25f)) break TRY_DROP_BLACKROCK;
+
+			int amount = 1 + (world.rand.nextBoolean() ? 1 : 0);
+			ItemStack stack=new ItemStack(Items.blackrock,amount);
+			EntityItem ei = new EntityItem(world,pos.getX(),pos.getY(),pos.getZ(),stack);
+
+			world.spawnEntity(ei);
+			break TRY_DROP_BLACKROCK;
+		}
 		// 贝壳
 		else TRY_DROP_SHELL:if(block== Blocks.SAND)
 		{

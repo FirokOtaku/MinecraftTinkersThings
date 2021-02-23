@@ -2,6 +2,7 @@ package firok.tiths.intergration.conarm.traits;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
 import firok.tiths.common.Configs;
+import firok.tiths.util.Colors;
 import firok.tiths.util.EntityFinders;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.entity.Entity;
@@ -9,6 +10,7 @@ import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EntitySelectors;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -30,8 +32,10 @@ public class TraitArmorSurging extends AbstractArmorTrait
 	@Override
 	public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
 	{
-		if(!world.isRemote && player.isSprinting())
+		if(!world.isRemote)
 		{
+			if(!player.isSprinting()) return;
+
 			List<Entity> list=EntityFinders.Nearby(player, Configs.ArmorTraits.range_surging, EntitySelectors.IS_ALIVE);
 			for(Entity en:list)
 			{
@@ -51,10 +55,16 @@ public class TraitArmorSurging extends AbstractArmorTrait
 					en.motionZ=player.motionZ * 1.3;
 				}
 			}
-//			if(canTick(world,20,0))
+		}
+		else // 客户端
+		{
+//			if(!player.isSprinting()) return;
+//
+//			try
 //			{
-//				System.out.print("trigger\n");
+//				world.spawnParticle(EnumParticleTypes.SPIT,player.posX,player.posY,player.posZ,0,0,0, Colors.Green);
 //			}
+//			catch (Exception e) { e.printStackTrace(); }
 		}
 	}
 }

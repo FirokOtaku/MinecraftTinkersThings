@@ -114,6 +114,10 @@ public final class Craftings
 			{
 				return fuelTimeCinder;
 			}
+			else if(item==Items.dustBlackrock)
+			{
+				return fuelTimeBlackrock;
+			}
 			else if(item==Items.lavaCrystal)
 			{
 				return fuelTimeLavaCrystal;

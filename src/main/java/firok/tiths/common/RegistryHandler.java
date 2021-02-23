@@ -2,6 +2,7 @@ package firok.tiths.common;
 
 import firok.tiths.TinkersThings;
 import firok.tiths.potion.BasePotion;
+import firok.tiths.tile.TEShackingDispenser;
 import firok.tiths.util.$Material;
 import firok.tiths.util.conf.MaterialInfo;
 import firok.tiths.util.reg.*;
@@ -215,17 +216,18 @@ public final class RegistryHandler
 	}
 	public static void registerTileEntities()
 	{
-		FieldStream.of(TileEntities.class,null,TileEntity.class)
-				.whenFail(Throwable::printStackTrace)
-				.forEach((field, anno, tileEntity) -> {
-					Class classField=field.getType();
-//					if(!TileEntity.class.isAssignableFrom(classField)) return;
-					String name=field.getName();
-					GameRegistry.registerTileEntity(
-							classField,
-							new ResourceLocation(TinkersThings.MOD_ID, name)
-					);
-				});
+		GameRegistry.registerTileEntity(TEShackingDispenser.class,new ResourceLocation(TinkersThings.MOD_ID, "shacking_dispenser"));
+//		FieldStream.of(TileEntities.class,null,TileEntity.class)
+//				.whenFail(Throwable::printStackTrace)
+//				.forEach((field, anno, tileEntity) -> {
+//					Class classField=field.getType();
+////					if(!TileEntity.class.isAssignableFrom(classField)) return;
+//					String name=field.getName();
+//					GameRegistry.registerTileEntity(
+//							classField,
+//							new ResourceLocation(TinkersThings.MOD_ID, name)
+//					);
+//				});
 	}
 
 	private static List<MaterialIntegration> listIntegration=new ArrayList<>(20);

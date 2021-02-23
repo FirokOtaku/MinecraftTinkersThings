@@ -453,7 +453,7 @@ public final class TiCMaterials
 	@CompoExtra(extraDurability=190,traits={  })
 	@CompoArrowShaft(modifier=0.75,bonusAmmo=0,traits={  })
 	@CompoArmorCore(durability=6.2,defense=4.5,traits={  })
-	@CompoArmorPlate(modifier=0.9,durability=-11,toughness=9,traits={  })
+	@CompoArmorPlate(modifier=0.9,durability=-11,toughness=6,traits={  })
 	@CompoArmorTrim(extraDurability=3,traits={  })
 	public static final Material talcum=new $Material(nameTalcum,colorTalcum)
 			.addItemAsIngot(Items.talcum);

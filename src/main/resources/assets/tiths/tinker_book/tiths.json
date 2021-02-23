@@ -66,5 +66,9 @@
     {
         "type": "tiths_potion",
         "data": "potions/potions4.json"
+    },
+    {
+        "type": "tiths_potion",
+        "data": "potions/potions5.json"
     }
 ]

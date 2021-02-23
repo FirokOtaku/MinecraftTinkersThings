@@ -33,7 +33,7 @@ public class TraitAnnihilating extends AbstractTrait
 		{
 			ToolHelper.damageTool(tool,10,player);
 //			World world=player.world;
-			List<Entity> surroundings= EntityFinders.Nearby(player,5, EntitySelectors.IS_ALIVE);
+			List<Entity> surroundings= EntityFinders.Nearby(target,5, EntitySelectors.IS_ALIVE);
 			for(Entity surrounding:surroundings)
 			{
 				double tx=surrounding.posX,ty=surrounding.posY,tz=surrounding.posZ;

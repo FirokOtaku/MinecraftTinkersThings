@@ -91,6 +91,10 @@ public final class Blocks
 	public static final Block blockFulgurite = new BlockOre().setVeryRareOre(); // 闪电熔岩
 	@Reg(Keys.blockFurutorin)
 	public static final Block blockFurutorin = new BlockCompressed(Material.ROCK).setBeaconBase(); // 泠笛石块
+	@Reg(Keys.prefBlock+"gravity_double")
+	public static final Block blockGravityDouble = new BlockGravity(Material.ROCK,2); // 二倍重力砖
+	@Reg(Keys.prefBlock+"gravity_triple")
+	public static final Block blockGravityTriple = new BlockGravity(Material.ROCK,3); // 三倍重力砖
 	@Reg(Keys.blockHalleium)
 	public static final Block blockHalleium = new BlockCompressed().setBeaconBase(); // 哈雷块
 	@Reg(Keys.blockHeavesand)
@@ -162,6 +166,8 @@ public final class Blocks
 	public static final Block blockRuby = new BlockCompressed(Material.ROCK).setBeaconBase(); // 虹辉石块
 	@Reg("block_sea_grass")
 	public static final BlockSeaGrass blockSeaGrass = new BlockSeaGrass(); // 海草
+	@Reg(Keys.prefBlock+"shacking_dispenser")
+	public static final BlockShakingDispenser blockShackingDispenser = new BlockShakingDispenser(); // 振荡发射器
 	@Reg(Keys.blockShadowFire)
 	public static final BlockShadowFire blockShadowFire = new BlockShadowFire(); // 影炎
 	@Reg(Keys.blockSolita)

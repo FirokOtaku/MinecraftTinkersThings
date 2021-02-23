@@ -30,6 +30,14 @@
 
 ## 最近更新 latest update
 
+### 0.3.26.0 _2021-02-23 11:30_
+
+* 增加方块 added blocks
+  * 重力砖(双倍) gravity block (double)
+  * 重力砖(三倍) gravity block (triple)
+  * 振荡发射器 shacking dispenser block
+* 错误修复 bug fixes
+
 ### 0.3.25.1 _2021-02-22 16:00_
 
 * 修改部分材质 modified some textures
