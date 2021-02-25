@@ -1,11 +1,15 @@
 package firok.tiths.traits;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockDynamicLiquid;
+import net.minecraft.block.BlockLiquid;
+import net.minecraft.block.BlockStaticLiquid;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.play.server.SPacketBlockChange;
 import net.minecraft.tileentity.TileEntity;
@@ -13,6 +17,7 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
+import net.minecraftforge.fluids.BlockFluidBase;
 import slimeknights.tconstruct.common.TinkerNetwork;
 import slimeknights.tconstruct.library.entity.EntityProjectileBase;
 import slimeknights.tconstruct.library.events.ProjectileEvent;
@@ -99,7 +104,11 @@ public class TraitPonderous extends AbstractProjectileTrait implements IHitBlock
 						float hardness=stateTemp.getBlockHardness(world,posTemp);
 //					    ItemStack stack=null;
 
-						if(!hasTile && hardness <= 1.55)
+						if(!hasTile &&
+							hardness <= 1.55 &&
+							!(blockTemp instanceof BlockFluidBase) && // 避免破坏流体
+							!(blockTemp instanceof BlockLiquid)
+						)
 						{
 							if(!world.isRemote && player instanceof EntityPlayerMP)
 							{

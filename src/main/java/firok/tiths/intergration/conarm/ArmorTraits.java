@@ -8,7 +8,6 @@ import firok.tiths.common.Items;
 import firok.tiths.intergration.conarm.traits.*;
 import firok.tiths.intergration.conarm.traits.TraitArmorTemptUpgraded;
 import firok.tiths.util.reg.Indev;
-import slimeknights.tconstruct.library.traits.AbstractTrait;
 
 import static firok.tiths.common.Keys.*;
 import static firok.tiths.util.Selectors.*;
@@ -33,6 +32,7 @@ public class ArmorTraits
 	public static AbstractArmorTrait dichroic; // 二色性
 	public static AbstractArmorTrait diffuseReflecting; // 漫反射
 	public static AbstractArmorTrait empathy; // 共感
+	public static AbstractArmorTrait enderInterfering; // 末影干涉
 	public static AbstractArmorTrait endothermic; // 吸热
 	public static AbstractArmorTrait extremeFreezing; // 极寒
 	public static AbstractArmorTrait fading; // 影淡
@@ -76,6 +76,7 @@ public class ArmorTraits
 	public static AbstractArmorTrait warmSoft1; // 温软1
 	public static AbstractArmorTrait warmSoft2; // 温软2
 	public static AbstractArmorTrait warmSoft3; // 温软3
+	public static AbstractArmorTrait webWandering; // 蛛网漫行
 	public static AbstractArmorTrait wheatUpgraded; // 小麦升级
 	public static AbstractArmorTrait widening; // 广域化
 	public static AbstractArmorTrait witherFlowing; // 凋零流动
@@ -104,6 +105,7 @@ public class ArmorTraits
 		dichroic=new TraitArmorDichroic();
 		diffuseReflecting=new TraitArmorDiffuseReflecting();
 		empathy=new TraitArmorEmpathy();
+		enderInterfering=new TraitArmorEnderInterfering();
 		endothermic=new TraitArmorEndothermic();
 		extremeFreezing=new TraitArmorExtremeFreezing();
 		fading=new TraitArmorFading();
@@ -151,6 +153,7 @@ public class ArmorTraits
 		warmSoft1=new TraitArmorWarmSoft(1);
 		warmSoft2=new TraitArmorWarmSoft(2);
 		warmSoft3=new TraitArmorWarmSoft(3);
+		webWandering=new TraitArmorWebWandering();
 		wheatUpgraded=new TraitArmorTemptUpgraded(nameTraitWheatUpgraded,colorTraitWheatUpgraded,player->Datas.Server.instance().hasWheatTempt(player))
 				.always(player->Datas.Server.instance().regWheatTempt(player))
 				.toEntity(cowAlive,sheepAlive);

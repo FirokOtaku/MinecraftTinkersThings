@@ -47,7 +47,7 @@ public class TraitRadiant extends AbstractTrait
 	 */
 	public static boolean checkBurn(World world)
 	{
-		return !world.isRemote && canTick(world,80,1);
+		return !world.isRemote && canTick(world,20,1);
 	}
 
 	/**

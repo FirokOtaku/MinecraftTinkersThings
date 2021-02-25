@@ -59,6 +59,7 @@ public final class TiCMaterials
 	@CompoHead(durability=280,miningspeed=0.9,attack=4,harvestLevel=0,traits={  })
 	@CompoHandle(modifier=0.25,durability=30,traits={  })
 	@CompoArrowShaft(modifier=0.65,bonusAmmo=0,traits={  })
+	@CompoArmorPlate(modifier = 0.4,durability = 20,toughness = 0,traits = nameTraitWebWandering)
 	public static final Material hardSpiderLeg=new $Material(nameHardSpiderLeg, colorHardSpiderLeg)
 			.addItemAsIngot(Items.hardSpiderLeg);
 
@@ -66,7 +67,7 @@ public final class TiCMaterials
 	@CompoHead(durability=136,miningspeed=8.79,attack=2,harvestLevel=3,traits={  })
 	@CompoHandle(modifier=0.9,durability=45,traits={  })
 	@CompoExtra(extraDurability=45,traits={  })
-	@CompoArmorCore(durability=9,defense=12.5,traits={  })
+	@CompoArmorCore(durability=9,defense=12.5,traits={ nameTraitEnderInterfering })
 	@CompoArmorPlate(modifier=0.75,durability=-2,toughness=6.5,traits={  })
 	@CompoArmorTrim(extraDurability=5,traits={  })
 	public static final Material royalAlloy=new $Material(nameRoyalAlloy, colorRoyalAlloy)

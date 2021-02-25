@@ -579,6 +579,8 @@ public interface Keys
 	String nameTraitPiercing = "piercing";
 	String nameTraitTranquilizing = "tranquilizing";
 	String nameTraitNetting = "netting";
+	String nameTraitWebWandering = "web_wandering";
+	String nameTraitEnderInterfering = "ender_interfering";
 
 	// 属性颜色
 	int colorTraitGluttonic = 0x752b40;
@@ -707,6 +709,8 @@ public interface Keys
 	int colorTraitPiercing = 0xa11355;
 	int colorTraitTranquilizing = 0xedf02c;
 	int colorTraitNetting = 0x838539;
+	int colorTraitWebWandering = 0xe4e4e4;
+	int colorTraitEnderInterfering = 0xa037e4;
 
 	// 状态效果颜色
 	int colorPotionHeavy = Colors.DarkSeaGreen;
@@ -765,6 +769,7 @@ public interface Keys
 	int fuelTimeWood = 300;
 	int fuelTimeWoodPlate = 300; // fixme
 	int fuelTimeCinder = fuelTimeCoal / 8;
+	int fuelTimeBlackrock = fuelTimeCoal / 2;
 	int fuelTimeLavaCrystal = fuelTimeCoal * 4;
 	int fuelTimeTreeRoot = fuelTimeCoal / 4;
 

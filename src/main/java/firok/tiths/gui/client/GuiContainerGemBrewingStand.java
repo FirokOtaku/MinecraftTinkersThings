@@ -7,10 +7,6 @@ import net.minecraft.inventory.ContainerBrewingStand;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 
-/**
- * @author gyy
- * @date 2020/04/05 13:20
- */
 public class GuiContainerGemBrewingStand extends GuiContainer
 {
 	private static final ResourceLocation BREWING_STAND_GUI_TEXTURES = new ResourceLocation("textures/gui/container/brewing_stand.png");

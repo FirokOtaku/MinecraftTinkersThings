@@ -87,6 +87,14 @@ public final class Blocks
 	public static final Block blockCreepSoil = new BlockCreepSoil(); // 虫苔
 	@Reg(Keys.blockDecurrium)
 	public static final Block blockDecurrium = new BlockCompressed(); // 深流钢块
+	@Reg(Keys.prefBlock+"ender_interfered_block")
+	public static final Block blockEnderInterferedBlock = new BlockEnderInterferedBlock();
+//	@Reg("block_farm_stone")
+//	public static final Block blockFarmStone = new BlockFarmStone(Material.ROCK){};
+
+	@Reg("block_farm_stone_water")
+	public static final Block blockFarmStoneWater = new Block(Material.WATER);
+
 	@Reg(Keys.blockFulgurite)
 	public static final Block blockFulgurite = new BlockOre().setVeryRareOre(); // 闪电熔岩
 	@Reg(Keys.blockFurutorin)

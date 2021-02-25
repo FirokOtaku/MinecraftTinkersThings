@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tiths:tools",
+  "result": { "item": "tiths:fluid_collector", "count": 1 },
+  "pattern": [
+    "SCS",
+    "SBS",
+    "SPS"
+  ],
+  "key": {
+    "C": { "item": "tiths:block_channel" },
+    "B": { "item": "minecraft:bucket" },
+    "P": { "item": "minecraft:piston" },
+    "S": { "item": "tconstruct:materials", "data": 0 }
+  }
+}

@@ -2,6 +2,12 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.27.0 _2021-02-25 14:00_
+
+* 增加特性 added traits
+  * 蛛网漫行 web wandering
+  * 末影干涉 ender interfering
+
 ## 0.3.26.0 _2021-02-23 11:30_
 
 * 增加方块 added blocks

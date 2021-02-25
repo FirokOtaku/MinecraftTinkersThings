@@ -33,6 +33,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
@@ -456,6 +457,59 @@ public final class Actions
 		}
 	}
 
+	// 灭火
+	public static void CauseFireExtinguishing(World world,Entity entity,float radius,boolean hasSteam,boolean hasSound)
+	{
+		CauseFireExtinguishing(world,entity.getPosition(),radius,hasSteam,hasSound);
+	}
+	public static void CauseFireExtinguishing(World world,int centerX,int centerY,int centerZ,float radius,boolean hasSteam,boolean hasSound)
+	{
+		CauseFireExtinguishing(world, new BlockPos(centerX, centerY, centerZ), radius, hasSteam, hasSound);
+	}
+	public static void CauseFireExtinguishing(World world,BlockPos pos,float radius,boolean hasSteam,boolean hasSound)
+	{
+		final int radiusInt=(int)radius;
+		final float radiusSq=radius * radius;
+		final int centerX=pos.getX(),centerY=pos.getY(),centerZ=pos.getZ();
+		final boolean isRemote=world.isRemote;
+
+		int countFireBlocks=0;
+		FOR_X: for(int tempX=centerX-radiusInt;tempX<=centerX+radiusInt;tempX++)
+		{
+			FOR_Z: for(int tempZ=centerZ-radiusInt;tempZ<=centerZ+radiusInt;tempZ++)
+			{
+				FOR_Y: for(int tempY=centerY-radiusInt;tempY<=centerY+radiusInt;tempY++)
+				{
+					BlockPos posTemp=new BlockPos(tempX,tempY,tempZ);
+					if(posTemp.distanceSq(pos) > radiusSq) continue FOR_Y;
+
+					IBlockState stateTemp=world.getBlockState(posTemp);
+					Block blockTemp=stateTemp.getBlock();
+					boolean isFireTemp=blockTemp == Blocks.FIRE;
+
+					if(!isFireTemp) continue FOR_Y;
+
+					if(!isRemote) // 服务端 扑灭火焰
+					{
+						world.setBlockToAir(posTemp);
+					}
+					else // 产生烟雾
+					{
+						// todo 粒子类型估计不对
+						world.spawnParticle(EnumParticleTypes.CLOUD,posTemp.getX(),posTemp.getY(),posTemp.getZ(),0,0,0);
+					}
+
+					countFireBlocks++;
+				}
+			}
+		}
+
+		if(hasSound && countFireBlocks > 0) // 播放音效
+		{
+			;
+		}
+	}
+
 	/**
 	 * 清除实体对玩家的攻击AI
 	 */
@@ -602,14 +656,17 @@ public final class Actions
 	private static int _get_light_pos_x=Integer.MIN_VALUE;
 	private static int _get_light_pos_y=Integer.MIN_VALUE;
 	private static int _get_light_pos_z=Integer.MIN_VALUE;
-	/**
-	 * 获取亮度
-	 */
 	public static int getLight(Entity entity)
 	{
 		World world=entity.world;
 		BlockPos pos=entity.getPosition();
-
+		return getLight(world,pos);
+	}
+	/**
+	 * 获取亮度
+	 */
+	public static int getLight(World world,BlockPos pos)
+	{
 		if(Configs.General.enable_single_thread_optimization)
 		{
 			if(world==_get_light_world && _get_light_pos_x==pos.getX() && _get_light_pos_y==pos.getY() && _get_light_pos_z==pos.getZ())

@@ -626,6 +626,8 @@ modifier.diffuse_reflecting_armor.desc=§o魔法反射§r\n将受到伤害的一
 modifier.diffuse_reflecting_armor.name=漫反射
 modifier.empathy_armor.name=共感
 modifier.empathy_armor.desc=§o你的共感子, 我收下了§r\n周围有实体受到伤害时自己也会按比例受到一定伤害, 但是大幅增加自己造成的伤害\n共感伤害不会触发此效果\n共感伤害不会致死
+modifier.ender_interfering_armor.name=末影干涉
+modifier.ender_interfering_armor.desc=§o §r\n你可以穿过方块\n§c快速降低耐久§r
 modifier.endothermic_armor.desc=§o不那么热了§r\n降低收到的火焰伤害, 但是增加耐久消耗
 modifier.endothermic_armor.name=吸热
 modifier.extreme_freezing_armor.desc=§o寒霜之心§r\n减速周围的怪物
@@ -706,6 +708,8 @@ modifier.vibrating_armor.desc=§o打我啊§r\n降低连续被击时收到的伤
 modifier.vibrating_armor.name=震动
 modifier.warm_soft_armor.desc=§oGood night, tonight§r\n当穿戴者睡醒后给予增益
 modifier.warm_soft_armor.name=温软
+modifier.web_wandering.name=蛛网漫行
+modifier.web_wandering.desc=§o我像蜘蛛侠吗?§r\n蛛网不再对你造成减速
 modifier.widening_armor.desc=§o友爱§r\n穿戴者使用的药水的效果会提供给周围的玩家
 modifier.widening_armor.name=广域化
 modifier.wither_flowing_armor.desc=§o你的生命在流逝§r\n使攻击者虚弱并凋零
@@ -1047,6 +1051,11 @@ tooltip.tiths.soul_storing=灵魂储量 +%d (-%d)
 tooltip.tiths.soul_watching=提供灵魂视野
 tooltip.tiths.item_bait=右键对地面使用可扔下一些碎屑, 吸引动物; 或者可以在护甲工作台里绑到护甲上!
 tooltip.tiths.block_bait=周围的动物会被吸引过来吃掉这些碎屑, 同时会恢复一点点血量
+
+## container
+
+container.tiths.lava_crystal_brewing_stand=岩浆水晶炼药台
+container.tiths.shacking_dispenser=振荡发射器
 
 ## warning
 

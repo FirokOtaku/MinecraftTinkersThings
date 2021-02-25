@@ -22,6 +22,12 @@ public final class DamageSources
 	public static final String TypePunji="punji";
 	public static DamageSource PunjiDamage=new DamageSource(TypePunji);
 
+	// 影火伤害
+	public static final String TypeShadowFire="shadow_fire";
+	public static DamageSource ShadowFireDamage=new DamageSource(TypeShadowFire)
+			.setFireDamage()
+			.setMagicDamage();
+
 	// 双折伤害
 	public static final String TypeBirefringent="birefringent";
 	public static EntityDamageSource Birefringent(Entity source)

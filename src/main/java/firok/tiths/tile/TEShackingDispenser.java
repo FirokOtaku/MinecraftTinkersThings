@@ -3,8 +3,6 @@ package firok.tiths.tile;
 import firok.tiths.block.BlockShakingDispenser;
 import firok.tiths.common.Blocks;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockDispenser;
-import net.minecraft.block.BlockRedstoneRepeater;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -37,9 +35,9 @@ public class TEShackingDispenser
 	}
 
 	@Override
-	public String getGuiID()
+	public String getName()
 	{
-		return "minecraft:dispenser";
+		return this.hasCustomName() ? this.customName : "container.tiths.shacking_dispenser";
 	}
 
 	@Override

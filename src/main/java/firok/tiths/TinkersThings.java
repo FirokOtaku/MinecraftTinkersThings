@@ -40,7 +40,7 @@ public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers' Things";
-	public static final String VERSION = "1.12.2-0.3.26.0";
+	public static final String VERSION = "1.12.2-0.3.27.0";
 	public static final VersionPhase version = VersionPhase.Alpha;
 
 	public static final String CONARM_ID = "conarm";
@@ -137,8 +137,7 @@ public class TinkersThings
 		try
 		{
 			Minecraft.getMinecraft().player.sendChatMessage(String.valueOf(content));
-		}
-		catch (Exception e){}
+		} catch (Exception ignored){}
 	}
 
 	@Mod.EventHandler
@@ -166,7 +165,7 @@ public class TinkersThings
 		RegistryHandler.integrateMaterials();
 	}
 
-	static Collection<Material> materials=null;
+//	static Collection<Material> materials=null;
 
 	@Mod.EventHandler
 	public void postinit(FMLPostInitializationEvent event)
@@ -186,17 +185,17 @@ public class TinkersThings
 
 		Datas.Server.init(event.getServer()); // 初始化服务端数据
 
-		if(Configs.General.log_chunk_generation)
-		{
-			try
-			{
-				new File("./tiths").mkdirs();
-				File file=new File("./tiths","log_world_generation_"+event.getServer().getFolderName()+"_"+System.currentTimeMillis()+".txt");
-				FileOutputStream ofs=new FileOutputStream(file);
-				WorldGens.setOutStream(ofs);
-			}
-			catch (Exception ignored) { }
-		}
+//		if(Configs.General.log_chunk_generation)
+//		{
+//			try
+//			{
+//				new File("./tiths").mkdirs();
+//				File file=new File("./tiths","log_world_generation_"+event.getServer().getFolderName()+"_"+System.currentTimeMillis()+".txt");
+//				FileOutputStream ofs=new FileOutputStream(file);
+//				WorldGens.setOutStream(ofs);
+//			}
+//			catch (Exception ignored) { }
+//		}
 	}
 	@Mod.EventHandler
 	public void onServerStop(FMLServerStoppedEvent event)

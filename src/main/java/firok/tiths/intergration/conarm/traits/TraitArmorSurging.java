@@ -58,13 +58,13 @@ public class TraitArmorSurging extends AbstractArmorTrait
 		}
 		else // 客户端
 		{
-//			if(!player.isSprinting()) return;
-//
-//			try
-//			{
-//				world.spawnParticle(EnumParticleTypes.SPIT,player.posX,player.posY,player.posZ,0,0,0, Colors.Green);
-//			}
-//			catch (Exception e) { e.printStackTrace(); }
+			if(!player.isSprinting()) return;
+
+			try
+			{
+				world.spawnParticle(EnumParticleTypes.SPIT,player.posX,player.posY,player.posZ,0,0,0, Colors.Green);
+			}
+			catch (Exception e) { e.printStackTrace(); }
 		}
 	}
 }

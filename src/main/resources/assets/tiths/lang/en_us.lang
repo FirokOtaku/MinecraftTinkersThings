@@ -629,6 +629,8 @@ modifier.diffuse_reflecting_armor.desc=§oMagical reflecting§r\nTo reflect dama
 modifier.diffuse_reflecting_armor.name=Diffuse Reflecting
 modifier.empathy_armor.name=Empathic
 modifier.empathy_armor.desc=§oI'll take your empathiom§r\n周围有实体受到伤害时自己也会按比例受到一定伤害, 但是大幅增加自己造成的伤害\n共感伤害不会触发此效果\n共感伤害不会致死
+modifier.ender_interfering_armor.name=Ender Interferaing
+modifier.ender_interfering_armor.desc=§o §r\n
 modifier.endothermic_armor.desc=§oHot no more§r\nTo decrease fire damage with higher durability cost
 modifier.endothermic_armor.name=Endothermic
 modifier.extreme_freezing_armor.desc=§oHeart of the frost§r\nTo slow down the monsters around
@@ -709,6 +711,8 @@ modifier.vibrating_armor.desc=§oOhhhhhhh!§r\nTo decrease the damage when conse
 modifier.vibrating_armor.name=Vibrating
 modifier.warm_soft_armor.desc=§oGood night, tonight§r\nTo give wearer effects when waking up
 modifier.warm_soft_armor.name=Warm Soft
+modifier.web_wandering.name=Web Wandering
+modifier.web_wandering.desc=§oAm I spider man?§r\nYou will no longer slow down by web
 modifier.widening_armor.desc=§oThat's friendly§r\nWhen wearer use potion, the effects will also provided to nearby players
 modifier.widening_armor.name=Widening
 modifier.wither_flowing_armor.desc=§oYour life drains§r\nTo wither and weaken your enemy
@@ -1052,6 +1056,11 @@ tooltip.tiths.soul_storing=Soul Stored +%d (-%d)
 tooltip.tiths.soul_watching=Providing Soul Wathcing
 tooltip.tiths.item_bait=Right-click on the ground to drop some debris and attract animals, or you can tie it to the armor!
 tooltip.tiths.block_bait=The surrounding animals will be attracted to eat these debris, and at the same time will be healed
+
+## container
+
+container.tiths.lava_crystal_brewing_stand=Lava Crystal Brewing Stand
+container.tiths.shacking_dispenser=Shacking Dispenser
 
 ## warning
 
