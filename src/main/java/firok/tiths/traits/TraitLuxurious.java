@@ -1,10 +1,11 @@
 package firok.tiths.traits;
 
+import firok.tiths.client.particle.ParticleBuilder;
+import firok.tiths.client.particle.ParticleType;
 import firok.tiths.common.Configs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
@@ -28,17 +29,21 @@ public class TraitLuxurious extends AbstractTrait
 
 	public static boolean checkParticle(World world)
 	{
-		return world.isRemote && canTick(world,7,0);
+		return world.isRemote && canTick(world,9,0);
 	}
 
+	@SuppressWarnings("all")
 	public static void spawnParticle(Entity entity)
 	{
-		entity.world.spawnParticle(
-				EnumParticleTypes.VILLAGER_HAPPY,
-				entity.posX-0.4+ random.nextFloat()*0.8,
-				entity.posY-0.35+entity.getEyeHeight(),
-				entity.posZ-0.4+random.nextFloat()*0.8,
-				0,0,0);
+		ParticleBuilder.create(ParticleType.STAR)
+				.pos(
+						entity.posX-0.4+ random.nextFloat()*0.8,
+						entity.posY-0.35+entity.getEyeHeight(),
+						entity.posZ-0.4+random.nextFloat()*0.8
+				)
+				.clr(0xffda63)
+				.scale(0.28f)
+				.spawn(entity.world);
 	}
 
 	@Override

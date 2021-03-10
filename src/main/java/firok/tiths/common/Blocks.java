@@ -3,6 +3,7 @@ package firok.tiths.common;
 import firok.tiths.block.*;
 import firok.tiths.block.BlockBait;
 import firok.tiths.block.punji.*;
+import firok.tiths.block.table.BlockMoonlightConvergingTable;
 import firok.tiths.util.reg.GenConfig;
 import firok.tiths.util.reg.GenOre;
 import firok.tiths.util.reg.Reg;
@@ -138,6 +139,8 @@ public final class Blocks
 	@Reg(value = Keys.blockMeteorolite, od = {"meteorolite"})
 	@GenOre(times = 1, timeRate = 0.6f, size = 15, minY = 10, maxY = 70, biome = Strategy.ONLY_WHITELIST, biomeWL ={"$desert"})
 	public static final BlockOre blockMeteorolite = new BlockOre().setEpicOre(); // 陨石
+	@Reg(Keys.prefBlock+"moonlight_converging_table")
+	public static final BlockMoonlightConvergingTable blockMoonlightConvergingTable = new BlockMoonlightConvergingTable(); // 月光汇聚平台
 	@Reg(Keys.blockMoonStone)
 	public static final Block blockMoonStone = new BlockCompressed(Material.ROCK).setBeaconBase();// 月光石块
 	@Reg(Keys.blockNitre)
@@ -275,6 +278,8 @@ public final class Blocks
 	@Reg(Keys.oreLizanite)
 	@GenConfig(Keys.nameLizanite)
 	public static final Block oreLizanite = new BlockOre(Items.lizanite, 1, 1, 1, 4, 6).setRareOre(); // 丽辰石矿
+	@Reg(Keys.prefBlock+Keys.nameMesh)
+	public static final Block blockMesh = new BlockMesh();
 	@Reg(Keys.oreMoonStone)
 	@GenConfig(Keys.nameMoonStone)
 	public static final Block oreMoonStone = new BlockOre(Items.moonStone, 1, 1, 1, 4, 6).setRareOre(); // 月光石矿

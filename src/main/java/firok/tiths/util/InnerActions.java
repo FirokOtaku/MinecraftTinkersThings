@@ -561,4 +561,11 @@ public final class InnerActions
 			return null;
 		}
 	}
+	
+	public static int[][] initFillArray(int x, int y, int initFillValue)
+	{
+		int[][] ret = new int[x][y];
+		for(int[] line : ret) Arrays.fill(line,initFillValue);
+		return ret;
+	}
 }

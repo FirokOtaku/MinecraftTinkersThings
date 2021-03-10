@@ -7,6 +7,7 @@ import firok.tiths.intergration.conarm.ArmorRegistryHandler;
 import firok.tiths.util.VersionPhase;
 import firok.tiths.common.WorldGens;
 import net.minecraft.client.Minecraft;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -40,7 +41,7 @@ public class TinkersThings
 {
 	public static final String MOD_ID = "tiths";
 	public static final String MOD_NAME = "Tinkers' Things";
-	public static final String VERSION = "1.12.2-0.3.27.0";
+	public static final String VERSION = "1.12.2-0.3.28.0";
 	public static final VersionPhase version = VersionPhase.Alpha;
 
 	public static final String CONARM_ID = "conarm";
@@ -138,6 +139,11 @@ public class TinkersThings
 		{
 			Minecraft.getMinecraft().player.sendChatMessage(String.valueOf(content));
 		} catch (Exception ignored){}
+	}
+
+	public static ResourceLocation resource(String name)
+	{
+		return new ResourceLocation(MOD_ID,name);
 	}
 
 	@Mod.EventHandler

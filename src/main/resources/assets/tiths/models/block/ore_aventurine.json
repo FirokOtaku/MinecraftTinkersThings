@@ -1,12 +1,12 @@
 {
   "parent": "block/cube",
   "textures": {
-    "particle": "tiths:blocks/ore_brume_jade",
-    "down": "tiths:blocks/ore_brume_jade",
-    "up": "tiths:blocks/ore_brume_jade",
-    "north": "tiths:blocks/ore_brume_jade",
-    "south": "tiths:blocks/ore_brume_jade",
-    "west": "tiths:blocks/ore_brume_jade",
-    "east": "tiths:blocks/ore_brume_jade"
+    "particle": "tiths:blocks/ore_aventurine",
+    "down": "tiths:blocks/ore_aventurine",
+    "up": "tiths:blocks/ore_aventurine",
+    "north": "tiths:blocks/ore_aventurine",
+    "south": "tiths:blocks/ore_aventurine",
+    "west": "tiths:blocks/ore_aventurine",
+    "east": "tiths:blocks/ore_aventurine"
   }
 }

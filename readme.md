@@ -30,24 +30,13 @@
 
 ## 最近更新 latest update
 
-### 0.3.27.0 _2021-02-25 14:00_
+### 0.3.28.0 _2021-03-10 23:00_
 
-* 增加特性 added traits
-  * 蛛网漫行 web wandering
-  * 末影干涉 ender interfering
-
-### 0.3.26.0 _2021-02-23 11:30_
-
-* 增加方块 added blocks
-  * 重力砖(双倍) gravity block (double)
-  * 重力砖(三倍) gravity block (triple)
-  * 振荡发射器 shacking dispenser block
-* 错误修复 bug fixes
-
-### 0.3.25.0 _2021-02-19 14:30_
-
-* 现在世界生成依赖于[MMD Ore Spawn](https://github.com/MinecraftModDevelopmentMods/OreSpawn)  
-  now world generations depend on [MMD Ore Spawn](https://github.com/MinecraftModDevelopmentMods/OreSpawn)
+* 新增方块 added blocks
+  * 渔网方块 mesh blocks
+  * 月光汇聚平台 moonlight converging table
+* 新增粒子效果系统 added particle effect system
+* 新文档预览 new documents preview
 
 ## 版本间差异 differences between versions
 

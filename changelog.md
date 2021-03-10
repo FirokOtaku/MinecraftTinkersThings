@@ -2,6 +2,14 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.28.0 _2021-03-10 23:00_
+
+* 新增方块 added blocks
+  * 渔网方块 mesh blocks
+  * 月光汇聚平台 moonlight converging table
+* 新增粒子效果系统 added particle effect system
+* 新文档预览 new documents preview
+
 ## 0.3.27.0 _2021-02-25 14:00_
 
 * 增加特性 added traits

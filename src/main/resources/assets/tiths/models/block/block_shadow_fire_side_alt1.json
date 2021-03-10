@@ -1,0 +1,7 @@
+{
+    "parent": "tiths:block/block_shadow_fire_side_alt",
+    "textures": {
+        "particle": "tiths:blocks/block_shadow_fire_layer1",
+        "fire": "tiths:blocks/block_shadow_fire_layer1"
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tiths:tools",
+  "result": { "item": "tiths:block_mesh", "count": 1 },
+  "pattern": [
+    "WMW",
+    "W W",
+    "W W"
+  ],
+  "key": {
+    "M": { "item": "tiths:mesh" },
+    "W": {
+      "item": "minecraft:planks",
+      "data": 0
+    }
+  }
+}

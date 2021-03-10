@@ -6,7 +6,9 @@ import firok.tiths.common.Configs;
 import firok.tiths.common.Potions;
 import firok.tiths.entity.ai.EntityAIAvoidEntityFear;
 import firok.tiths.entity.projectile.ProjectileDashingStar;
+import firok.tiths.tile.logic.TEEnderInterferedBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
@@ -31,6 +33,7 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
@@ -41,6 +44,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTableList;
+import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 
 import java.lang.reflect.Constructor;
@@ -105,6 +109,99 @@ public final class Actions
 		World world=target.world;
 		EntityItem ei=new EntityItem(world,target.posX,target.posY,target.posZ,stack);
 		world.spawnEntity(ei);
+	}
+
+	/**
+	 * @param center 中心实体
+	 * @param range 范围
+	 * @param maxCharge 最大充能
+	 * @param oneCharge 单次充能
+	 * @param costMaxCharge 最大充能消耗单位
+	 * @param costOneCharge 单次充能消耗单位
+	 * @return 充能数量
+	 */
+	// 末影干涉
+	public static int CauseEnderInterfering(
+			Entity center, int range,
+			int maxCharge, int oneCharge,
+			int costMaxCharge, int costOneCharge
+	)
+	{
+		return CauseEnderInterfering(center.world, center.getPosition(), range, maxCharge, oneCharge, costMaxCharge, costOneCharge);
+	}
+	public static int CauseEnderInterfering(
+			World world, BlockPos center, int range,
+			int maxCharge, int oneCharge,
+			int costMaxCharge, int costOneCharge
+	)
+	{
+		final IBlockState stateInterfered = firok.tiths.common.Blocks.blockEnderInterferedBlock.getDefaultState();
+		int cost = 0;
+
+		FOR_X: for (int ox = -range; ox <= range; ox++)
+		{
+			FOR_Y: for (int oy = 0; oy <= range; oy++)
+			{
+				FOR_Z: for (int oz = -range; oz <= range; oz++)
+				{
+					BlockPos posOffset = center.add(ox,oy,oz);
+					IBlockState state = world.getBlockState(posOffset);
+					Block block = state.getBlock();
+
+					if(block == net.minecraft.init.Blocks.AIR ||
+							block.getBlockHardness(state,world,posOffset) < 0 ||
+							block.hasTileEntity(state) ||
+							block instanceof BlockFluidBase ||
+							block instanceof BlockLiquid)
+						continue FOR_Z; // 不能干涉这类的
+
+					TEEnderInterferedBlock te;
+					if(block == firok.tiths.common.Blocks.blockEnderInterferedBlock) // 变了
+					{
+						TileEntity teTemp = world.getTileEntity(posOffset);
+						if(teTemp == null) // 没设定TileEntity
+						{
+							// 这种情况不应该
+							// 应该破坏掉这个方块 吧
+
+//								te = new TEEnderInterferedBlock(state,20);
+//								te.setWorld(world);
+//								te.setPos(posOffset);
+//								world.setTileEntity(posOffset,te);
+//
+//								cost += 2;
+						}
+						if(teTemp instanceof TEEnderInterferedBlock) // 内部已经有了
+						{
+							te = (TEEnderInterferedBlock) teTemp;
+							if(te.ticksCharge <= oneCharge)
+							{
+								te.ticksCharge += oneCharge;
+								cost += costOneCharge;
+							}
+						}
+						else
+						{
+							continue FOR_Z;
+						}
+
+					}
+					else // 还没变
+					{
+						te = new TEEnderInterferedBlock(state,maxCharge);
+						te.setWorld(world);
+						te.setPos(posOffset);
+
+						world.setBlockState(posOffset,stateInterfered);
+						world.setTileEntity(posOffset,te);
+
+						cost += costMaxCharge;
+					}
+				}
+			}
+		}
+
+		return cost;
 	}
 
 	// 末影传送

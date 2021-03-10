@@ -9,10 +9,11 @@ import firok.tiths.TinkersThings;
 public class TithsOreSpawnPlugin implements IOreSpawnPlugin {
 
 	@Override
-	public void register(final OS3API apiInterface) {
+	public void register(final OS3API api) {
 		// nothing for us to do - all of our ores are in the
 		// jar and the code handles that
-//		apiInterface.addFeature("tree-root",null);
+//		api.addFeature("tree-root",null);
+		api.addFeature("tiths-crystal-cave",new CrystalCaveGenerator());
 
 	}
 }

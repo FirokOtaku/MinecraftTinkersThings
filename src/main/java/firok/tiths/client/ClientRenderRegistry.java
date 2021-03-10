@@ -1,6 +1,8 @@
-package firok.tiths.client.render;
+package firok.tiths.client;
 
 import firok.tiths.TinkersThings;
+import firok.tiths.client.particle.ParticleFactory;
+import firok.tiths.client.particle.ParticleType;
 import firok.tiths.client.render.item.RendererEntityItemSoul;
 import firok.tiths.common.Blocks;
 import firok.tiths.common.Fluids;
@@ -18,12 +20,8 @@ import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
-import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.IMob;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -38,12 +36,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.lang.reflect.Field;
 
-import static firok.tiths.common.Potions.forcibleFocused;
-import static net.minecraft.init.MobEffects.SLOWNESS;
-
 @SideOnly(Side.CLIENT)
 @Mod.EventBusSubscriber(value = Side.CLIENT,modid = TinkersThings.MOD_ID)
-public class RendererRegistry
+public class ClientRenderRegistry
 {
 //	@SubscribeEvent
 //	public static void onClientRender(EntityViewRenderEvent.FogDensity event)
@@ -92,7 +87,7 @@ public class RendererRegistry
 		renderPumpkinOverlay(event.getResolution());
 	}
 
-	private static ResourceLocation TEXTURE_LIGHT_RING=new ResourceLocation(TinkersThings.MOD_ID,"misc/light_ring.png");
+	private static ResourceLocation TEXTURE_LIGHT_RING=TinkersThings.resource("misc/light_ring.png");
 
 	protected static void renderPumpkinOverlay(ScaledResolution scaledRes)
 	{
@@ -116,6 +111,29 @@ public class RendererRegistry
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 	}
 
+	private static void registerFluidBallModels()
+	{
+//		Map<String,Fluid> registeredFluids = FluidRegistry.getRegisteredFluids();
+//		Map<String,ResourceLocation> customizeFluidRL = new HashMap<>(registeredFluids.size()+3);
+//		for(Map.Entry<String,Fluid> entry : registeredFluids.entrySet())
+//		{
+//			String name = entry.getKey();
+//			Fluid fluid = entry.getValue();
+//
+//			ResourceLocation tempRL = new ResourceLocation(TinkersThings.MOD_ID,"fluid_ball_"+name);
+//			;
+//		}
+//		ModelBakery.registerItemVariants();
+
+//		ModelLoader.setCustomMeshDefinition(Items.fluidBall,Items.fluidBall::getModelLocation);
+
+	}
+
+	@SubscribeEvent
+	public static void onTextureStitchEvent(TextureStitchEvent.Pre event){
+		ParticleType.onTextureRegisterEvent(event); // 注册粒子效果
+	}
+
 	@SubscribeEvent
 	public static void registerRenderers(ModelRegistryEvent event)
 	{
@@ -132,6 +150,8 @@ public class RendererRegistry
 				EntityItemSoul.class,
 				RendererEntityItemSoul::new
 		);
+
+		registerFluidBallModels();
 
 		for(Field field: Items.class.getDeclaredFields())
 		{
@@ -204,7 +224,6 @@ public class RendererRegistry
 				e.printStackTrace();
 			}
 		}
-
 	}
 
 	public static class FluidStateMapper extends StateMapperBase implements ItemMeshDefinition
