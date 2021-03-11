@@ -41,9 +41,9 @@
 * radiusY - (整数) 纵向半径 5~20
 * factorSplit - (小数) 分割因子, 当某坐标的偏移因子 (factorOffset) 小于分割因子时生成空气, 否则生成矿物
 * rateOrePillar - (小数) 顶部或底部某坐标随机出现岩柱的几率
-* topDown - (整数) 顶部向下延申的岩柱最大高度
-* bottomUp - (整数), 底部向上延申的岩柱最大高度
-* maxWaterDepth - (整数) 最大积水深度
+* topDown - (整数) 顶部向下延申的岩柱最大高度 0~8
+* bottomUp - (整数), 底部向上延申的岩柱最大高度 0~8
+* maxWaterDepth - (整数) 最大积水深度 0~5
 
 椭球公式为
 

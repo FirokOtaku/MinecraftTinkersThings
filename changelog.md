@@ -2,6 +2,10 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.29.0 _2021-03-11 15:30_
+
+* 世界生成模块修改 modified world generations
+
 ## 0.3.28.0 _2021-03-10 23:00_
 
 * 新增方块 added blocks

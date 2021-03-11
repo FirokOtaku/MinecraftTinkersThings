@@ -568,4 +568,25 @@ public final class InnerActions
 		for(int[] line : ret) Arrays.fill(line,initFillValue);
 		return ret;
 	}
+
+	public static int between(Random rand,int min,int max)
+	{
+		return min + (max > min ? rand.nextInt(1+max-min) : 0);
+	}
+	public static float between(Random rand,float min,float max)
+	{
+		return min + rand.nextFloat() * (max-min);
+	}
+	public static int range(int value, int min, int max)
+	{
+		if(value < min) return min;
+		if(value > max) return max;
+		return value;
+	}
+	public static float range(float value, float min, float max)
+	{
+		if(value < min) return min;
+		if(value > max) return max;
+		return value;
+	}
 }

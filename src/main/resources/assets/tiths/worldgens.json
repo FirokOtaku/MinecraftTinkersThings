@@ -10,13 +10,25 @@
         "excludes": []
       },
       "parameters": {
-        "frequency": 0.8
+        "frequency": 0.0185,
+        "minHeight": 140,
+        "maxHeight": 160,
+        "radiusX": 10,
+        "radiusZ": 8,
+        "radiusY": 5,
+        "variationX": 2,
+        "variationY": 2,
+        "variationZ": 2
       },
-      "feature": "tiths-crystal-cave",
+      "feature": "tiths-cloud",
       "blocks": [
         {
-          "name": "tiths:ore_altairium",
-          "chance": 100
+          "name": "tiths:block_cloud",
+          "chance": 96
+        },
+        {
+          "name": "tiths:ore_brume_jade",
+          "chance": 4
         }
       ]
     },

@@ -22,7 +22,7 @@
 	},
 	"blocks": [
 		{ "name": "tiths:brume_jade", "chance": 5 },
-        { "name": "tiths:cloud", "chance": 95 }
+		{ "name": "tiths:cloud", "chance": 95 }
 	]
 },
 ```
@@ -33,5 +33,8 @@
 * maxHeight - 最高生成Y坐标
 * frequency - (小数) 每区块的触发频率
 * raduisX - (整数) 横向X轴长度 5~15
+* variationX - (整数) X轴长度变量 0~5
 * radiusY - (整数) 纵向Y轴高度 5~15
+* variationY - (整数) Y轴长度变量 0~5
 * radiusZ - (整数) 横向Z轴长度 5~15
+* variationZ - (整数) Z轴长度变量 0~5
