@@ -20,17 +20,15 @@ To read this document, you **probably need** some knowledge of the Minecraft gam
 
 For English reader:  
 If you want to customize any of the generations, please refer to the [documentation](https://github.com/MinecraftModDevelopmentMods/OreSpawn/wiki) of **MMD Ore Spawn** first.  
-We only provide the documentation of our own generator here.
+We only provide the documentation of our own generators here.
 
 [Crystal Cave Feature Generator(Unfinished)]()
 
 [Cloud Feature Generator(Unfinished)]()
 
-[Seabed Feature Generato(Unfinished)r]()
+[Seabed Feature Generator(Unfinished)]()
 
 [Tree Root Feature Generator(Unfinished)]()
-
-[Ore Ball Feature Generator(Unfinished)]()
 
 ## 目录
 
@@ -40,15 +38,15 @@ We only provide the documentation of our own generator here.
 
 生成器相关
 
-[生成器文件格式 (面向开发者) (翻译)](mmd_ore_spawn_doc_FeaturesFileFormat_zhCN.md)
+[OreSpawn 3 生成器文件格式 (面向开发者) (翻译)](mmd_ore_spawn_doc_FeaturesFileFormat_zhCN.md)
 
 [OreSpawn 3 默认生成器 (翻译)](mmd_ore_spawn_doc_DefaultFeature_zhCN.md)
 
 [OreSpawn 3 精确生成器 (翻译)](mmd_ore_spawn_doc_PrecisionFeature_zhCN.md)
 
-[OreSpawn 3 普通云层生成器和集束生成器 (翻译)]()
+[OreSpawn 3 普通云生成器和集束生成器 (翻译)](mmd_ore_spawn_doc_NormalCloudAndClustersFeature_zhCN.md)
 
-[OreSpawn 3 岩脉生成器 (翻译)]()
+[OreSpawn 3 岩脉生成器 (翻译)](mmd_ore_spawn_doc_VeinFeature_zhCN.md)
 
 [晶洞生成器](doc_CrystalCaveGenerator_zhCN.md)
 
@@ -57,8 +55,6 @@ We only provide the documentation of our own generator here.
 [海床生成器](doc_SeabedGenerator_zhCN.md)
 
 [树根生成器](doc_TreeRootGenerator_zhCN.md)
-
-[矿物球生成器(未完成)](doc_OreBallGenerator_zhCN.md)
 
 ## 翻译声明
 
@@ -70,7 +66,9 @@ We only provide the documentation of our own generator here.
 3. 不负责代写/调整/改正配置文件
 
 > 对原文档有问题的人,  
-> 请自行联系 MMD Ore Spawn 的开发者或相关社区
+> 请自行联系 MMD Ore Spawn 的开发者或相关社区;  
+> 如果对我们提供的生成器有问题,  
+> 请入群提问或提交Issue
 
 本人语文和翻译水平有限,  
 遂将每段译文的英文原文以折叠块形式保留,  
@@ -93,7 +91,7 @@ We only provide the documentation of our own generator here.
 
 一种生成器表现为一种生成矿物的方式,  
 比如"像原版矿物一样将矿物生成到地下",  
-或是"将矿物生成到天空的云层中"
+或是"将矿物像云朵一样生成在天空中"等
 
 原文 **end user** 译文 **终端用户**
 

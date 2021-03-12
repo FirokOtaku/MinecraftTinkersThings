@@ -71,7 +71,6 @@ public class CloudFeatureGenerator extends FeatureBase implements IFeature
 				ry=between(rand,radiusY-variationY,radiusY+variationY),
 				rz=between(rand,radiusZ,variationZ);
 		final float a2=rx*rx,b2=ry*ry,c2=rz*rz;
-		final int dim = world.provider.getDimension();
 
 		FOR_X: for(int ox=-rx; ox<=rx; ox++)
 		{

@@ -58,6 +58,6 @@ Friction Effect|dragging|caoimhe_s1|裁剪 trimmed|CC 0|[Link](https://freesound
 
 icon||中文版本|English
 -|-|-|-
-![cc](doc/img/icon_cc.png "cc") ![zero](doc/img/icon_zero.png "IMG_CC0")|CC0 1.0|[CC0 1.0 通用 (CC0 1.0) 公共领域贡献](https://creativecommons.org/publicdomain/zero/1.0/deed.zh)|[CC0 1.0 Universal (CC0 1.0) Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/)
-![CC](doc/img/icon_cc.png "cc") ![attr](doc/img/icon_attr.png "attr")|CC BY 3.0|[署名 3.0 未本地化版本 (CC BY 3.0)](https://creativecommons.org/licenses/by/3.0/deed.zh)|[Attribution 3.0 Unported (CC BY 3.0)](https://creativecommons.org/licenses/by/3.0/)
-![cc](doc/img/icon_cc.png "cc") ![attr](doc/img/icon_attr.png "attr") ![nc](doc/img/icon_nc.png "nc")|CC BY NC 3.0|[署名-非商业性使用 3.0 未本地化版本 (CC BY-NC 3.0)](https://creativecommons.org/licenses/by-nc/3.0/deed.zh)|[Attribution-NonCommercial 3.0 Unported (CC BY-NC 3.0)](https://creativecommons.org/licenses/by-nc/3.0/)
+![cc](img/icon_cc.png "cc") ![zero](img/icon_zero.png "IMG_CC0")|CC0 1.0|[CC0 1.0 通用 (CC0 1.0) 公共领域贡献](https://creativecommons.org/publicdomain/zero/1.0/deed.zh)|[CC0 1.0 Universal (CC0 1.0) Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/)
+![CC](img/icon_cc.png "cc") ![attr](img/icon_attr.png "attr")|CC BY 3.0|[署名 3.0 未本地化版本 (CC BY 3.0)](https://creativecommons.org/licenses/by/3.0/deed.zh)|[Attribution 3.0 Unported (CC BY 3.0)](https://creativecommons.org/licenses/by/3.0/)
+![cc](img/icon_cc.png "cc") ![attr](img/icon_attr.png "attr") ![nc](img/icon_nc.png "nc")|CC BY NC 3.0|[署名-非商业性使用 3.0 未本地化版本 (CC BY-NC 3.0)](https://creativecommons.org/licenses/by-nc/3.0/deed.zh)|[Attribution-NonCommercial 3.0 Unported (CC BY-NC 3.0)](https://creativecommons.org/licenses/by-nc/3.0/)

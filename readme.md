@@ -3,15 +3,15 @@
 一个匠魂的附属模组. An addon of Tinkers' Construct.
 
 * 变更日志 change log:  
-  [changelog.md](changelog.md)
+  [链接 link](changelog.md)
 * 贡献者列表 contributors:  
-  [contributors.md](contributors.md)
+  [链接 link](doc/contributors.md)
 * 如何自定义材料属性  
   how to customize material stats:  
-  [customize_materials.md](customize_materials.md)
+  [链接 link](doc/doc_customize_materials.md)
 * 如何自定义世界生成
   how to customize world generations:  
-  [MMD Ore Spawn GitHub Wiki](https://github.com/MinecraftModDevelopmentMods/OreSpawn/wiki)
+  [链接 link](doc/doc_world_generations.md)
 
 > 0.3.25.0版本之后的世界生成功能基于**MMD Ore Spawn**,  
 > 如果需要自定义世界生成, 请查阅此模组提供的文档  
@@ -30,13 +30,9 @@
 
 ## 最近更新 latest update
 
-### 0.3.28.0 _2021-03-10 23:00_
-
-* 新增方块 added blocks
-  * 渔网方块 mesh blocks
-  * 月光汇聚平台 moonlight converging table
-* 新增粒子效果系统 added particle effect system
-* 新文档预览 new documents preview
+### 0.3.30.0 _2021-03-12 10:30_
+ 
+ * 世界生成模块修改 modified world generations
 
 ## 版本间差异 differences between versions
 

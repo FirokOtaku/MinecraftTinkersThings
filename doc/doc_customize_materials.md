@@ -4,6 +4,9 @@
 
 _⚠ 只能修改**本模组添加的**材料 only materials **added by this mod** can be customized_
 
+> 默认情况下`config/tiths_materials.json`文件并不会自动生成, 需要由您手动创建一个  
+> `config/tiths_materials.json` will not be generated automatically and you need to create one by yourself
+
 ## 整体格式 format
 
 配置文件遵循`{"material_id1":{ configs }, "material_id2":{ configs }, ...}`格式 the config file follows the format of `{" material_id1 ": {configs}," material_id2 ": {configs}, ...}`

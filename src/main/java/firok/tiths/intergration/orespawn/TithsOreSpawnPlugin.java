@@ -15,6 +15,8 @@ public class TithsOreSpawnPlugin implements IOreSpawnPlugin {
 		// bug generator (x) feature generator (√)
 		api.addFeature("tiths-crystal-cave",new CrystalCaveFeatureGenerator());
 		api.addFeature("tiths-cloud",new CloudFeatureGenerator());
+		api.addFeature("tiths-seabed",new SeabedFeatureGenerator());
+		api.addFeature("tiths-tree-root",new TreeRootFeatureGenerator());
 
 	}
 }
