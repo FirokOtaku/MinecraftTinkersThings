@@ -607,7 +607,7 @@ public class Events
 			ConfigManager.sync(TinkersThings.MOD_ID, Config.Type.INSTANCE);
 //			TinkersThings.log("config changed : "+event.getConfigID());
 			// 重载世界生成器
-			WorldGens.getInstance().reload();
+//			WorldGens.getInstance().reload();
 		}
 	}
 

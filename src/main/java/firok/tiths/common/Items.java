@@ -109,6 +109,8 @@ public final class Items
 	public static final Item enderCreviceShard = new ItemCustom(); // 末影裂隙碎片
 	@Reg(nameEnderDragonSquama)
 	public static final Item enderDragonSquama = new ItemCustom().setRarity(EnumRarity.UNCOMMON); // 末影龙鳞
+	@Reg("ender_turbulence_candy")
+	public static final ItemFood enderTurbulenceCandy = new ItemEnderTurbulenceCandy(); // 末影乱流糖果
 	@Reg(nameFlesh)
 	public static final Item flesh = new ItemFood(8, 0.8f, true)
 			.setPotionEffect(new PotionEffect(MobEffects.NAUSEA, 400, 0), 1); // 血肉
