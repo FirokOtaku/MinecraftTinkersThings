@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:crafting_shapeless",
-  "group": "tiths:tools",
-  "result": { "item": "tiths:buoyant_light", "count": 1 },
-  "ingredients": [
-    { "item": "tiths:buoy" },
-    { "item": "tiths:icelit" }
-  ]
-}

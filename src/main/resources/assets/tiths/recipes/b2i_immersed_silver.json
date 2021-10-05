@@ -1,8 +1,0 @@
-{
-	"type": "minecraft:crafting_shapeless",
-	"group": "tiths:block_to_ingot",
-	"result": { "item": "tiths:ingot_immersed_silver", "count": 9 },
-	"ingredients": [
-	  { "item": "tiths:block_immersed_silver" }
-	]
-}
