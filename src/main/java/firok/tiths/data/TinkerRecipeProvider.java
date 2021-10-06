@@ -1,6 +1,6 @@
 package firok.tiths.data;
 
-import firok.tiths.material.MaterialsRegisterHandler;
+import firok.tiths.material.TithsMaterials;
 import firok.tiths.TinkersThings;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
@@ -38,7 +38,7 @@ public class TinkerRecipeProvider extends ToolsRecipeProvider {
         String folder = "tools/materials/";
         // materialRecipe(consumer, MaterialProvider.TEST, Ingredient.fromItems(MaterialsRegisterHandler.TEST.getIngot()),
         //         1, 1, folder + "test");
-        MaterialsRegisterHandler.MATERIALS.stream().map(Supplier::get).forEach(material -> {
+        TithsMaterials.MATERIALS.stream().map(Supplier::get).forEach(material -> {
             materialRecipe(consumer, material.getId(), Ingredient.fromItems(material.getMetalItemObject().getIngot()),
                     material.getValue(), material.getNeeded(), folder + material.getId().getPath());
         });
@@ -56,7 +56,7 @@ public class TinkerRecipeProvider extends ToolsRecipeProvider {
         @Override
         protected void addMaterials() {
             // addMaterial(TEST, 3, ORDER_GENERAL, true, 0xFFD359);
-            MaterialsRegisterHandler.MATERIALS.stream().map(Supplier::get).forEach(material -> {
+            TithsMaterials.MATERIALS.stream().map(Supplier::get).forEach(material -> {
                 if (material.isA()) {
                     addMaterial(material.getId(), material.getTier(), material.getOrder(), material.isCraftable(), material.getColor());
                 }
@@ -80,7 +80,7 @@ public class TinkerRecipeProvider extends ToolsRecipeProvider {
                 //         ExtraMaterialStats.DEFAULT
                 // );
 
-                MaterialsRegisterHandler.MATERIALS.stream().map(Supplier::get).forEach(material -> {
+                TithsMaterials.MATERIALS.stream().map(Supplier::get).forEach(material -> {
                     addMaterialStats(material.getId(), material.getStats());
                 });
             }
@@ -98,7 +98,7 @@ public class TinkerRecipeProvider extends ToolsRecipeProvider {
 
             @Override
             protected void addMaterialTraits() {
-                MaterialsRegisterHandler.MATERIALS.stream().map(Supplier::get).forEach(material -> {
+                TithsMaterials.MATERIALS.stream().map(Supplier::get).forEach(material -> {
                     addDefaultTraits(material.getId(), material.getModifier());
                 });
             }
@@ -109,9 +109,9 @@ public class TinkerRecipeProvider extends ToolsRecipeProvider {
             }
         }
 
-        private static MaterialId createMaterial(String name) {
-            return new MaterialId(new ResourceLocation(TinkersThings.MOD_ID, name));
-        }
+//        private static MaterialId createMaterial(String name) {
+//            return new MaterialId(new ResourceLocation(TinkersThings.MOD_ID, name));
+//        }
 
         @Override
         public String getName() {
@@ -127,7 +127,7 @@ public class TinkerRecipeProvider extends ToolsRecipeProvider {
 
         @Override
         protected void registerTags() {
-            MaterialsRegisterHandler.MATERIALS.stream().map(Supplier::get).forEach(material -> {
+            TithsMaterials.MATERIALS.stream().map(Supplier::get).forEach(material -> {
                 addMetalTags(material.getMetalItemObject());
             });
             // addMetalTags(MaterialsRegisterHandler.TEST);
@@ -146,7 +146,7 @@ public class TinkerRecipeProvider extends ToolsRecipeProvider {
 
             @Override
             protected void registerTags() {
-                MaterialsRegisterHandler.MATERIALS.stream().map(Supplier::get).forEach(material -> {
+                TithsMaterials.MATERIALS.stream().map(Supplier::get).forEach(material -> {
                     addMetalTags(material.getMetalItemObject());
                 });
                 // addMetalTags(MaterialsRegisterHandler.TEST);

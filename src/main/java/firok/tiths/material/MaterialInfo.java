@@ -9,7 +9,8 @@ import slimeknights.tconstruct.library.modifiers.Modifier;
 
 import javax.annotation.Nullable;
 
-public class TinkerMaterial {
+public class MaterialInfo
+{
     boolean a;
 
     MaterialId id;
@@ -30,7 +31,7 @@ public class TinkerMaterial {
 
     Modifier modifier;
 
-    public TinkerMaterial(MaterialId id, MetalItemObject metalItemObject, int tier, int order, boolean craftable, int color, boolean hidden, @Nullable ICondition condition, MaterialJson.Redirect[] redirect, IMaterialStats[] stats, int value, int needed, Modifier modifier) {
+    public MaterialInfo(MaterialId id, MetalItemObject metalItemObject, int tier, int order, boolean craftable, int color, boolean hidden, @Nullable ICondition condition, MaterialJson.Redirect[] redirect, IMaterialStats[] stats, int value, int needed, Modifier modifier) {
         this(id, metalItemObject, tier, order, craftable, color, stats, value, needed, modifier);
         a = true;
 
@@ -39,7 +40,7 @@ public class TinkerMaterial {
         this.redirect = redirect;
     }
 
-    public TinkerMaterial(MaterialId id, MetalItemObject metalItemObject, int tier, int order, boolean craftable, int color, IMaterialStats[] stats, int value, int needed, Modifier modifier) {
+    public MaterialInfo(MaterialId id, MetalItemObject metalItemObject, int tier, int order, boolean craftable, int color, IMaterialStats[] stats, int value, int needed, Modifier modifier) {
         a = false;
 
         this.id = id;

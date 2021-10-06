@@ -1,6 +1,6 @@
 package firok.tiths;
 
-import firok.tiths.material.MaterialsRegisterHandler;
+import firok.tiths.material.TithsMaterials;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 
@@ -13,6 +13,6 @@ public class TinkersThingsItemGroup extends ItemGroup {
 
     @Override
     public ItemStack createIcon() {
-        return new ItemStack(MaterialsRegisterHandler.TEST.get());
+        return new ItemStack(TithsMaterials.TEST.get());
     }
 }

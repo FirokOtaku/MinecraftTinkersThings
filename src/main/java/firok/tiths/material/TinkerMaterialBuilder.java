@@ -80,12 +80,12 @@ public class TinkerMaterialBuilder {
         return this;
     }
 
-    public TinkerMaterial build() {
+    public MaterialInfo build() {
         if (material) {
-            return new TinkerMaterial(id, metalItemObject, tier, order, craftable, color, stats, value, needed, modifier);
+            return new MaterialInfo(id, metalItemObject, tier, order, craftable, color, stats, value, needed, modifier);
         }
         else {
-            return new TinkerMaterial(id, metalItemObject, tier, order, craftable, color, hidden, condition, redirect, stats, value, needed, modifier);
+            return new MaterialInfo(id, metalItemObject, tier, order, craftable, color, hidden, condition, redirect, stats, value, needed, modifier);
         }
     }
 }

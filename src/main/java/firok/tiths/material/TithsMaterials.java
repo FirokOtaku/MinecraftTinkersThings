@@ -2,16 +2,14 @@ package firok.tiths.material;
 
 import firok.tiths.TinkersThings;
 import firok.tiths.TinkersThingsItemGroup;
-import firok.tiths.material.TinkerMaterial;
-import firok.tiths.material.TinkerMaterialBuilder;
 import firok.tiths.modifier.ModifierRegisterHandler;
+import firok.tiths.TithsModule;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import slimeknights.mantle.item.BlockTooltipItem;
-import slimeknights.tconstruct.common.TinkerModule;
 import slimeknights.tconstruct.common.registration.MetalItemObject;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.library.materials.definition.MaterialId;
@@ -23,18 +21,27 @@ import java.util.ArrayList;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-public class MaterialsRegisterHandler extends TinkerModule {
-    public static final ArrayList<Supplier<TinkerMaterial>> MATERIALS = new ArrayList<>();
+public class TithsMaterials extends TithsModule
+{
+    public static final ArrayList<Supplier<MaterialInfo>> MATERIALS = new ArrayList<>();
 
     protected static final Item.Properties PROPS = GENERAL_PROPS.group(TinkersThingsItemGroup.INSTANCE);
     protected static final Function<Block,? extends BlockItem> GENERAL_TOOLTIP_BLOCK_ITEM = (b) -> new BlockTooltipItem(b, PROPS);
 
+    /* === item objects === */
+
     public static final MetalItemObject TEST = BLOCKS.registerMetal("test",
             metalBuilder(MaterialColor.ADOBE), GENERAL_TOOLTIP_BLOCK_ITEM, PROPS);
 
+
+    /* === material ids === */
+
     public static final MaterialId TEST_ID = createMaterial("test");
 
-    public static final Supplier<TinkerMaterial> TEST_MATERIAL = register(() -> new TinkerMaterialBuilder(TEST_ID, TEST)
+
+    /* === materials === */
+
+    public static final Supplier<MaterialInfo> TEST_MATERIAL = register(() -> new TinkerMaterialBuilder(TEST_ID, TEST)
             .addMaterial(1, AbstractMaterialDataProvider.ORDER_GENERAL, true, 0xFFD359)
             .addMaterialStats(
                     new HeadMaterialStats(250, 7.5f, 2, 2f),
@@ -44,11 +51,14 @@ public class MaterialsRegisterHandler extends TinkerModule {
             .addModifier(ModifierRegisterHandler.TEST.get())
             .addRecipe(1, 1).build());
 
+
+    /* === util methods === */
+
     private static MaterialId createMaterial(String name) {
         return new MaterialId(new ResourceLocation(TinkersThings.MOD_ID, name));
     }
 
-    private static Supplier<TinkerMaterial> register(Supplier<TinkerMaterial> material) {
+    private static Supplier<MaterialInfo> register(Supplier<MaterialInfo> material) {
         MATERIALS.add(material);
         return material;
     }
