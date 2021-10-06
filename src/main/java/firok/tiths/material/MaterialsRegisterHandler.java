@@ -1,7 +1,10 @@
-package firok.tiths;
+package firok.tiths.material;
 
+import firok.tiths.TinkersThings;
+import firok.tiths.TinkersThingsItemGroup;
 import firok.tiths.material.TinkerMaterial;
 import firok.tiths.material.TinkerMaterialBuilder;
+import firok.tiths.modifier.ModifierRegisterHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
@@ -18,9 +21,10 @@ import slimeknights.tconstruct.tools.stats.HeadMaterialStats;
 
 import java.util.ArrayList;
 import java.util.function.Function;
+import java.util.function.Supplier;
 
 public class MaterialsRegisterHandler extends TinkerModule {
-    public static final ArrayList<TinkerMaterial> MATERIALS = new ArrayList<>();
+    public static final ArrayList<Supplier<TinkerMaterial>> MATERIALS = new ArrayList<>();
 
     protected static final Item.Properties PROPS = GENERAL_PROPS.group(TinkersThingsItemGroup.INSTANCE);
     protected static final Function<Block,? extends BlockItem> GENERAL_TOOLTIP_BLOCK_ITEM = (b) -> new BlockTooltipItem(b, PROPS);
@@ -30,20 +34,21 @@ public class MaterialsRegisterHandler extends TinkerModule {
 
     public static final MaterialId TEST_ID = createMaterial("test");
 
-    public static final TinkerMaterial TEST_MATERIAL = register(new TinkerMaterialBuilder(TEST_ID, TEST)
+    public static final Supplier<TinkerMaterial> TEST_MATERIAL = register(() -> new TinkerMaterialBuilder(TEST_ID, TEST)
             .addMaterial(1, AbstractMaterialDataProvider.ORDER_GENERAL, true, 0xFFD359)
             .addMaterialStats(
                     new HeadMaterialStats(250, 7.5f, 2, 2f),
                     new HandleMaterialStats(0.9f, 1.15f, 1f, 1f),
                     ExtraMaterialStats.DEFAULT
             )
+            .addModifier(ModifierRegisterHandler.TEST.get())
             .addRecipe(1, 1).build());
 
     private static MaterialId createMaterial(String name) {
         return new MaterialId(new ResourceLocation(TinkersThings.MOD_ID, name));
     }
 
-    private static TinkerMaterial register(TinkerMaterial material) {
+    private static Supplier<TinkerMaterial> register(Supplier<TinkerMaterial> material) {
         MATERIALS.add(material);
         return material;
     }
