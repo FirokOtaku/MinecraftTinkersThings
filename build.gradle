@@ -127,6 +127,9 @@ dependencies {
 
     implementation fg.deobf("slimeknights.tconstruct:TConstruct:${project.minecraft_version}-${project.tcon_version}")
     implementation fg.deobf("slimeknights.mantle:Mantle:${project.minecraft_version}-${project.mantle_version}")
+
+    compileOnly fg.deobf("mezz.jei:jei-${project.jei_version}:api")
+    runtimeOnly fg.deobf("mezz.jei:jei-${project.jei_version}")
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
