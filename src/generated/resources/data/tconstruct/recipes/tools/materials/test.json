@@ -1,7 +1,7 @@
 {
   "type": "tconstruct:material",
   "ingredient": {
-    "item": "tconstruct:test_ingot"
+    "item": "tiths:test_ingot"
   },
   "value": 1,
   "needed": 1,

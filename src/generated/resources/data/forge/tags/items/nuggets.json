@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#forge:nuggets/test"
+    "#forge:nuggets/test",
+    "#forge:nuggets/test_aquatic"
   ]
 }

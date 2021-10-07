@@ -31,7 +31,6 @@ import slimeknights.mantle.registration.deferred.EntityTypeDeferredRegister;
 import slimeknights.mantle.registration.deferred.TileEntityTypeDeferredRegister;
 import slimeknights.mantle.util.SupplierItemGroup;
 import slimeknights.tconstruct.TConstruct;
-import slimeknights.tconstruct.common.TinkerModule;
 import slimeknights.tconstruct.common.registration.BlockDeferredRegisterExtension;
 import slimeknights.tconstruct.common.registration.FluidDeferredRegisterExtension;
 import slimeknights.tconstruct.common.registration.ItemDeferredRegisterExtension;
@@ -46,8 +45,9 @@ import java.util.function.Supplier;
 
 /**
  * base TinkerModule class with modid 'tiths'
+ * @see slimeknights.tconstruct.common.TinkerModule
  */
-public class TithsModule extends TinkerModule
+public class TithsModule
 {
 	// deferred register instances
 	protected static final BlockDeferredRegisterExtension BLOCKS = new BlockDeferredRegisterExtension(TinkersThings.MOD_ID);

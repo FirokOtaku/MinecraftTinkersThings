@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#forge:ingots/test"
+    "#forge:ingots/test",
+    "#forge:ingots/test_aquatic"
   ]
 }

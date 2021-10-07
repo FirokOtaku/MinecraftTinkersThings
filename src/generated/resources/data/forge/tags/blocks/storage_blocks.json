@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#forge:storage_blocks/test"
+    "#forge:storage_blocks/test",
+    "#forge:storage_blocks/test_aquatic"
   ]
 }
