@@ -30,7 +30,7 @@ public class TinkerMaterialBuilder {
      * @param craftable 是否让 Part Builder 可以做它的部件
      * @param color     颜色
      */
-    public TinkerMaterialBuilder addMaterial(int tier, int order, boolean craftable, int color) {
+    public TinkerMaterialBuilder addMaterial( int tier, int order, boolean craftable, int color) {
         material = true;
 
         this.tier = tier;
