@@ -24,6 +24,9 @@ import java.util.ArrayList;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+import static firok.tiths.material.TithsMaterialIds.*;
+import static firok.tiths.material.TithsMetalItemObjects.*;
+
 public class TithsMaterials extends TithsModule
 {
     public static final ArrayList<Supplier<MaterialInfo>> MATERIALS = new ArrayList<>();
@@ -31,22 +34,6 @@ public class TithsMaterials extends TithsModule
     protected static final Item.Properties PROPS = GENERAL_PROPS.group(TithsItemGroup.INSTANCE);
     protected static final Function<Block,? extends BlockItem> GENERAL_TOOLTIP_BLOCK_ITEM = (b) -> new BlockTooltipItem(b, PROPS);
 
-    /* === item objects === */
-
-    @DevUse(isPlaceholder = true)
-    public static final MetalItemObject ITEM_OBJECT_TEST = devMetalIO("test");
-
-    @DevUse(isPlaceholder = true)
-    public static final MetalItemObject ITEM_OBJECT_AQUATIC = devMetalIO("test_aquatic");
-
-
-    /* === material ids === */
-
-    @DevUse(isPlaceholder = true)
-    public static final MaterialId ID_TEST = createMaterial("test");
-
-    @DevUse(isPlaceholder = true)
-    public static final MaterialId ID_AQUATIC = createMaterial("aquatic");
 
 
     /* === materials === */
@@ -57,12 +44,29 @@ public class TithsMaterials extends TithsModule
     @DevUse(isPlaceholder = true)
     public static final Supplier<MaterialInfo> MATERIAL_AQUATIC = devMMI(ID_AQUATIC, ITEM_OBJECT_AQUATIC, TithsModifiers.MODIFIER_AQUATIC);
 
+    @DevUse(isPlaceholder = true)
+    public static final Supplier<MaterialInfo> MATERIAL_BIREFRINGENT = devMMI(ID_BIREFRINGENT, ITEM_BIREFRINGENT, TithsModifiers.MODIFIER_BIREFRINGENT);
+
+    @DevUse(isPlaceholder = true)
+    public static final Supplier<MaterialInfo> MATERIAL_BLOWING = devMMI(ID_BLOWING, ITEM_BLOWING, TithsModifiers.MODIFIER_BLOWING);
+
+    @DevUse(isPlaceholder = true)
+    public static final Supplier<MaterialInfo> MATERIAL_CARBONIZING = devMMI(ID_CARBONIZING, ITEM_OBJECT_CARBONIZING, TithsModifiers.MODIFIER_CARBONIZING);
+
+    @DevUse(isPlaceholder = true)
+    public static final Supplier<MaterialInfo> MATERIAL_CHAMPING = devMMI(ID_CHAMPING, ITEM_OBJECT_CHAMPING, TithsModifiers.MODIFIER_CHAMPING);
+
+    @DevUse(isPlaceholder = true)
+    public static final Supplier<MaterialInfo> MATERIAL_CHEMICAL_INSTABLE = devMMI(ID_CHEMICAL_INSTABLE, ITEM_OBJECT_CHEMICAL_INSTABLE, TithsModifiers.MODIFIER_CHEMICAL_INSTABLE);
+
+    @DevUse(isPlaceholder = true)
+    public static final Supplier<MaterialInfo> MATERIAL_CHERISHING = devMMI(ID_CHERISHING, ITEM_OBJECT_CHERISHING, TithsModifiers.MODIFIER_CHERISHING);
+
+    @DevUse(isPlaceholder = true)
+    public static final Supplier<MaterialInfo> MATERIAL_COMBUSTION_SUPPORTING = devMMI(ID_COMBUSTION_SUPPORTING, ITEM_OBJECT_COMBUSTION_SUPPORTING, TithsModifiers.MODIFIER_COMBUSTION_SUPPORTING);
+
 
     /* === util methods === */
-
-    private static MaterialId createMaterial(String name) {
-        return new MaterialId(new ResourceLocation(TinkersThings.MOD_ID, name));
-    }
 
     private static Supplier<MaterialInfo> register(Supplier<MaterialInfo> material) {
         MATERIALS.add(material);
@@ -73,7 +77,7 @@ public class TithsMaterials extends TithsModule
      * create metal item object
      */
     @DevUse(isPlaceholder = true)
-    private static MetalItemObject devMetalIO(String name)
+    static MetalItemObject devMetalIO(String name)
     {
         return devMetalIO(name, MaterialColor.ADOBE);
     }
@@ -81,7 +85,7 @@ public class TithsMaterials extends TithsModule
      * create metal item object
      */
     @DevUse(isPlaceholder = true)
-    private static MetalItemObject devMetalIO(String name, MaterialColor color)
+    static MetalItemObject devMetalIO(String name, MaterialColor color)
     {
         return BLOCKS.registerMetal(name, metalBuilder(color), GENERAL_TOOLTIP_BLOCK_ITEM, PROPS);
     }

@@ -1,4 +1,4 @@
-package firok.tiths.modifier;
+package firok.tiths.modifier.general;
 
 import firok.tiths.config.ConfigModifier;
 import firok.tiths.util.DevUse;
@@ -11,6 +11,8 @@ import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.context.ToolHarvestContext;
 import slimeknights.tconstruct.library.tools.nbt.IModifierToolStack;
+
+import static firok.tiths.util.Predicates.canTrigger;
 
 // 化学不稳定
 // https://github.com/351768593/MinecraftTinkersThings/blob/indev1122/src/main/java/firok/tiths/traits/TraitChemicalInstable.java
@@ -37,13 +39,15 @@ public class ModifierChemicalInstable extends Modifier
 	@Override
 	public int afterEntityHit(IModifierToolStack tool, int level, ToolAttackContext context, float damageDealt)
 	{
-//		if(Predicates.canTrigger(context.getPlayerAttacker().world, ))
+		if(damageDealt > 0 && context.getAttacker().isServerWorld() && canTrigger(context, ConfigModifier.rate_chemical_instable_attack))
+			boom(context.getAttacker(), context.getAttacker());
 		return 0;
 	}
 
 	@Override
 	public void afterBlockBreak(IModifierToolStack tool, int level, ToolHarvestContext context)
 	{
-
+		if(canTrigger(context, ConfigModifier.rate_chemical_instable_break))
+			boom(context.getLiving(), context.getLiving());
 	}
 }

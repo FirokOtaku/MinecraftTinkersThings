@@ -1,4 +1,4 @@
-package firok.tiths.modifier;
+package firok.tiths.modifier.general;
 
 import firok.tiths.DamageSources;
 import firok.tiths.util.Colors;

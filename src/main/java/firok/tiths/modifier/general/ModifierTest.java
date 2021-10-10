@@ -1,4 +1,4 @@
-package firok.tiths.modifier;
+package firok.tiths.modifier.general;
 
 import firok.tiths.util.DevUse;
 import slimeknights.tconstruct.library.modifiers.Modifier;

@@ -15,15 +15,24 @@ public class ConfigModifier
 	public static DoubleValue rate_chemical_instable_attack;
 	public static DoubleValue rate_chemical_instable_break;
 
+	public static DoubleValue rate_creaky_use;
+
 
 	static {
 		ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
 		builder.comment("modifier settings").push("modifiers");
-		enable_blow_player = builder.comment("Test config value").define("enable_blow_player", true);
+		enable_blow_player = builder.comment("Test config value")
+				.define("enable_blow_player", true);
 
-		factor_chemical_instable = builder.comment("Test config value").defineInRange("factor_chemical_instable", 4, 0, 8);
-		rate_chemical_instable_attack = builder.comment("").defineInRange("rate_chemical_instable_attack", 0.2, 0, 1);
-		rate_chemical_instable_break = builder.comment("").defineInRange("rate_chemical_instable_break", 0.2, 0, 1);
+		factor_chemical_instable = builder.comment("Test config value")
+				.defineInRange("factor_chemical_instable", 1D, 0, 5);
+		rate_chemical_instable_attack = builder.comment("")
+				.defineInRange("rate_chemical_instable_attack", 0.2, 0, 1);
+		rate_chemical_instable_break = builder.comment("")
+				.defineInRange("rate_chemical_instable_break", 0.2, 0, 1);
+
+		rate_creaky_use = builder.comment("")
+				.defineInRange("rate_creaky_use", 0.2, 0, 1);
 
 		builder.pop();
 		INSTANCE = builder.build();

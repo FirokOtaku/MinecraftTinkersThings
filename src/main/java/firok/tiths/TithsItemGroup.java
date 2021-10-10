@@ -1,6 +1,6 @@
 package firok.tiths;
 
-import firok.tiths.material.TithsMaterials;
+import firok.tiths.material.TithsMetalItemObjects;
 import firok.tiths.util.DevUse;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -19,6 +19,6 @@ public class TithsItemGroup extends ItemGroup {
 
     @Override
     public ItemStack createIcon() {
-        return new ItemStack(TithsMaterials.ITEM_OBJECT_TEST.get());
+        return new ItemStack(TithsMetalItemObjects.ITEM_OBJECT_TEST.get());
     }
 }
