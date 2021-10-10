@@ -3,6 +3,7 @@ package firok.tiths;
 import firok.tiths.config.ConfigModifier;
 import firok.tiths.material.TithsMaterials;
 import firok.tiths.modifier.TithsModifiers;
+import firok.tiths.util.VersionPhase;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -14,6 +15,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 public class TinkersThings
 {
     public static final String MOD_ID = "tiths";
+    public static final VersionPhase VERSION_PHASE = VersionPhase.Indev;
 
     public TinkersThings() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();

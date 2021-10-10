@@ -2,6 +2,13 @@
   "replace": false,
   "values": [
     "#forge:ingots/test",
-    "#forge:ingots/test_aquatic"
+    "#forge:ingots/test_aquatic",
+    "#forge:ingots/birefringent",
+    "#forge:ingots/blowing",
+    "#forge:ingots/carbonizing",
+    "#forge:ingots/champing",
+    "#forge:ingots/chemical_instable",
+    "#forge:ingots/cherishing",
+    "#forge:ingots/combustion_supporting"
   ]
 }

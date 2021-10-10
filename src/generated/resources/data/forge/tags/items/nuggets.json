@@ -2,6 +2,13 @@
   "replace": false,
   "values": [
     "#forge:nuggets/test",
-    "#forge:nuggets/test_aquatic"
+    "#forge:nuggets/test_aquatic",
+    "#forge:nuggets/birefringent",
+    "#forge:nuggets/blowing",
+    "#forge:nuggets/carbonizing",
+    "#forge:nuggets/champing",
+    "#forge:nuggets/chemical_instable",
+    "#forge:nuggets/cherishing",
+    "#forge:nuggets/combustion_supporting"
   ]
 }

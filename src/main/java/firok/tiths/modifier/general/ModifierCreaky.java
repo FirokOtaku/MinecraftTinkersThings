@@ -4,6 +4,7 @@ import firok.tiths.config.ConfigModifier;
 import firok.tiths.util.Actions;
 import firok.tiths.util.Colors;
 import firok.tiths.util.DevUse;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
@@ -25,7 +26,12 @@ public class ModifierCreaky extends Modifier
 	@Override
 	public int afterEntityHit(IModifierToolStack tool, int level, ToolAttackContext context, float damageDealt)
 	{
-		return super.afterEntityHit(tool, level, context, damageDealt);
+		if(canTrigger(context, ConfigModifier.rate_creaky_use))
+		{
+			Entity target = context.getTarget();
+			Actions.CauseSpawningSilverfish(target, target.getPosX(), target.getPosY(), target.getPosZ());
+		}
+		return 0;
 	}
 
 	@Override

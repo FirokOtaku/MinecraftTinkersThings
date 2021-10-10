@@ -2,6 +2,13 @@
   "replace": false,
   "values": [
     "#forge:storage_blocks/test",
-    "#forge:storage_blocks/test_aquatic"
+    "#forge:storage_blocks/test_aquatic",
+    "#forge:storage_blocks/birefringent",
+    "#forge:storage_blocks/blowing",
+    "#forge:storage_blocks/carbonizing",
+    "#forge:storage_blocks/champing",
+    "#forge:storage_blocks/chemical_instable",
+    "#forge:storage_blocks/cherishing",
+    "#forge:storage_blocks/combustion_supporting"
   ]
 }

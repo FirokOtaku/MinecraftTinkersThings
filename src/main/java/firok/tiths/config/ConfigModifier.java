@@ -17,6 +17,8 @@ public class ConfigModifier
 
 	public static DoubleValue rate_creaky_use;
 
+	public static DoubleValue rate_decoying_use;
+
 
 	static {
 		ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
@@ -33,6 +35,9 @@ public class ConfigModifier
 
 		rate_creaky_use = builder.comment("")
 				.defineInRange("rate_creaky_use", 0.2, 0, 1);
+
+		rate_decoying_use = builder.comment("")
+				.defineInRange("rate_decoying_use", 0.2, 0, 1);
 
 		builder.pop();
 		INSTANCE = builder.build();
