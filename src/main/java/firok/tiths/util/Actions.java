@@ -16,6 +16,9 @@ import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * util class for many effects
+ */
 public class Actions
 {
 	// 在世界生成物品

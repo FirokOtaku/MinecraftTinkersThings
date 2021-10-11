@@ -9,14 +9,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.RegistryObject;
 import slimeknights.mantle.item.BlockTooltipItem;
 import slimeknights.tconstruct.common.registration.MetalItemObject;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.library.materials.definition.MaterialId;
 import slimeknights.tconstruct.library.modifiers.Modifier;
-import slimeknights.tconstruct.shared.TinkerMaterials;
 import slimeknights.tconstruct.tools.stats.ExtraMaterialStats;
 import slimeknights.tconstruct.tools.stats.HandleMaterialStats;
 import slimeknights.tconstruct.tools.stats.HeadMaterialStats;
@@ -27,7 +25,9 @@ import java.util.function.Supplier;
 
 import static firok.tiths.material.TithsMaterialIds.*;
 import static firok.tiths.material.TithsMetalItemObjects.*;
+import static firok.tiths.modifier.TithsModifiers.*;
 
+@SuppressWarnings("unused")
 public class TithsMaterials extends TithsModule
 {
     public static final ArrayList<Supplier<MaterialInfo>> MATERIALS = new ArrayList<>();
@@ -40,31 +40,46 @@ public class TithsMaterials extends TithsModule
     /* === materials === */
 
     @DevUse(isPlaceholder = true)
-    public static final Supplier<MaterialInfo> MATERIAL_TEST = devMMI(ID_TEST, ITEM_OBJECT_TEST, TithsModifiers.MODIFIER_TEST);
+    public static final Supplier<MaterialInfo> MATERIAL_TEST = devMMI(ID_TEST, ITEM_OBJECT_TEST, MODIFIER_TEST);
 
     @DevUse(isPlaceholder = true)
-    public static final Supplier<MaterialInfo> MATERIAL_AQUATIC = devMMI(ID_AQUATIC, ITEM_OBJECT_AQUATIC, TithsModifiers.MODIFIER_AQUATIC);
+    public static final Supplier<MaterialInfo> MATERIAL_AQUATIC = devMMI(ID_AQUATIC, ITEM_OBJECT_AQUATIC, MODIFIER_AQUATIC);
 
     @DevUse(isPlaceholder = true)
-    public static final Supplier<MaterialInfo> MATERIAL_BIREFRINGENT = devMMI(ID_BIREFRINGENT, ITEM_BIREFRINGENT, TithsModifiers.MODIFIER_BIREFRINGENT);
+    public static final Supplier<MaterialInfo> MATERIAL_BIREFRINGENT = devMMI(ID_BIREFRINGENT, ITEM_BIREFRINGENT, MODIFIER_BIREFRINGENT);
 
     @DevUse(isPlaceholder = true)
-    public static final Supplier<MaterialInfo> MATERIAL_BLOWING = devMMI(ID_BLOWING, ITEM_BLOWING, TithsModifiers.MODIFIER_BLOWING);
+    public static final Supplier<MaterialInfo> MATERIAL_BLOWING = devMMI(ID_BLOWING, ITEM_BLOWING, MODIFIER_BLOWING);
 
     @DevUse(isPlaceholder = true)
-    public static final Supplier<MaterialInfo> MATERIAL_CARBONIZING = devMMI(ID_CARBONIZING, ITEM_OBJECT_CARBONIZING, TithsModifiers.MODIFIER_CARBONIZING);
+    public static final Supplier<MaterialInfo> MATERIAL_CARBONIZING = devMMI(ID_CARBONIZING, ITEM_OBJECT_CARBONIZING, MODIFIER_CARBONIZING);
 
     @DevUse(isPlaceholder = true)
-    public static final Supplier<MaterialInfo> MATERIAL_CHAMPING = devMMI(ID_CHAMPING, ITEM_OBJECT_CHAMPING, TithsModifiers.MODIFIER_CHAMPING);
+    public static final Supplier<MaterialInfo> MATERIAL_CHAMPING = devMMI(ID_CHAMPING, ITEM_OBJECT_CHAMPING, MODIFIER_CHAMPING);
 
     @DevUse(isPlaceholder = true)
-    public static final Supplier<MaterialInfo> MATERIAL_CHEMICAL_INSTABLE = devMMI(ID_CHEMICAL_INSTABLE, ITEM_OBJECT_CHEMICAL_INSTABLE, TithsModifiers.MODIFIER_CHEMICAL_INSTABLE);
+    public static final Supplier<MaterialInfo> MATERIAL_CHEMICAL_INSTABLE = devMMI(ID_CHEMICAL_INSTABLE, ITEM_OBJECT_CHEMICAL_INSTABLE, MODIFIER_CHEMICAL_INSTABLE);
 
     @DevUse(isPlaceholder = true)
-    public static final Supplier<MaterialInfo> MATERIAL_CHERISHING = devMMI(ID_CHERISHING, ITEM_OBJECT_CHERISHING, TithsModifiers.MODIFIER_CHERISHING);
+    public static final Supplier<MaterialInfo> MATERIAL_CHERISHING = devMMI(ID_CHERISHING, ITEM_OBJECT_CHERISHING, MODIFIER_CHERISHING);
 
     @DevUse(isPlaceholder = true)
-    public static final Supplier<MaterialInfo> MATERIAL_COMBUSTION_SUPPORTING = devMMI(ID_COMBUSTION_SUPPORTING, ITEM_OBJECT_COMBUSTION_SUPPORTING, TithsModifiers.MODIFIER_COMBUSTION_SUPPORTING);
+    public static final Supplier<MaterialInfo> MATERIAL_COMBUSTION_SUPPORTING = devMMI(ID_COMBUSTION_SUPPORTING, ITEM_OBJECT_COMBUSTION_SUPPORTING, MODIFIER_COMBUSTION_SUPPORTING);
+
+    @DevUse(isPlaceholder = true)
+    public static final Supplier<MaterialInfo> MATERIAL_CREAKY = devMMI(ID_CREAKY, ITEM_OBJECT_CREAKY, MODIFIER_CREAKY);
+
+    @DevUse(isPlaceholder = true)
+    public static final Supplier<MaterialInfo> MATERIAL_DECOYING = devMMI(ID_CREAKY, ITEM_OBJECT_DECOYING, MODIFIER_CREAKY);
+
+    @DevUse(isPlaceholder = true)
+    public static final Supplier<MaterialInfo> MATERIAL_DEGENERATING = devMMI(ID_DEGENERATING, ITEM_OBJECT_DEGENERATING, MODIFIER_DEGENERATING);
+
+    @DevUse(isPlaceholder = true)
+    public static final Supplier<MaterialInfo> MATERIAL_DICHROIC = devMMI(ID_DICHROIC, ITEM_OBJECT_DICHROIC, MODIFIER_DICHROIC);
+
+    @DevUse(isPlaceholder = true)
+    public static final Supplier<MaterialInfo> MATERIAL_DRAGON_KILLER = devMMI(ID_DRAGON_KILLER, ITEM_OBJECT_DRAGON_KILLER, MODIFIER_DRAGON_KILLER);
 
 
     /* === util methods === */

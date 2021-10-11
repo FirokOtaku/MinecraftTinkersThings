@@ -43,5 +43,23 @@ public class TithsMaterialIds
 	@DevUse(isPlaceholder = true)
 	public static final MaterialId ID_COMBUSTION_SUPPORTING = createMaterial("combustion_supporting");
 
+	@DevUse(isPlaceholder = true)
+	public static final MaterialId ID_CREAKY = createMaterial("creaky");
+
+	@DevUse(isPlaceholder = true)
+	public static final MaterialId ID_DECOYING = createMaterial("decoying");
+
+	@DevUse(isPlaceholder = true)
+	public static final MaterialId ID_DEGENERATING = createMaterial("degenerating");
+
+	@DevUse(isPlaceholder = true)
+	public static final MaterialId ID_DICHROIC = createMaterial("dichroic");
+
+	@DevUse(isPlaceholder = true)
+	public static final MaterialId ID_DRAGON_KILLER = createMaterial("dragon_killer");
+
+
+
+
 
 }

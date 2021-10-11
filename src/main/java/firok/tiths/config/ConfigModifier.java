@@ -19,6 +19,9 @@ public class ConfigModifier
 
 	public static DoubleValue rate_decoying_use;
 
+	public static DoubleValue factor_dragon_killer_damage_base;
+	public static DoubleValue factor_dragon_killer_damage_percent;
+
 
 	static {
 		ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
@@ -38,6 +41,11 @@ public class ConfigModifier
 
 		rate_decoying_use = builder.comment("")
 				.defineInRange("rate_decoying_use", 0.2, 0, 1);
+
+		factor_dragon_killer_damage_base = builder.comment("")
+				.defineInRange("factor_dragon_killer_damage_base", 4, 0, 8);
+		factor_dragon_killer_damage_percent = builder.comment("")
+				.defineInRange("factor_dragon_killer_damage_percent", 0.2, 0, 1);
 
 		builder.pop();
 		INSTANCE = builder.build();

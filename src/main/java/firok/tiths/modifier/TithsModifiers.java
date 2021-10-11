@@ -29,4 +29,14 @@ public class TithsModifiers extends TinkerModule {
             = MODIFIERS.register("cherishing", ModifierCherishing::new);
     public static final RegistryObject<ModifierCombustionSupporting> MODIFIER_COMBUSTION_SUPPORTING
             = MODIFIERS.register("combustion_supporting", ModifierCombustionSupporting::new);
+    public static final RegistryObject<ModifierCreaky> MODIFIER_CREAKY
+            = MODIFIERS.register("creaky", ModifierCreaky::new);
+    public static final RegistryObject<ModifierDecoying> MODIFIER_DECOYING
+            = MODIFIERS.register("decoying", ModifierDecoying::new);
+    public static final RegistryObject<ModifierDegenerating> MODIFIER_DEGENERATING
+            = MODIFIERS.register("degenerating", ModifierDegenerating::new);
+    public static final RegistryObject<ModifierDichroic> MODIFIER_DICHROIC
+            = MODIFIERS.register("dichroic", ModifierDichroic::new);
+    public static final RegistryObject<ModifierDragonKiller> MODIFIER_DRAGON_KILLER
+            = MODIFIERS.register("dragon_killer", ModifierDragonKiller::new);
 }

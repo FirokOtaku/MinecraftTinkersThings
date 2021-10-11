@@ -36,6 +36,18 @@ public class TithsMetalItemObjects
 	@DevUse(isPlaceholder = true)
 	public static final MetalItemObject ITEM_OBJECT_COMBUSTION_SUPPORTING = devMetalIO("combustion_supporting");
 
+	@DevUse(isPlaceholder = true)
+	public static final MetalItemObject ITEM_OBJECT_CREAKY = devMetalIO("creaky");
 
+	@DevUse(isPlaceholder = true)
+	public static final MetalItemObject ITEM_OBJECT_DECOYING = devMetalIO("decoying");
 
+	@DevUse(isPlaceholder = true)
+	public static final MetalItemObject ITEM_OBJECT_DEGENERATING = devMetalIO("degenerating");
+
+	@DevUse(isPlaceholder = true)
+	public static final MetalItemObject ITEM_OBJECT_DICHROIC = devMetalIO("dichroic");
+
+	@DevUse(isPlaceholder = true)
+	public static final MetalItemObject ITEM_OBJECT_DRAGON_KILLER = devMetalIO("dragon_killer");
 }

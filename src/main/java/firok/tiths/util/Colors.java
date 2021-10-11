@@ -3,6 +3,9 @@ package firok.tiths.util;
 
 import java.awt.*;
 
+/**
+ * util class for color computing
+ */
 @SuppressWarnings("all")
 public final class Colors
 {
