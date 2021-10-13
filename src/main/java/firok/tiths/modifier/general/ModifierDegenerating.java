@@ -1,5 +1,6 @@
 package firok.tiths.modifier.general;
 
+import firok.tiths.util.DevUse;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -15,6 +16,7 @@ import static firok.tiths.util.Predicates.canTickServer;
  * 简并
  * https://github.com/351768593/MinecraftTinkersThings/blob/indev1122/src/main/java/firok/tiths/traits/TraitDegenerating.java
  */
+@DevUse(isPlaceholder = true)
 public class ModifierDegenerating extends Modifier
 {
 	public ModifierDegenerating()

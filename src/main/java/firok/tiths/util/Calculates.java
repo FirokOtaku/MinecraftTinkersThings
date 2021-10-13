@@ -17,4 +17,9 @@ public final class Calculates
 		BlockPos pos = entity.getPosition();
 		return world.getLight(pos);
 	}
+
+	/**
+	 * 角度弧度互相换算用的
+	 */
+	public static final float FAC = (float) Math.PI/180;
 }

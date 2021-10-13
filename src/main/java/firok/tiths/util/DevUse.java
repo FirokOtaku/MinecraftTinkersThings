@@ -5,8 +5,10 @@ import java.lang.annotation.RetentionPolicy;
 
 /**
  * all contents marked with {@code @DevOnly} are for dev-use only. <br>
- * those things typically should not be accessed by players,
- * and need to be rewrote completely or deleted to improve code quality.
+ *
+ * those contents typically have not bean well-tested. <br>
+ * before being accessed by players,
+ * they need to be rewrote completely or deleted to improve code quality.
  *
  * @author Firok
  * @since 0.4.2
