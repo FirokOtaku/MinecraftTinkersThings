@@ -1,5 +1,6 @@
 package firok.tiths.effect;
 
+import firok.tiths.util.DevUse;
 import firok.tiths.util.Predicates;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.particles.ParticleTypes;
@@ -12,11 +13,12 @@ import java.util.Random;
 
 // 发情
 // https://github.com/351768593/MinecraftTinkersThings/blob/5bf9e32008780961f3951e2700317b245a9bf967/src/main/java/firok/tiths/potion/PotionEstrous.java#L14
+@DevUse(isPlaceholder = true)
 public class EffectEstrous extends TithsEffect
 {
 	public EffectEstrous()
 	{
-		super(EffectType.BENEFICIAL, 0xEF94F5, false);
+		super(EffectType.BENEFICIAL, 0xEF94F5);
 	}
 
 	@Override

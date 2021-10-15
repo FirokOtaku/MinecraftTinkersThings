@@ -21,8 +21,8 @@ public class EffectAvatar extends TithsEffect
 	public static final String uuidAttackDamage = "14A0A898-78E1-4086-803D-B2DD23584F48";
 	protected EffectAvatar()
 	{
-		super(EffectType.BENEFICIAL, 0xffeb11, false);
-		addAttributesModifier(Attributes.MOVEMENT_SPEED, uuidMovementSpeed, 0.8, AttributeModifier.Operation.MULTIPLY_TOTAL);
+		super(EffectType.BENEFICIAL, 0xffeb11);
+		addAttributesModifier(Attributes.MOVEMENT_SPEED, uuidMovementSpeed, -0.2, AttributeModifier.Operation.MULTIPLY_TOTAL);
 		addAttributesModifier(Attributes.MAX_HEALTH, uuidMaxHealth, 20, AttributeModifier.Operation.ADDITION);
 		addAttributesModifier(Attributes.ARMOR, uuidArmor, 10, AttributeModifier.Operation.ADDITION);
 		addAttributesModifier(Attributes.ARMOR_TOUGHNESS, uuidArmorToughness, 10, AttributeModifier.Operation.ADDITION);

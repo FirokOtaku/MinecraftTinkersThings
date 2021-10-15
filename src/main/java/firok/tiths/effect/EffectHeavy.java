@@ -14,7 +14,7 @@ public class EffectHeavy extends TithsEffect
 {
 	public EffectHeavy()
 	{
-		super(EffectType.NEUTRAL, Colors.DarkSeaGreen, false);
+		super(EffectType.NEUTRAL, Colors.DarkSeaGreen);
 	}
 
 	@Override

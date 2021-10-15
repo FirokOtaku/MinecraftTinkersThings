@@ -25,7 +25,7 @@ public class EffectPestilential extends TithsEffect
 	final Predicate<? super Entity> selector;
 	protected EffectPestilential(Predicate<? super Entity> selector)
 	{
-		super(EffectType.HARMFUL, Colors.DarkGreen, false);
+		super(EffectType.HARMFUL, Colors.DarkGreen);
 		this.selector = selector;
 	}
 

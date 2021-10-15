@@ -15,6 +15,7 @@ import net.minecraft.world.World;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.function.Consumer;
 
 /**
  * util class for many effects
@@ -96,6 +97,18 @@ public class Actions
 			}
 		} catch (Exception ignored)
 		{
+		}
+	}
+
+	// 酸蚀 - 触发耐久损伤
+	public static void CauseAcidDamage(LivingEntity entity,int damage,boolean playSound)
+	{
+		// todo play sound
+
+		for(ItemStack stackEqui : entity.getEquipmentAndArmor())
+		{
+			if(stackEqui.isDamageable())
+				stackEqui.damageItem(damage, entity, living -> {});
 		}
 	}
 }

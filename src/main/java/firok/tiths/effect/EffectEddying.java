@@ -16,7 +16,7 @@ public class EffectEddying extends TithsEffect
 {
 	public EffectEddying()
 	{
-		super(EffectType.NEUTRAL, 0x3f516b, false);
+		super(EffectType.NEUTRAL, 0x3f516b);
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package firok.tiths.effect;
 
+import firok.tiths.util.DevUse;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -13,21 +14,22 @@ import net.minecraft.potion.EffectType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 
 import static firok.tiths.util.Predicates.canTick;
-import static firok.tiths.util.Predicates.canTrigger;
 
+// 缠绕
+// https://github.com/351768593/MinecraftTinkersThings/blob/5bf9e32008780961f3951e2700317b245a9bf967/src/main/java/firok/tiths/potion/PotionArmorSoftened.java#L9
+@DevUse(isPlaceholder = true)
 public class EffectRooted extends TithsEffect
 {
 	public static final String uuidMovementSpeed = "132DB19B-F9FF-487D-98E6-E95DF9B770C5";
 
 	protected EffectRooted()
 	{
-		super(EffectType.HARMFUL, 0x1, false);
-		addAttributesModifier(Attributes.MOVEMENT_SPEED, uuidMovementSpeed, 0.05, AttributeModifier.Operation.MULTIPLY_TOTAL);
+		super(EffectType.HARMFUL, 0x644209);
+		addAttributesModifier(Attributes.MOVEMENT_SPEED, uuidMovementSpeed, -0.95, AttributeModifier.Operation.MULTIPLY_TOTAL);
 	}
 
 	@Override
