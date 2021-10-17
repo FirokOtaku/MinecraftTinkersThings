@@ -43,7 +43,7 @@ public class ConfigModifier
 				.defineInRange("rate_decoying_use", 0.2, 0, 1);
 
 		factor_dragon_killer_damage_base = builder.comment("")
-				.defineInRange("factor_dragon_killer_damage_base", 4, 0, 8);
+				.defineInRange("factor_dragon_killer_damage_base", 4., 0, 8);
 		factor_dragon_killer_damage_percent = builder.comment("")
 				.defineInRange("factor_dragon_killer_damage_percent", 0.2, 0, 1);
 

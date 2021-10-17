@@ -9,6 +9,11 @@
     "#forge:ingots/champing",
     "#forge:ingots/chemical_instable",
     "#forge:ingots/cherishing",
-    "#forge:ingots/combustion_supporting"
+    "#forge:ingots/combustion_supporting",
+    "#forge:ingots/creaky",
+    "#forge:ingots/decoying",
+    "#forge:ingots/degenerating",
+    "#forge:ingots/dichroic",
+    "#forge:ingots/dragon_killer"
   ]
 }

@@ -9,6 +9,11 @@
     "#forge:storage_blocks/champing",
     "#forge:storage_blocks/chemical_instable",
     "#forge:storage_blocks/cherishing",
-    "#forge:storage_blocks/combustion_supporting"
+    "#forge:storage_blocks/combustion_supporting",
+    "#forge:storage_blocks/creaky",
+    "#forge:storage_blocks/decoying",
+    "#forge:storage_blocks/degenerating",
+    "#forge:storage_blocks/dichroic",
+    "#forge:storage_blocks/dragon_killer"
   ]
 }

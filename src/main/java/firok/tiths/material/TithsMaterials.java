@@ -14,6 +14,7 @@ import slimeknights.mantle.item.BlockTooltipItem;
 import slimeknights.tconstruct.common.registration.MetalItemObject;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.library.materials.definition.MaterialId;
+import slimeknights.tconstruct.library.materials.stats.IMaterialStats;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.tools.stats.ExtraMaterialStats;
 import slimeknights.tconstruct.tools.stats.HandleMaterialStats;
@@ -70,7 +71,7 @@ public class TithsMaterials extends TithsModule
     public static final Supplier<MaterialInfo> MATERIAL_CREAKY = devMMI(ID_CREAKY, ITEM_OBJECT_CREAKY, MODIFIER_CREAKY);
 
     @DevUse(isPlaceholder = true)
-    public static final Supplier<MaterialInfo> MATERIAL_DECOYING = devMMI(ID_CREAKY, ITEM_OBJECT_DECOYING, MODIFIER_CREAKY);
+    public static final Supplier<MaterialInfo> MATERIAL_DECOYING = devMMI(ID_DECOYING, ITEM_OBJECT_DECOYING, MODIFIER_CREAKY);
 
     @DevUse(isPlaceholder = true)
     public static final Supplier<MaterialInfo> MATERIAL_DEGENERATING = devMMI(ID_DEGENERATING, ITEM_OBJECT_DEGENERATING, MODIFIER_DEGENERATING);
