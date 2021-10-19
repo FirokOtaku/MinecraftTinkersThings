@@ -5,6 +5,7 @@ import firok.tiths.util.DevUse;
 import net.minecraft.potion.Effect;
 import net.minecraftforge.fml.RegistryObject;
 
+import java.rmi.registry.Registry;
 import java.util.function.Supplier;
 
 public class TithsEffects extends TithsModule
@@ -37,6 +38,9 @@ public class TithsEffects extends TithsModule
 	public static RegistryObject<EffectLionHeart> EFFECT_LION_HEART = register("lion_heart", EffectLionHeart::new);
 
 	@DevUse(isPlaceholder = true)
+	public static RegistryObject<EffectParalysed> EFFECT_PARALYSED = register("paralysed", EffectParalysed::new);
+
+	@DevUse(isPlaceholder = true)
 	public static RegistryObject<EffectPestilential.pestilential> EFFECT_PESTILENTIAL = register("pestilential", EffectPestilential.pestilential::new);
 	@DevUse(isPlaceholder = true)
 	public static RegistryObject<EffectPestilential.weak_pestilential> EFFECT_WEAKENED_PESTILENTIAL = register("weak_pestilential", EffectPestilential.weak_pestilential::new);
@@ -46,6 +50,12 @@ public class TithsEffects extends TithsModule
 
 	@DevUse(isPlaceholder = true)
 	public static RegistryObject<EffectSoluble> EFFECT_SOLUBLE = register("soluble", EffectSoluble::new);
+
+	@DevUse(isPlaceholder = true)
+	public static RegistryObject<EffectTranquilized> EFFECT_TRANQUILIZED = register("tranquilized", EffectTranquilized::new);
+
+	@DevUse(isPlaceholder = true)
+	public static RegistryObject<EffectTurbulent> EFFECT_TURBULENT = register("turbulent", EffectTurbulent::new);
 
 	@DevUse(isPlaceholder = true)
 	public static RegistryObject<EffectVoidInfected> EFFECT_VOID_INFECTED = register("void_infected", EffectVoidInfected::new);
