@@ -2,16 +2,25 @@ package firok.tiths.modifier.general;
 
 import firok.tiths.util.DevUse;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraftforge.event.entity.player.CriticalHitEvent;
+import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import slimeknights.tconstruct.library.modifiers.Modifier;
+import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.nbt.IModifierToolStack;
+import slimeknights.tconstruct.library.tools.nbt.ToolStack;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static firok.tiths.util.Predicates.canTrigger;
 
 // 强袭
 // https://github.com/351768593/MinecraftTinkersThings/blob/indev1122/src/main/java/firok/tiths/traits/TraitChamping.java
-// fixme 原本这个地方是需要修改暴击率 新版暂时没找到怎么改
 @DevUse(isPlaceholder = true)
+@Mod.EventBusSubscriber
 public class ModifierChamping extends Modifier
 {
 	public ModifierChamping()
@@ -19,13 +28,18 @@ public class ModifierChamping extends Modifier
 		super(0xffa919);
 	}
 
-	@Override
-	public float getEntityDamage(IModifierToolStack tool, int level, ToolAttackContext context, float baseDamage, float damage)
-	{
-		PlayerEntity player = context.getPlayerAttacker();
-		if(player == null) return damage;
+	/** 新版可能只能这么搞了 */
+	@SubscribeEvent
+	public static void onCriticalHit(CriticalHitEvent event) {
+		PlayerEntity player = event.getPlayer();
+		ToolStack tool = ToolStack.from(player.getHeldItemMainhand());
 
-		boolean isCritical = canTrigger(player.world, level * 0.2);
-		return isCritical ? ( damage + damage / 2 ) : damage;
+		tool.getModifierList().forEach(modifierEntry -> {
+			if (modifierEntry.getModifier() instanceof ModifierChamping) {
+				if (canTrigger(player.world, modifierEntry.getLevel() * 0.2)) {
+					event.setResult(Event.Result.ALLOW);
+				}
+			}
+		});
 	}
 }
