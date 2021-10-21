@@ -26,9 +26,10 @@ public class ModifierBirefringent extends Modifier
 	{
 		PlayerEntity player = context.getPlayerAttacker();
 		if(player == null) return 0;
-		World world = player.world;
 		LivingEntity target = context.getLivingTarget();
 		if(target == null) return 0;
+
+		World world = player.world;
 
 		if(damageDealt > 0 && player.isServerWorld() && target.isAlive() && canTrigger(world, 0.2))
 		{
