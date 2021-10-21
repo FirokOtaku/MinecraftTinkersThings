@@ -5,8 +5,6 @@ import firok.tiths.util.DevUse;
 import net.minecraft.util.ResourceLocation;
 import slimeknights.tconstruct.library.materials.definition.MaterialId;
 
-import java.util.function.Supplier;
-
 public class TithsMaterialIds
 {
 	@DevUse

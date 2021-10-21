@@ -1,7 +1,6 @@
 package firok.tiths.effect;
 
 import firok.tiths.block.TithsBlocks;
-import firok.tiths.util.Ranges;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.potion.EffectType;
 import net.minecraft.util.Direction;

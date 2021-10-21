@@ -8,7 +8,6 @@ import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
 import slimeknights.tconstruct.library.tools.nbt.IModifierToolStack;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
-import slimeknights.tconstruct.shared.TinkerCommons;
 
 import static firok.tiths.util.Predicates.canTickServer;
 

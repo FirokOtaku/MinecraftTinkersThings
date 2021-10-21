@@ -8,12 +8,10 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.common.Tags;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.context.ToolHarvestContext;
 
 import java.util.Random;
-import java.util.function.Predicate;
 
 public final class Predicates
 {

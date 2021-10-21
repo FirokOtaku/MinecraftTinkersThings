@@ -7,7 +7,6 @@ import net.minecraft.world.World;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
 import slimeknights.tconstruct.library.tools.nbt.IModifierToolStack;
-import slimeknights.tconstruct.library.tools.nbt.StatsNBT;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import static firok.tiths.util.Predicates.canTickServer;

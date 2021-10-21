@@ -12,7 +12,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle'
 
 group = 'firok'
-version = '0.4.16.0'
+version = '0.4.16.1'
 
 java {
     archivesBaseName = 'tiths'

@@ -1,8 +1,6 @@
 package firok.tiths.material;
 
-import firok.tiths.TinkersThings;
 import firok.tiths.TithsItemGroup;
-import firok.tiths.modifier.TithsModifiers;
 import firok.tiths.TithsModule;
 import firok.tiths.util.DevUse;
 import net.minecraft.block.Block;
@@ -14,7 +12,6 @@ import slimeknights.mantle.item.BlockTooltipItem;
 import slimeknights.tconstruct.common.registration.MetalItemObject;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.library.materials.definition.MaterialId;
-import slimeknights.tconstruct.library.materials.stats.IMaterialStats;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.tools.stats.ExtraMaterialStats;
 import slimeknights.tconstruct.tools.stats.HandleMaterialStats;

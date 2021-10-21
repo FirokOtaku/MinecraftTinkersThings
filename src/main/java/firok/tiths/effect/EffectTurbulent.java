@@ -46,7 +46,7 @@ public class EffectTurbulent extends TithsEffect
 	public static Vector3d getMotion(Entity entity)
 	{
 		flag++;
-		if(flag>5000) reloadMotion();
+		if(flag>5000) {reloadMotion();}
 
 		long time=entity.ticksExisted;
 

@@ -1,8 +1,9 @@
 package firok.tiths.config;
 
-import com.google.common.collect.Lists;
 import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.common.ForgeConfigSpec.*;
+import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
+import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
+import net.minecraftforge.common.ForgeConfigSpec.DoubleValue;
 
 import java.util.ArrayList;
 

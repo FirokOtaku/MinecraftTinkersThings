@@ -26,13 +26,16 @@ public class EffectHeavy extends TithsEffect
 	@Override
 	public void performEffect(LivingEntity living, int level)
 	{
-		if(living instanceof PlayerEntity && ((PlayerEntity) living).isCreative()) return;
+		if(living instanceof PlayerEntity && ((PlayerEntity) living).isCreative()) {return;}
+
 		level ++;
 		Vector3d motion = living.getMotion();
-		if(motion.y > -3 * level) living.setMotion(new Vector3d(
-				motion.x,
-				motion.y - 0.08f * level,
-				motion.z
-		));
+		if(motion.y > -3 * level) {
+			living.setMotion(new Vector3d(
+					motion.x,
+					motion.y - 0.08f * level,
+					motion.z
+			));
+		}
 	}
 }

@@ -2,7 +2,6 @@ package firok.tiths.modifier.general;
 
 import firok.tiths.config.ConfigModifier;
 import firok.tiths.util.DevUse;
-import firok.tiths.util.Predicates;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;

@@ -5,7 +5,6 @@ import firok.tiths.util.DevUse;
 import net.minecraft.potion.Effect;
 import net.minecraftforge.fml.RegistryObject;
 
-import java.rmi.registry.Registry;
 import java.util.function.Supplier;
 
 public class TithsEffects extends TithsModule
@@ -41,9 +40,9 @@ public class TithsEffects extends TithsModule
 	public static RegistryObject<EffectParalysed> EFFECT_PARALYSED = register("paralysed", EffectParalysed::new);
 
 	@DevUse(isPlaceholder = true)
-	public static RegistryObject<EffectPestilential.pestilential> EFFECT_PESTILENTIAL = register("pestilential", EffectPestilential.pestilential::new);
+	public static RegistryObject<EffectPestilential.Pestilential> EFFECT_PESTILENTIAL = register("Pestilential", EffectPestilential.Pestilential::new);
 	@DevUse(isPlaceholder = true)
-	public static RegistryObject<EffectPestilential.weak_pestilential> EFFECT_WEAKENED_PESTILENTIAL = register("weak_pestilential", EffectPestilential.weak_pestilential::new);
+	public static RegistryObject<EffectPestilential.WeakPestilential> EFFECT_WEAKENED_PESTILENTIAL = register("WeakPestilential", EffectPestilential.WeakPestilential::new);
 
 	@DevUse(isPlaceholder = true)
 	public static RegistryObject<EffectRooted> EFFECT_ROOTED = register("rooted", EffectRooted::new);

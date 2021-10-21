@@ -28,6 +28,6 @@ public class EffectAcidWetted extends TithsEffect
 	public void performEffect(LivingEntity living, int level)
 	{
 		final int damage = 5 + level * 5;
-		Actions.CauseAcidDamage(living, damage, canTrigger(living.world, 0.15));
+		Actions.causeAcidDamage(living, damage, canTrigger(living.world, 0.15));
 	}
 }

@@ -1,16 +1,7 @@
 package firok.tiths.block;
 
 import firok.tiths.TithsModule;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialColor;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
-import slimeknights.mantle.registration.object.ItemObject;
-
-import java.util.function.Supplier;
 
 public class TithsBlocks extends TithsModule
 {

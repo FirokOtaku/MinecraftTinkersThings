@@ -6,7 +6,10 @@ import firok.tiths.util.Predicates;
 import firok.tiths.util.Ranges;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.potion.*;
+import net.minecraft.potion.Effect;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.EffectType;
+import net.minecraft.potion.Effects;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
@@ -57,7 +60,7 @@ public class EffectPestilential extends TithsEffect
 	{
 		World world = living.world;
 		Random rand = world.rand;
-		if(world.isRemote) return;
+		if(world.isRemote) {return;}
 
 		if(canTrigger(rand, 0.25))
 		{
@@ -83,9 +86,9 @@ public class EffectPestilential extends TithsEffect
 	/**
 	 * 瘟疫
 	 */
-	public static class pestilential extends EffectPestilential
+	public static class Pestilential extends EffectPestilential
 	{
-		public pestilential()
+		public Pestilential()
 		{
 			super(Predicates::isLivingAlive);
 		}
@@ -94,9 +97,9 @@ public class EffectPestilential extends TithsEffect
 	/**
 	 * 弱化瘟疫 只在怪物间传播
 	 */
-	public static class weak_pestilential extends EffectPestilential
+	public static class WeakPestilential extends EffectPestilential
 	{
-		public weak_pestilential()
+		public WeakPestilential()
 		{
 			super(Predicates::isMobAlive);
 		}

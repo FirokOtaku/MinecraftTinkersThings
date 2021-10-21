@@ -4,7 +4,6 @@ import firok.tiths.util.DevUse;
 import firok.tiths.util.Predicates;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.particles.ParticleTypes;
-import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectType;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
@@ -31,7 +30,7 @@ public class EffectEstrous extends TithsEffect
 	public void performEffect(LivingEntity living, int level)
 	{
 		World world = living.world;
-		if(!world.isRemote) return;
+		if(!world.isRemote) {return;}
 		Random rand = world.rand;
 
 		Vector3d pos = living.getPositionVec();

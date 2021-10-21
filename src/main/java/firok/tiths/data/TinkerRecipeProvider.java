@@ -1,13 +1,11 @@
 package firok.tiths.data;
 
 import firok.tiths.material.TithsMaterials;
-import firok.tiths.TinkersThings;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import slimeknights.tconstruct.common.data.tags.BlockTagProvider;
@@ -16,7 +14,6 @@ import slimeknights.tconstruct.common.registration.MetalItemObject;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialStatsDataProvider;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialTraitDataProvider;
-import slimeknights.tconstruct.library.materials.definition.MaterialId;
 import slimeknights.tconstruct.tools.data.ToolsRecipeProvider;
 
 import java.util.function.Consumer;
