@@ -1,8 +1,10 @@
 package firok.tiths.config;
 
-import net.minecraftforge.common.ForgeConfig;
+import com.google.common.collect.Lists;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.*;
+
+import java.util.ArrayList;
 
 public class ConfigModifier
 {
@@ -10,6 +12,7 @@ public class ConfigModifier
 
 	public static BooleanValue enable_blow_player;
 	public static DoubleValue rate_blowing;
+	public static EntityTypeValue blocklist_blowing;
 
 	public static DoubleValue factor_chemical_instable;
 	public static DoubleValue rate_chemical_instable_attack;
@@ -22,12 +25,17 @@ public class ConfigModifier
 	public static DoubleValue factor_dragon_killer_damage_base;
 	public static DoubleValue factor_dragon_killer_damage_percent;
 
+	public static ConfigValue<Double> rate_carbonizing_transform;
+
 
 	static {
 		ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
 		builder.comment("modifier settings").push("modifiers");
 		enable_blow_player = builder.comment("Test config value")
 				.define("enable_blow_player", true);
+		blocklist_blowing = ConfigListenerManager.addListener(new EntityTypeValue(ConfigUtils.defineList(builder,
+				"Blow entity blacklist",
+				"blow_blacklist", new ArrayList<>())));
 
 		factor_chemical_instable = builder.comment("Test config value")
 				.defineInRange("factor_chemical_instable", 1D, 0, 5);
@@ -46,6 +54,11 @@ public class ConfigModifier
 				.defineInRange("factor_dragon_killer_damage_base", 4., 0, 8);
 		factor_dragon_killer_damage_percent = builder.comment("")
 				.defineInRange("factor_dragon_killer_damage_percent", 0.2, 0, 1);
+
+		rate_carbonizing_transform = ConfigUtils.defineDouble(builder,
+				"",
+				"rate_carbonizing_transform",
+				0.2, 0, 1);
 
 		builder.pop();
 		INSTANCE = builder.build();

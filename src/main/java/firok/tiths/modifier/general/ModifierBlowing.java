@@ -37,13 +37,7 @@ public class ModifierBlowing extends Modifier
 		World world = target.world;
 		if (!world.isRemote && canTrigger(world, ConfigModifier.rate_blowing.get()))
 		{
-			// todo check blacklist
-//			String nameTarget = target.getName().getString();
-//			for (String blacklist_entity_id : Configs.Traits.blacklist_blowing_entity)
-//			{
-//				if (nameTarget.equals(blacklist_entity_id)) // 实体类型在黑名单里
-//					return;
-//			}
+			if (ConfigModifier.blocklist_blowing.contains(target.getType())) {return knockback;}
 
 			ItemStack stack2drop;
 			stack2drop = target.getHeldItemMainhand();
@@ -52,17 +46,17 @@ public class ModifierBlowing extends Modifier
 				stack2drop = target.getHeldItemOffhand();
 				target.setHeldItem(Hand.OFF_HAND, ItemStack.EMPTY);
 			}
-			else // 主手找到了
+			else if (!stack2drop.isEmpty()) // 主手找到了
 			{
 				target.setHeldItem(Hand.MAIN_HAND, ItemStack.EMPTY);
 			}
-
-			if (!stack2drop.isEmpty())
-			{
-				// todo play sound
-//				world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.effectSwing, SoundCategory.PLAYERS, 1, 1);
-				Actions.CauseSpawnItem(target, stack2drop);
+			else { // 都没找到
+				return knockback;
 			}
+
+			// todo play sound
+//			world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.effectSwing, SoundCategory.PLAYERS, 1, 1);
+			Actions.CauseSpawnItem(target, stack2drop);
 		}
 
 		return knockback;
