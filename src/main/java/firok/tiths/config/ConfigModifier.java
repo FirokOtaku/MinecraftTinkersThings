@@ -34,9 +34,14 @@ public class ConfigModifier
 		builder.comment("modifier settings").push("modifiers");
 		enable_blow_player = builder.comment("Test config value")
 				.define("enable_blow_player", true);
-		blocklist_blowing = ConfigListenerManager.addListener(new EntityTypeValue(ConfigUtils.defineList(builder,
-				"Blow entity blacklist",
-				"blow_blacklist", new ArrayList<>())));
+//		blocklist_blowing = ConfigListenerManager.addListener(
+//				new EntityTypeValue(
+//						ConfigUtils.defineList(
+//								builder,
+//								"Blow entity blacklist",
+//								"blow_blacklist", new ArrayList<>()
+//						)
+//				));
 
 		factor_chemical_instable = builder.comment("Test config value")
 				.defineInRange("factor_chemical_instable", 1D, 0, 5);

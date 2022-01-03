@@ -1,8 +1,10 @@
 package firok.tiths;
 
+import firok.tiths.block.TithsBlocks;
 import firok.tiths.config.ConfigModifier;
 import firok.tiths.material.TithsMaterials;
 import firok.tiths.modifier.TithsModifiers;
+import firok.tiths.tile.TithsTiles;
 import firok.tiths.util.VersionPhase;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -21,6 +23,8 @@ public class TinkersThings
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         bus.register(new TithsModifiers());
         bus.register(new TithsMaterials());
+        bus.register(new TithsBlocks());
+        bus.register(new TithsTiles());
 
         TithsModule.initRegisters();
 
