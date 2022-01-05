@@ -12,7 +12,7 @@ public class TileMotiaPedestal extends TileEntity
 		super(TithsTiles.teMotiaPedestal.get());
 	}
 
-	private ItemStack stackPhoto;
+	private ItemStack stackPhoto = ItemStack.EMPTY;
 	public void setStackPhoto(ItemStack stack)
 	{
 		if(ItemStack.areItemStacksEqual(stack, stackPhoto)) return;

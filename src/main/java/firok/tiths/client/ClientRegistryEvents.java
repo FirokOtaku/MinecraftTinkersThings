@@ -1,5 +1,6 @@
 package firok.tiths.client;
 
+import firok.tiths.client.renderer.tile.RendererMotiaPedestal;
 import firok.tiths.tile.TithsTiles;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -8,7 +9,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-public class ClientRenderers
+public class ClientRegistryEvents
 {
 	@SubscribeEvent
 	public static void onClientEvent(FMLClientSetupEvent event) {
@@ -16,4 +17,5 @@ public class ClientRenderers
 			ClientRegistry.bindTileEntityRenderer(TithsTiles.teMotiaPedestal.get(), RendererMotiaPedestal::new);
 		});
 	}
+
 }
