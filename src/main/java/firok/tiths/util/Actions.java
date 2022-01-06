@@ -43,7 +43,7 @@ public class Actions
 		catch (Exception ignored) { }
 	}
 
-	private static final ArrayList<EntityType<?>> entityPassives=new ArrayList<>();
+	private static final ArrayList<EntityType<?>> entityPassives = new ArrayList<>();
 	static
 	{
 		entityPassives.add(EntityType.COW);

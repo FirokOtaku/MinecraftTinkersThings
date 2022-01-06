@@ -28,6 +28,8 @@ public class ConfigModifier
 
 	public static ConfigValue<Double> rate_carbonizing_transform;
 
+	public static DoubleValue range_extreme_freezing;
+
 
 	static {
 		ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
@@ -65,6 +67,9 @@ public class ConfigModifier
 				"",
 				"rate_carbonizing_transform",
 				0.2, 0, 1);
+
+		range_extreme_freezing = builder.comment("")
+				.defineInRange("range_extreme_freezing", 4f, 1, 10);
 
 		builder.pop();
 		INSTANCE = builder.build();

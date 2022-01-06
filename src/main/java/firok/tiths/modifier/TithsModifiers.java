@@ -1,10 +1,12 @@
 package firok.tiths.modifier;
 
+import firok.tiths.TithsModule;
 import firok.tiths.modifier.general.*;
 import net.minecraftforge.fml.RegistryObject;
 import slimeknights.tconstruct.common.TinkerModule;
 
-public class TithsModifiers extends TinkerModule {
+public class TithsModifiers extends TithsModule
+{
     public static final RegistryObject<ModifierTest> MODIFIER_TEST
             = MODIFIERS.register("test_modifier", ModifierTest::new);
 
@@ -39,4 +41,9 @@ public class TithsModifiers extends TinkerModule {
             = MODIFIERS.register("dichroic", ModifierDichroic::new);
     public static final RegistryObject<ModifierDragonKiller> MODIFIER_DRAGON_KILLER
             = MODIFIERS.register("dragon_killer", ModifierDragonKiller::new);
+
+    public static final RegistryObject<ModifierEroding> MODIFIER_ERODING
+            = MODIFIERS.register("eroding", ModifierEroding::new);
+    public static final RegistryObject<ModifierExtremeFreezing> MODIFIER_EXTREME_FREEZING
+            = MODIFIERS.register("extreme_freezing", ModifierExtremeFreezing::new);
 }

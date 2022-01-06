@@ -22,6 +22,9 @@ public class TithsEffects extends TithsModule
 	public static RegistryObject<EffectEddying> EFFECT_EDDYING = register("eddying", EffectEddying::new);
 
 	@DevUse(isPlaceholder = true)
+	public static RegistryObject<EffectEroded> EFFECT_ERODED = register("eroded", EffectEroded::new);
+
+	@DevUse(isPlaceholder = true)
 	public static RegistryObject<EffectEstrous> EFFECT_ESTROUS = register("estrous", EffectEstrous::new);
 
 	@DevUse(isPlaceholder = true)
