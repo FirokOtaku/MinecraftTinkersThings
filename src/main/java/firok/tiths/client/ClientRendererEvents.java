@@ -45,7 +45,7 @@ public class ClientRendererEvents
 			matrixStack.translate(0.5, 1.5, 0.5);
 			matrixStack.rotate(new Quaternion(0, (float)(ticks % 200. * 360 / 200), 0, true));
 			ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
-			IBakedModel ibakedmodel = itemRenderer.getItemModelWithOverrides(stack, player.world, null);
+//			IBakedModel ibakedmodel = itemRenderer.getItemModelWithOverrides(stack, player.world, null);
 			itemRenderer.renderItem(stack, ItemCameraTransforms.TransformType.FIXED,
 					15728880,
 					OverlayTexture.NO_OVERLAY,

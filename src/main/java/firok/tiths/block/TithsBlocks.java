@@ -1,12 +1,14 @@
 package firok.tiths.block;
 
 import firok.tiths.TithsModule;
+import firok.tiths.block.pedestal.BlockCreativePedestal;
+import firok.tiths.block.pedestal.BlockMotiaPedestal;
+import firok.tiths.block.pedestal.BlockTinkerPedestal;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.fml.RegistryObject;
-import net.minecraftforge.registries.IForgeRegistryEntry;
 import slimeknights.mantle.registration.object.ItemObject;
 
 import java.util.function.Supplier;
@@ -17,18 +19,12 @@ public class TithsBlocks extends TithsModule
 
 	public static ItemObject<BlockMotiaPedestal> BLOCK_MOTIA_PEDESTAL
 			= reg("motia_pedestal", BlockMotiaPedestal::new);
-
-//	private static <T extends Block> ItemObject<T> register(String id, Supplier<T> block)
-//	{
-//		return BLOCKS.register(id, block, TithsBlocks::getItemBlock);
-//	}
-//
-////	private static final AbstractBlock.Properties propDefault =
-////			AbstractBlock.Properties.create(Material.ROCK, MaterialColor.DIRT);
-//	private static <T extends Block> BlockItem getItemBlock(Block block)
-//	{
-//		;
-//	}
+	public static ItemObject<BlockCreativePedestal> BLOCK_CREATIVE_PEDESTAL
+			= reg("creative_pedestal", BlockCreativePedestal::new);
+	public static ItemObject<BlockTinkerPedestal> BLOCK_TINKER_PEDESTAL
+			= reg("seared_pedestal", BlockTinkerPedestal::new);
+	public static ItemObject<BlockTinkerPedestal> BLOCK_STONE_PEDESTAL
+			= reg("stone_pedestal", BlockTinkerPedestal::new);
 
 	private static <T extends Block> ItemObject<T> reg(String name, Supplier<T> supplier)
 	{

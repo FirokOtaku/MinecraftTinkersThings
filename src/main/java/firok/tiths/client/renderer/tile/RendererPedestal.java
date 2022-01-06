@@ -1,7 +1,7 @@
 package firok.tiths.client.renderer.tile;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-import firok.tiths.tile.TileMotiaPedestal;
+import firok.tiths.tile.pedestal.TilePedestalBase;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.ItemRenderer;
@@ -15,26 +15,34 @@ import net.minecraft.world.World;
 
 import java.util.Optional;
 
-public class RendererMotiaPedestal extends TileEntityRenderer<TileMotiaPedestal>
+/**
+ * this renderer would render an extra item above of block itself. <br>
+ * renderer takes stack data from {@code TilePedestalBase} instance
+ */
+public class RendererPedestal extends TileEntityRenderer<TilePedestalBase>
 {
-	public RendererMotiaPedestal(TileEntityRendererDispatcher rendererDispatcherIn)
+	private static RendererPedestal instance;
+	public static RendererPedestal getInstance(TileEntityRendererDispatcher dispatcher)
+	{
+		if(instance == null)
+		{
+			instance = new RendererPedestal(dispatcher);
+		}
+		return instance;
+	}
+
+	public RendererPedestal(TileEntityRendererDispatcher rendererDispatcherIn)
 	{
 		super(rendererDispatcherIn);
 	}
 
 	@Override
-	public void render(TileMotiaPedestal tileEntityIn, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn)
+	public void render(TilePedestalBase tileEntityIn, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn)
 	{
 		final long ticks = Optional.ofNullable(tileEntityIn.getWorld()).map(World::getGameTime).orElse(0L);
-//		matrixStackIn.push();
-//		matrixStackIn.translate(1, 0, 0);
-//		BlockRendererDispatcher blockRenderer = Minecraft.getInstance().getBlockRendererDispatcher();
-//		BlockState state = Blocks.CHEST.getDefaultState();
-//		blockRenderer.renderBlock(state, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, EmptyModelData.INSTANCE);
-//		matrixStackIn.pop();
 
 
-		ItemStack stack = tileEntityIn.getStackPhoto();
+		ItemStack stack = tileEntityIn.getStackPedestal();
 		if(stack != ItemStack.EMPTY)
 		{
 			matrixStackIn.push();
@@ -47,7 +55,6 @@ public class RendererMotiaPedestal extends TileEntityRenderer<TileMotiaPedestal>
 					true, matrixStackIn, bufferIn,
 					15728880, combinedOverlayIn, ibakedmodel
 			);
-
 			matrixStackIn.pop();
 		}
 	}

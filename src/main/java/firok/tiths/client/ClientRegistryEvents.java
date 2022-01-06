@@ -1,6 +1,6 @@
 package firok.tiths.client;
 
-import firok.tiths.client.renderer.tile.RendererMotiaPedestal;
+import firok.tiths.client.renderer.tile.RendererPedestal;
 import firok.tiths.tile.TithsTiles;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -14,7 +14,7 @@ public class ClientRegistryEvents
 	@SubscribeEvent
 	public static void onClientEvent(FMLClientSetupEvent event) {
 		event.enqueueWork(() -> {
-			ClientRegistry.bindTileEntityRenderer(TithsTiles.teMotiaPedestal.get(), RendererMotiaPedestal::new);
+			ClientRegistry.bindTileEntityRenderer(TithsTiles.tePedestal.get(), RendererPedestal::getInstance);
 		});
 	}
 
