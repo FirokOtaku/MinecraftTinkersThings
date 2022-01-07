@@ -4,6 +4,7 @@ import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 import net.minecraftforge.common.ForgeConfigSpec.DoubleValue;
+import net.minecraftforge.common.ForgeConfigSpec.IntValue;
 
 import java.util.ArrayList;
 
@@ -29,6 +30,8 @@ public class ConfigModifier
 	public static ConfigValue<Double> rate_carbonizing_transform;
 
 	public static DoubleValue range_extreme_freezing;
+
+	public static IntValue factor_gluttonic_food;
 
 
 	static {
@@ -70,6 +73,9 @@ public class ConfigModifier
 
 		range_extreme_freezing = builder.comment("")
 				.defineInRange("range_extreme_freezing", 4f, 1, 10);
+
+		factor_gluttonic_food = builder.comment("")
+				.defineInRange("factor_gluttonic_food", 4, 0, 100);
 
 		builder.pop();
 		INSTANCE = builder.build();
