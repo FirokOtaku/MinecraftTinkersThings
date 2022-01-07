@@ -8,6 +8,8 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.monster.SilverfishEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Effect;
+import net.minecraft.potion.EffectInstance;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -111,5 +113,20 @@ public class Actions
 				stackEqui.damageItem(damage, entity, living -> {});
 			}
 		}
+	}
+
+	/**
+	 * 为目标叠加状态
+	 * */
+	public static void CauseAccumEffect(LivingEntity target, EffectInstance ei)
+	{
+		if(target == null || ei == null) return;
+
+		Effect effect = ei.getPotion();
+		EffectInstance eiOrigin = target.getActivePotionEffect(effect);
+		if(eiOrigin == null || eiOrigin.getAmplifier() < ei.getAmplifier())
+			target.addPotionEffect(ei);
+		else
+			target.addPotionEffect(new EffectInstance(effect, eiOrigin.getDuration() + ei.getDuration(), ei.getAmplifier()));
 	}
 }

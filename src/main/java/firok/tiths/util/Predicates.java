@@ -1,15 +1,18 @@
 package firok.tiths.util;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
+import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.common.IPlantable;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.context.ToolHarvestContext;
+
+import static net.minecraft.block.material.Material.*;
 
 import java.util.Random;
 
@@ -80,4 +83,27 @@ public final class Predicates
 	public static boolean isCatAlive(Entity en) { return en.getType() == EntityType.CAT && en.isAlive(); }
 
 	public static boolean isRabbitAlive(Entity en) { return en.getType() == EntityType.RABBIT && en.isAlive(); }
+
+	public static boolean isPlant(BlockState state)
+	{
+		Block block = state.getBlock();
+		Material material = state.getMaterial();
+		return block instanceof AbstractPlantBlock ||
+				block instanceof LeavesBlock ||
+				block instanceof IGrowable ||
+				block instanceof IPlantable ||
+				material == PLANTS ||
+				material == OCEAN_PLANT ||
+				material == TALL_PLANTS ||
+				material == NETHER_PLANTS ||
+				material == WOOD ||
+				material == NETHER_WOOD ||
+				material == LEAVES ||
+				material == CACTUS ||
+				material == SEA_GRASS ||
+				material == BAMBOO ||
+				material == BAMBOO_SAPLING ||
+				material == CORAL
+				;
+	}
 }
