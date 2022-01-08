@@ -33,6 +33,17 @@ public class ConfigModifier
 
 	public static IntValue factor_gluttonic_food;
 
+	public static DoubleValue factor_gorgeous_min;
+	public static DoubleValue factor_gorgeous_max;
+
+	public static DoubleValue factor_hemolytic_damage;
+
+	public static DoubleValue factor_hemolytic_limit;
+
+	public static DoubleValue rate_hemolytic;
+
+	public static DoubleValue factor_hemolytic_repair;
+
 
 	static {
 		ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
@@ -76,6 +87,20 @@ public class ConfigModifier
 
 		factor_gluttonic_food = builder.comment("")
 				.defineInRange("factor_gluttonic_food", 4, 0, 100);
+
+		factor_gorgeous_min = builder.comment("")
+				.defineInRange("factor_gorgeous_min", 1.1f, 1, 10);
+		factor_gorgeous_max = builder.comment("")
+				.defineInRange("factor_gorgeous_max", 1.2f, 1, 10);
+
+		factor_hemolytic_damage = builder.comment("")
+				.defineInRange("factor_hemolytic_damage", 1.15f, 1, 10);
+		factor_hemolytic_limit = builder.comment("")
+				.defineInRange("factor_hemolytic_limit", 5f, 0, 100);
+		rate_hemolytic = builder.comment("")
+				.defineInRange("rate_hemolytic", 0.5f, 0, 1);
+		factor_hemolytic_repair = builder.comment("")
+				.defineInRange("factor_hemolytic_repair", 5f, 1, 10);
 
 		builder.pop();
 		INSTANCE = builder.build();
