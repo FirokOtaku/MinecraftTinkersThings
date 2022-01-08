@@ -50,14 +50,26 @@ public class ItemEnderResonanceStone extends Item
 		for(int step = sizeList - 1; step >= 0; step--)
 		{
 			CompoundNBT nbtItem = listItem.getCompound(step);
-			ItemStack stackItem = ItemStack.read(nbtItem);
-			final int maxStackSize = stackItem.getMaxStackSize();
-			final int currentStackSize = stackItem.getCount();
+			ItemStack stackItem = ItemStack.read(nbtItem); // 本次尝试叠加的stack
+			final int maxStackSize = stackItem.getMaxStackSize(); // 本次尝试叠加stack的最大数量
+			final int currentStackSize = stackItem.getCount(); // 本次尝试叠加的stack的当前数量
 			final int remainStackSize = maxStackSize - currentStackSize; // 这个stack还能叠加多少
 			if(remainStackSize <= 0 || !ItemStack.areItemsEqual(stackItem, stackNew) || !ItemStack.areItemStackTagsEqual(stackItem, stackNew))
 				continue; // 满了 或者不能叠加 检查下一个
 
+			// 可以叠加 那就进行一个叠的加
+			if(countNew > remainStackSize) // 太多哩 太多哩
+			{
+				stackItem.setCount(maxStackSize);
+				stackExtra = stackNew.copy();
+				stackExtra.setCount(countNew - remainStackSize);
+			}
+			else
+			{
 
+			}
+
+			hasStacked = true;
 
 		}
 

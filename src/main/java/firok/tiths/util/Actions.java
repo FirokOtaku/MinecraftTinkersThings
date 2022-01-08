@@ -103,7 +103,7 @@ public class Actions
 	/**
 	 * 酸蚀 - 触发耐久损伤
 	 */
-	public static void causeAcidDamage(LivingEntity entity, int damage, boolean playSound)
+	public static void CauseAcidDamage(LivingEntity entity, int damage, boolean playSound)
 	{
 		// todo play sound
 
