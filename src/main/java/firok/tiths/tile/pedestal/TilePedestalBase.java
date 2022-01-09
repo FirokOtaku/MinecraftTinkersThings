@@ -5,6 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityType;
 
 public class TilePedestalBase extends TileEntity
 {
@@ -14,17 +15,21 @@ public class TilePedestalBase extends TileEntity
 	{
 		super(TithsTiles.tePedestal.get());
 	}
+	protected TilePedestalBase(TileEntityType<?> tet)
+	{
+		super(tet);
+	}
 
 	public void setStackPedestal(ItemStack stack)
 	{
 		if(ItemStack.areItemStacksEqual(stack, stackPedestal)) return;
-		this.markDirty();
 		if(stack == ItemStack.EMPTY)
 		{
 			this.stackPedestal = ItemStack.EMPTY;
 			return;
 		}
 		this.stackPedestal = stack.copy();
+		this.markDirty();
 	}
 	public ItemStack getStackPedestal()
 	{
@@ -36,17 +41,26 @@ public class TilePedestalBase extends TileEntity
 	@Override
 	public void read(BlockState state, CompoundNBT nbt)
 	{
-		this.stackPedestal = nbt.contains(KEY_NBT_STACK_PEDESTAL, 10) ?
+		super.read(state, nbt);
+		ItemStack stack = nbt.contains(KEY_NBT_STACK_PEDESTAL) ?
 				ItemStack.read(nbt.getCompound(KEY_NBT_STACK_PEDESTAL)) :
 				ItemStack.EMPTY;
+		setStackPedestal(stack);
 	}
 
 	@Override
 	public CompoundNBT write(CompoundNBT nbt)
 	{
-		if(stackPedestal != ItemStack.EMPTY)
-			nbt.put(KEY_NBT_STACK_PEDESTAL, ItemStack.EMPTY.write(new CompoundNBT()));
+		super.write(nbt);
+		ItemStack stack = getStackPedestal();
+		if(stack != ItemStack.EMPTY)
+			nbt.put(KEY_NBT_STACK_PEDESTAL, stack.write(new CompoundNBT()));
 
 		return nbt;
+	}
+
+	public CompoundNBT getUpdateTag() {
+		CompoundNBT compoundnbt = this.write(new CompoundNBT());
+		return compoundnbt;
 	}
 }

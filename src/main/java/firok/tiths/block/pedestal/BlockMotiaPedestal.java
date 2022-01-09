@@ -11,6 +11,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ToolType;
+import slimeknights.tconstruct.library.utils.HarvestLevels;
 
 /**
  * made with motia crystal. <br>
@@ -21,33 +23,36 @@ public class BlockMotiaPedestal extends BlockPedestalBase
 {
 	public BlockMotiaPedestal()
 	{
-		super(Properties.create(Material.GOURD)
-				.doesNotBlockMovement()
-				.hardnessAndResistance(10,1));
+		super(Properties.create(Material.ROCK)
+				.notSolid()
+				.setRequiresTool()
+				.harvestTool(ToolType.PICKAXE)
+				.harvestLevel(HarvestLevels.WOOD)
+				.hardnessAndResistance(2,50));
 	}
 
 	@Override
 	public ActionResultType onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit)
 	{
-		if(player.isSneaking())
+		ItemStack stackHeld = player.getHeldItemMainhand();
+		TilePedestalBase te = getTilePedestalAt(world, pos);
+		ItemStack stackPedestal = te.getStackPedestal();
+		if(!stackPedestal.isEmpty())
 		{
-			ItemStack stackHeld = player.getHeldItemMainhand();
-			TilePedestalBase te = getTilePedestalAt(world, pos);
-			te.setStackPedestal(stackHeld);
-			return ActionResultType.SUCCESS;
+			player.addItemStackToInventory(stackPedestal);
+			te.setStackPedestal(ItemStack.EMPTY);
 		}
-		return ActionResultType.PASS;
+		else if(!stackHeld.isEmpty())
+		{
+			player.setHeldItem(Hand.MAIN_HAND, ItemStack.EMPTY);
+			te.setStackPedestal(stackHeld);
+		}
+		return ActionResultType.SUCCESS;
 	}
 
 	@Override
 	public boolean hasTileEntity(BlockState state)
 	{
 		return true;
-	}
-
-	@Override
-	public TilePedestalBase createTileEntity(BlockState state, IBlockReader world)
-	{
-		return new TilePedestalBase();
 	}
 }

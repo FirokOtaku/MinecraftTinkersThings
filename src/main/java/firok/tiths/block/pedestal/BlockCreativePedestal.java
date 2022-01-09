@@ -21,7 +21,7 @@ public class BlockCreativePedestal extends BlockPedestalBase
 	public BlockCreativePedestal()
 	{
 		super(Properties.create(Material.GOURD)
-				.doesNotBlockMovement()
+				.notSolid()
 				.hardnessAndResistance(-1.0F, 3600000.0F)
 				.noDrops());
 	}
@@ -33,7 +33,7 @@ public class BlockCreativePedestal extends BlockPedestalBase
 		ItemStack stackHeld = player.getHeldItemMainhand();
 		ItemStack stackPedestal = te.getStackPedestal();
 
-		if(player.isCreative() && player.isSneaking()) // edit stack
+		if(player.isCreative()) // edit stack
 		{
 			te.setStackPedestal(stackHeld);
 			return ActionResultType.SUCCESS;

@@ -2,6 +2,7 @@ package firok.tiths;
 
 import firok.tiths.block.TithsBlocks;
 import firok.tiths.config.ConfigModifier;
+import firok.tiths.effect.TithsEffects;
 import firok.tiths.item.TithsItems;
 import firok.tiths.material.TithsMaterials;
 import firok.tiths.modifier.TithsModifiers;
@@ -27,6 +28,8 @@ public class TinkersThings
         bus.register(new TithsBlocks());
         bus.register(new TithsTiles());
         bus.register(new TithsItems());
+
+        bus.register(new TithsEffects());
 
         TithsModule.initRegisters();
 

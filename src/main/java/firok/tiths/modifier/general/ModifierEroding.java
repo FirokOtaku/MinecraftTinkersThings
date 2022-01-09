@@ -32,6 +32,8 @@ public class ModifierEroding extends Modifier
 			if(lv>9) lv=9;
 			target.addPotionEffect(new EffectInstance(TithsEffects.EFFECT_ERODED.get(),100,lv));
 		}
+
+		return 0;
 	}
 
 }

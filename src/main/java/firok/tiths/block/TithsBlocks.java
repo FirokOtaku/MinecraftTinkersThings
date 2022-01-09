@@ -1,6 +1,7 @@
 package firok.tiths.block;
 
 import firok.tiths.TithsModule;
+import firok.tiths.block.pedestal.BlockAdvancedMotiaPedestal;
 import firok.tiths.block.pedestal.BlockCreativePedestal;
 import firok.tiths.block.pedestal.BlockMotiaPedestal;
 import firok.tiths.block.pedestal.BlockTinkerPedestal;
@@ -25,6 +26,8 @@ public class TithsBlocks extends TithsModule
 			= reg("seared_pedestal", BlockTinkerPedestal::new);
 	public static ItemObject<BlockTinkerPedestal> BLOCK_STONE_PEDESTAL
 			= reg("stone_pedestal", BlockTinkerPedestal::new);
+	public static ItemObject<BlockAdvancedMotiaPedestal> BLOCK_ADVANCED_MOTIA_PEDESTAL
+			= reg("advanced_motia_pedestal", BlockAdvancedMotiaPedestal::new);
 
 	private static <T extends Block> ItemObject<T> reg(String name, Supplier<T> supplier)
 	{

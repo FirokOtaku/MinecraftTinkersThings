@@ -38,20 +38,21 @@ public class EffectRooted extends TithsEffect
 	@Override
 	public void performEffect(LivingEntity living, int level)
 	{
-		if(!living.isServerWorld())
+		if(living.world.isRemote)
 		{
 			World world = living.world;
 			Random rand = world.rand;
 			Vector3d vec = living.getPositionVec();
 			BlockPos pos = living.getPosition().down();
 			BlockState stateStandOn = world.getBlockState(pos);
+			if(stateStandOn.isAir()) return;
 
 			world.addOptionalParticle(
 					new BlockParticleData(ParticleTypes.BLOCK, stateStandOn).setPos(pos),
 					vec.x - 0.2 + rand.nextFloat() * 0.4,
 					vec.y + rand.nextFloat() * living.getEyeHeight() * 0.8 + 0.1,
 					vec.z - 0.2 + rand.nextFloat() * 0.4,
-					0.0D, -0.04D, 0.0D);
+					0.0D, -0.06D, 0.0D);
 		}
 	}
 }

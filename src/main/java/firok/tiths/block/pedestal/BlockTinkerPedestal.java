@@ -2,6 +2,7 @@ package firok.tiths.block.pedestal;
 
 import firok.tiths.tile.pedestal.TilePedestalBase;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -10,6 +11,8 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ToolType;
+import slimeknights.tconstruct.library.utils.HarvestLevels;
 
 /**
  * this pedestal is something like a single-slot chest. <br>
@@ -19,9 +22,13 @@ public class BlockTinkerPedestal extends BlockPedestalBase
 {
 	public BlockTinkerPedestal()
 	{
-		super(Properties.create(Material.GOURD)
-				.doesNotBlockMovement()
-				.hardnessAndResistance(10,1));
+		super(Properties.create(Material.ROCK)
+				.notSolid()
+				.setRequiresTool()
+				.harvestTool(ToolType.PICKAXE)
+				.harvestLevel(HarvestLevels.WOOD)
+				.hardnessAndResistance(2,50));
+		this.setShouldDropWhenHarvested(true);
 	}
 
 	@Override

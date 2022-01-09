@@ -43,9 +43,9 @@ public class TithsEffects extends TithsModule
 	public static RegistryObject<EffectParalysed> EFFECT_PARALYSED = register("paralysed", EffectParalysed::new);
 
 	@DevUse(isPlaceholder = true)
-	public static RegistryObject<EffectPestilential.Pestilential> EFFECT_PESTILENTIAL = register("Pestilential", EffectPestilential.Pestilential::new);
+	public static RegistryObject<EffectPestilential.Pestilential> EFFECT_PESTILENTIAL = register("pestilential", EffectPestilential.Pestilential::new);
 	@DevUse(isPlaceholder = true)
-	public static RegistryObject<EffectPestilential.WeakPestilential> EFFECT_WEAKENED_PESTILENTIAL = register("WeakPestilential", EffectPestilential.WeakPestilential::new);
+	public static RegistryObject<EffectPestilential.WeakPestilential> EFFECT_WEAKENED_PESTILENTIAL = register("weak_pestilential", EffectPestilential.WeakPestilential::new);
 
 	@DevUse(isPlaceholder = true)
 	public static RegistryObject<EffectRooted> EFFECT_ROOTED = register("rooted", EffectRooted::new);

@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.model.IBakedModel;
 import net.minecraft.client.renderer.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.tileentity.TileEntityRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.vector.Quaternion;
 import net.minecraft.world.World;
@@ -21,15 +22,15 @@ import java.util.Optional;
  */
 public class RendererPedestal extends TileEntityRenderer<TilePedestalBase>
 {
-	private static RendererPedestal instance;
-	public static RendererPedestal getInstance(TileEntityRendererDispatcher dispatcher)
-	{
-		if(instance == null)
-		{
-			instance = new RendererPedestal(dispatcher);
-		}
-		return instance;
-	}
+//	private static RendererPedestal instance;
+//	public static RendererPedestal getInstance(TileEntityRendererDispatcher dispatcher)
+//	{
+//		if(instance == null)
+//		{
+//			instance = new RendererPedestal(dispatcher);
+//		}
+//		return instance;
+//	}
 
 	public RendererPedestal(TileEntityRendererDispatcher rendererDispatcherIn)
 	{
@@ -45,8 +46,10 @@ public class RendererPedestal extends TileEntityRenderer<TilePedestalBase>
 		ItemStack stack = tileEntityIn.getStackPedestal();
 		if(stack != ItemStack.EMPTY)
 		{
+			boolean isBlockItem = stack.getItem() instanceof BlockItem;
 			matrixStackIn.push();
 			matrixStackIn.translate(0.5, 1.5, 0.5);
+			if(!isBlockItem) matrixStackIn.scale(.5f, .5f, .5f);
 			matrixStackIn.rotate(new Quaternion(0, (float)(ticks % 200. * 360 / 200), 0, true));
 			ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
 			IBakedModel ibakedmodel = itemRenderer.getItemModelWithOverrides(stack, tileEntityIn.getWorld(), null);
