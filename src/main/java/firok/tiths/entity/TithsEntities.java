@@ -7,8 +7,8 @@ import net.minecraftforge.fml.RegistryObject;
 
 public class TithsEntities extends TithsModule
 {
-	public static final RegistryObject<EntityType<FluidSlime>> etFluidSlime = ENTITIES.register("fluid_slime", ()->
-			EntityType.Builder.create(FluidSlime::new, EntityClassification.MONSTER)
+	public static final RegistryObject<EntityType<FluidSlimeEntity>> etFluidSlime = ENTITIES.register("fluid_slime", ()->
+			EntityType.Builder.create(FluidSlimeEntity::new, EntityClassification.MONSTER)
 					.setShouldReceiveVelocityUpdates(true)
 					.setTrackingRange(6)
 					.size(2.04F, 2.04F)

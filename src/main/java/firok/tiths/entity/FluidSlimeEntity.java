@@ -2,17 +2,13 @@ package firok.tiths.entity;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.controller.MovementController;
 import net.minecraft.entity.ai.goal.Goal;
-import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.item.BoatEntity;
 import net.minecraft.entity.monster.SlimeEntity;
-import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluid;
-import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.particles.IParticleData;
@@ -20,27 +16,38 @@ import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.Effects;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.tags.ITag;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
-import slimeknights.mantle.registration.object.FluidObject;
-import slimeknights.tconstruct.fluids.TinkerFluids;
+import net.minecraftforge.registries.ForgeRegistries;
+import slimeknights.mantle.registration.adapter.FluidRegistryAdapter;
 
 import java.util.EnumSet;
 
 import static firok.tiths.util.Predicates.canTickServer;
 
-public class FluidSlime extends SlimeEntity
+public class FluidSlimeEntity extends SlimeEntity
 {
 	int processGrow = 0;
 	Fluid fluid = Fluids.WATER;
-	public FluidSlime(EntityType<? extends SlimeEntity> type, World worldIn)
+	public FluidSlimeEntity(EntityType<FluidSlimeEntity> type, World worldIn)
 	{
 		super(type, worldIn);
 		this.enablePersistence(); // no despawn
+		this.moveController = new MoveHelperController(this);
+	}
+
+	public Fluid getFluid()
+	{
+		return this.fluid;
+	}
+	public void setFluid(Fluid fluid)
+	{
+		this.fluid = fluid;
+	}
+
+	public void setSlimeSize(int size, boolean resetHealth) {
+		super.setSlimeSize(size, resetHealth);
 	}
 
 	protected boolean isDespawnPeaceful() {
@@ -134,24 +141,24 @@ public class FluidSlime extends SlimeEntity
 	protected void registerGoals()
 	{
 		// 我不是坏史莱姆哟
-		this.goalSelector.addGoal(1, new FluidSlime.FloatGoal(this));
-		this.goalSelector.addGoal(2, new FluidSlime.FaceRandomGoal(this));
-		this.goalSelector.addGoal(5, new FluidSlime.HopGoal(this));
+		this.goalSelector.addGoal(1, new FluidSlimeEntity.FloatGoal(this));
+		this.goalSelector.addGoal(2, new FluidSlimeEntity.FaceRandomGoal(this));
+		this.goalSelector.addGoal(5, new FluidSlimeEntity.HopGoal(this));
 	}
 
 	static class FaceRandomGoal extends Goal
 	{
-		private final FluidSlime slime;
+		private final FluidSlimeEntity slime;
 		private float chosenDegrees;
 		private int nextRandomizeTime;
 
-		public FaceRandomGoal(FluidSlime slimeIn) {
+		public FaceRandomGoal(FluidSlimeEntity slimeIn) {
 			this.slime = slimeIn;
 			this.setMutexFlags(EnumSet.of(Goal.Flag.LOOK));
 		}
 
 		public boolean shouldExecute() {
-			return this.slime.getAttackTarget() == null && (this.slime.onGround || this.slime.isInWater() || this.slime.isInLava() || this.slime.isPotionActive(Effects.LEVITATION)) && this.slime.getMoveHelper() instanceof FluidSlime.MoveHelperController;
+			return this.slime.getAttackTarget() == null && (this.slime.onGround || this.slime.isInWater() || this.slime.isInLava() || this.slime.isPotionActive(Effects.LEVITATION)) && this.slime.getMoveHelper() instanceof FluidSlimeEntity.MoveHelperController;
 		}
 
 		public void tick() {
@@ -160,21 +167,21 @@ public class FluidSlime extends SlimeEntity
 				this.chosenDegrees = (float)this.slime.getRNG().nextInt(360);
 			}
 
-			((FluidSlime.MoveHelperController)this.slime.getMoveHelper()).setDirection(this.chosenDegrees, false);
+			((FluidSlimeEntity.MoveHelperController)this.slime.getMoveHelper()).setDirection(this.chosenDegrees, false);
 		}
 	}
 
 	static class FloatGoal extends Goal {
-		private final FluidSlime slime;
+		private final FluidSlimeEntity slime;
 
-		public FloatGoal(FluidSlime slimeIn) {
+		public FloatGoal(FluidSlimeEntity slimeIn) {
 			this.slime = slimeIn;
 			this.setMutexFlags(EnumSet.of(Goal.Flag.JUMP, Goal.Flag.MOVE));
 			slimeIn.getNavigator().setCanSwim(true);
 		}
 
 		public boolean shouldExecute() {
-			return (this.slime.isInWater() || this.slime.isInLava()) && this.slime.getMoveHelper() instanceof FluidSlime.MoveHelperController;
+			return (this.slime.isInWater() || this.slime.isInLava()) && this.slime.getMoveHelper() instanceof FluidSlimeEntity.MoveHelperController;
 		}
 
 		public void tick() {
@@ -182,14 +189,14 @@ public class FluidSlime extends SlimeEntity
 				this.slime.getJumpController().setJumping();
 			}
 
-			((FluidSlime.MoveHelperController)this.slime.getMoveHelper()).setSpeed(1.2D);
+			((FluidSlimeEntity.MoveHelperController)this.slime.getMoveHelper()).setSpeed(1.2D);
 		}
 	}
 
 	static class HopGoal extends Goal {
-		private final FluidSlime slime;
+		private final FluidSlimeEntity slime;
 
-		public HopGoal(FluidSlime slimeIn) {
+		public HopGoal(FluidSlimeEntity slimeIn) {
 			this.slime = slimeIn;
 			this.setMutexFlags(EnumSet.of(Goal.Flag.JUMP, Goal.Flag.MOVE));
 		}
@@ -199,7 +206,7 @@ public class FluidSlime extends SlimeEntity
 		}
 
 		public void tick() {
-			((FluidSlime.MoveHelperController)this.slime.getMoveHelper()).setSpeed(1.0D);
+			((FluidSlimeEntity.MoveHelperController)this.slime.getMoveHelper()).setSpeed(1.0D);
 		}
 	}
 
@@ -212,10 +219,10 @@ public class FluidSlime extends SlimeEntity
 	{
 		private float yRot;
 		private int jumpDelay;
-		private final FluidSlime slime;
+		private final FluidSlimeEntity slime;
 		private boolean isAggressive;
 
-		public MoveHelperController(FluidSlime slimeIn) {
+		public MoveHelperController(FluidSlimeEntity slimeIn) {
 			super(slimeIn);
 			this.slime = slimeIn;
 			this.yRot = 180.0F * slimeIn.rotationYaw / (float)Math.PI;
@@ -276,16 +283,31 @@ public class FluidSlime extends SlimeEntity
 		this.processGrow = compound.contains(KEY_NBT_PROCESS_GROW, 1) ?
 				compound.getInt(KEY_NBT_PROCESS_GROW) :
 				0;
-		this.fluid = compound.contains(KEY_NBT_FLUID_TYPE, 1) ?
-				compound.getString(KEY_NBT_FLUID_TYPE) :
-				null;
-		Registry.FLUID.getKey();
-
+		try
+		{
+			ResourceLocation rlFluid = new ResourceLocation(compound.getString(KEY_NBT_FLUID_TYPE));
+			Fluid fluid = ForgeRegistries.FLUIDS.getValue(rlFluid);
+			this.fluid = fluid;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void writeAdditional(CompoundNBT compound)
 	{
 		super.writeAdditional(compound);
+		compound.putInt(KEY_NBT_PROCESS_GROW, this.processGrow);
+
+		try
+		{
+			ResourceLocation rlFluid = this.fluid.getRegistryName();
+			compound.putString(KEY_NBT_FLUID_TYPE, rlFluid.toString());
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 }
