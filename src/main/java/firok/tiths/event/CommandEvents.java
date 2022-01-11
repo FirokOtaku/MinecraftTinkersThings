@@ -15,14 +15,14 @@ public class CommandEvents
 {
 	@SubscribeEvent
 	public static void onServerStaring(RegisterCommandsEvent event) {
-		CommandDispatcher<CommandSource> dispatcher = event.getDispatcher();
-		LiteralCommandNode<CommandSource> cmd = dispatcher.register(
-				Commands.literal(TinkersThings.MOD_ID).then(
-						Commands.literal("test")
-//								.requires((commandSource) -> commandSource.hasPermissionLevel(0))
-								.executes(TestSpawnFluidSlimeCommand.instance)
-				)
-		);
-		dispatcher.register(Commands.literal("bs").redirect(cmd));
+//		CommandDispatcher<CommandSource> dispatcher = event.getDispatcher();
+//		LiteralCommandNode<CommandSource> cmd = dispatcher.register(
+//				Commands.literal(TinkersThings.MOD_ID).then(
+//						Commands.literal("test")
+////								.requires((commandSource) -> commandSource.hasPermissionLevel(0))
+//								.executes(TestSpawnFluidSlimeCommand.instance)
+//				)
+//		);
+//		dispatcher.register(Commands.literal("bs").redirect(cmd));
 	}
 }

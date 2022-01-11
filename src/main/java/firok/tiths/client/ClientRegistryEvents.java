@@ -24,7 +24,7 @@ public class ClientRegistryEvents
 			ClientRegistry.bindTileEntityRenderer(TithsTiles.tePedestal.get(), RendererPedestal::new);
 			ClientRegistry.bindTileEntityRenderer(TithsTiles.teAdvancedMotiaPedestal.get(), RenderAdvancedMotiaPedestal::new);
 
-			RenderingRegistry.registerEntityRenderingHandler(TithsEntities.etFluidSlime.get(), FluidSlimeRenderer::new);
+//			RenderingRegistry.registerEntityRenderingHandler(TithsEntities.etFluidSlime.get(), FluidSlimeRenderer::new);
 		});
 	}
 }
