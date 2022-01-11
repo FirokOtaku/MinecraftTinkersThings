@@ -1,5 +1,6 @@
 package firok.tiths.modifier.general;
 
+import firok.tiths.util.DevUse;
 import net.minecraft.entity.Entity;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
@@ -12,6 +13,7 @@ import static firok.tiths.config.ConfigModifier.*;
  *
  * https://github.com/351768593/MinecraftTinkersThings/blob/indev1122/src/main/java/firok/tiths/traits/TraitGorgeous.java
  * */
+@DevUse
 public class ModifierGorgeous extends Modifier
 {
 	public ModifierGorgeous()

@@ -1,6 +1,7 @@
 package firok.tiths.modifier.general;
 
 import firok.tiths.util.Colors;
+import firok.tiths.util.DevUse;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 import slimeknights.tconstruct.library.modifiers.Modifier;
@@ -16,6 +17,7 @@ import static firok.tiths.util.Predicates.canTrigger;
  *
  * https://github.com/351768593/MinecraftTinkersThings/blob/indev1122/src/main/java/firok/tiths/traits/TraitHemolytic.java
  * */
+@DevUse
 public class ModifierHemolytic extends Modifier
 {
 

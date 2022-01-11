@@ -1,6 +1,7 @@
 package firok.tiths.modifier.general;
 
 import firok.tiths.util.Colors;
+import firok.tiths.util.DevUse;
 import firok.tiths.util.Predicates;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -14,6 +15,7 @@ import slimeknights.tconstruct.library.tools.nbt.IModifierToolStack;
  *
  * https://github.com/351768593/MinecraftTinkersThings/blob/indev1122/src/main/java/firok/tiths/traits/TraitGreen.java
  * */
+@DevUse
 public class ModifierGreen extends Modifier
 {
 	public ModifierGreen()

@@ -1,6 +1,7 @@
 package firok.tiths.modifier.general;
 
 import firok.tiths.util.Actions;
+import firok.tiths.util.DevUse;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
@@ -14,6 +15,7 @@ import slimeknights.tconstruct.library.tools.nbt.IModifierToolStack;
  *
  * https://github.com/351768593/MinecraftTinkersThings/blob/indev1122/src/main/java/firok/tiths/traits/TraitHyper.java
  * */
+@DevUse
 public class ModifierHyper extends Modifier
 {
 	public ModifierHyper()

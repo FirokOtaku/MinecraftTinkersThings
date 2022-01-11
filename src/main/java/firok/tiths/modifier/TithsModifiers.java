@@ -60,4 +60,13 @@ public class TithsModifiers extends TithsModule
             = MODIFIERS.register("hemolytic", ModifierHemolytic::new);
     public static final RegistryObject<ModifierHyper> MODIFIER_HYPER
             = MODIFIERS.register("hyper", ModifierHyper::new);
+    public static final RegistryObject<ModifierIcy> MODIFIER_ICY
+            = MODIFIERS.register("icy", ModifierIcy::new);
+    public static final RegistryObject<ModifierInductance> MODIFIER_INDUCTANCE
+            = MODIFIERS.register("inductance", ModifierInductance::new);
+    public static final RegistryObject<ModifierLionheart> MODIFIER_LIONHEART
+            = MODIFIERS.register("lionheart", ModifierLionheart::new);
+
+    public static final RegistryObject<ModifierMaiming> MODIFIER_MAIMING
+            = MODIFIERS.register("maiming", ModifierMaiming::new);
 }

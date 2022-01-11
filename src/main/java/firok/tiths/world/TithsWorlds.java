@@ -49,5 +49,6 @@ public class TithsWorlds extends TithsModule
 	{
 		// todo
 //		return Registry.register(WorldGenRegistries.CONFIGURED_FEATURE,   )
+		return null;
 	}
 }
