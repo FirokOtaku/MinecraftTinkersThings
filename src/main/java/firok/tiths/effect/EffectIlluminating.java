@@ -16,7 +16,7 @@ import static firok.tiths.util.Predicates.canTick;
  */
 public class EffectIlluminating extends TithsEffect
 {
-	public EffectIlluminating()
+	EffectIlluminating()
 	{
 		super(EffectType.BENEFICIAL, 0xebf756);
 	}

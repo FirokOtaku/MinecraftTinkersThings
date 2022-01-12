@@ -12,7 +12,7 @@ public class EffectParalysed extends TithsEffect
 {
 	public static final String UUID_MOVEMENT_SPEED = "E90BFF57-C4CB-419C-939C-666D1F93C1E1";
 	public static final String UUID_ATTACK_DAMAGE = "6A871942-58FD-4351-94BD-A9B216E8CC0C";
-	public EffectParalysed()
+	EffectParalysed()
 	{
 		super(EffectType.BENEFICIAL, 0xdbab23);
 		addAttributesModifier(Attributes.MOVEMENT_SPEED, UUID_MOVEMENT_SPEED, -0.5, AttributeModifier.Operation.MULTIPLY_TOTAL);

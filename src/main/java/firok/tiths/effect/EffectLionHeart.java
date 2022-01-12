@@ -13,7 +13,7 @@ import net.minecraft.potion.EffectType;
 public class EffectLionHeart extends TithsEffect
 {
 	public static final String uuidArmor = "FEFC6FA3-67FF-40F0-9C29-FF40149DB959";
-	public EffectLionHeart()
+	EffectLionHeart()
 	{
 		super(EffectType.BENEFICIAL, 0xe3041f);
 		addAttributesModifier(Attributes.ARMOR, uuidArmor, 0.4, AttributeModifier.Operation.MULTIPLY_TOTAL);

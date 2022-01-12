@@ -13,7 +13,7 @@ import static firok.tiths.util.Predicates.canTick;
 @DevUse(isPlaceholder = true)
 public class EffectIcy extends TithsEffect
 {
-	public EffectIcy()
+	EffectIcy()
 	{
 		super(EffectType.BENEFICIAL, 0x4194c0);
 	}

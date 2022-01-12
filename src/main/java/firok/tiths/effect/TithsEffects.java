@@ -37,6 +37,9 @@ public class TithsEffects extends TithsModule
 	public static RegistryObject<EffectIcy> EFFECT_ICY = register("icy", EffectIcy::new);
 
 	@DevUse(isPlaceholder = true)
+	public static RegistryObject<EffectInky> EFFECT_INKY = register("inky", EffectInky::new);
+
+	@DevUse(isPlaceholder = true)
 	public static RegistryObject<EffectLionHeart> EFFECT_LION_HEART = register("lion_heart", EffectLionHeart::new);
 
 	@DevUse(isPlaceholder = true)

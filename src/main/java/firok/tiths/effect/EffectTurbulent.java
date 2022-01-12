@@ -15,7 +15,7 @@ import java.util.Random;
 @DevUse(isPlaceholder = true)
 public class EffectTurbulent extends TithsEffect
 {
-	public EffectTurbulent()
+	EffectTurbulent()
 	{
 		super(EffectType.HARMFUL, 0x062147);
 	}

@@ -12,7 +12,7 @@ import net.minecraft.util.math.vector.Vector3d;
 @DevUse(isPlaceholder = true)
 public class EffectHeavy extends TithsEffect
 {
-	public EffectHeavy()
+	EffectHeavy()
 	{
 		super(EffectType.NEUTRAL, Colors.DarkSeaGreen);
 	}

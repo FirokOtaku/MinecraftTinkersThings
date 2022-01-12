@@ -11,7 +11,7 @@ import net.minecraft.potion.EffectType;
 public class EffectVoidInfected extends TithsEffect
 {
 	public static final String uuidMaxHealth = "12CE48F3-561E-4433-A31C-791850821665";
-	public EffectVoidInfected()
+	EffectVoidInfected()
 	{
 		super(EffectType.HARMFUL, 0x4a0964, false);
 		addAttributesModifier(Attributes.MAX_HEALTH, uuidMaxHealth, -0.3, AttributeModifier.Operation.MULTIPLY_TOTAL);

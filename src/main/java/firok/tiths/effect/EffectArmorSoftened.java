@@ -12,7 +12,7 @@ public class EffectArmorSoftened extends TithsEffect
 {
 	public static final String UUID_ARMOR = "D3CD5FAC-C690-4E07-B2DB-1151313AFDB3";
 	public static final String UUID_ARMOR_TOUGHNESS = "FF99DA03-A7E7-4DEB-8595-D7B4274C9B28";
-	public EffectArmorSoftened()
+	EffectArmorSoftened()
 	{
 		super(EffectType.HARMFUL, 0x644209);
 		addAttributesModifier(Attributes.ARMOR, UUID_ARMOR, -0.2, AttributeModifier.Operation.MULTIPLY_TOTAL);

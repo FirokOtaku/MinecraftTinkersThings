@@ -36,6 +36,6 @@ public class AttributesSetEvent {
                 .createMutableAttribute(net.minecraftforge.common.ForgeMod.ENTITY_GRAVITY.get());
 
 
-        event.put(TithsEntities.etFluidSlime.get(), map.create());
+//        event.put(TithsEntities.etFluidSlime.get(), map.create());
     }
 }

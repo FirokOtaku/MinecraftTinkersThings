@@ -23,7 +23,7 @@ public class EffectRooted extends TithsEffect
 {
 	public static final String uuidMovementSpeed = "132DB19B-F9FF-487D-98E6-E95DF9B770C5";
 
-	protected EffectRooted()
+	EffectRooted()
 	{
 		super(EffectType.HARMFUL, 0x644209);
 		addAttributesModifier(Attributes.MOVEMENT_SPEED, uuidMovementSpeed, -0.95, AttributeModifier.Operation.MULTIPLY_TOTAL);

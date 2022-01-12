@@ -1,15 +1,11 @@
 package firok.tiths.modifier.general;
 
+import firok.tiths.util.Actions;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
-import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
-import slimeknights.tconstruct.library.tools.item.ModifiableItem;
-import slimeknights.tconstruct.library.tools.item.ToolItem;
 import slimeknights.tconstruct.library.tools.nbt.IModifierToolStack;
-import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 /**
  * 透蚀
@@ -39,19 +35,7 @@ public class ModifierInfiltrating extends Modifier
 		{
 			for(ItemStack stackEquipment : target.getEquipmentAndArmor())
 			{
-				if(stackEquipment == null || stackEquipment.isEmpty()) continue;
-
-				Item itemEquipment = stackEquipment.getItem();
-				if(itemEquipment instanceof ToolItem)
-				{
-					IModifierToolStack infoEquipment = ToolStack.from(stackEquipment);
-					ToolDamageUtil.damage(infoEquipment, 20, holder, stackEquipment);
-				}
-				else if(stackEquipment.isDamageable())
-				{
-					// todo maybe we should replace tool holder to equipment wearer (target)
-					stackEquipment.damageItem(20, holder, (toolHolder)->{});
-				}
+				Actions.CauseDamageStack(stackEquipment, 20, holder);
 			}
 		}
 		return 0;

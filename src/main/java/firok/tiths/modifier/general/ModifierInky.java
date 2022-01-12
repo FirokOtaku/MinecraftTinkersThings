@@ -33,7 +33,7 @@ public class ModifierInky extends Modifier
 		LivingEntity target = context.getLivingTarget();
 		if(target != null)
 		{
-			target.addPotionEffect(new EffectInstance(Effects.BLINDNESS, ConfigModifier.factor_inky.get(), 0));
+			target.addPotionEffect(new EffectInstance(TithsEffects.EFFECT_INKY.get(), ConfigModifier.factor_inky.get(), 0));
 		}
 		return 0;
 	}

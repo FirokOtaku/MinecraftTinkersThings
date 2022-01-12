@@ -19,7 +19,7 @@ public class EffectAvatar extends TithsEffect
 	public static final String UUID_ARMOR = "BF25C13E-AB14-4945-B799-F46C965104D5";
 	public static final String UUID_ARMOR_TOUGHNESS = "A35A5104-0FAF-4536-9A4D-685D26EFC525";
 	public static final String UUID_ATTACK_DAMAGE = "14A0A898-78E1-4086-803D-B2DD23584F48";
-	protected EffectAvatar()
+	EffectAvatar()
 	{
 		super(EffectType.BENEFICIAL, 0xffeb11);
 		addAttributesModifier(Attributes.MOVEMENT_SPEED, UUID_MOVEMENT_SPEED, -0.2, AttributeModifier.Operation.MULTIPLY_TOTAL);

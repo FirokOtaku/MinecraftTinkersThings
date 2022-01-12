@@ -15,7 +15,7 @@ import java.util.Random;
 @DevUse(isPlaceholder = true)
 public class EffectEstrous extends TithsEffect
 {
-	public EffectEstrous()
+	EffectEstrous()
 	{
 		super(EffectType.BENEFICIAL, 0xEF94F5);
 	}

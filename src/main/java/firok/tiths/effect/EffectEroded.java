@@ -15,7 +15,7 @@ import net.minecraft.potion.EffectType;
 public class EffectEroded extends TithsEffect
 {
 	public static final String uuidMaxHealth = "86B681A7-2268-409D-A8E3-07ECF49CD905";
-	protected EffectEroded()
+	EffectEroded()
 	{
 		super(EffectType.HARMFUL, 0x8a0d82);
 		addAttributesModifier(Attributes.ARMOR, uuidMaxHealth, -1, AttributeModifier.Operation.ADDITION);

@@ -13,7 +13,7 @@ import net.minecraft.util.math.vector.Vector3d;
 @DevUse(isPlaceholder = true)
 public class EffectSoluble extends TithsEffect
 {
-	public EffectSoluble()
+	EffectSoluble()
 	{
 		super(EffectType.NEUTRAL, Colors.LightGray);
 	}

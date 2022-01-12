@@ -26,7 +26,7 @@ import static firok.tiths.util.Predicates.canTrigger;
 public class EffectPestilential extends TithsEffect
 {
 	final Predicate<? super Entity> selector;
-	protected EffectPestilential(Predicate<? super Entity> selector)
+	EffectPestilential(Predicate<? super Entity> selector)
 	{
 		super(EffectType.HARMFUL, Colors.DarkGreen);
 		this.selector = selector;

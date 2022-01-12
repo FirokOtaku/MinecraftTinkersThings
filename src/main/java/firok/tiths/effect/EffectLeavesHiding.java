@@ -10,7 +10,7 @@ import net.minecraft.potion.EffectType;
 
 public class EffectLeavesHiding extends TithsEffect
 {
-	public EffectLeavesHiding()
+	EffectLeavesHiding()
 	{
 		super(EffectType.BENEFICIAL, Colors.Green);
 	}

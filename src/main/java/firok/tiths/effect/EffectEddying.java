@@ -14,7 +14,7 @@ import net.minecraft.util.math.vector.Vector3d;
 @DevUse(isPlaceholder = true)
 public class EffectEddying extends TithsEffect
 {
-	public EffectEddying()
+	EffectEddying()
 	{
 		super(EffectType.NEUTRAL, 0x3f516b);
 	}

@@ -13,7 +13,7 @@ import static firok.tiths.util.Predicates.canTrigger;
 @DevUse(isPlaceholder = true)
 public class EffectAcidWetted extends TithsEffect
 {
-	public EffectAcidWetted()
+	EffectAcidWetted()
 	{
 		super(EffectType.HARMFUL, 0x0e8c39);
 	}
