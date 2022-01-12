@@ -17,4 +17,15 @@ public class ModifierTest extends Modifier {
     // 新增日光月光祭坛 含有上面特性的工具可以放到祭坛上回复耐久
     // moon alter 月光祭坛
     // sun alter 日光祭坛
+    //
+    // 还没做的 modifier
+    // frost jack
+    // anti effect
+    // anger of farmer
+    // annihilating
+    // anti grav
+    // clustering
+    // cracking
+    // degeneration
+    //
 }

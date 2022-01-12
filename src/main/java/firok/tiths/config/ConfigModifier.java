@@ -44,6 +44,8 @@ public class ConfigModifier
 
 	public static DoubleValue factor_hemolytic_repair;
 
+	public static IntValue factor_inky;
+
 
 	static {
 		ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
@@ -101,6 +103,9 @@ public class ConfigModifier
 				.defineInRange("rate_hemolytic", 0.5f, 0, 1);
 		factor_hemolytic_repair = builder.comment("")
 				.defineInRange("factor_hemolytic_repair", 5f, 1, 10);
+
+		factor_inky = builder.comment("")
+				.defineInRange("factor_inky", 100, 20, 2000);
 
 		builder.pop();
 		INSTANCE = builder.build();

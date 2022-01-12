@@ -64,8 +64,16 @@ public class TithsModifiers extends TithsModule
             = MODIFIERS.register("icy", ModifierIcy::new);
     public static final RegistryObject<ModifierInductance> MODIFIER_INDUCTANCE
             = MODIFIERS.register("inductance", ModifierInductance::new);
+    public static final RegistryObject<ModifierInfernalBlazing> MODIFIER_INFERNAL_BLAZING
+            = MODIFIERS.register("infernal_blazing", ModifierInfernalBlazing::new);
+    public static final RegistryObject<ModifierInfiltrating> MODIFIER_INFILTRATING
+            = MODIFIERS.register("infiltrating", ModifierInfiltrating::new);
+    public static final RegistryObject<ModifierInky> MODIFIER_INKY
+            = MODIFIERS.register("inky", ModifierInky::new);
     public static final RegistryObject<ModifierLionheart> MODIFIER_LIONHEART
             = MODIFIERS.register("lionheart", ModifierLionheart::new);
+    public static final RegistryObject<ModifierMoonlight> MODIFIER_MOONLIGHT
+            = MODIFIERS.register("moonlight", ModifierMoonlight::new);
 
     public static final RegistryObject<ModifierMaiming> MODIFIER_MAIMING
             = MODIFIERS.register("maiming", ModifierMaiming::new);

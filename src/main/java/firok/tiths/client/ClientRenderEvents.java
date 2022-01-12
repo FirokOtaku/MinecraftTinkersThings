@@ -14,6 +14,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.math.vector.Quaternion;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -21,8 +23,9 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import slimeknights.mantle.client.ClientEvents;
 
+@OnlyIn(Dist.CLIENT)
 @Mod.EventBusSubscriber(modid = TinkersThings.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
-public class ClientRendererEvents
+public class ClientRenderEvents
 {
 	static ItemStack stack;
 
@@ -57,5 +60,35 @@ public class ClientRendererEvents
 		}
 
 		matrixStack.pop();
+	}
+
+	@SubscribeEvent
+	public static void onFogDistance(EntityViewRenderEvent.RenderFogEvent event)
+	{
+		;
+	}
+
+	@SubscribeEvent
+	public static void onFogDensity(EntityViewRenderEvent.FogDensity event)
+	{
+		;
+	}
+
+	@SubscribeEvent
+	public static void onFogColor(EntityViewRenderEvent.FogColors event)
+	{
+		;
+	}
+
+	@SubscribeEvent
+	public static void onFOVModifier(EntityViewRenderEvent.FOVModifier event)
+	{
+		;
+	}
+
+	@SubscribeEvent
+	public static void onCameraSetup(EntityViewRenderEvent.CameraSetup event)
+	{
+		;
 	}
 }
