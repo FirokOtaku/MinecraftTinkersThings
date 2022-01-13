@@ -4,7 +4,6 @@ import firok.tiths.TithsModule;
 import firok.tiths.block.TithsBlocks;
 import firok.tiths.tile.pedestal.TileAdvancedMotiaPedestal;
 import firok.tiths.tile.pedestal.TilePedestalBase;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;
 
@@ -20,7 +19,7 @@ public class TithsTiles extends TithsModule
 
 	public static final RegistryObject<TileEntityType<TileWithEntityType>> teWithEntityType
 			= TILE_ENTITIES.register("te_with_entity_type", TileWithEntityType::new, set -> {
-				set.add(TithsBlocks.BLOCK_MOTIA_PAVING_STONE);
+				set.add(TithsBlocks.BLOCK_MOTIA_PAVING_STONE.get());
 	});
 
 	public static final RegistryObject<TileEntityType<TileAdvancedMotiaPedestal>> teAdvancedMotiaPedestal

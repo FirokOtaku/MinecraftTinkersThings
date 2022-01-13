@@ -15,9 +15,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class TileWithEntityType extends TileEntity
 {
 	EntityType<?> et = null;
-	public TileWithEntityType(TileEntityType<?> tileEntityTypeIn)
+	public TileWithEntityType()
 	{
-		super(tileEntityTypeIn);
+		super(TithsTiles.teWithEntityType.get());
 	}
 
 	public void setEntityType(EntityType<?> et)

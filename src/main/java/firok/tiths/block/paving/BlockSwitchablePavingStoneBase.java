@@ -6,6 +6,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.RedstoneTorchBlock;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.StateContainer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
@@ -22,6 +23,10 @@ public abstract class BlockSwitchablePavingStoneBase extends BlockPavingStoneBas
 	{
 		super(properties);
 		this.setDefaultState(this.getDefaultState().with(LIT, false));
+	}
+
+	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+		builder.add(LIT);
 	}
 
 	public BlockState getStateForPlacement(BlockItemUseContext context)

@@ -1,9 +1,6 @@
 package firok.tiths.block.paving;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.FenceBlock;
-import net.minecraft.block.RedstoneLampBlock;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -44,6 +41,12 @@ public abstract class BlockPavingStoneBase extends Block
 		return canEntityPass(state, worldIn, pos, context) ? shapeBox1 : shapeBox3;
 	}
 
+	@Override
+	public boolean collisionExtendsVertically(BlockState state, IBlockReader world, BlockPos pos, Entity collidingEntity)
+	{
+		return true;
+	}
+
 	protected abstract boolean canEntityPass(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context);
 
 	@Override
@@ -55,6 +58,6 @@ public abstract class BlockPavingStoneBase extends Block
 	@Override
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context)
 	{
-		return super.getShape(state, worldIn, pos, context);
+		return shapeBox3;
 	}
 }

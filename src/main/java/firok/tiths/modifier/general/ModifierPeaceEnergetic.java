@@ -19,7 +19,7 @@ import static firok.tiths.util.Predicates.canTickServer;
 @DevUse
 public class ModifierPeaceEnergetic extends Modifier
 {
-	ModifierPeaceEnergetic()
+	public ModifierPeaceEnergetic()
 	{
 		super(0xfff501);
 	}

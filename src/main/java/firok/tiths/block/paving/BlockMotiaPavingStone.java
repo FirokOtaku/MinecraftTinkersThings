@@ -34,7 +34,7 @@ public class BlockMotiaPavingStone extends BlockSwitchablePavingStoneBase
 	@Override
 	public TileEntity createTileEntity(BlockState state, IBlockReader world)
 	{
-		return new TileWithEntityType(TithsTiles.teWithEntityType.get());
+		return new TileWithEntityType();
 	}
 
 	private static boolean isInstance(IBlockReader world, BlockPos pos, Entity entity)
