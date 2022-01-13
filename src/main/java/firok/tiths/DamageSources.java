@@ -29,6 +29,7 @@ public class DamageSources
 	public static final String TypeDragonKiller = "dragon_killer";
 	public static final String TypeDiffuseReflecting = "diffuse_reflecting";
 	public static final String TypeEmpathic = "empathic";
+	public static final String TypeOracular = "oracular";
 	public static DamageSource TestDamage = new DamageSource(TypeTest);
 	public static DamageSource PunjiDamage = new DamageSource(TypePunji);
 	public static DamageSource ShadowFireDamage = new DamageSource(TypeShadowFire)
@@ -87,6 +88,15 @@ public class DamageSources
 	{
 		EntityDamageSource ret = new EntityDamageSource(TypeEmpathic, source);
 		ret.setDamageBypassesArmor();
+		return ret;
+	}
+
+	// 神谕伤害
+	public static EntityDamageSource Oracular(Entity source)
+	{
+		EntityDamageSource ret = new EntityDamageSource(TypeOracular, source);
+		ret.setDamageBypassesArmor();
+		ret.setMagicDamage();
 		return ret;
 	}
 }

@@ -46,6 +46,8 @@ public class ConfigModifier
 
 	public static IntValue factor_inky;
 
+	public static DoubleValue factor_peace_energetic_heal;
+
 
 	static {
 		ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
@@ -106,6 +108,9 @@ public class ConfigModifier
 
 		factor_inky = builder.comment("")
 				.defineInRange("factor_inky", 100, 20, 2000);
+
+		factor_peace_energetic_heal = builder.comment("")
+				.defineInRange("factor_peace_energetic_heal", 0.5, 0.1, 8);
 
 		builder.pop();
 		INSTANCE = builder.build();

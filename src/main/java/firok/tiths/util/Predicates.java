@@ -6,6 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.IPlantable;
@@ -62,6 +63,28 @@ public final class Predicates
 	{
 		return state.getBlock() == Blocks.DIRT;
 	}
+	public static boolean isPlant(BlockState state)
+	{
+		Block block = state.getBlock();
+		Material material = state.getMaterial();
+		return block instanceof AbstractPlantBlock ||
+				block instanceof LeavesBlock ||
+				block instanceof IGrowable ||
+				block instanceof IPlantable ||
+				material == PLANTS ||
+				material == OCEAN_PLANT ||
+				material == TALL_PLANTS ||
+				material == NETHER_PLANTS ||
+				material == WOOD ||
+				material == NETHER_WOOD ||
+				material == LEAVES ||
+				material == CACTUS ||
+				material == SEA_GRASS ||
+				material == BAMBOO ||
+				material == BAMBOO_SAPLING ||
+				material == CORAL
+				;
+	}
 
 
 	/* === entity selectors === */
@@ -84,26 +107,21 @@ public final class Predicates
 
 	public static boolean isRabbitAlive(Entity en) { return en.getType() == EntityType.RABBIT && en.isAlive(); }
 
-	public static boolean isPlant(BlockState state)
+	/**
+	 * @return 指定实体是否静止
+	 */
+	public static boolean isStandStill(Entity en)
 	{
-		Block block = state.getBlock();
-		Material material = state.getMaterial();
-		return block instanceof AbstractPlantBlock ||
-				block instanceof LeavesBlock ||
-				block instanceof IGrowable ||
-				block instanceof IPlantable ||
-				material == PLANTS ||
-				material == OCEAN_PLANT ||
-				material == TALL_PLANTS ||
-				material == NETHER_PLANTS ||
-				material == WOOD ||
-				material == NETHER_WOOD ||
-				material == LEAVES ||
-				material == CACTUS ||
-				material == SEA_GRASS ||
-				material == BAMBOO ||
-				material == BAMBOO_SAPLING ||
-				material == CORAL
-				;
+		Vector3d motion = en.getMotion();
+		return Math.abs(motion.x) < 0.15 && Math.abs(motion.y) < 0.15 && Math.abs(motion.z) < 0.15;
+	}
+
+	public static boolean isWorldDayTime(Entity en)
+	{
+		return en != null && en.world != null && en.world.isDaytime();
+	}
+	public static boolean isWorldNightTime(Entity en)
+	{
+		return en != null && en.world != null && en.world.isNightTime();
 	}
 }

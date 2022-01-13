@@ -11,6 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.EffectType;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -20,6 +21,7 @@ import slimeknights.tconstruct.library.tools.nbt.IModifierToolStack;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Random;
 
 /**
@@ -181,5 +183,46 @@ public class Actions
 			return true;
 		}
 		return false;
+	}
+
+	/**
+	 * 移除指定实体身上的状态效果
+	 * @param living 指定实体
+	 * @param directly 是否触发移除事件
+	 * @param containHidden 是否移除隐藏状态效果
+	 * @param types 要移除的状态效果种类
+	 * @return 移除数量
+	 */
+	public static int CauseRemoveEffect(LivingEntity living, boolean directly, boolean containHidden, EffectType... types)
+	{
+		if(types == null || living == null) return 0;
+
+		Collection<EffectInstance> listEffect = living.getActivePotionEffects();
+		for(EffectInstance ei : listEffect)
+		{
+			Effect effect = ei.getPotion();
+			// todo 这个判断以后可能需要重写
+			// 目前的判断是 普通的状态效果是会在3个地方都显示
+			// 特殊的状态效果才会在某些地方不显示
+			boolean isEffectRender = effect.shouldRender(ei) && effect.shouldRenderHUD(ei) && effect.shouldRenderInvText(ei);
+			if(!isEffectRender && !containHidden) continue; // 不渲染 不包含隐藏效果
+
+			// 检查是否是指定种类
+			boolean isEffectShouldRemove = false;
+			for(EffectType t : types)
+				if(t == effect.getEffectType())
+				{
+					isEffectShouldRemove = true;
+					break;
+				}
+			if(!isEffectShouldRemove) continue;
+
+			if(directly)
+				living.removeActivePotionEffect(effect);
+			else
+				living.removePotionEffect(effect);
+		}
+
+		return 0;
 	}
 }

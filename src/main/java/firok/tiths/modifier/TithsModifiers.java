@@ -74,6 +74,10 @@ public class TithsModifiers extends TithsModule
             = MODIFIERS.register("lionheart", ModifierLionheart::new);
     public static final RegistryObject<ModifierMoonlight> MODIFIER_MOONLIGHT
             = MODIFIERS.register("moonlight", ModifierMoonlight::new);
+    public static final RegistryObject<ModifierPeaceEnergetic> MODIFIER_PEACE_ENERGETIC
+            = MODIFIERS.register("peace_energetic", ModifierPeaceEnergetic::new);
+    public static final RegistryObject<ModifierPiercing> MODIFIER_PIERCING
+            = MODIFIERS.register("piercing", ModifierPiercing::new);
 
     public static final RegistryObject<ModifierMaiming> MODIFIER_MAIMING
             = MODIFIERS.register("maiming", ModifierMaiming::new);
