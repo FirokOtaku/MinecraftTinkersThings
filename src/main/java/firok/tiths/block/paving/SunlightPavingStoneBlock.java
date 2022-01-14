@@ -10,10 +10,10 @@ import net.minecraft.world.IBlockReader;
  * 日光铺路石
  * 晚上允许实体通过
  */
-public class BlockSunlightPavingStone extends BlockPavingStoneBase
+public class SunlightPavingStoneBlock extends PavingStoneBlockBase
 {
 	@Override
-	protected boolean canEntityPass(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context)
+	public boolean canEntityPassRuneBarrier(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context)
 	{
 		return context != null && Predicates.isWorldNightTime(context.getEntity());
 	}

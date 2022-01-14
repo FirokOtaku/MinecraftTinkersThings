@@ -7,9 +7,9 @@ import net.minecraft.world.IBlockReader;
 import net.minecraftforge.common.ToolType;
 import slimeknights.tconstruct.library.utils.HarvestLevels;
 
-public class BlockAdvancedMotiaPedestal extends BlockPedestalBase
+public class AdvancedMotiaPedestalBlock extends PedestalBlockBase
 {
-	public BlockAdvancedMotiaPedestal()
+	public AdvancedMotiaPedestalBlock()
 	{
 		super(Properties.create(Material.ROCK)
 				.notSolid()

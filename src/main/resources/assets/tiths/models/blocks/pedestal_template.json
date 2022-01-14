@@ -1,0 +1,42 @@
+{
+  "credit": "Made by Firok with Blockbench",
+  "textures": {
+    "particle": "#particle"
+  },
+  "elements": [
+    {
+      "from": [2, 12, 2],
+      "to": [14, 16, 14],
+      "faces": {
+        "north": {"uv": [0, 0, 16, 7], "texture": "#top_side"},
+        "east": {"uv": [0, 0, 16, 7], "texture": "#top_side"},
+        "south": {"uv": [0, 0, 16, 7], "texture": "#top_side"},
+        "west": {"uv": [0, 0, 16, 7], "texture": "#top_side"},
+        "up": {"uv": [0, 0, 16, 16], "texture": "#top_top"},
+        "down": {"uv": [0, 0, 16, 16], "texture": "#top_side"}
+      }
+    },
+    {
+      "from": [0, 0, 0],
+      "to": [16, 4, 16],
+      "faces": {
+        "north": {"uv": [0, 0, 16, 4], "texture": "#bottom_side"},
+        "east": {"uv": [0, 0, 16, 4], "texture": "#bottom_side"},
+        "south": {"uv": [0, 0, 16, 4], "texture": "#bottom_side"},
+        "west": {"uv": [0, 0, 16, 4], "texture": "#bottom_side"},
+        "up": {"uv": [0, 0, 16, 16], "texture": "#bottom_top"},
+        "down": {"uv": [0, 0, 16, 16], "texture": "#bottom_side"}
+      }
+    },
+    {
+      "from": [4, 4, 4],
+      "to": [12, 12, 12],
+      "faces": {
+        "north": {"uv": [2, 0, 14, 12], "texture": "#mid_side"},
+        "east": {"uv": [2, 0, 14, 12], "texture": "#mid_side"},
+        "south": {"uv": [2, 0, 14, 12], "texture": "#mid_side"},
+        "west": {"uv": [2, 0, 14, 12], "texture": "#mid_side"}
+      }
+    }
+  ]
+}

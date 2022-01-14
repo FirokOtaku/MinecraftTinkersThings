@@ -16,9 +16,9 @@ import net.minecraft.world.World;
  * any player in creative mode could change the stack by right-clicking pedestal when sneaking; <br>
  * other player could right-click pedestal to have one copy of the stack in pedestal. <br>
  */
-public class BlockCreativePedestal extends BlockPedestalBase
+public class CreativePedestalBlock extends PedestalBlockBase
 {
-	public BlockCreativePedestal()
+	public CreativePedestalBlock()
 	{
 		super(Properties.create(Material.GOURD)
 				.notSolid()

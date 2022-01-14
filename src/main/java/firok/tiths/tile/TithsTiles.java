@@ -11,17 +11,17 @@ public class TithsTiles extends TithsModule
 {
 	public static final RegistryObject<TileEntityType<TilePedestalBase>> tePedestal
 			= TILE_ENTITIES.register("te_pedestal", TilePedestalBase::new, set -> {
-				set.add(TithsBlocks.BLOCK_MOTIA_PEDESTAL.get());
-				set.add(TithsBlocks.BLOCK_CREATIVE_PEDESTAL.get());
-				set.add(TithsBlocks.BLOCK_TINKER_PEDESTAL.get());
-				set.add(TithsBlocks.BLOCK_STONE_PEDESTAL.get());
+				set.add(TithsBlocks.MOTIA_PEDESTAL.get());
+				set.add(TithsBlocks.CREATIVE_PEDESTAL.get());
+				set.add(TithsBlocks.TINKER_PEDESTAL.get());
+				set.add(TithsBlocks.STONE_PEDESTAL.get());
 	});
 
 	public static final RegistryObject<TileEntityType<TileWithEntityType>> teWithEntityType
 			= TILE_ENTITIES.register("te_with_entity_type", TileWithEntityType::new, set -> {
-				set.add(TithsBlocks.BLOCK_MOTIA_PAVING_STONE.get());
+				set.add(TithsBlocks.MOTIA_PAVING_STONE.get());
 	});
 
 	public static final RegistryObject<TileEntityType<TileAdvancedMotiaPedestal>> teAdvancedMotiaPedestal
-			= TILE_ENTITIES.register("te_advanced_motia_pedestal", TileAdvancedMotiaPedestal::new, TithsBlocks.BLOCK_ADVANCED_MOTIA_PEDESTAL);
+			= TILE_ENTITIES.register("te_advanced_motia_pedestal", TileAdvancedMotiaPedestal::new, TithsBlocks.ADVANCED_MOTIA_PEDESTAL);
 }

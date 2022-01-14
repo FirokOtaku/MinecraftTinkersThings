@@ -1,0 +1,11 @@
+{
+  "parent": "tiths:block/pedestal_template",
+  "textures": {
+    "mid_side": "tconstruct:block/smeltery/seared/creeper",
+    "top_top": "tconstruct:block/smeltery/seared/fancy_bricks",
+    "bottom_side": "tconstruct:block/smeltery/seared/paver",
+    "top_side": "tconstruct:block/smeltery/seared/small_bricks",
+    "bottom_top": "tconstruct:block/smeltery/seared/square_bricks",
+    "particle": "tconstruct:block/smeltery/seared/bricks"
+  }
+}

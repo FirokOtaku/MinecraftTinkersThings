@@ -16,10 +16,10 @@ import java.util.Random;
 /**
  * @see net.minecraft.block.RedstoneLampBlock
  */
-public abstract class BlockSwitchablePavingStoneBase extends BlockPavingStoneBase
+public abstract class SwitchablePavingStoneBlockBase extends PavingStoneBlockBase
 {
 	public static final BooleanProperty LIT = RedstoneTorchBlock.LIT;
-	public BlockSwitchablePavingStoneBase(AbstractBlock.Properties properties)
+	public SwitchablePavingStoneBlockBase(AbstractBlock.Properties properties)
 	{
 		super(properties);
 		this.setDefaultState(this.getDefaultState().with(LIT, false));
@@ -34,17 +34,17 @@ public abstract class BlockSwitchablePavingStoneBase extends BlockPavingStoneBas
 		return this.getDefaultState().with(LIT, context.getWorld().isBlockPowered(context.getPos()) );
 	}
 
-	public void neighborChanged(BlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving)
+	public void neighborChanged(BlockState state, World world, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving)
 	{
-		if (!worldIn.isRemote)
+		if (!world.isRemote)
 		{
 			boolean isPoweredOld = state.get(LIT);
-			if (isPoweredOld != worldIn.isBlockPowered(pos))
+			if (isPoweredOld != world.isBlockPowered(pos))
 			{
 				if (isPoweredOld)
-					worldIn.getPendingBlockTicks().scheduleTick(pos, this, 4);
+					world.getPendingBlockTicks().scheduleTick(pos, this, 4);
 				else
-					worldIn.setBlockState(pos, state.cycleValue(LIT), 2);
+					world.setBlockState(pos, state.cycleValue(LIT), 2);
 			}
 		}
 	}

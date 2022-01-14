@@ -14,9 +14,9 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
-public abstract class BlockPedestalBase extends Block
+public abstract class PedestalBlockBase extends Block
 {
-	public BlockPedestalBase(Properties properties)
+	public PedestalBlockBase(Properties properties)
 	{
 		super(properties);
 	}

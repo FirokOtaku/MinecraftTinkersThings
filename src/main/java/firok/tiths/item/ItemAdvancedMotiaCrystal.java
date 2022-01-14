@@ -1,14 +1,12 @@
 package firok.tiths.item;
 
 import firok.tiths.block.TithsBlocks;
-import firok.tiths.block.pedestal.BlockAdvancedMotiaPedestal;
+import firok.tiths.block.pedestal.AdvancedMotiaPedestalBlock;
 import firok.tiths.tile.pedestal.TilePedestalBase;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUseContext;
 import net.minecraft.nbt.CompoundNBT;
@@ -49,7 +47,7 @@ public class ItemAdvancedMotiaCrystal extends ItemMaterial
 		World world = context.getWorld();
 		BlockPos pos = context.getPos();
 		BlockState state = world.getBlockState(pos);
-		BlockAdvancedMotiaPedestal block = TithsBlocks.BLOCK_ADVANCED_MOTIA_PEDESTAL.get();
+		AdvancedMotiaPedestalBlock block = TithsBlocks.ADVANCED_MOTIA_PEDESTAL.get();
 		if(!stack.hasTag() || state.getBlock() != block)
 			return ActionResultType.PASS;
 

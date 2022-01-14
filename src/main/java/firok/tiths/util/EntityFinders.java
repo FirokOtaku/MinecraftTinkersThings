@@ -21,6 +21,7 @@ public final class EntityFinders
 	{
 		List<Entity> ret=new ArrayList<>();
 		List<Entity> temps=world.getEntitiesWithinAABB(Entity.class,Ranges.Neighbour(center,distance+2),predicate);
+		if(temps.isEmpty()) return ret;
 		final double distanceSq=distance*distance;
 		for(Entity temp:temps)
 		{

@@ -1,7 +1,6 @@
 package firok.tiths.block.paving;
 
 import firok.tiths.tile.TileWithEntityType;
-import firok.tiths.tile.TithsTiles;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
@@ -13,9 +12,9 @@ import net.minecraft.world.IBlockReader;
 import net.minecraftforge.common.ToolType;
 import slimeknights.tconstruct.library.utils.HarvestLevels;
 
-public class BlockMotiaPavingStone extends BlockSwitchablePavingStoneBase
+public class MotiaPavingStoneBlock extends SwitchablePavingStoneBlockBase
 {
-	public BlockMotiaPavingStone()
+	public MotiaPavingStoneBlock()
 	{
 		super(
 				AbstractBlock.Properties.create(Material.ROCK)
@@ -48,7 +47,7 @@ public class BlockMotiaPavingStone extends BlockSwitchablePavingStoneBase
 	}
 
 	@Override
-	protected boolean canEntityPass(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context)
+	public boolean canEntityPassRuneBarrier(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context)
 	{
 		Entity entity = context.getEntity();
 		if(entity == null) return false;

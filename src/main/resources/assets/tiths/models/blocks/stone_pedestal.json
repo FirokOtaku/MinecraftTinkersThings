@@ -1,0 +1,11 @@
+{
+  "parent": "tiths:block/pedestal_template",
+  "textures": {
+    "mid_side": "minecraft:blocks/stone_andesite_smooth",
+    "top_top": "minecraft:blocks/stone_slab_top",
+    "bottom_side": "minecraft:blocks/stonebrick",
+    "top_side": "minecraft:blocks/stone_slab_side",
+    "bottom_top": "minecraft:blocks/stone",
+    "particle": "minecraft:blocks/stonebrick"
+  }
+}

@@ -9,7 +9,6 @@ import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 import slimeknights.tconstruct.library.utils.HarvestLevels;
@@ -19,9 +18,9 @@ import slimeknights.tconstruct.library.utils.HarvestLevels;
  * would "take photo" of the stack at player's main hand. <br>
  * it's display-use only. no need one stack after photo taken.
  */
-public class BlockMotiaPedestal extends BlockPedestalBase
+public class MotiaPedestalBlock extends PedestalBlockBase
 {
-	public BlockMotiaPedestal()
+	public MotiaPedestalBlock()
 	{
 		super(Properties.create(Material.ROCK)
 				.notSolid()

@@ -6,7 +6,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.IPlantable;
@@ -65,6 +67,7 @@ public final class Predicates
 	}
 	public static boolean isPlant(BlockState state)
 	{
+		// todo replace with net.minecraft.tags.BlockTags
 		Block block = state.getBlock();
 		Material material = state.getMaterial();
 		return block instanceof AbstractPlantBlock ||
@@ -84,6 +87,26 @@ public final class Predicates
 				material == BAMBOO_SAPLING ||
 				material == CORAL
 				;
+	}
+
+	/* === block logic predicates === */
+
+	/**
+	 * @see Blocks#neverAllowSpawn
+	 * */
+	@SuppressWarnings("JavadocReference")
+	public static boolean neverAllowSpawn(BlockState state, IBlockReader reader, BlockPos pos, EntityType<?> entity)
+	{
+		return false;
+	}
+
+	/**
+	 * @see Blocks#alwaysAllowSpawn
+	 * */
+	@SuppressWarnings("JavadocReference")
+	public static boolean alwaysAllowSpawn(BlockState state, IBlockReader reader, BlockPos pos, EntityType<?> entity)
+	{
+		return true;
 	}
 
 

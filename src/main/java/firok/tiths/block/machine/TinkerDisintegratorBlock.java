@@ -32,9 +32,9 @@ import java.util.List;
 /**
  * 匠魂粉碎机
  */
-public class TinkerDisintegrator extends Block
+public class TinkerDisintegratorBlock extends Block
 {
-	public TinkerDisintegrator()
+	public TinkerDisintegratorBlock()
 	{
 		super(
 				Properties.create(Material.IRON)

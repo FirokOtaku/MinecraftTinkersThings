@@ -1,4 +1,4 @@
-package firok.tiths.block;
+package firok.tiths.block.logic;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -15,9 +15,9 @@ import slimeknights.tconstruct.shared.block.GlowBlock;
 
 import java.util.Random;
 
-public class BlockIcelitGlow extends GlowBlock
+public class IcelitGlowBlock extends GlowBlock
 {
-	public BlockIcelitGlow()
+	public IcelitGlowBlock()
 	{
 		super(Block.Properties.create(Material.AIR).sound(SoundType.CLOTH).setLightLevel(state -> 6).tickRandomly());
 
