@@ -25,7 +25,7 @@ public final class EntityFinders
 		final double distanceSq=distance*distance;
 		for(Entity temp:temps)
 		{
-			if(temp.getDistanceSq(center.getX(), center.getY(), center.getZ())<=distanceSq)
+			if(temp.getDistanceSq(center.getX() + 0.5, center.getY() + 0.5, center.getZ() + 0.5)<=distanceSq)
 				ret.add(temp);
 		}
 

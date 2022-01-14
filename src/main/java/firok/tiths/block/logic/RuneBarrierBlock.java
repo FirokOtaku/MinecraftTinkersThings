@@ -21,6 +21,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.Random;
 
+import static firok.tiths.util.Predicates.canTrigger;
+
 /**
  * 符文屏障方块
  *
@@ -45,14 +47,14 @@ public class RuneBarrierBlock extends BarrierBlock
 	public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context)
 	{
 		boolean canPass = canEntityPass(state, worldIn, pos, context);
-		return canPass ? EMPTY : CUBE;
+		return canPass ? VoxelShapes.create(0,0,0,0,0,0) : CUBE;
 	}
 
 	public boolean canEntityPass(BlockState stateRuneBarrier, IBlockReader world, BlockPos posRuneBarrier, ISelectionContext context)
 	{
 		// todo 这个以后可以考虑做一下缓存
 		final int maxTop = RuneBarrierManager.getMaxTop();
-		for(int step = 1; step >= maxTop; step++)
+		for(int step = 1; step <= maxTop; step++)
 		{
 			BlockPos pos = posRuneBarrier.down(step);
 			BlockState state = world.getBlockState(pos);
@@ -64,6 +66,33 @@ public class RuneBarrierBlock extends BarrierBlock
 		}
 
 		return false;
+	}
+
+	@Override
+	public void onBlockHarvested(World world, BlockPos posRuneBarrier, BlockState stateRuneBarrier, PlayerEntity player)
+	{
+		final int maxTop = RuneBarrierManager.getMaxTop();
+		final BlockState stateBarrier = this.getDefaultState();
+		for(int step = 1; step <= maxTop; step++)
+		{
+			BlockPos pos = posRuneBarrier.down(step);
+			BlockState state = world.getBlockState(pos);
+			Block block = state.getBlock();
+			if(state == stateBarrier) continue;
+			else if(block instanceof IRuneBarrierProvider)
+			{
+				IRuneBarrierProvider provider = (IRuneBarrierProvider) block;
+				int height = provider.provideRuneBarrierTopHeight(state, world, pos);
+				if(step <= height) provider.updateRuneBarrier(world, pos, state, true);
+			}
+			else break;
+		}
+	}
+
+	@Override
+	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context)
+	{
+		return EMPTY;
 	}
 
 	@Override
@@ -115,6 +144,7 @@ public class RuneBarrierBlock extends BarrierBlock
 	}
 	private void addParticle(World world, BlockPos pos, Random rand, boolean optional)
 	{
+		if(canTrigger(rand, 0.6f))
 		world.addOptionalParticle(ParticleTypes.ENCHANT,
 				pos.getX() + rand.nextFloat(),
 				pos.getY() + rand.nextFloat(),

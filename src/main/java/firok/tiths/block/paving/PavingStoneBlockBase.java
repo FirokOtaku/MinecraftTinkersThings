@@ -45,20 +45,20 @@ public abstract class PavingStoneBlockBase extends Block implements IRuneBarrier
 	public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean isMoving)
 	{
 		super.onBlockAdded(state, world, pos, oldState, isMoving);
-		this.updateRuneBarrier(world, pos, state);
+		this.updateRuneBarrier(world, pos, state, true);
 	}
 
 	public void onBlockHarvested(World world, BlockPos pos, BlockState state, PlayerEntity player)
 	{
 		super.onBlockHarvested(world, pos, state, player);
-		this.updateRuneBarrier(world, pos, state);
+		this.updateRuneBarrier(world, pos, state, false);
 	}
 
 	@Override
 	public void neighborChanged(BlockState state, World world, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving)
 	{
 		super.neighborChanged(state, world, pos, blockIn, fromPos, isMoving);
-		this.updateRuneBarrier(world, pos, state);
+		this.updateRuneBarrier(world, pos, state, true);
 	}
 
 	// 所有的铺路石默认提供2格高度屏障

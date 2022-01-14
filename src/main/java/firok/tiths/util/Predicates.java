@@ -141,10 +141,10 @@ public final class Predicates
 
 	public static boolean isWorldDayTime(Entity en)
 	{
-		return en != null && en.world != null && en.world.isDaytime();
+		return en != null && en.world != null && en.world.getDayTime() % 24000 < 12000;
 	}
 	public static boolean isWorldNightTime(Entity en)
 	{
-		return en != null && en.world != null && en.world.isNightTime();
+		return en != null && en.world != null && en.world.getDayTime() % 24000 > 12000;
 	}
 }
