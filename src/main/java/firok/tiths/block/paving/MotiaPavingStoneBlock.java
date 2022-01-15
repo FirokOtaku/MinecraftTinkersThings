@@ -1,6 +1,7 @@
 package firok.tiths.block.paving;
 
 import firok.tiths.tile.TileWithEntityType;
+import firok.tiths.tile.pedestal.TilePedestalBase;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
@@ -9,6 +10,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 import slimeknights.tconstruct.library.utils.HarvestLevels;
 
@@ -31,7 +33,7 @@ public class MotiaPavingStoneBlock extends SwitchablePavingStoneBlockBase
 	}
 
 	@Override
-	public TileEntity createTileEntity(BlockState state, IBlockReader world)
+	public TileWithEntityType createTileEntity(BlockState state, IBlockReader world)
 	{
 		return new TileWithEntityType();
 	}
@@ -44,6 +46,17 @@ public class MotiaPavingStoneBlock extends SwitchablePavingStoneBlockBase
 			return ((TileWithEntityType) te).isInstance(entity);
 		}
 		return false;
+	}
+
+	public TileWithEntityType getTileWithTypeAt(World world, BlockPos pos)
+	{
+		TileEntity tile = world.getTileEntity(pos);
+		if(!(tile instanceof TileWithEntityType))
+		{
+			tile = createTileEntity(world.getBlockState(pos), world);
+			world.setTileEntity(pos, tile);
+		}
+		return (TileWithEntityType) tile;
 	}
 
 	@Override

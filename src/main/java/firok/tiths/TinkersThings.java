@@ -2,6 +2,7 @@ package firok.tiths;
 
 import firok.tiths.block.TithsBlocks;
 import firok.tiths.config.ConfigModifier;
+import firok.tiths.crafting.TithsCraftings;
 import firok.tiths.effect.TithsEffects;
 import firok.tiths.entity.TithsEntities;
 import firok.tiths.item.TithsItems;
@@ -30,6 +31,7 @@ public class TinkersThings
         bus.register(new TithsTiles());
         bus.register(new TithsItems());
         bus.register(new TithsEntities());
+//        bus.register(new TithsCraftings());
         bus.register(new TithsEffects());
 
         TithsModule.initRegisters();

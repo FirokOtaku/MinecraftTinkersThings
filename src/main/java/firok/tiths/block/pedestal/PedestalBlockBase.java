@@ -8,6 +8,7 @@ import net.minecraft.block.FurnaceBlock;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.datafix.fixes.EntityItemFrameFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
@@ -57,12 +58,12 @@ public abstract class PedestalBlockBase extends Block
 
 	public TilePedestalBase getTilePedestalAt(World world, BlockPos pos)
 	{
-		TilePedestalBase tile = (TilePedestalBase) world.getTileEntity(pos);
-		if(tile == null)
+		TileEntity tile = world.getTileEntity(pos);
+		if(!(tile instanceof TilePedestalBase))
 		{
 			tile = createTileEntity(world.getBlockState(pos), world);
 			world.setTileEntity(pos, tile);
 		}
-		return tile;
+		return (TilePedestalBase) tile;
 	}
 }

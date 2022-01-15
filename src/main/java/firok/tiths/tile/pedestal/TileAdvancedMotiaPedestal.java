@@ -35,7 +35,12 @@ public class TileAdvancedMotiaPedestal extends TilePedestalBase
 			CompoundNBT tagEntity = tag.getCompound(ItemAdvancedMotiaCrystal.KEY_NBT_ENTITY);
 
 			Optional<Entity> entity = EntityType.loadEntityUnchecked(tagEntity, world);
-			if(entity.isPresent()) this.entity = entity.get();
+			if(entity.isPresent())
+			{
+				this.entity = entity.get();
+//				this.entity.read(tagEntity);
+			}
+
 		}
 		catch (Exception e)
 		{
