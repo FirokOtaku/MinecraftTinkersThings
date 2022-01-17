@@ -72,6 +72,8 @@ public class TithsModifiers extends TithsModule
             = MODIFIERS.register("inky", ModifierInky::new);
     public static final RegistryObject<ModifierLionheart> MODIFIER_LIONHEART
             = MODIFIERS.register("lionheart", ModifierLionheart::new);
+    public static final RegistryObject<ModifierMaiming> MODIFIER_MAIMING
+            = MODIFIERS.register("maiming", ModifierMaiming::new);
     public static final RegistryObject<ModifierMoonlight> MODIFIER_MOONLIGHT
             = MODIFIERS.register("moonlight", ModifierMoonlight::new);
     public static final RegistryObject<ModifierPeaceEnergetic> MODIFIER_PEACE_ENERGETIC
@@ -79,6 +81,6 @@ public class TithsModifiers extends TithsModule
     public static final RegistryObject<ModifierPiercing> MODIFIER_PIERCING
             = MODIFIERS.register("piercing", ModifierPiercing::new);
 
-    public static final RegistryObject<ModifierMaiming> MODIFIER_MAIMING
-            = MODIFIERS.register("maiming", ModifierMaiming::new);
+    public static final RegistryObject<ModifierPyroelectric> MODIFIER_PYROELECTRIC
+            = MODIFIERS.register("pyroelectric", ModifierPyroelectric::new);
 }

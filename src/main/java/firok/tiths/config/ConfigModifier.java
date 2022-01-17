@@ -48,6 +48,8 @@ public class ConfigModifier
 
 	public static DoubleValue factor_peace_energetic_heal;
 
+	public static DoubleValue factor_pyroelectric_damage;
+
 
 	static {
 		ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
@@ -111,6 +113,9 @@ public class ConfigModifier
 
 		factor_peace_energetic_heal = builder.comment("")
 				.defineInRange("factor_peace_energetic_heal", 0.5, 0.1, 8);
+
+		factor_pyroelectric_damage = builder.comment("")
+				.defineInRange("factor_pyroelectric_damage", 1.8, 0.1, 5);
 
 		builder.pop();
 		INSTANCE = builder.build();
