@@ -3,7 +3,6 @@ package firok.tiths.modifier;
 import firok.tiths.TithsModule;
 import firok.tiths.modifier.general.*;
 import net.minecraftforge.fml.RegistryObject;
-import slimeknights.tconstruct.common.TinkerModule;
 
 public class TithsModifiers extends TithsModule
 {
@@ -83,4 +82,15 @@ public class TithsModifiers extends TithsModule
 
     public static final RegistryObject<ModifierPyroelectric> MODIFIER_PYROELECTRIC
             = MODIFIERS.register("pyroelectric", ModifierPyroelectric::new);
+
+    public static final RegistryObject<ModifierRadiant> MODIFIER_RADIANT
+            = MODIFIERS.register("radiant", ModifierRadiant::new);
+    public static final RegistryObject<ModifierRespecting> MODIFIER_RESPECTING
+            = MODIFIERS.register("respecting", ModifierRespecting::new);
+    public static final RegistryObject<ModifierShaking> MODIFIER_SHAKING
+            = MODIFIERS.register("shaking", ModifierShaking::new);
+    public static final RegistryObject<ModifierSoluble> MODIFIER_SOLUBLE
+            = MODIFIERS.register("soluble", ModifierSoluble::new);
+    public static final RegistryObject<ModifierSourcing> MODIFIER_SOURCING
+            = MODIFIERS.register("sourcing", ModifierSourcing::new);
 }

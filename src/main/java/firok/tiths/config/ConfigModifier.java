@@ -6,8 +6,6 @@ import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 import net.minecraftforge.common.ForgeConfigSpec.DoubleValue;
 import net.minecraftforge.common.ForgeConfigSpec.IntValue;
 
-import java.util.ArrayList;
-
 public class ConfigModifier
 {
 	public static ForgeConfigSpec INSTANCE;
@@ -37,11 +35,8 @@ public class ConfigModifier
 	public static DoubleValue factor_gorgeous_max;
 
 	public static DoubleValue factor_hemolytic_damage;
-
 	public static DoubleValue factor_hemolytic_limit;
-
 	public static DoubleValue rate_hemolytic;
-
 	public static DoubleValue factor_hemolytic_repair;
 
 	public static IntValue factor_inky;
@@ -49,6 +44,10 @@ public class ConfigModifier
 	public static DoubleValue factor_peace_energetic_heal;
 
 	public static DoubleValue factor_pyroelectric_damage;
+
+	public static DoubleValue range_radiant;
+
+	public static IntValue factor_soluble;
 
 
 	static {
@@ -116,6 +115,12 @@ public class ConfigModifier
 
 		factor_pyroelectric_damage = builder.comment("")
 				.defineInRange("factor_pyroelectric_damage", 1.8, 0.1, 5);
+
+		range_radiant = builder.comment("")
+				.defineInRange("range_radiant", 5f, 2, 10);
+
+		factor_soluble = builder.comment("")
+				.defineInRange("factor_soluble", 20, 1, 100);
 
 		builder.pop();
 		INSTANCE = builder.build();

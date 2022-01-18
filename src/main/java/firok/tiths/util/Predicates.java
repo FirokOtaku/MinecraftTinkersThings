@@ -6,6 +6,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
@@ -146,5 +148,12 @@ public final class Predicates
 	public static boolean isWorldNightTime(Entity en)
 	{
 		return en != null && en.world != null && en.world.getDayTime() % 24000 > 12000;
+	}
+
+	public static boolean isAnyStone(ItemStack loot)
+	{
+		if(loot.isEmpty()) return false;
+		final Block block = Block.getBlockFromItem(loot.getItem());
+		return block == Blocks.STONE || block == Blocks.COBBLESTONE; // todo 可能会换成矿辞或者tag判断
 	}
 }

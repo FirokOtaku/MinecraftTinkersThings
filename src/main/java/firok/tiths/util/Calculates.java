@@ -97,4 +97,16 @@ public final class Calculates
 
 		return ret;
 	}
+
+	/**
+	 * 计算单位向量
+	 */
+	public static Vector3d calcUnitVector(Vector3d vec)
+	{
+		double length=vec.x * vec.x + vec.y * vec.y + vec.z * vec.z;
+		length = Math.sqrt(length);
+
+		if(length!=0) return new Vector3d( vec.x / length, vec.y / length, vec.z / length );
+		else return null;
+	}
 }
