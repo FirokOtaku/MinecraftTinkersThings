@@ -93,4 +93,9 @@ public class TithsModifiers extends TithsModule
             = MODIFIERS.register("soluble", ModifierSoluble::new);
     public static final RegistryObject<ModifierSourcing> MODIFIER_SOURCING
             = MODIFIERS.register("sourcing", ModifierSourcing::new);
+
+    public static final RegistryObject<ModifierStaminaFocusing> MODIFIER_STAMINA_FOCUSING
+            = MODIFIERS.register("stamina_focusing", ModifierStaminaFocusing::new);
+    public static final RegistryObject<ModifierStarDashing> MODIFIER_STAR_DASHING
+            = MODIFIERS.register("star_dashing", ModifierStarDashing::new);
 }

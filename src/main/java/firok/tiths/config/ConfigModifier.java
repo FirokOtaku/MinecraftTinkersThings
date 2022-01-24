@@ -49,6 +49,10 @@ public class ConfigModifier
 
 	public static IntValue factor_soluble;
 
+	public static IntValue factor_star_dashing_amount;
+	public static DoubleValue factor_star_dashing_speed;
+	public static DoubleValue factor_star_dashing_damage;
+
 
 	static {
 		ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();

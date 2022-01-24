@@ -27,6 +27,8 @@ public final class Calculates
 	 */
 	public static final float FAC = (float) Math.PI/180;
 
+	public static final double PI_2 = Math.PI / 2, PI_4 = Math.PI / 4, PI_6 = Math.PI / 6, PI = Math.PI;
+
 	public static int between(Random rand,int min,int max)
 	{
 		return min + (max > min ? rand.nextInt(1+max-min) : 0);

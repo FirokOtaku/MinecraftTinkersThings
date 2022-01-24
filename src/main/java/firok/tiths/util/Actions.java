@@ -1,5 +1,7 @@
 package firok.tiths.util;
 
+import firok.tiths.entity.TithsEntities;
+import firok.tiths.entity.projectile.ProjectileDashingStar;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
@@ -14,6 +16,8 @@ import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.EffectType;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
 import slimeknights.tconstruct.library.tools.item.ToolItem;
@@ -23,6 +27,8 @@ import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Random;
+
+import static firok.tiths.util.Calculates.*;
 
 /**
  * util class for many effects
@@ -224,5 +230,63 @@ public class Actions
 		}
 
 		return 0;
+	}
+
+	// 星绽 - 创建粒子
+	public static ProjectileDashingStar CauseStarDashing(World world,double fromX,double fromY,double fromZ,double toX,double toY,double toZ,float speed,float damage,Entity shootingEntity)
+	{
+		ProjectileDashingStar star = TithsEntities.projectileDashingStar.get().create(world);
+		star.setPosition(fromX, fromY, fromZ);
+		star.setShooter(shootingEntity);
+
+		double mod = (fromX-toX)*(fromX-toX)+(fromY-toY)*(fromY-toY)+(fromZ-toZ)*(fromZ-toZ);
+		mod = MathHelper.sqrt(mod);
+
+		star.setMotion(
+				speed * (toX-fromX) / mod,
+				speed * (toY-fromY) / mod + 0.2,
+				speed * (toZ-fromZ) / mod
+		);
+		star.setDamage(damage);
+
+		world.addEntity(star);
+		return star;
+	}
+	public static ProjectileDashingStar CauseStarDashing(Entity from,Entity to,float speed,float damage,Entity shootingEntity)
+	{
+		Vector3d fromPos = from.getPositionVec(), toPos = to.getPositionVec();
+		ProjectileDashingStar star=CauseStarDashing(from.world,
+				fromPos.x, fromPos.y, fromPos.z,
+				toPos.x,toPos.y+to.getEyeHeight(),toPos.z,
+				speed,damage,shootingEntity);
+		return star;
+	}
+	private static final float OffsetY=0.866f;
+	private static final float OffsetY2=1.732f;
+	public static ProjectileDashingStar[] CauseStarDashing(final World world,final double centerX,final double centerY,final double centerZ,final int amount,final float speed,final float damage,Entity shootingEntity)
+	{
+		ProjectileDashingStar[] ret=new ProjectileDashingStar[amount];
+		Random rand=world.rand;
+
+		for(int i=0;i<amount;i++)
+		{
+			double fromY= centerY-OffsetY+rand.nextDouble()*OffsetY2;
+			double toY= fromY-OffsetY+rand.nextDouble()*OffsetY2;
+
+			float rotXZ=rand.nextFloat() * 2 * (float)Math.PI; // 从中心点到第一圈的角度
+			float rotXZ2=rotXZ- (float)PI_6 +rand.nextFloat()*2*(float)PI_6; // 从第一圈向外的角度
+
+			double fromX=centerX+ MathHelper.cos(rotXZ)*2;
+			double fromZ=centerZ+ MathHelper.sin(rotXZ)*2;
+
+			double toX=fromX+ MathHelper.cos(rotXZ2);
+			double toZ=fromZ+ MathHelper.sin(rotXZ2);
+
+			ret[i]=CauseStarDashing(world,fromX,fromY,fromZ,toX,toY,toZ,speed,damage,shootingEntity);
+		}
+
+		// todo sound event
+
+		return ret;
 	}
 }
