@@ -39,4 +39,7 @@ public class ModifierTest extends Modifier {
     // retrospective 不太想做这种的了
     // sourcing
     // sovereign ai操作相关
+    // steadfast 岿然 记不清什么效果
+    // StellarFalling projectile
+    //
 }

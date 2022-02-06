@@ -98,4 +98,10 @@ public class TithsModifiers extends TithsModule
             = MODIFIERS.register("stamina_focusing", ModifierStaminaFocusing::new);
     public static final RegistryObject<ModifierStarDashing> MODIFIER_STAR_DASHING
             = MODIFIERS.register("star_dashing", ModifierStarDashing::new);
+    public static final RegistryObject<ModifierSteamy> MODIFIER_STEAMY
+            = MODIFIERS.register("steamy", ModifierSteamy::new);
+    public static final RegistryObject<ModifierSwitching> MODIFIER_SWITCHING
+            = MODIFIERS.register("switching", ModifierSwitching::new);
+    public static final RegistryObject<ModifierTerrifying> MODIFIER_TERRIFYING
+            = MODIFIERS.register("terrifying", ModifierTerrifying::new);
 }
