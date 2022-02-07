@@ -43,6 +43,9 @@ public class TithsEffects extends TithsModule
 	public static RegistryObject<EffectLionHeart> EFFECT_LION_HEART = register("lion_heart", EffectLionHeart::new);
 
 	@DevUse(isPlaceholder = true)
+	public static RegistryObject<EffectMomentumSurrounding> EFFECT_MOMENTUM_SURROUNDING = register("momentum_surrounding", EffectMomentumSurrounding::new);
+
+	@DevUse(isPlaceholder = true)
 	public static RegistryObject<EffectParalysed> EFFECT_PARALYSED = register("paralysed", EffectParalysed::new);
 
 	@DevUse(isPlaceholder = true)
