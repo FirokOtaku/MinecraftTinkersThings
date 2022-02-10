@@ -21,7 +21,7 @@ public class TithsEntities extends TithsModule
 		return EntityType.Builder.create(ProjectileDashingStar::new, EntityClassification.MISC)
 				.setShouldReceiveVelocityUpdates(true)
 				.setTrackingRange(24)
-				.size(0.5,0.5)
+				.size(0.5f,0.5f)
 				.setCustomClientFactory((spawnEntity, world) -> TithsEntities.projectileDashingStar.get().create(world));
 	});
 }
