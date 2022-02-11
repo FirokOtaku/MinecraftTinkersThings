@@ -16,6 +16,7 @@ public class EffectAcidWetted extends TithsEffect
 	EffectAcidWetted()
 	{
 		super(EffectType.HARMFUL, 0x0e8c39);
+		setNoCure();
 	}
 
 	@Override

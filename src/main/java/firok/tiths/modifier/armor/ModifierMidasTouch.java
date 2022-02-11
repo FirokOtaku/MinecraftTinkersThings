@@ -23,17 +23,28 @@ public class ModifierMidasTouch extends TotalArmorLevelModifier
 		super(0, LEVELS);
 	}
 
-	@Override
-	public void onAttacked(
-			IModifierToolStack tool, int level,
-			EquipmentContext context, EquipmentSlotType slotType,
-			DamageSource source, float amount, boolean isDirectDamage
-	) {
-		if(source.isMagicDamage() || source.isUnblockable() || source.isFireDamage()) return;
-		LivingEntity entity = context.getEntity();
-		int levelTotal = ModifierUtil.getTotalModifierLevel(entity, LEVELS);
-		System.out.printf("level %d, total level %d",level,levelTotal);
+	public static boolean canDealWith(DamageSource ds)
+	{
+		return !ds.isMagicDamage() && !ds.isUnblockable() && !ds.isFireDamage();
+	}
 
-		// todo 整个挪到isSourceBlocked里面
+	@Override
+	public float getProtectionModifier(IModifierToolStack tool, int level, EquipmentContext context, EquipmentSlotType slotType, DamageSource source, float modifierValue)
+	{
+		return canDealWith(source) ? modifierValue + 2 : 0;
+	}
+
+	@Override
+	public boolean isSourceBlocked(IModifierToolStack tool, int level, EquipmentContext context, EquipmentSlotType slotType, DamageSource source, float amount)
+	{
+		if(canDealWith(source))
+		{
+			LivingEntity entity = context.getEntity();
+			int levelTotal = ModifierUtil.getTotalModifierLevel(entity, LEVELS);
+			System.out.printf("level %d, total level %d",level,levelTotal);
+
+			return true;
+		}
+		return false;
 	}
 }

@@ -19,6 +19,7 @@ public class EffectIlluminating extends TithsEffect
 	EffectIlluminating()
 	{
 		super(EffectType.BENEFICIAL, 0xebf756);
+		setNoCure();
 	}
 
 	@Override

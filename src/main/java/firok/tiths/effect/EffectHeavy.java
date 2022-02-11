@@ -15,6 +15,7 @@ public class EffectHeavy extends TithsEffect
 	EffectHeavy()
 	{
 		super(EffectType.NEUTRAL, Colors.DarkSeaGreen);
+		setNoCure();
 	}
 
 	@Override

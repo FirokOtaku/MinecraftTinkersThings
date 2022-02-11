@@ -15,5 +15,6 @@ public class EffectVoidInfected extends TithsEffect
 	{
 		super(EffectType.HARMFUL, 0x4a0964, false);
 		addAttributesModifier(Attributes.MAX_HEALTH, uuidMaxHealth, -0.3, AttributeModifier.Operation.MULTIPLY_TOTAL);
+		setNoCure();
 	}
 }

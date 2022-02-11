@@ -17,5 +17,6 @@ public class EffectArmorSoftened extends TithsEffect
 		super(EffectType.HARMFUL, 0x644209);
 		addAttributesModifier(Attributes.ARMOR, UUID_ARMOR, -0.2, AttributeModifier.Operation.MULTIPLY_TOTAL);
 		addAttributesModifier(Attributes.ARMOR_TOUGHNESS, UUID_ARMOR_TOUGHNESS, -0.2, AttributeModifier.Operation.MULTIPLY_TOTAL);
+		setNoCure();
 	}
 }

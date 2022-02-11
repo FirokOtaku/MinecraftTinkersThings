@@ -16,6 +16,7 @@ public class EffectIcy extends TithsEffect
 	EffectIcy()
 	{
 		super(EffectType.BENEFICIAL, 0x4194c0);
+		setNoCure();
 	}
 
 	@Override

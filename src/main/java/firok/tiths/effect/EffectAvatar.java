@@ -27,6 +27,7 @@ public class EffectAvatar extends TithsEffect
 		addAttributesModifier(Attributes.ARMOR, UUID_ARMOR, 10, AttributeModifier.Operation.ADDITION);
 		addAttributesModifier(Attributes.ARMOR_TOUGHNESS, UUID_ARMOR_TOUGHNESS, 10, AttributeModifier.Operation.ADDITION);
 		addAttributesModifier(Attributes.ATTACK_DAMAGE, UUID_ATTACK_DAMAGE, 10, AttributeModifier.Operation.ADDITION);
+		setNoCure();
 	}
 
 	@Override

@@ -16,6 +16,7 @@ public class EffectSoluble extends TithsEffect
 	EffectSoluble()
 	{
 		super(EffectType.NEUTRAL, Colors.LightGray);
+		setNoCure();
 	}
 
 	@Override

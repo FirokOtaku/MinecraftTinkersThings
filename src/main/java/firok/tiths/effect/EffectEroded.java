@@ -19,6 +19,7 @@ public class EffectEroded extends TithsEffect
 	{
 		super(EffectType.HARMFUL, 0x8a0d82);
 		addAttributesModifier(Attributes.ARMOR, uuidMaxHealth, -1, AttributeModifier.Operation.ADDITION);
+		setNoCure();
 	}
 
 	@Override

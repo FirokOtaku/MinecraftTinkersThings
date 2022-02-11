@@ -4,12 +4,14 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.EffectType;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
 import java.util.List;
 
 abstract class TithsEffect extends Effect
@@ -24,7 +26,8 @@ abstract class TithsEffect extends Effect
 		this.isInstant = isInstant;
 		this.isDisplayHUD = isDisplayHUD;
 		this.isDisplayInventory = isDisplayInventory;
-
+		this.listCurativeItem = new ArrayList<>(3);
+		this.listCurativeItem.add(new ItemStack(Items.MILK_BUCKET)); // could be cured by milk at default case
 	}
 	protected TithsEffect(EffectType type, int liquidColor, boolean isInstant, boolean isHidden)
 	{
@@ -43,6 +46,21 @@ abstract class TithsEffect extends Effect
 	protected TithsEffect(EffectType type, int liquidColor)
 	{
 		this(type, liquidColor, false);
+	}
+
+	protected List<ItemStack> listCurativeItem;
+	public void setNoCure()
+	{
+		this.listCurativeItem.clear();
+	}
+	public void addCurativeItem(ItemStack stack)
+	{
+		this.listCurativeItem.add(stack);
+	}
+	@Override
+	public final List<ItemStack> getCurativeItems()
+	{
+		return new ArrayList<>(this.listCurativeItem);
 	}
 
 	@Override
@@ -113,4 +131,10 @@ abstract class TithsEffect extends Effect
 		return nbt;
 	}
 
+	/* ==== util method ==== */
+	public void adjustTime(LivingEntity living, int time, int level)
+	{
+		living.removePotionEffect(this);
+		living.addPotionEffect(new EffectInstance(this, time, level));
+	}
 }

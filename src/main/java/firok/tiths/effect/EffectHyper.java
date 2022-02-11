@@ -14,5 +14,6 @@ public class EffectHyper extends TithsEffect
 	{
 		super(EffectType.BENEFICIAL, 0xa022ff, false, true);
 		addAttributesModifier(Attributes.MOVEMENT_SPEED, uuidMovementSpeed, 0.05, AttributeModifier.Operation.MULTIPLY_TOTAL);
+		setNoCure();
 	}
 }

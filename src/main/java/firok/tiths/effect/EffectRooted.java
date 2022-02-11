@@ -27,6 +27,7 @@ public class EffectRooted extends TithsEffect
 	{
 		super(EffectType.HARMFUL, 0x644209);
 		addAttributesModifier(Attributes.MOVEMENT_SPEED, uuidMovementSpeed, -0.95, AttributeModifier.Operation.MULTIPLY_TOTAL);
+		setNoCure();
 	}
 
 	@Override

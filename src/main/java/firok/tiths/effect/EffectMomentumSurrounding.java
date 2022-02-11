@@ -14,6 +14,7 @@ public class EffectMomentumSurrounding extends TithsEffect
 	protected EffectMomentumSurrounding()
 	{
 		super(EffectType.NEUTRAL, 0x56728a, false);
+		setNoCure();
 	}
 
 	@Override

@@ -18,6 +18,7 @@ public class EffectTurbulent extends TithsEffect
 	EffectTurbulent()
 	{
 		super(EffectType.HARMFUL, 0x062147);
+		setNoCure();
 	}
 
 	@Override
