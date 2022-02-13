@@ -1,22 +1,42 @@
 package firok.tiths.material;
 
+import lombok.Data;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import slimeknights.tconstruct.common.registration.MetalItemObject;
+import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.library.materials.definition.MaterialId;
 import slimeknights.tconstruct.library.materials.json.MaterialJson;
 import slimeknights.tconstruct.library.materials.stats.IMaterialStats;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 
 import javax.annotation.Nullable;
+import java.util.List;
+import java.util.Map;
 
+@Data
 public class MaterialInfo
 {
-    boolean a;
+    /**
+     * 是否为普通材料 (非隐藏, 无条件注册)
+     */
+    boolean direct;
 
+    /**
+     * 材料id
+     */
     MaterialId id;
+
     MetalItemObject metalItemObject;
 
+    /**
+     * 材料等级
+     */
     int tier;
+
+    /**
+     * 材料分类
+     * @see AbstractMaterialDataProvider
+     */
     int order;
     boolean craftable;
     int color;
@@ -24,91 +44,8 @@ public class MaterialInfo
     @Nullable ICondition condition;
     MaterialJson.Redirect[] redirect;
 
-    IMaterialStats[] stats;
-
     int value;
     int needed;
-
-    Modifier modifier;
-
-    public MaterialInfo(MaterialId id, MetalItemObject metalItemObject, int tier, int order, boolean craftable, int color, boolean hidden, @Nullable ICondition condition, MaterialJson.Redirect[] redirect, IMaterialStats[] stats, int value, int needed, Modifier modifier) {
-        this(id, metalItemObject, tier, order, craftable, color, stats, value, needed, modifier);
-        a = true;
-
-        this.hidden = hidden;
-        this.condition = condition;
-        this.redirect = redirect;
-    }
-
-    public MaterialInfo(MaterialId id, MetalItemObject metalItemObject, int tier, int order, boolean craftable, int color, IMaterialStats[] stats, int value, int needed, Modifier modifier) {
-        a = false;
-
-        this.id = id;
-        this.metalItemObject = metalItemObject;
-        this.tier = tier;
-        this.order = order;
-        this.craftable = craftable;
-        this.color = color;
-        this.stats = stats;
-        this.value = value;
-        this.needed = needed;
-        this.modifier = modifier;
-    }
-
-    public Modifier getModifier() {
-        return modifier;
-    }
-
-    @Nullable
-    public ICondition getCondition() {
-        return condition;
-    }
-
-    public IMaterialStats[] getStats() {
-        return stats;
-    }
-
-    public int getColor() {
-        return color;
-    }
-
-    public int getNeeded() {
-        return needed;
-    }
-
-    public int getOrder() {
-        return order;
-    }
-
-    public int getTier() {
-        return tier;
-    }
-
-    public int getValue() {
-        return value;
-    }
-
-    public MaterialId getId() {
-        return id;
-    }
-
-    public MetalItemObject getMetalItemObject() {
-        return metalItemObject;
-    }
-
-    public MaterialJson.Redirect[] getRedirect() {
-        return redirect;
-    }
-
-    public boolean isCraftable() {
-        return craftable;
-    }
-
-    public boolean isA() {
-        return a;
-    }
-
-    public boolean isHidden() {
-        return hidden;
-    }
+    List<Modifier> modifierDefault;
+    Map<IMaterialStats, Modifier[]> modifierStat;
 }

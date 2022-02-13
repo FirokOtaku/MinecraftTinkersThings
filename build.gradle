@@ -1,8 +1,8 @@
 buildscript {
     repositories {
+        mavenCentral()
         // These repositories are only for Gradle plugins, put any other repositories in the repository block further below
         maven { url = 'https://maven.minecraftforge.net' }
-        mavenCentral()
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
@@ -130,6 +130,12 @@ dependencies {
 
     compileOnly fg.deobf("mezz.jei:jei-${project.jei_version}:api")
     runtimeOnly fg.deobf("mezz.jei:jei-${project.jei_version}")
+
+    // lombok
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+    testCompileOnly 'org.projectlombok:lombok:1.18.22'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
 }
 
 // Example for how to get properties into the manifest for reading at runtime.

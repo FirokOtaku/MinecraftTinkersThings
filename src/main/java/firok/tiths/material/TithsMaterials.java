@@ -1,14 +1,15 @@
 package firok.tiths.material;
 
-import firok.tiths.TithsItemGroup;
 import firok.tiths.TithsModule;
 import firok.tiths.util.DevUse;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraftforge.fml.RegistryObject;
 import slimeknights.mantle.item.BlockTooltipItem;
+import slimeknights.tconstruct.common.TinkerModule;
 import slimeknights.tconstruct.common.registration.MetalItemObject;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.library.materials.definition.MaterialId;
@@ -18,8 +19,10 @@ import slimeknights.tconstruct.tools.stats.HandleMaterialStats;
 import slimeknights.tconstruct.tools.stats.HeadMaterialStats;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.function.Function;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 import static firok.tiths.material.TithsMaterialIds.*;
 import static firok.tiths.material.TithsMetalItemObjects.*;
@@ -30,12 +33,12 @@ public class TithsMaterials extends TithsModule
 {
     public static final ArrayList<Supplier<MaterialInfo>> MATERIALS = new ArrayList<>();
 
-    protected static final Item.Properties PROPS = GENERAL_PROPS.group(TithsItemGroup.INSTANCE);
+    protected static final Item.Properties PROPS = GENERAL_PROPS.group(TinkerModule.TAB_GENERAL);
     protected static final Function<Block,? extends BlockItem> GENERAL_TOOLTIP_BLOCK_ITEM = (b) -> new BlockTooltipItem(b, PROPS);
 
 
 
-    /* === materials === */
+    /* === materials for test === */
 
     @DevUse(isPlaceholder = true)
     public static final Supplier<MaterialInfo> MATERIAL_TEST = devMMI(ID_TEST, ITEM_OBJECT_TEST, MODIFIER_TEST);
@@ -111,27 +114,21 @@ public class TithsMaterials extends TithsModule
     @DevUse(isPlaceholder = true)
     private static Supplier<MaterialInfo> devMMI(MaterialId id, MetalItemObject mio, RegistryObject<? extends Modifier>... modifiers)
     {
-        return register(() -> {
-            TinkerMaterialBuilder ret = new TinkerMaterialBuilder(id, mio)
-                    .addMaterial(1, AbstractMaterialDataProvider.ORDER_GENERAL, true, 0xFFD359)
-                    .addMaterialStats(
-                            new HeadMaterialStats(250, 7.5f, 2, 2f),
-                            new HandleMaterialStats(0.9f, 1.15f, 1f, 1f),
-                            ExtraMaterialStats.DEFAULT
-                    )
-                    .addRecipe(1, 1);
-
-            if(modifiers != null && modifiers.length > 0)
-            {
-                for (RegistryObject<? extends Modifier> modifier : modifiers)
-                {
-                    if(modifier == null) continue;
-
-                    ret.addModifier(modifier.get());
-                }
-            }
-
-            return ret.build();
-        });
+        return register(
+                () -> TithsMaterialBuilder.create(id, mio)
+                .withProperties(1, AbstractMaterialDataProvider.ORDER_GENERAL, true, 0xFFD359)
+                .withStat(
+                        new HeadMaterialStats(250, 7.5f, 2, 2f)
+                )
+                .withStat(
+                        new HandleMaterialStats(0.9f, 1.15f, 1f, 1f)
+                )
+                .withStat(
+                        ExtraMaterialStats.DEFAULT
+                )
+                .withDefaultModifiers(Arrays.stream(modifiers).map(RegistryObject::get).collect(Collectors.toList()))
+                .withRecipe(1, 1)
+                .build()
+        );
     }
 }
