@@ -206,6 +206,12 @@ public final class Configs
 		@RangeDouble(min=0.01,max=5)
 		public static double factor_chemical_instable = 1;
 
+		/**
+		 * 化学不稳定爆炸是否破坏地形 (默认关闭, 避免多人服拆家)
+		 */
+		@LangKey(pgt+"enable_chemical_instable_grief")
+		public static boolean enable_chemical_instable_grief = false;
+
 //		@LangKey(pgp+"factor_clustering_durability")
 //		@RangeInt(min=2,max=10000)
 //		public static int factor_clustering_durability = 550;
@@ -505,8 +511,8 @@ public final class Configs
 		@LangKey(pwg+"enable_world_gen")
 		public static boolean enable_world_gen=true;
 
-		@LangKey(pwg+nameAltairium) // 河鼓
-		public static String altairium="type=common; min_y=10; max_y=70; size=3; strategy_biome=ONLY_WHITELIST; biomes=$desert";
+		@LangKey(pwg+nameAltairium) // 河鼓 - 金属
+		public static String altairium="type=common; time_chunk=1; rate_single=0.8; min_y=10; max_y=70; size=3; strategy_biome=ONLY_WHITELIST; biomes=$desert";
 
 		@LangKey(pwg+nameBrumeJade) // 云玉
 		public static String brume_jade="type=cloud; rate_chunk=0.015; strategy_dim=ONLY_WHITELSIT; dims=0";
@@ -517,75 +523,75 @@ public final class Configs
 		@LangKey(pwg+nameBrokenBedrock) // 破碎基岩
 		public static String broken_bedrock="type=bedrock; time_chunk=3; rate_single=0.6; size=8";
 
-		@LangKey(pwg+nameChloroplast) // 叶绿矿
-		public static String chloroplast="type=common; time_chunk=2; rate_single=0.1; size=3; min_y=60; max_y=70";
+		@LangKey(pwg+nameChloroplast) // 叶绿矿 - 金属
+		public static String chloroplast="type=common; time_chunk=1; rate_single=0.15; size=3; min_y=60; max_y=70";
 
-		@LangKey(pwg+nameCinnabar) // 水银
-		public static String cinnabar="type=common; time_chunk=4; size=9; min_y=18; max_y=56";
+		@LangKey(pwg+nameCinnabar) // 水银 - 矿物偏金属簇
+		public static String cinnabar="type=common; time_chunk=2; rate_single=0.7; size=3; min_y=18; max_y=56";
 
-		@LangKey(pwg+nameCordierite) // 堇青石
-		public static String cordierite="type=common; time_chunk=6; rate_single=0.5; size=15; min_y=10; max_y=55; strategy_biome=ONLY_WHITELIST; biomes=minecraft:taiga_cold,minecraft:redwood_taiga,minecraft:taiga,minecraft:mutated_taiga_cold,minecraft:mutated_redwood_taiga,minecraft:mutated_taiga";
+		@LangKey(pwg+nameCordierite) // 堇青石 - 宝石
+		public static String cordierite="type=common; time_chunk=2; rate_single=0.5; size=2; min_y=10; max_y=55; strategy_biome=ONLY_WHITELIST; biomes=minecraft:taiga_cold,minecraft:redwood_taiga,minecraft:taiga,minecraft:mutated_taiga_cold,minecraft:mutated_redwood_taiga,minecraft:mutated_taiga";
 
-		@LangKey(pwg+nameCorundum) // 刚玉
-		public static String corundum="type=common; time_chunk=4; rate_single=0.7; size=7; min_y=0; max_y=28; strategy_biome=ONLY_WHITELIST; biomes=$hill";
+		@LangKey(pwg+nameCorundum) // 刚玉 - 宝石
+		public static String corundum="type=common; time_chunk=1; rate_single=0.7; size=2; min_y=0; max_y=28; strategy_biome=ONLY_WHITELIST; biomes=$hill";
 
 //		public static String furutorin; // 泠笛石
 
-		@LangKey(pwg+nameHalleium) // 哈雷
-		public static String halleium="type=common; time_chunk=2; rate_single=0.5; size=4; min_y=15; max_y=18";
+		@LangKey(pwg+nameHalleium) // 哈雷 - 金属
+		public static String halleium="type=common; time_chunk=1; rate_single=0.5; size=3; min_y=15; max_y=18";
 
 //		public static String heavesand=""; // 沉沙石
 
-		@LangKey(pwg+nameHothium) // 霍斯
-		public static String hothium="type=common; time_chunk=5; rate_single=0.6; size=3; min_y=0; max_y=60; strategy_biome=ONLY_WHITELIST; biomes=$cold";
+		@LangKey(pwg+nameHothium) // 霍斯 - 金属
+		public static String hothium="type=common; time_chunk=1; rate_single=0.6; size=3; min_y=0; max_y=60; strategy_biome=ONLY_WHITELIST; biomes=$cold";
 
-		@LangKey(pwg+nameIcelandSpar) // 冰州石
-		public static String iceland_spar="type=common; time_chunk=8; rate_single=0.6; size=3; min_y=0; max_y=50; strategy_biome=ONLY_WHITELIST; biomes=$cold";
+		@LangKey(pwg+nameIcelandSpar) // 冰州石 - 宝石
+		public static String iceland_spar="type=common; time_chunk=2; rate_single=0.5; size=2; min_y=0; max_y=50; strategy_biome=ONLY_WHITELIST; biomes=$cold";
 
-		@LangKey(pwg+nameIcelit) // 冰明
-		public static String icelit="type=common; time_chunk=6; rate_single=0.8; size=6; min_y=5; max_y=50; strategy_biome=ONLY_WHITELIST; biomes=$sea";
+		@LangKey(pwg+nameIcelit) // 冰明 - 宝石
+		public static String icelit="type=common; time_chunk=2; rate_single=0.6; size=2; min_y=5; max_y=50; strategy_biome=ONLY_WHITELIST; biomes=$sea";
 
 //		@LangKey(nameImitatium) // 拟素
 //		public static String imitatium="type=common; time_chunk=";
 
-		@LangKey(pwg+nameImmersedSilver) // 沉银
-		public static String immersed_silver="type=common; time_chunk=8; rate_single=0.5; size=7; min_y=0; max_y=30; strategy_biome=ONLY_WHITELIST; biomes=$sea";
+		@LangKey(pwg+nameImmersedSilver) // 沉银 - 金属
+		public static String immersed_silver="type=common; time_chunk=2; rate_single=0.5; size=3; min_y=0; max_y=30; strategy_biome=ONLY_WHITELIST; biomes=$sea";
 
-		@LangKey(pwg+nameInertWitherium) // 惰性凋零
-		public static String inert_witherium="type=common; time_chunk=2; min_y=5; max_y=128; rate_single=0.5; size=3; strategy_dim=ONLY_WHITELIST; dims=-1; selector=netherrack";
+		@LangKey(pwg+nameInertWitherium) // 惰性凋零 - 金属
+		public static String inert_witherium="type=common; time_chunk=1; min_y=5; max_y=128; rate_single=0.5; size=3; strategy_dim=ONLY_WHITELIST; dims=-1; selector=netherrack";
 
 		@LangKey(pwg+nameInkPowder) // 墨粉
 		public static String ink_powder="type=common; rate_chunk=0.5; size=10; min_y=40; max_y=80";
 
-		@LangKey(pwg+nameLavaCrystal) // 岩浆水晶
-		public static String lava_crystal="type=common; time_chunk=10; size=3; min_y=32; max_y=33; strategy_dim=ONLY_WHITELIST; dims=-1; selector=lava";
+		@LangKey(pwg+nameLavaCrystal) // 岩浆水晶 - 宝石
+		public static String lava_crystal="type=common; time_chunk=2; rate_single=0.6; size=2; min_y=32; max_y=33; strategy_dim=ONLY_WHITELIST; dims=-1; selector=lava";
 
-		@LangKey(pwg+nameLizanite) // 丽辰石
-		public static String lizanite="type=common; time_chunk=4; rate_single=0.5; size=5; min_y=6; max_y=50; strategy_dim=ONLY_WHITELIST; dims=-1; selector=netherrack";
+		@LangKey(pwg+nameLizanite) // 丽辰石 - 宝石
+		public static String lizanite="type=common; time_chunk=1; rate_single=0.5; size=2; min_y=6; max_y=50; strategy_dim=ONLY_WHITELIST; dims=-1; selector=netherrack";
 
-		@LangKey(pwg+nameMoonStone) // 月光石
-		public static String moon_stone="type=common; time_chunk=3; rate_single=0.8; size=5; min_y=5; max_y=50; strategy_biome=ONLY_WHITELIST; biomes=$cold";
+		@LangKey(pwg+nameMoonStone) // 月光石 - 宝石
+		public static String moon_stone="type=common; time_chunk=1; rate_single=0.7; size=2; min_y=5; max_y=50; strategy_biome=ONLY_WHITELIST; biomes=$cold";
 
-		@LangKey(pwg+nameNitre) // 硝石
-		public static String nitre="type=common; time_chunk=4; size=8; min_y=30; max_y=50; strategy_biome=ONLY_WHITELIST; biomes=$desert";
+		@LangKey(pwg+nameNitre) // 硝石 - 宝石类矿物
+		public static String nitre="type=common; time_chunk=1; rate_single=0.7; size=2; min_y=30; max_y=50; strategy_biome=ONLY_WHITELIST; biomes=$desert";
 
-		@LangKey(pwg+nameOpal) // 欧珀
-		public static String opal="type=common; size=5; min_y=0; max_y=24; strategy_biome=ONLY_WHITELIST; biome=$desert";
+		@LangKey(pwg+nameOpal) // 欧珀 - 宝石
+		public static String opal="type=common; time_chunk=1; rate_single=0.8; size=2; min_y=0; max_y=24; strategy_biome=ONLY_WHITELIST; biome=$desert";
 
-		@LangKey(pwg+namePolarium) // 勾陈
-		public static String polarium="type=common; time_chunk=6; size=5; min_y=0; max_y=180; strategy_dim=ONLY_WHITELIST; dims=1; selector=end_stone";
+		@LangKey(pwg+namePolarium) // 勾陈 - 金属
+		public static String polarium="type=common; time_chunk=2; rate_single=0.6; size=3; min_y=0; max_y=180; strategy_dim=ONLY_WHITELIST; dims=1; selector=end_stone";
 
-		@LangKey(pwg+namePrehnite) // 葡萄石
-		public static String prehnite="type=common; time_chunk=8; rate_single=0.3; size=5; min_y=0; max_y=11";
+		@LangKey(pwg+namePrehnite) // 葡萄石 - 宝石
+		public static String prehnite="type=common; time_chunk=2; rate_single=0.3; size=2; min_y=0; max_y=11";
 
-		@LangKey(pwg+nameProustite) // 硫砷银矿
-		public static String proustite="type=common; time_chunk=5; size=9; min_y=20; max_y=100; strategy_dim=ONLY_WHITELIST; dims=-1; selector=netherrack";
+		@LangKey(pwg+nameProustite) // 硫砷银矿 - 宝石类
+		public static String proustite="type=common; time_chunk=2; rate_single=0.6; size=2; min_y=20; max_y=100; strategy_dim=ONLY_WHITELIST; dims=-1; selector=netherrack";
 
-		@LangKey(pwg+namePyrophyllite) // 叶蜡石
-		public static String pyrophyllite="type=common; time_chunk=4; size=6; min_y=30; max_y=80; strategy_biome=ONLY_WHITELIST; biomes=$forest";
+		@LangKey(pwg+namePyrophyllite) // 叶蜡石 - 宝石类
+		public static String pyrophyllite="type=common; time_chunk=1; rate_single=0.7; size=2; min_y=30; max_y=80; strategy_biome=ONLY_WHITELIST; biomes=$forest";
 
-		@LangKey(pwg+nameRedins) // 虹辉石
-		public static String redins="type=common; time_chunk=3; rate_single=0.8; size=5; min_y=0; max_y=40";
+		@LangKey(pwg+nameRedins) // 虹辉石 - 宝石
+		public static String redins="type=common; time_chunk=1; rate_single=0.7; size=2; min_y=0; max_y=40";
 
 		@LangKey(pwg+"solid_dirt") // 硬实泥土
 		public static String solid_dirt="type=common; time_chunk=4; rate_single=0.3; size=8; min_y=10; max_y=128; selector=dirt";
@@ -596,41 +602,41 @@ public final class Configs
 		@LangKey(pwg+"solid_stone") // 硬实石头
 		public static String solid_stone="type=common; time_chunk=4; rate_single=0.3; size=8; min_y=10; max_y=128; selector=stone";
 
-		@LangKey(pwg+nameSpinel) // 尖晶石矿
-		public static String spinel="type=common; time_chunk=5; rate_single=0.5; size=4; min_y=40; max_y=100; strategy_biome=ONLY_WHITELIST; biomes=$forest,$mesa,$hill";
+		@LangKey(pwg+nameSpinel) // 尖晶石矿 - 宝石
+		public static String spinel="type=common; time_chunk=1; rate_single=0.5; size=2; min_y=40; max_y=100; strategy_biome=ONLY_WHITELIST; biomes=$forest,$mesa,$hill";
 
-		@LangKey(pwg+nameSteamium) // 气钢
-		public static String steamium="type=common; time_chunk=7; rate_single=0.7; size=9; min_y=0; max_y=60";
+		@LangKey(pwg+nameSteamium) // 气钢 - 金属
+		public static String steamium="type=common; time_chunk=2; rate_single=0.6; size=3; min_y=0; max_y=60";
 
-		@LangKey(pwg+nameStellarium) // 恒星
-		public static String stellarium="type=common; time_chunk=0.1; size=3; min_y=20; max_y=60; strategy_biome=ONLY_WHITELIST; biomes=$desert";
+		@LangKey(pwg+nameStellarium) // 恒星 - 金属
+		public static String stellarium="type=common; time_chunk=1; rate_single=0.1; size=3; min_y=20; max_y=60; strategy_biome=ONLY_WHITELIST; biomes=$desert";
 
-		@LangKey(pwg+nameSunStone) // 日光石
-		public static String sun_stone="type=common; time_chunk=2; rate_single=0.8; size=3; min_y=30; max_y=100; strategy_biome=ONLY_WHITELIST; biomes=$hot";
+		@LangKey(pwg+nameSunStone) // 日光石 - 宝石
+		public static String sun_stone="type=common; time_chunk=1; rate_single=0.7; size=2; min_y=30; max_y=100; strategy_biome=ONLY_WHITELIST; biomes=$hot";
 
-		@LangKey(pwg+nameTalcum) // 滑石
-		public static String talcum="type=common; time_chunk=10; rate_single=0.7; size=9; min_y=20; max_y=64; strategy_biome=ONLY_WHITELIST; biomes=minecraft:swampland";
+		@LangKey(pwg+nameTalcum) // 滑石 - 宝石类
+		public static String talcum="type=common; time_chunk=2; rate_single=0.6; size=2; min_y=20; max_y=64; strategy_biome=ONLY_WHITELIST; biomes=minecraft:swampland";
 
-		@LangKey(pwg+nameTanatonium) // 拉特特妮姆
-		public static String tanatonium="type=common; time_chunk=6; rate_single=0.6; size=6; min_y=5; max_y=50; strategy_biome=ONLY_WHITELIST; biomes=$sea";
+		@LangKey(pwg+nameTanatonium) // 拉特特妮姆 - 金属
+		public static String tanatonium="type=common; time_chunk=2; rate_single=0.5; size=3; min_y=5; max_y=50; strategy_biome=ONLY_WHITELIST; biomes=$sea";
 
-		@LangKey(pwg+nameTitanium) // 金红石 钛
-		public static String titanium="type=common; time_chunk=3; rate_single=0.8; size=6; min_y=0; max_y=60; strategy_biome=ONLY_WHITELIST; biomes=$plain";
+		@LangKey(pwg+nameTitanium) // 金红石 钛 - 金属
+		public static String titanium="type=common; time_chunk=1; rate_single=0.7; size=3; min_y=0; max_y=60; strategy_biome=ONLY_WHITELIST; biomes=$plain";
 
-		@LangKey(pwg+nameTonium) // 钝金
-		public static String tonium="type=common; time_chunk=2; size=3; min_y=0; max_y=30; strategy_biome=ONLY_WHITELIST; biomes=minecraft:deep_ocean";
+		@LangKey(pwg+nameTonium) // 钝金 - 金属
+		public static String tonium="type=common; time_chunk=1; rate_single=0.8; size=3; min_y=0; max_y=30; strategy_biome=ONLY_WHITELIST; biomes=minecraft:deep_ocean";
 
-		@LangKey(pwg+nameTopaz) // 托帕石
-		public static String topaz="type=common; time_chunk=5; size=3; min_y=0; max_y=64; strategy_biome=ONLY_WHITELIST; biomes=$hill";
+		@LangKey(pwg+nameTopaz) // 托帕石 - 宝石
+		public static String topaz="type=common; time_chunk=1; rate_single=0.7; size=2; min_y=0; max_y=64; strategy_biome=ONLY_WHITELIST; biomes=$hill";
 
-		@LangKey(pwg+nameTourmaline) // 电气石矿
-		public static String tourmaline="type=common; time_chunk=2; rate_single=0.8; size=6; min_y=10; max_y=40";
+		@LangKey(pwg+nameTourmaline) // 电气石矿 - 宝石
+		public static String tourmaline="type=common; time_chunk=1; rate_single=0.7; size=2; min_y=10; max_y=40";
 
 		@LangKey(pwg+nameTreeRoot) // 树根
 		public static String tree_root="type=tree_root";
 
-		@LangKey(pwg+nameVibratingCrystal) // 振晶
-		public static String vibrating_crystal="type=common; time_chunk=7; rate_single=0.5; size=5; min_y=5; max_y=160; strategy_dim=ONLY_WHITELIST; dims=1; selector=end_stone";
+		@LangKey(pwg+nameVibratingCrystal) // 振晶 - 宝石
+		public static String vibrating_crystal="type=common; time_chunk=1; rate_single=0.5; size=2; min_y=5; max_y=160; strategy_dim=ONLY_WHITELIST; dims=1; selector=end_stone";
 	}
 
 	@Config(name=TinkersThings.MOD_ID+"_biome_groups",modid= TinkersThings.MOD_ID,category = "biome_groups")

@@ -38,7 +38,7 @@
 ////	}
 //
 //	public String getLocalizedName() {
-//		return I18n.translateToLocal(this.getUnlocalizedName() + "." + BlockPlanks.EnumType.OAK.getUnlocalizedName() + ".name");
+//		return I18n.translateToLocal(this.getTranslationKey() + "." + BlockPlanks.EnumType.OAK.getTranslationKey() + ".name");
 //	}
 //
 //	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {

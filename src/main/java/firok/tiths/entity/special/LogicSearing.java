@@ -72,7 +72,7 @@ public class LogicSearing extends Entity
 	public boolean initFromPos(BlockPos pos)
 	{
 		Block blockInit=world.getBlockState(pos).getBlock();
-//		System.out.println(blockInit.getUnlocalizedName());
+//		System.out.println(blockInit.getTranslationKey());
 //		if(blockInit!=firok.tiths.common.Blocks.blockSearingVent)
 //		{
 //			this.setDead();
@@ -165,7 +165,7 @@ public class LogicSearing extends Entity
 					{
 						if(materialTemp!=Material.ROCK)
 						{
-//							System.out.println("非石头材质方块:"+blockTemp.getUnlocalizedName());
+//							System.out.println("非石头材质方块:"+blockTemp.getTranslationKey());
 							result.found=false;
 							break FOR_X;
 						}

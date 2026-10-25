@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 //	/**
 //	 * Called When an Entity Collided with the Block
 //	 */
-//	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
+//	public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
 //	{ }
 //
 //	void trigger(World world,BlockPos pos)

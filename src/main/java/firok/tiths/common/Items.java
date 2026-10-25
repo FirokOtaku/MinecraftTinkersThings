@@ -110,7 +110,7 @@ public final class Items
 	@Reg(nameEnderDragonSquama)
 	public static final Item enderDragonSquama = new ItemCustom().setRarity(EnumRarity.UNCOMMON); // 末影龙鳞
 	@Reg("ender_turbulence_candy")
-	public static final ItemFood enderTurbulenceCandy = new ItemEnderTurbulenceCandy(); // 末影乱流糖果
+	public static final ItemFood enderTurbulenceCandy = new ItemCustomFood(4, 0.4f, false); // 末影乱流糖果
 	@Reg(nameFlesh)
 	public static final Item flesh = new ItemFood(8, 0.8f, true)
 			.setPotionEffect(new PotionEffect(MobEffects.NAUSEA, 400, 0), 1); // 血肉

@@ -26,7 +26,7 @@ public class BlockCloudBrick extends BlockCompressed
 //		super.addCollisionBoxToList(state, worldIn, pos, entityBox, collidingBoxes, entityIn, p_185477_7_);
 	}
 
-	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
+	public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
 	{
 		entityIn.motionX *= 0.8D;
 		entityIn.motionZ *= 0.8D;

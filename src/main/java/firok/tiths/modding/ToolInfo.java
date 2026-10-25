@@ -35,7 +35,7 @@ public class ToolInfo implements Comparable<ToolInfo>
 			Item item=toolpart.getItem();
 			if(!(item instanceof IMaterialItem)) continue;
 			IMaterialItem imi=(IMaterialItem)item;
-			String partType=toolpart.getUnlocalizedName();
+			String partType=toolpart.getTranslationKey();
 			String partMaterial=imi.getMaterialID(toolpart);
 
 			materials.add(partMaterial);

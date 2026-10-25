@@ -899,6 +899,7 @@ config.tiths.trait.rate_carbonizing_transform=碳化-转化几率
 config.tiths.trait.rate_chemical_instable_attack=不稳定化合-攻击爆炸几率
 config.tiths.trait.rate_chemical_instable_break=不稳定化合-破坏方块爆炸几率
 config.tiths.trait.factor_chemical_instable=不稳定化合-爆炸威力
+config.tiths.trait.enable_chemical_instable_grief=不稳定化合-爆炸破坏地形
 config.tiths.trait.factor_clustering_durability=
 config.tiths.trait.rate_creaky_use=咔嚓-使用触发几率
 config.tiths.trait.rate_decoying_use=诱食-使用触发几率

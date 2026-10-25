@@ -84,6 +84,25 @@ import static net.minecraftforge.fml.common.eventhandler.EventPriority.HIGHEST;
 @Mod.EventBusSubscriber(modid=TinkersThings.MOD_ID)
 public class Events
 {
+	@SubscribeEvent(priority = HIGHEST)
+	public static void onEnderInterferedBreak(BlockEvent.BreakEvent event)
+	{
+		if(event.getState().getBlock() == firok.tiths.common.Blocks.blockEnderInterferedBlock)
+		{
+			event.setCanceled(true);
+		}
+	}
+
+	@SubscribeEvent(priority = HIGHEST)
+	public static void onEnderInterferedHarvest(BlockEvent.HarvestDropsEvent event)
+	{
+		if(event.getState().getBlock() == firok.tiths.common.Blocks.blockEnderInterferedBlock)
+		{
+			event.getDrops().clear();
+			event.setDropChance(0);
+		}
+	}
+
 	@SubscribeEvent
 	public static void onBlockBroken(BlockEvent.BreakEvent event)
 	{
@@ -585,7 +604,7 @@ public class Events
 
 		for(EnderBeacon beaconTemp:beacons)
 		{
-			float distanceTemp=beaconTemp.getDistanceToEntity(enlb);
+			float distanceTemp=beaconTemp.getDistance(enlb);
 			if(distanceTemp<minDistance)
 			{
 				minDistance=distanceTemp;
@@ -679,7 +698,7 @@ public class Events
 //				for(ItemStack toolpart:toolparts)
 //				{
 //					if(toolpart.isEmpty()) continue;
-//					System.out.println(toolpart.getUnlocalizedName() + " : "+((IMaterialItem)toolpart.getItem()).getMaterialID(toolpart));
+//					System.out.println(toolpart.getTranslationKey() + " : "+((IMaterialItem)toolpart.getItem()).getMaterialID(toolpart));
 //				}
 
 //				List<Material> materials = TinkerUtil.getMaterialsFromTagList(TagUtil.getBaseMaterialsTagList(stack));
@@ -705,7 +724,7 @@ public class Events
 //						if(part instanceof ToolPart)
 //						{
 //							ToolPart _part=(ToolPart)part;
-//							System.out.println(_part.getUnlocalizedName());
+//							System.out.println(_part.getTranslationKey());
 //						}
 //					}
 //					System.out.println("needed types :");

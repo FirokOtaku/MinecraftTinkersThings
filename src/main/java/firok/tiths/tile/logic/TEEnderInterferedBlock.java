@@ -14,11 +14,18 @@ public class TEEnderInterferedBlock
 	public IBlockState stateInner;
 	public int ticksCharge;
 
+	/** Forge 读档反射实例化必须有无参构造 */
+	public TEEnderInterferedBlock()
+	{
+		this(null, 20);
+	}
+
 	public TEEnderInterferedBlock(int ticksCharge)
 	{
-		this(null,20);
+		this(null, ticksCharge);
 	}
-	public TEEnderInterferedBlock(IBlockState stateInner,int ticksCharge)
+
+	public TEEnderInterferedBlock(IBlockState stateInner, int ticksCharge)
 	{
 		this.stateInner = stateInner;
 		this.ticksCharge = ticksCharge;
@@ -27,19 +34,22 @@ public class TEEnderInterferedBlock
 	@Override
 	public void update()
 	{
-		this.ticksCharge --;
+		if(world == null || world.isRemote) return;
+
+		this.ticksCharge--;
 		if(this.ticksCharge <= 0)
 		{
-			world.setTileEntity(pos,null);
+			world.setTileEntity(pos, null);
 
 			if(world.getBlockState(pos).getBlock() == firok.tiths.common.Blocks.blockEnderInterferedBlock)
 			{
 				IBlockState stateToSet = this.stateInner == null ? Blocks.AIR.getDefaultState() : stateInner;
-				world.setBlockState(pos,stateToSet);
+				world.setBlockState(pos, stateToSet);
 			}
 		}
 	}
 
+	@Override
 	public void readFromNBT(NBTTagCompound nbt)
 	{
 		super.readFromNBT(nbt);
@@ -63,39 +73,46 @@ public class TEEnderInterferedBlock
 			try
 			{
 				Block blockInner = Block.getBlockFromName(rn);
-				this.stateInner = blockInner.getStateFromMeta(meta);
+				if(blockInner != null && blockInner != Blocks.AIR)
+				{
+					this.stateInner = blockInner.getStateFromMeta(meta);
+				}
 			}
 			catch (Exception ignored) { }
 		}
 
 		this.ticksCharge = 20;
-
 		if(nbt.hasKey("ticks_charge"))
 		{
 			this.ticksCharge = nbt.getInteger("ticks_charge");
 		}
+		if(this.ticksCharge <= 0)
+		{
+			this.ticksCharge = 1; // 下一 tick 还原, 避免永久紫墙
+		}
 	}
 
+	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt)
 	{
+		super.writeToNBT(nbt);
+
+		nbt.setInteger("ticks_charge", this.ticksCharge);
+
 		if(this.stateInner != null)
 		{
 			try
 			{
 				Block blockInner = stateInner.getBlock();
 				int meta = blockInner.getMetaFromState(stateInner);
-
 				String registryName = blockInner.getRegistryName().toString();
 
-				nbt.setString("rn_inner",registryName);
-				nbt.setInteger("meta_inner",meta);
+				nbt.setString("rn_inner", registryName);
+				nbt.setInteger("meta_inner", meta);
 			}
 			catch (Exception ignored) { }
-
-			nbt.setInteger("ticks_charge",this.ticksCharge);
 		}
-		return super.writeToNBT(nbt);
+
+		return nbt;
 	}
-
-
 }

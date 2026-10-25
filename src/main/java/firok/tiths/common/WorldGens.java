@@ -120,7 +120,7 @@ public class WorldGens implements IWorldGenerator
 //							ga.times(),(float)ga.timeRate(),
 //							ga.size()
 //					):null;
-//					Info infoJson= ConfigJson.getOre(block.getUnlocalizedName());
+//					Info infoJson= ConfigJson.getOre(block.getTranslationKey());
 //					Info info2add= null;
 //
 //					if(infoAnno==null)

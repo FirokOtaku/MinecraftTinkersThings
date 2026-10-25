@@ -38,7 +38,7 @@ public class TraitPyroelectric extends AbstractTrait
 			{
 				BlockPos posPlayer=player.getPosition();
 
-				float temp=world.getBiome(posPlayer).getFloatTemperature(posPlayer);
+				float temp=world.getBiome(posPlayer).getTemperature(posPlayer);
 				if(temp<=0.15f) return;
 				double damage= factor_pyroelectric_damage * (temp-0.15f)+0.35f;
 

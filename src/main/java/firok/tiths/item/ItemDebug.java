@@ -66,7 +66,7 @@ public class ItemDebug extends ItemCustom
 //			{
 //				Vec3d facing=player.getForward();
 //				Vec3d facingFactor=facing.scale(0.2);
-//				Vec3d center=player.getPositionVector().addVector(0,player.getEyeHeight(),0);
+//				Vec3d center=player.getPositionVector().add(0,player.getEyeHeight(),0);
 //				Random rand=player.world.rand;
 //
 //				for(int i=0;i<5;i++)

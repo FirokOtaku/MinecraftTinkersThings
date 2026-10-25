@@ -69,9 +69,9 @@
       },
       "feature": "default",
       "parameters": {
-        "size": 1,
-        "variation": 0,
-        "frequency": 2,
+        "size": 3,
+        "variation": 2,
+        "frequency": 1,
         "minHeight": 60,
         "maxHeight": 70
       },
@@ -92,9 +92,9 @@
       },
       "feature": "default",
       "parameters": {
-        "size": 9,
+        "size": 3,
         "variation": 2,
-        "frequency": 4,
+        "frequency": 2,
         "minHeight": 18,
         "maxHeight": 56
       },
@@ -122,9 +122,9 @@
       },
       "feature": "default",
       "parameters": {
-        "size": 7,
+        "size": 2,
         "variation": 2,
-        "frequency": 6,
+        "frequency": 2,
         "minHeight": 10,
         "maxHeight": 55
       },
@@ -160,9 +160,9 @@
       },
       "feature": "default",
       "parameters": {
-        "size": 4,
+        "size": 2,
         "variation": 2,
-        "frequency": 4,
+        "frequency": 1,
         "minHeight": 1,
         "maxHeight": 28
       },
@@ -183,9 +183,9 @@
       },
       "feature": "default",
       "parameters": {
-        "size": 2,
+        "size": 3,
         "variation": 2,
-        "frequency": 2,
+        "frequency": 1,
         "minHeight": 15,
         "maxHeight": 18
       },
@@ -216,9 +216,9 @@
       },
       "feature": "default",
       "parameters": {
-        "size": 1,
-        "variation": 1,
-        "frequency": 5,
+        "size": 3,
+        "variation": 2,
+        "frequency": 1,
         "minHeight": 1,
         "maxHeight": 60
       },
@@ -249,9 +249,9 @@
       },
       "feature": "default",
       "parameters": {
-        "size": 1,
-        "variation": 1,
-        "frequency": 8,
+        "size": 2,
+        "variation": 2,
+        "frequency": 2,
         "minHeight": 1,
         "maxHeight": 50
       },
@@ -279,9 +279,9 @@
       },
       "feature": "default",
       "parameters": {
-        "size": 4,
+        "size": 2,
         "variation": 2,
-        "frequency": 6,
+        "frequency": 2,
         "minHeight": 5,
         "maxHeight": 50
       },
@@ -311,7 +311,7 @@
       "parameters": {
         "size": 3,
         "variation": 2,
-        "frequency": 8,
+        "frequency": 2,
         "minHeight": 1,
         "maxHeight": 30
       },
@@ -336,9 +336,9 @@
       },
       "feature": "default",
       "parameters": {
-        "size": 1,
-        "variation": 1,
-        "frequency": 2,
+        "size": 3,
+        "variation": 2,
+        "frequency": 1,
         "minHeight": 5,
         "maxHeight": 128
       },
@@ -386,9 +386,9 @@
       },
       "feature": "default",
       "parameters": {
-        "size": 3,
+        "size": 2,
         "variation": 2,
-        "frequency": 10,
+        "frequency": 2,
         "minHeight": 32,
         "maxHeight": 33
       },
@@ -415,7 +415,7 @@
       "parameters": {
         "size": 2,
         "variation": 2,
-        "frequency": 4,
+        "frequency": 1,
         "minHeight": 6,
         "maxHeight": 50
       },
@@ -446,9 +446,9 @@
       },
       "feature": "default",
       "parameters": {
-        "size": 4,
+        "size": 2,
         "variation": 2,
-        "frequency": 3,
+        "frequency": 1,
         "minHeight": 5,
         "maxHeight": 50
       },
@@ -473,9 +473,9 @@
       },
       "feature": "default",
       "parameters": {
-        "size": 8,
+        "size": 2,
         "variation": 2,
-        "frequency": 4,
+        "frequency": 1,
         "minHeight": 30,
         "maxHeight": 50
       },
@@ -498,7 +498,7 @@
       },
       "feature": "default",
       "parameters": {
-        "size": 5,
+        "size": 2,
         "variation": 2,
         "frequency": 1,
         "minHeight": 1,
@@ -525,9 +525,9 @@
       },
       "feature": "default",
       "parameters": {
-        "size": 5,
+        "size": 3,
         "variation": 2,
-        "frequency": 6,
+        "frequency": 2,
         "minHeight": 1,
         "maxHeight": 180
       },
@@ -548,9 +548,9 @@
       },
       "feature": "default",
       "parameters": {
-        "size": 1,
-        "variation": 1,
-        "frequency": 8,
+        "size": 2,
+        "variation": 2,
+        "frequency": 2,
         "minHeight": 1,
         "maxHeight": 11
       },
@@ -575,9 +575,9 @@
       },
       "feature": "default",
       "parameters": {
-        "size": 9,
+        "size": 2,
         "variation": 2,
-        "frequency": 5,
+        "frequency": 2,
         "minHeight": 20,
         "maxHeight": 100
       },
@@ -617,9 +617,9 @@
       },
       "feature": "default",
       "parameters": {
-        "size": 6,
+        "size": 2,
         "variation": 2,
-        "frequency": 4,
+        "frequency": 1,
         "minHeight": 30,
         "maxHeight": 80
       },
@@ -640,9 +640,9 @@
       },
       "feature": "default",
       "parameters": {
-        "size": 4,
+        "size": 2,
         "variation": 2,
-        "frequency": 3,
+        "frequency": 1,
         "minHeight": 1,
         "maxHeight": 40
       },
@@ -773,7 +773,7 @@
       "parameters": {
         "size": 2,
         "variation": 2,
-        "frequency": 5,
+        "frequency": 1,
         "minHeight": 40,
         "maxHeight": 100
       },
@@ -794,9 +794,9 @@
       },
       "feature": "default",
       "parameters": {
-        "size": 6,
+        "size": 3,
         "variation": 2,
-        "frequency": 7,
+        "frequency": 2,
         "minHeight": 1,
         "maxHeight": 60
       },
@@ -860,7 +860,7 @@
       "parameters": {
         "size": 2,
         "variation": 2,
-        "frequency": 2,
+        "frequency": 1,
         "minHeight": 30,
         "maxHeight": 100
       },
@@ -883,9 +883,9 @@
       },
       "feature": "default",
       "parameters": {
-        "size": 6,
+        "size": 2,
         "variation": 2,
-        "frequency": 10,
+        "frequency": 2,
         "minHeight": 20,
         "maxHeight": 64
       },
@@ -915,7 +915,7 @@
       "parameters": {
         "size": 3,
         "variation": 2,
-        "frequency": 6,
+        "frequency": 2,
         "minHeight": 5,
         "maxHeight": 50
       },
@@ -943,9 +943,9 @@
       },
       "feature": "default",
       "parameters": {
-        "size": 4,
+        "size": 3,
         "variation": 2,
-        "frequency": 3,
+        "frequency": 1,
         "minHeight": 1,
         "maxHeight": 60
       },
@@ -970,7 +970,7 @@
       "parameters": {
         "size": 3,
         "variation": 2,
-        "frequency": 2,
+        "frequency": 1,
         "minHeight": 1,
         "maxHeight": 30
       },
@@ -1006,9 +1006,9 @@
       },
       "feature": "default",
       "parameters": {
-        "size": 3,
+        "size": 2,
         "variation": 2,
-        "frequency": 5,
+        "frequency": 1,
         "minHeight": 1,
         "maxHeight": 64
       },
@@ -1029,9 +1029,9 @@
       },
       "feature": "default",
       "parameters": {
-        "size": 4,
+        "size": 2,
         "variation": 2,
-        "frequency": 2,
+        "frequency": 1,
         "minHeight": 10,
         "maxHeight": 40
       },
@@ -1058,7 +1058,7 @@
       "parameters": {
         "size": 2,
         "variation": 2,
-        "frequency": 7,
+        "frequency": 1,
         "minHeight": 5,
         "maxHeight": 160
       },

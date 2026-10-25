@@ -2,14 +2,11 @@ logs
 .gradle
 .idea
 build
-gradle
 out
 run
-
-gradlew
-gradlew.bat
 *.iml
 temp
+*.launch
 
 !materials.md
 !changelog.md

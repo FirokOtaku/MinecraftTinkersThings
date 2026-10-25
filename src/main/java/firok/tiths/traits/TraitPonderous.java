@@ -123,7 +123,7 @@ public class TraitPonderous extends AbstractProjectileTrait implements IHitBlock
 								{
 									countBroken++;
 
-									blockTemp.onBlockDestroyedByPlayer(world, posTemp, stateTemp);
+									blockTemp.onPlayerDestroy(world, posTemp, stateTemp);
 //								    blockTemp.harvestBlock(world, player, posTemp, stateTemp, tileEntity, stack);
 									blockTemp.dropXpOnBlockBreak(world, posTemp, xp);
 									TinkerNetwork.sendPacket(playerMP, new SPacketBlockChange(world, posTemp));
@@ -133,7 +133,7 @@ public class TraitPonderous extends AbstractProjectileTrait implements IHitBlock
 							{
 								world.playBroadcastSound(2001, posTemp, Block.getStateId(stateTemp));
 								if(blockTemp.removedByPlayer(stateTemp, world, posTemp, player, true)) {
-									blockTemp.onBlockDestroyedByPlayer(world, posTemp, stateTemp);
+									blockTemp.onPlayerDestroy(world, posTemp, stateTemp);
 								}
 							}
 						}

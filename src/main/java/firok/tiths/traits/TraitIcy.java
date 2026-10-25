@@ -26,7 +26,7 @@ public class TraitIcy extends AbstractTrait
 	{
 		BlockPos pos=entity.getPosition();
 		World world=entity.world;
-		float temp=world.getBiome(pos).getFloatTemperature(pos);
+		float temp=world.getBiome(pos).getTemperature(pos);
 		if(temp==0.15f) return 0;
 		// 每个生物群系均有一个温度数值来决定该位置是下雪还是下雨，或者是什么都不下。
 		// 该数值低于0.15即下雪，0.15-0.95即下雨，高于1.0的话将会使区域保持干旱。

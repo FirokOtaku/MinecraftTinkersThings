@@ -41,7 +41,7 @@ public class TraitArmorSurging extends AbstractArmorTrait
 			{
 				if(en==null || en instanceof IProjectile) continue;
 
-				boolean close=en.getDistanceSqToEntity(player) < 9;
+				boolean close=en.getDistanceSq(player) < 9;
 				if(close)
 				{
 					en.motionX=player.motionX * 1.64;

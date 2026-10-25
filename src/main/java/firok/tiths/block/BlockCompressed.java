@@ -15,10 +15,9 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import slimeknights.tconstruct.library.Util;
+import slimeknights.tconstruct.library.utils.HarvestLevels;
 
 import javax.annotation.Nullable;
-import java.util.Collections;
 import java.util.List;
 
 @SuppressWarnings("all")
@@ -35,8 +34,13 @@ public class BlockCompressed extends Block
 	public BlockCompressed(Material material, MapColor color)
 	{
 		super(material, color);
-		setHardness(20);
-		setResistance(30);
+		// 对齐铁块: 硬度 5 / 抗爆 10, 需石镐采集, 避免空手一点就碎且无掉落
+		setHardness(5.0F);
+		setResistance(10.0F);
+		if(material == Material.IRON || material == Material.ROCK)
+		{
+			setHarvestLevel("pickaxe", HarvestLevels.STONE);
+		}
 	}
 
 	protected boolean isTransparent = false;
@@ -85,7 +89,7 @@ public class BlockCompressed extends Block
 	}
 
 	@SideOnly(Side.CLIENT)
-	public BlockRenderLayer getBlockLayer()
+	public BlockRenderLayer getRenderLayer()
 	{
 		return isTransparent ? BlockRenderLayer.TRANSLUCENT: BlockRenderLayer.SOLID;
 	}

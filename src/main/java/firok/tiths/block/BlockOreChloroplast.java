@@ -82,9 +82,9 @@ public class BlockOreChloroplast extends BlockOre
 //	void gen(World world,BlockPos center,EnumFacing dir)
 //	{
 //		System.out.println("gen");
-//		final int oxMax=dir.getFrontOffsetX()==0?1:dir.getFrontOffsetX(),oxMin=-oxMax;
-//		final int oyMax=dir.getFrontOffsetY()==0?1:dir.getFrontOffsetY(),oyMin=-oyMax;
-//		final int ozMax=dir.getFrontOffsetZ()==0?1:dir.getFrontOffsetZ(),ozMin=-ozMax;
+//		final int oxMax=dir.getXOffset()==0?1:dir.getXOffset(),oxMin=-oxMax;
+//		final int oyMax=dir.getYOffset()==0?1:dir.getYOffset(),oyMin=-oyMax;
+//		final int ozMax=dir.getZOffset()==0?1:dir.getZOffset(),ozMin=-ozMax;
 //
 //		List<BlockPos> posAva=new ArrayList<>(11);
 //
@@ -166,9 +166,9 @@ public class BlockOreChloroplast extends BlockOre
 			else dir=UP;
 
 			// 下面3组数字对应在3个方向上的生成检查范围 根据指定的dir不同 只会在某一个方向上的3×3生成新的矿物
-			final int oxMax=dir.getFrontOffsetX()==0?1:dir.getFrontOffsetX(),oxMin=-oxMax;
-			final int oyMax=dir.getFrontOffsetY()==0?1:dir.getFrontOffsetY(),oyMin=-oyMax;
-			final int ozMax=dir.getFrontOffsetZ()==0?1:dir.getFrontOffsetZ(),ozMin=-ozMax;
+			final int oxMax=dir.getXOffset()==0?1:dir.getXOffset(),oxMin=-oxMax;
+			final int oyMax=dir.getYOffset()==0?1:dir.getYOffset(),oyMin=-oyMax;
+			final int ozMax=dir.getZOffset()==0?1:dir.getZOffset(),ozMin=-ozMax;
 
 			List<BlockPos> listPos=new ArrayList<>(10);
 			FOR_X:for(int ox=oxMin;ox<=oxMax;ox++)

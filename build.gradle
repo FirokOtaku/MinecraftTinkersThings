@@ -1,106 +1,266 @@
 buildscript {
     repositories {
-        jcenter()
-        maven {
-            name = "forge"
-            url = "http://files.minecraftforge.net/maven"
-        }
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
+        mavenCentral()
+        maven { url = "https://maven.minecraftforge.net/" }
     }
     dependencies {
-        classpath "net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT"
-        classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.1.0'
+        // 5.1.73+ ships MergeTool without Side.BUKKIT (avoids NetworkRegistry NPE on runClient)
+        classpath group: "net.minecraftforge.gradle", name: "ForgeGradle", version: "[5.1.73,5.2)"
     }
 }
 
-apply plugin: "net.minecraftforge.gradle.forge"
-apply plugin: "com.matthewprenger.cursegradle"
+apply plugin: "java"
+apply plugin: "net.minecraftforge.gradle"
 
 version = modVersion
 group = modGroup
 archivesBaseName = modBaseName
 
-minecraft {
-    version = project.forgeVersion
-    runDir = "run"
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
-    // the mappings can be changed at any time, and must be in the following format.
-    // snapshot_YYYYMMDD   snapshot are built nightly.
-    // stable_#            stables are built at the discretion of the MCP team.
-    // Use non-default mappings at your own risk. they may not always work.
-    // simply re-run your setup task after changing the mappings to update your workspace.
-    mappings = project.mcpVersion
-    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+// mergetool / RetroGradle userdev jars may inject Side.BUKKIT; keep mergetool off game CP.
+configurations.configureEach { cfg ->
+    cfg.exclude group: "net.minecraftforge", module: "mergetool"
 }
 
-repositories {
-    mavenLocal()
-    mavenCentral()
-    maven {
-        name 'DVS1 Maven FS'
-        url 'http://dvs1.progwml6.com/files/maven'
-    }
-    maven {
-        name = "chickenbones"
-        url = "http://chickenbones.net/maven/"
-    }
-    maven {
-        //Baubles
-        name 'thiakil'
-        url 'https://maven.thiakil.com'
-    }
-    maven {
-        name "CurseForge"
-        url "https://minecraft.curseforge.com/api/maven/"
-    }
-    maven {
-        name 'MMD'
-        url 'https://maven.mcmoddev.com/'
-    }
-    flatDir { dirs './libs' }
-}
-
-dependencies {
-    deobfCompile "slimeknights.mantle:Mantle:1.12-1.3.+:deobf"
-    deobfCompile "mezz.jei:jei_1.12.2:4.15.0.293"
-    deobfCompile "slimeknights:TConstruct:1.12.2-2.13.0.171:deobf"
-//    deobfCompile "com.azanor.baubles:Baubles:1.12-1.5.2"
-    compile "com.mcmoddev:OreSpawn:1.12-3.3.1.183"
-//    	Baubles-1.12-1.5.2
-}
-
-processResources {
-    // this will ensure that this task is redone when the versions change.
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
-
-    // replace stuff in mcmod.info, nothing else
-    from(sourceSets.main.resources.srcDirs) {
-        include "mcmod.info"
-
-        // replace version and mcversion
-        expand "version": project.version, "mcversion": project.minecraft.version
-    }
-
-    // copy everything else, thats not the mcmod.info
-    from(sourceSets.main.resources.srcDirs) {
-        exclude "mcmod.info"
-    }
-}
-
-tasks.withType(JavaCompile) {
+compileJava {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
     options.encoding = "UTF-8"
 }
 
+minecraft {
+    mappings channel: "stable", version: "39-1.12"
+
+    // FG5 does not apply dependency FMLATs to the remapped Forge jar.
+    // tiths_at.cfg merges Mantle/TC/JEI/HammerLib ATs (run collectDependencyAts after dep changes).
+    // Changing the AT changes the mapped jar hash — delete build/fg_cache if remap looks stale.
+    accessTransformer = file("src/main/resources/META-INF/tiths_at.cfg")
+
+    runs {
+        client {
+            workingDirectory project.file("run")
+            property "forge.logging.markers", "SCAN,REGISTRIES,REGISTRYDUMP"
+            property "forge.logging.console.level", "debug"
+            args "--username", "Dev"
+            mods {
+                tiths {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        server {
+            workingDirectory project.file("run/server")
+            property "forge.logging.markers", "SCAN,REGISTRIES,REGISTRYDUMP"
+            property "forge.logging.console.level", "debug"
+            mods {
+                tiths {
+                    source sourceSets.main
+                }
+            }
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url = "https://maven.minecraftforge.net/" }
+    maven {
+        name = "DVS1 Maven FS"
+        url = "https://dvs1.progwml6.com/files/maven"
+    }
+    maven {
+        name = "BlameJared"
+        url = "https://maven.blamejared.com/"
+    }
+    maven {
+        name = "chickenbones"
+        url = "https://chickenbones.net/maven/"
+    }
+    maven {
+        name = "thiakil"
+        url = "https://maven.thiakil.com"
+    }
+    maven {
+        name = "CurseMaven"
+        url = "https://www.cursemaven.com/"
+    }
+    // Local jars (e.g. optional ConArm). Prefer maven coordinates when possible.
+    flatDir { dirs "./libs" }
+}
+
+// Production (SRG) jars used only to harvest FMLAT files for FG remapping.
+configurations {
+    atSource
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${forgeVersion}"
+
+    // FG5: wrap production (SRG) jars with fg.deobf — do not use the old :deobf classifier
+    implementation fg.deobf("slimeknights.mantle:Mantle:1.12-1.3.3.55")
+    implementation fg.deobf("slimeknights:TConstruct:1.12.2-2.13.0.183")
+    implementation fg.deobf("mezz.jei:jei_1.12.2:4.15.0.293")
+    // MMD maven TLS is broken; use CurseMaven (3.3.1.179 ≈ former 3.3.1.183)
+    implementation fg.deobf("curse.maven:mmd-orespawn-245586:2913786")
+
+    // Soft-integration targets that are still imported at compile time
+    implementation fg.deobf("com.azanor.baubles:Baubles:1.12-1.5.2")
+    implementation fg.deobf("curse.maven:constructs-armory-287683:2882794") // ConArm 1.2.5.4
+    implementation fg.deobf("curse.maven:hammer-lib-247401:5655067") // HammerLib (ex-HammerCore)
+
+    atSource "slimeknights.mantle:Mantle:1.12-1.3.3.55"
+    atSource "slimeknights:TConstruct:1.12.2-2.13.0.183"
+    atSource "mezz.jei:jei_1.12.2:4.15.0.293"
+    atSource "curse.maven:hammer-lib-247401:5655067"
+}
+
+task collectDependencyAts {
+    group = "forgegradle"
+    description = "Merge FMLAT files from atSource jars into src/main/resources/META-INF/tiths_at.cfg"
+    def outFile = file("src/main/resources/META-INF/tiths_at.cfg")
+    outputs.file outFile
+    doLast {
+        def sb = new StringBuilder()
+        sb.append("# Auto-collected dependency Access Transformers for FG5 remapping.\n")
+        sb.append("# Regenerate with: gradlew collectDependencyAts\n\n")
+        configurations.atSource.resolve().each { jar ->
+            if (!jar.name.endsWith(".jar") || jar.name.contains("sources") || jar.name.contains("javadoc")) {
+                return
+            }
+            ant.unzip(src: jar, dest: "${buildDir}/at_extract/${jar.name}", overwrite: true) {
+                patternset { include(name: "META-INF/**") }
+            }
+            def meta = file("${buildDir}/at_extract/${jar.name}/META-INF")
+            if (!meta.exists()) return
+            def manifestFile = new File(meta, "MANIFEST.MF")
+            def atNames = [] as LinkedHashSet
+            if (manifestFile.exists()) {
+                def m = manifestFile.getText("UTF-8")
+                def matcher = (m =~ /(?m)^FMLAT:\s*(\S+)/)
+                if (matcher.find()) atNames << matcher.group(1).trim()
+            }
+            if (atNames.isEmpty()) {
+                meta.listFiles()?.findAll { it.name.endsWith("_at.cfg") && !it.name.contains("deobf") }?.each { atNames << it.name }
+            }
+            atNames.each { atName ->
+                def cfg = new File(meta, atName)
+                if (!cfg.exists()) return
+                sb.append("# === ${jar.name} : ${atName} ===\n")
+                sb.append(cfg.getText("UTF-8").trim()).append("\n\n")
+            }
+        }
+        outFile.parentFile.mkdirs()
+        outFile.setText(sb.toString(), "UTF-8")
+        logger.lifecycle("Wrote ${outFile} (${outFile.length()} bytes)")
+    }
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", mc_version
+
+    filesMatching("mcmod.info") {
+        expand "version": project.version, "mcversion": mc_version
+    }
+}
+
+// Forge 1.12 expects resources in the same directory as classes (FG2 merged them).
+sourceSets.all { it.output.resourcesDir = it.output.classesDirs.getFiles().iterator().next() }
+
+jar {
+    // Never ship Forge internals (e.g. accidental Side overrides) in the release jar.
+    exclude "net/minecraftforge/**"
+    manifest {
+        attributes([
+            "Specification-Title"     : modBaseName,
+            "Specification-Vendor"    : "Firok",
+            "Specification-Version"   : "1",
+            "Implementation-Title"    : project.name,
+            "Implementation-Version"  : project.version,
+            "Implementation-Vendor"   : "Firok",
+            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+            // Dev remapping uses accessTransformer above; FMLAT is for production consistency.
+            "FMLAT"                   : "tiths_at.cfg"
+        ])
+    }
+}
+
 task apiJar(type: Jar) {
-    classifier = 'api'
+    archiveClassifier.set("api")
     from sourceSets.main.output
     from sourceSets.main.allSource
-    include 'firok/tiths/api/**'
+    include "firok/tiths/api/**"
 }
 
 artifacts {
     archives apiJar
+}
+
+/**
+ * Forge 1.12.2 userdev jars produced by FG5 can contain Side.BUKKIT.
+ * NetworkRegistry only seeds CLIENT/SERVER maps, so newChannel NPEs.
+ * Re-stamp Side.class (CLIENT/SERVER only) into the mapped forge jar before runs.
+ *
+ * With accessTransformer configured, FG5 stores the mapped jar under build/fg_cache
+ * (coordinate may include an _at_<hash> suffix).
+ */
+def findMappedForgeJars = {
+    def found = [] as LinkedHashSet
+    def roots = [
+        file("${buildDir}/fg_cache/net/minecraftforge/forge"),
+        file("${System.getProperty('user.home')}/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge")
+    ]
+    roots.each { root ->
+        if (!root.exists()) return
+        root.listFiles()?.findAll { it.directory && it.name.startsWith("${forgeVersion}_mapped_") }?.each { dir ->
+            dir.listFiles()?.findAll { it.file && it.name.startsWith("forge-") && it.name.endsWith(".jar") }?.each { found << it }
+        }
+    }
+    found as List
+}
+
+task patchForgeSide {
+    group = "forgegradle"
+    description = "Strip Side.BUKKIT from mapped Forge jar (fixes NetworkRegistry NPE)"
+    doLast {
+        def jars = findMappedForgeJars()
+        if (jars.isEmpty()) {
+            logger.warn("Mapped forge jar not found yet under build/fg_cache or forge_gradle caches")
+            return
+        }
+        // Source lives under dev/sidepatch (not src/main) so it never enters the mod jar.
+        def sideSrc = file("dev/sidepatch/net/minecraftforge/fml/relauncher/Side.java")
+        def work = file("${buildDir}/sidepatch")
+        delete work
+        def pkgDir = file("${work}/net/minecraftforge/fml/relauncher")
+        pkgDir.mkdirs()
+        copy { from sideSrc; into pkgDir }
+        def javaHome = javaToolchains.launcherFor {
+            languageVersion = JavaLanguageVersion.of(8)
+        }.get().metadata.installationPath.asFile
+        def javacName = System.getProperty("os.name").toLowerCase().contains("windows") ? "javac.exe" : "javac"
+        exec {
+            commandLine new File(javaHome, "bin/${javacName}"),
+                "-source", "1.8", "-target", "1.8", "-encoding", "UTF-8",
+                "-d", work.absolutePath, new File(pkgDir, "Side.java").absolutePath
+        }
+        jars.each { jarFile ->
+            ant.jar(destfile: jarFile, update: true) {
+                fileset(dir: work) {
+                    include(name: "net/minecraftforge/fml/relauncher/Side.class")
+                }
+            }
+            logger.lifecycle("Patched Side enum in ${jarFile}")
+        }
+    }
+}
+
+tasks.matching { it.name == "prepareRuns" || it.name.startsWith("run") }.configureEach {
+    dependsOn patchForgeSide
+}
+// Re-apply after FG regenerates the mapped jar
+tasks.matching { it.name.toLowerCase().contains("atjar") || it.name == "downloadMCMeta" }.configureEach {
+    finalizedBy patchForgeSide
 }

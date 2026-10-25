@@ -68,8 +68,8 @@ public class BlockLeaf extends BlockLeaves
 	@Nonnull
 	@SideOnly(Side.CLIENT)
 	@Override
-	public BlockRenderLayer getBlockLayer() {
-		return Blocks.LEAVES.getBlockLayer();
+	public BlockRenderLayer getRenderLayer() {
+		return Blocks.LEAVES.getRenderLayer();
 	}
 
 	@Override

@@ -57,7 +57,7 @@ public class BlockBait extends BlockGlow implements IGlowingBlock
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
+	public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
 	{
 		if(state.getBlock()==this && canAttract(entityIn))
 		{

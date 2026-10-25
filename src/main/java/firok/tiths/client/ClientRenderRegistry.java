@@ -74,7 +74,7 @@ public class ClientRenderRegistry
 
 		Object obj=enlb.getActivePotionEffect(Potions.bruming);
 
-		if(enlb.getActivePotionEffect(Potions.bruming)!=null && enlb.getDistanceSqToEntity(playerSP)> 25)
+		if(enlb.getActivePotionEffect(Potions.bruming)!=null && enlb.getDistanceSq(playerSP)> 25)
 		{
 			event.setCanceled(true);
 		}

@@ -119,7 +119,7 @@ public class BlockShadowFire extends Block
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
+	public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
 	{
 		if(!worldIn.isRemote && entityIn instanceof EntityLivingBase && canTick(worldIn,5,0))
 		{
@@ -196,7 +196,7 @@ public class BlockShadowFire extends Block
 	}
 
 	@SideOnly(Side.CLIENT)
-	public BlockRenderLayer getBlockLayer()
+	public BlockRenderLayer getRenderLayer()
 	{
 		return BlockRenderLayer.CUTOUT;
 	}

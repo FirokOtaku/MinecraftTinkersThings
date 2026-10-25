@@ -25,7 +25,12 @@ public class TraitChemicalInstable extends AbstractTrait
 	public static void boom(EntityLivingBase player,double posX,double posY,double posZ)
 	{
 		player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE,10,1));
-		player.world.createExplosion(null,posX,posY,posZ, (float)Configs.Traits.factor_chemical_instable,true);
+		// 传入 player 便于领地插件追责; 默认不破坏地形
+		player.world.createExplosion(
+				player, posX, posY, posZ,
+				(float)Configs.Traits.factor_chemical_instable,
+				Configs.Traits.enable_chemical_instable_grief
+		);
 	}
 	public static void boom(EntityLivingBase player,EntityLivingBase target)
 	{

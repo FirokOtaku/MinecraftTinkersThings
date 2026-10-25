@@ -81,12 +81,12 @@ public final class InnerActions
 	@SideOnly(Side.CLIENT)
 	public static void addInformation(Item item, List<String> list, ITooltipFlag flag, Object... params)
 	{
-		addInformation(item.getUnlocalizedName(), list, flag, params);
+		addInformation(item.getTranslationKey(), list, flag, params);
 	}
 	@SideOnly(Side.CLIENT)
 	public static void addInformation(Block block, List<String> list, ITooltipFlag flag, Object... params)
 	{
-		addInformation(block.getUnlocalizedName(), list, flag, params);
+		addInformation(block.getTranslationKey(), list, flag, params);
 	}
 	@SideOnly(Side.CLIENT)
 	public static void addInformation(String key, List<String> list, ITooltipFlag flag, Object... params)

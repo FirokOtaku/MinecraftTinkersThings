@@ -67,7 +67,7 @@ public final class TiCMaterials
 	@CompoHead(durability=136,miningspeed=8.79,attack=2,harvestLevel=3,traits={  })
 	@CompoHandle(modifier=0.9,durability=45,traits={  })
 	@CompoExtra(extraDurability=45,traits={  })
-	@CompoArmorCore(durability=9,defense=12.5,traits={ nameTraitEnderInterfering })
+	@CompoArmorCore(durability=9,defense=12.5,traits={ })
 	@CompoArmorPlate(modifier=0.75,durability=-2,toughness=6.5,traits={  })
 	@CompoArmorTrim(extraDurability=5,traits={  })
 	public static final Material royalAlloy=new $Material(nameRoyalAlloy, colorRoyalAlloy)

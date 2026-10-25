@@ -79,16 +79,19 @@ public abstract class AbstractChunkGen
 					break;
 
 				case "rateChunk":
+				case "rate_chunk":
 					flagRateChunk=checkParameter(flagRateChunk,k);
 					this.rateChunk=parseFloat(k,v,0,1);
 					break;
 
 				case "rateSingle":
+				case "rate_single":
 					flagRateSingle=checkParameter(flagRateSingle,k);
 					this.rateSingle=parseFloat(k,v,0,1);
 					break;
 
 				case "timeChunk":
+				case "time_chunk":
 					flagTimeChunk=checkParameter(flagTimeChunk,k);
 					this.timeChunk=parseInt(k,v);
 					break;

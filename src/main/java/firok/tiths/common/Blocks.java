@@ -237,7 +237,7 @@ public final class Blocks
 	@GenConfig(Keys.nameCinnabar)
 	public static final Block oreCinnabar = new BlockOre(Items.cinnabar, 1, 3, 2, 3, 5).setCommonOre(); // 辰砂矿石
 	@Reg(Keys.oreCordierite)
-	@GenOre(times = 6, timeRate = 0.5f, size = 15, minY = 10, maxY = 55, biome = Strategy.ONLY_WHITELIST, biomeWL = {"minecraft:taiga_cold","minecraft:redwood_taiga","minecraft:taiga","minecraft:mutated_taiga_cold","minecraft:mutated_redwood_taiga","minecraft:mutated_taiga"})
+	@GenOre(times = 2, timeRate = 0.5f, size = 2, minY = 10, maxY = 55, biome = Strategy.ONLY_WHITELIST, biomeWL = {"minecraft:taiga_cold","minecraft:redwood_taiga","minecraft:taiga","minecraft:mutated_taiga_cold","minecraft:mutated_redwood_taiga","minecraft:mutated_taiga"})
 	public static final Block oreCordierite = new BlockOre(Items.cordierite, 1, 1, 1, 4, 6).setRareOre(); // 堇青石矿
 	//	@Reg(Keys.oreShell)
 	@Reg(Keys.oreCorundum)

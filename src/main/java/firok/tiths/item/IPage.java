@@ -40,7 +40,7 @@ public interface IPage
 		stack.setTagCompound(nbt);
 
 		assert nbt!=null;
-		nbt.setString("domain",background.getResourceDomain());
-		nbt.setString("path",background.getResourcePath());
+		nbt.setString("domain",background.getNamespace());
+		nbt.setString("path",background.getPath());
 	}
 }

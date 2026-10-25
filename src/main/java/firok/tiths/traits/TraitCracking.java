@@ -1,11 +1,11 @@
 package firok.tiths.traits;
 
-import firok.tiths.TinkersThings;
 import firok.tiths.util.EntityFinders;
 import firok.tiths.util.Selectors;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.IEntityOwnable;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
@@ -32,11 +32,28 @@ public class TraitCracking extends AbstractProjectileTrait
 		super(nameTraitCracking,colorTraitCracking);
 	}
 
+	/**
+	 * 同记分板队伍, 或归属攻击者 / 同队玩家的宠物, 视为友方.
+	 * 无队伍时 {@link Entity#isOnSameTeam} 为 false, 仍可伤到其它玩家.
+	 */
+	static boolean isFriendly(EntityLivingBase attacker, EntityLivingBase other)
+	{
+		if(attacker == null || other == null) return false;
+		if(attacker == other) return true;
+		if(attacker.isOnSameTeam(other)) return true;
+		if(other instanceof IEntityOwnable)
+		{
+			Entity owner = ((IEntityOwnable) other).getOwner();
+			if(owner == attacker) return true;
+			if(owner instanceof EntityLivingBase && attacker.isOnSameTeam(owner)) return true;
+		}
+		return false;
+	}
+
 	@Override
 	public void afterHit(EntityProjectileBase projectile, World world, ItemStack ammoStack, EntityLivingBase attacker, Entity target, double impactSpeed)
 	{
 		if(projectile==null || world==null || target==null) return;
-//		TinkersThings.log("hit !");
 		Random rand=world.rand;
 		if(world.isRemote)
 		{
@@ -66,6 +83,7 @@ public class TraitCracking extends AbstractProjectileTrait
 			for(Entity en:list)
 			{
 				EntityLivingBase enlb=(EntityLivingBase)en;
+				if(isFriendly(attacker, enlb)) continue;
 				enlb.hurtResistantTime=0;
 				enlb.attackEntityFrom(DamageSource.GENERIC, (float)impactSpeed);
 			}

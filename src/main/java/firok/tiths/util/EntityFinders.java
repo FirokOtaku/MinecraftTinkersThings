@@ -38,7 +38,7 @@ public final class EntityFinders
 		final double distanceSq=distance*distance;
 		for(Entity temp:temps)
 		{
-			if(center.getDistanceSqToEntity(temp)<=distanceSq)
+			if(center.getDistanceSq(temp)<=distanceSq)
 				ret.add(temp);
 		}
 
@@ -52,7 +52,7 @@ public final class EntityFinders
 		final double distanceSq=distance*distance;
 		for(Entity temp:temps)
 		{
-			if(center.getDistanceSqToEntity(temp)<=distanceSq)
+			if(center.getDistanceSq(temp)<=distanceSq)
 				ret.add(temp);
 		}
 
@@ -65,11 +65,11 @@ public final class EntityFinders
 	}
 	public static List<Entity> FacingEye(Entity center,final double distanceFacingMax,final double distanceLineMax, Predicate<? super Entity> predicate)
 	{
-		return Facing(center.world,center,center.getPositionVector().addVector(0,center.getEyeHeight(),0),InnerActions.getEntityForward(center),distanceFacingMax,distanceLineMax,predicate);
+		return Facing(center.world,center,center.getPositionVector().add(0,center.getEyeHeight(),0),InnerActions.getEntityForward(center),distanceFacingMax,distanceLineMax,predicate);
 	}
 	public static List<Entity> FacingHeight(Entity center,final double height,final double distanceFacingMax,final double distanceLineMax, Predicate<? super Entity> predicate)
 	{
-		return Facing(center.world,center,center.getPositionVector().addVector(0,height,0),InnerActions.getEntityForward(center),distanceFacingMax,distanceLineMax,predicate);
+		return Facing(center.world,center,center.getPositionVector().add(0,height,0),InnerActions.getEntityForward(center),distanceFacingMax,distanceLineMax,predicate);
 	}
 
 	public static List<Entity> Facing(World world,Entity excluding,Vec3d center,Vec3d facing,final double distanceFacingMax,final double distanceLineMax, Predicate<? super Entity> predicate)
@@ -82,7 +82,7 @@ public final class EntityFinders
 		for(int i=0;i<tempSize;i++)
 		{
 			Entity enTemp=temps.get(i);
-			posTemps[i]=enTemp.getPositionVector().addVector(0,enTemp.getEyeHeight() / 2,0);
+			posTemps[i]=enTemp.getPositionVector().add(0,enTemp.getEyeHeight() / 2,0);
 		}
 
 		double[] distances=Actions.distanceToLine(center,facing,posTemps);

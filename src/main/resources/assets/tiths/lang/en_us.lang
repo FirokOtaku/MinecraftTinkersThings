@@ -934,6 +934,7 @@ config.tiths.trait.rate_carbonizing_transform=Carbonizing-rate of transforming
 config.tiths.trait.rate_chemical_instable_attack=Chemical Instable-rate of exploding when attacking
 config.tiths.trait.rate_chemical_instable_break=Chemical Instable-rate of exploding when breaking
 config.tiths.trait.factor_chemical_instable=Chemical Instable-explosion damage
+config.tiths.trait.enable_chemical_instable_grief=Chemical Instable-explosion destroys terrain
 config.tiths.trait.factor_clustering_durability=
 config.tiths.trait.rate_creaky_use=Creaky-rate of spawning when using
 config.tiths.trait.rate_decoying_use=Decoying-rate of spawning when using

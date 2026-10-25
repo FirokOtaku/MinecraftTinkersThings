@@ -165,7 +165,7 @@ public abstract class BlockPunjiCustom extends BlockCompressed
 	}
 
 //	@Override
-//	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
+//	public void onEntityCollision(World world, BlockPos pos, IBlockState state, Entity entity) {
 //		if(entity instanceof EntityLivingBase) {
 //			float damage = 3f;
 //			if(entity.fallDistance > 0) {
@@ -176,7 +176,7 @@ public abstract class BlockPunjiCustom extends BlockCompressed
 //		}
 //	}
 	@Override
-	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
+	public void onEntityCollision(World world, BlockPos pos, IBlockState state, Entity entity)
 	{
 		if(entity instanceof EntityLivingBase)
 		{

@@ -24,9 +24,9 @@ public class BlockDirtyWater extends BlockTinkerFluid
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
+	public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
 	{
-		super.onEntityCollidedWithBlock(worldIn, pos, state, entityIn);
+		super.onEntityCollision(worldIn, pos, state, entityIn);
 		if(canTick(worldIn,4,0) && entityIn instanceof EntityLivingBase)
 		{
 			EntityLivingBase enlb=(EntityLivingBase)entityIn;

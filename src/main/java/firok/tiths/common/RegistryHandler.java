@@ -56,7 +56,7 @@ public final class RegistryHandler
 
 					//BlockMolten block = new BlockMolten(fluid);
 //                    // Sets names
-//                    block.setUnlocalizedName("molten_" + fluid.getName());
+//                    block.setTranslationKey("molten_" + fluid.getName());
 //                    block.setRegistryName(TAIGA.MODID, "molten_" + fluid.getName());
 //                    // Registers the fluid in its block form and its corresponding item (block/fluid as item in
 //                    // inventory)
@@ -74,7 +74,7 @@ public final class RegistryHandler
 						blockFluid=new BlockMolten(fluid);
 					}
 
-					blockFluid.setUnlocalizedName(Keys.prefMolten+ fluid.getName());
+					blockFluid.setTranslationKey(Keys.prefMolten+ fluid.getName());
 					blockFluid.setRegistryName(TinkersThings.MOD_ID, Keys.prefMolten+ fluid.getName());
 
 					ItemBlock itemBlockMolten=new ItemBlock(blockFluid);
@@ -157,7 +157,7 @@ public final class RegistryHandler
 					String tn= regValue.length()>0? regValue: regTn;
 					String un= regValue.length()>0? regValue: regUn;
 
-					item.setUnlocalizedName(modid+'.'+un);
+					item.setTranslationKey(modid+'.'+un);
 					item.setRegistryName(modid,tn);
 
 					registry.register(item);
@@ -181,7 +181,7 @@ public final class RegistryHandler
 					String un= regValue.length()>0? regValue: regUn;
 
 					ItemBlock itemBlock=new ItemBlock(block);
-					itemBlock.setUnlocalizedName(modid+'.'+un);
+					itemBlock.setTranslationKey(modid+'.'+un);
 					itemBlock.setRegistryName(modid,tn);
 
 					registry.register(itemBlock);
@@ -208,7 +208,7 @@ public final class RegistryHandler
 					String tn= regValue.length()>0? regValue: regTn;
 					String un= regValue.length()>0? regValue: regUn;
 
-					block.setUnlocalizedName(modid+'.'+un);
+					block.setTranslationKey(modid+'.'+un);
 					block.setRegistryName(modid,tn);
 
 					registry.register(block);

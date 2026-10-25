@@ -96,7 +96,7 @@ public class BlockCloud extends BlockCompressed
 
 
 	@Override
-	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity en)
+	public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity en)
 	{
 		en.fallDistance=0;
 		en.motionX*=0.4;

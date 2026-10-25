@@ -159,32 +159,18 @@ public final class Actions
 					if(block == firok.tiths.common.Blocks.blockEnderInterferedBlock) // 变了
 					{
 						TileEntity teTemp = world.getTileEntity(posOffset);
-						if(teTemp == null) // 没设定TileEntity
+						if(!(teTemp instanceof TEEnderInterferedBlock))
 						{
-							// 这种情况不应该
-							// 应该破坏掉这个方块 吧
-
-//								te = new TEEnderInterferedBlock(state,20);
-//								te.setWorld(world);
-//								te.setPos(posOffset);
-//								world.setTileEntity(posOffset,te);
-//
-//								cost += 2;
-						}
-						if(teTemp instanceof TEEnderInterferedBlock) // 内部已经有了
-						{
-							te = (TEEnderInterferedBlock) teTemp;
-							if(te.ticksCharge <= oneCharge)
-							{
-								te.ticksCharge += oneCharge;
-								cost += costOneCharge;
-							}
-						}
-						else
-						{
+							// TE 丢失的干涉块无法还原, 直接清掉避免永久紫墙
+							world.setBlockToAir(posOffset);
 							continue FOR_Z;
 						}
-
+						te = (TEEnderInterferedBlock) teTemp;
+						if(te.ticksCharge <= oneCharge)
+						{
+							te.ticksCharge += oneCharge;
+							cost += costOneCharge;
+						}
 					}
 					else // 还没变
 					{
@@ -239,7 +225,7 @@ public final class Actions
 		return flag;
 	}
 
-	// 生成一个宝藏屋
+	// 生成一个宝藏屋 (仅覆写石头类方块, 避免误伤建筑 / TE)
 	public static void CauseGeneratingTreasureRoom(World world, BlockPos pos)
 	{
 		final int cx=pos.getX(),cy=pos.getY(),cz=pos.getZ();
@@ -251,6 +237,9 @@ public final class Actions
 				for(byte ty=0;ty<my;ty++)
 				{
 					BlockPos posTemp=new BlockPos(cx+tx,cy+ty,cz+tz);
+					IBlockState stateNow=world.getBlockState(posTemp);
+					if(!Predicates.isStone(stateNow)) continue;
+
 					if(tx==0||tx==mx-1||tz==0||tz==mz-1||ty==0||ty==my-1)
 					{
 						world.setBlockState(posTemp,Blocks.STONEBRICK.getDefaultState());
@@ -270,23 +259,13 @@ public final class Actions
 								chest.setPos(posTemp);
 								world.setTileEntity(posTemp,chest);
 							}
-							ResourceLocation listLootTable=null;
+							ResourceLocation listLootTable;
 							double temp=world.rand.nextDouble();
-							// fixme 这个表以后再改吧
 							if(temp>0.4) listLootTable=LootTableList.CHESTS_SIMPLE_DUNGEON;
 							else if(temp>0.2) listLootTable=LootTableList.CHESTS_VILLAGE_BLACKSMITH;
-							else if(temp>0.15) listLootTable=LootTableList.CHESTS_NETHER_BRIDGE;
-							else if(temp<0.025) listLootTable=LootTableList.CHESTS_END_CITY_TREASURE;
+							else if(temp>0.1) listLootTable=LootTableList.CHESTS_NETHER_BRIDGE;
+							else listLootTable=LootTableList.CHESTS_END_CITY_TREASURE;
 							chest.setLootTable(listLootTable,world.getTotalWorldTime());
-//							{
-//								LootTableManager manager = world.getLootTableManager()
-//
-//								ResourceLocation lootTableLocator = ;
-//								LootTable table = manager.getLootTableFromLocation(lootTableLocator);
-//// 注：LootContext.Builder 的构造器只接受 WorldServer，但 getLootTableManager 方法是 World 里的。
-//								LootContext context = LootContext.Builder(world).withPlayer(player).withDamageSource(...).build();
-//								List<ItemStack> loots = table.generateLootForPools(world.rand, context);
-//							}
 						}
 					}
 				}

@@ -2,6 +2,21 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.32.0 _2026-10-25 18:00_
+
+* 更新开发环境配置至 ForgeGradle 5, 更新 MCP 版本 updated development environment to ForgeGradle 5, updated MCP version
+* 修复末影干涉逻辑方块可被收集和潜在可能导致崩溃的错误
+  fixed ender interfering logic block being collectible and a potential crash
+* 优化液体收集器逻辑 optimized fluid collector logic
+* 化学不稳定特性引发的爆炸不再默认破坏地形, 且伤害来源变为玩家
+  explosions from Chemical Instable trait no longer destroy terrain by default, and damage source is now the player
+* 优化寻宝屋刷新逻辑 optimized treasure house spawning logic
+* 崩裂特性引发的范围伤害不再对同队实体造成伤害
+  AOE damage from Cracking trait no longer hurts teammates
+* 修复部分服务端和客户端数据同步错误 fixed some server-client data sync issues
+* 修复各种矿物存储方块没有设置挖掘硬度的错误 fixed mineral storage blocks not having harvest hardness set
+* 大幅下调各种矿物刷新量 significantly reduced ore spawn amounts
+
 ## 0.3.30.0 _2021-03-12 10:30_
  
  * 世界生成模块修改 modified world generations
