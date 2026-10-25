@@ -18,6 +18,7 @@ import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
@@ -113,20 +114,12 @@ public class ClientRenderRegistry
 
 	private static void registerFluidBallModels()
 	{
-//		Map<String,Fluid> registeredFluids = FluidRegistry.getRegisteredFluids();
-//		Map<String,ResourceLocation> customizeFluidRL = new HashMap<>(registeredFluids.size()+3);
-//		for(Map.Entry<String,Fluid> entry : registeredFluids.entrySet())
-//		{
-//			String name = entry.getKey();
-//			Fluid fluid = entry.getValue();
-//
-//			ResourceLocation tempRL = new ResourceLocation(TinkersThings.MOD_ID,"fluid_ball_"+name);
-//			;
-//		}
-//		ModelBakery.registerItemVariants();
-
-//		ModelLoader.setCustomMeshDefinition(Items.fluidBall,Items.fluidBall::getModelLocation);
-
+		// 使用 Forge forgebucket 动态模型: 空球显示 base, 有液体时叠加液体 still 贴图
+		// 单独的 fluid_ball_dyn 变体, 避免和 models/item/fluid_ball.json 冲突
+		ModelResourceLocation loc = new ModelResourceLocation(
+				new ResourceLocation(TinkersThings.MOD_ID, "fluid_ball_dyn"), "inventory");
+		ModelLoader.setCustomMeshDefinition(Items.fluidBall, stack -> loc);
+		ModelBakery.registerItemVariants(Items.fluidBall, loc);
 	}
 
 	@SubscribeEvent
@@ -161,6 +154,8 @@ public class ClientRenderRegistry
 				if(obj instanceof Item)
 				{
 					Item item=(Item)field.get(null);
+					// 液体球走动态液体模型, 不要用固定 inventory 模型覆盖
+					if(item == Items.fluidBall) continue;
 					ModelResourceLocation mrl=new ModelResourceLocation(item.getRegistryName(),"inventory");
 					ModelLoader.setCustomModelResourceLocation(item, 0,mrl);
 //					TinkersThings.log("registered item texture: "+mrl.toString());

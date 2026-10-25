@@ -1,0 +1,19 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "inventory": {
+      "model": "forge:forgebucket",
+      "textures": {
+        "base": "tiths:items/fluid_ball",
+        "fluid": "tiths:items/fluid_ball_mask",
+        "cover": "tiths:items/fluid_ball_cover"
+      },
+      "transform": "forge:default-item",
+      "custom": {
+        "fluid": "water",
+        "flipGas": true,
+        "applyTint": true
+      }
+    }
+  }
+}

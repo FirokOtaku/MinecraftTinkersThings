@@ -2,6 +2,8 @@ package firok.tiths.item;
 
 import firok.tiths.TinkersThings;
 import firok.tiths.util.InnerActions;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -10,6 +12,11 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 /**
  * 叶绿提灯
@@ -24,6 +31,12 @@ public class ItemChloroplastLight extends ItemCustom
 		this.setNoRepair();
 	}
 
+	public static byte getFactor(ItemStack stack)
+	{
+		NBTTagCompound nbt=InnerActions.getNBT(stack);
+		return nbt.hasKey("factor")?nbt.getByte("factor"):0;
+	}
+
 	@Override
 	public void onCreated(ItemStack stack, World worldIn, EntityPlayer playerIn)
 	{
@@ -35,8 +48,7 @@ public class ItemChloroplastLight extends ItemCustom
 	{
 		if( entityIn!=null && entityIn.isInWater())
 		{
-			NBTTagCompound nbt=InnerActions.getNBT(stack);
-			byte factor=nbt.hasKey("factor")?nbt.getByte("factor"):0;
+			byte factor=getFactor(stack);
 			if(factor==0) return;
 
 			if(factor>0)
@@ -73,5 +85,13 @@ public class ItemChloroplastLight extends ItemCustom
 		nbt.setByte("factor",factor);
 
 		return ActionResult.newResult(EnumActionResult.SUCCESS,stack);
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn)
+	{
+		super.addInformation(stack, worldIn, list, flagIn);
+		list.add(I18n.format("item.tiths.chloroplast_light.factor", getFactor(stack)));
 	}
 }

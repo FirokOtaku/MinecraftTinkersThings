@@ -152,6 +152,7 @@ public final class Craftings
 		createBinding(Blocks.oreSteamium,Blocks.blockSteamium,Fluids.moltenSteamium,Items.ingotSteamium,Items.nuggetSteamium);
 		createBinding(Blocks.oreChloroplast,Blocks.blockChloroplast,Fluids.moltenChloroplast,Items.ingotChloroplast,Items.nuggetChloroplast);
 		createBinding(null,Blocks.blockTanatonium,Fluids.moltenTanatonium,Items.ingotTanatonium,Items.nuggetTanatonium);
+		createBinding(null,Blocks.blockDecurrium,Fluids.moltenDecurrium,Items.ingotDecurrium,Items.nuggetDecurrium);
 
 		TinkerRegistry.registerMelting(
 				new ItemStack(Blocks.oreTanatonium),
@@ -283,6 +284,13 @@ public final class Craftings
 						RecipeMatch.of(new ItemStack(Items.brokenIce)),
 						new FluidStack(TinkerFluids.purpleSlime,250),
 						true,false));
+		// 叶绿提灯: 熔融叶绿浇筑南瓜
+		registerBasinCasting(
+				new CastingRecipe(
+						new ItemStack(Items.chloroplastLight),
+						RecipeMatch.of(new ItemStack(net.minecraft.init.Blocks.PUMPKIN)),
+						new FluidStack(Fluids.moltenChloroplast, Material.VALUE_Ingot),
+						true, false));
 	}
 	// 铸造台合成表
 	private static void registerTableCastings()

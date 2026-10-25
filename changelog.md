@@ -2,6 +2,15 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.33.0 _2026-10-25 23:00_
+
+* 修复无法正常生成矿物的错误 fixed ore generation not working properly
+* 优化液体收集器逻辑 optimized fluid collector logic
+* 更新液体球材质 updated fluid ball texture
+* 添加部分药水酿造配方 added some potion brewing recipes
+* 补充部分缺失的合成表 added some missing crafting recipes
+* 修复浮灯方块采集后不掉落物品的错误 fixed buoyant light block not dropping items when harvested
+
 ## 0.3.32.0 _2026-10-25 18:00_
 
 * 更新开发环境配置至 ForgeGradle 5, 更新 MCP 版本 updated development environment to ForgeGradle 5, updated MCP version

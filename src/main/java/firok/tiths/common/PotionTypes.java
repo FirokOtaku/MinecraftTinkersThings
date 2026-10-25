@@ -51,8 +51,16 @@ public final class PotionTypes
 
 	public static final PotionType leaves_hiding=new PotionType("leaves_hiding",
 			new PotionEffect(Potions.leaves_hiding,3600,0));
+	public static final PotionType long_leaves_hiding=new PotionType("leaves_hiding",
+			new PotionEffect(Potions.leaves_hiding,9600,0));
+	public static final PotionType strong_leaves_hiding=new PotionType("leaves_hiding",
+			new PotionEffect(Potions.leaves_hiding,1800,1));
 	public static final PotionType illuminating=new PotionType("illuminating",
 			new PotionEffect(Potions.illuminating,3600,0));
+	public static final PotionType long_illuminating=new PotionType("illuminating",
+			new PotionEffect(Potions.illuminating,9600,0));
+	public static final PotionType strong_illuminating=new PotionType("illuminating",
+			new PotionEffect(Potions.illuminating,1800,1));
 	public static final PotionType bruming=new PotionType("bruming",
 			new PotionEffect(Potions.bruming,3600,0));
 	public static final PotionType paralysed=new PotionType("paralysed",
@@ -85,6 +93,16 @@ public final class PotionTypes
 		addMix(WATER,Items.nuggetRoyalAlloy,midas_vision1);
 		addMix(midas_vision1,Items.nuggetRoyalAlloy,midas_vision2);
 		addMix(midas_vision2,Items.nuggetRoyalAlloy,midas_vision3);
+
+		// 冰明玉 -> 灯明药水
+		addMix(WATER,Items.icelit,illuminating);
+		addMix(illuminating,net.minecraft.init.Items.REDSTONE,long_illuminating);
+		addMix(illuminating,net.minecraft.init.Items.GLOWSTONE_DUST,strong_illuminating);
+
+		// 叶蜡石 -> 蔽叶药水
+		addMix(WATER,Items.pyrophyllite,leaves_hiding);
+		addMix(leaves_hiding,net.minecraft.init.Items.REDSTONE,long_leaves_hiding);
+		addMix(leaves_hiding,net.minecraft.init.Items.GLOWSTONE_DUST,strong_leaves_hiding);
 	}
 
 	public static void registerPotionTypes()

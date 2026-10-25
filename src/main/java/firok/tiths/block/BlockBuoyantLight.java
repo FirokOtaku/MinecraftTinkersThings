@@ -26,7 +26,13 @@ public class BlockBuoyantLight extends BlockCompressed
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune)
 	{
-		return net.minecraft.init.Items.AIR;
+		return Items.buoyantLight;
+	}
+
+	@Override
+	protected ItemStack getSilkTouchDrop(IBlockState state)
+	{
+		return new ItemStack(Items.buoyantLight);
 	}
 
 	@Override
