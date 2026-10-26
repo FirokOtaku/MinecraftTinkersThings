@@ -104,7 +104,17 @@ public final class Blocks
 	public static final Block blockGravityDouble = new BlockGravity(Material.ROCK,2); // 二倍重力砖
 	@Reg(Keys.prefBlock+"gravity_triple")
 	public static final Block blockGravityTriple = new BlockGravity(Material.ROCK,3); // 三倍重力砖
-	@Reg(Keys.blockHalleium)
+    @Reg(Keys.prefBlock+"gravity_quadruple")
+    public static final Block blockGravityQuadruple = new BlockGravity(Material.ROCK,4); // 四倍重力砖
+    @Reg(Keys.prefBlock+"gravity_half")
+    public static final Block blockGravityHalf = new BlockGravity(Material.ROCK,0.5f); // 二分重力砖
+    @Reg(Keys.prefBlock+"gravity_one_third")
+    public static final Block blockGravityOneThird = new BlockGravity(Material.ROCK,0.333f); // 三分重力砖
+    @Reg(Keys.prefBlock+"gravity_one_quarter")
+    public static final Block blockGravityOneQuarter = new BlockGravity(Material.ROCK,0.25f); // 四分重力砖
+    @Reg(Keys.prefBlock+"gravity_zero")
+    public static final Block blockGravityZero = new BlockGravity(Material.ROCK,0); // 零重力砖
+    @Reg(Keys.blockHalleium)
 	public static final Block blockHalleium = new BlockCompressed().setBeaconBase(); // 哈雷块
 	@Reg(Keys.blockHeavesand)
 	public static final Block blockHeavesand = new BlockCompressed(Material.ROCK).setBeaconBase(); // 沉沙石块
