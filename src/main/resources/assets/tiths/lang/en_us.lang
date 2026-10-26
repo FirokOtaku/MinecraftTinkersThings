@@ -65,6 +65,9 @@ item.tiths.dust_stone_coal.name=Searing Dust
 item.tiths.ender_crevice_shard.desc=Shards that may appear during ender teleport
 item.tiths.ender_crevice_shard.name=Ender Crevice Shard
 item.tiths.ender_dragon_squama.name=Ender Dragon Squama
+item.tiths.ender_turbulence_candy.desc=Triggers an ender teleport when eaten
+item.tiths.ender_turbulence_candy.name=Ender Turbulence Candy
+
 item.tiths.fish_stack.name=Fish Stack
 item.tiths.flesh.name=Flesh (WIP)
 item.tiths.flesh_cooked.name=Cooked Flesh
@@ -833,6 +836,12 @@ potion.effect.paralysed=Potion of Paralysing
 lingering_potion.effect.paralysed=Lingering Potion of Paralysing
 splash_potion.effect.paralysed=Splash Potion of Paralysing
 tipped_arrow.effect.paralysed=Arrow of Paralysing
+
+effect.peaceful=Peaceful
+potion.effect.peaceful=Potion of Peace
+lingering_potion.effect.peaceful=Lingering Potion of Peace
+splash_potion.effect.peaceful=Splash Potion of Peace
+tipped_arrow.effect.peaceful=Arrow of Peace
 
 effect.pestilential=Pestilential
 potion.effect.pestilential=Potion of Pestilential

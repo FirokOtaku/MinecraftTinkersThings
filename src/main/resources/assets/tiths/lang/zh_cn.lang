@@ -65,6 +65,9 @@ item.tiths.dust_stone_coal.name=焦黑粉末
 item.tiths.ender_crevice_shard.desc=末影传送时可能出现的碎片
 item.tiths.ender_crevice_shard.name=末影裂隙碎片
 item.tiths.ender_dragon_squama.name=末影龙鳞
+item.tiths.ender_turbulence_candy.desc=食用后触发一次末影传送
+item.tiths.ender_turbulence_candy.name=末影乱流糖果
+
 item.tiths.fish_stack.name=鱼捆
 item.tiths.flesh.name=血肉 (WIP)
 item.tiths.flesh_cooked.name=熟血肉
@@ -833,6 +836,12 @@ potion.effect.paralysed=麻痹药水
 lingering_potion.effect.paralysed=滞留型麻痹药水
 splash_potion.effect.paralysed=喷溅型麻痹药水
 tipped_arrow.effect.paralysed=麻痹之箭
+
+effect.peaceful=平和
+potion.effect.peaceful=平和药水
+lingering_potion.effect.peaceful=滞留型平和药水
+splash_potion.effect.peaceful=喷溅型平和药水
+tipped_arrow.effect.peaceful=平和之箭
 
 effect.pestilential=瘟疫
 potion.effect.pestilential=瘟疫药水

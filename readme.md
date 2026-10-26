@@ -30,6 +30,11 @@
 
 ## 最近更新 latest update
 
+## 0.3.34.0 _2026-10-26 23:00_
+
+* 添加平和状态效果 added peaceful potion effect
+* 添加末影乱流糖果 added ender turbulence candy
+
 ### 0.3.33.0 _2026-10-25 23:00_
 
 * 修复无法正常生成矿物的错误 fixed ore generation not working properly

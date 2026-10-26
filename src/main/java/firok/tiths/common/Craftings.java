@@ -370,6 +370,14 @@ public final class Craftings
                         RecipeMatch.of(new ItemStack(net.minecraft.init.Items.FISH)),
                         new FluidStack(FluidRegistry.LAVA, Material.VALUE_Nugget * 1),
                         true, false));
+        // 末影乱流糖果
+        registerTableCasting(
+                new CastingRecipe(
+                        new ItemStack(Items.enderTurbulenceCandy),
+                        RecipeMatch.of(new ItemStack(net.minecraft.init.Items.SUGAR)),
+                        new FluidStack(Fluids.moltenEnderTurbulence, Material.VALUE_Nugget * 1),
+                        true, false));
+
 
         // 碎冰
         registerTableCasting(

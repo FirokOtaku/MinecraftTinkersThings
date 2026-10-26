@@ -8,6 +8,7 @@ import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.passive.IAnimals;
@@ -500,6 +501,30 @@ public final class Predicates
     public static boolean isAnimals(EntityLivingBase enlb)
     {
         return enlb instanceof IAnimals && !(enlb instanceof IMob);
+    }
+
+    /**
+     * 判断是否是敌人 (主动型生物)
+     */
+    public static boolean isEnemies(EntityLivingBase enlb)
+    {
+        return enlb instanceof IMob;
+    }
+
+    /**
+     * 判断是否具有仇恨 (攻击) 目标
+     */
+    public static boolean hasAttackTarget(EntityLivingBase enlb)
+    {
+        return enlb instanceof EntityLiving && ((EntityLiving) enlb).getAttackTarget() != null;
+    }
+
+    /**
+     * 判断是否具有复仇目标 (受伤后记录的反击对象)
+     */
+    public static boolean hasRevengeTarget(EntityLivingBase enlb)
+    {
+        return enlb != null && enlb.getRevengeTarget() != null;
     }
 
 //	public static boolean canReplaceWithOre(IBlockState state, IBlockAccess world, BlockPos pos)

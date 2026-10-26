@@ -2,6 +2,11 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.34.0 _2026-10-26 23:00_
+
+* 添加平和状态效果 added peaceful potion effect
+* 添加末影乱流糖果 added ender turbulence candy
+
 ## 0.3.34.0 _2026-10-26 22:00_
 
 * 添加更多类型的重力砖 added more types of gravity block

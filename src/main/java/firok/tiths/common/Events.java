@@ -14,6 +14,7 @@ import firok.tiths.util.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.entity.boss.EntityWither;
@@ -513,6 +514,37 @@ public class Events
             if (hasGluttonic) drops.clear(); // 暴食 清空掉落物
         }
 
+    }
+
+    /**
+     * 平和: AI 调用 setAttackTarget 时立刻清掉, 避免药水结算后同 tick 内重新索敌并出手
+     */
+    @SubscribeEvent
+    public static void onPeacefulSetAttackTarget(LivingSetAttackTargetEvent event)
+    {
+        if (event.getTarget() == null) return;
+        EntityLivingBase entity = event.getEntityLiving();
+        if (entity.world.isRemote) return;
+        if (entity.getActivePotionEffect(Potions.peaceful) == null) return;
+        if (!isEnemies(entity)) return;
+        if (entity instanceof EntityLiving)
+        {
+            ((EntityLiving) entity).setAttackTarget(null);
+        }
+    }
+
+    /**
+     * 平和: 降低 20% 对外击退距离 (1.12 无对应属性, 用事件改 strength)
+     */
+    @SubscribeEvent
+    public static void onPeacefulKnockBack(LivingKnockBackEvent event)
+    {
+        Entity attacker = event.getAttacker();
+        if (!(attacker instanceof EntityLivingBase)) return;
+        EntityLivingBase living = (EntityLivingBase) attacker;
+        if (living.world.isRemote) return;
+        if (living.getActivePotionEffect(Potions.peaceful) == null) return;
+        event.setStrength(event.getStrength() * 0.8f);
     }
 
     @SubscribeEvent(priority = HIGHEST)

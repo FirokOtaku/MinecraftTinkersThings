@@ -106,6 +106,8 @@ public interface Keys
     String nameHeavesand = "heavesand";
     String nameChloroplast = "chloroplast";
     String nameEnderTurbulence = "ender_turbulence";
+    String nameEnderTurbulenceCandy = "ender_turbulence_candy";
+
     String nameWitheringEssence = "withering_essence";
     String nameDirtyWater = "dirty_water";
     String nameFormerCrystal = "former_crystal";
@@ -738,6 +740,7 @@ public interface Keys
     int colorPotionMidasVision = 0xffd02e;
     int colorPotionFarmlandTrampler = 0x5a5919;
     int colorPotionTranquilized = colorTraitTranquilizing;
+    int colorPotionPeaceful = 0xADD8E6;
 
     // 状态效果属性修饰符uuid
     String uuidPotionAvatarSpeed = "258A83A5-A3BD-4CFD-842C-B2DF39343C91";
@@ -758,6 +761,7 @@ public interface Keys
     String uuidPotionHardIceDefense = "C72FA61D-1459-406A-A38A-6EB7EC3A2D94";
     String uuidPotionHardIceToughness = "F8FABC23-01C9-4A47-8339-4B90DD8C6345";
     String uuidPotionTranquilizedFollowRange = "4658DD50-1608-4EB3-BAF9-1AFECDE7EF6B";
+    String uuidPotionPeacefulDamage = "A3C7E1F2-8B4D-4A6E-9C01-5D2F7A8B9E0C";
     String uuidTraitSolubleSwimSpeed = "E42481C5-6AA3-4A74-A992-22AD533C88CC";
 
     // 燃料热值

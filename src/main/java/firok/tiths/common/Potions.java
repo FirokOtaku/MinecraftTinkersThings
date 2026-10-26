@@ -56,5 +56,6 @@ public final class Potions
     public static BasePotion midas_vision = new BasePotion(icon("midas_vision"), false, colorPotionMidasVision); // 迈达斯之视
     public static BasePotion farmland_trampler = new BasePotion(icon("farmland_trampler"), true, colorPotionFarmlandTrampler, false); // 践踏农田 (隐藏状态)
     public static BasePotion tranquilized = new PotionTranquilized(); // 镇定
+    public static BasePotion peaceful = new PotionPeaceful(); // 平和
     private Potions() {}
 }

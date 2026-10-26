@@ -17,9 +17,10 @@ import static firok.tiths.TinkersThings.resource;
 @SideOnly(Side.CLIENT)
 public final class ParticleType
 {
+    // types 必须先于 STAR / SMOKE_BALL 初始化, 否则构造函数 types.add 会 NPE
+    static List<ParticleType> types = new ArrayList<>();
     public static ParticleType STAR = new ParticleType("star", ParticleStar::new);
     public static ParticleType SMOKE_BALL = new ParticleType("smoke_ball", ParticleSmokeBall::new);
-    static List<ParticleType> types = new ArrayList<>();
     public final ResourceLocation rlMain; // 用于召唤粒子用的
     public final ResourceLocation rlTexture; // 用于注册材质用的 // 暂时没用
     public final IParticleFactory factory;
