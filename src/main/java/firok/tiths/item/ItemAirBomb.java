@@ -9,7 +9,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumAction;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
@@ -29,74 +28,77 @@ import java.util.List;
  */
 public class ItemAirBomb extends ItemCustom
 {
-	public ItemAirBomb()
-	{
-		super();
-		this.setMaxStackSize(16);
-	}
+    public ItemAirBomb()
+    {
+        super();
+        this.setMaxStackSize(16);
+    }
 
-	public ItemStack onItemUseFinish(ItemStack stack, World world, EntityLivingBase entity)
-	{
-		if(!world.isRemote)
-		{
-			IBlockState air=Blocks.AIR.getDefaultState();
-			BlockPos center=entity.getPosition();
-			final int flag=BlockFlags.SEND_TO_CLIENTS | BlockFlags.NO_RERENDER;
-			FOR_X:for(int ix=-5;ix<=5;ix++)
-			{
-				FOR_Y:for(int iy=-5;iy<=5;iy++)
-				{
-					FOR_Z:for(int iz=-5;iz<=5;iz++)
-					{
-						if(ix * ix + iy* iy + iz * iz > 25) continue FOR_Z;
+    public ItemStack onItemUseFinish(ItemStack stack, World world, EntityLivingBase entity)
+    {
+        if (!world.isRemote)
+        {
+            IBlockState air = Blocks.AIR.getDefaultState();
+            BlockPos center = entity.getPosition();
+            final int flag = BlockFlags.SEND_TO_CLIENTS | BlockFlags.NO_RERENDER;
+            FOR_X:
+            for (int ix = -5; ix <= 5; ix++)
+            {
+                FOR_Y:
+                for (int iy = -5; iy <= 5; iy++)
+                {
+                    FOR_Z:
+                    for (int iz = -5; iz <= 5; iz++)
+                    {
+                        if (ix * ix + iy * iy + iz * iz > 25) continue FOR_Z;
 
-						BlockPos posTemp=center.add(ix,iy,iz);
+                        BlockPos posTemp = center.add(ix, iy, iz);
 
-						IBlockState stateTemp= world.getBlockState(posTemp);
-						Block blockTemp=stateTemp.getBlock();
+                        IBlockState stateTemp = world.getBlockState(posTemp);
+                        Block blockTemp = stateTemp.getBlock();
 
-						if( blockTemp == Blocks.WATER || blockTemp == Blocks.FLOWING_WATER)
-						{
-							world.setBlockState(posTemp, air, flag);
-						}
-					}
-				}
-			}
+                        if (blockTemp == Blocks.WATER || blockTemp == Blocks.FLOWING_WATER)
+                        {
+                            world.setBlockState(posTemp, air, flag);
+                        }
+                    }
+                }
+            }
 
-			world.playSound(null,center,SoundEvents.ENTITY_GENERIC_EXPLODE,SoundCategory.MASTER,1,1);
-			// todo 这个地方的音效可能要再加上个玻璃碎掉的声音 因为合成表里有玻璃制品
-			world.markBlockRangeForRenderUpdate(-5,-5,-5,5,5,5);
+            world.playSound(null, center, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.MASTER, 1, 1);
+            // todo 这个地方的音效可能要再加上个玻璃碎掉的声音 因为合成表里有玻璃制品
+            world.markBlockRangeForRenderUpdate(-5, -5, -5, 5, 5, 5);
 
-			entity.setAir(300);
-		}
+            entity.setAir(300);
+        }
 
-		stack.shrink(1);
-		return stack;
-	}
+        stack.shrink(1);
+        return stack;
+    }
 
-	public int getMaxItemUseDuration(ItemStack stack)
-	{
-		return 36;
-	}
+    public int getMaxItemUseDuration(ItemStack stack)
+    {
+        return 36;
+    }
 
-	public EnumAction getItemUseAction(ItemStack stack)
-	{
-		return EnumAction.BOW;
-	}
+    public EnumAction getItemUseAction(ItemStack stack)
+    {
+        return EnumAction.BOW;
+    }
 
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
-	{
-		ItemStack itemstack = playerIn.getHeldItem(handIn);
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
+    {
+        ItemStack itemstack = playerIn.getHeldItem(handIn);
 
-		playerIn.setActiveHand(handIn);
-		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
-	}
+        playerIn.setActiveHand(handIn);
+        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
-	{
-		InnerActions.addInformation(this, tooltip, flagIn);
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
+    {
+        InnerActions.addInformation(this, tooltip, flagIn);
+    }
 
 }

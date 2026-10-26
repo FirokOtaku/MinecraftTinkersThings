@@ -15,18 +15,18 @@ import static firok.tiths.common.Keys.nameTraitTurbulent;
  */
 public class TraitTurbulent extends AbstractTrait
 {
-	public TraitTurbulent()
-	{
-		super(nameTraitTurbulent,colorTraitTurbulent);
-	}
+    public TraitTurbulent()
+    {
+        super(nameTraitTurbulent, colorTraitTurbulent);
+    }
 
-	@Override
-	public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean isCritical)
-	{
-		World world=target.world;
-		if(!world.isRemote && target.isEntityAlive())
-		{
-			target.addPotionEffect( new PotionEffect(Potions.turbulent, 100, 0));
-		}
-	}
+    @Override
+    public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean isCritical)
+    {
+        World world = target.world;
+        if (!world.isRemote && target.isEntityAlive())
+        {
+            target.addPotionEffect(new PotionEffect(Potions.turbulent, 100, 0));
+        }
+    }
 }

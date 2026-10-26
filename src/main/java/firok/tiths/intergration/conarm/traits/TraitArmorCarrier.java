@@ -10,8 +10,8 @@ import static firok.tiths.common.Keys.nameTraitCarrier;
  */
 public class TraitArmorCarrier extends AbstractArmorTrait
 {
-	public TraitArmorCarrier()
-	{
-		super(nameTraitCarrier,colorTraitCarrier);
-	}
+    public TraitArmorCarrier()
+    {
+        super(nameTraitCarrier, colorTraitCarrier);
+    }
 }

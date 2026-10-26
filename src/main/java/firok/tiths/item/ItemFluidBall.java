@@ -20,38 +20,38 @@ import java.util.List;
  */
 public class ItemFluidBall extends ItemCustom implements IFluid
 {
-	public ItemFluidBall()
-	{
-		super();
-		this.setMaxStackSize(16);
-	}
+    public ItemFluidBall()
+    {
+        super();
+        this.setMaxStackSize(16);
+    }
 
-	@Override
-	public ICapabilityProvider initCapabilities(ItemStack stack, @Nullable NBTTagCompound nbt)
-	{
-		return new FluidHandlerItemStack(stack, ItemFluidCollector.CAPACITY_PER_BALL);
-	}
+    @Override
+    public ICapabilityProvider initCapabilities(ItemStack stack, @Nullable NBTTagCompound nbt)
+    {
+        return new FluidHandlerItemStack(stack, ItemFluidCollector.CAPACITY_PER_BALL);
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag)
-	{
-		super.addInformation(stack, world, tooltip, flag);
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag)
+    {
+        super.addInformation(stack, world, tooltip, flag);
 
-		FluidStack fluidStack = getFluidStack(stack);
+        FluidStack fluidStack = getFluidStack(stack);
 
-		if(fluidStack == null) return;
+        if (fluidStack == null) return;
 
-		Fluid fluid = fluidStack.getFluid();
-		if(fluid == FluidRegistry.WATER || fluid == FluidRegistry.LAVA) // 原版的液体没有tile名字
-		{
-			tooltip.add(fluid.getBlock().getLocalizedName());
-		}
-		else
-		{
-			tooltip.add(fluid.getLocalizedName(fluidStack));
-		}
+        Fluid fluid = fluidStack.getFluid();
+        if (fluid == FluidRegistry.WATER || fluid == FluidRegistry.LAVA) // 原版的液体没有tile名字
+        {
+            tooltip.add(fluid.getBlock().getLocalizedName());
+        }
+        else
+        {
+            tooltip.add(fluid.getLocalizedName(fluidStack));
+        }
 
-		tooltip.add(fluidStack.amount + " mL");
-	}
+        tooltip.add(fluidStack.amount + " mL");
+    }
 }

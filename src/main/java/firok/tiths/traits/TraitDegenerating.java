@@ -16,22 +16,22 @@ import static firok.tiths.util.Predicates.canTick;
  */
 public class TraitDegenerating extends AbstractTrait
 {
-	public TraitDegenerating()
-	{
-		super(nameTraitDegenerating,colorTraitDegenerating);
-	}
+    public TraitDegenerating()
+    {
+        super(nameTraitDegenerating, colorTraitDegenerating);
+    }
 
-	@Override
-	public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
-	{
-		if(!world.isRemote && entity instanceof EntityLivingBase && canTick(world,80,0) && !ToolHelper.isBroken(tool))
-		{
-			EntityLivingBase enlb=(EntityLivingBase)entity;
-			int durMax= ToolHelper.getMaxDurability(tool);
-			int durNow= ToolHelper.getCurrentDurability(tool);
-			int durHalf=durMax/2;
-			if(durNow > durHalf) ToolHelper.damageTool(tool,1,enlb);
-			else if(durNow < durHalf) ToolHelper.healTool(tool,1,enlb);
-		}
-	}
+    @Override
+    public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
+    {
+        if (!world.isRemote && entity instanceof EntityLivingBase && canTick(world, 80, 0) && !ToolHelper.isBroken(tool))
+        {
+            EntityLivingBase enlb = (EntityLivingBase) entity;
+            int durMax = ToolHelper.getMaxDurability(tool);
+            int durNow = ToolHelper.getCurrentDurability(tool);
+            int durHalf = durMax / 2;
+            if (durNow > durHalf) ToolHelper.damageTool(tool, 1, enlb);
+            else if (durNow < durHalf) ToolHelper.healTool(tool, 1, enlb);
+        }
+    }
 }

@@ -18,35 +18,39 @@ import static firok.tiths.common.Keys.nameTraitTurbulent;
  */
 public class TraitArmorTurbulent extends AbstractArmorTrait
 {
-	public TraitArmorTurbulent()
-	{
-		super(nameTraitTurbulent, colorTraitTurbulent);
-	}
+    public TraitArmorTurbulent()
+    {
+        super(nameTraitTurbulent, colorTraitTurbulent);
+    }
 
-	@Override
-	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
-	{
-		if(player.isInWater())
-		{
-			PUSH_ATTACKER:if(source instanceof EntityDamageSource)
-			{
-				EntityDamageSource eds=(EntityDamageSource) source;
-				Entity attacker=eds.getTrueSource();
-				if(attacker==null || !attacker.isEntityAlive()) break PUSH_ATTACKER;
+    @Override
+    public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
+    {
+        if (player.isInWater())
+        {
+            PUSH_ATTACKER:
+            if (source instanceof EntityDamageSource)
+            {
+                EntityDamageSource eds = (EntityDamageSource) source;
+                Entity attacker = eds.getTrueSource();
+                if (attacker == null || !attacker.isEntityAlive()) break PUSH_ATTACKER;
 
-				Vec3d vec=new Vec3d( player.posX-attacker.posX, player.posY-attacker.posY, player.posZ-attacker.posZ);
-				Vec3d unit= Actions.CalcUnitVector(vec);
-				if(unit==null) break PUSH_ATTACKER;
+                Vec3d vec = new Vec3d(player.posX - attacker.posX, player.posY - attacker.posY, player.posZ - attacker.posZ);
+                Vec3d unit = Actions.CalcUnitVector(vec);
+                if (unit == null) break PUSH_ATTACKER;
 
-				double factor=0.8;
-				if(Math.abs(attacker.motionX)<1.5) attacker.motionX = Actions.rabs(attacker.motionX - unit.x * factor,1.53);
-				if(Math.abs(attacker.motionY)<1.5) attacker.motionY = Actions.rabs(attacker.motionY - unit.y * factor,1.53);
-				if(Math.abs(attacker.motionZ)<1.5) attacker.motionZ = Actions.rabs(attacker.motionZ - unit.z * factor,1.53);
-			}
+                double factor = 0.8;
+                if (Math.abs(attacker.motionX) < 1.5)
+                    attacker.motionX = Actions.rabs(attacker.motionX - unit.x * factor, 1.53);
+                if (Math.abs(attacker.motionY) < 1.5)
+                    attacker.motionY = Actions.rabs(attacker.motionY - unit.y * factor, 1.53);
+                if (Math.abs(attacker.motionZ) < 1.5)
+                    attacker.motionZ = Actions.rabs(attacker.motionZ - unit.z * factor, 1.53);
+            }
 
-			float ret=newDamage - damage/4;
-			return ret>0?ret:0;
-		}
-		return newDamage;
-	}
+            float ret = newDamage - damage / 4;
+            return ret > 0 ? ret : 0;
+        }
+        return newDamage;
+    }
 }

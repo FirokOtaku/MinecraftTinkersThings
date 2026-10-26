@@ -14,18 +14,27 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface GenOre
 {
-	int minY() default 5;
-	int maxY() default 128;
-	int times() default 4;
-	double timeRate() default 1;
-	int size() default 15;
+    int minY() default 5;
 
-	Strategy dim() default Strategy.NONE_BLACKLIST;
-	int[] dimsBL() default { 1, -1 };
-	int[] dimsWL() default { };
-	Strategy biome() default Strategy.NONE_BLACKLIST;
-	String[] biomeBL() default {};
-	String[] biomeWL() default {};
+    int maxY() default 128;
 
-	String selector() default "stone";
+    int times() default 4;
+
+    double timeRate() default 1;
+
+    int size() default 15;
+
+    Strategy dim() default Strategy.NONE_BLACKLIST;
+
+    int[] dimsBL() default {1, -1};
+
+    int[] dimsWL() default {};
+
+    Strategy biome() default Strategy.NONE_BLACKLIST;
+
+    String[] biomeBL() default {};
+
+    String[] biomeWL() default {};
+
+    String selector() default "stone";
 }

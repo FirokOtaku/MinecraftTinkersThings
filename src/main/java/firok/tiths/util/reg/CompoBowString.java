@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface CompoBowString
 {
-	float modifier() default 1.0f; // 品质系数
+    float modifier() default 1.0f; // 品质系数
 
-	String[] traits() default {};
+    String[] traits() default {};
 }

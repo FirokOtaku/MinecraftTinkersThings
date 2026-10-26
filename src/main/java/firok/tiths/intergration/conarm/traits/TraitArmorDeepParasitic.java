@@ -22,85 +22,86 @@ import static firok.tiths.util.Predicates.canTick;
  */
 public class TraitArmorDeepParasitic extends AbstractArmorTrait
 {
-	public TraitArmorDeepParasitic()
-	{
-		super(nameTraitDeepParasitic, colorTraitDeepParasitic);
-	}
+    public TraitArmorDeepParasitic()
+    {
+        super(nameTraitDeepParasitic, colorTraitDeepParasitic);
+    }
 
-	@Override
-	public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
-	{
-		if(!world.isRemote && canTick(world,200,8) && entity instanceof EntityLivingBase)
-		{
-			EntityLivingBase enlb=(EntityLivingBase)entity;
+    static NBTTagCompound createTagBindingCurse()
+    {
+        short idEnchBindingCurse = (short) Enchantment.getEnchantmentID(Enchantments.BINDING_CURSE);
 
-			if(enlb.getHealth()/enlb.getMaxHealth()>0.2 && ToolHelper.getMaxDurability(tool) - ToolHelper.getCurrentDurability(tool)> 5)
-			{
-				enlb.attackEntityFrom(DamageSource.MAGIC,1);
-				ToolHelper.healTool(tool,5,enlb);
-			}
-		}
+        NBTTagCompound nbtEnchantmentBindingCurse = new NBTTagCompound();
+        nbtEnchantmentBindingCurse.setShort("id", idEnchBindingCurse);
+        nbtEnchantmentBindingCurse.setShort("lvl", (short) 1);
 
-		if(!world.isRemote && canTick(world,1200,0))
-		{
-			NBTTagCompound nbt=tool.getTagCompound();
-			if(nbt==null)
-			{
-				nbt=new NBTTagCompound();
-				tool.setTagCompound(nbt);
-			}
-			addTagBindingCurse(nbt);
-		}
-	}
+        return nbtEnchantmentBindingCurse;
+    }
 
-	static NBTTagCompound createTagBindingCurse()
-	{
-		short idEnchBindingCurse=(short) Enchantment.getEnchantmentID(Enchantments.BINDING_CURSE);
+    static boolean hasTagBindingCurse(NBTTagList listEnch)
+    {
+        short idEnchBindingCurse = (short) Enchantment.getEnchantmentID(Enchantments.BINDING_CURSE);
 
-		NBTTagCompound nbtEnchantmentBindingCurse = new NBTTagCompound();
-		nbtEnchantmentBindingCurse.setShort("id", idEnchBindingCurse);
-		nbtEnchantmentBindingCurse.setShort("lvl", (short)1);
+        for (NBTBase nbtBase : listEnch)
+        {
+            if (nbtBase instanceof NBTTagCompound)
+            {
+                NBTTagCompound nbt = (NBTTagCompound) nbtBase;
+                if (nbt.hasKey("id") && nbt.getShort("id") == idEnchBindingCurse)
+                    return true;
+            }
+        }
 
-		return nbtEnchantmentBindingCurse;
-	}
+        return false;
+    }
 
-	static boolean hasTagBindingCurse(NBTTagList listEnch)
-	{
-		short idEnchBindingCurse=(short) Enchantment.getEnchantmentID(Enchantments.BINDING_CURSE);
+    static void addTagBindingCurse(NBTTagCompound rootNBT)
+    {
+        NBTTagList listEnch = rootNBT.getTagList("ench", 10);
+        addTagBindingCurse(listEnch);
+        rootNBT.setTag("ench", listEnch);
+    }
 
-		for(NBTBase nbtBase:listEnch)
-		{
-			if(nbtBase instanceof NBTTagCompound)
-			{
-				NBTTagCompound nbt=(NBTTagCompound)nbtBase;
-				if(nbt.hasKey("id") && nbt.getShort("id")==idEnchBindingCurse)
-					return true;
-			}
-		}
+    static void addTagBindingCurse(NBTTagList listEnch)
+    {
+        if (!hasTagBindingCurse(listEnch))
+        {
+            NBTTagCompound nbtEnchantmentBindingCurse = createTagBindingCurse();
 
-		return false;
-	}
+            listEnch.appendTag(nbtEnchantmentBindingCurse);
+        }
+    }
 
-	static void addTagBindingCurse(NBTTagCompound rootNBT)
-	{
-		NBTTagList listEnch= rootNBT.getTagList("ench",10);
-		addTagBindingCurse(listEnch);
-		rootNBT.setTag("ench",listEnch);
-	}
-	static void addTagBindingCurse(NBTTagList listEnch)
-	{
-		if(!hasTagBindingCurse(listEnch))
-		{
-			NBTTagCompound nbtEnchantmentBindingCurse = createTagBindingCurse();
+    @Override
+    public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
+    {
+        if (!world.isRemote && canTick(world, 200, 8) && entity instanceof EntityLivingBase)
+        {
+            EntityLivingBase enlb = (EntityLivingBase) entity;
 
-			listEnch.appendTag(nbtEnchantmentBindingCurse);
-		}
-	}
+            if (enlb.getHealth() / enlb.getMaxHealth() > 0.2 && ToolHelper.getMaxDurability(tool) - ToolHelper.getCurrentDurability(tool) > 5)
+            {
+                enlb.attackEntityFrom(DamageSource.MAGIC, 1);
+                ToolHelper.healTool(tool, 5, enlb);
+            }
+        }
 
-	@Override
-	public void applyEffect(NBTTagCompound rootNBT, NBTTagCompound modifierTag)
-	{
-		super.applyEffect(rootNBT, modifierTag);
-		addTagBindingCurse(rootNBT);
-	}
+        if (!world.isRemote && canTick(world, 1200, 0))
+        {
+            NBTTagCompound nbt = tool.getTagCompound();
+            if (nbt == null)
+            {
+                nbt = new NBTTagCompound();
+                tool.setTagCompound(nbt);
+            }
+            addTagBindingCurse(nbt);
+        }
+    }
+
+    @Override
+    public void applyEffect(NBTTagCompound rootNBT, NBTTagCompound modifierTag)
+    {
+        super.applyEffect(rootNBT, modifierTag);
+        addTagBindingCurse(rootNBT);
+    }
 }

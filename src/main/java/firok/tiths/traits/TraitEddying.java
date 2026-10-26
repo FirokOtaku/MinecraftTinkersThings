@@ -14,17 +14,17 @@ import static firok.tiths.common.Potions.eddying;
  */
 public class TraitEddying extends AbstractTrait
 {
-	public TraitEddying()
-	{
-		super(nameTraitEddying,colorTraitEddying);
-	}
+    public TraitEddying()
+    {
+        super(nameTraitEddying, colorTraitEddying);
+    }
 
-	@Override
-	public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean isCritical)
-	{
-		if(!target.world.isRemote && target.isEntityAlive())
-		{
-			target.addPotionEffect(new PotionEffect(eddying,200,0));
-		}
-	}
+    @Override
+    public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean isCritical)
+    {
+        if (!target.world.isRemote && target.isEntityAlive())
+        {
+            target.addPotionEffect(new PotionEffect(eddying, 200, 0));
+        }
+    }
 }

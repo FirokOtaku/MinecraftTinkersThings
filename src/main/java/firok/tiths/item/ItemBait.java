@@ -25,45 +25,46 @@ import static firok.tiths.util.Predicates.canTrigger;
 
 public class ItemBait extends ItemCustom
 {
-	Block bait;
-	public ItemBait(Block blockBait)
-	{
-		super();
-		this.bait=blockBait;
-	}
+    Block bait;
 
-	@Override
-	public EnumActionResult onItemUseFirst(EntityPlayer player, World world, BlockPos posBase, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand)
-	{
-		ItemStack stackHeld=player.getHeldItem(hand);
+    public ItemBait(Block blockBait)
+    {
+        super();
+        this.bait = blockBait;
+    }
 
-		IBlockState stateBase=world.getBlockState(posBase);
-		BlockFaceShape shapeBase=stateBase.getBlockFaceShape(world,posBase,side);
+    @Override
+    public EnumActionResult onItemUseFirst(EntityPlayer player, World world, BlockPos posBase, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand)
+    {
+        ItemStack stackHeld = player.getHeldItem(hand);
 
-		BlockPos posTarget=posBase.offset(side);
-		if(shapeBase==BlockFaceShape.SOLID && world.isAirBlock(posTarget))
-		{
-			if(!world.isRemote)
-			{
-				if(!player.isCreative() && canTrigger(world.rand,0.125))
-				{
-					stackHeld.shrink(1);
-					Actions.CauseSpawnItem(player,new ItemStack(Items.STRING,4));
-				}
+        IBlockState stateBase = world.getBlockState(posBase);
+        BlockFaceShape shapeBase = stateBase.getBlockFaceShape(world, posBase, side);
 
-				world.setBlockState(posTarget, bait.getDefaultState().withProperty(BlockBait.FACING,side.getOpposite()));
-			}
+        BlockPos posTarget = posBase.offset(side);
+        if (shapeBase == BlockFaceShape.SOLID && world.isAirBlock(posTarget))
+        {
+            if (!world.isRemote)
+            {
+                if (!player.isCreative() && canTrigger(world.rand, 0.125))
+                {
+                    stackHeld.shrink(1);
+                    Actions.CauseSpawnItem(player, new ItemStack(Items.STRING, 4));
+                }
 
-			return EnumActionResult.SUCCESS;
-		}
-		return EnumActionResult.PASS;
-	}
+                world.setBlockState(posTarget, bait.getDefaultState().withProperty(BlockBait.FACING, side.getOpposite()));
+            }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, World worldIn, List<String> list, ITooltipFlag flagIn)
-	{
-		list.add( I18n.format("tooltip.tiths.item_bait") );
-		InnerActions.addInformation(this,list,flagIn);
-	}
+            return EnumActionResult.SUCCESS;
+        }
+        return EnumActionResult.PASS;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, World worldIn, List<String> list, ITooltipFlag flagIn)
+    {
+        list.add(I18n.format("tooltip.tiths.item_bait"));
+        InnerActions.addInformation(this, list, flagIn);
+    }
 }

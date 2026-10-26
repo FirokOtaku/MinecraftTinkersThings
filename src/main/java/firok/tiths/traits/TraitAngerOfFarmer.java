@@ -13,17 +13,17 @@ import static firok.tiths.common.Keys.nameTraitAngerOfFarmer;
  */
 public class TraitAngerOfFarmer extends AbstractTrait
 {
-	public TraitAngerOfFarmer()
-	{
-		super(nameTraitAngerOfFarmer,colorTraitAngerOfFarmer);
-	}
+    public TraitAngerOfFarmer()
+    {
+        super(nameTraitAngerOfFarmer, colorTraitAngerOfFarmer);
+    }
 
-	@Override
-	public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float newDamage, boolean isCritical)
-	{
-		// 你去死吧
-		return target.getActivePotionEffect(Potions.farmland_trampler) != null ?
-				newDamage * 1.75f :
-				newDamage;
-	}
+    @Override
+    public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float newDamage, boolean isCritical)
+    {
+        // 你去死吧
+        return target.getActivePotionEffect(Potions.farmland_trampler) != null ?
+                newDamage * 1.75f :
+                newDamage;
+    }
 }

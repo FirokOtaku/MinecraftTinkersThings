@@ -12,20 +12,20 @@ import static firok.tiths.common.Keys.nameTraitTerrifying;
 // 恐吓
 public class TraitTerrifying extends AbstractTrait
 {
-	public TraitTerrifying()
-	{
-		super(nameTraitTerrifying, colorTraitTerrifying);
-	}
+    public TraitTerrifying()
+    {
+        super(nameTraitTerrifying, colorTraitTerrifying);
+    }
 
-	@Override
-	public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
-	{
-		if(wasHit && !player.world.isRemote && target.isEntityAlive())
-		{
-			target.addPotionEffect(new PotionEffect(MobEffects.NAUSEA,205,0));
-			target.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS,205,0));
-			target.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS,205,0));
-			target.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS,205,0));
-		}
-	}
+    @Override
+    public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
+    {
+        if (wasHit && !player.world.isRemote && target.isEntityAlive())
+        {
+            target.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 205, 0));
+            target.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 205, 0));
+            target.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, 205, 0));
+            target.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 205, 0));
+        }
+    }
 }

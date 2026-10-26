@@ -17,27 +17,27 @@ import java.util.Random;
  */
 public class BlockBuoyantLight extends BlockCompressed
 {
-	public BlockBuoyantLight()
-	{
-		super(Material.GLASS);
-		this.setHardness(0.1f);
-	}
+    public BlockBuoyantLight()
+    {
+        super(Material.GLASS);
+        this.setHardness(0.1f);
+    }
 
-	@Override
-	public Item getItemDropped(IBlockState state, Random rand, int fortune)
-	{
-		return Items.buoyantLight;
-	}
+    @Override
+    public Item getItemDropped(IBlockState state, Random rand, int fortune)
+    {
+        return Items.buoyantLight;
+    }
 
-	@Override
-	protected ItemStack getSilkTouchDrop(IBlockState state)
-	{
-		return new ItemStack(Items.buoyantLight);
-	}
+    @Override
+    protected ItemStack getSilkTouchDrop(IBlockState state)
+    {
+        return new ItemStack(Items.buoyantLight);
+    }
 
-	@Override
-	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
-	{
-		return new ItemStack(Items.buoyantLight);
-	}
+    @Override
+    public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
+    {
+        return new ItemStack(Items.buoyantLight);
+    }
 }

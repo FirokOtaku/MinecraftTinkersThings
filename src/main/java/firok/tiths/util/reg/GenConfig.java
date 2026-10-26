@@ -9,6 +9,7 @@ import java.lang.annotation.Target;
 /**
  * 标记生成矿物<br>
  * 通过这个注解的值, 读取Config内的数据, 创建世界生成器
+ *
  * @see firok.tiths.common.Blocks
  * @see firok.tiths.common.Configs.WorldGens
  * @see firok.tiths.common.WorldGens
@@ -17,5 +18,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface GenConfig
 {
-	String value();
+    String value();
 }

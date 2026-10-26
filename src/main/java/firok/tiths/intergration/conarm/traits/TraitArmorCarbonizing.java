@@ -19,28 +19,28 @@ import static firok.tiths.util.Predicates.canTrigger;
  */
 public class TraitArmorCarbonizing extends AbstractArmorTrait
 {
-	public TraitArmorCarbonizing()
-	{
-		super(nameTraitCarbonizing,colorTraitCarbonizing);
-	}
+    public TraitArmorCarbonizing()
+    {
+        super(nameTraitCarbonizing, colorTraitCarbonizing);
+    }
 
-	@Override
-	public int onArmorDamage(ItemStack armor, DamageSource source, int damage, int newDamage, EntityPlayer player, int slot)
-	{
-		return super.onArmorDamage(armor, source, damage, newDamage, player, slot);
-	}
+    @Override
+    public int onArmorDamage(ItemStack armor, DamageSource source, int damage, int newDamage, EntityPlayer player, int slot)
+    {
+        return super.onArmorDamage(armor, source, damage, newDamage, player, slot);
+    }
 
-	@Override
-	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
-	{
-		if(canDealWith(source,true,null,null,null,null))
-		{
-			if(!player.world.isRemote && canTrigger(player.world, Configs.ArmorTraits.rate_carbonizing_drop))
-			{
-				Actions.CauseSpawnItem(player,new ItemStack(Items.cinder));
-			}
-			return newDamage * (source.isFireDamage()? 1.5f: 0.95f);
-		}
-		return newDamage;
-	}
+    @Override
+    public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
+    {
+        if (canDealWith(source, true, null, null, null, null))
+        {
+            if (!player.world.isRemote && canTrigger(player.world, Configs.ArmorTraits.rate_carbonizing_drop))
+            {
+                Actions.CauseSpawnItem(player, new ItemStack(Items.cinder));
+            }
+            return newDamage * (source.isFireDamage() ? 1.5f : 0.95f);
+        }
+        return newDamage;
+    }
 }

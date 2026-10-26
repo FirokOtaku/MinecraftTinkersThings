@@ -17,25 +17,25 @@ import static firok.tiths.util.Predicates.canTick;
  */
 public class TraitArmorAquatic extends AbstractArmorTrait
 {
-	public TraitArmorAquatic()
-	{
-		super(nameTraitAquatic,colorTraitAquatic);
-	}
+    public TraitArmorAquatic()
+    {
+        super(nameTraitAquatic, colorTraitAquatic);
+    }
 
-	@Override
-	public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
-	{
-		if(!world.isRemote && canTick(world,100,0) && entity instanceof EntityLivingBase)
-		{
-			EntityLivingBase enlb=(EntityLivingBase)entity;
-			if(entity.isInWater())
-			{
-				ToolHelper.healTool(tool, Configs.ArmorTraits.factor_aquatic_heal, enlb);
-			}
-			else
-			{
-				ToolHelper.damageTool(tool, Configs.ArmorTraits.factor_aquatic_damage, enlb);
-			}
-		}
-	}
+    @Override
+    public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
+    {
+        if (!world.isRemote && canTick(world, 100, 0) && entity instanceof EntityLivingBase)
+        {
+            EntityLivingBase enlb = (EntityLivingBase) entity;
+            if (entity.isInWater())
+            {
+                ToolHelper.healTool(tool, Configs.ArmorTraits.factor_aquatic_heal, enlb);
+            }
+            else
+            {
+                ToolHelper.damageTool(tool, Configs.ArmorTraits.factor_aquatic_damage, enlb);
+            }
+        }
+    }
 }

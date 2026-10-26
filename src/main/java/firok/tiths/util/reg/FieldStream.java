@@ -14,116 +14,119 @@ import java.util.function.Consumer;
  * 类字段流
  */
 @SuppressWarnings("all")
-public class FieldStream<TypeEntry,TypeAnnotation extends Annotation>
+public class FieldStream<TypeEntry, TypeAnnotation extends Annotation>
 {
-	private List<Field> fields;
-	private List<TypeEntry> entries;
-	private List<TypeAnnotation> annotations;
-	private Consumer<Exception> callbackException;
+    private List<Field> fields;
+    private List<TypeEntry> entries;
+    private List<TypeAnnotation> annotations;
+    private Consumer<Exception> callbackException;
 
-	private FieldStream()
-	{
-		fields=new ArrayList<>();
-		entries=new ArrayList<>();
-		annotations=new ArrayList<>();
-		callbackException=TinkersThings::log;
-	}
+    private FieldStream()
+    {
+        fields = new ArrayList<>();
+        entries = new ArrayList<>();
+        annotations = new ArrayList<>();
+        callbackException = TinkersThings::log;
+    }
 
-	public FieldStream<TypeEntry,TypeAnnotation> whenFail(Consumer<Exception> callbackException)
-	{
-		Objects.requireNonNull(callbackException);
+    public static <TypeEntry, TypeAnnotation extends Annotation>
+    FieldStream<TypeEntry, TypeAnnotation>
+    of(Class clasz, Object object, Class<TypeEntry> claszFlag, Class<TypeAnnotation> claszAnnotation)
+    {
+        FieldStream<TypeEntry, TypeAnnotation> ret = new FieldStream<>();
 
-		this.callbackException=callbackException;
-		return this;
-	}
-	public FieldStream<TypeEntry,TypeAnnotation> filter(FilterHandler<TypeEntry,TypeAnnotation> filter)
-	{
-		Objects.requireNonNull(filter);
+        Field[] fieldsClasz = clasz.getDeclaredFields();
+        for (Field fieldClasz : fieldsClasz)
+        {
+            try
+            {
+                Object obj = fieldClasz.get(object);
+                TypeAnnotation anno = fieldClasz.getAnnotation(claszAnnotation);
+                if (!claszFlag.isInstance(obj) || anno == null) continue;
 
-		Iterator<Field> iterField=fields.iterator();
-		Iterator<TypeEntry> iterEntry=entries.iterator();
-		Iterator<TypeAnnotation> iterAnno=annotations.iterator();
+                ret.fields.add(fieldClasz);
+                ret.entries.add((TypeEntry) obj);
+                ret.annotations.add(anno);
+            }
+            catch (Exception ignore) {}
+        }
 
-		while(iterEntry.hasNext() && iterField.hasNext() && iterAnno.hasNext())
-		{
-			if(!filter.test(iterField.next(),iterAnno.next(),iterEntry.next()))
-			{
-				iterEntry.remove();
-				iterAnno.remove();
-				iterField.remove();
-			}
-		}
+        return ret;
+    }
 
-		return this;
-	}
-	public void forEach(FieldHandler<TypeEntry,TypeAnnotation> handler)
-	{
-		Objects.requireNonNull(handler);
+    public static <TypeEntry, TypeAnnotation extends Annotation>
+    FieldStream<TypeEntry, TypeAnnotation>
+    of(Class clasz, Object object, Class<TypeEntry> claszFlag)
+    {
+        FieldStream<TypeEntry, TypeAnnotation> ret = new FieldStream<>();
 
-		Iterator<Field> iterField=fields.iterator();
-		Iterator<TypeEntry> iterEntry=entries.iterator();
-		Iterator<TypeAnnotation> iterAnno=annotations.iterator();
+        Field[] fieldsClasz = clasz.getDeclaredFields();
+        for (Field fieldClasz : fieldsClasz)
+        {
+            try
+            {
+                Object obj = fieldClasz.get(object);
+                TypeAnnotation anno = null;
+                if (!claszFlag.isInstance(obj)) continue;
 
-		while(iterEntry.hasNext() && iterField.hasNext())
-		{
-			try
-			{
-				handler.handle(iterField.next(),iterAnno.next(),iterEntry.next());
-			}
-			catch (Exception e)
-			{
-				e.printStackTrace();
-				callbackException.accept(e);
-			}
-		}
-	}
+                ret.fields.add(fieldClasz);
+                ret.entries.add((TypeEntry) obj);
+                ret.annotations.add(anno);
+            }
+            catch (Exception ignore) {}
+        }
 
-	public static <TypeEntry,TypeAnnotation extends Annotation>
-	FieldStream<TypeEntry,TypeAnnotation>
-	of(Class clasz, Object object, Class<TypeEntry> claszFlag, Class<TypeAnnotation> claszAnnotation)
-	{
-		FieldStream<TypeEntry,TypeAnnotation> ret=new FieldStream<>();
+        return ret;
+    }
 
-		Field[] fieldsClasz=clasz.getDeclaredFields();
-		for(Field fieldClasz:fieldsClasz)
-		{
-			try
-			{
-				Object obj=fieldClasz.get(object);
-				TypeAnnotation anno=fieldClasz.getAnnotation(claszAnnotation);
-				if(!claszFlag.isInstance(obj) || anno==null) continue;
+    public FieldStream<TypeEntry, TypeAnnotation> whenFail(Consumer<Exception> callbackException)
+    {
+        Objects.requireNonNull(callbackException);
 
-				ret.fields.add(fieldClasz);
-				ret.entries.add((TypeEntry)obj);
-				ret.annotations.add(anno);
-			}
-			catch (Exception ignore) {}
-		}
+        this.callbackException = callbackException;
+        return this;
+    }
 
-		return ret;
-	}
-	public static <TypeEntry,TypeAnnotation extends Annotation>
-	FieldStream<TypeEntry,TypeAnnotation>
-	of(Class clasz, Object object, Class<TypeEntry> claszFlag)
-	{
-		FieldStream<TypeEntry,TypeAnnotation> ret=new FieldStream<>();
+    public FieldStream<TypeEntry, TypeAnnotation> filter(FilterHandler<TypeEntry, TypeAnnotation> filter)
+    {
+        Objects.requireNonNull(filter);
 
-		Field[] fieldsClasz=clasz.getDeclaredFields();
-		for(Field fieldClasz:fieldsClasz)
-		{
-			try
-			{
-				Object obj=fieldClasz.get(object);
-				TypeAnnotation anno=null;
-				if(!claszFlag.isInstance(obj)) continue;
+        Iterator<Field> iterField = fields.iterator();
+        Iterator<TypeEntry> iterEntry = entries.iterator();
+        Iterator<TypeAnnotation> iterAnno = annotations.iterator();
 
-				ret.fields.add(fieldClasz);
-				ret.entries.add((TypeEntry)obj);
-				ret.annotations.add(anno);
-			}
-			catch (Exception ignore) {}
-		}
+        while (iterEntry.hasNext() && iterField.hasNext() && iterAnno.hasNext())
+        {
+            if (!filter.test(iterField.next(), iterAnno.next(), iterEntry.next()))
+            {
+                iterEntry.remove();
+                iterAnno.remove();
+                iterField.remove();
+            }
+        }
 
-		return ret;
-	}
+        return this;
+    }
+
+    public void forEach(FieldHandler<TypeEntry, TypeAnnotation> handler)
+    {
+        Objects.requireNonNull(handler);
+
+        Iterator<Field> iterField = fields.iterator();
+        Iterator<TypeEntry> iterEntry = entries.iterator();
+        Iterator<TypeAnnotation> iterAnno = annotations.iterator();
+
+        while (iterEntry.hasNext() && iterField.hasNext())
+        {
+            try
+            {
+                handler.handle(iterField.next(), iterAnno.next(), iterEntry.next());
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+                callbackException.accept(e);
+            }
+        }
+    }
 }

@@ -12,20 +12,20 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface Compo
 {
-	String value();
+    String value();
 
-	/**
-	 * 工具属性
-	 */
-	String[] traitsTool() default {};
+    /**
+     * 工具属性
+     */
+    String[] traitsTool() default {};
 
-	/**
-	 * 弓箭属性
-	 */
-	String[] traitsBow() default {};
+    /**
+     * 弓箭属性
+     */
+    String[] traitsBow() default {};
 
-	/**
-	 * 护甲属性
-	 */
-	String[] traitsArmor() default {};
+    /**
+     * 护甲属性
+     */
+    String[] traitsArmor() default {};
 }

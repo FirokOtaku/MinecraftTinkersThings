@@ -15,17 +15,17 @@ import static firok.tiths.common.Keys.nameTraitPiercing;
  */
 public class TraitPiercing extends AbstractTrait
 {
-	public TraitPiercing()
-	{
-		super(nameTraitPiercing,colorTraitPiercing);
-	}
+    public TraitPiercing()
+    {
+        super(nameTraitPiercing, colorTraitPiercing);
+    }
 
-	@Override
-	public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float newDamage, boolean isCritical)
-	{
-		int count = 0;
-		Collection<PotionEffect> pes = target.getActivePotionEffects();
-		for(PotionEffect pe : pes) if(pe.getPotion().isBadEffect()) count++;
-		return newDamage * ( 1 + count * 0.2f );
-	}
+    @Override
+    public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float newDamage, boolean isCritical)
+    {
+        int count = 0;
+        Collection<PotionEffect> pes = target.getActivePotionEffects();
+        for (PotionEffect pe : pes) if (pe.getPotion().isBadEffect()) count++;
+        return newDamage * (1 + count * 0.2f);
+    }
 }

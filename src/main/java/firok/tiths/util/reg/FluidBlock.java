@@ -14,5 +14,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface FluidBlock
 {
-	Class<? extends Block> value();
+    Class<? extends Block> value();
 }

@@ -19,25 +19,51 @@ import static firok.tiths.common.Keys.nameTraitDrilled;
 // 打孔
 public class ModDrilled extends ToolModifier
 {
-	public ModDrilled()
-	{
-		super(nameTraitDrilled, colorTraitDrilled);
+    public ModDrilled()
+    {
+        super(nameTraitDrilled, colorTraitDrilled);
 
-		addAspects(new ModifierAspect.MultiAspect(this, 5, 1, 1));
-	}
+        addAspects(new ModifierAspect.MultiAspect(this, 5, 1, 1));
+    }
 
-	@Override
-	protected boolean canApplyCustom(ItemStack stack)
-	{
+    public static void applyInner(NBTTagCompound rootCompound, NBTTagCompound modifierTag, ToolNBT data, int level, boolean harvest, boolean weapon, boolean launcher)
+    {
+        while (level-- > 0)
+        {
+            data.durability -= 850;
+            if (data.durability < 0) data.durability = 1;
+
+            data.modifiers += 2;
+
+            if (harvest)
+            {
+                data.speed += 0.2;
+            }
+
+            if (weapon)
+            {
+                data.attackSpeedMultiplier += 0.2;
+                data.attack -= 2;
+                if (data.attack < 0.05) data.attack = 0.05f;
+            }
+
+            TagUtil.setToolTag(rootCompound, data.get());
+
+            if (launcher)
+            {
+                ProjectileLauncherNBT launcherData = new ProjectileLauncherNBT(TagUtil.getToolTag(rootCompound));
+                launcherData.drawSpeed += 0.2;
+                TagUtil.setToolTag(rootCompound, launcherData.get());
+            }
+        }
+    }
+
+    @Override
+    protected boolean canApplyCustom(ItemStack stack)
+    {
 //		ToolNBT data=TagUtil.getToolStats(TagUtil.getTagSafe(stack));
-		return ToolHelper.getMaxDurability(stack) >850 && ToolHelper.getActualAttack(stack)>2;
-	}
-
-	@Override
-	public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag)
-	{
-		InnerActions.apply(rootCompound, modifierTag, ModDrilled::applyInner);
-	}
+        return ToolHelper.getMaxDurability(stack) > 850 && ToolHelper.getActualAttack(stack) > 2;
+    }
 
 //	@Override
 //	public boolean canApplyTogether(Enchantment enchantment)
@@ -45,44 +71,18 @@ public class ModDrilled extends ToolModifier
 //		return enchantment != Enchantments.UNBREAKING && enchantment != Enchantments.MENDING;
 //	}
 
-	@Override
-	public boolean canApplyTogether(IToolMod otherModifier)
-	{
-		return otherModifier != TinkerModifiers.modDiamond &&
-		       otherModifier != TinkerModifiers.modEmerald &&
-		       otherModifier != TinkerTraits.duritos &&
-		       otherModifier != TinkerTraits.dense;
-	}
+    @Override
+    public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag)
+    {
+        InnerActions.apply(rootCompound, modifierTag, ModDrilled::applyInner);
+    }
 
-	public static void applyInner(NBTTagCompound rootCompound, NBTTagCompound modifierTag, ToolNBT data, int level, boolean harvest, boolean weapon, boolean launcher)
-	{
-		while(level-->0)
-		{
-			data.durability-=850;
-			if(data.durability<0) data.durability=1;
-
-			data.modifiers+=2;
-
-			if(harvest)
-			{
-				data.speed+=0.2;
-			}
-
-			if(weapon)
-			{
-				data.attackSpeedMultiplier+=0.2;
-				data.attack-=2;
-				if(data.attack<0.05) data.attack=0.05f;
-			}
-
-			TagUtil.setToolTag(rootCompound, data.get());
-
-			if(launcher)
-			{
-				ProjectileLauncherNBT launcherData = new ProjectileLauncherNBT(TagUtil.getToolTag(rootCompound));
-				launcherData.drawSpeed+=0.2;
-				TagUtil.setToolTag(rootCompound, launcherData.get());
-			}
-		}
-	}
+    @Override
+    public boolean canApplyTogether(IToolMod otherModifier)
+    {
+        return otherModifier != TinkerModifiers.modDiamond &&
+                otherModifier != TinkerModifiers.modEmerald &&
+                otherModifier != TinkerTraits.duritos &&
+                otherModifier != TinkerTraits.dense;
+    }
 }

@@ -10,8 +10,8 @@ import static firok.tiths.common.Keys.nameTraitThresholdLimiting;
  */
 public class TraitArmorThresholdLimiting extends AbstractArmorTrait
 {
-	public TraitArmorThresholdLimiting()
-	{
-		super(nameTraitThresholdLimiting,colorTraitThresholdLimiting);
-	}
+    public TraitArmorThresholdLimiting()
+    {
+        super(nameTraitThresholdLimiting, colorTraitThresholdLimiting);
+    }
 }

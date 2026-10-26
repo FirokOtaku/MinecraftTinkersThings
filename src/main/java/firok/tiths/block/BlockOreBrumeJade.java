@@ -10,18 +10,18 @@ import net.minecraft.world.IBlockAccess;
 
 public class BlockOreBrumeJade extends BlockOre
 {
-	public BlockOreBrumeJade()
-	{
-		new BlockOre(Items.brumeJade, 1, 1, 1, 4, 6);
-		setRareOre();
-		enableTransparent();
-	}
+    public BlockOreBrumeJade()
+    {
+        new BlockOre(Items.brumeJade, 1, 1, 1, 4, 6);
+        setRareOre();
+        enableTransparent();
+    }
 
-	@Override
-	public boolean shouldSideBeRendered(IBlockState blockstateThis, IBlockAccess world, BlockPos pos, EnumFacing side)
-	{
-		Block block=world.getBlockState(pos.offset(side)).getBlock();
+    @Override
+    public boolean shouldSideBeRendered(IBlockState blockstateThis, IBlockAccess world, BlockPos pos, EnumFacing side)
+    {
+        Block block = world.getBlockState(pos.offset(side)).getBlock();
 //		return block != Blocks.oreBrumeJade && block != this;
-		return block != Blocks.blockCloud && block != this;
-	}
+        return block != Blocks.blockCloud && block != this;
+    }
 }

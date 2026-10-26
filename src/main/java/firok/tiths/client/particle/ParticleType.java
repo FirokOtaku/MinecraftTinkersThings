@@ -17,38 +17,36 @@ import static firok.tiths.TinkersThings.resource;
 @SideOnly(Side.CLIENT)
 public final class ParticleType
 {
-	static List<ParticleType> types = new ArrayList<>();
+    public static ParticleType STAR = new ParticleType("star", ParticleStar::new);
+    public static ParticleType SMOKE_BALL = new ParticleType("smoke_ball", ParticleSmokeBall::new);
+    static List<ParticleType> types = new ArrayList<>();
+    public final ResourceLocation rlMain; // 用于召唤粒子用的
+    public final ResourceLocation rlTexture; // 用于注册材质用的 // 暂时没用
+    public final IParticleFactory factory;
 
-	public final ResourceLocation rlMain; // 用于召唤粒子用的
-	public final ResourceLocation rlTexture; // 用于注册材质用的 // 暂时没用
-	public final IParticleFactory factory;
+    private ParticleType(String name, IParticleFactory factory)
+    {
+        Objects.requireNonNull(name);
+        Objects.requireNonNull(factory);
 
-	private ParticleType(String name,IParticleFactory factory)
-	{
-		Objects.requireNonNull(name);
-		Objects.requireNonNull(factory);
+        this.rlMain = resource(name);
+        this.rlTexture = resource("particles/" + name);
+        this.factory = factory;
 
-		this.rlMain = resource(name);
-		this.rlTexture = resource("particles/"+name);
-		this.factory = factory;
+        ParticleFactory.addParticleFactory(this, this.factory);
+        types.add(this);
+    }
 
-		ParticleFactory.addParticleFactory(this,this.factory);
-		types.add(this);
-	}
+    public static void onTextureRegisterEvent(TextureStitchEvent.Pre event)
+    {
+        for (ParticleType type : types)
+        {
+            type.onTextureRegister(event);
+        }
+    }
 
-	void onTextureRegister(TextureStitchEvent.Pre event)
-	{
-		event.getMap().registerSprite(this.rlTexture);
-	}
-
-	public static ParticleType STAR = new ParticleType("star",ParticleStar::new);
-	public static ParticleType SMOKE_BALL = new ParticleType("smoke_ball",ParticleSmokeBall::new);
-
-	public static void onTextureRegisterEvent(TextureStitchEvent.Pre event)
-	{
-		for(ParticleType type : types)
-		{
-			type.onTextureRegister(event);
-		}
-	}
+    void onTextureRegister(TextureStitchEvent.Pre event)
+    {
+        event.getMap().registerSprite(this.rlTexture);
+    }
 }

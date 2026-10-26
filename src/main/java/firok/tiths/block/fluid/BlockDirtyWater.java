@@ -18,19 +18,19 @@ import static firok.tiths.util.Predicates.canTick;
  */
 public class BlockDirtyWater extends BlockTinkerFluid
 {
-	public BlockDirtyWater(Fluid fluid)
-	{
-		super(fluid, Material.WATER);
-	}
+    public BlockDirtyWater(Fluid fluid)
+    {
+        super(fluid, Material.WATER);
+    }
 
-	@Override
-	public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
-	{
-		super.onEntityCollision(worldIn, pos, state, entityIn);
-		if(canTick(worldIn,4,0) && entityIn instanceof EntityLivingBase)
-		{
-			EntityLivingBase enlb=(EntityLivingBase)entityIn;
-			enlb.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS,400,0));
-		}
-	}
+    @Override
+    public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
+    {
+        super.onEntityCollision(worldIn, pos, state, entityIn);
+        if (canTick(worldIn, 4, 0) && entityIn instanceof EntityLivingBase)
+        {
+            EntityLivingBase enlb = (EntityLivingBase) entityIn;
+            enlb.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, 400, 0));
+        }
+    }
 }

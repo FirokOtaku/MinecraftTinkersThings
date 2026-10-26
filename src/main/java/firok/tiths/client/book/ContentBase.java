@@ -13,15 +13,17 @@ import java.util.ArrayList;
 @SideOnly(Side.CLIENT)
 public abstract class ContentBase extends TinkerPage
 {
-	protected String title;
+    protected String title;
 
-	public void addTitle(ArrayList<BookElement> list, String title) {
-		TextData tdTitle = new TextData(title);
-		tdTitle.underlined = true;
-		addTitle(list, new TextData[]{tdTitle});
-	}
+    public void addTitle(ArrayList<BookElement> list, String title)
+    {
+        TextData tdTitle = new TextData(title);
+        tdTitle.underlined = true;
+        addTitle(list, new TextData[]{tdTitle});
+    }
 
-	public void addTitle(ArrayList<BookElement> list, TextData[] title) {
-		list.add(new ElementText(0, 0, GuiBook.PAGE_WIDTH, 9, title));
-	}
+    public void addTitle(ArrayList<BookElement> list, TextData[] title)
+    {
+        list.add(new ElementText(0, 0, GuiBook.PAGE_WIDTH, 9, title));
+    }
 }

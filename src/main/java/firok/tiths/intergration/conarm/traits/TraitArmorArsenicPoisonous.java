@@ -21,25 +21,25 @@ import static firok.tiths.util.Predicates.canDealWith;
  */
 public class TraitArmorArsenicPoisonous extends AbstractArmorTrait
 {
-	public TraitArmorArsenicPoisonous()
-	{
-		super(nameTraitArsenicPoisonous,colorTraitPoisonous);
-	}
+    public TraitArmorArsenicPoisonous()
+    {
+        super(nameTraitArsenicPoisonous, colorTraitPoisonous);
+    }
 
-	@Override
-	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
-	{
-		if(source instanceof EntityDamageSource && canDealWith(source,true,null,null,null,false))
-		{
+    @Override
+    public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
+    {
+        if (source instanceof EntityDamageSource && canDealWith(source, true, null, null, null, false))
+        {
 
-			EntityDamageSource ends=(EntityDamageSource)source;
-			Entity entity=ends.getTrueSource();
-			if(entity instanceof EntityLivingBase)
-			{
-				EntityLivingBase enlb=(EntityLivingBase)entity;
-				enlb.addPotionEffect(new PotionEffect(MobEffects.POISON, Configs.ArmorTraits.arsenic_poisonous_duration, 1));
-			}
-		}
-		return newDamage;
-	}
+            EntityDamageSource ends = (EntityDamageSource) source;
+            Entity entity = ends.getTrueSource();
+            if (entity instanceof EntityLivingBase)
+            {
+                EntityLivingBase enlb = (EntityLivingBase) entity;
+                enlb.addPotionEffect(new PotionEffect(MobEffects.POISON, Configs.ArmorTraits.arsenic_poisonous_duration, 1));
+            }
+        }
+        return newDamage;
+    }
 }

@@ -12,16 +12,16 @@ import java.util.List;
 
 public class ItemSoulWatchBauble extends ItemBauble implements ISoulWatch
 {
-	public ItemSoulWatchBauble(BaubleType type)
-	{
-		super(type);
-	}
+    public ItemSoulWatchBauble(BaubleType type)
+    {
+        super(type);
+    }
 
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void addInformation(ItemStack stack, World worldIn, List<String> list, ITooltipFlag flagIn)
-	{
-		super.addInformation(stack, worldIn, list, flagIn);
-		addWatchInformation(stack, worldIn, list, flagIn);
-	}
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void addInformation(ItemStack stack, World worldIn, List<String> list, ITooltipFlag flagIn)
+    {
+        super.addInformation(stack, worldIn, list, flagIn);
+        addWatchInformation(stack, worldIn, list, flagIn);
+    }
 }

@@ -18,23 +18,23 @@ import static firok.tiths.traits.TraitThermalGathering.checkThermalSource;
  */
 public class TraitArmorThermalGathering extends AbstractArmorTrait
 {
-	public TraitArmorThermalGathering()
-	{
-		super(nameTraitThermalGathering,colorTraitThermalGathering);
-	}
+    public TraitArmorThermalGathering()
+    {
+        super(nameTraitThermalGathering, colorTraitThermalGathering);
+    }
 
-	@Override
-	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
-	{
-		return source.isFireDamage()? newDamage * 0.5f : newDamage;
-	}
+    @Override
+    public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
+    {
+        return source.isFireDamage() ? newDamage * 0.5f : newDamage;
+    }
 
-	@Override
-	public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
-	{
-		if(canThermalGather(world) && checkThermalSource(player))
-		{
-			ArmorHelper.healArmor(tool,4,player,0);
-		}
-	}
+    @Override
+    public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
+    {
+        if (canThermalGather(world) && checkThermalSource(player))
+        {
+            ArmorHelper.healArmor(tool, 4, player, 0);
+        }
+    }
 }

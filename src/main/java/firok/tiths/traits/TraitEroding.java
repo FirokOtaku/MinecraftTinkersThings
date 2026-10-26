@@ -14,20 +14,20 @@ import static firok.tiths.common.Keys.nameTraitEroding;
  */
 public class TraitEroding extends AbstractTrait
 {
-	public TraitEroding()
-	{
-		super(nameTraitEroding,colorTraitEroding);
-	}
+    public TraitEroding()
+    {
+        super(nameTraitEroding, colorTraitEroding);
+    }
 
-	@Override
-	public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean isCritical)
-	{
-		if(target.isServerWorld())
-		{
-			PotionEffect peEroded=target.getActivePotionEffect(Potions.eroded);
-			int lv=peEroded!=null?peEroded.getAmplifier()+1:0;
-			if(lv>9) lv=9;
-			target.addPotionEffect(new PotionEffect(Potions.eroded,100,lv));
-		}
-	}
+    @Override
+    public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean isCritical)
+    {
+        if (target.isServerWorld())
+        {
+            PotionEffect peEroded = target.getActivePotionEffect(Potions.eroded);
+            int lv = peEroded != null ? peEroded.getAmplifier() + 1 : 0;
+            if (lv > 9) lv = 9;
+            target.addPotionEffect(new PotionEffect(Potions.eroded, 100, lv));
+        }
+    }
 }

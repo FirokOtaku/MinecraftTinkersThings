@@ -13,15 +13,15 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface CompoArmorCore
 {
-	/**
-	 * @return 耐久
-	 */
-	double durability();
+    /**
+     * @return 耐久
+     */
+    double durability();
 
-	/**
-	 * @return 护甲
-	 */
-	double defense();
+    /**
+     * @return 护甲
+     */
+    double defense();
 
-	String[] traits() default {};
+    String[] traits() default {};
 }

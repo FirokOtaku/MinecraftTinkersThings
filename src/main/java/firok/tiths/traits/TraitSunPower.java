@@ -15,22 +15,22 @@ import static firok.tiths.util.Predicates.canTick;
 // 日之力量
 public class TraitSunPower extends AbstractTrait
 {
-	public TraitSunPower()
-	{
-		super(nameTraitSunPower, colorTraitSunPower);
-	}
+    public TraitSunPower()
+    {
+        super(nameTraitSunPower, colorTraitSunPower);
+    }
 
-	public static boolean checkHealSun(World world)
-	{
-		return canTick(world,100,2) &&  world.isDaytime();
-	}
+    public static boolean checkHealSun(World world)
+    {
+        return canTick(world, 100, 2) && world.isDaytime();
+    }
 
-	@Override
-	public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
-	{
-		if(!world.isRemote && entity instanceof EntityLivingBase && checkHealSun(world))
-		{
-			ToolHelper.healTool(tool, Configs.Traits.factor_sun_power, (EntityLivingBase) entity);
-		}
-	}
+    @Override
+    public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
+    {
+        if (!world.isRemote && entity instanceof EntityLivingBase && checkHealSun(world))
+        {
+            ToolHelper.healTool(tool, Configs.Traits.factor_sun_power, (EntityLivingBase) entity);
+        }
+    }
 }

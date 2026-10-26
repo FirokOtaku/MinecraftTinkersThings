@@ -24,49 +24,53 @@ import static firok.tiths.common.Keys.nameTraitInky;
  */
 public class TraitInky extends AbstractTrait implements IModifierDisplay
 {
-	public TraitInky()
-	{
-		super(nameTraitInky, colorTraitInky);
-	}
+    public TraitInky()
+    {
+        super(nameTraitInky, colorTraitInky);
+    }
 
-	@Override
-	public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit) {
-		if(wasHit && target.isEntityAlive()) {
-			target.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, Configs.Traits.factor_inky));
-		}
-	}
+    @Override
+    public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
+    {
+        if (wasHit && target.isEntityAlive())
+        {
+            target.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, Configs.Traits.factor_inky));
+        }
+    }
 
-	@Override
-	public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag)
-	{
-		if(InnerActions.addTrait(this,rootCompound,modifierTag)) return;
+    @Override
+    public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag)
+    {
+        if (InnerActions.addTrait(this, rootCompound, modifierTag)) return;
 
-		ToolNBT data = TagUtil.getToolStats(rootCompound);
+        ToolNBT data = TagUtil.getToolStats(rootCompound);
 
-		data.speed*=0.9f;
-		data.attackSpeedMultiplier*=0.9f;
+        data.speed *= 0.9f;
+        data.attackSpeedMultiplier *= 0.9f;
 
-		TagUtil.setToolTag(rootCompound, data.get());
-	}
+        TagUtil.setToolTag(rootCompound, data.get());
+    }
 
-	@Override
-	public int getColor()
-	{
-		return this.color;
-	}
+    @Override
+    public int getColor()
+    {
+        return this.color;
+    }
 
-	@Override
-	public List<List<ItemStack>> getItems()
-	{
-		ImmutableList.Builder<List<ItemStack>> builder = ImmutableList.builder();
+    @Override
+    public List<List<ItemStack>> getItems()
+    {
+        ImmutableList.Builder<List<ItemStack>> builder = ImmutableList.builder();
 
-		for(RecipeMatch rm : items) {
-			List<ItemStack> in = rm.getInputs();
-			if(!in.isEmpty()) {
-				builder.add(in);
-			}
-		}
+        for (RecipeMatch rm : items)
+        {
+            List<ItemStack> in = rm.getInputs();
+            if (!in.isEmpty())
+            {
+                builder.add(in);
+            }
+        }
 
-		return builder.build();
-	}
+        return builder.build();
+    }
 }

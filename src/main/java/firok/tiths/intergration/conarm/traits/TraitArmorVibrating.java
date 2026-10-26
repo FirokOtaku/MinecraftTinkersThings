@@ -18,30 +18,30 @@ import static firok.tiths.util.Predicates.canTick;
  */
 public class TraitArmorVibrating extends AbstractArmorTrait
 {
-//	public static final String NBTKey=MOD_ID+'_'+nameTraitVibrating;
-	public TraitArmorVibrating()
-	{
-		super(nameTraitVibrating,colorTraitVibrating);
-	}
+    //	public static final String NBTKey=MOD_ID+'_'+nameTraitVibrating;
+    public TraitArmorVibrating()
+    {
+        super(nameTraitVibrating, colorTraitVibrating);
+    }
 
-	@Override
-	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
-	{
-		if(canDealWith(source,true,null,null,null,null))
-		{
-			float fre=TraitVibrating.addFrequency(armor,12, 144);
-			float percent=fre/144 * 0.6f;
-			return newDamage * (1-percent);
-		}
-		return newDamage;
-	}
+    @Override
+    public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
+    {
+        if (canDealWith(source, true, null, null, null, null))
+        {
+            float fre = TraitVibrating.addFrequency(armor, 12, 144);
+            float percent = fre / 144 * 0.6f;
+            return newDamage * (1 - percent);
+        }
+        return newDamage;
+    }
 
-	@Override
-	public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
-	{
-		if(canTick(world,5,0))
-		{
-			TraitVibrating.subtractFrequency(tool,1,0);
-		}
-	}
+    @Override
+    public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
+    {
+        if (canTick(world, 5, 0))
+        {
+            TraitVibrating.subtractFrequency(tool, 1, 0);
+        }
+    }
 }

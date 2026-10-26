@@ -7,9 +7,10 @@ import slimeknights.tconstruct.library.client.renderer.RenderProjectileBase;
 public class RendererProjectileJavelin extends RenderProjectileBase<ProjectileJavelin>
 {
 
-	public RendererProjectileJavelin(RenderManager renderManager) {
-		super(renderManager);
-	}
+    public RendererProjectileJavelin(RenderManager renderManager)
+    {
+        super(renderManager);
+    }
 
 //	@Override
 //	protected void customCustomRendering(EntityArrow entity, double x, double y, double z, float entityYaw, float partialTicks) {

@@ -12,10 +12,10 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface CompoArmorTrim
 {
-	/**
-	 * @return 耐久
-	 */
-	double extraDurability();
+    /**
+     * @return 耐久
+     */
+    double extraDurability();
 
-	String[] traits() default {};
+    String[] traits() default {};
 }

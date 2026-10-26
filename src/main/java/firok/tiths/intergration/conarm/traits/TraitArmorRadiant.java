@@ -14,22 +14,22 @@ import static firok.tiths.traits.TraitRadiant.*;
  */
 public class TraitArmorRadiant extends AbstractArmorTrait
 {
-	public TraitArmorRadiant()
-	{
-		super(nameTraitRadiant, colorTraitRadiant);
-	}
+    public TraitArmorRadiant()
+    {
+        super(nameTraitRadiant, colorTraitRadiant);
+    }
 
-	@Override
-	public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
-	{
-		if(checkBurn(world))
-		{
-			burn(world, player);
-		}
+    @Override
+    public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
+    {
+        if (checkBurn(world))
+        {
+            burn(world, player);
+        }
 
-		if(checkParticle(world))
-		{
-			particle(world,player,world.rand);
-		}
-	}
+        if (checkParticle(world))
+        {
+            particle(world, player, world.rand);
+        }
+    }
 }

@@ -21,91 +21,95 @@ import static firok.tiths.util.Predicates.canTick;
 // 热力聚集
 public class TraitThermalGathering extends AbstractTrait
 {
-	public TraitThermalGathering()
-	{
-		super(nameTraitThermalGathering, colorTraitThermalGathering);
-	}
+    private static final List<Block> THERMAL_SOURCE = new ArrayList<>();
+    private static Entity _entity = null;
+    private static long _tickTime = -1;
+    private static boolean _hasFound = false;
 
+    static
+    {
+        THERMAL_SOURCE.add(Blocks.LAVA);
+        THERMAL_SOURCE.add(Blocks.FLOWING_LAVA);
+        THERMAL_SOURCE.add(Blocks.FIRE);
+    }
 
-	private static final List<Block> THERMAL_SOURCE=new ArrayList<>();
-	static
-	{
-		THERMAL_SOURCE.add(Blocks.LAVA);
-		THERMAL_SOURCE.add(Blocks.FLOWING_LAVA);
-		THERMAL_SOURCE.add(Blocks.FIRE);
-	}
-	public static boolean isThermalSource(Block block)
-	{
-		return THERMAL_SOURCE.contains(block);
-	}
+    public TraitThermalGathering()
+    {
+        super(nameTraitThermalGathering, colorTraitThermalGathering);
+    }
 
-	/**
-	 * 注册一个热源方块
-	 * @param block 热源方块
-	 */
-	public static void registerThermalSource(Block block)
-	{
-		THERMAL_SOURCE.add(block);
-	}
+    public static boolean isThermalSource(Block block)
+    {
+        return THERMAL_SOURCE.contains(block);
+    }
 
-	public static boolean canThermalGather(World world)
-	{
-		return canTick(world,80,4);
-	}
-	private static Entity _entity=null;
-	private static long _tickTime=-1;
-	private static boolean _hasFound=false;
-	private static boolean _realCheck(Entity entity,World world)
-	{
-		BlockPos center = entity.getPosition();
-		FOR_FIND_Y:
-		for (int ty = -2; ty <= 1; ty++)
-		{
-			FOR_FIND_X:
-			for (int tx = -2; tx <= 2; tx++)
-			{
-				FOR_FIND_Z:
-				for (int tz = -2; tz <= 2; tz++)
-				{
-					BlockPos pos2find = center.add(tx, ty, tz);
-					Block blockFound = world.getBlockState(pos2find).getBlock();
-					if (isThermalSource(blockFound))
-					{
-						return true;
-					}
-				}
-			}
-		}
-		return false;
-	}
-	public static boolean checkThermalSource(Entity entity)
-	{
-		World world=entity.world;
+    /**
+     * 注册一个热源方块
+     *
+     * @param block 热源方块
+     */
+    public static void registerThermalSource(Block block)
+    {
+        THERMAL_SOURCE.add(block);
+    }
 
-		if(Configs.General.enable_single_thread_optimization)
-		{
-			long timeNow=world.getTotalWorldTime();
-			if (entity != _entity || timeNow != _tickTime)
-			{
-				_entity = entity;
-				_tickTime = timeNow;
-				_hasFound = _realCheck(entity,world);
-			}
-			return _hasFound;
-		}
-		else return _realCheck(entity,world);
-	}
+    public static boolean canThermalGather(World world)
+    {
+        return canTick(world, 80, 4);
+    }
 
-	@Override
-	public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
-	{
-		if(!world.isRemote && isSelected && entity instanceof EntityLivingBase && canThermalGather(world))
-		{
-			boolean hasFound=checkThermalSource(entity);
-			if(hasFound)
-			{
-				ToolHelper.healTool(tool,4,(EntityLivingBase) entity);
-			}
-		}
-	}
+    private static boolean _realCheck(Entity entity, World world)
+    {
+        BlockPos center = entity.getPosition();
+        FOR_FIND_Y:
+        for (int ty = -2; ty <= 1; ty++)
+        {
+            FOR_FIND_X:
+            for (int tx = -2; tx <= 2; tx++)
+            {
+                FOR_FIND_Z:
+                for (int tz = -2; tz <= 2; tz++)
+                {
+                    BlockPos pos2find = center.add(tx, ty, tz);
+                    Block blockFound = world.getBlockState(pos2find).getBlock();
+                    if (isThermalSource(blockFound))
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean checkThermalSource(Entity entity)
+    {
+        World world = entity.world;
+
+        if (Configs.General.enable_single_thread_optimization)
+        {
+            long timeNow = world.getTotalWorldTime();
+            if (entity != _entity || timeNow != _tickTime)
+            {
+                _entity = entity;
+                _tickTime = timeNow;
+                _hasFound = _realCheck(entity, world);
+            }
+            return _hasFound;
+        }
+        else return _realCheck(entity, world);
+    }
+
+    @Override
+    public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
+    {
+        if (!world.isRemote && isSelected && entity instanceof EntityLivingBase && canThermalGather(world))
+        {
+            boolean hasFound = checkThermalSource(entity);
+            if (hasFound)
+            {
+                ToolHelper.healTool(tool, 4, (EntityLivingBase) entity);
+            }
+        }
+    }
 }

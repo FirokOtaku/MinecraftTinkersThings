@@ -15,21 +15,22 @@ import static firok.tiths.util.Predicates.canTick;
 // 月之力量
 public class TraitMoonPower extends AbstractTrait
 {
-	public TraitMoonPower()
-	{
-		super(nameTraitMoonPower, colorTraitMoonPower);
-	}
+    public TraitMoonPower()
+    {
+        super(nameTraitMoonPower, colorTraitMoonPower);
+    }
 
-	public static boolean checkHealMoon(World world)
-	{
-		return canTick(world,100,2) && !world.isDaytime();
-	}
-	@Override
-	public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
-	{
-		if(!world.isRemote && entity instanceof EntityLivingBase && checkHealMoon(world))
-		{
-			ToolHelper.healTool(tool, Configs.Traits.factor_moon_power, (EntityLivingBase) entity);
-		}
-	}
+    public static boolean checkHealMoon(World world)
+    {
+        return canTick(world, 100, 2) && !world.isDaytime();
+    }
+
+    @Override
+    public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
+    {
+        if (!world.isRemote && entity instanceof EntityLivingBase && checkHealMoon(world))
+        {
+            ToolHelper.healTool(tool, Configs.Traits.factor_moon_power, (EntityLivingBase) entity);
+        }
+    }
 }

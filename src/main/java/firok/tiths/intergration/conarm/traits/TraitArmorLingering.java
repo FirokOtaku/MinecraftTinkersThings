@@ -16,17 +16,17 @@ import static firok.tiths.util.Predicates.canTick;
  */
 public class TraitArmorLingering extends AbstractArmorTrait
 {
-	public TraitArmorLingering()
-	{
-		super(nameTraitLingering,colorTraitLingering);
-	}
+    public TraitArmorLingering()
+    {
+        super(nameTraitLingering, colorTraitLingering);
+    }
 
-	@Override
-	public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
-	{
-		if(!world.isRemote && canTick(world,80,0))
-		{
-			player.addPotionEffect(new PotionEffect(Potions.bruming,85,0,false,false));
-		}
-	}
+    @Override
+    public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
+    {
+        if (!world.isRemote && canTick(world, 80, 0))
+        {
+            player.addPotionEffect(new PotionEffect(Potions.bruming, 85, 0, false, false));
+        }
+    }
 }

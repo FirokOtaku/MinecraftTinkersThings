@@ -20,26 +20,26 @@ import static firok.tiths.common.Keys.nameTraitWitherFlowing;
  */
 public class TraitArmorWitherFlowing extends AbstractArmorTrait
 {
-	public TraitArmorWitherFlowing()
-	{
-		super(nameTraitWitherFlowing,colorTraitWitherFlowing);
-	}
+    public TraitArmorWitherFlowing()
+    {
+        super(nameTraitWitherFlowing, colorTraitWitherFlowing);
+    }
 
-	@Override
-	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
-	{
-		if(source instanceof EntityDamageSource)
-		{
-			EntityDamageSource enDS=(EntityDamageSource)source;
-			Entity entity=enDS.getTrueSource();
-			if(entity instanceof EntityLivingBase)
-			{
-				EntityLivingBase enlb=(EntityLivingBase)entity;
+    @Override
+    public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
+    {
+        if (source instanceof EntityDamageSource)
+        {
+            EntityDamageSource enDS = (EntityDamageSource) source;
+            Entity entity = enDS.getTrueSource();
+            if (entity instanceof EntityLivingBase)
+            {
+                EntityLivingBase enlb = (EntityLivingBase) entity;
 
-				enlb.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, Configs.ArmorTraits.factor_wither_flowing,2));
-				enlb.addPotionEffect(new PotionEffect(MobEffects.WITHER, Configs.ArmorTraits.factor_wither_flowing,1));
-			}
-		}
-		return newDamage;
-	}
+                enlb.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, Configs.ArmorTraits.factor_wither_flowing, 2));
+                enlb.addPotionEffect(new PotionEffect(MobEffects.WITHER, Configs.ArmorTraits.factor_wither_flowing, 1));
+            }
+        }
+        return newDamage;
+    }
 }

@@ -16,17 +16,18 @@ import static firok.tiths.util.Predicates.canDealWith;
  */
 public class TraitArmorGorgeous extends AbstractArmorTrait
 {
-	public TraitArmorGorgeous()
-	{
-		super(nameTraitGorgeous,colorTraitGorgeous);
-	}
-	@Override
-	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
-	{
-		if(canDealWith(source,true,null,null,null,null))
-		{
-			return newDamage / factorGorgeous(player);
-		}
-		else return newDamage;
-	}
+    public TraitArmorGorgeous()
+    {
+        super(nameTraitGorgeous, colorTraitGorgeous);
+    }
+
+    @Override
+    public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
+    {
+        if (canDealWith(source, true, null, null, null, null))
+        {
+            return newDamage / factorGorgeous(player);
+        }
+        else return newDamage;
+    }
 }

@@ -12,19 +12,19 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface GenMeteo
 {
-	/**
-	 * @return 每区块生成几率
-	 */
-	float rateChunk() default 0.0128f;
+    /**
+     * @return 每区块生成几率
+     */
+    float rateChunk() default 0.0128f;
 
-	/**
-	 * @return 矿石组成几率
-	 */
-	float rateOre() default 0.225f;
+    /**
+     * @return 矿石组成几率
+     */
+    float rateOre() default 0.225f;
 
 
-	/**
-	 * @return 默认禁用生成世界列表
-	 */
-	int[] dimsBanned() default { 1, -1 };
+    /**
+     * @return 默认禁用生成世界列表
+     */
+    int[] dimsBanned() default {1, -1};
 }

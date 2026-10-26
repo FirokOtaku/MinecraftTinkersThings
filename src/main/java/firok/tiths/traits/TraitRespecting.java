@@ -16,31 +16,31 @@ import static firok.tiths.util.Predicates.canTrigger;
  */
 public class TraitRespecting extends AbstractTrait
 {
-	public TraitRespecting()
-	{
-		super(nameTraitRespecting,colorTraitRespecting);
-	}
+    public TraitRespecting()
+    {
+        super(nameTraitRespecting, colorTraitRespecting);
+    }
 
-	@Override
-	public boolean isCriticalHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target)
-	{
-		if(!canTrigger(player.world,0.6)) return false;
+    @Override
+    public boolean isCriticalHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target)
+    {
+        if (!canTrigger(player.world, 0.6)) return false;
 
-		double px=player.posX,py=player.posY+player.getEyeHeight(),pz=player.posZ;
-		double tx=target.posX,ty=target.posY+target.getEyeHeight(),tz=target.posZ;
-		Vec3d directionReal=Actions.CalcUnitVector(new Vec3d(tx-px,ty-py,tz-pz));
-		if(directionReal==null) return false;
+        double px = player.posX, py = player.posY + player.getEyeHeight(), pz = player.posZ;
+        double tx = target.posX, ty = target.posY + target.getEyeHeight(), tz = target.posZ;
+        Vec3d directionReal = Actions.CalcUnitVector(new Vec3d(tx - px, ty - py, tz - pz));
+        if (directionReal == null) return false;
 
-		Vec3d directionPlayerLook= InnerActions.getEntityForward(player);
-		Vec3d directionTargetLook= InnerActions.getEntityForward(target);
+        Vec3d directionPlayerLook = InnerActions.getEntityForward(player);
+        Vec3d directionTargetLook = InnerActions.getEntityForward(target);
 
-		// 下面是几个单位向量的点乘
-		return directionPlayerLook.dotProduct(directionReal) > 0.85 && directionPlayerLook.dotProduct(directionTargetLook) < -0.9;
-	}
+        // 下面是几个单位向量的点乘
+        return directionPlayerLook.dotProduct(directionReal) > 0.85 && directionPlayerLook.dotProduct(directionTargetLook) < -0.9;
+    }
 
-	@Override
-	public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float newDamage, boolean isCritical)
-	{
-		return newDamage + (isCritical? damage * 0.5f : 0);
-	}
+    @Override
+    public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float newDamage, boolean isCritical)
+    {
+        return newDamage + (isCritical ? damage * 0.5f : 0);
+    }
 }

@@ -1,53 +1,32 @@
 package firok.tiths.item;
 
-import firok.tiths.TinkersThings;
-import firok.tiths.common.TiCMaterials;
-import firok.tiths.util.Actions;
-import firok.tiths.util.EntityFinders;
-import firok.tiths.util.Selectors;
-import net.java.games.input.Keyboard;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.play.server.SPacketPlayerListItem;
-import net.minecraft.util.*;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.FakePlayer;
-import net.minecraftforge.common.util.FakePlayerFactory;
-import slimeknights.tconstruct.library.TinkerRegistry;
-import slimeknights.tconstruct.library.materials.Material;
-import slimeknights.tconstruct.tools.traits.TraitBreakable;
-import slimeknights.tconstruct.tools.traits.TraitEndspeed;
-import slimeknights.tconstruct.tools.traits.TraitSplitting;
-
-import java.util.List;
-import java.util.Random;
 
 public class ItemDebug extends ItemCustom
 {
-	public ItemDebug()
-	{
-		super();
-	}
+    public ItemDebug()
+    {
+        super();
+    }
 
-	@Override
-	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
-	{
+    @Override
+    public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
+    {
 
-		return true;
-	}
+        return true;
+    }
 
-	@Override
-	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
-	{
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
+    {
 
-		;
+        ;
 
 //
 //		TRY:try
@@ -85,6 +64,6 @@ public class ItemDebug extends ItemCustom
 //		}
 
 
-		return new ActionResult<>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
-	}
+        return new ActionResult<>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
+    }
 }

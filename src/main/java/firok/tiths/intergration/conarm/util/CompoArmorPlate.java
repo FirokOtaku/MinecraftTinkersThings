@@ -12,20 +12,20 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface CompoArmorPlate
 {
-	/**
-	 * @return 耐久
-	 */
-	double modifier();
+    /**
+     * @return 耐久
+     */
+    double modifier();
 
-	/**
-	 * @return 耐久
-	 */
-	double durability();
+    /**
+     * @return 耐久
+     */
+    double durability();
 
-	/**
-	 * @return 韧性
-	 */
-	double toughness();
+    /**
+     * @return 韧性
+     */
+    double toughness();
 
-	String[] traits() default {};
+    String[] traits() default {};
 }

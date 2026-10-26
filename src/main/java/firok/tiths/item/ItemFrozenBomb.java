@@ -13,20 +13,20 @@ import net.minecraft.world.World;
  */
 public class ItemFrozenBomb extends Item
 {
-	public ItemFrozenBomb()
-	{
-		super();
-	}
+    public ItemFrozenBomb()
+    {
+        super();
+    }
 
-	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
-	{
-		ItemStack stack=playerIn.getHeldItem(handIn);
-		if(stack.getItem()!=this) return new ActionResult<>(EnumActionResult.PASS,stack);
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
+    {
+        ItemStack stack = playerIn.getHeldItem(handIn);
+        if (stack.getItem() != this) return new ActionResult<>(EnumActionResult.PASS, stack);
 
-		;
+        ;
 
-		if(!playerIn.isCreative()) stack.shrink(1);
-		return new ActionResult<>(EnumActionResult.SUCCESS,stack);
-	}
+        if (!playerIn.isCreative()) stack.shrink(1);
+        return new ActionResult<>(EnumActionResult.SUCCESS, stack);
+    }
 }

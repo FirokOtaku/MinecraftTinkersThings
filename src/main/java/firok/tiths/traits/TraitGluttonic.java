@@ -15,32 +15,32 @@ import static firok.tiths.common.Keys.nameTraitGluttonic;
 // 暴食
 public class TraitGluttonic extends AbstractTrait
 {
-	public TraitGluttonic()
-	{
-		super(nameTraitGluttonic, colorTraitGluttonic);
-	}
+    public TraitGluttonic()
+    {
+        super(nameTraitGluttonic, colorTraitGluttonic);
+    }
 
-	@Override
-	public void afterHit(ItemStack tool, EntityLivingBase holder, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
-	{
-		if(!holder.world.isRemote && wasHit && holder instanceof EntityPlayer)
-		{
-			holder.addPotionEffect(new PotionEffect(MobEffects.HUNGER,125,0));
+    @Override
+    public void afterHit(ItemStack tool, EntityLivingBase holder, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
+    {
+        if (!holder.world.isRemote && wasHit && holder instanceof EntityPlayer)
+        {
+            holder.addPotionEffect(new PotionEffect(MobEffects.HUNGER, 125, 0));
 
-			if(!target.isEntityAlive())
-			{
-				EntityPlayer player=(EntityPlayer)holder;
-				FoodStats stats=player.getFoodStats();
+            if (!target.isEntityAlive())
+            {
+                EntityPlayer player = (EntityPlayer) holder;
+                FoodStats stats = player.getFoodStats();
 
-				int foodLevel=stats.getFoodLevel();
+                int foodLevel = stats.getFoodLevel();
 //				float saturationLevel=stats.getSaturationLevel();
 
-				// 增加饱食度
-				stats.setFoodLevel(foodLevel + Configs.Traits.factor_gluttonic_food);
+                // 增加饱食度
+                stats.setFoodLevel(foodLevel + Configs.Traits.factor_gluttonic_food);
 //				stats.setFoodSaturationLevel(saturationLevel + Configs.Traits.factor_gluttonic_food);
-			}
-		}
-	}
+            }
+        }
+    }
 }
 /*
 在player.dat中，有4个字段是关于饥饿系统的：

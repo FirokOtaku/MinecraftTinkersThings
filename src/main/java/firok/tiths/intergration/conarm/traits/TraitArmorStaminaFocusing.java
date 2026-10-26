@@ -18,28 +18,28 @@ import static firok.tiths.util.Predicates.canTick;
  */
 public class TraitArmorStaminaFocusing extends AbstractArmorTrait
 {
-	public TraitArmorStaminaFocusing()
-	{
-		super(nameTraitStaminaFocusing,colorTraitStaminaFocusing);
-	}
+    public TraitArmorStaminaFocusing()
+    {
+        super(nameTraitStaminaFocusing, colorTraitStaminaFocusing);
+    }
 
-	@Override
-	public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
-	{
-		if(canTick(world,4,0) && player.isSneaking())
-		{
-			if (world.isRemote)
-			{
-				world.spawnParticle(EnumParticleTypes.SPELL_WITCH,
-						player.posX + randClient.nextFloat() * 0.3,
-						player.posY + player.getEyeHeight() * 2 / 3,
-						player.posZ + randClient.nextFloat() * 0.3,
-						0,0,0);
-			}
-			else
-			{
-				player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE,80,1));
-			}
-		}
-	}
+    @Override
+    public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
+    {
+        if (canTick(world, 4, 0) && player.isSneaking())
+        {
+            if (world.isRemote)
+            {
+                world.spawnParticle(EnumParticleTypes.SPELL_WITCH,
+                        player.posX + randClient.nextFloat() * 0.3,
+                        player.posY + player.getEyeHeight() * 2 / 3,
+                        player.posZ + randClient.nextFloat() * 0.3,
+                        0, 0, 0);
+            }
+            else
+            {
+                player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 80, 1));
+            }
+        }
+    }
 }

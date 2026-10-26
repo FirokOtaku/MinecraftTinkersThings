@@ -8,111 +8,113 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
 
 public class TEEnderInterferedBlock
-	extends TileEntity
-	implements ITickable
+        extends TileEntity
+        implements ITickable
 {
-	public IBlockState stateInner;
-	public int ticksCharge;
+    public IBlockState stateInner;
+    public int ticksCharge;
 
-	/** Forge 读档反射实例化必须有无参构造 */
-	public TEEnderInterferedBlock()
-	{
-		this(null, 20);
-	}
+    /**
+     * Forge 读档反射实例化必须有无参构造
+     */
+    public TEEnderInterferedBlock()
+    {
+        this(null, 20);
+    }
 
-	public TEEnderInterferedBlock(int ticksCharge)
-	{
-		this(null, ticksCharge);
-	}
+    public TEEnderInterferedBlock(int ticksCharge)
+    {
+        this(null, ticksCharge);
+    }
 
-	public TEEnderInterferedBlock(IBlockState stateInner, int ticksCharge)
-	{
-		this.stateInner = stateInner;
-		this.ticksCharge = ticksCharge;
-	}
+    public TEEnderInterferedBlock(IBlockState stateInner, int ticksCharge)
+    {
+        this.stateInner = stateInner;
+        this.ticksCharge = ticksCharge;
+    }
 
-	@Override
-	public void update()
-	{
-		if(world == null || world.isRemote) return;
+    @Override
+    public void update()
+    {
+        if (world == null || world.isRemote) return;
 
-		this.ticksCharge--;
-		if(this.ticksCharge <= 0)
-		{
-			world.setTileEntity(pos, null);
+        this.ticksCharge--;
+        if (this.ticksCharge <= 0)
+        {
+            world.setTileEntity(pos, null);
 
-			if(world.getBlockState(pos).getBlock() == firok.tiths.common.Blocks.blockEnderInterferedBlock)
-			{
-				IBlockState stateToSet = this.stateInner == null ? Blocks.AIR.getDefaultState() : stateInner;
-				world.setBlockState(pos, stateToSet);
-			}
-		}
-	}
+            if (world.getBlockState(pos).getBlock() == firok.tiths.common.Blocks.blockEnderInterferedBlock)
+            {
+                IBlockState stateToSet = this.stateInner == null ? Blocks.AIR.getDefaultState() : stateInner;
+                world.setBlockState(pos, stateToSet);
+            }
+        }
+    }
 
-	@Override
-	public void readFromNBT(NBTTagCompound nbt)
-	{
-		super.readFromNBT(nbt);
+    @Override
+    public void readFromNBT(NBTTagCompound nbt)
+    {
+        super.readFromNBT(nbt);
 
-		this.stateInner = null;
+        this.stateInner = null;
 
-		String rn = null;
-		if(nbt.hasKey("rn_inner"))
-		{
-			try { rn = nbt.getString("rn_inner"); } catch (Exception ignored) { }
-		}
+        String rn = null;
+        if (nbt.hasKey("rn_inner"))
+        {
+            try {rn = nbt.getString("rn_inner");} catch (Exception ignored) {}
+        }
 
-		int meta = -1;
-		if(nbt.hasKey("meta_inner"))
-		{
-			try { meta = nbt.getByte("meta_inner"); } catch (Exception ignored) { }
-		}
+        int meta = -1;
+        if (nbt.hasKey("meta_inner"))
+        {
+            try {meta = nbt.getByte("meta_inner");} catch (Exception ignored) {}
+        }
 
-		if(rn != null && meta != -1)
-		{
-			try
-			{
-				Block blockInner = Block.getBlockFromName(rn);
-				if(blockInner != null && blockInner != Blocks.AIR)
-				{
-					this.stateInner = blockInner.getStateFromMeta(meta);
-				}
-			}
-			catch (Exception ignored) { }
-		}
+        if (rn != null && meta != -1)
+        {
+            try
+            {
+                Block blockInner = Block.getBlockFromName(rn);
+                if (blockInner != null && blockInner != Blocks.AIR)
+                {
+                    this.stateInner = blockInner.getStateFromMeta(meta);
+                }
+            }
+            catch (Exception ignored) {}
+        }
 
-		this.ticksCharge = 20;
-		if(nbt.hasKey("ticks_charge"))
-		{
-			this.ticksCharge = nbt.getInteger("ticks_charge");
-		}
-		if(this.ticksCharge <= 0)
-		{
-			this.ticksCharge = 1; // 下一 tick 还原, 避免永久紫墙
-		}
-	}
+        this.ticksCharge = 20;
+        if (nbt.hasKey("ticks_charge"))
+        {
+            this.ticksCharge = nbt.getInteger("ticks_charge");
+        }
+        if (this.ticksCharge <= 0)
+        {
+            this.ticksCharge = 1; // 下一 tick 还原, 避免永久紫墙
+        }
+    }
 
-	@Override
-	public NBTTagCompound writeToNBT(NBTTagCompound nbt)
-	{
-		super.writeToNBT(nbt);
+    @Override
+    public NBTTagCompound writeToNBT(NBTTagCompound nbt)
+    {
+        super.writeToNBT(nbt);
 
-		nbt.setInteger("ticks_charge", this.ticksCharge);
+        nbt.setInteger("ticks_charge", this.ticksCharge);
 
-		if(this.stateInner != null)
-		{
-			try
-			{
-				Block blockInner = stateInner.getBlock();
-				int meta = blockInner.getMetaFromState(stateInner);
-				String registryName = blockInner.getRegistryName().toString();
+        if (this.stateInner != null)
+        {
+            try
+            {
+                Block blockInner = stateInner.getBlock();
+                int meta = blockInner.getMetaFromState(stateInner);
+                String registryName = blockInner.getRegistryName().toString();
 
-				nbt.setString("rn_inner", registryName);
-				nbt.setInteger("meta_inner", meta);
-			}
-			catch (Exception ignored) { }
-		}
+                nbt.setString("rn_inner", registryName);
+                nbt.setInteger("meta_inner", meta);
+            }
+            catch (Exception ignored) {}
+        }
 
-		return nbt;
-	}
+        return nbt;
+    }
 }

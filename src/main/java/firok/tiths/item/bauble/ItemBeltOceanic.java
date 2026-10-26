@@ -11,23 +11,23 @@ import net.minecraft.item.ItemStack;
  */
 public class ItemBeltOceanic extends ItemBauble
 {
-	public ItemBeltOceanic()
-	{
-		super(BaubleType.BELT);
-	}
+    public ItemBeltOceanic()
+    {
+        super(BaubleType.BELT);
+    }
 
-	@Override
-	public void onWornTick(ItemStack itemstack, EntityLivingBase player)
-	{
-		if(player==null) return;
-		Entity entityRidden=player.getLowestRidingEntity();
-		if(entityRidden instanceof EntityBoat)
-		{
-			if(Math.abs(entityRidden.motionX) + Math.abs(entityRidden.motionZ) > 0.2)
-			{
-				entityRidden.motionX *= 1.05;
-				entityRidden.motionZ *= 1.05;
-			}
-		}
-	}
+    @Override
+    public void onWornTick(ItemStack itemstack, EntityLivingBase player)
+    {
+        if (player == null) return;
+        Entity entityRidden = player.getLowestRidingEntity();
+        if (entityRidden instanceof EntityBoat)
+        {
+            if (Math.abs(entityRidden.motionX) + Math.abs(entityRidden.motionZ) > 0.2)
+            {
+                entityRidden.motionX *= 1.05;
+                entityRidden.motionZ *= 1.05;
+            }
+        }
+    }
 }

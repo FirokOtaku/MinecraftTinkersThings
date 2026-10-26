@@ -7,19 +7,19 @@ import static firok.tiths.common.Keys.uuidPotionTranquilizedFollowRange;
 
 public class PotionTranquilized extends BasePotion
 {
-	public PotionTranquilized()
-	{
-		super(icon("tranquilized"),true,colorPotionTranquilized);
-	}
+    public PotionTranquilized()
+    {
+        super(icon("tranquilized"), true, colorPotionTranquilized);
+    }
 
-	@Override
-	public void postInit()
-	{
-		registerPotionAttributeModifier(
-				SharedMonsterAttributes.FOLLOW_RANGE,
-				uuidPotionTranquilizedFollowRange,
-				0.125,
-				1
-		);
-	}
+    @Override
+    public void postInit()
+    {
+        registerPotionAttributeModifier(
+                SharedMonsterAttributes.FOLLOW_RANGE,
+                uuidPotionTranquilizedFollowRange,
+                0.125,
+                1
+        );
+    }
 }

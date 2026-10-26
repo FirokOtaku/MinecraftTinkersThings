@@ -17,22 +17,23 @@ import static firok.tiths.traits.TraitLuxurious.spawnParticle;
  */
 public class TraitArmorLuxurious extends AbstractArmorTrait
 {
-	public TraitArmorLuxurious()
-	{
-		super(nameTraitLuxurious, colorTraitLuxurious);
-	}
+    public TraitArmorLuxurious()
+    {
+        super(nameTraitLuxurious, colorTraitLuxurious);
+    }
 
-	@Override
-	public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
-	{
-		if(checkParticle(world))
-		{
-			spawnParticle(player);
-		}
-	}
+    @Override
+    public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
+    {
+        if (checkParticle(world))
+        {
+            spawnParticle(player);
+        }
+    }
 
-	@Override
-	public int onArmorHeal(ItemStack armor, DamageSource source, int amount, int newAmount, EntityPlayer player, int slot) {
-		return (int)(newAmount - amount * Configs.Traits.factor_luxurious_durability);
-	}
+    @Override
+    public int onArmorHeal(ItemStack armor, DamageSource source, int amount, int newAmount, EntityPlayer player, int slot)
+    {
+        return (int) (newAmount - amount * Configs.Traits.factor_luxurious_durability);
+    }
 }

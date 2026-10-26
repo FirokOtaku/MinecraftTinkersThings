@@ -12,17 +12,17 @@ import static firok.tiths.util.Predicates.canTick;
 // 狱炎
 public class TraitInfernalBlazing extends AbstractTrait
 {
-	public TraitInfernalBlazing()
-	{
-		super(nameTraitInfernalBlazing, colorTraitInfernalBlazing);
-	}
+    public TraitInfernalBlazing()
+    {
+        super(nameTraitInfernalBlazing, colorTraitInfernalBlazing);
+    }
 
-	@Override
-	public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
-	{
-		if(isSelected && !world.isRemote && canTick(world,80,4))
-		{
-			entity.setFire(4);
-		}
-	}
+    @Override
+    public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
+    {
+        if (isSelected && !world.isRemote && canTick(world, 80, 4))
+        {
+            entity.setFire(4);
+        }
+    }
 }

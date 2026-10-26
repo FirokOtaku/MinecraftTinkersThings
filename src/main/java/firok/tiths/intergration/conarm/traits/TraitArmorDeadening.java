@@ -11,10 +11,10 @@ import static firok.tiths.common.Keys.nameTraitDeadening;
  */
 public class TraitArmorDeadening extends AbstractArmorTrait
 {
-	public TraitArmorDeadening()
-	{
-		super(nameTraitDeadening,colorTraitDeadening);
+    public TraitArmorDeadening()
+    {
+        super(nameTraitDeadening, colorTraitDeadening);
 
-		addAspects(new ModifierAspect.SingleAspect(this), ModifierAspect.freeModifier);
-	}
+        addAspects(new ModifierAspect.SingleAspect(this), ModifierAspect.freeModifier);
+    }
 }

@@ -15,14 +15,14 @@ import static firok.tiths.common.Keys.nameTraitFrostJack;
  */
 public class TraitFrostJack extends AbstractProjectileTrait
 {
-	public TraitFrostJack()
-	{
-		super(nameTraitFrostJack,colorTraitFrostJack);
-	}
+    public TraitFrostJack()
+    {
+        super(nameTraitFrostJack, colorTraitFrostJack);
+    }
 
-	@Override
-	public void afterHit(EntityProjectileBase projectile, World world, ItemStack ammoStack, EntityLivingBase attacker, Entity target, double impactSpeed)
-	{
-		super.afterHit(projectile, world, ammoStack, attacker, target, impactSpeed);
-	}
+    @Override
+    public void afterHit(EntityProjectileBase projectile, World world, ItemStack ammoStack, EntityLivingBase attacker, Entity target, double impactSpeed)
+    {
+        super.afterHit(projectile, world, ammoStack, attacker, target, impactSpeed);
+    }
 }

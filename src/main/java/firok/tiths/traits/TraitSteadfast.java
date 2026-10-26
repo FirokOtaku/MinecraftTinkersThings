@@ -12,14 +12,14 @@ import static firok.tiths.common.Keys.nameTraitSteadfast;
  */
 public class TraitSteadfast extends AbstractTrait
 {
-	public TraitSteadfast()
-	{
-		super(nameTraitSteadfast,colorTraitSteadfast);
-	}
+    public TraitSteadfast()
+    {
+        super(nameTraitSteadfast, colorTraitSteadfast);
+    }
 
-	@Override
-	public int onToolDamage(ItemStack tool, int damage, int newDamage, EntityLivingBase entity)
-	{
-		return super.onToolDamage(tool, damage, newDamage, entity);
-	}
+    @Override
+    public int onToolDamage(ItemStack tool, int damage, int newDamage, EntityLivingBase entity)
+    {
+        return super.onToolDamage(tool, damage, newDamage, entity);
+    }
 }

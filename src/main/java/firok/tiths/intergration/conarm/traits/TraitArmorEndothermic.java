@@ -15,22 +15,22 @@ import static firok.tiths.common.Keys.nameTraitEndothermic;
  */
 public class TraitArmorEndothermic extends AbstractArmorTrait
 {
-	public TraitArmorEndothermic()
-	{
-		super(nameTraitEndothermic,colorTraitEndothermic);
-	}
+    public TraitArmorEndothermic()
+    {
+        super(nameTraitEndothermic, colorTraitEndothermic);
+    }
 
-	@Override
-	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
-	{
-		if(source.isFireDamage())
-		{
-			ArmorHelper.damageArmor(armor,source,1,player);
-			return Math.max(0,newDamage - damage / 4);
-		}
-		else
-		{
-			return newDamage;
-		}
-	}
+    @Override
+    public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
+    {
+        if (source.isFireDamage())
+        {
+            ArmorHelper.damageArmor(armor, source, 1, player);
+            return Math.max(0, newDamage - damage / 4);
+        }
+        else
+        {
+            return newDamage;
+        }
+    }
 }

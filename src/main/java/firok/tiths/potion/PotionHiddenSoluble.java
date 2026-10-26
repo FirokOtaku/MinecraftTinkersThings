@@ -1,9 +1,7 @@
 package firok.tiths.potion;
 
-import firok.tiths.TinkersThings;
 import firok.tiths.common.Keys;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 
 /**
@@ -11,23 +9,23 @@ import net.minecraft.util.math.Vec3d;
  */
 public class PotionHiddenSoluble extends BasePotion
 {
-	public PotionHiddenSoluble()
-	{
-		super(icon("speed_boost_soluble"),false, Keys.colorPotionSoluble, false);
-	}
+    public PotionHiddenSoluble()
+    {
+        super(icon("speed_boost_soluble"), false, Keys.colorPotionSoluble, false);
+    }
 
-	@Override
-	public boolean isReady(int tick, int level)
-	{
-		return true;
-	}
+    @Override
+    public boolean isReady(int tick, int level)
+    {
+        return true;
+    }
 
-	@Override
-	public void performEffect(EntityLivingBase entity, int level)
-	{
-		if(!entity.isInWater() || entity.isSneaking()) return;
+    @Override
+    public void performEffect(EntityLivingBase entity, int level)
+    {
+        if (!entity.isInWater() || entity.isSneaking()) return;
 
-		level++;
+        level++;
 
 //		float factor = entity.rotationYaw * Values.FAC;
 //		float moX= - MathHelper.sin( factor ) * level / 25;
@@ -35,9 +33,9 @@ public class PotionHiddenSoluble extends BasePotion
 //		entity.motionX += moX;
 //		entity.motionZ += moZ;
 
-		Vec3d vec=Vec3d.fromPitchYaw(entity.rotationPitch,entity.rotationYaw);
-		entity.motionX+=vec.x/25;
-		entity.motionY+=vec.y/25;
-		entity.motionZ+=vec.z/25;
-	}
+        Vec3d vec = Vec3d.fromPitchYaw(entity.rotationPitch, entity.rotationYaw);
+        entity.motionX += vec.x / 25;
+        entity.motionY += vec.y / 25;
+        entity.motionZ += vec.z / 25;
+    }
 }

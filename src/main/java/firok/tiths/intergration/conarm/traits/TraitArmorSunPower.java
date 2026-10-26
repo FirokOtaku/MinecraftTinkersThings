@@ -16,17 +16,17 @@ import static firok.tiths.traits.TraitSunPower.checkHealSun;
  */
 public class TraitArmorSunPower extends AbstractArmorTrait
 {
-	public TraitArmorSunPower()
-	{
-		super(nameTraitSunPower,colorTraitSunPower);
-	}
+    public TraitArmorSunPower()
+    {
+        super(nameTraitSunPower, colorTraitSunPower);
+    }
 
-	@Override
-	public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
-	{
-		if(checkHealSun(world))
-		{
-			ArmorHelper.healArmor(tool, Configs.Traits.factor_sun_power,player,0);
-		}
-	}
+    @Override
+    public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
+    {
+        if (checkHealSun(world))
+        {
+            ArmorHelper.healArmor(tool, Configs.Traits.factor_sun_power, player, 0);
+        }
+    }
 }

@@ -16,26 +16,26 @@ import static firok.tiths.util.Predicates.canTrigger;
 // 亡灵呼唤
 public class TraitUndeadCalling extends AbstractTrait
 {
-	public TraitUndeadCalling()
-	{
-		super(nameTraitUndeadCalling, colorTraitUndeadCalling);
-	}
+    public TraitUndeadCalling()
+    {
+        super(nameTraitUndeadCalling, colorTraitUndeadCalling);
+    }
 
-	@Override
-	public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective)
-	{
-		if(wasEffective && !world.isRemote && canTrigger(world, Configs.Traits.rate_undead_calling_break))
-		{
-			Actions.CauseSpawningUndead(player);
-		}
-	}
+    @Override
+    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective)
+    {
+        if (wasEffective && !world.isRemote && canTrigger(world, Configs.Traits.rate_undead_calling_break))
+        {
+            Actions.CauseSpawningUndead(player);
+        }
+    }
 
-	@Override
-	public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
-	{
-		if(!target.isEntityAlive() && !target.getEntityWorld().isRemote && canTrigger(player.world, Configs.Traits.rate_undead_calling_hit))
-		{
-			Actions.CauseSpawningUndead(player);
-		}
-	}
+    @Override
+    public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
+    {
+        if (!target.isEntityAlive() && !target.getEntityWorld().isRemote && canTrigger(player.world, Configs.Traits.rate_undead_calling_hit))
+        {
+            Actions.CauseSpawningUndead(player);
+        }
+    }
 }

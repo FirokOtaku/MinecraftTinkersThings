@@ -7,8 +7,8 @@ import firok.tiths.common.Keys;
  */
 public class PotionLeavesHiding extends BasePotion
 {
-	public PotionLeavesHiding()
-	{
-		super(icon("leaves_hiding"),false, Keys.colorPotionLeavesHiding);
-	}
+    public PotionLeavesHiding()
+    {
+        super(icon("leaves_hiding"), false, Keys.colorPotionLeavesHiding);
+    }
 }

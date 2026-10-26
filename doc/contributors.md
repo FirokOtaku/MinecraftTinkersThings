@@ -54,6 +54,12 @@ Force Field Effect|Force Field 02|Glitchedtones|变速 speed changed|CC 0|[Link]
 Bubble Effect|Boiling Water, Large, A|InspectorJ|裁剪 trimmed|CC BY 3.0|[Link](https://freesound.org/people/InspectorJ/sounds/412843/)
 Friction Effect|dragging|caoimhe_s1|裁剪 trimmed|CC 0|[Link](https://freesound.org/people/caoimhe_s1/sounds/268909/)
 
+## 关于 AI 生成内容 About AI-generated content
+
+本项目自 0.3.32.0 后开始使用 AI 生成代码辅以人工 code review 方式开发.
+
+部分材质贴图源为 [Minecraft Item 16px](https://huggingface.co/yuuki14202028/minecraft-item-16px) 生成, 辅以手工改图.
+
 ## 关于CC协议 About Creative Commons License
 
 icon||中文版本|English

@@ -17,18 +17,18 @@ import static firok.tiths.common.Keys.nameTraitSourcing;
  */
 public class TraitSourcing extends AbstractTrait
 {
-	public TraitSourcing()
-	{
-		super(nameTraitSourcing,colorTraitSourcing);
-	}
+    public TraitSourcing()
+    {
+        super(nameTraitSourcing, colorTraitSourcing);
+    }
 
-	@Override
-	public void blockHarvestDrops(ItemStack tool, BlockEvent.HarvestDropsEvent event)
-	{
-		World world=event.getWorld();
-		IBlockState state=event.getState();
-		Block block=state.getBlock();
-		BlockCrops c=null;
-		BlockStem stem=null;
-	}
+    @Override
+    public void blockHarvestDrops(ItemStack tool, BlockEvent.HarvestDropsEvent event)
+    {
+        World world = event.getWorld();
+        IBlockState state = event.getState();
+        Block block = state.getBlock();
+        BlockCrops c = null;
+        BlockStem stem = null;
+    }
 }

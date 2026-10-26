@@ -18,68 +18,72 @@ import static firok.tiths.util.Predicates.canTick;
 // 自然祝福
 public class TraitNatureBlessing extends AbstractTrait
 {
-	public TraitNatureBlessing()
-	{
-		super(nameTraitNatureBlessing, colorTraitNatureBlessing);
-	}
+    static long _time = -1;
+    static Entity _entity;
+    static boolean _hasFound = false;
+    public TraitNatureBlessing()
+    {
+        super(nameTraitNatureBlessing, colorTraitNatureBlessing);
+    }
 
-	static long _time=-1;
-	static Entity _entity;
-	static boolean _hasFound =false;
-	static boolean _realCheck(Entity entity,World world)
-	{
-		final int cx=(int)entity.posX,cy=(int)entity.posY,cz=(int)entity.posZ;
-		int countNature=0;
-		FOR_X:for(int ox = -Configs.Traits.range_nature_blessing_xz; ox <= Configs.Traits.range_nature_blessing_xz; ox++)
-		{
-			FOR_Y:for(int oz = -Configs.Traits.range_nature_blessing_xz; oz <= Configs.Traits.range_nature_blessing_xz; oz++)
-			{
-				FOR_Z:for(int oy = Configs.Traits.range_nature_blessing_y; oy >= -Configs.Traits.range_nature_blessing_y; oy++)
-				{
-					BlockPos posTemp=new BlockPos(cx+ox,cy+oy,cz+oz);
-					IBlockState state=world.getBlockState(posTemp);
-					Block block=state.getBlock();
-					boolean isNature=block.isLeaves(state,world,posTemp) || block.isWood(world,posTemp);
-					if(isNature) countNature++;
+    static boolean _realCheck(Entity entity, World world)
+    {
+        final int cx = (int) entity.posX, cy = (int) entity.posY, cz = (int) entity.posZ;
+        int countNature = 0;
+        FOR_X:
+        for (int ox = -Configs.Traits.range_nature_blessing_xz; ox <= Configs.Traits.range_nature_blessing_xz; ox++)
+        {
+            FOR_Y:
+            for (int oz = -Configs.Traits.range_nature_blessing_xz; oz <= Configs.Traits.range_nature_blessing_xz; oz++)
+            {
+                FOR_Z:
+                for (int oy = Configs.Traits.range_nature_blessing_y; oy >= -Configs.Traits.range_nature_blessing_y; oy++)
+                {
+                    BlockPos posTemp = new BlockPos(cx + ox, cy + oy, cz + oz);
+                    IBlockState state = world.getBlockState(posTemp);
+                    Block block = state.getBlock();
+                    boolean isNature = block.isLeaves(state, world, posTemp) || block.isWood(world, posTemp);
+                    if (isNature) countNature++;
 
-					if(countNature >= Configs.Traits.count_nature_blessing)
-					{
-						return true;
-					}
-				}
-			}
-		}
+                    if (countNature >= Configs.Traits.count_nature_blessing)
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
 
-		return false;
-	}
-	public static boolean check(Entity entity,World world)
-	{
-		if(Configs.General.enable_single_thread_optimization)
-		{
-			long now=world.getTotalWorldTime();
-			if(_entity==entity && _time==now)
-			{
-				return _hasFound;
-			}
+        return false;
+    }
 
-			_entity=entity;
-			_time=now;
-			_hasFound=_realCheck(entity,world);
+    public static boolean check(Entity entity, World world)
+    {
+        if (Configs.General.enable_single_thread_optimization)
+        {
+            long now = world.getTotalWorldTime();
+            if (_entity == entity && _time == now)
+            {
+                return _hasFound;
+            }
 
-			return _hasFound;
-		}
-		return _realCheck(entity,world);
-	}
+            _entity = entity;
+            _time = now;
+            _hasFound = _realCheck(entity, world);
 
-	@Override
-	public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
-	{
-		if(!world.isRemote && canTick(world,200,3) && entity instanceof EntityLivingBase)
-		{
-			if(check(entity,world))
-			{
-				ToolHelper.healTool(tool, Configs.Traits.factor_nature_blessing_repair,(EntityLivingBase)entity);
-			}
-		}
-	}
+            return _hasFound;
+        }
+        return _realCheck(entity, world);
+    }
+
+    @Override
+    public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
+    {
+        if (!world.isRemote && canTick(world, 200, 3) && entity instanceof EntityLivingBase)
+        {
+            if (check(entity, world))
+            {
+                ToolHelper.healTool(tool, Configs.Traits.factor_nature_blessing_repair, (EntityLivingBase) entity);
+            }
+        }
+    }
 }

@@ -6,14 +6,14 @@ import net.minecraft.block.material.Material;
 
 public abstract class BlockFarmStone extends BlockContainer
 {
-	public BlockFarmStone(Material blockMaterialIn, MapColor blockMapColorIn)
-	{
-		super(blockMaterialIn, blockMapColorIn);
-	}
+    public BlockFarmStone(Material blockMaterialIn, MapColor blockMapColorIn)
+    {
+        super(blockMaterialIn, blockMapColorIn);
+    }
 
-	public BlockFarmStone(Material materialIn)
-	{
-		super(Material.WATER);
-	}
+    public BlockFarmStone(Material materialIn)
+    {
+        super(Material.WATER);
+    }
 
 }

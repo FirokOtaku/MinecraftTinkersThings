@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface CompoExtra
 {
-	int extraDurability();
+    int extraDurability();
 
-	String[] traits() default {};
+    String[] traits() default {};
 }

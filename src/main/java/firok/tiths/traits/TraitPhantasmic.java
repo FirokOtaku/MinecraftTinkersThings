@@ -15,23 +15,24 @@ import static firok.tiths.common.Keys.nameTraitPhantasmic;
 // 异象
 public class TraitPhantasmic extends AbstractTrait
 {
-	public static final float rate=0.05f;
-	public TraitPhantasmic()
-	{
-		super(nameTraitPhantasmic, colorTraitPhantasmic);
-	}
+    public static final float rate = 0.05f;
 
-	@Override
-	public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
-	{
-		if(wasHit && player.world.isRemote && TinkersThings.randClient.nextFloat()<rate)
-			Actions.CauseSpawningPhantom(player);
-	}
+    public TraitPhantasmic()
+    {
+        super(nameTraitPhantasmic, colorTraitPhantasmic);
+    }
 
-	@Override
-	public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective)
-	{
-		if(world.isRemote && TinkersThings.randClient.nextFloat()<rate)
-			Actions.CauseSpawningPhantom(player);
-	}
+    @Override
+    public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
+    {
+        if (wasHit && player.world.isRemote && TinkersThings.randClient.nextFloat() < rate)
+            Actions.CauseSpawningPhantom(player);
+    }
+
+    @Override
+    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective)
+    {
+        if (world.isRemote && TinkersThings.randClient.nextFloat() < rate)
+            Actions.CauseSpawningPhantom(player);
+    }
 }

@@ -12,8 +12,9 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface CompoArrowShaft
 {
-	double modifier(); // 品质系数
-	int bonusAmmo(); // 额外弹药
+    double modifier(); // 品质系数
 
-	String[] traits() default {};
+    int bonusAmmo(); // 额外弹药
+
+    String[] traits() default {};
 }

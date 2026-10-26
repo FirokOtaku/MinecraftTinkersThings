@@ -11,10 +11,10 @@ import java.util.List;
 
 public interface ISoulWatch
 {
-	@SideOnly(Side.CLIENT)
-	default void addWatchInformation(ItemStack stack, World world, List<String> list, ITooltipFlag flag)
-	{
-		list.add(I18n.format("tooltip.tiths.soul_watching"));
-	}
+    @SideOnly(Side.CLIENT)
+    default void addWatchInformation(ItemStack stack, World world, List<String> list, ITooltipFlag flag)
+    {
+        list.add(I18n.format("tooltip.tiths.soul_watching"));
+    }
 }
 

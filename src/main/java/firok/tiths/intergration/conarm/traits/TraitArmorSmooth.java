@@ -10,8 +10,8 @@ import static firok.tiths.common.Keys.nameTraitSmooth;
  */
 public class TraitArmorSmooth extends AbstractArmorTrait
 {
-	public TraitArmorSmooth()
-	{
-		super(nameTraitSmooth,colorTraitSmooth);
-	}
+    public TraitArmorSmooth()
+    {
+        super(nameTraitSmooth, colorTraitSmooth);
+    }
 }

@@ -13,8 +13,6 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
-import javax.annotation.Nonnull;
-
 import java.util.UUID;
 
 import static firok.tiths.common.Keys.*;
@@ -25,35 +23,37 @@ import static firok.tiths.util.Predicates.canTick;
  */
 public class TraitArmorSoluble extends AbstractArmorTrait
 {
-	public TraitArmorSoluble()
-	{
-		super(nameTraitSoluble,colorTraitSoluble);
-	}
+    public TraitArmorSoluble()
+    {
+        super(nameTraitSoluble, colorTraitSoluble);
+    }
 
-	@Override
-	public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
-	{
-		if(!world.isRemote && player.isInWater())
-		{
-			if( canTick(world,15,2) )
-			{
-				ToolHelper.damageTool(tool, Configs.Traits.factor_soluble, player);
-			}
+    @Override
+    public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
+    {
+        if (!world.isRemote && player.isInWater())
+        {
+            if (canTick(world, 15, 2))
+            {
+                ToolHelper.damageTool(tool, Configs.Traits.factor_soluble, player);
+            }
 
-			if( canTick(world,4,0) )
-			{
-				player.addPotionEffect( new PotionEffect(Potions.hidden_soluble, 5, 0, false, false ));
-			}
-		}
-	}
+            if (canTick(world, 4, 0))
+            {
+                player.addPotionEffect(new PotionEffect(Potions.hidden_soluble, 5, 0, false, false));
+            }
+        }
+    }
 
-	@Override
-	public void getAttributeModifiers(
-			EntityEquipmentSlot slot, ItemStack stack, Multimap<String, AttributeModifier> attributeMap) {
-		if (slot == EntityLiving.getSlotForItemStack(stack)) {
-			attributeMap.put(
-					EntityPlayer.SWIM_SPEED.getName(),
-					new AttributeModifier(UUID.fromString(uuidTraitSolubleSwimSpeed), "Soluble trait modifier", 0.4, 2));
-		}
-	}
+    @Override
+    public void getAttributeModifiers(
+            EntityEquipmentSlot slot, ItemStack stack, Multimap<String, AttributeModifier> attributeMap)
+    {
+        if (slot == EntityLiving.getSlotForItemStack(stack))
+        {
+            attributeMap.put(
+                    EntityPlayer.SWIM_SPEED.getName(),
+                    new AttributeModifier(UUID.fromString(uuidTraitSolubleSwimSpeed), "Soluble trait modifier", 0.4, 2));
+        }
+    }
 }

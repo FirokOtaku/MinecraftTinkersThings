@@ -17,20 +17,20 @@ import static firok.tiths.traits.TraitIcy.canEffect;
  */
 public class TraitArmorIcy extends AbstractArmorTrait
 {
-	public TraitArmorIcy()
-	{
-		super(nameTraitIcy,colorTraitIcy);
-	}
+    public TraitArmorIcy()
+    {
+        super(nameTraitIcy, colorTraitIcy);
+    }
 
-	@Override
-	public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
-	{
-		if(canEffect(world))
-		{
-			int amount=(int)calcAmount(player);
-			if(amount>0) ArmorHelper.healArmor(tool,amount,player,0);
-			else if(amount<0) ArmorHelper.damageArmor(tool, DamageSource.GENERIC,-amount,player,0);
-		}
+    @Override
+    public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
+    {
+        if (canEffect(world))
+        {
+            int amount = (int) calcAmount(player);
+            if (amount > 0) ArmorHelper.healArmor(tool, amount, player, 0);
+            else if (amount < 0) ArmorHelper.damageArmor(tool, DamageSource.GENERIC, -amount, player, 0);
+        }
 
-	}
+    }
 }

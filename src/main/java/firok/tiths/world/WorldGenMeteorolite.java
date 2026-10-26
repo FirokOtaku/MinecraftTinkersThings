@@ -11,7 +11,7 @@
 //import static firok.tiths.util.Predicates.canMeteoGen;
 //import static firok.tiths.util.Predicates.canTrigger;
 //
-//// 生成陨石
+/// / 生成陨石
 //public class WorldGenMeteorolite implements IChunkGen
 //{
 //	static IBlockState stateMeteo=Blocks.blockMeteorolite.getDefaultState();

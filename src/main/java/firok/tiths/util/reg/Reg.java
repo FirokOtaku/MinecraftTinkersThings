@@ -12,19 +12,20 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface Reg
 {
-	String value() default "";
-	/**
-	 * texture name
-	 */
-	String tn() default "";
+    String value() default "";
 
-	/**
-	 * unlocalized name
-	 */
-	String un() default "";
+    /**
+     * texture name
+     */
+    String tn() default "";
 
-	/**
-	 * ore dic name
-	 */
-	String[] od() default {};
+    /**
+     * unlocalized name
+     */
+    String un() default "";
+
+    /**
+     * ore dic name
+     */
+    String[] od() default {};
 }

@@ -18,7 +18,7 @@
 //import static firok.tiths.common.Keys.colorTraitPanicking;
 //import static firok.tiths.common.Keys.nameTraitPanicking;
 //
-///**
+/// **
 // * 威慑 - 护甲
 // */
 //public class TraitArmorPanicking extends AbstractArmorTrait

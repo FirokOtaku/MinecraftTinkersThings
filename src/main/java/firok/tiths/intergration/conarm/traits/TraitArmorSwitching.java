@@ -18,23 +18,23 @@ import static firok.tiths.common.Keys.nameTraitSwitching;
  */
 public class TraitArmorSwitching extends AbstractArmorTrait
 {
-	public TraitArmorSwitching()
-	{
-		super(nameTraitSwitching,colorTraitSwitching);
-	}
+    public TraitArmorSwitching()
+    {
+        super(nameTraitSwitching, colorTraitSwitching);
+    }
 
-	@Override
-	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
-	{
-		if(source instanceof EntityDamageSource)
-		{
-			EntityDamageSource ends=(EntityDamageSource)source;
-			Entity entity=ends.getTrueSource();
-			if(entity instanceof EntityLivingBase)
-			{
-				Actions.CauseSwitching(player,(EntityLivingBase) entity);
-			}
-		}
-		return newDamage;
-	}
+    @Override
+    public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
+    {
+        if (source instanceof EntityDamageSource)
+        {
+            EntityDamageSource ends = (EntityDamageSource) source;
+            Entity entity = ends.getTrueSource();
+            if (entity instanceof EntityLivingBase)
+            {
+                Actions.CauseSwitching(player, (EntityLivingBase) entity);
+            }
+        }
+        return newDamage;
+    }
 }

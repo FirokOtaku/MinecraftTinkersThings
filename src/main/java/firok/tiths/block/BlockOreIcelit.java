@@ -13,16 +13,16 @@ import java.util.Random;
  */
 public class BlockOreIcelit extends BlockOre
 {
-	public BlockOreIcelit()
-	{
-		super(Items.icelit, 1, 1, 1, 3,5);
-		this.setLightLevel(0.1f);
-		this.setTickRandomly(true);
-	}
+    public BlockOreIcelit()
+    {
+        super(Items.icelit, 1, 1, 1, 3, 5);
+        this.setLightLevel(0.1f);
+        this.setTickRandomly(true);
+    }
 
-	@Override
-	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand)
-	{
-		Actions.CauseLiquidFroze(world,pos,4,0.05f);
-	}
+    @Override
+    public void updateTick(World world, BlockPos pos, IBlockState state, Random rand)
+    {
+        Actions.CauseLiquidFroze(world, pos, 4, 0.05f);
+    }
 }

@@ -16,7 +16,7 @@
 //import static firok.tiths.common.Keys.nameTraitStonePhasing;
 //import static firok.tiths.util.Predicates.isAnyStone;
 //
-//// 石之相变
+/// / 石之相变
 //public class TraitStonePhasing extends AbstractTrait
 //{
 //	public static final String NBTKey= TinkersThings.MOD_ID+'_'+nameTraitStonePhasing;

@@ -13,14 +13,14 @@ import static firok.tiths.util.Predicates.isPlants;
  */
 public class TraitGreen extends AbstractTrait
 {
-	public TraitGreen()
-	{
-		super(nameTraitGreen,colorTraitGreen);
-	}
+    public TraitGreen()
+    {
+        super(nameTraitGreen, colorTraitGreen);
+    }
 
-	@Override
-	public void miningSpeed(ItemStack tool, PlayerEvent.BreakSpeed event)
-	{
-		if(isPlants(event.getState())) event.setNewSpeed(0);
-	}
+    @Override
+    public void miningSpeed(ItemStack tool, PlayerEvent.BreakSpeed event)
+    {
+        if (isPlants(event.getState())) event.setNewSpeed(0);
+    }
 }

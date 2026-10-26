@@ -12,9 +12,11 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface CompoBow
 {
-	double drawSpeed(); // 拉弓速度
-	double range(); // 射程系数
-	double bonusDamage(); // 额外伤害
+    double drawSpeed(); // 拉弓速度
 
-	String[] traits() default {};
+    double range(); // 射程系数
+
+    double bonusDamage(); // 额外伤害
+
+    String[] traits() default {};
 }

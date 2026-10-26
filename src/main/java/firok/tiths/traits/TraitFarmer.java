@@ -18,24 +18,24 @@ import static firok.tiths.util.Predicates.isCrops;
  */
 public class TraitFarmer extends AbstractTrait
 {
-	public TraitFarmer()
-	{
-		super(nameTraitFarmer,colorTraitFarmer);
-	}
+    public TraitFarmer()
+    {
+        super(nameTraitFarmer, colorTraitFarmer);
+    }
 
-	@Override
-	public void blockHarvestDrops(ItemStack tool, BlockEvent.HarvestDropsEvent event)
-	{
-		World world=event.getWorld();
-		if(world.isRemote || !canTrigger(world,0.4)) return;
-		List<ItemStack> drops=event.getDrops();
-		IBlockState state=event.getState();
-		if(isCrops(state))
-		{
-			for(ItemStack drop:drops)
-			{
-				drop.setCount( drop.getCount() * 2 );
-			}
-		}
-	}
+    @Override
+    public void blockHarvestDrops(ItemStack tool, BlockEvent.HarvestDropsEvent event)
+    {
+        World world = event.getWorld();
+        if (world.isRemote || !canTrigger(world, 0.4)) return;
+        List<ItemStack> drops = event.getDrops();
+        IBlockState state = event.getState();
+        if (isCrops(state))
+        {
+            for (ItemStack drop : drops)
+            {
+                drop.setCount(drop.getCount() * 2);
+            }
+        }
+    }
 }

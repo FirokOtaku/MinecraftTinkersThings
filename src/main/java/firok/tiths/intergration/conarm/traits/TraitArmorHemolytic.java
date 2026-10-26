@@ -15,18 +15,18 @@ import static firok.tiths.common.Keys.nameTraitHemolytic;
  */
 public class TraitArmorHemolytic extends AbstractArmorTrait
 {
-	public TraitArmorHemolytic()
-	{
-		super(nameTraitHemolytic,colorTraitHemolytic);
-	}
+    public TraitArmorHemolytic()
+    {
+        super(nameTraitHemolytic, colorTraitHemolytic);
+    }
 
-	@Override
-	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
-	{
-		if(!player.world.isRemote && newDamage > 0)
-		{
-			ArmorHelper.healArmor(armor,(int)(newDamage/5),player,0);
-		}
-		return newDamage;
-	}
+    @Override
+    public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
+    {
+        if (!player.world.isRemote && newDamage > 0)
+        {
+            ArmorHelper.healArmor(armor, (int) (newDamage / 5), player, 0);
+        }
+        return newDamage;
+    }
 }

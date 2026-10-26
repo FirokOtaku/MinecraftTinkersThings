@@ -16,29 +16,29 @@ import static firok.tiths.common.Keys.nameTraitHyper;
 // 振奋
 public class TraitHyper extends AbstractTrait
 {
-	public TraitHyper()
-	{
-		super(nameTraitHyper, colorTraitHyper);
-	}
+    public TraitHyper()
+    {
+        super(nameTraitHyper, colorTraitHyper);
+    }
 
-	public void tryAddEffects(EntityLivingBase target)
-	{
-		if(!target.world.isRemote)
-		{
-			Actions.CauseAccumEffect(target,new PotionEffect(MobEffects.SPEED,30,1));
-			Actions.CauseAccumEffect(target,new PotionEffect(MobEffects.HASTE,30,1));
-		}
-	}
+    public void tryAddEffects(EntityLivingBase target)
+    {
+        if (!target.world.isRemote)
+        {
+            Actions.CauseAccumEffect(target, new PotionEffect(MobEffects.SPEED, 30, 1));
+            Actions.CauseAccumEffect(target, new PotionEffect(MobEffects.HASTE, 30, 1));
+        }
+    }
 
-	@Override
-	public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
-	{
-		if(wasHit) tryAddEffects(player);
-	}
+    @Override
+    public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
+    {
+        if (wasHit) tryAddEffects(player);
+    }
 
-	@Override
-	public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective)
-	{
-		if(wasEffective) tryAddEffects(player);
-	}
+    @Override
+    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective)
+    {
+        if (wasEffective) tryAddEffects(player);
+    }
 }

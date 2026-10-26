@@ -15,39 +15,41 @@ import static firok.tiths.util.Predicates.canTick;
 // 折跃之石
 public class ItemGatewayGem extends Item
 {
-	public int range;
-	public ItemGatewayGem(int range)
-	{
-		this.range=range;
-		this.setMaxDamage(4);
-		this.setMaxStackSize(1);
-		this.setHasSubtypes(false);
-		this.setNoRepair();
-	}
-	@Override
-	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean inHand)
-	{
+    public int range;
+
+    public ItemGatewayGem(int range)
+    {
+        this.range = range;
+        this.setMaxDamage(4);
+        this.setMaxStackSize(1);
+        this.setHasSubtypes(false);
+        this.setNoRepair();
+    }
+
+    @Override
+    public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean inHand)
+    {
 //		super.onUpdate(stack, world, entity, slot, inHand);
-		if(canTick(world,160,2))
-		{
-			int damage=stack.getItemDamage();
+        if (canTick(world, 160, 2))
+        {
+            int damage = stack.getItemDamage();
 
-			if(damage<0) stack.setItemDamage(damage+1);
-		}
-	}
+            if (damage < 0) stack.setItemDamage(damage + 1);
+        }
+    }
 
-	@Override
-	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
-	{
-		ItemStack stackHeld=player.getHeldItem(hand);
-		this.setMaxDamage(100);
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
+    {
+        ItemStack stackHeld = player.getHeldItem(hand);
+        this.setMaxDamage(100);
 
-		int damage=stackHeld.getItemDamage();
-		if(damage==0) damage=100;
-		if(damage!=100) return new ActionResult<>(EnumActionResult.FAIL,stackHeld);
+        int damage = stackHeld.getItemDamage();
+        if (damage == 0) damage = 100;
+        if (damage != 100) return new ActionResult<>(EnumActionResult.FAIL, stackHeld);
 
-		Actions.CauseGatewayTeleport(player,range);
-		stackHeld.setItemDamage(0);
-		return new ActionResult<>(EnumActionResult.SUCCESS, stackHeld);
-	}
+        Actions.CauseGatewayTeleport(player, range);
+        stackHeld.setItemDamage(0);
+        return new ActionResult<>(EnumActionResult.SUCCESS, stackHeld);
+    }
 }

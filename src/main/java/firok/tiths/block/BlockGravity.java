@@ -10,16 +10,17 @@ import net.minecraft.world.World;
  */
 public class BlockGravity extends BlockCompressed
 {
-	public float factor;
-	public BlockGravity(Material blockMaterialIn,float factor)
-	{
-		super(blockMaterialIn);
-		this.factor = factor;
-	}
+    public float factor;
 
-	@Override
-	public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance)
-	{
-		super.onFallenUpon(worldIn, pos, entityIn, fallDistance * factor);
-	}
+    public BlockGravity(Material blockMaterialIn, float factor)
+    {
+        super(blockMaterialIn);
+        this.factor = factor;
+    }
+
+    @Override
+    public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance)
+    {
+        super.onFallenUpon(worldIn, pos, entityIn, fallDistance * factor);
+    }
 }

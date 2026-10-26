@@ -20,80 +20,82 @@ import java.util.List;
  */
 public class ItemAirSupply extends Item implements IAirSupply
 {
-	int air;
-	int airMax;
-	boolean canAutoSupply=false;
-	public ItemAirSupply(int air)
-	{
-		this(air,300);
-	}
-	public ItemAirSupply(int air,int airMax)
-	{
-		super();
-		this.air=air;
-		this.airMax=airMax;
-	}
+    int air;
+    int airMax;
+    boolean canAutoSupply = false;
 
-	@Deprecated
-	public ItemAirSupply setAutoSupply()
-	{
-		this.canAutoSupply=true;
-		return this;
-	}
+    public ItemAirSupply(int air)
+    {
+        this(air, 300);
+    }
 
-	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving)
-	{
-		onAirSupply(stack, entityLiving);
-		return stack;
-	}
+    public ItemAirSupply(int air, int airMax)
+    {
+        super();
+        this.air = air;
+        this.airMax = airMax;
+    }
 
-	/**
-	 * How long it takes to use or consume an item
-	 */
-	public int getMaxItemUseDuration(ItemStack stack)
-	{
-		return 6;
-	}
+    @Deprecated
+    public ItemAirSupply setAutoSupply()
+    {
+        this.canAutoSupply = true;
+        return this;
+    }
 
-	/**
-	 * returns the action that specifies what animation to play when the items is being used
-	 */
-	public EnumAction getItemUseAction(ItemStack stack)
-	{
-		return EnumAction.DRINK;
-	}
+    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving)
+    {
+        onAirSupply(stack, entityLiving);
+        return stack;
+    }
 
-	/**
-	 * Called when the equipped item is right clicked.
-	 */
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
-	{
-		ItemStack itemstack = playerIn.getHeldItem(handIn);
-		playerIn.setActiveHand(handIn);
-		return new ActionResult<>(EnumActionResult.SUCCESS, itemstack);
-	}
+    /**
+     * How long it takes to use or consume an item
+     */
+    public int getMaxItemUseDuration(ItemStack stack)
+    {
+        return 6;
+    }
 
-	@Override
-	public int getAirMax(ItemStack stack)
-	{
-		return airMax;
-	}
+    /**
+     * returns the action that specifies what animation to play when the items is being used
+     */
+    public EnumAction getItemUseAction(ItemStack stack)
+    {
+        return EnumAction.DRINK;
+    }
 
-	@Override
-	public int getAir(ItemStack stack)
-	{
-		return air;
-	}
+    /**
+     * Called when the equipped item is right clicked.
+     */
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
+    {
+        ItemStack itemstack = playerIn.getHeldItem(handIn);
+        playerIn.setActiveHand(handIn);
+        return new ActionResult<>(EnumActionResult.SUCCESS, itemstack);
+    }
 
-	@Override
-	public boolean canAutoSupply(ItemStack stack, ItemStack helmet, EntityLivingBase enlb)
-	{
-		return canAutoSupply && enlb.getAir() + getAir(stack) <= getAirMax(stack);
-	}
+    @Override
+    public int getAirMax(ItemStack stack)
+    {
+        return airMax;
+    }
 
-	@Override
-	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
-	{
-		InnerActions.addInformation(this, tooltip, flagIn);
-	}
+    @Override
+    public int getAir(ItemStack stack)
+    {
+        return air;
+    }
+
+    @Override
+    public boolean canAutoSupply(ItemStack stack, ItemStack helmet, EntityLivingBase enlb)
+    {
+        return canAutoSupply && enlb.getAir() + getAir(stack) <= getAirMax(stack);
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
+    {
+        InnerActions.addInformation(this, tooltip, flagIn);
+    }
 }

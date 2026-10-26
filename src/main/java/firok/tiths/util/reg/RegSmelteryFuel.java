@@ -12,6 +12,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface RegSmelteryFuel
 {
-	int amount() default 50; // 多少液体
-	int duration() default 100; // 对应多少持续时间
+    int amount() default 50; // 多少液体
+
+    int duration() default 100; // 对应多少持续时间
 }

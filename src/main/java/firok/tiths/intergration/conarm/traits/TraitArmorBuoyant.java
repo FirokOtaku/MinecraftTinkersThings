@@ -15,10 +15,10 @@ import static firok.tiths.util.Predicates.canTick;
  */
 public class TraitArmorBuoyant extends AbstractArmorTrait
 {
-	public TraitArmorBuoyant()
-	{
-		super(nameTraitBuoyant,colorTraitBuoyant);
-	}
+    public TraitArmorBuoyant()
+    {
+        super(nameTraitBuoyant, colorTraitBuoyant);
+    }
 
 //	@Override
 //	public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
@@ -26,12 +26,12 @@ public class TraitArmorBuoyant extends AbstractArmorTrait
 //		super.onArmorTick(tool, world, player);
 //	}
 
-	@Override
-	public void onAbilityTick(final int level, World world, EntityPlayer player)
-	{
-		if(player.isInWater() && canTick(player.world,4,0))
-		{
-			player.addPotionEffect(new PotionEffect(Potions.hidden_buoyant,5,0,false,false));
-		}
-	}
+    @Override
+    public void onAbilityTick(final int level, World world, EntityPlayer player)
+    {
+        if (player.isInWater() && canTick(player.world, 4, 0))
+        {
+            player.addPotionEffect(new PotionEffect(Potions.hidden_buoyant, 5, 0, false, false));
+        }
+    }
 }

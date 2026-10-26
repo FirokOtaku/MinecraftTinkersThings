@@ -28,100 +28,122 @@ import java.util.function.Predicate;
 
 @SuppressWarnings("all")
 @Optional.Interface(
-		iface = "com.zeitheron.hammercore.api.lighting.impl.IGlowingBlock",
-		modid = "hammercore"
+        iface = "com.zeitheron.hammercore.api.lighting.impl.IGlowingBlock",
+        modid = "hammercore"
 )
 public class BlockBait extends BlockGlow implements IGlowingBlock
 {
-	Predicate[] canAttracts;
-	@SafeVarargs
-	public BlockBait(Predicate<Entity>... canAttracts)
-	{
-		this.setTickRandomly(true);
-		this.setHardness(0);
-		this.setLightLevel(0);
-		this.setSoundType(SoundType.CLOTH);
-		this.canAttracts=canAttracts==null?new Predicate[0]:canAttracts.clone();
-	}
+    Predicate[] canAttracts;
 
-	@Override
-	public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state)
-	{
-		attract(worldIn, pos, state);
-	}
+    @SafeVarargs
+    public BlockBait(Predicate<Entity>... canAttracts)
+    {
+        this.setTickRandomly(true);
+        this.setHardness(0);
+        this.setLightLevel(0);
+        this.setSoundType(SoundType.CLOTH);
+        this.canAttracts = canAttracts == null ? new Predicate[0] : canAttracts.clone();
+    }
 
-	@Override
-	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
-	{
-		attract(worldIn, pos, state);
-	}
+    @Override
+    public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state)
+    {
+        attract(worldIn, pos, state);
+    }
 
-	@Override
-	public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
-	{
-		if(state.getBlock()==this && canAttract(entityIn))
-		{
-			worldIn.setBlockToAir(pos);
-			if(entityIn instanceof EntityLivingBase) ((EntityLivingBase) entityIn).heal(2);
-		}
-	}
+    @Override
+    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
+    {
+        attract(worldIn, pos, state);
+    }
 
-	public boolean canAttract(Entity en)
-	{
-		if(en==null) return false;
-		for(Predicate pre:this.canAttracts)
-		{
-			if(pre.test(en)) return true;
-		}
-		return false;
-	}
+    @Override
+    public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
+    {
+        if (state.getBlock() == this && canAttract(entityIn))
+        {
+            worldIn.setBlockToAir(pos);
+            if (entityIn instanceof EntityLivingBase) ((EntityLivingBase) entityIn).heal(2);
+        }
+    }
 
-	public void attract(World world, BlockPos pos, IBlockState state)
-	{
-		try
-		{
-			List<Entity> entities=(List) EntityFinders.Nearby(world,pos,8, this::canAttract);
-			int size=entities.size();
-			if(size<=0) return;
-			EntityCreature enlb = (EntityCreature) entities.get( world.rand.nextInt(size) );
-			enlb.getNavigator().tryMoveToXYZ(pos.getX(),pos.getY(),pos.getZ(),0.8f);
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-	}
+    public boolean canAttract(Entity en)
+    {
+        if (en == null) return false;
+        for (Predicate pre : this.canAttracts)
+        {
+            if (pre.test(en)) return true;
+        }
+        return false;
+    }
 
-	@Override
-	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
-	{
-		return ItemStack.EMPTY;
-	}
+    public void attract(World world, BlockPos pos, IBlockState state)
+    {
+        try
+        {
+            List<Entity> entities = (List) EntityFinders.Nearby(world, pos, 8, this::canAttract);
+            int size = entities.size();
+            if (size <= 0) return;
+            EntityCreature enlb = (EntityCreature) entities.get(world.rand.nextInt(size));
+            enlb.getNavigator().tryMoveToXYZ(pos.getX(), pos.getY(), pos.getZ(), 0.8f);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, World worldIn, List<String> list, ITooltipFlag flagIn)
-	{
-		list.add( I18n.format("tooltip.tiths.block_bait") );
-		InnerActions.addInformation(this,list,flagIn);
-	}
+    @Override
+    public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
+    {
+        return ItemStack.EMPTY;
+    }
 
-	@Optional.Method(
-			modid = "hammercore"
-	)
-	public ColoredLight produceColoredLight(World world, BlockPos blockPos, IBlockState state, float v) {
-		EnumFacing facing = state.getValue(FACING);
-		int index=facing.getIndex();
-		float r,g,b;
-		switch (index)
-		{
-			case 0: r=0;g=0.5f;b=0.5f; break;
-			case 1: r=1;g=1;b=1; break;
-			case 2: r=0.25f;g=0.7f;b=0.8f;break;
-			case 3: r=0.8f;g=0;b=0; break;
-			default: r=1;g=1;b=0; break;
-		}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, World worldIn, List<String> list, ITooltipFlag flagIn)
+    {
+        list.add(I18n.format("tooltip.tiths.block_bait"));
+        InnerActions.addInformation(this, list, flagIn);
+    }
 
-		return ColoredLight.builder().pos(blockPos).radius(15.0F).color(r,g,b).build();
-	}
+    @Optional.Method(
+            modid = "hammercore"
+    )
+    public ColoredLight produceColoredLight(World world, BlockPos blockPos, IBlockState state, float v)
+    {
+        EnumFacing facing = state.getValue(FACING);
+        int index = facing.getIndex();
+        float r, g, b;
+        switch (index)
+        {
+            case 0:
+                r = 0;
+                g = 0.5f;
+                b = 0.5f;
+                break;
+            case 1:
+                r = 1;
+                g = 1;
+                b = 1;
+                break;
+            case 2:
+                r = 0.25f;
+                g = 0.7f;
+                b = 0.8f;
+                break;
+            case 3:
+                r = 0.8f;
+                g = 0;
+                b = 0;
+                break;
+            default:
+                r = 1;
+                g = 1;
+                b = 0;
+                break;
+        }
+
+        return ColoredLight.builder().pos(blockPos).radius(15.0F).color(r, g, b).build();
+    }
 }

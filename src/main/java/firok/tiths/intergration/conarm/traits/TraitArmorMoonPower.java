@@ -16,17 +16,17 @@ import static firok.tiths.traits.TraitMoonPower.checkHealMoon;
  */
 public class TraitArmorMoonPower extends AbstractArmorTrait
 {
-	public TraitArmorMoonPower()
-	{
-		super(nameTraitMoonPower,colorTraitMoonPower);
-	}
+    public TraitArmorMoonPower()
+    {
+        super(nameTraitMoonPower, colorTraitMoonPower);
+    }
 
-	@Override
-	public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
-	{
-		if(checkHealMoon(world))
-			{
-			ArmorHelper.healArmor(tool, Configs.Traits.factor_moon_power,player,0);
-		}
-	}
+    @Override
+    public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
+    {
+        if (checkHealMoon(world))
+        {
+            ArmorHelper.healArmor(tool, Configs.Traits.factor_moon_power, player, 0);
+        }
+    }
 }

@@ -10,8 +10,8 @@ import static firok.tiths.common.Keys.nameTraitAntiGriefing;
  */
 public class TraitAntiGriefing extends AbstractArmorTrait
 {
-	public TraitAntiGriefing()
-	{
-		super(nameTraitAntiGriefing,colorTraitAntiGriefing);
-	}
+    public TraitAntiGriefing()
+    {
+        super(nameTraitAntiGriefing, colorTraitAntiGriefing);
+    }
 }

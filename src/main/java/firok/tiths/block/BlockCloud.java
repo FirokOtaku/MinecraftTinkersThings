@@ -19,54 +19,55 @@ import net.minecraft.world.World;
 //@SuppressWarnings("all")
 public class BlockCloud extends BlockCompressed
 {
-	protected static final AxisAlignedBB AABB_BOTTOM_HALF = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.5D, 1.0D);
-	public BlockCloud()
-	{
-		this(Material.CLOTH);
-	}
-	public static final PropertyEnum<BlockSlab.EnumBlockHalf> HALF = PropertyEnum.<BlockSlab.EnumBlockHalf>create("half", BlockSlab.EnumBlockHalf.class);
+    public static final PropertyEnum<BlockSlab.EnumBlockHalf> HALF = PropertyEnum.<BlockSlab.EnumBlockHalf>create("half", BlockSlab.EnumBlockHalf.class);
+    protected static final AxisAlignedBB AABB_BOTTOM_HALF = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.5D, 1.0D);
 
-	public BlockCloud(Material materialIn)
-	{
-		this(materialIn, materialIn.getMaterialMapColor());
-	}
+    public BlockCloud()
+    {
+        this(Material.CLOTH);
+    }
 
-	public BlockCloud(Material material, MapColor color)
-	{
-		super(material, color);
-		this.setLightOpacity(255);
-		this.setHardness(0.4F);
-		this.setSoundType(SoundType.CLOTH);
-		this.enableTransparent();
-	}
+    public BlockCloud(Material materialIn)
+    {
+        this(materialIn, materialIn.getMaterialMapColor());
+    }
 
-	protected boolean canSilkHarvest()
-	{
-		return true;
-	}
+    public BlockCloud(Material material, MapColor color)
+    {
+        super(material, color);
+        this.setLightOpacity(255);
+        this.setHardness(0.4F);
+        this.setSoundType(SoundType.CLOTH);
+        this.enableTransparent();
+    }
 
-	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
-	{
-		return AABB_BOTTOM_HALF;
-	}
+    protected boolean canSilkHarvest()
+    {
+        return true;
+    }
 
-	@Override
-	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
-	{
-		return AABB_BOTTOM_HALF;
-	}
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+    {
+        return AABB_BOTTOM_HALF;
+    }
 
-	/**
-	 * Determines if the block is solid enough on the top side to support other blocks, like redstone components.
-	 */
-	public boolean isTopSolid(IBlockState state)
-	{
-		return true;
-	}
+    @Override
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
+    {
+        return AABB_BOTTOM_HALF;
+    }
 
-	public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)
-	{
-		return BlockFaceShape.SOLID;
+    /**
+     * Determines if the block is solid enough on the top side to support other blocks, like redstone components.
+     */
+    public boolean isTopSolid(IBlockState state)
+    {
+        return true;
+    }
+
+    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)
+    {
+        return BlockFaceShape.SOLID;
 //		if (((BlockSlab)state.getBlock()).isDouble())
 //		{
 //			return BlockFaceShape.SOLID;
@@ -79,35 +80,35 @@ public class BlockCloud extends BlockCompressed
 //		{
 //			return face == EnumFacing.DOWN && state.getValue(HALF) == BlockSlab.EnumBlockHalf.BOTTOM ? BlockFaceShape.SOLID : BlockFaceShape.UNDEFINED;
 //		}
-	}
+    }
 
-	public Boolean isEntityInsideMaterial(IBlockAccess world, BlockPos blockpos, IBlockState iblockstate, Entity entity, double yToTest, Material materialIn, boolean testingHead)
-	{
-		return null;
-	}
+    public Boolean isEntityInsideMaterial(IBlockAccess world, BlockPos blockpos, IBlockState iblockstate, Entity entity, double yToTest, Material materialIn, boolean testingHead)
+    {
+        return null;
+    }
 
-	/**
-	 * Used to determine ambient occlusion and culling when rebuilding chunks for render
-	 */
-	public boolean isOpaqueCube(IBlockState state)
-	{
-		return false;
-	}
+    /**
+     * Used to determine ambient occlusion and culling when rebuilding chunks for render
+     */
+    public boolean isOpaqueCube(IBlockState state)
+    {
+        return false;
+    }
 
 
-	@Override
-	public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity en)
-	{
-		en.fallDistance=0;
-		en.motionX*=0.4;
-		if(en.motionY<0) en.motionY*=0.4;
-		en.motionZ*=0.4;
-	}
+    @Override
+    public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity en)
+    {
+        en.fallDistance = 0;
+        en.motionX *= 0.4;
+        if (en.motionY < 0) en.motionY *= 0.4;
+        en.motionZ *= 0.4;
+    }
 
-	@Override
-	public boolean shouldSideBeRendered(IBlockState blockstateThis, IBlockAccess world, BlockPos pos, EnumFacing side)
-	{
-		Block block=world.getBlockState(pos.offset(side)).getBlock();
-		return block != Blocks.oreBrumeJade && block != this;
-	}
+    @Override
+    public boolean shouldSideBeRendered(IBlockState blockstateThis, IBlockAccess world, BlockPos pos, EnumFacing side)
+    {
+        Block block = world.getBlockState(pos.offset(side)).getBlock();
+        return block != Blocks.oreBrumeJade && block != this;
+    }
 }

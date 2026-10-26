@@ -26,129 +26,131 @@ import static firok.tiths.util.Predicates.canTick;
  */
 public class TraitArmorHydrating extends AbstractArmorTrait implements ITraitData<TraitArmorHydrating.HydratingData>
 {
-	public TraitArmorHydrating()
-	{
-		super(nameTraitHydrating,colorTraitHydrating);
-	}
+    public TraitArmorHydrating()
+    {
+        super(nameTraitHydrating, colorTraitHydrating);
+    }
 
-	public void regen(ItemStack stack,int point,int max)
-	{
-		if(stack==null || point<=0) return;
+    public void regen(ItemStack stack, int point, int max)
+    {
+        if (stack == null || point <= 0) return;
 
-		HydratingData data=this.readExtraDataFromStack(stack);
-		data.point+=point;
-		if(data.point>max) data.point=max;
-		this.writeExtraDataToStack(stack,data);
-	}
-	public int cost(ItemStack stack,int cost)
-	{
-		if(stack==null || cost<=0) return 0;
+        HydratingData data = this.readExtraDataFromStack(stack);
+        data.point += point;
+        if (data.point > max) data.point = max;
+        this.writeExtraDataToStack(stack, data);
+    }
 
-		HydratingData data=this.readExtraDataFromStack(stack);
-		if(data.point<cost)
-		{
-			cost=data.point;
-			data.point=0;
-		}
-		else // point >= cost
-		{
-			data.point -= cost;
-		}
-		this.writeExtraDataToStack(stack,data);
-		return cost;
-	}
-	public int get(ItemStack stack)
-	{
-		return this.readExtraDataFromStack(stack).point;
-	}
+    public int cost(ItemStack stack, int cost)
+    {
+        if (stack == null || cost <= 0) return 0;
 
-	/*
-	每1点可以降低伤害0.01 = 抵消1点伤害需要消耗100点
+        HydratingData data = this.readExtraDataFromStack(stack);
+        if (data.point < cost)
+        {
+            cost = data.point;
+            data.point = 0;
+        }
+        else // point >= cost
+        {
+            data.point -= cost;
+        }
+        this.writeExtraDataToStack(stack, data);
+        return cost;
+    }
 
-	水中每秒恢复10点 恢复上限为500 = 每秒恢复0.1血量
-	淋雨每秒恢复7点 500 = 每秒恢复0.07血量
-	*/
-	@Override
-	public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
-	{
-		if(!world.isRemote && canTick(world,20,0))
-		{
-			if(player.isInWater())
-			{
-				regen(tool, Configs.ArmorTraits.factor_hydrating_water,500);
-			}
-			else if(world.isRainingAt(player.getPosition()))
-			{
-				regen(tool, Configs.ArmorTraits.factor_hydrating_rain,500);
-			}
-		}
-	}
+    public int get(ItemStack stack)
+    {
+        return this.readExtraDataFromStack(stack).point;
+    }
 
-	@Override
-	public float onDamaged(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingDamageEvent evt)
-	{
-		if(canDealWith(source,true,null,null,null,null))
-		{
-			int costMax=(int)(newDamage*100);
-			int costReal=cost(armor,costMax);
+    /*
+    每1点可以降低伤害0.01 = 抵消1点伤害需要消耗100点
 
-			if(costReal>0)
-			{
-				newDamage-= costReal/100f;
-				if(player.isServerWorld())
-				{
-					player.world.playSound(null,player.posX,player.posY,player.posZ,
-							SoundEvents.effectBubble, SoundCategory.MASTER,1,1);
-				}
-			}
+    水中每秒恢复10点 恢复上限为500 = 每秒恢复0.1血量
+    淋雨每秒恢复7点 500 = 每秒恢复0.07血量
+    */
+    @Override
+    public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
+    {
+        if (!world.isRemote && canTick(world, 20, 0))
+        {
+            if (player.isInWater())
+            {
+                regen(tool, Configs.ArmorTraits.factor_hydrating_water, 500);
+            }
+            else if (world.isRainingAt(player.getPosition()))
+            {
+                regen(tool, Configs.ArmorTraits.factor_hydrating_rain, 500);
+            }
+        }
+    }
 
-			return newDamage;
-		}
-		return newDamage;
-	}
+    @Override
+    public float onDamaged(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingDamageEvent evt)
+    {
+        if (canDealWith(source, true, null, null, null, null))
+        {
+            int costMax = (int) (newDamage * 100);
+            int costReal = cost(armor, costMax);
 
-	@Override
-	public List<String> getExtraInfo(ItemStack tool, NBTTagCompound modifierTag)
-	{
-		HydratingData data=readExtraDataFromStack(tool);
+            if (costReal > 0)
+            {
+                newDamage -= costReal / 100f;
+                if (player.isServerWorld())
+                {
+                    player.world.playSound(null, player.posX, player.posY, player.posZ,
+                            SoundEvents.effectBubble, SoundCategory.MASTER, 1, 1);
+                }
+            }
 
-		if(data.point<=100) return ImmutableList.of();
+            return newDamage;
+        }
+        return newDamage;
+    }
 
-		StringBuilder info=new StringBuilder().append("§3");
-		while(data.point>0)
-		{
-			if(data.point>=100) info.append("●");
-			data.point-=100;
-		}
-		info.append("§r");
+    @Override
+    public List<String> getExtraInfo(ItemStack tool, NBTTagCompound modifierTag)
+    {
+        HydratingData data = readExtraDataFromStack(tool);
 
-		return ImmutableList.of(info.toString());
-	}
-	
-	public static class HydratingData implements TraitExtraData
-	{
-		public int point;
-	}
+        if (data.point <= 100) return ImmutableList.of();
 
-	@Override
-	public String getDataKey()
-	{
-		return "HydratingData";
-	}
+        StringBuilder info = new StringBuilder().append("§3");
+        while (data.point > 0)
+        {
+            if (data.point >= 100) info.append("●");
+            data.point -= 100;
+        }
+        info.append("§r");
 
-	@Override
-	public HydratingData readExtraData(NBTTagCompound nbtExtraData)
-	{
-		HydratingData data=new HydratingData();
-		data.point = nbtExtraData!=null && nbtExtraData.hasKey("point") ? nbtExtraData.getInteger("point") : 0;
-		return data;
-	}
+        return ImmutableList.of(info.toString());
+    }
 
-	@Override
-	public NBTTagCompound writeExtraData(HydratingData data)
-	{
-		NBTTagCompound nbt=new NBTTagCompound();
-		nbt.setInteger("point",data.point);
-		return nbt;
-	}
+    @Override
+    public String getDataKey()
+    {
+        return "HydratingData";
+    }
+
+    @Override
+    public HydratingData readExtraData(NBTTagCompound nbtExtraData)
+    {
+        HydratingData data = new HydratingData();
+        data.point = nbtExtraData != null && nbtExtraData.hasKey("point") ? nbtExtraData.getInteger("point") : 0;
+        return data;
+    }
+
+    @Override
+    public NBTTagCompound writeExtraData(HydratingData data)
+    {
+        NBTTagCompound nbt = new NBTTagCompound();
+        nbt.setInteger("point", data.point);
+        return nbt;
+    }
+
+    public static class HydratingData implements TraitExtraData
+    {
+        public int point;
+    }
 }

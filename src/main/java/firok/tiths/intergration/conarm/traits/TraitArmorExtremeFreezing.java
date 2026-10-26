@@ -14,14 +14,15 @@ import static firok.tiths.traits.TraitExtremeFreezing.*;
  */
 public class TraitArmorExtremeFreezing extends AbstractArmorTrait
 {
-	public TraitArmorExtremeFreezing()
-	{
-		super(nameTraitExtremeFreezing,colorTraitExtremeFreezing);
-	}
-	@Override
-	public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
-	{
-		if(checkParticle(world)) particle(player);
-		if(checkFreeze(world)) freeze(player);
-	}
+    public TraitArmorExtremeFreezing()
+    {
+        super(nameTraitExtremeFreezing, colorTraitExtremeFreezing);
+    }
+
+    @Override
+    public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
+    {
+        if (checkParticle(world)) particle(player);
+        if (checkFreeze(world)) freeze(player);
+    }
 }

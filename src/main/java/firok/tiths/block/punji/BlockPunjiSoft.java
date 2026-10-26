@@ -11,13 +11,13 @@ import net.minecraft.world.World;
 
 public class BlockPunjiSoft extends BlockPunjiCustom
 {
-	public BlockPunjiSoft()
-	{
-		super(Material.CLOTH, SoundType.CLOTH);
-	}
+    public BlockPunjiSoft()
+    {
+        super(Material.CLOTH, SoundType.CLOTH);
+    }
 
-	public void hurtLiving(World world, BlockPos pos, IBlockState state, EntityLivingBase enlb)
-	{
-		enlb.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20, 1));
-	}
+    public void hurtLiving(World world, BlockPos pos, IBlockState state, EntityLivingBase enlb)
+    {
+        enlb.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20, 1));
+    }
 }

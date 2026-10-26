@@ -9,8 +9,11 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD})
 public @interface RegEntity
 {
-	int network();
-	int tracker() default 48;
-	int updateFrequency() default 3;
-	boolean sendUpdates() default true;
+    int network();
+
+    int tracker() default 48;
+
+    int updateFrequency() default 3;
+
+    boolean sendUpdates() default true;
 }

@@ -21,41 +21,42 @@ import static firok.tiths.util.Predicates.canTrigger;
 // 宝藏感知
 public class TraitTreasureDetecting extends AbstractTrait
 {
-	public TraitTreasureDetecting()
-	{
-		super(nameTraitTreasureDetecting, colorTraitTreasureDetecting);
-	}
+    public TraitTreasureDetecting()
+    {
+        super(nameTraitTreasureDetecting, colorTraitTreasureDetecting);
+    }
 
-	@Override
-	public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective)
-	{
-		// super.afterBlockBreak(tool, world, state, pos, player, wasEffective);
-		if(!world.isRemote && pos.getY()<world.getHeight()/2 && Predicates.isAnyStone(state) && canTrigger(world,0.01f))
-		{
-			Random rand=world.rand;
-			final int ox=15-rand.nextInt(30),oy=10-rand.nextInt(20),oz=15-rand.nextInt(30);
-			final int cx=pos.getX()+ox-4,cy=pos.getY()+oy-4,cz=pos.getZ()+oz-4;
-			boolean check=true;
-			FOR_FIND_NO_STONE:for(int tx=cx;tx<cx+7;tx++)
-			{
-				for(int ty=cy;ty<cy+7;ty++)
-				{
-					for(int tz=cz;tz<cz+7;tz++)
-					{
-						if(!Predicates.isStone(world.getBlockState(new BlockPos(tx,ty,tz))))
-						{
-							check=false;
-							break FOR_FIND_NO_STONE;
-						}
-					}
-				}
-			}
-			if(check)
-			{
-				if(player instanceof EntityPlayer)
-					world.playSound((EntityPlayer) player, player.posX,player.posY,player.posZ, SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS,1.0f,1.0f);
-				Actions.CauseGeneratingTreasureRoom(world,new BlockPos(cx+1,cy+1,cz+1));
-			}
-		}
-	}
+    @Override
+    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective)
+    {
+        // super.afterBlockBreak(tool, world, state, pos, player, wasEffective);
+        if (!world.isRemote && pos.getY() < world.getHeight() / 2 && Predicates.isAnyStone(state) && canTrigger(world, 0.01f))
+        {
+            Random rand = world.rand;
+            final int ox = 15 - rand.nextInt(30), oy = 10 - rand.nextInt(20), oz = 15 - rand.nextInt(30);
+            final int cx = pos.getX() + ox - 4, cy = pos.getY() + oy - 4, cz = pos.getZ() + oz - 4;
+            boolean check = true;
+            FOR_FIND_NO_STONE:
+            for (int tx = cx; tx < cx + 7; tx++)
+            {
+                for (int ty = cy; ty < cy + 7; ty++)
+                {
+                    for (int tz = cz; tz < cz + 7; tz++)
+                    {
+                        if (!Predicates.isStone(world.getBlockState(new BlockPos(tx, ty, tz))))
+                        {
+                            check = false;
+                            break FOR_FIND_NO_STONE;
+                        }
+                    }
+                }
+            }
+            if (check)
+            {
+                if (player instanceof EntityPlayer)
+                    world.playSound((EntityPlayer) player, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 1.0f, 1.0f);
+                Actions.CauseGeneratingTreasureRoom(world, new BlockPos(cx + 1, cy + 1, cz + 1));
+            }
+        }
+    }
 }

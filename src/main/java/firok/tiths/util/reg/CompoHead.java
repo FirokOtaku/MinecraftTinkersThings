@@ -9,10 +9,13 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface CompoHead
 {
-	int durability();
-	double miningspeed();
-	double attack();
-	int harvestLevel();
+    int durability();
 
-	String[] traits() default {};
+    double miningspeed();
+
+    double attack();
+
+    int harvestLevel();
+
+    String[] traits() default {};
 }

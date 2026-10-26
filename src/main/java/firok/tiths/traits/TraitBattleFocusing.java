@@ -15,18 +15,18 @@ import static net.minecraft.init.MobEffects.SLOWNESS;
  */
 public class TraitBattleFocusing extends AbstractTrait
 {
-	public TraitBattleFocusing()
-	{
-		super(nameTraitBattleFocusing,colorTraitBattleFocusing);
-	}
+    public TraitBattleFocusing()
+    {
+        super(nameTraitBattleFocusing, colorTraitBattleFocusing);
+    }
 
-	@Override
-	public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean isCritical)
-	{
-		if(target.isEntityAlive())
-		{
-			player.addPotionEffect(new PotionEffect(forcibleFocused,100,0));
-			target.addPotionEffect(new PotionEffect(SLOWNESS,100,0));
-		}
-	}
+    @Override
+    public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean isCritical)
+    {
+        if (target.isEntityAlive())
+        {
+            player.addPotionEffect(new PotionEffect(forcibleFocused, 100, 0));
+            target.addPotionEffect(new PotionEffect(SLOWNESS, 100, 0));
+        }
+    }
 }

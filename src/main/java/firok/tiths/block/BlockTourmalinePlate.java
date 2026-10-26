@@ -1,13 +1,5 @@
 package firok.tiths.block;
 
-import net.minecraft.block.BlockBasePressurePlate;
-import net.minecraft.block.BlockPressurePlate;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-
 /**
  * 电气石压力板 当实体坠落到表面的时候激发红石信号
  */

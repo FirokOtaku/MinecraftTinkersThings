@@ -16,17 +16,17 @@ import static firok.tiths.util.Predicates.canTick;
  */
 public class TraitArmorEmpathy extends AbstractArmorTrait
 {
-	public TraitArmorEmpathy()
-	{
-		super(nameTraitEmpathy,colorTraitEmpathy);
-	}
+    public TraitArmorEmpathy()
+    {
+        super(nameTraitEmpathy, colorTraitEmpathy);
+    }
 
-	@Override
-	public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
-	{
-		if(!world.isRemote && canTick(world,5,0))
-		{
-			player.addPotionEffect(new PotionEffect(Potions.empathic,80,0,false,false));
-		}
-	}
+    @Override
+    public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
+    {
+        if (!world.isRemote && canTick(world, 5, 0))
+        {
+            player.addPotionEffect(new PotionEffect(Potions.empathic, 80, 0, false, false));
+        }
+    }
 }

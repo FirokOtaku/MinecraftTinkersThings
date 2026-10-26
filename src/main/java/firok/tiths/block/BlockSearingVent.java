@@ -12,34 +12,35 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
 /**
  * 焦黑通风孔
  */
 public class BlockSearingVent extends Block
 {
-	public BlockSearingVent()
-	{
-		super(Material.ROCK);
-	}
+    public BlockSearingVent()
+    {
+        super(Material.ROCK);
+    }
 
-	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
-	{
-		boolean ret;
+    @Override
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
+    {
+        boolean ret;
 
-		ItemStack stackHeldMain=player.getHeldItemMainhand();
-		if(stackHeldMain.getItem() != Items.FLINT_AND_STEEL) return false;
+        ItemStack stackHeldMain = player.getHeldItemMainhand();
+        if (stackHeldMain.getItem() != Items.FLINT_AND_STEEL) return false;
 
-		if(EntityFinders.Nearby(world,pos,4,en->en instanceof LogicSearing).size()>0) return false;
+        if (EntityFinders.Nearby(world, pos, 4, en -> en instanceof LogicSearing).size() > 0) return false;
 
-		LogicSearing entity=new LogicSearing(world);
-		ret=entity.initFromPos(pos);
-		System.out.println(ret);
-		entity.setPosition(pos.getX(),pos.getY(),pos.getZ());
-		if(ret)
-		{
-			world.spawnEntity(entity);
-		}
-		return ret;
-	}
+        LogicSearing entity = new LogicSearing(world);
+        ret = entity.initFromPos(pos);
+        System.out.println(ret);
+        entity.setPosition(pos.getX(), pos.getY(), pos.getZ());
+        if (ret)
+        {
+            world.spawnEntity(entity);
+        }
+        return ret;
+    }
 }

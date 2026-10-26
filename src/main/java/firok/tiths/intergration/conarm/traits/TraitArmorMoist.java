@@ -15,16 +15,16 @@ import static firok.tiths.util.Predicates.canDealWith;
  */
 public class TraitArmorMoist extends AbstractArmorTrait
 {
-	public TraitArmorMoist()
-	{
-		super(nameTraitMoist,colorTraitMoist);
-	}
+    public TraitArmorMoist()
+    {
+        super(nameTraitMoist, colorTraitMoist);
+    }
 
-	@Override
-	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
-	{
-		if(canDealWith(source,true,null,true,null,null))
-			newDamage-=damage/2;
-		return newDamage>0?newDamage:0;
-	}
+    @Override
+    public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
+    {
+        if (canDealWith(source, true, null, true, null, null))
+            newDamage -= damage / 2;
+        return newDamage > 0 ? newDamage : 0;
+    }
 }

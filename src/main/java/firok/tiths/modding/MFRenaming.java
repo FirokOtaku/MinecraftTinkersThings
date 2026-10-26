@@ -8,27 +8,29 @@ import net.minecraft.item.ItemStack;
  */
 public class MFRenaming implements ModdingFunction
 {
-	public static final String TYPE="tiths:mf_renaming";
-	public static final int COUNT=1;
-	@Override
-	public String id()
-	{
-		return TYPE;
-	}
+    public static final String TYPE = "tiths:mf_renaming";
+    public static final int COUNT = 1;
+    public final String name;
 
-	public final String name;
-	public MFRenaming(String name)
-	{
-		this.name=name;
-	}
-	public MFRenaming(String[] name)
-	{
-		this(name[0]);
-	}
+    public MFRenaming(String name)
+    {
+        this.name = name;
+    }
 
-	@Override
-	public void mod(ItemStack stack, EntityPlayer player, ToolInfo toolInfo)
-	{
-		stack.setStackDisplayName(name);
-	}
+    public MFRenaming(String[] name)
+    {
+        this(name[0]);
+    }
+
+    @Override
+    public String id()
+    {
+        return TYPE;
+    }
+
+    @Override
+    public void mod(ItemStack stack, EntityPlayer player, ToolInfo toolInfo)
+    {
+        stack.setStackDisplayName(name);
+    }
 }

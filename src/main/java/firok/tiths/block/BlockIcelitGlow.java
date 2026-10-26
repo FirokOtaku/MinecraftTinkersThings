@@ -17,30 +17,32 @@ import java.util.Random;
  */
 public class BlockIcelitGlow extends BlockGlow
 {
-	public BlockIcelitGlow() {
-		this.setLightLevel(0.45F);
-		this.setTickRandomly(false);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.DOWN));
-	}
+    public BlockIcelitGlow()
+    {
+        this.setLightLevel(0.45F);
+        this.setTickRandomly(false);
+        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.DOWN));
+    }
 
-	@Override
-	public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state)
-	{
-		worldIn.scheduleUpdate(pos,this,100);
-	}
+    @Override
+    public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state)
+    {
+        worldIn.scheduleUpdate(pos, this, 100);
+    }
 
-	@Override
-	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
-	{
-		if(worldIn.getBlockState(pos).getBlock()==this)
-		{
-			worldIn.setBlockToAir(pos);
-		}
-	}
+    @Override
+    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
+    {
+        if (worldIn.getBlockState(pos).getBlock() == this)
+        {
+            worldIn.setBlockToAir(pos);
+        }
+    }
 
-	@Override
-	public ItemStack getPickBlock(@Nonnull IBlockState state, RayTraceResult target, @Nonnull World world, @Nonnull BlockPos pos, EntityPlayer player) {
-		// if unavailable, just return nothing, Minecraft will just not do anything on pick block
-		return ItemStack.EMPTY;
-	}
+    @Override
+    public ItemStack getPickBlock(@Nonnull IBlockState state, RayTraceResult target, @Nonnull World world, @Nonnull BlockPos pos, EntityPlayer player)
+    {
+        // if unavailable, just return nothing, Minecraft will just not do anything on pick block
+        return ItemStack.EMPTY;
+    }
 }

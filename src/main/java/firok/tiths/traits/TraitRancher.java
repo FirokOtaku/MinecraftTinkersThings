@@ -10,8 +10,8 @@ import static firok.tiths.common.Keys.nameTraitRancher;
  */
 public class TraitRancher extends AbstractTrait
 {
-	public TraitRancher()
-	{
-		super(nameTraitRancher,colorTraitRancher);
-	}
+    public TraitRancher()
+    {
+        super(nameTraitRancher, colorTraitRancher);
+    }
 }

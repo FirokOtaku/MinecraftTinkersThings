@@ -10,12 +10,16 @@ import slimeknights.tconstruct.library.materials.Material;
 @SuppressWarnings("all")
 public class IngredientFactories
 {
-	public static void trigger(){};
-	public static class ToolRodIngredientFactory implements IIngredientFactory
-	{
-		@Override
-		public Ingredient parse(JsonContext context, JsonObject json) {
-			return new ToolRodIngredient(json.has("material")? json.get("material").getAsString() : Material.UNKNOWN.identifier );
-		}
-	}
+    public static void trigger() {}
+
+    ;
+
+    public static class ToolRodIngredientFactory implements IIngredientFactory
+    {
+        @Override
+        public Ingredient parse(JsonContext context, JsonObject json)
+        {
+            return new ToolRodIngredient(json.has("material") ? json.get("material").getAsString() : Material.UNKNOWN.identifier);
+        }
+    }
 }

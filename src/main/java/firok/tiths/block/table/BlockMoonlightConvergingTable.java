@@ -14,35 +14,36 @@ import java.util.Random;
 import static firok.tiths.util.Predicates.canTick;
 
 public class BlockMoonlightConvergingTable
-	extends BlockConvergingTableBase
+        extends BlockConvergingTableBase
 {
-	public boolean hasMainBlock(World world, BlockPos posCenter, int offsetX, int offsetZ)
-	{
-		return world.getBlockState(posCenter.add(offsetX,2,offsetZ)).getBlock() == Blocks.blockMoonStone;
-	}
-	public boolean hasSubBlock(World world, BlockPos posCenter, int offsetX, int offsetZ)
-	{
-		return world.getBlockState(posCenter.add(offsetX,1,offsetZ)).getBlock() == net.minecraft.init.Blocks.OBSIDIAN &&
-				world.getBlockState(posCenter.add(offsetX,0,offsetZ)).getBlock() == net.minecraft.init.Blocks.OBSIDIAN;
-	}
+    public boolean hasMainBlock(World world, BlockPos posCenter, int offsetX, int offsetZ)
+    {
+        return world.getBlockState(posCenter.add(offsetX, 2, offsetZ)).getBlock() == Blocks.blockMoonStone;
+    }
 
-	@Override
-	public boolean checkTime(World world)
-	{
-		return canTick(world,80,9) && !world.isDaytime();
-	}
+    public boolean hasSubBlock(World world, BlockPos posCenter, int offsetX, int offsetZ)
+    {
+        return world.getBlockState(posCenter.add(offsetX, 1, offsetZ)).getBlock() == net.minecraft.init.Blocks.OBSIDIAN &&
+                world.getBlockState(posCenter.add(offsetX, 0, offsetZ)).getBlock() == net.minecraft.init.Blocks.OBSIDIAN;
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void spawnParticles(World world, BlockPos pos, Random rand)
-	{
-		ParticleBuilder.create(ParticleType.STAR)
-				.pos(
-						pos.getX() + rand.nextFloat(),
-						pos.getY() + 0.5 + rand.nextFloat() * 0.5,
-						pos.getZ() + rand.nextFloat()
-				)
-				.clr(Keys.colorMoonStone)
-				.spawn(world);
-	}
+    @Override
+    public boolean checkTime(World world)
+    {
+        return canTick(world, 80, 9) && !world.isDaytime();
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void spawnParticles(World world, BlockPos pos, Random rand)
+    {
+        ParticleBuilder.create(ParticleType.STAR)
+                .pos(
+                        pos.getX() + rand.nextFloat(),
+                        pos.getY() + 0.5 + rand.nextFloat() * 0.5,
+                        pos.getZ() + rand.nextFloat()
+                )
+                .clr(Keys.colorMoonStone)
+                .spawn(world);
+    }
 }

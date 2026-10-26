@@ -1,52 +1,42 @@
 package firok.tiths.util;
 
-import c4.conarm.lib.materials.CoreMaterialStats;
-import c4.conarm.lib.materials.PlatesMaterialStats;
-import c4.conarm.lib.materials.TrimMaterialStats;
-import firok.tiths.common.ConfigJson;
-import firok.tiths.util.conf.MaterialInfo;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fml.common.Optional;
-import slimeknights.tconstruct.library.materials.*;
-
-import java.util.Objects;
-import java.util.stream.Stream;
-
-import static firok.tiths.TinkersThings.CONARM_ID;
+import slimeknights.tconstruct.library.materials.Material;
 
 public class $Material extends Material
 {
-	public $Material(String identifier, int color)
-	{
-		super(identifier, color);
-	}
+    public $Material(String identifier, int color)
+    {
+        super(identifier, color);
+    }
 
-	public $Material(String identifier, int color, boolean hidden)
-	{
-		super(identifier, color, hidden);
-	}
+    public $Material(String identifier, int color, boolean hidden)
+    {
+        super(identifier, color, hidden);
+    }
 
-	public $Material addItemAsIngot(Item item)
-	{
-		this.addItem(item,1,VALUE_Ingot);
-		this.setRepresentativeItem(item);
-		return this;
-	}
-	public $Material addItemAsIngot(Block block)
-	{
-		this.addItem(block,VALUE_Ingot);
-		this.setRepresentativeItem(block);
-		return this;
-	}
+    public $Material addItemAsIngot(Item item)
+    {
+        this.addItem(item, 1, VALUE_Ingot);
+        this.setRepresentativeItem(item);
+        return this;
+    }
 
-	@Override
-	public $Material setFluid(Fluid fluid)
-	{
-		super.setFluid(fluid);
-		return this;
-	}
+    public $Material addItemAsIngot(Block block)
+    {
+        this.addItem(block, VALUE_Ingot);
+        this.setRepresentativeItem(block);
+        return this;
+    }
+
+    @Override
+    public $Material setFluid(Fluid fluid)
+    {
+        super.setFluid(fluid);
+        return this;
+    }
 
 //	/* ---- 整体属性 ---- */
 //	String[] compoTraitsTool; // 工具属性

@@ -16,28 +16,28 @@ import static firok.tiths.common.Keys.nameTraitRepressing;
 // 压制
 public class TraitRepressing extends AbstractTrait
 {
-	public TraitRepressing()
-	{
-		super(nameTraitRepressing, colorTraitRepressing);
-	}
+    public TraitRepressing()
+    {
+        super(nameTraitRepressing, colorTraitRepressing);
+    }
 
-	@Override
-	public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
-	{
-		if(wasHit && target.isServerWorld() && target.isEntityAlive())
-		{
-			target.addPotionEffect(new PotionEffect(Potions.heavy,80,0));
-		}
-	}
+    @Override
+    public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
+    {
+        if (wasHit && target.isServerWorld() && target.isEntityAlive())
+        {
+            target.addPotionEffect(new PotionEffect(Potions.heavy, 80, 0));
+        }
+    }
 
-	@Override
-	public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag)
-	{
-		if(InnerActions.addTrait(this,rootCompound,modifierTag)) return;
+    @Override
+    public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag)
+    {
+        if (InnerActions.addTrait(this, rootCompound, modifierTag)) return;
 
-		ToolNBT data = TagUtil.getToolStats(rootCompound);
-		data.speed*=0.85f;
-		data.attackSpeedMultiplier*=0.75f;
-		TagUtil.setToolTag(rootCompound, data.get());
-	}
+        ToolNBT data = TagUtil.getToolStats(rootCompound);
+        data.speed *= 0.85f;
+        data.attackSpeedMultiplier *= 0.75f;
+        TagUtil.setToolTag(rootCompound, data.get());
+    }
 }

@@ -14,23 +14,23 @@ import static firok.tiths.common.Keys.nameTraitLifting;
  */
 public class TraitArmorLifting extends AbstractArmorTrait
 {
-	public TraitArmorLifting()
-	{
-		super(nameTraitLifting,colorTraitLifting);
-	}
+    public TraitArmorLifting()
+    {
+        super(nameTraitLifting, colorTraitLifting);
+    }
 
-	@Override
-	public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
-	{
-		if(!player.isSneaking() && player.motionY < 0)
-		{
-			player.motionY*=0.75f;
-		}
-	}
+    @Override
+    public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
+    {
+        if (!player.isSneaking() && player.motionY < 0)
+        {
+            player.motionY *= 0.75f;
+        }
+    }
 
-	@Override
-	public void onFalling(ItemStack armor, EntityPlayer player, LivingFallEvent evt)
-	{
-		evt.setDamageMultiplier( evt.getDamageMultiplier() * 0.5f );
-	}
+    @Override
+    public void onFalling(ItemStack armor, EntityPlayer player, LivingFallEvent evt)
+    {
+        evt.setDamageMultiplier(evt.getDamageMultiplier() * 0.5f);
+    }
 }

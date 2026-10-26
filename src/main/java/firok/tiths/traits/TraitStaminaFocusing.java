@@ -17,29 +17,29 @@ import static firok.tiths.util.Predicates.canTick;
 // 精力汇聚
 public class TraitStaminaFocusing extends AbstractTrait
 {
-	public TraitStaminaFocusing()
-	{
-		super(nameTraitStaminaFocusing, colorTraitStaminaFocusing);
-	}
+    public TraitStaminaFocusing()
+    {
+        super(nameTraitStaminaFocusing, colorTraitStaminaFocusing);
+    }
 
-	@Override
-	public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
-	{
-		if(isSelected && entity instanceof EntityLivingBase && canTick(world,4,0) && entity.isSneaking())
-		{
-			if (world.isRemote)
-			{
-				world.spawnParticle(EnumParticleTypes.SPELL_WITCH,
-						entity.posX + randClient.nextFloat() * 0.3,
-						entity.posY + entity.getEyeHeight() * 2 / 3,
-						entity.posZ + randClient.nextFloat() * 0.3,
-						0,0,0);
-			}
-			else
-			{
-				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.RESISTANCE,80,1));
-			}
+    @Override
+    public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
+    {
+        if (isSelected && entity instanceof EntityLivingBase && canTick(world, 4, 0) && entity.isSneaking())
+        {
+            if (world.isRemote)
+            {
+                world.spawnParticle(EnumParticleTypes.SPELL_WITCH,
+                        entity.posX + randClient.nextFloat() * 0.3,
+                        entity.posY + entity.getEyeHeight() * 2 / 3,
+                        entity.posZ + randClient.nextFloat() * 0.3,
+                        0, 0, 0);
+            }
+            else
+            {
+                ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 80, 1));
+            }
 
-		}
-	}
+        }
+    }
 }

@@ -9,8 +9,9 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface CompoHandle
 {
-	double modifier();
-	int durability();
+    double modifier();
 
-	String[] traits() default {};
+    int durability();
+
+    String[] traits() default {};
 }

@@ -12,10 +12,10 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
  */
 public class TraitArmorDragonKiller extends TraitDragonKiller implements IAbstractArmorTrait
 {
-	@Override
-	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
-	{
-		// todo
-		return newDamage;
-	}
+    @Override
+    public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
+    {
+        // todo
+        return newDamage;
+    }
 }

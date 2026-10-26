@@ -10,18 +10,19 @@ import net.minecraft.world.World;
 
 public class BlockPunjiIron extends BlockPunjiCustom
 {
-	public BlockPunjiIron()
-	{
-		super(Material.IRON, SoundType.METAL);
-	}
+    public BlockPunjiIron()
+    {
+        super(Material.IRON, SoundType.METAL);
+    }
 
-	@Override
-	public void hurtLiving(World world, BlockPos pos, IBlockState state, EntityLivingBase enlb)
-	{
-		float damage = 5f;
-		if(enlb.fallDistance > 0) {
-			damage += enlb.fallDistance * 1.5f + 2f;
-		}
-		enlb.attackEntityFrom(DamageSources.PunjiDamage, damage);
-	}
+    @Override
+    public void hurtLiving(World world, BlockPos pos, IBlockState state, EntityLivingBase enlb)
+    {
+        float damage = 5f;
+        if (enlb.fallDistance > 0)
+        {
+            damage += enlb.fallDistance * 1.5f + 2f;
+        }
+        enlb.attackEntityFrom(DamageSources.PunjiDamage, damage);
+    }
 }

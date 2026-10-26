@@ -14,109 +14,115 @@ import java.util.List;
 public class ToolInfo implements Comparable<ToolInfo>
 {
 
-	public ToolInfo(String[] materials,String[] parts)
-	{
-		this(Arrays.asList(materials==null?new String[]{}:materials),Arrays.asList(parts==null?new String[]{}:parts));
-	}
-	public ToolInfo(List<String> materials, List<String> parts)
-	{
-		init(materials,parts);
-	}
-	public ToolInfo(List<ItemStack> toolparts)
-	{
-		List<String> materials=new ArrayList<>();
-		List<String> parts=new ArrayList<>();
-		if(toolparts==null) return;
+    private List<KVP> kvps;
 
-		for(ItemStack toolpart:toolparts)
-		{
-			if(toolpart==null || toolpart.isEmpty()) continue;
+    public ToolInfo(String[] materials, String[] parts)
+    {
+        this(Arrays.asList(materials == null ? new String[]{} : materials), Arrays.asList(parts == null ? new String[]{} : parts));
+    }
 
-			Item item=toolpart.getItem();
-			if(!(item instanceof IMaterialItem)) continue;
-			IMaterialItem imi=(IMaterialItem)item;
-			String partType=toolpart.getTranslationKey();
-			String partMaterial=imi.getMaterialID(toolpart);
+    public ToolInfo(List<String> materials, List<String> parts)
+    {
+        init(materials, parts);
+    }
 
-			materials.add(partMaterial);
-			parts.add(partType);
-		}
+    public ToolInfo(List<ItemStack> toolparts)
+    {
+        List<String> materials = new ArrayList<>();
+        List<String> parts = new ArrayList<>();
+        if (toolparts == null) return;
 
-		init(materials,parts);
-	}
-	ToolInfo(List<KVP> kvps,boolean flag)
-	{
-		this.kvps=new ArrayList<>(kvps);
-	}
+        for (ItemStack toolpart : toolparts)
+        {
+            if (toolpart == null || toolpart.isEmpty()) continue;
 
-	private void init(List<String> materials, List<String> parts)
-	{
-		this.kvps=new ArrayList<>();
-		if(materials.size()!=parts.size()) throw new RuntimeException("count of materials is not equal to count of parts");
+            Item item = toolpart.getItem();
+            if (!(item instanceof IMaterialItem)) continue;
+            IMaterialItem imi = (IMaterialItem) item;
+            String partType = toolpart.getTranslationKey();
+            String partMaterial = imi.getMaterialID(toolpart);
 
-		int size=materials.size();
+            materials.add(partMaterial);
+            parts.add(partType);
+        }
 
-		for(int i=0;i<size;i++)
-		{
-			KVP kvp=new KVP(materials.get(i),parts.get(i));
-			kvps.add(kvp);
-		}
-	}
+        init(materials, parts);
+    }
 
-	private List<KVP> kvps;
+    ToolInfo(List<KVP> kvps, boolean flag)
+    {
+        this.kvps = new ArrayList<>(kvps);
+    }
 
-	@Override
-	public int compareTo(ToolInfo out)
-	{
-		if(kvps.size()!=out.kvps.size()) return -1;
-		final int sizeThis=this.kvps.size();
-		if(sizeThis==0) return 0;
+    private void init(List<String> materials, List<String> parts)
+    {
+        this.kvps = new ArrayList<>();
+        if (materials.size() != parts.size())
+            throw new RuntimeException("count of materials is not equal to count of parts");
 
-		List<KVP> kvpsOut=new ArrayList<>(out.kvps); // 外部info的键值对列表
+        int size = materials.size();
 
-		FOR_THIS: for (KVP kvpTempThis : this.kvps) // 遍历内部info键值对列表
-		{
-			final int sizeOut = kvpsOut.size(); // 外部info键值对当前size
-			FOR_OUT: for (int j = 0; j < sizeOut; j++) // 遍历外部键值对info列表
-			{
-				KVP kvpTempOut = kvpsOut.get(j); // 第j个外部键值对
-				if (kvpTempThis.eq(kvpTempOut)) // 判断相等
-				{
-					kvpsOut.remove(j); // 移除外部info对应键值对
-					continue FOR_THIS;
-				}
-			}
-			return 1; // 如果没找到相应的外部info键值对 则返回不相等
-		}
-		return 0; // 相等
-	}
+        for (int i = 0; i < size; i++)
+        {
+            KVP kvp = new KVP(materials.get(i), parts.get(i));
+            kvps.add(kvp);
+        }
+    }
 
-	private static class KVP
-	{
-		final String material,part;
+    @Override
+    public int compareTo(ToolInfo out)
+    {
+        if (kvps.size() != out.kvps.size()) return -1;
+        final int sizeThis = this.kvps.size();
+        if (sizeThis == 0) return 0;
 
-		public KVP(String material,String part)
-		{
-			this.material=material;
-			this.part=part;
-		}
+        List<KVP> kvpsOut = new ArrayList<>(out.kvps); // 外部info的键值对列表
 
-		public boolean eq(KVP kvp)
-		{
-			return this.material.equals(kvp.material) && this.part.equals(kvp.part);
-		}
-	}
+        FOR_THIS:
+        for (KVP kvpTempThis : this.kvps) // 遍历内部info键值对列表
+        {
+            final int sizeOut = kvpsOut.size(); // 外部info键值对当前size
+            FOR_OUT:
+            for (int j = 0; j < sizeOut; j++) // 遍历外部键值对info列表
+            {
+                KVP kvpTempOut = kvpsOut.get(j); // 第j个外部键值对
+                if (kvpTempThis.eq(kvpTempOut)) // 判断相等
+                {
+                    kvpsOut.remove(j); // 移除外部info对应键值对
+                    continue FOR_THIS;
+                }
+            }
+            return 1; // 如果没找到相应的外部info键值对 则返回不相等
+        }
+        return 0; // 相等
+    }
 
-	public ToolInfo copy()
-	{
-		return new ToolInfo(kvps,false);
-	}
+    public ToolInfo copy()
+    {
+        return new ToolInfo(kvps, false);
+    }
 
-	@Override
-	public boolean equals(Object obj)
-	{
-		if(obj==this) return true;
-		if(!(obj instanceof ToolInfo)) return false;
-		return ((ToolInfo) obj).compareTo(this) == 0;
-	}
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (obj == this) return true;
+        if (!(obj instanceof ToolInfo)) return false;
+        return ((ToolInfo) obj).compareTo(this) == 0;
+    }
+
+    private static class KVP
+    {
+        final String material, part;
+
+        public KVP(String material, String part)
+        {
+            this.material = material;
+            this.part = part;
+        }
+
+        public boolean eq(KVP kvp)
+        {
+            return this.material.equals(kvp.material) && this.part.equals(kvp.part);
+        }
+    }
 }

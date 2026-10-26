@@ -16,22 +16,22 @@ import static firok.tiths.common.Keys.nameTraitStarDashing;
  */
 public class TraitArmorStarDashing extends AbstractArmorTrait
 {
-	public TraitArmorStarDashing()
-	{
-		super(nameTraitStarDashing,colorTraitStarDashing);
-	}
+    public TraitArmorStarDashing()
+    {
+        super(nameTraitStarDashing, colorTraitStarDashing);
+    }
 
-	@Override
-	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
-	{
-		if(player.isServerWorld())
-		{
-			Actions.CauseStarDashing(player.world,player.posX,player.posY,player.posZ,
-					Configs.Traits.factor_star_dashing_amount,
-					(float) Configs.Traits.factor_star_dashing_speed,
-					(float) (0.4* Configs.Traits.factor_star_dashing_damage),
-					player);
-		}
-		return newDamage;
-	}
+    @Override
+    public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
+    {
+        if (player.isServerWorld())
+        {
+            Actions.CauseStarDashing(player.world, player.posX, player.posY, player.posZ,
+                    Configs.Traits.factor_star_dashing_amount,
+                    (float) Configs.Traits.factor_star_dashing_speed,
+                    (float) (0.4 * Configs.Traits.factor_star_dashing_damage),
+                    player);
+        }
+        return newDamage;
+    }
 }

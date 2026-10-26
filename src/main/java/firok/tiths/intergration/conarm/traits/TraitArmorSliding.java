@@ -20,24 +20,24 @@ import static firok.tiths.util.Predicates.canTrigger;
  */
 public class TraitArmorSliding extends AbstractArmorTrait
 {
-	public TraitArmorSliding()
-	{
-		super(nameTraitSliding,colorTraitSliding);
-	}
+    public TraitArmorSliding()
+    {
+        super(nameTraitSliding, colorTraitSliding);
+    }
 
-	@Override
-	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
-	{
-		if(canDealWith(source,true,null,null,null,null) && canTrigger(player.world, Configs.ArmorTraits.rate_sliding))
-		{
-			if(!player.world.isRemote)
-			player.world.playSound(
-					null,player.posX,player.posY,player.posZ,
-					SoundEvents.BLOCK_STONE_BREAK, SoundCategory.MASTER,
-					1, 1);
-			ArmorHelper.damageArmor( armor, source, (int)(newDamage* Configs.ArmorTraits.factor_sliding), player, 0 );
-			return 0;
-		}
-		return newDamage;
-	}
+    @Override
+    public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
+    {
+        if (canDealWith(source, true, null, null, null, null) && canTrigger(player.world, Configs.ArmorTraits.rate_sliding))
+        {
+            if (!player.world.isRemote)
+                player.world.playSound(
+                        null, player.posX, player.posY, player.posZ,
+                        SoundEvents.BLOCK_STONE_BREAK, SoundCategory.MASTER,
+                        1, 1);
+            ArmorHelper.damageArmor(armor, source, (int) (newDamage * Configs.ArmorTraits.factor_sliding), player, 0);
+            return 0;
+        }
+        return newDamage;
+    }
 }

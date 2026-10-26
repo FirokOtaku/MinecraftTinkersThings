@@ -17,27 +17,27 @@ import static firok.tiths.common.Keys.nameTraitWrapping;
  */
 public class TraitWrapping extends AbstractTrait
 {
-	public TraitWrapping()
-	{
-		super(nameTraitWrapping, colorTraitWrapping);
-	}
+    public TraitWrapping()
+    {
+        super(nameTraitWrapping, colorTraitWrapping);
+    }
 
-	@Override
-	public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
-	{
+    @Override
+    public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
+    {
 //		super.afterHit(tool, player, target, damageDealt, wasCritical, wasHit);
-		if(!target.world.isRemote && target.isEntityAlive() && wasHit)
-		{
-			Actions.CauseGatewayTeleport(target,8);
-		}
-	}
+        if (!target.world.isRemote && target.isEntityAlive() && wasHit)
+        {
+            Actions.CauseGatewayTeleport(target, 8);
+        }
+    }
 
-	@Override
-	public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag)
-	{
-		if(InnerActions.addTrait(this,rootCompound,modifierTag)) return;
-		ToolNBT data = TagUtil.getToolStats(rootCompound);
-		data.durability=Math.max(1,data.durability-75);
-		TagUtil.setToolTag(rootCompound, data.get());
-	}
+    @Override
+    public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag)
+    {
+        if (InnerActions.addTrait(this, rootCompound, modifierTag)) return;
+        ToolNBT data = TagUtil.getToolStats(rootCompound);
+        data.durability = Math.max(1, data.durability - 75);
+        TagUtil.setToolTag(rootCompound, data.get());
+    }
 }

@@ -11,15 +11,15 @@ import net.minecraft.world.World;
  */
 public class BlockBloodyChiseledQuartzBlock extends Block
 {
-	public BlockBloodyChiseledQuartzBlock()
-	{
-		super(Material.ROCK);
-	}
+    public BlockBloodyChiseledQuartzBlock()
+    {
+        super(Material.ROCK);
+    }
 
-	@Override
-	public void onFallenUpon(World world, BlockPos pos, Entity entityIn, float fallDistance)
-	{
-		super.onFallenUpon(world, pos, entityIn, fallDistance);
+    @Override
+    public void onFallenUpon(World world, BlockPos pos, Entity entityIn, float fallDistance)
+    {
+        super.onFallenUpon(world, pos, entityIn, fallDistance);
 
 //		if(entityIn instanceof EntityItem)
 //		{
@@ -39,5 +39,5 @@ public class BlockBloodyChiseledQuartzBlock extends Block
 //				}
 //			}
 //		}
-	}
+    }
 }

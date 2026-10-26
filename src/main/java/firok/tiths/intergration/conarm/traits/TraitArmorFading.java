@@ -16,25 +16,25 @@ import static firok.tiths.util.Predicates.canTrigger;
  */
 public class TraitArmorFading extends AbstractArmorTrait
 {
-	public TraitArmorFading()
-	{
-		super(nameTraitFading,colorTraitFading);
-	}
+    public TraitArmorFading()
+    {
+        super(nameTraitFading, colorTraitFading);
+    }
 
-	@Override
-	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
-	{
-		int light=getLight(player);
-		float rate=50-6.25f*light;
-		if(source.isUnblockable()) rate-=0.4f;
-		if(source.isProjectile()) rate+=0.2f;
-		if(source.isExplosion()) rate-=0.4f;
+    @Override
+    public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
+    {
+        int light = getLight(player);
+        float rate = 50 - 6.25f * light;
+        if (source.isUnblockable()) rate -= 0.4f;
+        if (source.isProjectile()) rate += 0.2f;
+        if (source.isExplosion()) rate -= 0.4f;
 
-		if(canTrigger(player.world,rate))
-		{
-			evt.setCanceled(true);
-			return 0;
-		}
-		return newDamage;
-	}
+        if (canTrigger(player.world, rate))
+        {
+            evt.setCanceled(true);
+            return 0;
+        }
+        return newDamage;
+    }
 }

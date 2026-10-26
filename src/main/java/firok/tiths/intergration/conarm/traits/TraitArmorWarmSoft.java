@@ -10,8 +10,8 @@ import static firok.tiths.common.Keys.nameTraitWarmSoft;
  */
 public class TraitArmorWarmSoft extends AbstractArmorTraitLeveled
 {
-	public TraitArmorWarmSoft(int level)
-	{
-		super(nameTraitWarmSoft,colorTraitWarmSoft,2,level);
-	}
+    public TraitArmorWarmSoft(int level)
+    {
+        super(nameTraitWarmSoft, colorTraitWarmSoft, 2, level);
+    }
 }

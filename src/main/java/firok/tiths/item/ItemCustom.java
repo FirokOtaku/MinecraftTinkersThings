@@ -17,12 +17,7 @@ import java.util.List;
  */
 public class ItemCustom extends Item
 {
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, World worldIn, List<String> list, ITooltipFlag flagIn)
-	{
-		InnerActions.addInformation(this,list,flagIn);
-	}
+    IRarity rarity = EnumRarity.COMMON;
 
 //	@Override
 //	public EnumRarity getRarity(ItemStack stack)
@@ -30,16 +25,22 @@ public class ItemCustom extends Item
 //		return super.getRarity(stack);
 //	}
 
-	IRarity rarity=EnumRarity.COMMON;
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, World worldIn, List<String> list, ITooltipFlag flagIn)
+    {
+        InnerActions.addInformation(this, list, flagIn);
+    }
 
-	public ItemCustom setRarity(IRarity rarity)
-	{
-		this.rarity=rarity;
-		return this;
-	}
-	@Override
-	public IRarity getForgeRarity(ItemStack stack)
-	{
-		return rarity;
-	}
+    public ItemCustom setRarity(IRarity rarity)
+    {
+        this.rarity = rarity;
+        return this;
+    }
+
+    @Override
+    public IRarity getForgeRarity(ItemStack stack)
+    {
+        return rarity;
+    }
 }

@@ -13,25 +13,25 @@ import static firok.tiths.common.Keys.nameTraitHemolytic;
 import static firok.tiths.util.Predicates.canTrigger;
 
 // 溶血
-public class TraitHemolytic  extends AbstractTrait
+public class TraitHemolytic extends AbstractTrait
 {
-	public TraitHemolytic()
-	{
-		super(nameTraitHemolytic, colorTraitHemolytic);
-	}
+    public TraitHemolytic()
+    {
+        super(nameTraitHemolytic, colorTraitHemolytic);
+    }
 
-	@Override
-	public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float newDamage, boolean isCritical)
-	{
-		return newDamage * (float)factor_hemolytic_damage;
-	}
+    @Override
+    public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float newDamage, boolean isCritical)
+    {
+        return newDamage * (float) factor_hemolytic_damage;
+    }
 
-	@Override
-	public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
-	{
-		if(!player.world.isRemote && wasHit && damageDealt > Configs.Traits.factor_hemolytic_limit && canTrigger(player.world,rate_hemolytic))
-		{
-			ToolHelper.healTool(tool,(int)(damageDealt / Configs.Traits.factor_hemolytic_repair),player);
-		}
-	}
+    @Override
+    public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
+    {
+        if (!player.world.isRemote && wasHit && damageDealt > Configs.Traits.factor_hemolytic_limit && canTrigger(player.world, rate_hemolytic))
+        {
+            ToolHelper.healTool(tool, (int) (damageDealt / Configs.Traits.factor_hemolytic_repair), player);
+        }
+    }
 }

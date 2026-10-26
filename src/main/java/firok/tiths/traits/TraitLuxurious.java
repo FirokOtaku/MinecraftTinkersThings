@@ -18,40 +18,42 @@ import static firok.tiths.util.Predicates.canTick;
  */
 public class TraitLuxurious extends AbstractTrait
 {
-	public TraitLuxurious() {
-		super(nameTraitLuxurious,colorTraitLuxurious);
-	}
+    public TraitLuxurious()
+    {
+        super(nameTraitLuxurious, colorTraitLuxurious);
+    }
 
-	@Override
-	public int onToolHeal(ItemStack tool, int amount, int newAmount, EntityLivingBase entity) {
-		return (int)(newAmount - amount * Configs.Traits.factor_luxurious_durability); // 降低20%的耐久恢复
-	}
+    public static boolean checkParticle(World world)
+    {
+        return world.isRemote && canTick(world, 9, 0);
+    }
 
-	public static boolean checkParticle(World world)
-	{
-		return world.isRemote && canTick(world,9,0);
-	}
+    @SuppressWarnings("all")
+    public static void spawnParticle(Entity entity)
+    {
+        ParticleBuilder.create(ParticleType.STAR)
+                .pos(
+                        entity.posX - 0.4 + random.nextFloat() * 0.8,
+                        entity.posY - 0.35 + entity.getEyeHeight(),
+                        entity.posZ - 0.4 + random.nextFloat() * 0.8
+                )
+                .clr(0xffda63)
+                .scale(0.28f)
+                .spawn(entity.world);
+    }
 
-	@SuppressWarnings("all")
-	public static void spawnParticle(Entity entity)
-	{
-		ParticleBuilder.create(ParticleType.STAR)
-				.pos(
-						entity.posX-0.4+ random.nextFloat()*0.8,
-						entity.posY-0.35+entity.getEyeHeight(),
-						entity.posZ-0.4+random.nextFloat()*0.8
-				)
-				.clr(0xffda63)
-				.scale(0.28f)
-				.spawn(entity.world);
-	}
+    @Override
+    public int onToolHeal(ItemStack tool, int amount, int newAmount, EntityLivingBase entity)
+    {
+        return (int) (newAmount - amount * Configs.Traits.factor_luxurious_durability); // 降低20%的耐久恢复
+    }
 
-	@Override
-	public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
-	{
-		if(isSelected && checkParticle(world))
-		{
-			spawnParticle(entity);
-		}
-	}
+    @Override
+    public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
+    {
+        if (isSelected && checkParticle(world))
+        {
+            spawnParticle(entity);
+        }
+    }
 }

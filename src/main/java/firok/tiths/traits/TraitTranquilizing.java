@@ -14,15 +14,15 @@ import static firok.tiths.common.Keys.nameTraitTranquilizing;
  */
 public class TraitTranquilizing extends AbstractTrait
 {
-	public TraitTranquilizing()
-	{
-		super(nameTraitTranquilizing,colorTraitTranquilizing);
-	}
+    public TraitTranquilizing()
+    {
+        super(nameTraitTranquilizing, colorTraitTranquilizing);
+    }
 
-	@Override
-	public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean isCritical)
-	{
-		super.onHit(tool, player, target, damage, isCritical);
-		target.addPotionEffect(new PotionEffect(Potions.tranquilized,600,0));
-	}
+    @Override
+    public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean isCritical)
+    {
+        super.onHit(tool, player, target, damage, isCritical);
+        target.addPotionEffect(new PotionEffect(Potions.tranquilized, 600, 0));
+    }
 }

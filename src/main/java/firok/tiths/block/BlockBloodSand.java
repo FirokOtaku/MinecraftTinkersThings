@@ -13,22 +13,22 @@ import static firok.tiths.common.DamageSources.SanDamage;
 // 血沙
 public class BlockBloodSand extends BlockSoulSand
 {
-	public BlockBloodSand()
-	{
-		super();
-		this.setSoundType(SoundType.SAND);
-		this.setHardness(1);
-	}
+    public BlockBloodSand()
+    {
+        super();
+        this.setSoundType(SoundType.SAND);
+        this.setHardness(1);
+    }
 
-	@Override
-	public void onEntityCollision(World world, BlockPos pos, IBlockState state, Entity entity)
-	{
-		super.onEntityCollision(world, pos, state, entity);
+    @Override
+    public void onEntityCollision(World world, BlockPos pos, IBlockState state, Entity entity)
+    {
+        super.onEntityCollision(world, pos, state, entity);
 
-		if(!world.isRemote && entity instanceof EntityLivingBase && entity.isEntityAlive())
-		{
-			EntityLivingBase enlb=(EntityLivingBase)entity;
-			enlb.attackEntityFrom(SanDamage,2);
-		}
-	}
+        if (!world.isRemote && entity instanceof EntityLivingBase && entity.isEntityAlive())
+        {
+            EntityLivingBase enlb = (EntityLivingBase) entity;
+            enlb.attackEntityFrom(SanDamage, 2);
+        }
+    }
 }

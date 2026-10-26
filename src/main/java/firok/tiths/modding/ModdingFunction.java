@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
  */
 public interface ModdingFunction
 {
-	String id();
-	void mod(ItemStack stack, EntityPlayer player, ToolInfo toolInfo);
+    String id();
+
+    void mod(ItemStack stack, EntityPlayer player, ToolInfo toolInfo);
 }

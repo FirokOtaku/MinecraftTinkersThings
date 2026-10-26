@@ -7,9 +7,9 @@ import static firok.tiths.common.Keys.colorPotionForcibleFocused;
  */
 public class PotionForcibleFocused extends BasePotion
 {
-	public PotionForcibleFocused()
-	{
-		super(icon("forcible_focused"),true, colorPotionForcibleFocused);
-	}
+    public PotionForcibleFocused()
+    {
+        super(icon("forcible_focused"), true, colorPotionForcibleFocused);
+    }
 
 }

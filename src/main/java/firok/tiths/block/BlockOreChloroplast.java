@@ -19,11 +19,11 @@ import static net.minecraft.util.EnumFacing.*;
  */
 public class BlockOreChloroplast extends BlockOre
 {
-	public BlockOreChloroplast()
-	{
-		super(Material.IRON);
-		this.setTickRandomly(true);
-	}
+    public BlockOreChloroplast()
+    {
+        super(Material.IRON);
+        this.setTickRandomly(true);
+    }
 
 //	@Override
 //	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
@@ -32,14 +32,14 @@ public class BlockOreChloroplast extends BlockOre
 //		return true;
 //	}
 
-	@Override
-	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand)
-	{
-		if(!world.isRemote)
-		{
-			scan(world, pos);
-		}
-	}
+    @Override
+    public void updateTick(World world, BlockPos pos, IBlockState state, Random rand)
+    {
+        if (!world.isRemote)
+        {
+            scan(world, pos);
+        }
+    }
 
 //	int checkBlocks(Block... blocks)
 //	{
@@ -106,89 +106,95 @@ public class BlockOreChloroplast extends BlockOre
 //		randomSpawn(world,posAva);
 //	}
 
-	void randomSpawn(World world,List<BlockPos> list)
-	{
-		BlockPos pos2spawn;
-		final int size=list.size();
-		if(size<=0) return;
-		else if(size==1) pos2spawn=list.get(0);
-		else pos2spawn=list.get( world.rand.nextInt(size) );
+    void randomSpawn(World world, List<BlockPos> list)
+    {
+        BlockPos pos2spawn;
+        final int size = list.size();
+        if (size <= 0) return;
+        else if (size == 1) pos2spawn = list.get(0);
+        else pos2spawn = list.get(world.rand.nextInt(size));
 
-		world.setBlockState(pos2spawn,this.getDefaultState());
-	}
+        world.setBlockState(pos2spawn, this.getDefaultState());
+    }
 
-	boolean canSpawnOn(World world,BlockPos pos,Block block)
-	{
-		return isStone(block);
-	}
+    boolean canSpawnOn(World world, BlockPos pos, Block block)
+    {
+        return isStone(block);
+    }
 
-	void scan(World world,BlockPos pos)
-	{
-		int total=0,up=0,down=0,east=0,west=0,south=0,north=0; // 各个方向上的数量
-		Block[][][] blocksNearby=new Block[5][5][5]; // 考虑了一下 目前还是扫描3×3×3比较合适
-		FOR_X:for(int ox=-2;ox<=2;ox++)
-		{
-			FOR_Y:for(int oy=-2;oy<=2;oy++)
-			{
-				FOR_Z:for(int oz=-2;oz<=2;oz++)
-				{
-					if(ox==0 && oy==0 && oz==0) continue FOR_Z;
+    void scan(World world, BlockPos pos)
+    {
+        int total = 0, up = 0, down = 0, east = 0, west = 0, south = 0, north = 0; // 各个方向上的数量
+        Block[][][] blocksNearby = new Block[5][5][5]; // 考虑了一下 目前还是扫描3×3×3比较合适
+        FOR_X:
+        for (int ox = -2; ox <= 2; ox++)
+        {
+            FOR_Y:
+            for (int oy = -2; oy <= 2; oy++)
+            {
+                FOR_Z:
+                for (int oz = -2; oz <= 2; oz++)
+                {
+                    if (ox == 0 && oy == 0 && oz == 0) continue FOR_Z;
 
-					BlockPos posTemp=pos.add(ox,oy,oz);
-					Block block=world.getBlockState(posTemp).getBlock();
-					blocksNearby[2+ox][2+oy][2+oz]=block;
+                    BlockPos posTemp = pos.add(ox, oy, oz);
+                    Block block = world.getBlockState(posTemp).getBlock();
+                    blocksNearby[2 + ox][2 + oy][2 + oz] = block;
 
-					if(block==this) // 遍历扫描周围方块类型
-					{
-						total++;
-						if(total>4) break FOR_X;
+                    if (block == this) // 遍历扫描周围方块类型
+                    {
+                        total++;
+                        if (total > 4) break FOR_X;
 
-						if(oy>0) up++;
-						if(oy<0) down++;
-						if(oz>0) south++;
-						if(oz<0) north++;
-						if(ox>0) east++;
-						if(ox<0) west++;
-					}
-				}
-			}
-		}
+                        if (oy > 0) up++;
+                        if (oy < 0) down++;
+                        if (oz > 0) south++;
+                        if (oz < 0) north++;
+                        if (ox > 0) east++;
+                        if (ox < 0) west++;
+                    }
+                }
+            }
+        }
 
-		if(total<=4)
-		{
-			EnumFacing dir;
-			if(up>0) dir=UP;
-			else if(down>0) dir=DOWN;
-			else if(east>0) dir=EAST;
-			else if(west>0) dir=WEST;
-			else if(north>0) dir=NORTH;
-			else if(south>0) dir=SOUTH;
-			else dir=UP;
+        if (total <= 4)
+        {
+            EnumFacing dir;
+            if (up > 0) dir = UP;
+            else if (down > 0) dir = DOWN;
+            else if (east > 0) dir = EAST;
+            else if (west > 0) dir = WEST;
+            else if (north > 0) dir = NORTH;
+            else if (south > 0) dir = SOUTH;
+            else dir = UP;
 
-			// 下面3组数字对应在3个方向上的生成检查范围 根据指定的dir不同 只会在某一个方向上的3×3生成新的矿物
-			final int oxMax=dir.getXOffset()==0?1:dir.getXOffset(),oxMin=-oxMax;
-			final int oyMax=dir.getYOffset()==0?1:dir.getYOffset(),oyMin=-oyMax;
-			final int ozMax=dir.getZOffset()==0?1:dir.getZOffset(),ozMin=-ozMax;
+            // 下面3组数字对应在3个方向上的生成检查范围 根据指定的dir不同 只会在某一个方向上的3×3生成新的矿物
+            final int oxMax = dir.getXOffset() == 0 ? 1 : dir.getXOffset(), oxMin = -oxMax;
+            final int oyMax = dir.getYOffset() == 0 ? 1 : dir.getYOffset(), oyMin = -oyMax;
+            final int ozMax = dir.getZOffset() == 0 ? 1 : dir.getZOffset(), ozMin = -ozMax;
 
-			List<BlockPos> listPos=new ArrayList<>(10);
-			FOR_X:for(int ox=oxMin;ox<=oxMax;ox++)
-			{
-				FOR_Y:for(int oy=oyMin;oy<=oyMax;oy++)
-				{
-					FOR_Z:for(int oz=ozMin;oz<=ozMax;oz++)
-					{
-						if(ox==0 && oy==0 && oz==0) continue FOR_Z;
-						BlockPos posTemp=pos.add(ox,oy,oz);
-						if(canSpawnOn(world,pos,blocksNearby[2+ox][2+oy][2+oz]))
-						{
-							listPos.add(posTemp); // 能用的生成位置
-						}
-					}
-				}
-			}
+            List<BlockPos> listPos = new ArrayList<>(10);
+            FOR_X:
+            for (int ox = oxMin; ox <= oxMax; ox++)
+            {
+                FOR_Y:
+                for (int oy = oyMin; oy <= oyMax; oy++)
+                {
+                    FOR_Z:
+                    for (int oz = ozMin; oz <= ozMax; oz++)
+                    {
+                        if (ox == 0 && oy == 0 && oz == 0) continue FOR_Z;
+                        BlockPos posTemp = pos.add(ox, oy, oz);
+                        if (canSpawnOn(world, pos, blocksNearby[2 + ox][2 + oy][2 + oz]))
+                        {
+                            listPos.add(posTemp); // 能用的生成位置
+                        }
+                    }
+                }
+            }
 
-			randomSpawn(world,listPos); // 随机找一个生成
-		}
-	}
+            randomSpawn(world, listPos); // 随机找一个生成
+        }
+    }
 
 }

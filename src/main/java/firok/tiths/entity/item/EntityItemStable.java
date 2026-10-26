@@ -8,33 +8,33 @@ import net.minecraft.world.World;
 // 免疫火焰 爆炸伤害的物品实体
 public class EntityItemStable extends EntityItem
 {
-	public EntityItemStable(World world, double posX, double posY, double posZ)
-	{
-		super(world, posX, posY, posZ);
-	}
+    public EntityItemStable(World world, double posX, double posY, double posZ)
+    {
+        super(world, posX, posY, posZ);
+    }
 
-	public EntityItemStable(World world, double posX, double posY, double posZ, ItemStack stack)
-	{
-		super(world, posX, posY, posZ, stack);
-	}
+    public EntityItemStable(World world, double posX, double posY, double posZ, ItemStack stack)
+    {
+        super(world, posX, posY, posZ, stack);
+    }
 
-	public EntityItemStable(World world)
-	{
-		super(world);
-	}
+    public EntityItemStable(World world)
+    {
+        super(world);
+    }
 
-	@Override
-	public boolean attackEntityFrom(DamageSource source, float damage)
-	{
-		if(source==DamageSource.ON_FIRE||
-			source==DamageSource.IN_FIRE||
-			source==DamageSource.CACTUS||
-			source==DamageSource.DRAGON_BREATH||
-			source==DamageSource.LAVA||
-			source.isExplosion())
-			return false;
-		else
-			return super.attackEntityFrom(source, damage);
+    @Override
+    public boolean attackEntityFrom(DamageSource source, float damage)
+    {
+        if (source == DamageSource.ON_FIRE ||
+                source == DamageSource.IN_FIRE ||
+                source == DamageSource.CACTUS ||
+                source == DamageSource.DRAGON_BREATH ||
+                source == DamageSource.LAVA ||
+                source.isExplosion())
+            return false;
+        else
+            return super.attackEntityFrom(source, damage);
 //		if (!this.world.isRemote && !this.isDead) {
 //			if (this.isEntityInvulnerable(source)) {
 //				return false;
@@ -52,5 +52,5 @@ public class EntityItemStable extends EntityItem
 //		} else {
 //			return false;
 //		}
-	}
+    }
 }

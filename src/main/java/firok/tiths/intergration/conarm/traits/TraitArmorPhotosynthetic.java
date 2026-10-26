@@ -15,24 +15,24 @@ import static firok.tiths.util.Predicates.canTick;
  */
 public class TraitArmorPhotosynthetic extends AbstractArmorTrait
 {
-	public TraitArmorPhotosynthetic()
-	{
-		super(nameTraitPhotosynthetic,colorTraitPhotosynthetic);
-	}
+    public TraitArmorPhotosynthetic()
+    {
+        super(nameTraitPhotosynthetic, colorTraitPhotosynthetic);
+    }
 
-	@Override
-	public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
-	{
-		if(!world.isRemote && canTick(world,20,0))
-		{
-			int light=Actions.getLight(player);
+    @Override
+    public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
+    {
+        if (!world.isRemote && canTick(world, 20, 0))
+        {
+            int light = Actions.getLight(player);
 //			System.out.printf("light:%d\n",light);
-			if(light>6)
-			{
-				int airOrigin=player.getAir();
-				int airNew=Math.min(airOrigin+(light-6)*2,300);
-				player.setAir(airNew);
-			}
-		}
-	}
+            if (light > 6)
+            {
+                int airOrigin = player.getAir();
+                int airNew = Math.min(airOrigin + (light - 6) * 2, 300);
+                player.setAir(airNew);
+            }
+        }
+    }
 }

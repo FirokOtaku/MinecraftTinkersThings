@@ -24,28 +24,28 @@ import static firok.tiths.util.Predicates.canTrigger;
  */
 public class BlockShiningGel extends BlockTinkerFluid
 {
-	public BlockShiningGel(Fluid fluid)
-	{
-		super(fluid, Material.WATER);
-		this.setLightLevel(1);
-		this.setLightOpacity(0);
-		this.setTickRandomly(true);
-	}
+    public BlockShiningGel(Fluid fluid)
+    {
+        super(fluid, Material.WATER);
+        this.setLightLevel(1);
+        this.setLightOpacity(0);
+        this.setTickRandomly(true);
+    }
 
-	@Override
-	public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
-	{
-		super.onEntityCollision(worldIn, pos, state, entityIn);
+    @Override
+    public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
+    {
+        super.onEntityCollision(worldIn, pos, state, entityIn);
 
-		if (!worldIn.isRemote && entityIn instanceof EntityLivingBase)
-		{
-			((EntityLivingBase) entityIn).addPotionEffect(new PotionEffect(Potions.illuminating,1200,0));
-		}
-	}
+        if (!worldIn.isRemote && entityIn instanceof EntityLivingBase)
+        {
+            ((EntityLivingBase) entityIn).addPotionEffect(new PotionEffect(Potions.illuminating, 1200, 0));
+        }
+    }
 
-	@Override
-	public void updateTick(@Nonnull World world, @Nonnull BlockPos pos, @Nonnull IBlockState state, @Nonnull Random rand)
-	{
+    @Override
+    public void updateTick(@Nonnull World world, @Nonnull BlockPos pos, @Nonnull IBlockState state, @Nonnull Random rand)
+    {
 //		if(world!=null && world.isRemote)
 //		{
 //			int i=2;
@@ -58,21 +58,21 @@ public class BlockShiningGel extends BlockTinkerFluid
 //				);
 //			}
 //		}
-	}
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand)
-	{
-		if(worldIn!=null && pos!=null && rand!=null && canTrigger(rand,0.4))
-		{
-			worldIn.spawnParticle(
-					EnumParticleTypes.CRIT,
-					pos.getX() + rand.nextFloat(),
-					pos.getY() + rand.nextFloat(),
-					pos.getZ() + rand.nextFloat(),
-					0,0.5,0
-			);
-		}
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand)
+    {
+        if (worldIn != null && pos != null && rand != null && canTrigger(rand, 0.4))
+        {
+            worldIn.spawnParticle(
+                    EnumParticleTypes.CRIT,
+                    pos.getX() + rand.nextFloat(),
+                    pos.getY() + rand.nextFloat(),
+                    pos.getZ() + rand.nextFloat(),
+                    0, 0.5, 0
+            );
+        }
+    }
 }

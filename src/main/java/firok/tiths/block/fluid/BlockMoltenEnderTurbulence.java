@@ -16,21 +16,21 @@ import slimeknights.tconstruct.smeltery.block.BlockTinkerFluid;
  */
 public class BlockMoltenEnderTurbulence extends BlockTinkerFluid
 {
-	public BlockMoltenEnderTurbulence(Fluid fluid)
-	{
-		super(fluid, Material.WATER);
-	}
+    public BlockMoltenEnderTurbulence(Fluid fluid)
+    {
+        super(fluid, Material.WATER);
+    }
 
-	@Override
-	public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
-	{
-		super.onEntityCollision(worldIn, pos, state, entityIn);
+    @Override
+    public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
+    {
+        super.onEntityCollision(worldIn, pos, state, entityIn);
 
-		if (!worldIn.isRemote && entityIn instanceof EntityLivingBase)
-		{
-			EntityLivingBase enlb = (EntityLivingBase) entityIn;
-			Actions.CauseEnderTeleport(enlb);
-			enlb.attackEntityFrom(DamageSource.FALL,3);
-		}
-	}
+        if (!worldIn.isRemote && entityIn instanceof EntityLivingBase)
+        {
+            EntityLivingBase enlb = (EntityLivingBase) entityIn;
+            Actions.CauseEnderTeleport(enlb);
+            enlb.attackEntityFrom(DamageSource.FALL, 3);
+        }
+    }
 }

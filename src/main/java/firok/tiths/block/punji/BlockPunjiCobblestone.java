@@ -12,19 +12,20 @@ import net.minecraft.world.World;
 
 public class BlockPunjiCobblestone extends BlockPunjiCustom
 {
-	public BlockPunjiCobblestone()
-	{
-		super(Material.ROCK,SoundType.STONE);
-	}
+    public BlockPunjiCobblestone()
+    {
+        super(Material.ROCK, SoundType.STONE);
+    }
 
-	@Override
-	public void hurtLiving(World world, BlockPos pos, IBlockState state, EntityLivingBase enlb)
-	{
-		float damage = enlb.getHealth() < enlb.getMaxHealth() / 2 ? 3f : 1f;
-		if(enlb.fallDistance > 0) {
-			damage += enlb.fallDistance * 1.5f + 2f;
-		}
-		enlb.attackEntityFrom(DamageSources.PunjiDamage, damage);
-		enlb.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20, 1));
-	}
+    @Override
+    public void hurtLiving(World world, BlockPos pos, IBlockState state, EntityLivingBase enlb)
+    {
+        float damage = enlb.getHealth() < enlb.getMaxHealth() / 2 ? 3f : 1f;
+        if (enlb.fallDistance > 0)
+        {
+            damage += enlb.fallDistance * 1.5f + 2f;
+        }
+        enlb.attackEntityFrom(DamageSources.PunjiDamage, damage);
+        enlb.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20, 1));
+    }
 }

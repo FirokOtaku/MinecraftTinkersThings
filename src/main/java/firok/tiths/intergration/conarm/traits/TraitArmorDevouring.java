@@ -18,32 +18,32 @@ import static firok.tiths.util.Predicates.canTrigger;
  */
 public class TraitArmorDevouring extends AbstractArmorTrait
 {
-	public TraitArmorDevouring()
-	{
-		super(nameTraitDevouring, colorTraitDevouring);
-	}
+    public TraitArmorDevouring()
+    {
+        super(nameTraitDevouring, colorTraitDevouring);
+    }
 
-	@Override
-	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
-	{
-		if(source!=null && source.isMagicDamage())
-		{
-			if(!player.world.isRemote && newDamage > 0 && canTrigger(player.world, Configs.ArmorTraits.rate_devouring))
-			{
-				player.world.playSound(null,player.posX,player.posY,player.posZ, SoundEvents.effectTransforming, SoundCategory.PLAYERS,2,1);
-				if(Configs.ArmorTraits.factor_devouring>0)
-					player.heal(newDamage * (float) Configs.ArmorTraits.factor_devouring);
-			}
+    @Override
+    public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
+    {
+        if (source != null && source.isMagicDamage())
+        {
+            if (!player.world.isRemote && newDamage > 0 && canTrigger(player.world, Configs.ArmorTraits.rate_devouring))
+            {
+                player.world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.effectTransforming, SoundCategory.PLAYERS, 2, 1);
+                if (Configs.ArmorTraits.factor_devouring > 0)
+                    player.heal(newDamage * (float) Configs.ArmorTraits.factor_devouring);
+            }
 
-			return 0;
-		}
-		else return newDamage;
-	}
+            return 0;
+        }
+        else return newDamage;
+    }
 
-	@Override
-	public int onArmorDamage(ItemStack armor, DamageSource source, int damage, int newDamage, EntityPlayer player, int slot)
-	{
-		return source!=null && source.isMagicDamage() ? 0 : newDamage;
-	}
+    @Override
+    public int onArmorDamage(ItemStack armor, DamageSource source, int damage, int newDamage, EntityPlayer player, int slot)
+    {
+        return source != null && source.isMagicDamage() ? 0 : newDamage;
+    }
 
 }

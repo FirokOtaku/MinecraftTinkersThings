@@ -15,15 +15,15 @@ import static firok.tiths.common.Keys.nameTraitCapacitor;
  */
 public class TraitArmorCapacitor extends AbstractArmorTrait
 {
-	public TraitArmorCapacitor()
-	{
-		super(nameTraitCapacitor,colorTraitCapacitor);
-	}
+    public TraitArmorCapacitor()
+    {
+        super(nameTraitCapacitor, colorTraitCapacitor);
+    }
 
-	@Override
-	public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean isCritical)
-	{
-		if(target.isEntityAlive())
-			target.addPotionEffect(new PotionEffect(Potions.paralysed, Configs.ArmorTraits.capacitor_duration, 0,false,false));
-	}
+    @Override
+    public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean isCritical)
+    {
+        if (target.isEntityAlive())
+            target.addPotionEffect(new PotionEffect(Potions.paralysed, Configs.ArmorTraits.capacitor_duration, 0, false, false));
+    }
 }

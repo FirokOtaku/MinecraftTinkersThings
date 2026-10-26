@@ -5,7 +5,6 @@ import firok.tiths.gui.Guis;
 import firok.tiths.intergration.conarm.ArmorModifiers;
 import firok.tiths.intergration.conarm.ArmorRegistryHandler;
 import firok.tiths.util.VersionPhase;
-import firok.tiths.common.WorldGens;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Loader;
@@ -17,179 +16,184 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
-import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.util.Collection;
 import java.util.Random;
 
 @Mod(
-		modid = TinkersThings.MOD_ID,
-		name = TinkersThings.MOD_NAME,
-		version = TinkersThings.VERSION,
-		dependencies = "required-after:tconstruct@[1.12.2-2.13.0.171,);" +
-		               "required-after:mantle@[1.12-1.3.3.55,);" +
-		               "required-after:baubles@[1.5.2,);" +
-		               "after:conarm@[1.2.5,);"+
-				       "after:hammercore@[1.12.2-2.0.6.17,);"+
-				       "after:lux@[1.12.2,);"+
-					   "required-after:orespawn@[3.3.1,)"
+        modid = TinkersThings.MOD_ID,
+        name = TinkersThings.MOD_NAME,
+        version = TinkersThings.VERSION,
+        dependencies = "required-after:tconstruct@[1.12.2-2.13.0.171,);" +
+                "required-after:mantle@[1.12-1.3.3.55,);" +
+                "required-after:baubles@[1.5.2,);" +
+                "after:conarm@[1.2.5,);" +
+                "after:hammercore@[1.12.2-2.0.6.17,);" +
+                "after:lux@[1.12.2,);" +
+                "required-after:orespawn@[3.3.1,)"
 )
 public class TinkersThings
 {
-	public static final String MOD_ID = "tiths";
-	public static final String MOD_NAME = "Tinkers' Things";
-	public static final String VERSION = "1.12.2-0.3.34.0";
-	public static final VersionPhase version = VersionPhase.Alpha;
+    public static final String MOD_ID = "tiths";
+    public static final String MOD_NAME = "Tinkers' Things";
+    public static final String VERSION = "1.12.2-0.3.34.0";
+    public static final VersionPhase version = VersionPhase.Alpha;
 
-	public static final String CONARM_ID = "conarm";
-	public static final String OREWPAWN_ID = "orespawn";
+    public static final String CONARM_ID = "conarm";
+    public static final String OREWPAWN_ID = "orespawn";
 
-	@Mod.Instance(MOD_ID)
-	public static TinkersThings INSTANCE;
+    @Mod.Instance(MOD_ID)
+    public static TinkersThings INSTANCE;
 
-	@SidedProxy(
-			serverSide = "firok.tiths.CommonProxy",
-			clientSide = "firok.tiths.ClientProxy",
-			modId = MOD_ID
-	)
-	public static CommonProxy proxy;
+    @SidedProxy(
+            serverSide = "firok.tiths.CommonProxy",
+            clientSide = "firok.tiths.ClientProxy",
+            modId = MOD_ID
+    )
+    public static CommonProxy proxy;
 
-	/**
-	 * 一些客户端效果用的random
-	 */
-	public static Random randClient;
+    /**
+     * 一些客户端效果用的random
+     */
+    public static Random randClient;
 
-	private static Logger logger;
-	public static void log(Object content)
-	{
-		log(content,Level.INFO);
-	}
-	public static void log(Object content,Level level)
-	{
-		logger.log(level,content);
-	}
+    private static Logger logger;
+    private static boolean hasConarm = false;
 
-	private static boolean hasConarm=false;
-	public static boolean enableConarm()
-	{
-		return hasConarm && Configs.General.enable_conarm;
-	}
-	@Mod.EventHandler
-	public void preinit(FMLPreInitializationEvent event)
-	{
-		logger = event.getModLog();
+    public static void log(Object content)
+    {
+        log(content, Level.INFO);
+    }
 
-		if(Configs.General.enable_strict_mode)
-		{
-			log("⚠ strict mode enabled");
-		}
+    public static void log(Object content, Level level)
+    {
+        logger.log(level, content);
+    }
 
-		ConfigJson.setConfigDir(Loader.instance().getConfigDir());
-		if(Configs.General.enable_material_customization) ConfigJson.readMats();
-		if(Configs.General.enable_tool_craft_functions) ConfigJson.readMFs();
+    public static boolean enableConarm()
+    {
+        return hasConarm && Configs.General.enable_conarm;
+    }
 
-		hasConarm=Loader.isModLoaded(CONARM_ID);
-		if(enableConarm())
-		{
-			log("Armor, armor, armor!");
-		}
-		log("Bauble, bauble, bauble!");
+    @SideOnly(Side.CLIENT)
+    public static void tell(Object content)
+    {
+        try
+        {
+            Minecraft.getMinecraft().player.sendChatMessage(String.valueOf(content));
+        }
+        catch (Exception ignored) {}
+    }
 
-		RegistryHandler.registerFluids();
+    public static ResourceLocation resource(String name)
+    {
+        return new ResourceLocation(MOD_ID, name);
+    }
 
-		Items.trigger();
+    public static void main(String[] args)
+    {
+        System.out.println(1);
+    }
 
-		RegistryHandler.registerBlocks(Blocks.class,TinkersThings.MOD_ID);
-		RegistryHandler.registerTileEntities();
-		RegistryHandler.registerItems(Items.class,Blocks.class,TinkersThings.MOD_ID);
-		RegistryHandler.registerEntities();
+    @Mod.EventHandler
+    public void preinit(FMLPreInitializationEvent event)
+    {
+        logger = event.getModLog();
+
+        if (Configs.General.enable_strict_mode)
+        {
+            log("⚠ strict mode enabled");
+        }
+
+        ConfigJson.setConfigDir(Loader.instance().getConfigDir());
+        if (Configs.General.enable_material_customization) ConfigJson.readMats();
+        if (Configs.General.enable_tool_craft_functions) ConfigJson.readMFs();
+
+        hasConarm = Loader.isModLoaded(CONARM_ID);
+        if (enableConarm())
+        {
+            log("Armor, armor, armor!");
+        }
+        log("Bauble, bauble, bauble!");
+
+        RegistryHandler.registerFluids();
+
+        Items.trigger();
+
+        RegistryHandler.registerBlocks(Blocks.class, TinkersThings.MOD_ID);
+        RegistryHandler.registerTileEntities();
+        RegistryHandler.registerItems(Items.class, Blocks.class, TinkersThings.MOD_ID);
+        RegistryHandler.registerEntities();
 //		RegistryHandler.registerVillagers();
 
-		Traits.init();
-		Traits.postInit();
-		RegistryHandler.registerTraits(Traits.class,AbstractTrait.class);
-		if(enableConarm())
-		{
-			ArmorRegistryHandler.registerArmorTraits();
-		}
+        Traits.init();
+        Traits.postInit();
+        RegistryHandler.registerTraits(Traits.class, AbstractTrait.class);
+        if (enableConarm())
+        {
+            ArmorRegistryHandler.registerArmorTraits();
+        }
 
-		Modifiers.log();
-		if(enableConarm())
-		{
-			ArmorModifiers.log();
-		}
+        Modifiers.log();
+        if (enableConarm())
+        {
+            ArmorModifiers.log();
+        }
 
-		RegistryHandler.registerPotions();
-		PotionTypes.registerPotionTypes();
+        RegistryHandler.registerPotions();
+        PotionTypes.registerPotionTypes();
 
-		RegistryHandler.registerMaterials();
-		if(enableConarm())
-		{
-			ArmorRegistryHandler.registerArmorMaterials();
-		}
-	}
-
-	@SideOnly(Side.CLIENT)
-	public static void tell(Object content)
-	{
-		try
-		{
-			Minecraft.getMinecraft().player.sendChatMessage(String.valueOf(content));
-		} catch (Exception ignored){}
-	}
-
-	public static ResourceLocation resource(String name)
-	{
-		return new ResourceLocation(MOD_ID,name);
-	}
-
-	@Mod.EventHandler
-	public void init(FMLInitializationEvent event)
-	{
-		//  proxy.registerModels(); // Registers models on the client side
-		//  proxy.regsiterKeyBindings();
-		//
-		//  Fluids.registerfromItem(); // Registers some special smeltery recipes (not alloying)
-//		GameRegistry.registerWorldGenerator(WorldGens.getInstance(), 0); // 临时禁用这边的世界生成器
-		//  // GameRegistry.registerFuelHandler(new FuelHandler());  Registeres fuels' burn times
-
-		NetworkRegistry.INSTANCE.registerGuiHandler(TinkersThings.INSTANCE, Guis.getInstance());
-
-		RegistryHandler.registerMaterialTraits();
-		if(enableConarm())
-		{
-			ArmorRegistryHandler.registerArmorMaterialTraits();
-		}
-
-		IngredientFactories.trigger();
-		Craftings.registerAllCraftings();
-		Alloys.registerAlloys();
-		//  SmeltingRegistry.register(); // Registers smelting recipes
-		RegistryHandler.integrateMaterials();
-	}
+        RegistryHandler.registerMaterials();
+        if (enableConarm())
+        {
+            ArmorRegistryHandler.registerArmorMaterials();
+        }
+    }
 
 //	static Collection<Material> materials=null;
 
-	@Mod.EventHandler
-	public void postinit(FMLPostInitializationEvent event)
-	{
+    @Mod.EventHandler
+    public void init(FMLInitializationEvent event)
+    {
+        //  proxy.registerModels(); // Registers models on the client side
+        //  proxy.regsiterKeyBindings();
+        //
+        //  Fluids.registerfromItem(); // Registers some special smeltery recipes (not alloying)
+//		GameRegistry.registerWorldGenerator(WorldGens.getInstance(), 0); // 临时禁用这边的世界生成器
+        //  // GameRegistry.registerFuelHandler(new FuelHandler());  Registeres fuels' burn times
+
+        NetworkRegistry.INSTANCE.registerGuiHandler(TinkersThings.INSTANCE, Guis.getInstance());
+
+        RegistryHandler.registerMaterialTraits();
+        if (enableConarm())
+        {
+            ArmorRegistryHandler.registerArmorMaterialTraits();
+        }
+
+        IngredientFactories.trigger();
+        Craftings.registerAllCraftings();
+        Alloys.registerAlloys();
+        //  SmeltingRegistry.register(); // Registers smelting recipes
+        RegistryHandler.integrateMaterials();
+    }
+
+    @Mod.EventHandler
+    public void postinit(FMLPostInitializationEvent event)
+    {
 //		proxy.registerBookPages();
 //		materials=TinkerRegistry.getAllMaterials();
-		randClient=new Random();
+        randClient = new Random();
 
-		SelfChecks.checkAll();
+        SelfChecks.checkAll();
 //		log("Has everything been done? might be!");
-	}
+    }
 
-	@Mod.EventHandler
-	public void onServerStart(FMLServerStartingEvent event)
-	{
-		event.registerServerCommand(Commands.getInstance());
+    @Mod.EventHandler
+    public void onServerStart(FMLServerStartingEvent event)
+    {
+        event.registerServerCommand(Commands.getInstance());
 
-		Datas.Server.init(event.getServer()); // 初始化服务端数据
+        Datas.Server.init(event.getServer()); // 初始化服务端数据
 
 //		if(Configs.General.log_chunk_generation)
 //		{
@@ -202,22 +206,18 @@ public class TinkersThings
 //			}
 //			catch (Exception ignored) { }
 //		}
-	}
-	@Mod.EventHandler
-	public void onServerStop(FMLServerStoppedEvent event)
-	{
-		Datas.Server.uninit(); // 销毁服务端数据
+    }
 
-		if(Configs.General.log_chunk_generation)
-		{
-			WorldGens.closeOutStream();
-		}
-	}
+    @Mod.EventHandler
+    public void onServerStop(FMLServerStoppedEvent event)
+    {
+        Datas.Server.uninit(); // 销毁服务端数据
 
-	public static void main(String[] args)
-	{
-		System.out.println(1);
-	}
+        if (Configs.General.log_chunk_generation)
+        {
+            WorldGens.closeOutStream();
+        }
+    }
 
 
 }

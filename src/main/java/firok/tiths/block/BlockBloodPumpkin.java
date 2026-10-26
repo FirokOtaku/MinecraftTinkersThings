@@ -9,12 +9,12 @@ import net.minecraft.util.EnumFacing;
  */
 public class BlockBloodPumpkin extends BlockHorizontal
 {
-	public BlockBloodPumpkin()
-	{
-		super(Material.WOOD);
+    public BlockBloodPumpkin()
+    {
+        super(Material.WOOD);
 //		this.setTickRandomly(true);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
-	}
+        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
+    }
 
 //	private BlockPattern snowmanBasePattern;
 //	private BlockPattern snowmanPattern;

@@ -10,14 +10,15 @@ import net.minecraft.item.ItemStack;
 // 渲染器-空中的药水瓶
 public class RendererProjectileItemPotionTransform extends RenderSnowball<ProjectileItemPotionTransform>
 {
-	ItemStack stack2render=new ItemStack(Items.SNOWBALL);
-	public RendererProjectileItemPotionTransform(RenderManager renderManagerIn)
-	{
-		super(renderManagerIn,Items.POTIONITEM, Minecraft.getMinecraft().getRenderItem());
-	}
+    ItemStack stack2render = new ItemStack(Items.SNOWBALL);
 
-	public ItemStack getStackToRender(ProjectileItemPotionTransform entityIn)
-	{
-		return stack2render;
-	}
+    public RendererProjectileItemPotionTransform(RenderManager renderManagerIn)
+    {
+        super(renderManagerIn, Items.POTIONITEM, Minecraft.getMinecraft().getRenderItem());
+    }
+
+    public ItemStack getStackToRender(ProjectileItemPotionTransform entityIn)
+    {
+        return stack2render;
+    }
 }

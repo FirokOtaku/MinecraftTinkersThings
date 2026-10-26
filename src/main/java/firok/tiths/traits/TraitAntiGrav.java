@@ -14,17 +14,17 @@ import static firok.tiths.common.Keys.nameTraitAntiGrav;
  */
 public class TraitAntiGrav extends AbstractTrait
 {
-	public TraitAntiGrav()
-	{
-		super(nameTraitAntiGrav, colorTraitAntiGrav);
-	}
+    public TraitAntiGrav()
+    {
+        super(nameTraitAntiGrav, colorTraitAntiGrav);
+    }
 
-	@Override
-	public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
-	{
-		if(wasHit && target.isEntityAlive())
-		{
-			target.addPotionEffect(new PotionEffect(MobEffects.LEVITATION, 80));
-		}
-	}
+    @Override
+    public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
+    {
+        if (wasHit && target.isEntityAlive())
+        {
+            target.addPotionEffect(new PotionEffect(MobEffects.LEVITATION, 80));
+        }
+    }
 }

@@ -14,20 +14,20 @@ import java.util.Random;
  */
 public interface IHitBlockProjectile
 {
-	//final BlockPos posHit=event.pos;
-	//final World world=event.projectile.world;
-	//final Random rand=world.rand;
-	//final ItemStack stackAmmo = event.projectile.tinkerProjectile.getItemStack();
-	//final NBTTagCompound nbtAmmo = TagUtil.getTagSafe(stackAmmo);
-	//final NBTTagList tagAmmoTraits = TagUtil.getTraitsTagList(nbtAmmo);
-	//final int sizeAmmoTraits = tagAmmoTraits.tagCount();
-	//final Entity shootingEntity = event.projectile.shootingEntity;
-	default void hitBlock(
-			ProjectileEvent.OnHitBlock event,
-			BlockPos pos, World world, IBlockState state, Random rand,
-			ItemStack stackAmmo, Entity shootingEntity
-	) throws Exception
-	{
-		;
-	}
+    //final BlockPos posHit=event.pos;
+    //final World world=event.projectile.world;
+    //final Random rand=world.rand;
+    //final ItemStack stackAmmo = event.projectile.tinkerProjectile.getItemStack();
+    //final NBTTagCompound nbtAmmo = TagUtil.getTagSafe(stackAmmo);
+    //final NBTTagList tagAmmoTraits = TagUtil.getTraitsTagList(nbtAmmo);
+    //final int sizeAmmoTraits = tagAmmoTraits.tagCount();
+    //final Entity shootingEntity = event.projectile.shootingEntity;
+    default void hitBlock(
+            ProjectileEvent.OnHitBlock event,
+            BlockPos pos, World world, IBlockState state, Random rand,
+            ItemStack stackAmmo, Entity shootingEntity
+    ) throws Exception
+    {
+        ;
+    }
 }

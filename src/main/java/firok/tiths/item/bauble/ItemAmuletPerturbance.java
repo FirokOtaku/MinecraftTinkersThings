@@ -13,24 +13,24 @@ import static firok.tiths.util.Predicates.canTick;
  */
 public class ItemAmuletPerturbance extends ItemBauble
 {
-	public ItemAmuletPerturbance()
-	{
-		super(BaubleType.AMULET);
-	}
+    public ItemAmuletPerturbance()
+    {
+        super(BaubleType.AMULET);
+    }
 
-	@Override
-	public void onWornTick(ItemStack itemstack, EntityLivingBase player)
-	{
-		if(player.isInWater())
-		{
-			if(player.isServerWorld() && canTick(player.world,40,0))
-			{
-				if(Math.abs(player.motionX) + Math.abs(player.motionY) + Math.abs(player.motionZ) < 0.025)
-				{
-					player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY,60,0));
-				}
-			}
-			// todo 粒子效果 - 气泡
-		}
-	}
+    @Override
+    public void onWornTick(ItemStack itemstack, EntityLivingBase player)
+    {
+        if (player.isInWater())
+        {
+            if (player.isServerWorld() && canTick(player.world, 40, 0))
+            {
+                if (Math.abs(player.motionX) + Math.abs(player.motionY) + Math.abs(player.motionZ) < 0.025)
+                {
+                    player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 60, 0));
+                }
+            }
+            // todo 粒子效果 - 气泡
+        }
+    }
 }

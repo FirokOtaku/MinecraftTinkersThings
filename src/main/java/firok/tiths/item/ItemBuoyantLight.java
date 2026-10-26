@@ -18,27 +18,27 @@ import net.minecraft.world.World;
  */
 public class ItemBuoyantLight extends ItemCustom
 {
-	@Override
-	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
-	{
-		ItemStack stackHeld=player.getHeldItem(hand);
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
+    {
+        ItemStack stackHeld = player.getHeldItem(hand);
 
-		Vec3d vecTarget= InnerActions.getEntityForward(player).scale(2).add(player.getPositionVector());
-		BlockPos posTarget=new BlockPos(vecTarget.x, vecTarget.y + player.eyeHeight,vecTarget.z);
+        Vec3d vecTarget = InnerActions.getEntityForward(player).scale(2).add(player.getPositionVector());
+        BlockPos posTarget = new BlockPos(vecTarget.x, vecTarget.y + player.eyeHeight, vecTarget.z);
 
-		IBlockState stateTarget=world.getBlockState(posTarget);
-		Block blockTarget=stateTarget.getBlock();
-		boolean replacable= blockTarget == Blocks.WATER || blockTarget == Blocks.FLOWING_WATER || blockTarget == Blocks.LAVA || blockTarget == Blocks.FLOWING_LAVA;
+        IBlockState stateTarget = world.getBlockState(posTarget);
+        Block blockTarget = stateTarget.getBlock();
+        boolean replacable = blockTarget == Blocks.WATER || blockTarget == Blocks.FLOWING_WATER || blockTarget == Blocks.LAVA || blockTarget == Blocks.FLOWING_LAVA;
 
-		if(replacable)
-		{
-			player.swingArm(hand);
-			if(!player.isCreative()) stackHeld.shrink(1);
+        if (replacable)
+        {
+            player.swingArm(hand);
+            if (!player.isCreative()) stackHeld.shrink(1);
 
-			world.setBlockState(posTarget,firok.tiths.common.Blocks.blockBuoyantLight.getDefaultState());
-		}
+            world.setBlockState(posTarget, firok.tiths.common.Blocks.blockBuoyantLight.getDefaultState());
+        }
 
 
-		return ActionResult.newResult(replacable?EnumActionResult.SUCCESS:EnumActionResult.FAIL,stackHeld);
-	}
+        return ActionResult.newResult(replacable ? EnumActionResult.SUCCESS : EnumActionResult.FAIL, stackHeld);
+    }
 }

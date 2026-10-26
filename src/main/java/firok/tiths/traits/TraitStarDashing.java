@@ -12,24 +12,24 @@ import static firok.tiths.common.Keys.nameTraitStarDashing;
 // 星绽
 public class TraitStarDashing extends AbstractTrait
 {
-	public TraitStarDashing()
-	{
-		super(nameTraitStarDashing,colorTraitStarDashing);
-	}
+    public TraitStarDashing()
+    {
+        super(nameTraitStarDashing, colorTraitStarDashing);
+    }
 
-	@Override
-	public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean isCritical)
-	{
-		super.onHit(tool, player, target, damage, isCritical);
+    @Override
+    public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean isCritical)
+    {
+        super.onHit(tool, player, target, damage, isCritical);
 
-		if(player.isServerWorld())
-		{
+        if (player.isServerWorld())
+        {
 //			Actions.CauseStarDashing(player,target,0.2f,3);
-			Actions.CauseStarDashing(player.world,player.posX,player.posY,player.posZ,
-					Configs.Traits.factor_star_dashing_amount,
-					(float) Configs.Traits.factor_star_dashing_speed,
-					(float) Configs.Traits.factor_star_dashing_damage,
-					player);
-		}
-	}
+            Actions.CauseStarDashing(player.world, player.posX, player.posY, player.posZ,
+                    Configs.Traits.factor_star_dashing_amount,
+                    (float) Configs.Traits.factor_star_dashing_speed,
+                    (float) Configs.Traits.factor_star_dashing_damage,
+                    player);
+        }
+    }
 }

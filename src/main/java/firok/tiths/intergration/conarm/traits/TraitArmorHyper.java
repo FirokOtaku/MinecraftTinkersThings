@@ -20,22 +20,22 @@ import static firok.tiths.util.Predicates.canTick;
  */
 public class TraitArmorHyper extends AbstractArmorTrait
 {
-	public TraitArmorHyper()
-	{
-		super(nameTraitHyper, colorTraitHyper);
-	}
+    public TraitArmorHyper()
+    {
+        super(nameTraitHyper, colorTraitHyper);
+    }
 
-	@Override
-	public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
-	{
-		if(!world.isRemote && canTick(world,60,4))
-		{
-			int size= EntityFinders.Nearby(player, Configs.ArmorTraits.range_hyper,Selectors.mobAlive).size();
-			int level= MathHelper.log2DeBruijn(size)-1;
-			if(level>=0)
-			{
-				player.addPotionEffect(new PotionEffect(Potions.hidden_hyper,65,level,false,false));
-			}
-		}
-	}
+    @Override
+    public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
+    {
+        if (!world.isRemote && canTick(world, 60, 4))
+        {
+            int size = EntityFinders.Nearby(player, Configs.ArmorTraits.range_hyper, Selectors.mobAlive).size();
+            int level = MathHelper.log2DeBruijn(size) - 1;
+            if (level >= 0)
+            {
+                player.addPotionEffect(new PotionEffect(Potions.hidden_hyper, 65, level, false, false));
+            }
+        }
+    }
 }

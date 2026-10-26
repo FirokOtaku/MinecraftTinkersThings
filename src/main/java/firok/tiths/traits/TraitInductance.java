@@ -12,15 +12,15 @@ import static firok.tiths.common.Keys.nameTraitInductance;
  */
 public class TraitInductance extends AbstractTrait
 {
-	public TraitInductance()
-	{
-		super(nameTraitInductance,colorTraitInductance);
-	}
+    public TraitInductance()
+    {
+        super(nameTraitInductance, colorTraitInductance);
+    }
 
-	@Override
-	public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float newDamage, boolean isCritical)
-	{
-		// todo 音效
-		return newDamage + ( player.world.isThundering()? 6 : 0 );
-	}
+    @Override
+    public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float newDamage, boolean isCritical)
+    {
+        // todo 音效
+        return newDamage + (player.world.isThundering() ? 6 : 0);
+    }
 }

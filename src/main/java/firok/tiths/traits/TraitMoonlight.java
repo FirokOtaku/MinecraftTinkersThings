@@ -13,18 +13,18 @@ import static firok.tiths.common.Keys.nameTraitMoonlight;
 // 月色
 public class TraitMoonlight extends AbstractTrait
 {
-	public TraitMoonlight()
-	{
-		super(nameTraitMoonlight, colorTraitMoonlight);
-	}
+    public TraitMoonlight()
+    {
+        super(nameTraitMoonlight, colorTraitMoonlight);
+    }
 
-	@Override
-	public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
-	{
+    @Override
+    public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
+    {
 //		super.afterHit(tool, player, target, damageDealt, wasCritical, wasHit);
-		if(wasHit && !player.world.isRemote)
-		{
-			Actions.CauseAccumEffect(player,new PotionEffect(MobEffects.NIGHT_VISION,105));
-		}
-	}
+        if (wasHit && !player.world.isRemote)
+        {
+            Actions.CauseAccumEffect(player, new PotionEffect(MobEffects.NIGHT_VISION, 105));
+        }
+    }
 }

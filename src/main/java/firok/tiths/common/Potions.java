@@ -27,35 +27,34 @@ import static firok.tiths.potion.BasePotion.icon;
 // 状态效果的注册 reg_name是直接读取field名称
 public final class Potions
 {
-	private Potions() {}
-
-	public static BasePotion heavy = new PotionHeavy(); // 沉重
-	public static BasePotion pestilential = new PotionPestilential(Selectors.livingBaseAlive); // 瘟疫
-	public static BasePotion weakened_pestilential = new PotionPestilential(Selectors.mobAlive); // 弱化瘟疫
-	public static BasePotion estrous = new PotionEstrous(); // 发情
-	public static BasePotion avatar = new PotionAvatar(); // 天神下凡
-	public static BasePotion rooted = new PotionRooted(); // 缠绕
-	public static BasePotion armor_softened = new PotionArmorSoftened(); // 护甲软化
-	public static BasePotion void_infected = new PotionVoidInfected(); // 虚空侵蚀
-	public static BasePotion acid_wetted = new PotionAcidWetted(); // 酸蚀
-	public static BasePotion hidden_hyper = new PotionHiddenHyper(); // 特性 - 振奋 (隐藏状态)
-	public static BasePotion lionheart = new PotionLionheart(); // 狮心
-	public static BasePotion icy = new PotionIcy(); // 清凉
-	public static BasePotion hidden_soluble = new PotionHiddenSoluble(); // 特性 - 可溶 (隐藏状态)
-	public static BasePotion fear = new BasePotion(icon("fear"),true, colorPotionFear); // 恐惧
-	public static BasePotion hidden_buoyant = new PotionHiddenBuoyant(); // 特性 - 浮力 (隐藏状态)
-	public static BasePotion bubbling = new PotionBubbling(); // 发泡
-	public static BasePotion turbulent = new PotionTurbulent(); // 乱流
-	public static BasePotion forcibleFocused = new PotionForcibleFocused(); // 强制专注
-	public static BasePotion eddying = new PotionEddying(); // 旋流
-	public static BasePotion eroded = new PotionEroded(); // 侵蚀
-	public static BasePotion leaves_hiding = new PotionLeavesHiding(); // 蔽叶
-	public static BasePotion illuminating = new PotionIlluminating(); // 灯明
-	public static BasePotion bruming = new BasePotion(icon("bruming"),false,colorPotionBruming); // 云雾
-	public static BasePotion paralysed = new PotionParalysed(); // 麻痹
-	public static BasePotion empathic = new PotionEmpathic(); // 共感
-	public static BasePotion hard_ice = new PotionHardIce(); // 坚冰
-	public static BasePotion midas_vision = new BasePotion(icon("midas_vision"),false,colorPotionMidasVision); // 迈达斯之视
-	public static BasePotion farmland_trampler = new BasePotion(icon("farmland_trampler"),true,colorPotionFarmlandTrampler,false); // 践踏农田 (隐藏状态)
-	public static BasePotion tranquilized = new PotionTranquilized(); // 镇定
+    public static BasePotion heavy = new PotionHeavy(); // 沉重
+    public static BasePotion pestilential = new PotionPestilential(Selectors.livingBaseAlive); // 瘟疫
+    public static BasePotion weakened_pestilential = new PotionPestilential(Selectors.mobAlive); // 弱化瘟疫
+    public static BasePotion estrous = new PotionEstrous(); // 发情
+    public static BasePotion avatar = new PotionAvatar(); // 天神下凡
+    public static BasePotion rooted = new PotionRooted(); // 缠绕
+    public static BasePotion armor_softened = new PotionArmorSoftened(); // 护甲软化
+    public static BasePotion void_infected = new PotionVoidInfected(); // 虚空侵蚀
+    public static BasePotion acid_wetted = new PotionAcidWetted(); // 酸蚀
+    public static BasePotion hidden_hyper = new PotionHiddenHyper(); // 特性 - 振奋 (隐藏状态)
+    public static BasePotion lionheart = new PotionLionheart(); // 狮心
+    public static BasePotion icy = new PotionIcy(); // 清凉
+    public static BasePotion hidden_soluble = new PotionHiddenSoluble(); // 特性 - 可溶 (隐藏状态)
+    public static BasePotion fear = new BasePotion(icon("fear"), true, colorPotionFear); // 恐惧
+    public static BasePotion hidden_buoyant = new PotionHiddenBuoyant(); // 特性 - 浮力 (隐藏状态)
+    public static BasePotion bubbling = new PotionBubbling(); // 发泡
+    public static BasePotion turbulent = new PotionTurbulent(); // 乱流
+    public static BasePotion forcibleFocused = new PotionForcibleFocused(); // 强制专注
+    public static BasePotion eddying = new PotionEddying(); // 旋流
+    public static BasePotion eroded = new PotionEroded(); // 侵蚀
+    public static BasePotion leaves_hiding = new PotionLeavesHiding(); // 蔽叶
+    public static BasePotion illuminating = new PotionIlluminating(); // 灯明
+    public static BasePotion bruming = new BasePotion(icon("bruming"), false, colorPotionBruming); // 云雾
+    public static BasePotion paralysed = new PotionParalysed(); // 麻痹
+    public static BasePotion empathic = new PotionEmpathic(); // 共感
+    public static BasePotion hard_ice = new PotionHardIce(); // 坚冰
+    public static BasePotion midas_vision = new BasePotion(icon("midas_vision"), false, colorPotionMidasVision); // 迈达斯之视
+    public static BasePotion farmland_trampler = new BasePotion(icon("farmland_trampler"), true, colorPotionFarmlandTrampler, false); // 践踏农田 (隐藏状态)
+    public static BasePotion tranquilized = new PotionTranquilized(); // 镇定
+    private Potions() {}
 }

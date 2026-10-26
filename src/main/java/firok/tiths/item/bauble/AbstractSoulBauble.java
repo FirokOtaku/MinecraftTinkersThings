@@ -14,17 +14,17 @@ import java.util.List;
 
 public abstract class AbstractSoulBauble extends ItemBauble implements ISoulStore, ISoulGather
 {
-	public AbstractSoulBauble(BaubleType type)
-	{
-		super(type);
-	}
+    public AbstractSoulBauble(BaubleType type)
+    {
+        super(type);
+    }
 
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void addInformation(ItemStack stack, World world, List<String> list, ITooltipFlag flag)
-	{
-		addStoreInformation(stack, world, list, flag);
-		addGatherInformation(stack, world, list, flag);
-		InnerActions.addInformation(this,list,flag);
-	}
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void addInformation(ItemStack stack, World world, List<String> list, ITooltipFlag flag)
+    {
+        addStoreInformation(stack, world, list, flag);
+        addGatherInformation(stack, world, list, flag);
+        InnerActions.addInformation(this, list, flag);
+    }
 }

@@ -23,98 +23,100 @@ import java.util.List;
 @SuppressWarnings("all")
 public class BlockCompressed extends Block
 {
-	public BlockCompressed()
-	{
-		this(Material.IRON);
-	}
-	public BlockCompressed(Material material)
-	{
-		this(material,material.getMaterialMapColor());
-	}
-	public BlockCompressed(Material material, MapColor color)
-	{
-		super(material, color);
-		// 对齐铁块: 硬度 5 / 抗爆 10, 需石镐采集, 避免空手一点就碎且无掉落
-		setHardness(5.0F);
-		setResistance(10.0F);
-		if(material == Material.IRON || material == Material.ROCK)
-		{
-			setHarvestLevel("pickaxe", HarvestLevels.STONE);
-		}
-	}
+    protected boolean isTransparent = false;
+    protected boolean isBeaconBase = false;
 
-	protected boolean isTransparent = false;
-	protected boolean isBeaconBase = false;
+    public BlockCompressed()
+    {
+        this(Material.IRON);
+    }
 
-	public BlockCompressed setBeaconBase()
-	{
-		this.isBeaconBase=true;
-		return this;
-	}
+    public BlockCompressed(Material material)
+    {
+        this(material, material.getMaterialMapColor());
+    }
+    public BlockCompressed(Material material, MapColor color)
+    {
+        super(material, color);
+        // 对齐铁块: 硬度 5 / 抗爆 10, 需石镐采集, 避免空手一点就碎且无掉落
+        setHardness(5.0F);
+        setResistance(10.0F);
+        if (material == Material.IRON || material == Material.ROCK)
+        {
+            setHarvestLevel("pickaxe", HarvestLevels.STONE);
+        }
+    }
 
-	@Override
-	public boolean isBeaconBase(IBlockAccess worldObj, BlockPos pos, BlockPos beacon)
-	{
-		return this.isBeaconBase;
-	}
+    public BlockCompressed setBeaconBase()
+    {
+        this.isBeaconBase = true;
+        return this;
+    }
 
-	/**
-	 * 启用方块渲染透明度
-	 */
-	public BlockCompressed enableTransparent()
-	{
-		this.isTransparent =true;
-		return this;
-	}
+    @Override
+    public boolean isBeaconBase(IBlockAccess worldObj, BlockPos pos, BlockPos beacon)
+    {
+        return this.isBeaconBase;
+    }
 
-	@SideOnly(Side.CLIENT)
-	public boolean shouldSideBeRendered(IBlockState blockstateThis, IBlockAccess world, BlockPos pos, EnumFacing side)
-	{
-		if(!isTransparent) return super.shouldSideBeRendered(blockstateThis, world, pos, side);
+    /**
+     * 启用方块渲染透明度
+     */
+    public BlockCompressed enableTransparent()
+    {
+        this.isTransparent = true;
+        return this;
+    }
 
-		IBlockState blockstateNearby = world.getBlockState(pos.offset(side));
-		Block block = blockstateNearby.getBlock();
+    @SideOnly(Side.CLIENT)
+    public boolean shouldSideBeRendered(IBlockState blockstateThis, IBlockAccess world, BlockPos pos, EnumFacing side)
+    {
+        if (!isTransparent) return super.shouldSideBeRendered(blockstateThis, world, pos, side);
 
-		if (blockstateThis != blockstateNearby)
-		{
-			return true;
-		}
+        IBlockState blockstateNearby = world.getBlockState(pos.offset(side));
+        Block block = blockstateNearby.getBlock();
 
-		if (block == this)
-		{
-			return false;
-		}
+        if (blockstateThis != blockstateNearby)
+        {
+            return true;
+        }
 
-		return super.shouldSideBeRendered(blockstateThis, world, pos, side);
-	}
+        if (block == this)
+        {
+            return false;
+        }
 
-	@SideOnly(Side.CLIENT)
-	public BlockRenderLayer getRenderLayer()
-	{
-		return isTransparent ? BlockRenderLayer.TRANSLUCENT: BlockRenderLayer.SOLID;
-	}
+        return super.shouldSideBeRendered(blockstateThis, world, pos, side);
+    }
 
-	public boolean isFullCube(IBlockState state)
-	{
-		return !isTransparent;
-	}
+    @SideOnly(Side.CLIENT)
+    public BlockRenderLayer getRenderLayer()
+    {
+        return isTransparent ? BlockRenderLayer.TRANSLUCENT : BlockRenderLayer.SOLID;
+    }
 
-	public boolean isOpaqueCube(IBlockState state) {
-		return !isTransparent;
-	}
+    public boolean isFullCube(IBlockState state)
+    {
+        return !isTransparent;
+    }
 
-	protected boolean canSilkHarvest()
-	{
-		return true;
-	}
+    public boolean isOpaqueCube(IBlockState state)
+    {
+        return !isTransparent;
+    }
 
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced)
-	{
-		InnerActions.addInformation(this, tooltip, advanced);
+    protected boolean canSilkHarvest()
+    {
+        return true;
+    }
 
-		if(isBeaconBase) tooltip.add(I18n.format("tooltip.tiths.beacon_base"));
-	}
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced)
+    {
+        InnerActions.addInformation(this, tooltip, advanced);
+
+        if (isBeaconBase) tooltip.add(I18n.format("tooltip.tiths.beacon_base"));
+    }
 
 }

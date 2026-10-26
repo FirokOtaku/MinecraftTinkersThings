@@ -17,101 +17,102 @@ import static firok.tiths.util.Predicates.canTick;
 // 震动
 public class TraitVibrating extends AbstractTrait
 {
-	public static final String NBTKey= TinkersThings.MOD_ID + '_' +nameTraitVibrating;
-	public TraitVibrating()
-	{
-		super(nameTraitVibrating, colorTraitVibrating);
-	}
+    public static final String NBTKey = TinkersThings.MOD_ID + '_' + nameTraitVibrating;
 
-	public static float addFrequency(ItemStack stack,int count,int max)
-	{
-		NBTTagCompound nbt=stack.hasTagCompound()?stack.getTagCompound():new NBTTagCompound();
-		float frequency=nbt.hasKey(NBTKey)?nbt.getFloat(NBTKey):0;
+    public TraitVibrating()
+    {
+        super(nameTraitVibrating, colorTraitVibrating);
+    }
 
-		frequency+=count;
-		if(frequency>max) frequency=max;
+    public static float addFrequency(ItemStack stack, int count, int max)
+    {
+        NBTTagCompound nbt = stack.hasTagCompound() ? stack.getTagCompound() : new NBTTagCompound();
+        float frequency = nbt.hasKey(NBTKey) ? nbt.getFloat(NBTKey) : 0;
 
-		nbt.setFloat(NBTKey,frequency);
-		stack.setTagCompound(nbt);
+        frequency += count;
+        if (frequency > max) frequency = max;
 
-		return frequency;
-	}
+        nbt.setFloat(NBTKey, frequency);
+        stack.setTagCompound(nbt);
 
-	public static float subtractFrequency(ItemStack stack,int count,int min)
-	{
-		NBTTagCompound nbt=stack.hasTagCompound()?stack.getTagCompound():new NBTTagCompound();
-		float frequency=nbt.hasKey(NBTKey)?nbt.getFloat(NBTKey):0;
+        return frequency;
+    }
 
-		frequency-=count;
-		if(frequency<min) frequency=min;
+    public static float subtractFrequency(ItemStack stack, int count, int min)
+    {
+        NBTTagCompound nbt = stack.hasTagCompound() ? stack.getTagCompound() : new NBTTagCompound();
+        float frequency = nbt.hasKey(NBTKey) ? nbt.getFloat(NBTKey) : 0;
 
-		nbt.setFloat(NBTKey,frequency);
-		stack.setTagCompound(nbt);
+        frequency -= count;
+        if (frequency < min) frequency = min;
 
-		return frequency;
-	}
+        nbt.setFloat(NBTKey, frequency);
+        stack.setTagCompound(nbt);
 
-	public static float getFrequency(ItemStack stack,int max,int min)
-	{
-		NBTTagCompound nbt=stack.hasTagCompound()?stack.getTagCompound():new NBTTagCompound();
-		float frequency=nbt.hasKey(NBTKey)?nbt.getFloat(NBTKey):0;
-		return frequency>max? max : frequency<min? min: frequency;
-	}
+        return frequency;
+    }
 
-	@Override
-	public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean isCritical)
-	{
-		// 每次使用增加12 最大叠加12层
-		addFrequency(tool,12, 144);
-	}
+    public static float getFrequency(ItemStack stack, int max, int min)
+    {
+        NBTTagCompound nbt = stack.hasTagCompound() ? stack.getTagCompound() : new NBTTagCompound();
+        float frequency = nbt.hasKey(NBTKey) ? nbt.getFloat(NBTKey) : 0;
+        return frequency > max ? max : frequency < min ? min : frequency;
+    }
 
-	@Override
-	public void beforeBlockBreak(ItemStack tool, BlockEvent.BreakEvent event)
-	{
-		// 每次使用增加12 最大叠加12层
-		addFrequency(tool,12,144);
-	}
+    @Override
+    public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean isCritical)
+    {
+        // 每次使用增加12 最大叠加12层
+        addFrequency(tool, 12, 144);
+    }
 
-	@Override
-	public void miningSpeed(ItemStack tool, PlayerEvent.BreakSpeed event)
-	{
-		// 每层降低20%速度
-		float speed=event.getOriginalSpeed();
-		float frequency=getFrequency(tool,144,0);
-		while(frequency>0)
-		{
-			speed*=0.8;
-			frequency-=12;
-		}
+    @Override
+    public void beforeBlockBreak(ItemStack tool, BlockEvent.BreakEvent event)
+    {
+        // 每次使用增加12 最大叠加12层
+        addFrequency(tool, 12, 144);
+    }
 
-		event.setNewSpeed(speed);
-	}
+    @Override
+    public void miningSpeed(ItemStack tool, PlayerEvent.BreakSpeed event)
+    {
+        // 每层降低20%速度
+        float speed = event.getOriginalSpeed();
+        float frequency = getFrequency(tool, 144, 0);
+        while (frequency > 0)
+        {
+            speed *= 0.8;
+            frequency -= 12;
+        }
 
-	@Override
-	public float knockBack(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float knockback, float newKnockback, boolean isCritical)
-	{
-		// 每层增加8%击退
-		float frequency=getFrequency(tool,144,0);
-		while(frequency>0)
-		{
-			newKnockback+=0.08f;
-			frequency-=12;
-		}
+        event.setNewSpeed(speed);
+    }
 
-		return newKnockback;
-	}
+    @Override
+    public float knockBack(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float knockback, float newKnockback, boolean isCritical)
+    {
+        // 每层增加8%击退
+        float frequency = getFrequency(tool, 144, 0);
+        while (frequency > 0)
+        {
+            newKnockback += 0.08f;
+            frequency -= 12;
+        }
 
-	@Override
-	public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
-	{
-		// 每秒降低4
-		if(canTick(world,5,0))
-		{
-			subtractFrequency(tool,1,0);
-		}
-	}
+        return newKnockback;
+    }
 
-	/* ---- 下面这种是一开始的想法和实现 因为效率低被废弃了 但是可能以后有别的用处 ---- */
+    @Override
+    public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
+    {
+        // 每秒降低4
+        if (canTick(world, 5, 0))
+        {
+            subtractFrequency(tool, 1, 0);
+        }
+    }
+
+    /* ---- 下面这种是一开始的想法和实现 因为效率低被废弃了 但是可能以后有别的用处 ---- */
 //	/**
 //	 * 处理时间点数组, 将过期时间点移除. 同时向时间点数组内追加一个新的时间点
 //	 * @param timestampsRaw 原始时间点数组数据

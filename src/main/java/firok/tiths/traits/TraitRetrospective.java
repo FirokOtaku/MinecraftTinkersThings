@@ -21,74 +21,75 @@ import static firok.tiths.util.Predicates.canTrigger;
 // fixme 升级次数问题
 public class TraitRetrospective extends AbstractTrait
 {
-	public static final int maxTimesImproving=100;
-	public static final float rateImproving=0.00025f;
-	public static final String NBTKey= TinkersThings.MOD_ID+'_'+nameTraitRetrospective;
-	public TraitRetrospective()
-	{
-		super(nameTraitRetrospective, colorTraitRetrospective);
-	}
+    public static final int maxTimesImproving = 100;
+    public static final float rateImproving = 0.00025f;
+    public static final String NBTKey = TinkersThings.MOD_ID + '_' + nameTraitRetrospective;
 
-	@Override
-	public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag)
-	{
-		super.applyEffect(rootCompound, modifierTag);
+    public TraitRetrospective()
+    {
+        super(nameTraitRetrospective, colorTraitRetrospective);
+    }
 
-		rootCompound.setInteger(NBTKey,maxTimesImproving);
-	}
+    public static void improveAttributes(ItemStack stack, EntityLivingBase player)
+    {
+        Random rand = player.world.rand;
+        NBTTagCompound rootCompound = TagUtil.getTagSafe(stack);
 
-	@Override
-	public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective)
-	{
+        int times = rootCompound.hasKey(NBTKey) ? rootCompound.getInteger(NBTKey) : 0;
+        if (times <= 0)
+        {
+            rootCompound.removeTag(NBTKey);
+            return;
+        }
+
+        ToolNBT data = TagUtil.getToolStats(rootCompound);
+
+        float temp = rand.nextFloat();
+        if (temp < 0.3333)
+        {
+            data.attack *= 1.01f;
+        }
+        else if (temp < 0.6666)
+        {
+            data.attackSpeedMultiplier *= 1.008f;
+            data.speed *= 1.008f;
+        }
+        else
+        {
+            data.durability += 15;
+        }
+
+        TagUtil.setToolTag(rootCompound, data.get());
+        stack.setTagCompound(rootCompound);
+
+        TinkersThings.tell("your tool had improved!");
+    }
+
+    @Override
+    public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag)
+    {
+        super.applyEffect(rootCompound, modifierTag);
+
+        rootCompound.setInteger(NBTKey, maxTimesImproving);
+    }
+
+    @Override
+    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective)
+    {
 //		super.afterBlockBreak(tool, world, state, pos, player, wasEffective);
-		if(!world.isRemote && canTrigger(world,rateImproving))
-		{
-			improveAttributes(tool,player);
-		}
-	}
+        if (!world.isRemote && canTrigger(world, rateImproving))
+        {
+            improveAttributes(tool, player);
+        }
+    }
 
-	@Override
-	public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
-	{
+    @Override
+    public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
+    {
 //		super.afterHit(tool, player, target, damageDealt, wasCritical, wasHit);
-		if(wasHit && !player.world.isRemote && canTrigger(player.world,rateImproving))
-		{
-			improveAttributes(tool,player);
-		}
-	}
-
-	public static void improveAttributes(ItemStack stack, EntityLivingBase player)
-	{
-		Random rand=player.world.rand;
-		NBTTagCompound rootCompound=TagUtil.getTagSafe(stack);
-
-		int times=rootCompound.hasKey(NBTKey)?rootCompound.getInteger(NBTKey):0;
-		if(times<=0)
-		{
-			rootCompound.removeTag(NBTKey);
-			return;
-		}
-
-		ToolNBT data = TagUtil.getToolStats(rootCompound);
-
-		float temp=rand.nextFloat();
-		if(temp<0.3333)
-		{
-			data.attack*=1.01f;
-		}
-		else if(temp<0.6666)
-		{
-			data.attackSpeedMultiplier*=1.008f;
-			data.speed*=1.008f;
-		}
-		else
-		{
-			data.durability+=15;
-		}
-
-		TagUtil.setToolTag(rootCompound, data.get());
-		stack.setTagCompound(rootCompound);
-
-		TinkersThings.tell("your tool had improved!");
-	}
+        if (wasHit && !player.world.isRemote && canTrigger(player.world, rateImproving))
+        {
+            improveAttributes(tool, player);
+        }
+    }
 }

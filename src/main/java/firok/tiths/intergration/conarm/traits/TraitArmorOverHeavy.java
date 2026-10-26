@@ -16,18 +16,18 @@ import static firok.tiths.util.Predicates.canTick;
  */
 public class TraitArmorOverHeavy extends AbstractArmorTrait
 {
-	public TraitArmorOverHeavy()
-	{
-		super(nameTraitOverHeavy,colorTraitOverHeavy);
-	}
+    public TraitArmorOverHeavy()
+    {
+        super(nameTraitOverHeavy, colorTraitOverHeavy);
+    }
 
-	@Override
-	public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
-	{
-		if(!world.isRemote && canTick(world,80,4))
-		{
-			player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS,85,0));
-			player.addPotionEffect(new PotionEffect(MobEffects.MINING_FATIGUE,85,0));
-		}
-	}
+    @Override
+    public void onArmorTick(ItemStack tool, World world, EntityPlayer player)
+    {
+        if (!world.isRemote && canTick(world, 80, 4))
+        {
+            player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 85, 0));
+            player.addPotionEffect(new PotionEffect(MobEffects.MINING_FATIGUE, 85, 0));
+        }
+    }
 }

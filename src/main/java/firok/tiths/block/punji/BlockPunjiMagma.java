@@ -12,20 +12,21 @@ import net.minecraft.world.World;
 
 public class BlockPunjiMagma extends BlockPunjiCustom
 {
-	public BlockPunjiMagma()
-	{
-		super(Material.ROCK, SoundType.GROUND);
-		this.setLightLevel(0.2f);
-	}
+    public BlockPunjiMagma()
+    {
+        super(Material.ROCK, SoundType.GROUND);
+        this.setLightLevel(0.2f);
+    }
 
-	@Override
-	public void hurtLiving(World world, BlockPos pos, IBlockState state, EntityLivingBase enlb)
-	{
-		float damage = 3f;
-		if(enlb.fallDistance > 0) {
-			damage += enlb.fallDistance * 1.5f + 2f;
-		}
-		enlb.attackEntityFrom(DamageSources.PunjiDamage, damage);
-		enlb.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20, 1));
-	}
+    @Override
+    public void hurtLiving(World world, BlockPos pos, IBlockState state, EntityLivingBase enlb)
+    {
+        float damage = 3f;
+        if (enlb.fallDistance > 0)
+        {
+            damage += enlb.fallDistance * 1.5f + 2f;
+        }
+        enlb.attackEntityFrom(DamageSources.PunjiDamage, damage);
+        enlb.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20, 1));
+    }
 }

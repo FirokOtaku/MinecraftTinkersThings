@@ -26,145 +26,146 @@ import static firok.tiths.util.InnerActions.*;
 
 public class ArmorRegistryHandler
 {
-	public static void registerArmorTraits()
-	{
-		ArmorTraits.init();
-		ArmorTraits.postinit();
-		RegistryHandler.registerTraits(ArmorTraits.class, AbstractArmorTrait.class);
-		FieldStream.of(ArmorTraits.class,null,AbstractArmorTrait.class)
-		.forEach((field, annotation, abstractArmorTrait)->ArmoryRegistry.registerModifier(abstractArmorTrait));
-	}
-	/**
-	 * 注册护甲材料
-	 */
-	public static void registerArmorMaterials()
-	{
-		Field[] fields= TiCMaterials.class.getDeclaredFields();
-		for(Field field:fields)
-		{
-			try
-			{
-				Object obj=field.get(null);
-				if(obj instanceof Material)
-				{
-					Material material=(Material)obj;
-					Compo compo=field.getAnnotation(Compo.class);
+    public static void registerArmorTraits()
+    {
+        ArmorTraits.init();
+        ArmorTraits.postinit();
+        RegistryHandler.registerTraits(ArmorTraits.class, AbstractArmorTrait.class);
+        FieldStream.of(ArmorTraits.class, null, AbstractArmorTrait.class)
+                .forEach((field, annotation, abstractArmorTrait) -> ArmoryRegistry.registerModifier(abstractArmorTrait));
+    }
 
-					// 检查是否已经注册
-					if(compo==null||TinkerRegistry.getMaterial(material.identifier)==Material.UNKNOWN) continue;
+    /**
+     * 注册护甲材料
+     */
+    public static void registerArmorMaterials()
+    {
+        Field[] fields = TiCMaterials.class.getDeclaredFields();
+        for (Field field : fields)
+        {
+            try
+            {
+                Object obj = field.get(null);
+                if (obj instanceof Material)
+                {
+                    Material material = (Material) obj;
+                    Compo compo = field.getAnnotation(Compo.class);
 
-					MaterialInfo info= ConfigJson.getMat(material.identifier);
-					boolean i=Objects.nonNull(info);
+                    // 检查是否已经注册
+                    if (compo == null || TinkerRegistry.getMaterial(material.identifier) == Material.UNKNOWN) continue;
 
-					// 基底
-					{
-						CompoArmorCore compoArmorCore=field.getAnnotation(CompoArmorCore.class);
-						if(compoArmorCore!=null)
-						{
-							CoreMaterialStats statCore=new CoreMaterialStats(
-									i && Objects.nonNull(info.core_durability)? info.core_durability:(float)compoArmorCore.durability(),
-									i && Objects.nonNull(info.core_dense)? info.core_dense:(float)compoArmorCore.defense()
-							);
-							material.addStats(statCore);
-						}
-					}
-					// 护甲板
-					{
-						CompoArmorPlate compoArmorPlate=field.getAnnotation(CompoArmorPlate.class);
-						if(compoArmorPlate!=null)
-						{
-							PlatesMaterialStats statPlate=new PlatesMaterialStats(
-									i && Objects.nonNull(info.plate_modifier)? info.plate_modifier:(float)compoArmorPlate.modifier(),
-									i && Objects.nonNull(info.plate_durability)? info.plate_durability:(float)compoArmorPlate.durability(),
-									i && Objects.nonNull(info.plate_toughness)? info.plate_toughness:(float)compoArmorPlate.toughness()
-							);
-							material.addStats(statPlate);
-						}
-					}
-					// 夹板
-					{
-						CompoArmorTrim compoArmorTrim=field.getAnnotation(CompoArmorTrim.class);
-						if(compoArmorTrim!=null)
-						{
-							TrimMaterialStats statTrim=new TrimMaterialStats(
-									i && Objects.nonNull(info.trim_durability)? info.trim_durability:(float)compoArmorTrim.extraDurability()
-							);
-							material.addStats(statTrim);
-						}
-					}
-				}
-			}
-			catch (Exception e)
-			{
-				log("error when registering armor material attribution");
-				log(e);
-			}
-		}
-	}
+                    MaterialInfo info = ConfigJson.getMat(material.identifier);
+                    boolean i = Objects.nonNull(info);
 
-	/**
-	 * 给护甲材料增加属性
-	 */
-	public static void registerArmorMaterialTraits()
-	{
-		Field[] fields= TiCMaterials.class.getDeclaredFields();
-		for(Field field:fields)
-		{
-			try
-			{
-				Object obj=field.get(null);
-				if(obj instanceof Material)
-				{
-					Material material=(Material)obj;
-					Compo compo=field.getAnnotation(Compo.class);
+                    // 基底
+                    {
+                        CompoArmorCore compoArmorCore = field.getAnnotation(CompoArmorCore.class);
+                        if (compoArmorCore != null)
+                        {
+                            CoreMaterialStats statCore = new CoreMaterialStats(
+                                    i && Objects.nonNull(info.core_durability) ? info.core_durability : (float) compoArmorCore.durability(),
+                                    i && Objects.nonNull(info.core_dense) ? info.core_dense : (float) compoArmorCore.defense()
+                            );
+                            material.addStats(statCore);
+                        }
+                    }
+                    // 护甲板
+                    {
+                        CompoArmorPlate compoArmorPlate = field.getAnnotation(CompoArmorPlate.class);
+                        if (compoArmorPlate != null)
+                        {
+                            PlatesMaterialStats statPlate = new PlatesMaterialStats(
+                                    i && Objects.nonNull(info.plate_modifier) ? info.plate_modifier : (float) compoArmorPlate.modifier(),
+                                    i && Objects.nonNull(info.plate_durability) ? info.plate_durability : (float) compoArmorPlate.durability(),
+                                    i && Objects.nonNull(info.plate_toughness) ? info.plate_toughness : (float) compoArmorPlate.toughness()
+                            );
+                            material.addStats(statPlate);
+                        }
+                    }
+                    // 夹板
+                    {
+                        CompoArmorTrim compoArmorTrim = field.getAnnotation(CompoArmorTrim.class);
+                        if (compoArmorTrim != null)
+                        {
+                            TrimMaterialStats statTrim = new TrimMaterialStats(
+                                    i && Objects.nonNull(info.trim_durability) ? info.trim_durability : (float) compoArmorTrim.extraDurability()
+                            );
+                            material.addStats(statTrim);
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                log("error when registering armor material attribution");
+                log(e);
+            }
+        }
+    }
 
-					// 检查是否已经注册
-					if(compo==null||TinkerRegistry.getMaterial(material.identifier)==Material.UNKNOWN) continue;
+    /**
+     * 给护甲材料增加属性
+     */
+    public static void registerArmorMaterialTraits()
+    {
+        Field[] fields = TiCMaterials.class.getDeclaredFields();
+        for (Field field : fields)
+        {
+            try
+            {
+                Object obj = field.get(null);
+                if (obj instanceof Material)
+                {
+                    Material material = (Material) obj;
+                    Compo compo = field.getAnnotation(Compo.class);
 
-					MaterialInfo info=ConfigJson.getMat(material.identifier);
-					boolean i=Objects.nonNull(info);
-					if(i&&isTrue(info.disable)) return;
+                    // 检查是否已经注册
+                    if (compo == null || TinkerRegistry.getMaterial(material.identifier) == Material.UNKNOWN) continue;
 
-					// 基底
-					if(!i||isFalse(info.disableCore))
-					{
-						CompoArmorCore compoArmorCore=field.getAnnotation(CompoArmorCore.class);
-						if(compoArmorCore!=null)
-						{
-							addMaterialTraits(material,i && Objects.nonNull(info.core_traits)?info.core_traits:compoArmorCore.traits(),CORE,true);
-						}
-					}
-					// 护甲板
-					if(!i||isFalse(info.disablePlate))
-					{
-						CompoArmorPlate compoArmorPlate=field.getAnnotation(CompoArmorPlate.class);
-						if(compoArmorPlate!=null)
-						{
-							addMaterialTraits(material,i && Objects.nonNull(info.plate_traits)?info.plate_traits:compoArmorPlate.traits(),PLATES,true);
-						}
-					}
-					// 夹板
-					if(!i||isFalse(info.disableTrim))
-					{
-						CompoArmorTrim compoArmorTrim=field.getAnnotation(CompoArmorTrim.class);
-						if(compoArmorTrim!=null)
-						{
-							addMaterialTraits(material,i && Objects.nonNull(info.trim_traits)?info.trim_traits:compoArmorTrim.traits(),TRIM,true);
-						}
-					}
+                    MaterialInfo info = ConfigJson.getMat(material.identifier);
+                    boolean i = Objects.nonNull(info);
+                    if (i && isTrue(info.disable)) return;
 
-					String[] traitsArmor=i && Objects.nonNull(info.traits_armor)? info.traits_armor :compo.traitsArmor();
+                    // 基底
+                    if (!i || isFalse(info.disableCore))
+                    {
+                        CompoArmorCore compoArmorCore = field.getAnnotation(CompoArmorCore.class);
+                        if (compoArmorCore != null)
+                        {
+                            addMaterialTraits(material, i && Objects.nonNull(info.core_traits) ? info.core_traits : compoArmorCore.traits(), CORE, true);
+                        }
+                    }
+                    // 护甲板
+                    if (!i || isFalse(info.disablePlate))
+                    {
+                        CompoArmorPlate compoArmorPlate = field.getAnnotation(CompoArmorPlate.class);
+                        if (compoArmorPlate != null)
+                        {
+                            addMaterialTraits(material, i && Objects.nonNull(info.plate_traits) ? info.plate_traits : compoArmorPlate.traits(), PLATES, true);
+                        }
+                    }
+                    // 夹板
+                    if (!i || isFalse(info.disableTrim))
+                    {
+                        CompoArmorTrim compoArmorTrim = field.getAnnotation(CompoArmorTrim.class);
+                        if (compoArmorTrim != null)
+                        {
+                            addMaterialTraits(material, i && Objects.nonNull(info.trim_traits) ? info.trim_traits : compoArmorTrim.traits(), TRIM, true);
+                        }
+                    }
 
-					addMaterialTraits(material,traitsArmor, CORE,true);
-					addMaterialTraits(material,traitsArmor, PLATES,true);
-					addMaterialTraits(material,traitsArmor, TRIM,true);
-				}
-			}
-			catch (Exception e)
-			{
-				log("error when registering armor material trait");
-				log(e);
-			}
-		}
-	}
+                    String[] traitsArmor = i && Objects.nonNull(info.traits_armor) ? info.traits_armor : compo.traitsArmor();
+
+                    addMaterialTraits(material, traitsArmor, CORE, true);
+                    addMaterialTraits(material, traitsArmor, PLATES, true);
+                    addMaterialTraits(material, traitsArmor, TRIM, true);
+                }
+            }
+            catch (Exception e)
+            {
+                log("error when registering armor material trait");
+                log(e);
+            }
+        }
+    }
 }

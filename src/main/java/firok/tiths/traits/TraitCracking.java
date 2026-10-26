@@ -27,66 +27,66 @@ import static firok.tiths.util.Predicates.canTrigger;
  */
 public class TraitCracking extends AbstractProjectileTrait
 {
-	public TraitCracking()
-	{
-		super(nameTraitCracking,colorTraitCracking);
-	}
+    public TraitCracking()
+    {
+        super(nameTraitCracking, colorTraitCracking);
+    }
 
-	/**
-	 * 同记分板队伍, 或归属攻击者 / 同队玩家的宠物, 视为友方.
-	 * 无队伍时 {@link Entity#isOnSameTeam} 为 false, 仍可伤到其它玩家.
-	 */
-	static boolean isFriendly(EntityLivingBase attacker, EntityLivingBase other)
-	{
-		if(attacker == null || other == null) return false;
-		if(attacker == other) return true;
-		if(attacker.isOnSameTeam(other)) return true;
-		if(other instanceof IEntityOwnable)
-		{
-			Entity owner = ((IEntityOwnable) other).getOwner();
-			if(owner == attacker) return true;
-			if(owner instanceof EntityLivingBase && attacker.isOnSameTeam(owner)) return true;
-		}
-		return false;
-	}
+    /**
+     * 同记分板队伍, 或归属攻击者 / 同队玩家的宠物, 视为友方.
+     * 无队伍时 {@link Entity#isOnSameTeam} 为 false, 仍可伤到其它玩家.
+     */
+    static boolean isFriendly(EntityLivingBase attacker, EntityLivingBase other)
+    {
+        if (attacker == null || other == null) return false;
+        if (attacker == other) return true;
+        if (attacker.isOnSameTeam(other)) return true;
+        if (other instanceof IEntityOwnable)
+        {
+            Entity owner = ((IEntityOwnable) other).getOwner();
+            if (owner == attacker) return true;
+            if (owner instanceof EntityLivingBase && attacker.isOnSameTeam(owner)) return true;
+        }
+        return false;
+    }
 
-	@Override
-	public void afterHit(EntityProjectileBase projectile, World world, ItemStack ammoStack, EntityLivingBase attacker, Entity target, double impactSpeed)
-	{
-		if(projectile==null || world==null || target==null) return;
-		Random rand=world.rand;
-		if(world.isRemote)
-		{
-			int times=8;
-			int id=Block.getStateId(Blocks.STONE.getDefaultState());
-			while(times-->0) // fixme 粒子效果显示有问题
-			{
-				world.spawnParticle(
-						EnumParticleTypes.BLOCK_CRACK,
-						target.posX + rand.nextFloat() * 0.8 -0.4 + 0.5,
-						target.posY + target.getEyeHeight()/2 + rand.nextFloat() * 0.8 -0.4 + 1,
-						target.posZ + rand.nextFloat() * 0.8 -0.4 + 0.5,
-						 + rand.nextFloat() * 0.4 - 0.2,
-						 + rand.nextFloat() * 0.4 - 0.2,
-						 + rand.nextFloat() * 0.4 - 0.2,
-						id
-				);
-			}
-		}
-		else if(canTrigger(rand,1))
-		{
-			List<Entity> list=EntityFinders.Facing(
-					world,projectile,
-					projectile.getPositionVector(),
-					new Vec3d(projectile.motionX,projectile.motionY,projectile.motionZ),
-					5,1,Selectors.livingBaseAlive);
-			for(Entity en:list)
-			{
-				EntityLivingBase enlb=(EntityLivingBase)en;
-				if(isFriendly(attacker, enlb)) continue;
-				enlb.hurtResistantTime=0;
-				enlb.attackEntityFrom(DamageSource.GENERIC, (float)impactSpeed);
-			}
-		}
-	}
+    @Override
+    public void afterHit(EntityProjectileBase projectile, World world, ItemStack ammoStack, EntityLivingBase attacker, Entity target, double impactSpeed)
+    {
+        if (projectile == null || world == null || target == null) return;
+        Random rand = world.rand;
+        if (world.isRemote)
+        {
+            int times = 8;
+            int id = Block.getStateId(Blocks.STONE.getDefaultState());
+            while (times-- > 0) // fixme 粒子效果显示有问题
+            {
+                world.spawnParticle(
+                        EnumParticleTypes.BLOCK_CRACK,
+                        target.posX + rand.nextFloat() * 0.8 - 0.4 + 0.5,
+                        target.posY + target.getEyeHeight() / 2 + rand.nextFloat() * 0.8 - 0.4 + 1,
+                        target.posZ + rand.nextFloat() * 0.8 - 0.4 + 0.5,
+                        +rand.nextFloat() * 0.4 - 0.2,
+                        +rand.nextFloat() * 0.4 - 0.2,
+                        +rand.nextFloat() * 0.4 - 0.2,
+                        id
+                );
+            }
+        }
+        else if (canTrigger(rand, 1))
+        {
+            List<Entity> list = EntityFinders.Facing(
+                    world, projectile,
+                    projectile.getPositionVector(),
+                    new Vec3d(projectile.motionX, projectile.motionY, projectile.motionZ),
+                    5, 1, Selectors.livingBaseAlive);
+            for (Entity en : list)
+            {
+                EntityLivingBase enlb = (EntityLivingBase) en;
+                if (isFriendly(attacker, enlb)) continue;
+                enlb.hurtResistantTime = 0;
+                enlb.attackEntityFrom(DamageSource.GENERIC, (float) impactSpeed);
+            }
+        }
+    }
 }

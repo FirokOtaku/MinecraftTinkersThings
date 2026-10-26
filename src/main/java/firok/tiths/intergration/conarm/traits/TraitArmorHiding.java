@@ -19,18 +19,18 @@ import static firok.tiths.util.Predicates.canTrigger;
  */
 public class TraitArmorHiding extends AbstractArmorTrait
 {
-	public TraitArmorHiding()
-	{
-		super(nameTraitArmorHiding, colorTraitCarbonizing);
-	}
+    public TraitArmorHiding()
+    {
+        super(nameTraitArmorHiding, colorTraitCarbonizing);
+    }
 
-	@Override
-	public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
-	{
-		if(!player.world.isRemote && canTrigger(player.world, Configs.ArmorTraits.rate_hiding_hit))
-		{
-			Actions.CauseAccumEffect(player,new PotionEffect(MobEffects.INVISIBILITY, Configs.ArmorTraits.factor_hiding_hit,0));
-		}
-		return newDamage;
-	}
+    @Override
+    public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt)
+    {
+        if (!player.world.isRemote && canTrigger(player.world, Configs.ArmorTraits.rate_hiding_hit))
+        {
+            Actions.CauseAccumEffect(player, new PotionEffect(MobEffects.INVISIBILITY, Configs.ArmorTraits.factor_hiding_hit, 0));
+        }
+        return newDamage;
+    }
 }

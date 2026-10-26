@@ -34,6 +34,7 @@ import java.util.Random;
  * <p></p>
  * It also goes without saying that <b>this class should only ever be used client-side</b>. Attempting to spawn particles
  * on the server side will not work and will print a warning to the console.
+ *
  * @author Electroblob
  * @since Wizardry 4.2
  */
@@ -47,554 +48,616 @@ import java.util.Random;
 // thread, there's no point making a new instance every time and clogging the heap with objects. It's also lazy, see
 // the comment about builder variables below.
 @SideOnly(Side.CLIENT)
-public final class ParticleBuilder {
+public final class ParticleBuilder
+{
 
-	/** The static instance of the particle builder. */
-	public static final ParticleBuilder instance = new ParticleBuilder();
+    /**
+     * The static instance of the particle builder.
+     */
+    public static final ParticleBuilder instance = new ParticleBuilder();
 
-	/** Whether the particle builder is currently building or not. */
-	private boolean building = false;
+    /**
+     * Whether the particle builder is currently building or not.
+     */
+    private boolean building = false;
 
-	// Builder variables
-	// We can't just store a particle and set its parameters in the builder methods, because the server won't like having
-	// a field of a client-only type
-	private ResourceLocation type;
-	private double x, y, z;
-	private double vx, vy, vz;
-	private float r, g, b;
-	private float fr, fg, fb;
-	private double radius;
-	private double rpt;
-	private int lifetime;
-	private boolean gravity;
-	private boolean shaded;
-	private boolean collide;
-	private float scale;
-	private Entity entity;
-	private float yaw, pitch;
-	private double tx, ty, tz;
-	private double tvx, tvy, tvz;
-	private Entity target;
-	private long seed;
-	private double length;
+    // Builder variables
+    // We can't just store a particle and set its parameters in the builder methods, because the server won't like having
+    // a field of a client-only type
+    private ResourceLocation type;
+    private double x, y, z;
+    private double vx, vy, vz;
+    private float r, g, b;
+    private float fr, fg, fb;
+    private double radius;
+    private double rpt;
+    private int lifetime;
+    private boolean gravity;
+    private boolean shaded;
+    private boolean collide;
+    private float scale;
+    private Entity entity;
+    private float yaw, pitch;
+    private double tx, ty, tz;
+    private double tvx, tvy, tvz;
+    private Entity target;
+    private long seed;
+    private double length;
 
 
-	private ParticleBuilder(){
-		reset();
-	}
+    private ParticleBuilder()
+    {
+        reset();
+    }
 
-	// ============================================= Core builder methods =============================================
+    // ============================================= Core builder methods =============================================
 
-	public static ParticleBuilder create(ParticleType type)
-	{
-		return create(type.rlMain);
-	}
-	/**
-	 * Starts building a particle of the given type. Static convenience version of
-	 * {@link ParticleBuilder#particle(ResourceLocation)}; makes code more concise.
-	 * @param type The type of particle to build
-	 * @return The particle builder instance, allowing other methods to be chained onto this one
-	 * @throws IllegalStateException if the particle builder is already building.
-	 */
-	public static ParticleBuilder create(ResourceLocation type)
-	{
-		instance.reset();
-		return ParticleBuilder.instance.particle(type);
-	}
+    public static ParticleBuilder create(ParticleType type)
+    {
+        return create(type.rlMain);
+    }
 
-	/**
-	 * Starts building a particle of the given type.
-	 * @param type The type of particle to build
-	 * @return The particle builder instance, allowing other methods to be chained onto this one
-	 * @throws IllegalStateException if the particle builder is already building.
-	 */
-	public ParticleBuilder particle(ResourceLocation type){
-		if(building)
-		{
-			instance.reset();
-		}
-		this.type = type;
-		this.building = true;
-		return this;
-	}
+    /**
+     * Starts building a particle of the given type. Static convenience version of
+     * {@link ParticleBuilder#particle(ResourceLocation)}; makes code more concise.
+     *
+     * @param type The type of particle to build
+     * @return The particle builder instance, allowing other methods to be chained onto this one
+     * @throws IllegalStateException if the particle builder is already building.
+     */
+    public static ParticleBuilder create(ResourceLocation type)
+    {
+        instance.reset();
+        return ParticleBuilder.instance.particle(type);
+    }
 
-	/** Gets a readable string representation of the current builder parameters; used in error messages. */
-	private String getCurrentParticleString(){
-		return String.format("[ Type: %s, Position: (%s, %s, %s), Velocity: (%s, %s, %s), Colour: (%s, %s, %s), "
-						+ "Fade Colour: (%s, %s, %s), Radius: %s, Revs/tick: %s, Lifetime: %s, Gravity: %s, Shaded: %s, "
-						+ "Scale: %s, Entity: %s ]",
-				type, x, y, z, vx, vy, vz, r, g, b, fr, fg, fb, radius, rpt, lifetime, gravity, shaded, scale, entity);
-	}
+    /**
+     * Starts building a particle of the given type and positions it randomly within the given entity's bounding box.
+     * Equivalent to calling {@code ParticleBuilder.create(type).pos(...)}; users should chain any additional builder
+     * methods onto this one and finish with {@code .spawn(world)} as normal.
+     * Used extensively with summoned creatures; makes code much neater and more concise.
+     * <p></p>
+     * <i>N.B. this does <b>not</b> cause the particle to move with the given entity.</i>
+     *
+     * @param type   The type of particle to build
+     * @param entity The entity to position the particle at
+     * @return The particle builder instance, allowing other methods to be chained onto this one
+     * @throws IllegalStateException if the particle builder is already building.
+     */
+    public static ParticleBuilder create(ResourceLocation type, Entity entity)
+    {
 
-	/**
-	 * Sets the position of the particle being built. If unspecified, this defaults to the origin (0, 0, 0). If an entity
-	 * is specified using {@link ParticleBuilder#entity(Entity)}, this will be <i>relative to</i> that entity's position.
-	 * <p></p>
-	 * <b>Affects:</b> All particle types
-	 * @param x The x coordinate to set
-	 * @param y The y coordinate to set
-	 * @param z The z coordinate to set
-	 * @return The particle builder instance, allowing other methods to be chained onto this one
-	 * @throws IllegalStateException if the particle builder is not yet building.
-	 */
-	public ParticleBuilder pos(double x, double y, double z){
-		if(!building) throw new IllegalStateException("Not building yet!");
-		this.x = x;
-		this.y = y;
-		this.z = z;
-		return this;
-	}
+        double x = entity.posX + (entity.world.rand.nextDouble() - 0.5D) * (double) entity.width;
+        double y = entity.posY + entity.world.rand.nextDouble() * (double) entity.height;
+        double z = entity.posZ + (entity.world.rand.nextDouble() - 0.5D) * (double) entity.width;
 
-	/**
-	 * Sets the position of the particle being built. This is a vector-based alternative to {@link ParticleBuilder#pos(
-	 * double, double, double)}, allowing for even more concise code when a vector is available.
-	 * <p></p>
-	 * <b>Affects:</b> All particle types
-	 * @param pos A vector representing the coordinates of the particle to be built.
-	 * @return The particle builder instance, allowing other methods to be chained onto this one
-	 * @throws IllegalStateException if the particle builder is not yet building.
-	 */
-	public ParticleBuilder pos(Vec3d pos){
-		return pos(pos.x, pos.y, pos.z);
-	}
+        return ParticleBuilder.instance.particle(type).pos(x, y, z);
+    }
 
-	/**
-	 * Sets the velocity of the particle being built. If unspecified, this defaults to the particle's default velocity,
-	 * specified within its constructor.
-	 * <p></p>
-	 * <b>Affects:</b> All particle types
-	 * @param vx The x velocity to set
-	 * @param vy The y velocity to set
-	 * @param vz The z velocity to set
-	 * @return The particle builder instance, allowing other methods to be chained onto this one
-	 * @throws IllegalStateException if the particle builder is not yet building.
-	 */
-	public ParticleBuilder vel(double vx, double vy, double vz){
-		if(!building) throw new IllegalStateException("Not building yet!");
-		this.vx = vx;
-		this.vy = vy;
-		this.vz = vz;
-		return this;
-	}
+    /**
+     * Starts building a particle of the given type and positions it randomly within the given radius of the given position,
+     * with velocity proportional to distance from the given position if move is true. Good for making explosion-type effects.
+     * Equivalent to calling {@code ParticleBuilder.create(type).pos(...).vel(...)}; users should chain any additional builder
+     * methods onto this one and finish with {@code .spawn(world)} as normal.
+     *
+     * @param type   The type of particle to build
+     * @param random An RNG instance
+     * @param x      The x coordinate of the centre of the region in which to position the particle
+     * @param y      The y coordinate of the centre of the region in which to position the particle
+     * @param z      The z coordinate of the centre of the region in which to position the particle
+     * @param radius The radius of the region in which to position the particle
+     * @param move   Whether the particle should move outwards from the centre (note that if this is false, the particle's
+     *               default velocity will apply)
+     * @return The particle builder instance, allowing other methods to be chained onto this one
+     * @throws IllegalStateException if the particle builder is already building.
+     */
+    public static ParticleBuilder create(ResourceLocation type, Random random, double x, double y, double z, double radius, boolean move)
+    {
 
-	/**
-	 * Sets the velocity of the particle being built. This is a vector-based alternative to {@link ParticleBuilder#vel(
-	 * double, double, double)}, allowing for even more concise code when a vector is available.
-	 * <p></p>
-	 * <b>Affects:</b> All particle types
-	 * @param vel A vector representing the velocity of the particle to be built.
-	 * @return The particle builder instance, allowing other methods to be chained onto this one
-	 * @throws IllegalStateException if the particle builder is not yet building.
-	 */
-	public ParticleBuilder vel(Vec3d vel){
-		return vel(vel.x, vel.y, vel.z);
-	}
+        double px = x + (random.nextDouble() * 2 - 1) * radius;
+        double py = y + (random.nextDouble() * 2 - 1) * radius;
+        double pz = z + (random.nextDouble() * 2 - 1) * radius;
 
-	/**
-	 * 设定粒子颜色 rgb浮点
-	 */
-	public ParticleBuilder clr(float r, float g, float b){
-		if(!building) throw new IllegalStateException("Not building yet!");
-		this.r = MathHelper.clamp(r, 0, 1);
-		this.g = MathHelper.clamp(g, 0, 1);
-		this.b = MathHelper.clamp(b, 0, 1);
-		return this;
-	}
+        if (move) return ParticleBuilder.instance.particle(type).pos(px, py, pz).vel(px - x, py - y, pz - z);
 
-	/**
-	 * 设定粒子颜色 rgb 255
-	 */
-	public ParticleBuilder clr(int r, int g, int b){
-		return this.clr(r/255f, g/255f, b/255f); // Yes, 255 is correct and not 256, or else we can't have pure white
-	}
+        return ParticleBuilder.instance.particle(type).pos(px, py, pz);
+    }
 
-	/**
-	 * 设定粒子颜色 rgb 16进制
-	 */
-	public ParticleBuilder clr(int hex){
-		int r = (hex & 0xFF0000) >> 16;
-		int g = (hex & 0xFF00) >> 8;
-		int b = (hex & 0xFF);
-		return this.clr(r, g, b);
-	}
+    /**
+     * Starts building a particle of the given type.
+     *
+     * @param type The type of particle to build
+     * @return The particle builder instance, allowing other methods to be chained onto this one
+     * @throws IllegalStateException if the particle builder is already building.
+     */
+    public ParticleBuilder particle(ResourceLocation type)
+    {
+        if (building)
+        {
+            instance.reset();
+        }
+        this.type = type;
+        this.building = true;
+        return this;
+    }
 
-	/**
-	 *
-	 */
-	public ParticleBuilder fade(float r, float g, float b){
-		if(!building) throw new IllegalStateException("Not building yet!");
-		this.fr = MathHelper.clamp(r, 0, 1);
-		this.fg = MathHelper.clamp(g, 0, 1);
-		this.fb = MathHelper.clamp(b, 0, 1);
-		return this;
-	}
+    /**
+     * Gets a readable string representation of the current builder parameters; used in error messages.
+     */
+    private String getCurrentParticleString()
+    {
+        return String.format("[ Type: %s, Position: (%s, %s, %s), Velocity: (%s, %s, %s), Colour: (%s, %s, %s), "
+                        + "Fade Colour: (%s, %s, %s), Radius: %s, Revs/tick: %s, Lifetime: %s, Gravity: %s, Shaded: %s, "
+                        + "Scale: %s, Entity: %s ]",
+                type, x, y, z, vx, vy, vz, r, g, b, fr, fg, fb, radius, rpt, lifetime, gravity, shaded, scale, entity);
+    }
 
-	/**
-	 *
-	 */
-	public ParticleBuilder fade(int r, int g, int b){
-		return this.fade(r/255f, g/255f, b/255f); // Yes, 255 is correct and not 256, or else we can't have pure white
-	}
+    /**
+     * Sets the position of the particle being built. If unspecified, this defaults to the origin (0, 0, 0). If an entity
+     * is specified using {@link ParticleBuilder#entity(Entity)}, this will be <i>relative to</i> that entity's position.
+     * <p></p>
+     * <b>Affects:</b> All particle types
+     *
+     * @param x The x coordinate to set
+     * @param y The y coordinate to set
+     * @param z The z coordinate to set
+     * @return The particle builder instance, allowing other methods to be chained onto this one
+     * @throws IllegalStateException if the particle builder is not yet building.
+     */
+    public ParticleBuilder pos(double x, double y, double z)
+    {
+        if (!building) throw new IllegalStateException("Not building yet!");
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        return this;
+    }
 
-	/**
-	 *
-	 */
-	public ParticleBuilder fade(int hex){
-		int r = (hex & 0xFF0000) >> 16;
-		int g = (hex & 0xFF00) >> 8;
-		int b = (hex & 0xFF);
-		return this.fade(r, g, b);
-	}
+    /**
+     * Sets the position of the particle being built. This is a vector-based alternative to {@link ParticleBuilder#pos(
+     *double, double, double)}, allowing for even more concise code when a vector is available.
+     * <p></p>
+     * <b>Affects:</b> All particle types
+     *
+     * @param pos A vector representing the coordinates of the particle to be built.
+     * @return The particle builder instance, allowing other methods to be chained onto this one
+     * @throws IllegalStateException if the particle builder is not yet building.
+     */
+    public ParticleBuilder pos(Vec3d pos)
+    {
+        return pos(pos.x, pos.y, pos.z);
+    }
 
-	/**
-	 * 设定粒子大小
-	 */
-	public ParticleBuilder scale(float scale){
-		if(!building) throw new IllegalStateException("Not building yet!");
-		this.scale = scale;
-		return this;
-	}
+    /**
+     * Sets the velocity of the particle being built. If unspecified, this defaults to the particle's default velocity,
+     * specified within its constructor.
+     * <p></p>
+     * <b>Affects:</b> All particle types
+     *
+     * @param vx The x velocity to set
+     * @param vy The y velocity to set
+     * @param vz The z velocity to set
+     * @return The particle builder instance, allowing other methods to be chained onto this one
+     * @throws IllegalStateException if the particle builder is not yet building.
+     */
+    public ParticleBuilder vel(double vx, double vy, double vz)
+    {
+        if (!building) throw new IllegalStateException("Not building yet!");
+        this.vx = vx;
+        this.vy = vy;
+        this.vz = vz;
+        return this;
+    }
 
-	/**
-	 * 设定粒子持续时间
-	 */
-	public ParticleBuilder time(int lifetime){
-		if(!building) throw new IllegalStateException("Not building yet!");
-		this.lifetime = lifetime;
-		return this;
-	}
+    /**
+     * Sets the velocity of the particle being built. This is a vector-based alternative to {@link ParticleBuilder#vel(
+     *double, double, double)}, allowing for even more concise code when a vector is available.
+     * <p></p>
+     * <b>Affects:</b> All particle types
+     *
+     * @param vel A vector representing the velocity of the particle to be built.
+     * @return The particle builder instance, allowing other methods to be chained onto this one
+     * @throws IllegalStateException if the particle builder is not yet building.
+     */
+    public ParticleBuilder vel(Vec3d vel)
+    {
+        return vel(vel.x, vel.y, vel.z);
+    }
 
-	/**
-	 * Sets the seed of the particle being built. If unspecified, this defaults to the particle's default seed,
-	 * specified within its constructor (this is normally chosen at random).
-	 * <p></p>
-	 * <i>Pro tip: to get a particle to stay the same while a continuous spell is in use (but change between casts),
-	 * use {@code .seed(world.getTotalWorldTime() - ticksInUse)}.</i>
-	 * <p></p>
-	 * <b>Affects:</b> All particle types
-	 * @param seed The seed to set
-	 * @return The particle builder instance, allowing other methods to be chained onto this one
-	 * @throws IllegalStateException if the particle builder is not yet building.
-	 */
-	public ParticleBuilder seed(long seed){
-		if(!building) throw new IllegalStateException("Not building yet!");
-		this.seed = seed;
-		return this;
-	}
+    /**
+     * 设定粒子颜色 rgb浮点
+     */
+    public ParticleBuilder clr(float r, float g, float b)
+    {
+        if (!building) throw new IllegalStateException("Not building yet!");
+        this.r = MathHelper.clamp(r, 0, 1);
+        this.g = MathHelper.clamp(g, 0, 1);
+        this.b = MathHelper.clamp(b, 0, 1);
+        return this;
+    }
 
-	/**
-	 * Sets the spin parameters of the particle being built. If unspecified, these both default to 0.
-	 * <p></p>
-	 * <b>Affects:</b> All particle types
-	 * @param radius The rotation radius to set
-	 * @param speed The rotation speed to set, in revolutions per tick
-	 * @return The particle builder instance, allowing other methods to be chained onto this one
-	 * @throws IllegalStateException if the particle builder is not yet building.
-	 */
-	public ParticleBuilder spin(double radius, double speed){
-		if(!building) throw new IllegalStateException("Not building yet!");
-		this.radius = radius;
-		this.rpt = speed;
-		return this;
-	}
+    /**
+     * 设定粒子颜色 rgb 255
+     */
+    public ParticleBuilder clr(int r, int g, int b)
+    {
+        return this.clr(r / 255f, g / 255f, b / 255f); // Yes, 255 is correct and not 256, or else we can't have pure white
+    }
 
-	/**
-	 * 设定粒子重力
-	 */
-	public ParticleBuilder gravity(boolean gravity){
-		if(!building) throw new IllegalStateException("Not building yet!");
-		this.gravity = gravity;
-		return this;
-	}
+    /**
+     * 设定粒子颜色 rgb 16进制
+     */
+    public ParticleBuilder clr(int hex)
+    {
+        int r = (hex & 0xFF0000) >> 16;
+        int g = (hex & 0xFF00) >> 8;
+        int b = (hex & 0xFF);
+        return this.clr(r, g, b);
+    }
 
-	/**
-	 * 设定粒子是否阴影
-	 */
-	public ParticleBuilder shaded(boolean shaded){
-		if(!building) throw new IllegalStateException("Not building yet!");
-		this.shaded = shaded;
-		return this;
-	}
+    /**
+     *
+     */
+    public ParticleBuilder fade(float r, float g, float b)
+    {
+        if (!building) throw new IllegalStateException("Not building yet!");
+        this.fr = MathHelper.clamp(r, 0, 1);
+        this.fg = MathHelper.clamp(g, 0, 1);
+        this.fb = MathHelper.clamp(b, 0, 1);
+        return this;
+    }
 
-	/**
-	 * Sets the collisions of the particle being built. If unspecified, this defaults to false.
-	 * <p></p>
-	 * <b>Affects:</b> All particle types
-	 * @param collide True to enable block collisions for the particle, false to disable
-	 * @return The particle builder instance, allowing other methods to be chained onto this one
-	 * @throws IllegalStateException if the particle builder is not yet building.
-	 */
-	public ParticleBuilder collide(boolean collide){
-		if(!building) throw new IllegalStateException("Not building yet!");
-		this.collide = collide;
-		return this;
-	}
+    /**
+     *
+     */
+    public ParticleBuilder fade(int r, int g, int b)
+    {
+        return this.fade(r / 255f, g / 255f, b / 255f); // Yes, 255 is correct and not 256, or else we can't have pure white
+    }
 
-	/**
-	 * 设定粒子关联实体
-	 */
-	public ParticleBuilder entity(Entity entity){
-		if(!building) throw new IllegalStateException("Not building yet!");
-		this.entity = entity;
-		return this;
-	}
+    /**
+     *
+     */
+    public ParticleBuilder fade(int hex)
+    {
+        int r = (hex & 0xFF0000) >> 16;
+        int g = (hex & 0xFF00) >> 8;
+        int b = (hex & 0xFF);
+        return this.fade(r, g, b);
+    }
 
-	/**
-	 * Sets the rotation of the particle being built. If unspecified, the particle will use the default behaviour and
-	 * rotate to face the viewer.
-	 * <p></p>
-	 * <b>Affects:</b> All particle types
-	 * @param yaw The yaw angle to set in degrees, where 0 is south.
-	 * @param pitch The pitch angle to set in degrees, where 0 is horizontal.
-	 * @return The particle builder instance, allowing other methods to be chained onto this one
-	 * @throws IllegalStateException if the particle builder is not yet building.
-	 */
-	public ParticleBuilder face(float yaw, float pitch){
-		if(!building) throw new IllegalStateException("Not building yet!");
-		this.yaw = yaw;
-		this.pitch = pitch;
-		return this;
-	}
+    /**
+     * 设定粒子大小
+     */
+    public ParticleBuilder scale(float scale)
+    {
+        if (!building) throw new IllegalStateException("Not building yet!");
+        this.scale = scale;
+        return this;
+    }
 
-	/**
-	 * Sets the rotation of the particle being built. This is an {@code EnumFacing}-based alternative to {@link
-	 * ParticleBuilder#face(float, float)} which sets the yaw and pitch to the appropriate angles for the given facing.
-	 * For example, if the given facing is {@code NORTH}, the particle will render parallel to the north face of blocks.
-	 * If unspecified, the particle will use the default behaviour and rotate to face the viewer.
-	 * <p></p>
-	 * <b>Affects:</b> All particle types
-	 * @param direction The {@code EnumFacing} direction to set.
-	 * @return The particle builder instance, allowing other methods to be chained onto this one
-	 * @throws IllegalStateException if the particle builder is not yet building.
-	 */
-	public ParticleBuilder face(EnumFacing direction){
-		return face(direction.getHorizontalAngle(), direction.getAxis().isVertical() ? direction.getAxisDirection().getOffset() * 90 : 0);
-	}
+    /**
+     * 设定粒子持续时间
+     */
+    public ParticleBuilder time(int lifetime)
+    {
+        if (!building) throw new IllegalStateException("Not building yet!");
+        this.lifetime = lifetime;
+        return this;
+    }
 
-	// ============================================= Targeted-only methods =============================================
+    /**
+     * Sets the seed of the particle being built. If unspecified, this defaults to the particle's default seed,
+     * specified within its constructor (this is normally chosen at random).
+     * <p></p>
+     * <i>Pro tip: to get a particle to stay the same while a continuous spell is in use (but change between casts),
+     * use {@code .seed(world.getTotalWorldTime() - ticksInUse)}.</i>
+     * <p></p>
+     * <b>Affects:</b> All particle types
+     *
+     * @param seed The seed to set
+     * @return The particle builder instance, allowing other methods to be chained onto this one
+     * @throws IllegalStateException if the particle builder is not yet building.
+     */
+    public ParticleBuilder seed(long seed)
+    {
+        if (!building) throw new IllegalStateException("Not building yet!");
+        this.seed = seed;
+        return this;
+    }
 
-	/**
-	 * Sets the target of the particle being built. This will cause the particle to stretch to touch the given position.
-	 * @param x The target x-coordinate to set
-	 * @param y The target y-coordinate to set
-	 * @param z The target z-coordinate to set
-	 * @return The particle builder instance, allowing other methods to be chained onto this one
-	 * @throws IllegalStateException if the particle builder is not yet building.
-	 */
-	public ParticleBuilder target(double x, double y, double z){
-		if(!building) throw new IllegalStateException("Not building yet!");
-		this.tx = x;
-		this.ty = y;
-		this.tz = z;
-		return this;
-	}
+    /**
+     * Sets the spin parameters of the particle being built. If unspecified, these both default to 0.
+     * <p></p>
+     * <b>Affects:</b> All particle types
+     *
+     * @param radius The rotation radius to set
+     * @param speed  The rotation speed to set, in revolutions per tick
+     * @return The particle builder instance, allowing other methods to be chained onto this one
+     * @throws IllegalStateException if the particle builder is not yet building.
+     */
+    public ParticleBuilder spin(double radius, double speed)
+    {
+        if (!building) throw new IllegalStateException("Not building yet!");
+        this.radius = radius;
+        this.rpt = speed;
+        return this;
+    }
 
-	/**
-	 * Sets the target of the particle being built. This is a vector-based alternative to
-	 * {@link ParticleBuilder#target(double, double, double)}, allowing for even more concise code when a vector is
-	 * available.
-	 * @param pos A vector representing the target position of the particle to be built.
-	 * @return The particle builder instance, allowing other methods to be chained onto this one
-	 * @throws IllegalStateException if the particle builder is not yet building.
-	 */
-	public ParticleBuilder target(Vec3d pos){
-		return target(pos.x, pos.y, pos.z);
-	}
+    /**
+     * 设定粒子重力
+     */
+    public ParticleBuilder gravity(boolean gravity)
+    {
+        if (!building) throw new IllegalStateException("Not building yet!");
+        this.gravity = gravity;
+        return this;
+    }
 
-	/**
-	 * Sets the target point velocity of the particle being built. This will cause the position it stretches to touch to move
-	 * at the given velocity. Has no effect unless {@link ParticleBuilder#target(double, double, double)} or one of its
-	 * overloads is also set.
-	 * @param vx The target point x velocity to set
-	 * @param vy The target point y velocity to set
-	 * @param vz The target point z velocity to set
-	 * @return The particle builder instance, allowing other methods to be chained onto this one
-	 * @throws IllegalStateException if the particle builder is not yet building.
-	 */
-	public ParticleBuilder tvel(double vx, double vy, double vz){
-		if(!building) throw new IllegalStateException("Not building yet!");
-		this.tvx = vx;
-		this.tvy = vy;
-		this.tvz = vz;
-		return this;
-	}
+    /**
+     * 设定粒子是否阴影
+     */
+    public ParticleBuilder shaded(boolean shaded)
+    {
+        if (!building) throw new IllegalStateException("Not building yet!");
+        this.shaded = shaded;
+        return this;
+    }
 
-	/**
-	 * Sets the target point velocity of the particle being built. This is a vector-based alternative to
-	 * {@link ParticleBuilder#tvel(double, double, double)}, allowing for even more concise code when a vector is
-	 * available.
-	 * @param vel A vector representing the target point velocity of the particle to be built.
-	 * @return The particle builder instance, allowing other methods to be chained onto this one
-	 * @throws IllegalStateException if the particle builder is not yet building.
-	 */
-	public ParticleBuilder tvel(Vec3d vel){
-		return tvel(vel.x, vel.y, vel.z);
-	}
+    /**
+     * Sets the collisions of the particle being built. If unspecified, this defaults to false.
+     * <p></p>
+     * <b>Affects:</b> All particle types
+     *
+     * @param collide True to enable block collisions for the particle, false to disable
+     * @return The particle builder instance, allowing other methods to be chained onto this one
+     * @throws IllegalStateException if the particle builder is not yet building.
+     */
+    public ParticleBuilder collide(boolean collide)
+    {
+        if (!building) throw new IllegalStateException("Not building yet!");
+        this.collide = collide;
+        return this;
+    }
 
-	/**
-	 * Sets the target and target velocity of the particle being built. This method takes an origin entity and a
-	 * position and estimates the position of the target point based on the given entity's rotational velocities and its
-	 * distance from the given position.
-	 * @param length The length of the particle being built.
-	 * @return The particle builder instance, allowing other methods to be chained onto this one
-	 * @throws IllegalStateException if the particle builder is not yet building.
-	 */
-	public ParticleBuilder length(double length){
-		this.length = length;
-		return this;
-	}
+    /**
+     * 设定粒子关联实体
+     */
+    public ParticleBuilder entity(Entity entity)
+    {
+        if (!building) throw new IllegalStateException("Not building yet!");
+        this.entity = entity;
+        return this;
+    }
 
-	/**
-	 * 设定粒子目标实体
-	 */
-	public ParticleBuilder target(Entity target){
-		if(!building) throw new IllegalStateException("Not building yet!");
-		this.target = target;
-		return this;
-	}
+    // ============================================= Targeted-only methods =============================================
 
-	/**
-	 * 生成粒子
-	 */
-	public void spawn(World world){
+    /**
+     * Sets the rotation of the particle being built. If unspecified, the particle will use the default behaviour and
+     * rotate to face the viewer.
+     * <p></p>
+     * <b>Affects:</b> All particle types
+     *
+     * @param yaw   The yaw angle to set in degrees, where 0 is south.
+     * @param pitch The pitch angle to set in degrees, where 0 is horizontal.
+     * @return The particle builder instance, allowing other methods to be chained onto this one
+     * @throws IllegalStateException if the particle builder is not yet building.
+     */
+    public ParticleBuilder face(float yaw, float pitch)
+    {
+        if (!building) throw new IllegalStateException("Not building yet!");
+        this.yaw = yaw;
+        this.pitch = pitch;
+        return this;
+    }
 
-		if(!building) throw new IllegalStateException("Not building yet!");
+    /**
+     * Sets the rotation of the particle being built. This is an {@code EnumFacing}-based alternative to {@link
+     * ParticleBuilder#face(float, float)} which sets the yaw and pitch to the appropriate angles for the given facing.
+     * For example, if the given facing is {@code NORTH}, the particle will render parallel to the north face of blocks.
+     * If unspecified, the particle will use the default behaviour and rotate to face the viewer.
+     * <p></p>
+     * <b>Affects:</b> All particle types
+     *
+     * @param direction The {@code EnumFacing} direction to set.
+     * @return The particle builder instance, allowing other methods to be chained onto this one
+     * @throws IllegalStateException if the particle builder is not yet building.
+     */
+    public ParticleBuilder face(EnumFacing direction)
+    {
+        return face(direction.getHorizontalAngle(), direction.getAxis().isVertical() ? direction.getAxisDirection().getOffset() * 90 : 0);
+    }
 
-		if(x == 0 && y == 0 && z == 0 && entity == null)
-		{
-			; // 可能有问题
-		}
+    /**
+     * Sets the target of the particle being built. This will cause the particle to stretch to touch the given position.
+     *
+     * @param x The target x-coordinate to set
+     * @param y The target y-coordinate to set
+     * @param z The target z-coordinate to set
+     * @return The particle builder instance, allowing other methods to be chained onto this one
+     * @throws IllegalStateException if the particle builder is not yet building.
+     */
+    public ParticleBuilder target(double x, double y, double z)
+    {
+        if (!building) throw new IllegalStateException("Not building yet!");
+        this.tx = x;
+        this.ty = y;
+        this.tz = z;
+        return this;
+    }
 
-		if(!world.isRemote)
-		{
-			reset();
-			return;
-		}
+    /**
+     * Sets the target of the particle being built. This is a vector-based alternative to
+     * {@link ParticleBuilder#target(double, double, double)}, allowing for even more concise code when a vector is
+     * available.
+     *
+     * @param pos A vector representing the target position of the particle to be built.
+     * @return The particle builder instance, allowing other methods to be chained onto this one
+     * @throws IllegalStateException if the particle builder is not yet building.
+     */
+    public ParticleBuilder target(Vec3d pos)
+    {
+        return target(pos.x, pos.y, pos.z);
+    }
 
-		ParticleBase particle = ParticleFactory.createParticle(type, world, x, y, z);
+    /**
+     * Sets the target point velocity of the particle being built. This will cause the position it stretches to touch to move
+     * at the given velocity. Has no effect unless {@link ParticleBuilder#target(double, double, double)} or one of its
+     * overloads is also set.
+     *
+     * @param vx The target point x velocity to set
+     * @param vy The target point y velocity to set
+     * @param vz The target point z velocity to set
+     * @return The particle builder instance, allowing other methods to be chained onto this one
+     * @throws IllegalStateException if the particle builder is not yet building.
+     */
+    public ParticleBuilder tvel(double vx, double vy, double vz)
+    {
+        if (!building) throw new IllegalStateException("Not building yet!");
+        this.tvx = vx;
+        this.tvy = vy;
+        this.tvz = vz;
+        return this;
+    }
 
-		if(particle == null){
-			// No need to display a warning here, we already did it in the client proxy
-			reset();
-			return;
-		}
+    /**
+     * Sets the target point velocity of the particle being built. This is a vector-based alternative to
+     * {@link ParticleBuilder#tvel(double, double, double)}, allowing for even more concise code when a vector is
+     * available.
+     *
+     * @param vel A vector representing the target point velocity of the particle to be built.
+     * @return The particle builder instance, allowing other methods to be chained onto this one
+     * @throws IllegalStateException if the particle builder is not yet building.
+     */
+    public ParticleBuilder tvel(Vec3d vel)
+    {
+        return tvel(vel.x, vel.y, vel.z);
+    }
 
-		// Anything with an if statement here allows default values to be set in particle constructors
-		if(!Double.isNaN(vx) && !Double.isNaN(vy) && !Double.isNaN(vz)) 	particle.setVelocity(vx, vy, vz);
-		if(r >= 0 && g >= 0 && b >= 0) 										particle.setRBGColorF(r, g, b);
-		if(fr >= 0 && fg >= 0 && fb >= 0)									particle.setFadeColour(fr, fg, fb);
-		if(lifetime >= 0) 													particle.setMaxAge(lifetime);
-		if(radius > 0) 														particle.setSpin(radius, rpt);
-		if(!Float.isNaN(yaw) && !Float.isNaN(pitch)) 						particle.setFacing(yaw, pitch);
-		if(seed != 0)														particle.setSeed(seed);
-		if(!Double.isNaN(tvx) && !Double.isNaN(tvy) && !Double.isNaN(tvz)) 	particle.setTargetVelocity(tvx, tvy, tvz);
-		if(length > 0)														particle.setLength(length);
+    /**
+     * Sets the target and target velocity of the particle being built. This method takes an origin entity and a
+     * position and estimates the position of the target point based on the given entity's rotational velocities and its
+     * distance from the given position.
+     *
+     * @param length The length of the particle being built.
+     * @return The particle builder instance, allowing other methods to be chained onto this one
+     * @throws IllegalStateException if the particle builder is not yet building.
+     */
+    public ParticleBuilder length(double length)
+    {
+        this.length = length;
+        return this;
+    }
 
-		particle.multipleParticleScaleBy(scale);
-		particle.setGravity(gravity);
-		particle.setShaded(shaded);
-		particle.setCollisions(collide);
-		particle.setEntity(entity);
-		particle.setTargetPosition(tx, ty, tz);
-		particle.setTargetEntity(target);
+    /**
+     * 设定粒子目标实体
+     */
+    public ParticleBuilder target(Entity target)
+    {
+        if (!building) throw new IllegalStateException("Not building yet!");
+        this.target = target;
+        return this;
+    }
 
-		net.minecraft.client.Minecraft.getMinecraft().effectRenderer.addEffect(particle);
+    // ============================================== Convenience methods ==============================================
 
-		reset();
-	}
+    // These may seem to go against the whole point of this class, but of course they return the ParticleBuilder instance
+    // so anything else can still be chained onto them - centralising commonly-used particle spawning patterns without
+    // losing any of the flexibility of the particle builder. In addition, callers of these methods are still free to
+    // change any of the parameters that were set within them afterwards.
 
-	/** Resets the state of the particle builder and resets all the builder variables to their default values. */
-	public void reset(){
-		building = false;
-		type = null;
-		x = 0;
-		y = 0;
-		z = 0;
-		// NaN indicates the velocity was not set (can't use -1 since it could very reasonably be -1)
-		// For all other values -1 indicates the value was not set
-		vx = Double.NaN;
-		vy = Double.NaN;
-		vz = Double.NaN;
-		r = -1;
-		g = -1;
-		b = -1;
-		fr = -1;
-		fg = -1;
-		fb = -1;
-		radius = 0;
-		rpt = 0;
-		lifetime = -1;
-		gravity = false;
-		shaded = false;
-		collide = false;
-		scale = 1;
-		entity = null;
-		yaw = Float.NaN;
-		pitch = Float.NaN;
-		tx = Double.NaN;
-		ty = Double.NaN;
-		tz = Double.NaN;
-		tvx = Double.NaN;
-		tvy = Double.NaN;
-		tvz = Double.NaN;
-		target = null;
-		seed = 0;
-		length = -1;
-	}
+    /**
+     * 生成粒子
+     */
+    public void spawn(World world)
+    {
 
-	// ============================================== Convenience methods ==============================================
+        if (!building) throw new IllegalStateException("Not building yet!");
 
-	// These may seem to go against the whole point of this class, but of course they return the ParticleBuilder instance
-	// so anything else can still be chained onto them - centralising commonly-used particle spawning patterns without
-	// losing any of the flexibility of the particle builder. In addition, callers of these methods are still free to
-	// change any of the parameters that were set within them afterwards.
+        if (x == 0 && y == 0 && z == 0 && entity == null)
+        {
+            ; // 可能有问题
+        }
 
-	/**
-	 * Starts building a particle of the given type and positions it randomly within the given entity's bounding box.
-	 * Equivalent to calling {@code ParticleBuilder.create(type).pos(...)}; users should chain any additional builder
-	 * methods onto this one and finish with {@code .spawn(world)} as normal.
-	 * Used extensively with summoned creatures; makes code much neater and more concise.
-	 * <p></p>
-	 * <i>N.B. this does <b>not</b> cause the particle to move with the given entity.</i>
-	 * @param type The type of particle to build
-	 * @param entity The entity to position the particle at
-	 * @return The particle builder instance, allowing other methods to be chained onto this one
-	 * @throws IllegalStateException if the particle builder is already building.
-	 */
-	public static ParticleBuilder create(ResourceLocation type, Entity entity){
+        if (!world.isRemote)
+        {
+            reset();
+            return;
+        }
 
-		double x = entity.posX + (entity.world.rand.nextDouble() - 0.5D) * (double)entity.width;
-		double y = entity.posY + entity.world.rand.nextDouble() * (double)entity.height;
-		double z = entity.posZ + (entity.world.rand.nextDouble() - 0.5D) * (double)entity.width;
+        ParticleBase particle = ParticleFactory.createParticle(type, world, x, y, z);
 
-		return ParticleBuilder.instance.particle(type).pos(x, y, z);
-	}
+        if (particle == null)
+        {
+            // No need to display a warning here, we already did it in the client proxy
+            reset();
+            return;
+        }
 
-	/**
-	 * Starts building a particle of the given type and positions it randomly within the given radius of the given position,
-	 * with velocity proportional to distance from the given position if move is true. Good for making explosion-type effects.
-	 * Equivalent to calling {@code ParticleBuilder.create(type).pos(...).vel(...)}; users should chain any additional builder
-	 * methods onto this one and finish with {@code .spawn(world)} as normal.
-	 * @param type The type of particle to build
-	 * @param random An RNG instance
-	 * @param x The x coordinate of the centre of the region in which to position the particle
-	 * @param y The y coordinate of the centre of the region in which to position the particle
-	 * @param z The z coordinate of the centre of the region in which to position the particle
-	 * @param radius The radius of the region in which to position the particle
-	 * @param move Whether the particle should move outwards from the centre (note that if this is false, the particle's
-	 * default velocity will apply)
-	 * @return The particle builder instance, allowing other methods to be chained onto this one
-	 * @throws IllegalStateException if the particle builder is already building.
-	 */
-	public static ParticleBuilder create(ResourceLocation type, Random random, double x, double y, double z, double radius, boolean move){
+        // Anything with an if statement here allows default values to be set in particle constructors
+        if (!Double.isNaN(vx) && !Double.isNaN(vy) && !Double.isNaN(vz)) particle.setVelocity(vx, vy, vz);
+        if (r >= 0 && g >= 0 && b >= 0) particle.setRBGColorF(r, g, b);
+        if (fr >= 0 && fg >= 0 && fb >= 0) particle.setFadeColour(fr, fg, fb);
+        if (lifetime >= 0) particle.setMaxAge(lifetime);
+        if (radius > 0) particle.setSpin(radius, rpt);
+        if (!Float.isNaN(yaw) && !Float.isNaN(pitch)) particle.setFacing(yaw, pitch);
+        if (seed != 0) particle.setSeed(seed);
+        if (!Double.isNaN(tvx) && !Double.isNaN(tvy) && !Double.isNaN(tvz)) particle.setTargetVelocity(tvx, tvy, tvz);
+        if (length > 0) particle.setLength(length);
 
-		double px = x + (random.nextDouble()*2 - 1) * radius;
-		double py = y + (random.nextDouble()*2 - 1) * radius;
-		double pz = z + (random.nextDouble()*2 - 1) * radius;
+        particle.multipleParticleScaleBy(scale);
+        particle.setGravity(gravity);
+        particle.setShaded(shaded);
+        particle.setCollisions(collide);
+        particle.setEntity(entity);
+        particle.setTargetPosition(tx, ty, tz);
+        particle.setTargetEntity(target);
 
-		if(move) return ParticleBuilder.instance.particle(type).pos(px, py, pz).vel(px-x, py-y, pz-z);
+        net.minecraft.client.Minecraft.getMinecraft().effectRenderer.addEffect(particle);
 
-		return ParticleBuilder.instance.particle(type).pos(px, py, pz);
-	}
+        reset();
+    }
+
+    /**
+     * Resets the state of the particle builder and resets all the builder variables to their default values.
+     */
+    public void reset()
+    {
+        building = false;
+        type = null;
+        x = 0;
+        y = 0;
+        z = 0;
+        // NaN indicates the velocity was not set (can't use -1 since it could very reasonably be -1)
+        // For all other values -1 indicates the value was not set
+        vx = Double.NaN;
+        vy = Double.NaN;
+        vz = Double.NaN;
+        r = -1;
+        g = -1;
+        b = -1;
+        fr = -1;
+        fg = -1;
+        fb = -1;
+        radius = 0;
+        rpt = 0;
+        lifetime = -1;
+        gravity = false;
+        shaded = false;
+        collide = false;
+        scale = 1;
+        entity = null;
+        yaw = Float.NaN;
+        pitch = Float.NaN;
+        tx = Double.NaN;
+        ty = Double.NaN;
+        tz = Double.NaN;
+        tvx = Double.NaN;
+        tvy = Double.NaN;
+        tvz = Double.NaN;
+        target = null;
+        seed = 0;
+        length = -1;
+    }
 
 }

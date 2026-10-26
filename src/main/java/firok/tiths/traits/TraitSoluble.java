@@ -15,17 +15,17 @@ import static firok.tiths.util.Predicates.canTick;
 // 可溶
 public class TraitSoluble extends AbstractTrait
 {
-	public TraitSoluble()
-	{
-		super(nameTraitSoluble, colorTraitSoluble);
-	}
+    public TraitSoluble()
+    {
+        super(nameTraitSoluble, colorTraitSoluble);
+    }
 
-	@Override
-	public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
-	{
-		if(!world.isRemote && isSelected && canTick(world,15,2) && entity.isInWater())
-		{
-			ToolHelper.damageTool(tool, Configs.Traits.factor_soluble, (EntityLivingBase) entity);
-		}
-	}
+    @Override
+    public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
+    {
+        if (!world.isRemote && isSelected && canTick(world, 15, 2) && entity.isInWater())
+        {
+            ToolHelper.damageTool(tool, Configs.Traits.factor_soluble, (EntityLivingBase) entity);
+        }
+    }
 }

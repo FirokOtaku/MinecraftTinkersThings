@@ -16,27 +16,27 @@ import static firok.tiths.util.Predicates.canTrigger;
 // 诱食
 public class TraitDecoying extends AbstractTrait
 {
-	public TraitDecoying()
-	{
-		super(nameTraitDecoying, colorTraitDecoying);
-	}
+    public TraitDecoying()
+    {
+        super(nameTraitDecoying, colorTraitDecoying);
+    }
 
-	@Override
-	public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective)
-	{
-		if(!world.isRemote && canTrigger(world, Configs.Traits.rate_decoying_use))
-		{
-			Actions.CauseSpawningPassives(player);
-		}
-	}
+    @Override
+    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective)
+    {
+        if (!world.isRemote && canTrigger(world, Configs.Traits.rate_decoying_use))
+        {
+            Actions.CauseSpawningPassives(player);
+        }
+    }
 
-	@Override
-	public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
-	{
-		if(!target.getEntityWorld().isRemote && canTrigger(player.world, Configs.Traits.rate_decoying_use))
-		{
-			Actions.CauseSpawningPassives(player);
-		}
-	}
+    @Override
+    public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit)
+    {
+        if (!target.getEntityWorld().isRemote && canTrigger(player.world, Configs.Traits.rate_decoying_use))
+        {
+            Actions.CauseSpawningPassives(player);
+        }
+    }
 
 }
