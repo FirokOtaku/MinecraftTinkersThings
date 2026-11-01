@@ -1,5 +1,7 @@
 package firok.tiths.traits;
 
+import firok.tiths.TinkersThings;
+import firok.tiths.common.SoundEvents;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
@@ -13,6 +15,7 @@ import slimeknights.tconstruct.library.utils.ToolHelper;
 import static firok.tiths.common.Keys.colorTraitIcy;
 import static firok.tiths.common.Keys.nameTraitIcy;
 import static firok.tiths.util.Predicates.canTick;
+import static firok.tiths.util.Predicates.canTrigger;
 
 // 冰冷
 public class TraitIcy extends AbstractTrait
@@ -47,6 +50,24 @@ public class TraitIcy extends AbstractTrait
         return !world.isRemote && canTick(world, 80, 2);
     }
 
+    /** 当前温度是否足以触发耐久增减 */
+    public static boolean isDurabilityEffectActive(Entity entity)
+    {
+        return (int) calcAmount(entity) != 0;
+    }
+
+    /** 客户端：正在触发耐久变化时，约每 6 秒播放一次冰裂音效 */
+    public static void tryPlayIceCrackSound(Entity entity)
+    {
+        if (entity == null || entity.world == null || !entity.world.isRemote) return;
+        if (!isDurabilityEffectActive(entity)) return;
+        if (!canTrigger(TinkersThings.randClient, 1.0 / 120)) return;
+
+        float volume = 0.15f + (TinkersThings.randClient.nextFloat() * 0.1f - 0.05f);
+        float pitch = 1 + (TinkersThings.randClient.nextFloat() * 0.4f - 0.2f);
+        entity.playSound(SoundEvents.effectIceCrack, volume, pitch);
+    }
+
     @Override
     public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected)
     {
@@ -55,6 +76,10 @@ public class TraitIcy extends AbstractTrait
             int amount = (int) calcAmount(entity);
             if (amount > 0) ToolHelper.healTool(tool, amount, (EntityLivingBase) entity);
             else if (amount < 0) ToolHelper.damageTool(tool, -amount, (EntityLivingBase) entity);
+        }
+        if (!ToolHelper.isBroken(tool))
+        {
+            tryPlayIceCrackSound(entity);
         }
     }
 

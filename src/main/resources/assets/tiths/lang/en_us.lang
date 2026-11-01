@@ -530,7 +530,7 @@ modifier.inky.desc=§oIt’s dark out here§r\nTo blind your enemy
 modifier.inky.name=Inky
 modifier.life_inspiring.desc=§oI won't go die easily§r\nTo provide regeneration effect when user is in danger
 modifier.life_inspiring.name=Life Inspiring
-modifier.lionheart.desc=§oYou no longer fear§r\nEvery time you hit enemy, this will provide you a lionheart effect
+modifier.lionheart.desc=§oYou no longer fear§r\nEvery time you hit enemy, this will provide you a lionheart effect, which boosting your defense
 modifier.lionheart.name=Lionheart
 modifier.luxurious.desc=§oSomeone would like this§r\nGet less durability during repairing
 modifier.luxurious.name=Luxurious
@@ -878,6 +878,23 @@ potion.effect.weakened_pestilential=Potion of Weakened Pestilential
 lingering_potion.effect.weakened_pestilential=Lingering Potion of Weakened Pestilential
 splash_potion.effect.weakened_pestilential=Splash Potion of Weakened Pestilential
 tipped_arrow.effect.weakened_pestilential=Arrow of Weakened Pestilential
+
+## sound
+
+tiths.sound.tinkers_efforts=Music Disc plays: Tinkers' Efforts
+tiths.sound.tinkers_will=Music Disc plays: Tinkers' Will
+tiths.sound.tinkers_imagination=Music Disc plays: Tinkers' Imagination
+tiths.sound.heal_effect=Healing
+tiths.sound.shake_effect=Shaking
+tiths.sound.fire_effect=Fire crackles
+tiths.sound.swing_effect=Something swings
+tiths.sound.transforming_effect=Something transforms
+tiths.sound.forward_effect=Something rushes forward
+tiths.sound.force_field_effect=Force field hums
+tiths.sound.bubble_effect=Bubbles
+tiths.sound.friction_effect=Friction scrapes
+tiths.sound.ice_crack_effect=Ice cracks
+tiths.sound.igniting_effect=Something ignites
 
 ## death
 

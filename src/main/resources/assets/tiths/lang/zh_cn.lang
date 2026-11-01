@@ -531,7 +531,7 @@ modifier.inky.desc=§o黑乎乎的§r\n使敌人失明
 modifier.inky.name=墨染
 modifier.life_inspiring.desc=§o我不会轻易狗带§r\n在使用者生命危急时提供生命恢复效果
 modifier.life_inspiring.name=生命激发
-modifier.lionheart.desc=§o你不再恐惧§r\n每次命中敌人都会叠加一个狮心效果
+modifier.lionheart.desc=§o你不再恐惧§r\n每次命中敌人都会叠加一层狮心效果, 提高防御力
 modifier.lionheart.name=狮心
 modifier.luxurious.desc=§o富裕人喜欢的玩意§r\n维修时恢复更少耐久
 modifier.luxurious.name=奢华
@@ -878,6 +878,23 @@ potion.effect.weakened_pestilential=弱化瘟疫药水
 lingering_potion.effect.weakened_pestilential=滞留型弱化瘟疫药水
 splash_potion.effect.weakened_pestilential=喷溅型弱化瘟疫药水
 tipped_arrow.effect.weakened_pestilential=弱化瘟疫之箭
+
+## sound
+
+tiths.sound.tinkers_efforts=唱片播放：Tinkers' Efforts
+tiths.sound.tinkers_will=唱片播放：Tinkers' Will
+tiths.sound.tinkers_imagination=唱片播放：Tinkers' Imagination
+tiths.sound.heal_effect=治疗
+tiths.sound.shake_effect=撼击
+tiths.sound.fire_effect=火焰
+tiths.sound.swing_effect=挥动
+tiths.sound.transforming_effect=转化
+tiths.sound.forward_effect=突进
+tiths.sound.force_field_effect=力场
+tiths.sound.bubble_effect=气泡
+tiths.sound.friction_effect=摩擦
+tiths.sound.ice_crack_effect=冰块碎裂
+tiths.sound.igniting_effect=点燃
 
 ## death
 

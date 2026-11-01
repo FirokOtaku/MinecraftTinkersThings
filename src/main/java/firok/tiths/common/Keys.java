@@ -795,6 +795,8 @@ public interface Keys
     String soundForceFieldEffect = "force_field_effect";
     String soundBubbleEffect = "bubble_effect";
     String soundFrictionEffect = "friction_effect";
+    String soundIceCrackEffect = "ice_crack_effect";
+    String soundIgnitingEffect = "igniting_effect";
 
 //	String configBase="config."+TinkersThings.MOD_ID+'.';
 //	String cateGeneral=configBase+"general";

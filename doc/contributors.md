@@ -25,9 +25,9 @@ Wu|💡
 
 ## 关于音效和音乐 About sounds and musics
 
-本模组所用音效和音乐均来自[Free Sound](https://freesound.org/)网站 All sounds and musics of this mod are from [Free Sound](https://freesound.org/)
+本模组所用音效和音乐均来自[Free Sound](https://freesound.org/)和[ZapSplat](http://zapsplat.com/)网站 All sounds and musics of this mod are from [Free Sound](https://freesound.org/) and [ZapSplat](http://zapsplat.com/)
 
-您使用本模组的资源文件时, 请注意遵守相应的CC协议 When you use the resources of this mod, please pay attention to the corresponding Creative Commons license
+您使用本模组的资源文件时, 请注意遵守相应的CC或ZapSplat标准协议 When you use the resources of this mod, please pay attention to the corresponding Creative Commons license or ZapSplat Standard License
 
 游戏内名称 in-game name|原名称 original name|作者 author|对原作品修改 modification|遵循协议 licence|原作链接 link
 -|-|-|-|-|-
@@ -53,6 +53,8 @@ Forward Effect|shimmer_synth_3|wangzhuokun|无 none|CC0 1.0|[Link](https://frees
 Force Field Effect|Force Field 02|Glitchedtones|变速 speed changed|CC 0|[Link](https://freesound.org/people/Glitchedtones/sounds/375918/)
 Bubble Effect|Boiling Water, Large, A|InspectorJ|裁剪 trimmed|CC BY 3.0|[Link](https://freesound.org/people/InspectorJ/sounds/412843/)
 Friction Effect|dragging|caoimhe_s1|裁剪 trimmed|CC 0|[Link](https://freesound.org/people/caoimhe_s1/sounds/268909/)
+Icy Effect | ICEFric_Clean Ice Cracks 01_Slava Pogorelsky_CMI | Slava Pogorelsky | 裁剪 trimmed | ZapSplat - Standard License Agreement | [Link](https://www.zapsplat.com/license-type/standard-license/)
+Igniting Effect | zapsplat_sound_design_fire_whoosh_fast_heavy_flame_112137 | ZapSplat | 裁剪 变速 淡出音效 trimmed, speed changed, fade-out effected | ZapSplat - Standard License Agreement | [Link](https://www.zapsplat.com/sound-effect-packs/fire-whooshes/)
 
 ## 关于 AI 生成内容 About AI-generated content
 

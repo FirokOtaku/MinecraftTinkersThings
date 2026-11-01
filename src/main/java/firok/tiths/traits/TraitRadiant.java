@@ -1,6 +1,7 @@
 package firok.tiths.traits;
 
 import firok.tiths.common.Configs;
+import firok.tiths.common.SoundEvents;
 import firok.tiths.util.EntityFinders;
 import firok.tiths.util.Predicates;
 import firok.tiths.util.Selectors;
@@ -13,6 +14,7 @@ import net.minecraft.init.Enchantments;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.world.BlockEvent;
@@ -51,6 +53,25 @@ public class TraitRadiant extends AbstractTrait
     }
 
     /**
+     * 点燃实体; 仅在实体先前未着火时播放点燃音效
+     */
+    public static void ignite(Entity entity, int seconds)
+    {
+        if (entity == null || entity.world == null || entity.isInWater() || entity.isWet()) return;
+
+        boolean wasBurning = entity.isBurning();
+        entity.setFire(seconds);
+
+        if (!wasBurning && !entity.world.isRemote)
+        {
+            float volume = 0.35f + (entity.world.rand.nextFloat() * 0.1f - 0.05f);
+            float pitch = 1 + (entity.world.rand.nextFloat() * 0.4f - 0.2f);
+            entity.world.playSound(null, entity.posX, entity.posY, entity.posZ,
+                    SoundEvents.effectIgniting, SoundCategory.MASTER, volume, pitch);
+        }
+    }
+
+    /**
      * 灼烧效果
      */
     public static void burn(World world, Entity source)
@@ -59,7 +80,7 @@ public class TraitRadiant extends AbstractTrait
         if (ens.size() > 0)
             for (Entity en : ens)
             {
-                en.setFire(5);
+                ignite(en, 5);
             }
     }
 
@@ -110,7 +131,7 @@ public class TraitRadiant extends AbstractTrait
         super.afterHit(tool, player, target, damageDealt, wasCritical, wasHit);
         if (wasHit && player.isServerWorld() && target.isEntityAlive())
         {
-            target.setFire(10);
+            ignite(target, 10);
         }
     }
 

@@ -104,5 +104,22 @@
       "tiths:effects/friction_2",
       "tiths:effects/friction_3"
     ]
+  },
+  "ice_crack_effect": {
+    "category": "master",
+    "subtitle": "tiths.sound.ice_crack_effect",
+    "sounds": [
+      "tiths:effects/ice_crack_1",
+      "tiths:effects/ice_crack_2",
+      "tiths:effects/ice_crack_3",
+      "tiths:effects/ice_crack_4"
+    ]
+  },
+  "igniting_effect": {
+    "category": "master",
+    "subtitle": "tiths.sound.igniting_effect",
+    "sounds": [
+      "tiths:effects/igniting"
+    ]
   }
 }

@@ -27,6 +27,8 @@ public final class SoundEvents
     public static final SoundEvent effectForceField = $(Keys.soundForceFieldEffect);
     public static final SoundEvent effectBubble = $(Keys.soundBubbleEffect);
     public static final SoundEvent effectFriction = $(Keys.soundFrictionEffect);
+    public static final SoundEvent effectIceCrack = $(Keys.soundIceCrackEffect);
+    public static final SoundEvent effectIgniting = $(Keys.soundIgnitingEffect);
     private SoundEvents() {}
 
     /**

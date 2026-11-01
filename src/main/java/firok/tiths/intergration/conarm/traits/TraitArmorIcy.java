@@ -11,6 +11,7 @@ import static firok.tiths.common.Keys.colorTraitIcy;
 import static firok.tiths.common.Keys.nameTraitIcy;
 import static firok.tiths.traits.TraitIcy.calcAmount;
 import static firok.tiths.traits.TraitIcy.canEffect;
+import static firok.tiths.traits.TraitIcy.tryPlayIceCrackSound;
 
 /**
  * 冰凉 - 护甲
@@ -31,6 +32,6 @@ public class TraitArmorIcy extends AbstractArmorTrait
             if (amount > 0) ArmorHelper.healArmor(tool, amount, player, 0);
             else if (amount < 0) ArmorHelper.damageArmor(tool, DamageSource.GENERIC, -amount, player, 0);
         }
-
+        tryPlayIceCrackSound(player);
     }
 }

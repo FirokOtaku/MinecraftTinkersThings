@@ -2,7 +2,12 @@
 
 > All Time Stamps: GMT+8
 
-## 0.3.34.0 _2026-10-26 23:00_
+## 0.3.36.0 _2026-11-01 21:30_
+
+* 为冰凉和辉耀效果添加音效 added sound effects to icy and radiant trait
+* 为音效补充缺失的语言文件内容 added missing language file content for sound effects
+
+## 0.3.35.0 _2026-10-26 23:00_
 
 * 添加平和状态效果 added peaceful potion effect
 * 添加末影乱流糖果 added ender turbulence candy
