@@ -31,14 +31,14 @@ public class PotionInky extends BasePotion
     @Override
     public boolean isReady(int tick, int level)
     {
-        return canTick(tick, 4, 2);
+        return canTick(tick, 4, 0);
     }
 
     @Override
     public void performEffect(EntityLivingBase entity, int level)
     {
         if(entity.isServerWorld()) return;
-        if (!canTrigger(TinkersThings.randClient, 0.3)) return;
+//        if (!canTrigger(TinkersThings.randClient, 0.6)) return;
 
         double x = entity.posX + (TinkersThings.randClient.nextDouble() - 0.5) * entity.width * 0.9;
         double y = entity.posY + entity.height * (0.20 + TinkersThings.randClient.nextDouble() * 0.75);

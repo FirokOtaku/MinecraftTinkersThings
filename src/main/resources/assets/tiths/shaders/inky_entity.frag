@@ -1,24 +1,35 @@
 #version 120
 
-// 墨染 - 生物实体染色着色器
+// Inky - entity darkening shader.
 //
-// 这是一个只包含片元阶段的程序, 顶点阶段依然交给固定管线处理.
-// 原版和匠魂的实体模型都是直接提交顶点数组 / 显示列表的,
-// 如果写成完整的 vertex + fragment 程序, 就得自己负责所有顶点属性的绑定,
-// 与其它渲染类模组 (以及匠魂自己的模型系统) 冲突的风险会大得多.
-// 只写着色器程序里的片元阶段时, 固定管线依旧会填好
-// gl_Color (当前顶点色), gl_TexCoord[] (各纹理单元的坐标) 和 gl_FogFragCoord,
-// 其中光照贴图的坐标已经由 EntityRenderer#enableLightmap 的纹理矩阵归一化好了.
+// Fragment-stage-only program: the vertex stage stays on the fixed-function
+// pipeline. Vanilla and Tinkers' entity models submit raw vertex arrays /
+// display lists, so a full vertex+fragment program would have to re-bind all
+// vertex attributes itself and would be much more likely to conflict with
+// other rendering mods. With only a fragment stage, the fixed pipeline still
+// fills in gl_Color / gl_TexCoord[] / gl_FogFragCoord; the lightmap
+// coordinates are already normalized by the texture matrix set up in
+// EntityRenderer#enableLightmap.
+//
+// NOTE: keep this file ASCII-only. Some drivers silently mis-parse shader
+// sources containing non-ASCII bytes (even inside comments), producing a
+// program that links successfully but has no active uniforms.
+//
+// What this shader does: sample texture * vertex color * lightmap like the
+// fixed pipeline would, then blend towards an ink color and darken overall,
+// so the mob looks soaked in ink. Since the shader takes over the fragment
+// stage, vanilla fog and the hurt red flash (both fixed-function features)
+// have to be re-implemented here manually.
 
-uniform sampler2D uTexture;   // 纹理单元 0: 实体贴图
-uniform sampler2D uLightmap;  // 纹理单元 1: 光照贴图
-uniform float uInkAmount;     // 0 - 1, 墨水覆盖程度
-uniform vec3 uInkColor;       // 墨水颜色
-uniform float uHurt;          // 0 - 1, 受击红闪程度
+uniform sampler2D uTexture;   // texture unit 0: entity texture
+uniform sampler2D uLightmap;  // texture unit 1: lightmap
+uniform float uInkAmount;     // 0 - 1, ink coverage
+uniform vec3 uInkColor;       // ink color
+uniform float uHurt;          // 0 - 1, hurt flash amount
 
-// 雾 (着色器接管片元阶段以后, 原版通过固定管线做的雾就失效了, 需要手动补上)
+// fog (re-implemented because the fixed-function fog is bypassed)
 uniform float uFogEnabled;    // 0 / 1
-uniform float uFogMode;       // 0 - 线性, 1 - 指数, 2 - 指数平方
+uniform float uFogMode;       // 0 - linear, 1 - exp, 2 - exp2
 uniform vec3 uFogColor;
 uniform float uFogStart;
 uniform float uFogEnd;
@@ -46,20 +57,20 @@ float fogFactor()
 
 void main()
 {
-    // 手动复刻固定管线: 贴图 * 顶点色 * 光照贴图
+    // replicate the fixed pipeline: texture * vertex color * lightmap
     vec4 tex = texture2D(uTexture, gl_TexCoord[0].st);
     vec4 light = texture2D(uLightmap, gl_TexCoord[1].st);
     vec4 color = tex * gl_Color * light;
 
-    // 亮度用来保留一点形体细节, 同时避免整只生物糊成一块纯黑色
+    // luma keeps some body detail so the mob does not become a flat black blob
     float luma = dot(color.rgb, vec3(0.299, 0.587, 0.114));
     vec3 inked = uInkColor * (0.30 + 1.10 * luma);
 
-    // 向墨色靠拢, 再整体压暗
+    // blend towards ink, then darken overall
     color.rgb = mix(color.rgb, inked, uInkAmount);
     color.rgb *= 1.0 - 0.35 * uInkAmount;
 
-    // 保留原版的受击红闪手感
+    // keep the vanilla hurt red flash
     color.rgb = mix(color.rgb, vec3(1.0, 0.05, 0.05), uHurt * 0.6);
 
     if (uFogEnabled > 0.5)
