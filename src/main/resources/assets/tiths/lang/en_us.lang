@@ -819,6 +819,12 @@ lingering_potion.effect.illuminating=Lingering Potion of Illuminating
 splash_potion.effect.illuminating=Splash Potion of Illuminating
 tipped_arrow.effect.illuminating=Arrow of Illuminating
 
+effect.inky=Inky
+potion.effect.inky=Potion of Inky
+lingering_potion.effect.inky=Lingering Potion of Inky
+splash_potion.effect.inky=Splash Potion of Inky
+tipped_arrow.effect.inky=Arrow of Inky
+
 effect.leaves_hiding=Leaves Hiding
 potion.effect.leaves_hiding=Potion of Leaves Hiding
 lingering_potion.effect.leaves_hiding=Lingering Potion of Leaves Hiding

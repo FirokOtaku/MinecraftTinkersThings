@@ -57,5 +57,6 @@ public final class Potions
     public static BasePotion farmland_trampler = new BasePotion(icon("farmland_trampler"), true, colorPotionFarmlandTrampler, false); // 践踏农田 (隐藏状态)
     public static BasePotion tranquilized = new PotionTranquilized(); // 镇定
     public static BasePotion peaceful = new PotionPeaceful(); // 平和
+    public static BasePotion inky = new PotionInky(); // 墨染
     private Potions() {}
 }

@@ -741,6 +741,7 @@ public interface Keys
     int colorPotionFarmlandTrampler = 0x5a5919;
     int colorPotionTranquilized = colorTraitTranquilizing;
     int colorPotionPeaceful = 0xADD8E6;
+    int colorPotionInky = 0x1b1830;
 
     // 状态效果属性修饰符uuid
     String uuidPotionAvatarSpeed = "258A83A5-A3BD-4CFD-842C-B2DF39343C91";
@@ -762,6 +763,8 @@ public interface Keys
     String uuidPotionHardIceToughness = "F8FABC23-01C9-4A47-8339-4B90DD8C6345";
     String uuidPotionTranquilizedFollowRange = "4658DD50-1608-4EB3-BAF9-1AFECDE7EF6B";
     String uuidPotionPeacefulDamage = "A3C7E1F2-8B4D-4A6E-9C01-5D2F7A8B9E0C";
+    String uuidPotionInkyFollowRange = "3C1F7A62-9E4B-4D18-8A57-6B2C0D9E4F31";
+    String uuidPotionInkyAttackSpeed = "7D2A4B19-0F83-4C6E-B5D2-8E1A93C74F02";
     String uuidTraitSolubleSwimSpeed = "E42481C5-6AA3-4A74-A992-22AD533C88CC";
 
     // 燃料热值

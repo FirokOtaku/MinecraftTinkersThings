@@ -21,6 +21,7 @@ public final class ParticleType
     static List<ParticleType> types = new ArrayList<>();
     public static ParticleType STAR = new ParticleType("star", ParticleStar::new);
     public static ParticleType SMOKE_BALL = new ParticleType("smoke_ball", ParticleSmokeBall::new);
+    public static ParticleType INKY_DRIP = new ParticleType("inky_drip", ParticleInkyDrip::new);
     public final ResourceLocation rlMain; // 用于召唤粒子用的
     public final ResourceLocation rlTexture; // 用于注册材质用的 // 暂时没用
     public final IParticleFactory factory;

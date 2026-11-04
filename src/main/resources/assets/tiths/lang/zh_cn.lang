@@ -819,6 +819,12 @@ lingering_potion.effect.illuminating=滞留型灯明药水
 splash_potion.effect.illuminating=喷溅型灯明药水
 tipped_arrow.effect.illuminating=灯明之箭
 
+effect.inky=墨染
+potion.effect.inky=墨染药水
+lingering_potion.effect.inky=滞留型墨染药水
+splash_potion.effect.inky=喷溅型墨染药水
+tipped_arrow.effect.inky=墨染之箭
+
 effect.leaves_hiding=蔽叶
 potion.effect.leaves_hiding=蔽叶药水
 lingering_potion.effect.leaves_hiding=滞留型蔽叶药水

@@ -2,6 +2,7 @@ package firok.tiths.traits;
 
 import com.google.common.collect.ImmutableList;
 import firok.tiths.common.Configs;
+import firok.tiths.common.Potions;
 import firok.tiths.util.InnerActions;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
@@ -35,6 +36,8 @@ public class TraitInky extends AbstractTrait implements IModifierDisplay
         if (wasHit && target.isEntityAlive())
         {
             target.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, Configs.Traits.factor_inky));
+            // 墨染状态: 降低索敌范围和攻击速度, 并在客户端产生墨水视觉效果
+            target.addPotionEffect(new PotionEffect(Potions.inky, Configs.Traits.factor_inky));
         }
     }
 

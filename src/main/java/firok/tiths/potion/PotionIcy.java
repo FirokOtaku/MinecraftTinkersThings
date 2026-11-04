@@ -6,7 +6,7 @@ import net.minecraft.entity.EntityLivingBase;
 import static firok.tiths.util.Predicates.canTick;
 
 /**
- * 酸蚀
+ * 清凉
  */
 public class PotionIcy extends BasePotion
 {
