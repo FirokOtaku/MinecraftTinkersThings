@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "tiths:block_crystallizer" },
+    "facing=south": { "model": "tiths:block_crystallizer", "y": 180 },
+    "facing=west":  { "model": "tiths:block_crystallizer", "y": 270 },
+    "facing=east":  { "model": "tiths:block_crystallizer", "y": 90 }
+  }
+}

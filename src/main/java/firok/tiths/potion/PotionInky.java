@@ -3,6 +3,7 @@ package firok.tiths.potion;
 import firok.tiths.TinkersThings;
 import firok.tiths.client.particle.ParticleBuilder;
 import firok.tiths.client.particle.ParticleType;
+import firok.tiths.common.sync.InkyEffectSync;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 
@@ -16,10 +17,13 @@ import static firok.tiths.util.Predicates.canTrigger;
  * 墨染
  * <p>
  * 降低被墨水浸透的生物的索敌范围 (75%) 和攻击速度 (25%);
- * 至于"看起来被墨水糊住"的视觉效果, 由客户端渲染部分负责
+ * 客户端视觉方面: 墨滴粒子在这里生成 (仅当实体确实带有本效果时 {@code performEffect} 才会被调用);
+ * 整体染黑则由渲染着色器负责.
  * </p>
  *
  * @see firok.tiths.client.render.ShaderInkyEntity
+ * @see firok.tiths.client.render.RenderInkyEffect
+ * @see InkyEffectSync
  */
 public class PotionInky extends BasePotion
 {
@@ -37,8 +41,9 @@ public class PotionInky extends BasePotion
     @Override
     public void performEffect(EntityLivingBase entity, int level)
     {
-        if(entity.isServerWorld()) return;
-//        if (!canTrigger(TinkersThings.randClient, 0.6)) return;
+        // 只在客户端生成粒子; 服务端早退, 避免无意义开销
+        if (!entity.world.isRemote) return;
+        if (!canTrigger(TinkersThings.randClient, 0.35)) return;
 
         double x = entity.posX + (TinkersThings.randClient.nextDouble() - 0.5) * entity.width * 0.9;
         double y = entity.posY + entity.height * (0.20 + TinkersThings.randClient.nextDouble() * 0.75);

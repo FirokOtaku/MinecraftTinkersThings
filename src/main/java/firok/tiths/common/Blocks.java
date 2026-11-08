@@ -153,8 +153,12 @@ public final class Blocks
     public static final Block blockNitre = new BlockCompressed(Material.ROCK); // 硝石块
     @Reg(Keys.blockOpal)
     public static final Block blockOpal = new BlockCompressed(Material.ROCK).enableTransparent().setBeaconBase(); // 欧珀块
+    @Reg(Keys.blockOrystal)
+    public static final Block blockOrystal = new BlockCompressed(Material.GLASS).enableTransparent(); // 原晶块
     @Reg(Keys.blockOraclium)
     public static final Block blockOraclium = new BlockCompressed().setBeaconBase(); // 神谕块
+    @Reg(Keys.blockCrystallizer)
+    public static final Block blockCrystallizer = new BlockCrystallizer(); // 结晶器
     @Reg(Keys.blockPolarium)
     public static final Block blockPolarium = new BlockCompressed().setBeaconBase(); // 勾陈块
     @Reg(Keys.blockPotos)

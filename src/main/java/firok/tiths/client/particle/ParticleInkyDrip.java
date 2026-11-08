@@ -20,10 +20,11 @@ public class ParticleInkyDrip extends ParticleBase
         super(world, x, y, z, TEXTURE);
 
         this.setRBGColorF(1, 1, 1);
-        this.setSize(0.02f, 0.02f);
+        this.setSize(0.04f, 0.04f);
 
-        this.particleScale *= 0.55f + this.rand.nextFloat() * 0.45f;
-        this.particleMaxAge = 30 + rand.nextInt(20);
+        // 略放大一点, 纯黑墨滴本来就不好辨认
+        this.particleScale *= 0.85f + this.rand.nextFloat() * 0.55f;
+        this.particleMaxAge = 35 + rand.nextInt(25);
 
         // 不套用原版的自由落体, 而是给一个很小很稳定的下坠速度
         this.setGravity(false);

@@ -30,43 +30,9 @@
 
 ## 最近更新 latest update
 
-### 0.3.36.0 _2026-11-01 21:30_
+跳转至 [变更日志](changelog.md)
 
-* 为冰凉和辉耀效果添加音效 added sound effects to icy and radiant trait
-* 为音效补充缺失的语言文件内容 added missing language file content for sound effects
-
-### 0.3.35.0 _2026-10-26 23:00_
-
-* 添加平和状态效果 added peaceful potion effect
-* 添加末影乱流糖果 added ender turbulence candy
-
-### 0.3.34.0 _2026-10-26 22:00_
-
-* 添加更多类型的重力砖 added more types of gravity block
-
-### 0.3.33.0 _2026-10-25 23:00_
-
-* 修复无法正常生成矿物的错误 fixed ore generation not working properly
-* 优化液体收集器逻辑 optimized fluid collector logic
-* 更新液体球材质 updated fluid ball texture
-* 添加部分药水酿造配方 added some potion brewing recipes
-* 补充部分缺失的合成表 added some missing crafting recipes
-* 修复浮灯方块采集后不掉落物品的错误 fixed buoyant light block not dropping items when harvested
-
-### 0.3.32.0 _2026-10-25 18:00_
-
-* 更新开发环境配置至 ForgeGradle 5, 更新 MCP 版本 updated development environment to ForgeGradle 5, updated MCP version
-* 修复末影干涉逻辑方块可被收集和潜在可能导致崩溃的错误
-  fixed ender interfering logic block being collectible and a potential crash
-* 优化液体收集器逻辑 optimized fluid collector logic
-* 化学不稳定特性引发的爆炸不再默认破坏地形, 且伤害来源变为玩家
-  explosions from Chemical Instable trait no longer destroy terrain by default, and damage source is now the player
-* 优化寻宝屋刷新逻辑 optimized treasure house spawning logic
-* 崩裂特性引发的范围伤害不再对同队实体造成伤害
-  AOE damage from Cracking trait no longer hurts teammates
-* 修复部分服务端和客户端数据同步错误 fixed some server-client data sync issues
-* 修复各种矿物存储方块没有设置挖掘硬度的错误 fixed mineral storage blocks not having harvest hardness set
-* 大幅下调各种矿物刷新量 significantly reduced ore spawn amounts
+See [changelog](changelog.md)
 
 ## 版本间差异 differences between versions
 

@@ -1,3 +1,6 @@
 {
-  "parent": "tiths:block/block_shadow_fire_floor0"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "tiths:items/block_shadow_fire"
+  }
 }

@@ -252,6 +252,8 @@ public final class Items
     public static final Item nuggetWitherium = new ItemCustom(); // 凋零粒
     @Reg(value = nameOpal, od = {"gem", "gemOpal", "opal"})
     public static final Item opal = new ItemCustom(); // 欧珀
+    @Reg(value = nameOrystal, od = {"gem", "gemOrystal", "orystal"})
+    public static final Item orystal = new ItemCustom(); // 原晶
     @Reg("oxygen_mask")
     public static final Item oxygenMask = new ItemOxygenMask(); // 氧气面罩
     @Reg(value = "page", od = {"paper"})

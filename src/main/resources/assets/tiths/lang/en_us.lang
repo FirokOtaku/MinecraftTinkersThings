@@ -146,6 +146,8 @@ item.tiths.nugget_titanium.name=Titanium Nugget
 item.tiths.nugget_tonium.name=Tonium Nugget
 item.tiths.nugget_witherium.name=Witherium Nugget
 item.tiths.opal.name=Opal
+item.tiths.orystal.name=Orystal
+item.tiths.orystal.desc=A transparent crystal condensed from molten glass and molten Irisia, an excellent medium that can transform and carry other magical energies
 item.tiths.oxygen_mask.name=Oxygen Mask
 item.tiths.page.name=Pages
 item.tiths.phantom_crystal.name=Phantom Crystal
@@ -263,7 +265,10 @@ tile.tiths.block_moonlight_converging_table.desc=To repair your equipments when 
 tile.tiths.block_moon_stone.name=Block of Moon Stone
 tile.tiths.block_nitre.name=Block of Nitre
 tile.tiths.block_opal.name=Block of Opal
+tile.tiths.block_orystal.name=Block of Orystal
 tile.tiths.block_oraclium.name=Block of Oraclium
+tile.tiths.block_crystallizer.name=Crystallizer
+tile.tiths.block_crystallizer.desc=Input specific molten materials from above to crystallize into new materials<br>Outputs to the inventory in front, or ejects items forward
 tile.tiths.block_polarium.name=Block of Polarium
 tile.tiths.block_potos.name=Block of Potos
 tile.tiths.block_prehnite.name=Block of Prehnite
@@ -286,7 +291,7 @@ tile.tiths.block_royal_alloy.name=Block of Royal Alloy
 tile.tiths.block_sea_grass.name=Sea Grass
 tile.tiths.block_sea_grass.desc=To provide aquatic to tools and armors
 tile.tiths.block_shadow_fire.name=Shadow Fire
-tile.tiths.block_shadow_fire.desc=A fire without lightness which will distinguish when at bright places<br>Cause damages to livings<br>Burns indefinitely when on top of obsidians
+tile.tiths.block_shadow_fire.desc=Does not emit light, and extinguishes quickly in bright places<br>Deals heavy damage to living entities that touch it in darkness<br>Unaffected by brightness when on obsidian and burns indefinitely
 tile.tiths.block_solita.name=Block of Solita
 tile.tiths.block_spinel.name=Block of Spinel
 tile.tiths.block_steamium.name=Block of Steamium
@@ -939,6 +944,10 @@ config.tiths.gameplay.tooltip=Adjust gameplay settings
 config.tiths.gameplay.enable_royal=Enable easy crafting of royal alloy
 config.tiths.gameplay.enable_royal.tooltip=If enabled, the royal alloy will be crafted by iron + gold, otherwise it will be iron + gold + milk
 config.tiths.gameplay.enable_fulgurite_generation=Enable Fulgurite Generation
+config.tiths.gameplay.crystallizer_fluid_capacity=Crystallizer fluid capacity per type
+config.tiths.gameplay.crystallizer_fluid_capacity.tooltip=Max mB stored per fluid type in a crystallizer (default: 8 blocks of molten material)
+config.tiths.gameplay.crystallizer_shard_drop_chance=Crystallizer shard drop chance
+config.tiths.gameplay.crystallizer_shard_drop_chance.tooltip=Chance to drop a material shard per ingot of residual fluid when breaking a crystallizer
 
 config.tiths.general=General
 config.tiths.general.tooltip=Adjust general settings
@@ -1110,6 +1119,10 @@ tooltip.tiths.block_bait=The surrounding animals will be attracted to eat these 
 
 container.tiths.lava_crystal_brewing_stand=Lava Crystal Brewing Stand
 container.tiths.shacking_dispenser=Shacking Dispenser
+
+## jei
+
+jei.tiths.category.crystallizer=Crystallizer
 
 ## warning
 

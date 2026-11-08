@@ -15,9 +15,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * 墨染状态效果的客户端表现.
- *
- * 渲染生物主体时切换到墨染着色器, 让生物整体变黑; 名字牌等 UI 性质的内容会被排除在外
- *
+ * <p>
+ * 渲染生物主体时切换到墨染着色器, 让生物整体变黑; 名字牌等 UI 性质的内容会被排除在外.
+ * 墨滴粒子由 {@link firok.tiths.potion.PotionInky#performEffect} 在效果 tick 时生成,
+ * 避免客户端每 tick 遍历全部实体.
+ * <p>
  * 这里所有渲染回调都必须保证不抛异常:
  * Forge 是在 {@link RenderLivingBase#doRender} 里直接 post 这些事件的,
  * 那个位置没有 try/catch, 抛出去就是整帧渲染崩溃.
@@ -72,6 +74,7 @@ public final class RenderInkyEffect
             {
                 loggedFirstInkyEntity = true;
                 TinkersThings.log("[inky] rendering inky entity " + entity.getName()
+                        + " (" + entity.getClass().getSimpleName() + ")"
                         + ", shader available: " + ShaderInkyEntity.isAvailable());
             }
 

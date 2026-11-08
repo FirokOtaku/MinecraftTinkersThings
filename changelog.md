@@ -2,6 +2,16 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.38.0 _2026-11-08 19:00_
+
+* 添加原晶物品和方块 added orystal item and block
+* 添加结晶器方块 added crystallizer block
+
+## 0.3.37.0 _2026-11-04 23:00_
+
+* 添加墨染状态效果 added inky potion effect
+* 调整墨染特性 modified inky trait
+
 ## 0.3.36.0 _2026-11-01 21:30_
 
 * 为冰凉和辉耀效果添加音效 added sound effects to icy and radiant trait

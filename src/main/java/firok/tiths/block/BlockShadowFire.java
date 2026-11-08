@@ -97,19 +97,30 @@ public class BlockShadowFire extends Block
         IBlockState stateDown = worldIn.getBlockState(pos.down());
         Block blockDown = stateDown.getBlock();
         boolean solidTopDown = blockDown.isTopSolid(stateDown);
+        boolean onObsidian = blockDown == Blocks.OBSIDIAN;
 
-        if (!solidTopDown || Actions.getLight(worldIn, pos) >= 7)
+        // 下方无支撑面时熄灭
+        if (!solidTopDown)
         {
             worldIn.setBlockToAir(pos);
+            return;
         }
 
-        if (blockDown != Blocks.OBSIDIAN)
+        // 非黑曜石上: 明亮处快速熄灭; 黑曜石上不受亮度影响且持续燃烧
+        if (!onObsidian)
         {
+            if (Actions.getLight(worldIn, pos) >= 7)
+            {
+                worldIn.setBlockToAir(pos);
+                return;
+            }
+
             int age = state.getValue(AGE);
             age += rand.nextFloat() > 0.35 ? 1 : 0;
             if (age >= 15)
             {
                 worldIn.setBlockToAir(pos);
+                return;
             }
             else
             {
@@ -129,10 +140,10 @@ public class BlockShadowFire extends Block
             {
                 entityIn.attackEntityFrom(DamageSources.ShadowFireDamage, 3);
             }
-            else
-            {
-                worldIn.setBlockToAir(pos);
-            }
+//            else
+//            {
+//                worldIn.setBlockToAir(pos);
+//            }
         }
     }
 

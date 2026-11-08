@@ -2,6 +2,7 @@ package firok.tiths.common;
 
 import firok.tiths.TinkersThings;
 import firok.tiths.potion.BasePotion;
+import firok.tiths.tile.TECrystallizer;
 import firok.tiths.tile.TELavaCrystalBrewingStand;
 import firok.tiths.tile.TEShackingDispenser;
 import firok.tiths.tile.logic.TEEnderInterferedBlock;
@@ -222,6 +223,7 @@ public final class RegistryHandler
         GameRegistry.registerTileEntity(TEShackingDispenser.class, new ResourceLocation(TinkersThings.MOD_ID, "shacking_dispenser"));
         GameRegistry.registerTileEntity(TELavaCrystalBrewingStand.class, new ResourceLocation(TinkersThings.MOD_ID, "lava_crystal_brewing_stand"));
         GameRegistry.registerTileEntity(TEEnderInterferedBlock.class, new ResourceLocation(TinkersThings.MOD_ID, "ender_interfered_block"));
+        GameRegistry.registerTileEntity(TECrystallizer.class, new ResourceLocation(TinkersThings.MOD_ID, "crystallizer"));
 //		FieldStream.of(TileEntities.class,null,TileEntity.class)
 //				.whenFail(Throwable::printStackTrace)
 //				.forEach((field, anno, tileEntity) -> {

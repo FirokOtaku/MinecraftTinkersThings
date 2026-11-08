@@ -150,6 +150,20 @@ public final class Configs
          */
         @LangKey(pgg + "enable_fulgurite_generation")
         public static boolean enable_fulgurite_generation = true;
+
+        /**
+         * 结晶器单种流体存储上限 (mB), 默认 8 块熔融量
+         */
+        @LangKey(pgg + "crystallizer_fluid_capacity")
+        @RangeInt(min = 1)
+        public static int crystallizer_fluid_capacity = slimeknights.tconstruct.library.materials.Material.VALUE_Block * 8;
+
+        /**
+         * 结晶器破坏时, 每锭剩余流体掉落对应碎片的概率
+         */
+        @LangKey(pgg + "crystallizer_shard_drop_chance")
+        @RangeDouble(min = 0, max = 1)
+        public static double crystallizer_shard_drop_chance = 0.3D;
     }
 
     @Config(name = TinkersThings.MOD_ID + "_potion", modid = TinkersThings.MOD_ID, category = "potion")

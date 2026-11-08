@@ -62,6 +62,8 @@ Igniting Effect | zapsplat_sound_design_fire_whoosh_fast_heavy_flame_112137 | Za
 
 部分材质贴图源为 [Minecraft Item 16px](https://huggingface.co/yuuki14202028/minecraft-item-16px) 生成, 辅以手工改图.
 
+部分材质贴图为 Cursor 生成.
+
 ## 关于CC协议 About Creative Commons License
 
 icon||中文版本|English

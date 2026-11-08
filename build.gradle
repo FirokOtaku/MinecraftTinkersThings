@@ -101,7 +101,10 @@ dependencies {
     // FG5: wrap production (SRG) jars with fg.deobf — do not use the old :deobf classifier
     implementation fg.deobf("slimeknights.mantle:Mantle:1.12-1.3.3.55")
     implementation fg.deobf("slimeknights:TConstruct:1.12.2-2.13.0.183")
+    // Optional client integrations (also listed as soft deps in @Mod)
     implementation fg.deobf("mezz.jei:jei_1.12.2:4.15.0.293")
+    // Hwyla 1.8.26-B41_1.12.2 (CurseForge project 253449 / file 2568751)
+    implementation fg.deobf("curse.maven:hwyla-253449:2568751")
     // MMD maven TLS is broken; use CurseMaven (3.3.1.179 ≈ former 3.3.1.183)
     implementation fg.deobf("curse.maven:mmd-orespawn-245586:2913786")
 

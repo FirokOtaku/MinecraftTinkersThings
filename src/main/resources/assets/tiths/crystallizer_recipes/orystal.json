@@ -1,0 +1,9 @@
+{
+  "fluids": [
+    { "fluid": "glass", "amount": 8000 },
+    { "fluid": "irisia", "amount": 144 }
+  ],
+  "outputs": [
+    { "item": "tiths:orystal", "count": 1 }
+  ]
+}

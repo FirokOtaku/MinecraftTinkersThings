@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tiths:tools",
+  "result": { "item": "tiths:block_crystallizer", "count": 1 },
+  "pattern": [
+    "BBB",
+    "WPW",
+    "BBB"
+  ],
+  "key": {
+    "B": { "item": "tconstruct:materials", "data": 0 },
+    "W": { "item": "tiths:ingot_witherium" },
+    "P": { "item": "tiths:phasing_gem" }
+  }
+}

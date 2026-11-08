@@ -4,6 +4,7 @@ import firok.tiths.common.*;
 import firok.tiths.gui.Guis;
 import firok.tiths.intergration.conarm.ArmorModifiers;
 import firok.tiths.intergration.conarm.ArmorRegistryHandler;
+import firok.tiths.recipe.crystallizer.CrystallizerRecipes;
 import firok.tiths.util.VersionPhase;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
@@ -30,13 +31,15 @@ import java.util.Random;
                 "after:conarm@[1.2.5,);" +
                 "after:hammercore@[1.12.2-2.0.6.17,);" +
                 "after:lux@[1.12.2,);" +
-                "required-after:orespawn@[3.3.1,)"
+                "required-after:orespawn@[3.3.1,);" +
+                "after:jei;" +
+                "after:waila;"
 )
 public class TinkersThings
 {
     public static final String MOD_ID = "tiths";
     public static final String MOD_NAME = "Tinkers' Things";
-    public static final String VERSION = "1.12.2-0.3.36.0";
+    public static final String VERSION = "1.12.2-0.3.38.0";
     public static final VersionPhase version = VersionPhase.Alpha;
 
     public static final String CONARM_ID = "conarm";
@@ -148,6 +151,11 @@ public class TinkersThings
         {
             ArmorRegistryHandler.registerArmorMaterials();
         }
+
+        if (Loader.isModLoaded("waila"))
+        {
+            firok.tiths.intergration.waila.TithsWaila.register();
+        }
     }
 
 //	static Collection<Material> materials=null;
@@ -175,6 +183,8 @@ public class TinkersThings
         Alloys.registerAlloys();
         //  SmeltingRegistry.register(); // Registers smelting recipes
         RegistryHandler.integrateMaterials();
+
+        CrystallizerRecipes.reload();
     }
 
     @Mod.EventHandler
