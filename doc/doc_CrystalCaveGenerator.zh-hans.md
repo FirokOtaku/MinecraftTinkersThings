@@ -34,10 +34,10 @@
 
 晶洞生成器接收如下参数:
 
-* minHeight - 最低生成Y坐标
-* maxHeight - 最高生成Y坐标
+* minHeight - (整数) 最低生成Y坐标
+* maxHeight - (整数) 最高生成Y坐标
 * frequency - (小数) 每区块的触发频数或频率
-* raduisXZ - (整数) 横向半径 5~20
+* radiusXZ - (整数) 横向半径 5~20
 * radiusY - (整数) 纵向半径 5~20
 * factorSplit - (小数) 分割因子, 当某坐标的偏移因子 (factorOffset) 小于分割因子时生成空气, 否则生成矿物
 * rateOrePillar - (小数) 顶部或底部某坐标随机出现岩柱的几率
@@ -51,6 +51,6 @@ $$\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1$$
 
 坐标偏移因子的计算公式为
 
-$$factorOffset = \frac{offsetX^2}{raduisXZ^2} + \frac{offsetZ^2}{raduisXZ^2} + \frac{offsetY^2}{radiusY^2}$$
+$$factorOffset = \frac{offsetX^2}{radiusXZ^2} + \frac{offsetZ^2}{radiusXZ^2} + \frac{offsetY^2}{radiusY^2}$$
 
 其中, offsetX, offsetY, offsetZ 分别为某坐标距离椭球中心的偏移量

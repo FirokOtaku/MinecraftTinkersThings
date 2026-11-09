@@ -1,6 +1,6 @@
-# 精准生成器
+# Precision Feature
 
-精准生成器的类型为`precision`, 它会尝试在每个区块生成指定数量1%左右的矿物. 下面是一个例子:
+The precision generator attempts to create a spawn or spawns within every chunk it is called for that is within 1% of the total specified size for the spawn. The definitive example follows:
 
 ```json
 "diamond_ore": {
@@ -27,21 +27,6 @@
 },
 ```
 
-相关参数如下:
-
-* size - 每种需要生成的方块的数量
-* numObjects - 每区块尝试生成多少次
-* minHeight - 最低生成Y坐标
-* maxHeight - 最高生成Y坐标
-
-<details>
-<summary>原文</summary>
-The precision generator attempts to create a spawn or spawns within every chunk it is called for that is within 1% of the total specified size for the spawn. The definitive example follows:
-
-```text
-(json内容)
-```
-
 As this shows, it attempts to create 2 spawns of 3 diamond ore each in every chunk.
 
 The parameters are, as follows:
@@ -50,4 +35,3 @@ The parameters are, as follows:
 * numObjects - How many spawns to try and place per chunk
 * minHeight - Minimum height for a spawn
 * maxHeight - Maximum height for a spawn
-</details>

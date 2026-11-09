@@ -1,6 +1,6 @@
-# 树根生成器
+# Tree Root Generator
 
-树根生成器的类型为`tiths-tree-root`, 用于在树干下方生成矿物.
+The tree root generator has the type `tiths-tree-root` and generates ores below tree trunks.
 
 ```json
 "common_tree_root": {
@@ -23,8 +23,8 @@
 },
 ```
 
-海床生成器接收如下参数:
+The tree root generator accepts the following parameters:
 
-* frequency - (小数) 每区块的触发频率
-* depthBase - 基础生成深度
-* depthExtra - 额外随机增加深度
+* frequency - (decimal) trigger frequency per chunk
+* depthBase - base generation depth
+* depthExtra - extra randomly added depth

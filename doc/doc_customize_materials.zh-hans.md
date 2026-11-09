@@ -1,20 +1,19 @@
-# 自定义材料属性 customized materials
+# 自定义材料属性
 
-通过修改`/config/tiths_materials.json`文件即可自定义材料属性 you can customized materials by editing `/config/tiths_materials.json` file
+通过修改`/config/tiths_materials.json`文件即可自定义材料属性
 
-_⚠ 只能修改**本模组添加的**材料 only materials **added by this mod** can be customized_
+_⚠ 只能修改**本模组添加的**材料_
 
-> 默认情况下`config/tiths_materials.json`文件并不会自动生成, 需要由您手动创建一个  
-> `config/tiths_materials.json` will not be generated automatically and you need to create one by yourself
+> 默认情况下`config/tiths_materials.json`文件并不会自动生成, 需要由您手动创建一个
 
-## 整体格式 format
+## 整体格式
 
-配置文件遵循`{"material_id1":{ configs }, "material_id2":{ configs }, ...}`格式 the config file follows the format of `{" material_id1 ": {configs}," material_id2 ": {configs}, ...}`
+配置文件遵循`{"material_id1":{ configs }, "material_id2":{ configs }, ...}`格式
 
     {
         "material_id":{
-            "traits_tool": [ "trait_id" ], /* 工具部件共有特性列表 traits of parts when used on a tool */
-            "traits_armor": [ "trait_id" ], /* 护甲部件共有特性列表 traits of parts when used on a armor */
+            "traits_tool": [ "trait_id" ], /* 工具部件共有特性列表 */
+            "traits_armor": [ "trait_id" ], /* 护甲部件共有特性列表 */
             "head": { /* 头部属性 */
                 "durability": 1.23, /* 耐久度 */
                 "mining_speed": 1.23, /* 挖掘速度 */
@@ -53,7 +52,7 @@ _⚠ 只能修改**本模组添加的**材料 only materials **added by this mod
             },
             "core":{ /* 基底属性 */
                 "durability": 1.23, /* 耐久系数 */
-                "dense": 1.23, /* 防御系数
+                "dense": 1.23, /* 防御系数 */
                 "traits": [] /* 特性列表 */
             },
             "trim":{ /* 夹板属性 */
@@ -69,17 +68,17 @@ _⚠ 只能修改**本模组添加的**材料 only materials **added by this mod
         }
     }
 
-ℹ `"traits_tool"`属性会为*头部*、*手柄*、*额外*部件增加指定特性 traits in `"traits_tool"` will be added to *head*, *handle*, *extra* parts
+ℹ `"traits_tool"`属性会为*头部*、*手柄*、*额外*部件增加指定特性
 
-ℹ `"traits_bow"`属性会为*弓臂*、*弓弦*、*箭羽*、*箭杆*部件增加指定特性 traits in `"traits_bow"` will be added to *bow*, *bowstring*, *fletching*, *shaft* parts
+ℹ `"traits_bow"`属性会为*弓臂*、*弓弦*、*箭羽*、*箭杆*部件增加指定特性
 
-ℹ `"traits_armor"`属性会为*基底*、*护甲板*、*夹板*部件增加指定特性 traits in `"traits_armor"` will be added to *core*, *trim*, *plate* parts
+ℹ `"traits_armor"`属性会为*基底*、*护甲板*、*夹板*部件增加指定特性
 
-ℹ 提供的值会覆盖掉相应的默认值 given values will override the default values
+ℹ 提供的值会覆盖掉相应的默认值
 
-⚠ 如果将某材料某部件的*特性*设为`"traits":[]`, 将**不会**使用默认特性, 而会变为**无特性** if you specified traits of any parts as `"traits":[]`, it **will not** use default traits list, but **no traits**
+⚠ 如果将某材料某部件的*特性*设为`"traits":[]`, 将**不会**使用默认特性, 而会变为**无特性**
 
-## 示例配置文件 example
+## 示例配置文件
 
     {
         "ruby":{
