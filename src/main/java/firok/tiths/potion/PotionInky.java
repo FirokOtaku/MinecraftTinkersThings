@@ -3,7 +3,7 @@ package firok.tiths.potion;
 import firok.tiths.TinkersThings;
 import firok.tiths.client.particle.ParticleBuilder;
 import firok.tiths.client.particle.ParticleType;
-import firok.tiths.common.sync.InkyEffectSync;
+import firok.tiths.common.sync.ClientPotionEffectSync;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 
@@ -23,7 +23,7 @@ import static firok.tiths.util.Predicates.canTrigger;
  *
  * @see firok.tiths.client.render.ShaderInkyEntity
  * @see firok.tiths.client.render.RenderInkyEffect
- * @see InkyEffectSync
+ * @see ClientPotionEffectSync
  */
 public class PotionInky extends BasePotion
 {

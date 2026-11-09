@@ -1,6 +1,7 @@
 package firok.tiths.client.render;
 
 import firok.tiths.TinkersThings;
+import firok.tiths.common.Configs;
 import firok.tiths.common.Potions;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
@@ -49,6 +50,7 @@ public final class OverlayInky
     public static void onRenderOverlay(RenderGameOverlayEvent.Pre event)
     {
         if (event.getType() != RenderGameOverlayEvent.ElementType.ALL) return;
+        if (!Configs.Client.enable_inky_overlay) return;
 
         Minecraft mc = Minecraft.getMinecraft();
         EntityPlayer player = mc.player;

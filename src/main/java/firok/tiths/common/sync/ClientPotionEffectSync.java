@@ -14,14 +14,14 @@ import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 /**
- * 墨染效果的客户端同步.
+ * 需要客户端视觉表现的状态效果同步.
  * <p>
  * 1.12.2 原版只在 {@code EntityPlayerMP} 自身获得/失去药水时发包,
  * 以及别的玩家开始追踪某个实体时把"当时已有"的效果同步过去.
  * 对已经在视野里的怪物后来才挂上的效果, 客户端 {@code activePotionsMap} 里根本没有它,
  * 于是基于 {@code getActivePotionEffect} 的渲染 / 粒子都不会触发.
  * <p>
- * 这里把墨染的添加和移除主动同步给正在追踪该实体的玩家.
+ * 这里把墨染 / 极寒的添加和移除主动同步给正在追踪该实体的玩家.
  * 玩家自己拿到效果时原版本来就会发给自己, {@code sendToTracking} 不会发给自己,
  * 因此不会重复.
  * <p>
@@ -29,15 +29,20 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
  * {@link PotionEvent.PotionRemoveEvent}, 自然到期和主动移除是两条事件路径, 都要处理.
  */
 @Mod.EventBusSubscriber(modid = TinkersThings.MOD_ID)
-public final class InkyEffectSync
+public final class ClientPotionEffectSync
 {
-    private InkyEffectSync() {}
+    private ClientPotionEffectSync() {}
+
+    private static boolean shouldSync(Potion potion)
+    {
+        return potion == Potions.inky || potion == Potions.extreme_freezing;
+    }
 
     @SubscribeEvent
     public static void onPotionAdded(PotionEvent.PotionAddedEvent event)
     {
         PotionEffect effect = event.getPotionEffect();
-        if (effect == null || effect.getPotion() != Potions.inky) return;
+        if (effect == null || !shouldSync(effect.getPotion())) return;
         syncAdd(event.getEntityLiving(), effect);
     }
 
@@ -70,7 +75,7 @@ public final class InkyEffectSync
 
     private static void syncRemove(EntityLivingBase entity, Potion potion)
     {
-        if (potion != Potions.inky) return;
+        if (!shouldSync(potion)) return;
         WorldServer world = asServerWorld(entity);
         if (world == null) return;
 

@@ -1,6 +1,7 @@
 package firok.tiths.client.render;
 
 import firok.tiths.TinkersThings;
+import firok.tiths.common.Configs;
 import firok.tiths.common.Potions;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLivingBase;
@@ -53,6 +54,11 @@ public final class RenderInkyEffect
         return entity != null && entity.getActivePotionEffect(Potions.inky) != null;
     }
 
+    private static boolean entityShaderEnabled()
+    {
+        return Configs.Client.enable_inky_entity_shader;
+    }
+
     /**
      * 生物主体渲染之前切到墨染着色器.
      * <p>
@@ -66,6 +72,7 @@ public final class RenderInkyEffect
         try
         {
             if (event.isCanceled()) return;
+            if (!entityShaderEnabled()) return;
 
             EntityLivingBase entity = event.getEntity();
             if (!hasInky(entity)) return;
@@ -103,6 +110,8 @@ public final class RenderInkyEffect
     {
         try
         {
+            if (!entityShaderEnabled()) return;
+
             EntityLivingBase entity = event.getEntity();
             if (!hasInky(entity)) return;
 
@@ -130,6 +139,7 @@ public final class RenderInkyEffect
     {
         try
         {
+            if (!entityShaderEnabled()) return;
             if (!hasInky(event.getEntity())) return;
             ShaderInkyEntity.suspend();
         }
@@ -145,6 +155,7 @@ public final class RenderInkyEffect
     {
         try
         {
+            if (!entityShaderEnabled()) return;
             if (!hasInky(event.getEntity())) return;
             ShaderInkyEntity.resume();
         }

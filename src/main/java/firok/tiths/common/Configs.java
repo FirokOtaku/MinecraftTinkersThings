@@ -16,6 +16,7 @@ public final class Configs
 {
     static final String c = "config.tiths.";
     static final String pg = "config.tiths.general.";
+    static final String pgc = "config.tiths.client.";
     static final String pgp = "config.tiths.potion.";
     static final String pgt = "config.tiths.trait.";
     static final String pga = "config.tiths.trait_armor.";
@@ -131,6 +132,41 @@ public final class Configs
             }
             else return true;
         }
+    }
+
+    /**
+     * 客户端视觉效果开关.
+     * <p>
+     * 这些选项只影响本机渲染 (实体改色 shader / 屏幕 overlay),
+     * 不会改变服务端逻辑或状态效果本身是否生效.
+     */
+    @Config(name = TinkersThings.MOD_ID + "_client", modid = TinkersThings.MOD_ID, category = "client")
+    @LangKey(c + "client")
+    public static class Client
+    {
+        /**
+         * 启用墨染实体着色器 (生物整体染黑)
+         */
+        @LangKey(pgc + "enable_inky_entity_shader")
+        public static boolean enable_inky_entity_shader = true;
+
+        /**
+         * 启用墨染屏幕叠加层
+         */
+        @LangKey(pgc + "enable_inky_overlay")
+        public static boolean enable_inky_overlay = true;
+
+        /**
+         * 启用极寒实体着色器 (生物整体发蓝)
+         */
+        @LangKey(pgc + "enable_extreme_freezing_entity_shader")
+        public static boolean enable_extreme_freezing_entity_shader = true;
+
+        /**
+         * 启用极寒屏幕叠加层
+         */
+        @LangKey(pgc + "enable_extreme_freezing_overlay")
+        public static boolean enable_extreme_freezing_overlay = true;
     }
 
 

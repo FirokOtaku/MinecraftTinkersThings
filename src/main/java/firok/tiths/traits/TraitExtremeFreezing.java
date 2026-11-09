@@ -1,13 +1,13 @@
 package firok.tiths.traits;
 
 import firok.tiths.common.Configs;
+import firok.tiths.common.Potions;
 import firok.tiths.util.EntityFinders;
 import firok.tiths.util.Selectors;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Enchantments;
-import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumParticleTypes;
@@ -44,8 +44,18 @@ public class TraitExtremeFreezing extends AbstractTrait
             {
                 if (!(en instanceof EntityLivingBase)) continue;
                 EntityLivingBase enlb = (EntityLivingBase) en;
-                enlb.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 85, 2));
+                applyExtremeFreezing(enlb, 85, 2);
             }
+    }
+
+    /**
+     * 施加极寒状态. 减速由药水自身的 Attribute Modifier 提供.
+     *
+     * @param amplifier 效果等级 (影响减速幅度, 与原版缓慢同级换算)
+     */
+    public static void applyExtremeFreezing(EntityLivingBase target, int duration, int amplifier)
+    {
+        target.addPotionEffect(new PotionEffect(Potions.extreme_freezing, duration, amplifier));
     }
 
     public static boolean checkParticle(World world)
@@ -79,7 +89,7 @@ public class TraitExtremeFreezing extends AbstractTrait
         super.afterHit(tool, player, target, damageDealt, wasCritical, wasHit);
         if (wasHit && player.isServerWorld() && target.isEntityAlive())
         {
-            target.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 165, 3));
+            applyExtremeFreezing(target, 165, 3);
         }
     }
 

@@ -746,6 +746,7 @@ public interface Keys
     int colorPotionTranquilized = colorTraitTranquilizing;
     int colorPotionPeaceful = 0xADD8E6;
     int colorPotionInky = 0x1b1830;
+    int colorPotionExtremeFreezing = 0x7eb6f0;
 
     // 状态效果属性修饰符uuid
     String uuidPotionAvatarSpeed = "258A83A5-A3BD-4CFD-842C-B2DF39343C91";
@@ -769,6 +770,7 @@ public interface Keys
     String uuidPotionPeacefulDamage = "A3C7E1F2-8B4D-4A6E-9C01-5D2F7A8B9E0C";
     String uuidPotionInkyFollowRange = "3C1F7A62-9E4B-4D18-8A57-6B2C0D9E4F31";
     String uuidPotionInkyAttackSpeed = "7D2A4B19-0F83-4C6E-B5D2-8E1A93C74F02";
+    String uuidPotionExtremeFreezingSpeed = "CC229BC4-D044-473A-ADE1-67AF84E55B28";
     String uuidTraitSolubleSwimSpeed = "E42481C5-6AA3-4A74-A992-22AD533C88CC";
 
     // 燃料热值

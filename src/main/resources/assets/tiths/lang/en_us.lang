@@ -830,6 +830,12 @@ lingering_potion.effect.inky=Lingering Potion of Inky
 splash_potion.effect.inky=Splash Potion of Inky
 tipped_arrow.effect.inky=Arrow of Inky
 
+effect.extreme_freezing=Extreme Freezing
+potion.effect.extreme_freezing=Potion of Extreme Freezing
+lingering_potion.effect.extreme_freezing=Lingering Potion of Extreme Freezing
+splash_potion.effect.extreme_freezing=Splash Potion of Extreme Freezing
+tipped_arrow.effect.extreme_freezing=Arrow of Extreme Freezing
+
 effect.leaves_hiding=Leaves Hiding
 potion.effect.leaves_hiding=Potion of Leaves Hiding
 lingering_potion.effect.leaves_hiding=Lingering Potion of Leaves Hiding
@@ -975,6 +981,17 @@ config.tiths.general.blacklist_dim_generation=Global dimension blacklist of worl
 config.tiths.general.blacklist_dim_generation.tooltip=This will forcefully disable the world generation in the specified dimension, regardless of the custom world generation configuration
 config.tiths.general.blacklist_biome_generation=Global biome blacklist of world generation
 config.tiths.general.blacklist_biome_generation.tooltip=This will forcefully disable the world generation in the specified biome, regardless of the custom world generation configuration
+
+config.tiths.client=Client Visuals
+config.tiths.client.tooltip=Toggle local visual effects for status effects; does not change gameplay logic
+config.tiths.client.enable_inky_entity_shader=Enable Inky entity shader
+config.tiths.client.enable_inky_entity_shader.tooltip=When disabled, entities with Inky are no longer darkened by the shader
+config.tiths.client.enable_inky_overlay=Enable Inky screen overlay
+config.tiths.client.enable_inky_overlay.tooltip=When disabled, having Inky no longer shows the ink vision overlay
+config.tiths.client.enable_extreme_freezing_entity_shader=Enable Extreme Freezing entity shader
+config.tiths.client.enable_extreme_freezing_entity_shader.tooltip=When disabled, entities with Extreme Freezing are no longer tinted blue by the shader
+config.tiths.client.enable_extreme_freezing_overlay=Enable Extreme Freezing screen overlay
+config.tiths.client.enable_extreme_freezing_overlay.tooltip=When disabled, having Extreme Freezing no longer shows the blue frost border
 
 
 config.tiths.trait=Trait

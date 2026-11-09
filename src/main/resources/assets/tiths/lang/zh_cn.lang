@@ -830,6 +830,12 @@ lingering_potion.effect.inky=滞留型墨染药水
 splash_potion.effect.inky=喷溅型墨染药水
 tipped_arrow.effect.inky=墨染之箭
 
+effect.extreme_freezing=极寒
+potion.effect.extreme_freezing=极寒药水
+lingering_potion.effect.extreme_freezing=滞留型极寒药水
+splash_potion.effect.extreme_freezing=喷溅型极寒药水
+tipped_arrow.effect.extreme_freezing=极寒之箭
+
 effect.leaves_hiding=蔽叶
 potion.effect.leaves_hiding=蔽叶药水
 lingering_potion.effect.leaves_hiding=滞留型蔽叶药水
@@ -975,6 +981,17 @@ config.tiths.general.blacklist_dim_generation=世界生成全局维度黑名单
 config.tiths.general.blacklist_dim_generation.tooltip=这将会强行禁用指定维度的世界生成, 无论自定义世界生成配置如何
 config.tiths.general.blacklist_biome_generation=世界生成全局生物群系黑名单
 config.tiths.general.blacklist_biome_generation.tooltip=这将会强行禁用指定生物群系的世界生成, 无论自定义世界生成配置如何
+
+config.tiths.client=客户端视觉
+config.tiths.client.tooltip=调整状态效果在本机上的视觉表现, 不影响实际效果逻辑
+config.tiths.client.enable_inky_entity_shader=启用墨染实体着色
+config.tiths.client.enable_inky_entity_shader.tooltip=关闭后, 带有墨染的生物不再整体染黑
+config.tiths.client.enable_inky_overlay=启用墨染屏幕叠加层
+config.tiths.client.enable_inky_overlay.tooltip=关闭后, 自身带有墨染时不再显示墨色视野遮罩
+config.tiths.client.enable_extreme_freezing_entity_shader=启用极寒实体着色
+config.tiths.client.enable_extreme_freezing_entity_shader.tooltip=关闭后, 带有极寒的生物不再整体发蓝
+config.tiths.client.enable_extreme_freezing_overlay=启用极寒屏幕叠加层
+config.tiths.client.enable_extreme_freezing_overlay.tooltip=关闭后, 自身带有极寒时不再显示蓝色冻结边框
 
 
 config.tiths.trait=特性设定
