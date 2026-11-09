@@ -172,6 +172,8 @@ public class TinkersThings
 
         NetworkRegistry.INSTANCE.registerGuiHandler(TinkersThings.INSTANCE, Guis.getInstance());
 
+        proxy.init();
+
         RegistryHandler.registerMaterialTraits();
         if (enableConarm())
         {

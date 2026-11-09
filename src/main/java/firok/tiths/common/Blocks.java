@@ -4,6 +4,8 @@ import firok.tiths.block.*;
 import firok.tiths.block.punji.BlockPunjiIron;
 import firok.tiths.block.punji.BlockPunjiSoft;
 import firok.tiths.block.table.BlockMoonlightConvergingTable;
+import firok.tiths.item.ItemPalantir;
+import firok.tiths.util.reg.CustomItemBlock;
 import firok.tiths.util.reg.GenConfig;
 import firok.tiths.util.reg.GenOre;
 import firok.tiths.util.reg.Reg;
@@ -159,6 +161,9 @@ public final class Blocks
     public static final Block blockOraclium = new BlockCompressed().setBeaconBase(); // 神谕块
     @Reg(Keys.blockCrystallizer)
     public static final Block blockCrystallizer = new BlockCrystallizer(); // 结晶器
+    @Reg(Keys.blockPalantir)
+    @CustomItemBlock(ItemPalantir.class)
+    public static final Block blockPalantir = new BlockPalantir(); // 真知晶球
     @Reg(Keys.blockPolarium)
     public static final Block blockPolarium = new BlockCompressed().setBeaconBase(); // 勾陈块
     @Reg(Keys.blockPotos)

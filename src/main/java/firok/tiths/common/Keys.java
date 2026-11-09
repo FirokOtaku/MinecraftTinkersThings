@@ -156,6 +156,7 @@ public interface Keys
     String namePhasingGem = "phasing_gem";
     String nameOrystal = "orystal";
     String nameCrystallizer = "crystallizer";
+    String namePalantir = "palantir";
     String nameMesh = "mesh";
     String nameBuoy = "buoy";
 
@@ -246,6 +247,7 @@ public interface Keys
     String blockTinkerDisintegrator = prefBlock + "tinker_disintegrator";
     String blockOrystal = prefBlock + nameOrystal;
     String blockCrystallizer = prefBlock + nameCrystallizer;
+    String blockPalantir = prefBlock + namePalantir;
     String blockAirPump = prefBlock + "air_pump";
     String blockChannel = prefBlock + nameChannel;
 

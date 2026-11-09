@@ -19,16 +19,19 @@ import java.nio.charset.StandardCharsets;
 /**
  * 墨染 - 生物实体染色着色器.
  * <p>
- * 这是一个只包含片元阶段的程序, 顶点阶段仍然交给固定管线处理.
- * 原版和匠魂的实体模型都是直接提交顶点数组 / 显示列表的,
- * 如果写成完整的 vertex + fragment 程序, 就得自己负责所有顶点属性的绑定,
- * 与其它渲染类模组冲突的风险会大得多.
- * 只写着色器程序里的片元阶段时, 固定管线依旧会填好
- * {@code gl_Color} / {@code gl_TexCoord[]} / {@code gl_FogFragCoord}.
+ * 使用兼容剖面的顶点 + 片元程序: 顶点阶段用 {@code entity_passthrough.vert}
+ * 复刻固定管线的变换 / 色 / 纹理坐标 / 雾坐标, 这样仍然可以直接吃原版与匠魂
+ * 提交的顶点数组 / 显示列表, 不必自己绑属性.
+ * 只挂片元阶段在部分驱动上虽能 link, 但绘制时会抛 {@code GL_INVALID_OPERATION},
+ * 并把后续整帧 (含 UI) 弄黑.
  * <p>
  * 片元着色器做的事: 按 贴图 * 顶点色 * 光照 采样出颜色以后,
  * 往墨色混合并整体压暗, 让生物看起来像被整片墨汁浸透.
  * 因为着色器接管了片元阶段, 原版用固定管线做的雾和受击红闪需要在这里手动补上.
+ * <p>
+ * 本类是"每种效果一个 program"的过渡实现; 与极寒等同类染色并存时依赖
+ * {@link EntityTintShaderGuard} 与渲染侧互斥. 再扩展更多整模染色效果前,
+ * 应按该护栏类注释中的结论合并为单一实体染色 program, 而不是再复制本类.
  * <p>
  * 任何一步失败 (显卡不支持 / 编译失败 / 运行期异常) 都只做降级处理, 绝不抛出异常:
  * 实体的渲染事件是从 {@code RenderLivingBase.doRender} 里直接 post 的,
@@ -37,7 +40,9 @@ import java.nio.charset.StandardCharsets;
 @SideOnly(Side.CLIENT)
 public final class ShaderInkyEntity
 {
-    private static final ResourceLocation RL_SHADER =
+    private static final ResourceLocation RL_VERT =
+            new ResourceLocation(TinkersThings.MOD_ID, "shaders/entity_passthrough.vert");
+    private static final ResourceLocation RL_FRAG =
             new ResourceLocation(TinkersThings.MOD_ID, "shaders/inky_entity.frag");
 
     /**
@@ -97,29 +102,22 @@ public final class ShaderInkyEntity
                 return;
             }
 
-            String source = readShaderSource();
-            if (source == null) return;
-
-            byte[] bytes = source.getBytes(StandardCharsets.UTF_8);
-            ByteBuffer sourceBuffer = BufferUtils.createByteBuffer(bytes.length);
-            sourceBuffer.put(bytes);
-            sourceBuffer.position(0);
-
-            int shader = OpenGlHelper.glCreateShader(OpenGlHelper.GL_FRAGMENT_SHADER);
-            OpenGlHelper.glShaderSource(shader, sourceBuffer);
-            OpenGlHelper.glCompileShader(shader);
-            if (OpenGlHelper.glGetShaderi(shader, OpenGlHelper.GL_COMPILE_STATUS) == 0)
+            int vert = compileShader(OpenGlHelper.GL_VERTEX_SHADER, RL_VERT);
+            if (vert == 0) return;
+            int frag = compileShader(OpenGlHelper.GL_FRAGMENT_SHADER, RL_FRAG);
+            if (frag == 0)
             {
-                TinkersThings.log("[inky] failed to compile shader: "
-                        + OpenGlHelper.glGetShaderInfoLog(shader, 32768));
-                OpenGlHelper.glDeleteShader(shader);
+                OpenGlHelper.glDeleteShader(vert);
                 return;
             }
 
             int prog = OpenGlHelper.glCreateProgram();
-            OpenGlHelper.glAttachShader(prog, shader);
+            OpenGlHelper.glAttachShader(prog, vert);
+            OpenGlHelper.glAttachShader(prog, frag);
             OpenGlHelper.glLinkProgram(prog);
-            OpenGlHelper.glDeleteShader(shader); // 链接完成后着色器对象即可释放
+            // 链接完成后着色器对象即可释放
+            OpenGlHelper.glDeleteShader(vert);
+            OpenGlHelper.glDeleteShader(frag);
 
             if (OpenGlHelper.glGetProgrami(prog, OpenGlHelper.GL_LINK_STATUS) == 0)
             {
@@ -155,6 +153,7 @@ public final class ShaderInkyEntity
 
             program = prog;
             available = true;
+            EntityTintShaderGuard.registerInkyProgram(program);
             TinkersThings.log("[inky] ink shader ready, program=" + program);
         }
         catch (Throwable e)
@@ -166,10 +165,33 @@ public final class ShaderInkyEntity
         }
     }
 
-    private static String readShaderSource()
+    private static int compileShader(int type, ResourceLocation location)
+    {
+        String source = readShaderSource(location);
+        if (source == null) return 0;
+
+        byte[] bytes = source.getBytes(StandardCharsets.UTF_8);
+        ByteBuffer sourceBuffer = BufferUtils.createByteBuffer(bytes.length);
+        sourceBuffer.put(bytes);
+        sourceBuffer.position(0);
+
+        int shader = OpenGlHelper.glCreateShader(type);
+        OpenGlHelper.glShaderSource(shader, sourceBuffer);
+        OpenGlHelper.glCompileShader(shader);
+        if (OpenGlHelper.glGetShaderi(shader, OpenGlHelper.GL_COMPILE_STATUS) == 0)
+        {
+            TinkersThings.log("[inky] failed to compile " + location + ": "
+                    + OpenGlHelper.glGetShaderInfoLog(shader, 32768));
+            OpenGlHelper.glDeleteShader(shader);
+            return 0;
+        }
+        return shader;
+    }
+
+    private static String readShaderSource(ResourceLocation location)
     {
         try (InputStream is = Minecraft.getMinecraft().getResourceManager()
-                .getResource(RL_SHADER).getInputStream())
+                .getResource(location).getInputStream())
         {
             ByteArrayOutputStream out = new ByteArrayOutputStream();
             byte[] chunk = new byte[4096];
@@ -179,7 +201,7 @@ public final class ShaderInkyEntity
         }
         catch (Throwable e)
         {
-            TinkersThings.log("[inky] failed to read shader source " + RL_SHADER);
+            TinkersThings.log("[inky] failed to read shader source " + location);
             TinkersThings.log(e);
             return null;
         }
@@ -199,7 +221,9 @@ public final class ShaderInkyEntity
         {
             if (depth == 0)
             {
-                savedProgram = GlStateManager.glGetInteger(GL_CURRENT_PROGRAM);
+                // 不能把本程序或其它实体染色程序记成 outer, 否则双重 debuff 时 end 会解不干净
+                savedProgram = EntityTintShaderGuard.sanitizeOuterProgram(
+                        GlStateManager.glGetInteger(GL_CURRENT_PROGRAM), program);
                 suspended = false;
             }
             depth++;
@@ -228,7 +252,7 @@ public final class ShaderInkyEntity
             TinkersThings.log(e);
             try
             {
-                OpenGlHelper.glUseProgram(savedProgram);
+                OpenGlHelper.glUseProgram(safeRestoreProgram());
             }
             catch (Throwable ignored) {}
         }
@@ -250,11 +274,15 @@ public final class ShaderInkyEntity
 
         if (!fogEnabled) return;
 
-        // 雾颜色有 4 个分量, 但 glGetFloat 要求缓冲区至少 16 个元素
+        // glGetFloat(GL_FOG_COLOR) 要求缓冲区至少 16 个元素, 但 LWJGL 的
+        // glUniform3(FloatBuffer) 会按 remaining()/3 当作数组长度上传.
+        // 若直接把 16 槽的 BUF_GET 丢进去, count 变成 5, 对非数组 vec3 uniform
+        // 会触发 GL_INVALID_OPERATION (1282), 严重时整帧发黑.
         BUF_GET.clear();
         GL11.glGetFloat(GL11.GL_FOG_COLOR, BUF_GET);
-        BUF_GET.rewind();
-        OpenGlHelper.glUniform3(locFogColor, BUF_GET);
+        BUF3.clear();
+        BUF3.put(BUF_GET.get(0)).put(BUF_GET.get(1)).put(BUF_GET.get(2)).flip();
+        OpenGlHelper.glUniform3(locFogColor, BUF3);
 
         // GL_LINEAR / GL_EXP / GL_EXP2 映射成 0 / 1 / 2
         int glMode = GL11.glGetInteger(GL11.GL_FOG_MODE);
@@ -288,7 +316,7 @@ public final class ShaderInkyEntity
             if (--depth == 0)
             {
                 suspended = false;
-                OpenGlHelper.glUseProgram(savedProgram);
+                OpenGlHelper.glUseProgram(safeRestoreProgram());
             }
         }
         catch (Throwable e)
@@ -311,7 +339,7 @@ public final class ShaderInkyEntity
         try
         {
             suspended = true;
-            OpenGlHelper.glUseProgram(savedProgram);
+            OpenGlHelper.glUseProgram(safeRestoreProgram());
         }
         catch (Throwable e)
         {
@@ -353,18 +381,31 @@ public final class ShaderInkyEntity
         fogDirty = true;
 
         if (!available) return;
-        if (depth == 0 && !suspended) return;
 
+        boolean dirty = depth != 0 || suspended;
         depth = 0;
         suspended = false;
+
         try
         {
-            OpenGlHelper.glUseProgram(savedProgram);
+            if (dirty)
+            {
+                OpenGlHelper.glUseProgram(safeRestoreProgram());
+            }
+            // 双重 debuff 时可能出现 depth 已归零但当前仍绑着另一个 tint program;
+            // 统一交给护栏做最终解绑
+            EntityTintShaderGuard.forceUnbindIfTintBound();
         }
         catch (Throwable e)
         {
             available = false;
         }
+        savedProgram = 0;
+    }
+
+    private static int safeRestoreProgram()
+    {
+        return EntityTintShaderGuard.sanitizeOuterProgram(savedProgram, program);
     }
 
     private static float clamp01(float value)

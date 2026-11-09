@@ -2,14 +2,14 @@
 
 // Inky - entity darkening shader.
 //
-// Fragment-stage-only program: the vertex stage stays on the fixed-function
-// pipeline. Vanilla and Tinkers' entity models submit raw vertex arrays /
-// display lists, so a full vertex+fragment program would have to re-bind all
-// vertex attributes itself and would be much more likely to conflict with
-// other rendering mods. With only a fragment stage, the fixed pipeline still
-// fills in gl_Color / gl_TexCoord[] / gl_FogFragCoord; the lightmap
-// coordinates are already normalized by the texture matrix set up in
-// EntityRenderer#enableLightmap.
+// Paired with entity_passthrough.vert (compatibility-profile passthrough).
+// That vertex stage mirrors the fixed pipeline so vanilla / Tinkers entity
+// models can keep submitting raw vertex arrays / display lists without
+// manual attribute binding. Fragment-only programs are avoided: they may
+// link on some drivers but then raise GL_INVALID_OPERATION on draw.
+//
+// Transitional: one program per tint effect. Before adding more whole-model
+// tints, merge into a single fragment pipeline (see EntityTintShaderGuard).
 //
 // NOTE: keep this file ASCII-only. Some drivers silently mis-parse shader
 // sources containing non-ASCII bytes (even inside comments), producing a

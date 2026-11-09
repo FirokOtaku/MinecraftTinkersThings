@@ -20,6 +20,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * 渲染生物主体时切换到极寒着色器, 让生物整体发蓝; 名字牌等 UI 性质的内容会被排除在外.
  * 寒气粒子由 {@link firok.tiths.potion.PotionExtremeFreezing#performEffect} 在效果 tick 时生成.
  * <p>
+ * 若同一实体同时带有墨染, 则让出给 {@link RenderInkyEffect}:
+ * 两种着色器不能叠用同一个 GL program 槽, 否则 begin/end 会互相把对方的 program
+ * 存进 savedProgram, 最终把染色 program 留在管线上导致全屏发黑.
+ * 互斥只是过渡方案; 扩展更多整模染色效果时见 {@link EntityTintShaderGuard} 的改造结论,
+ * 应合并为单一 program, 而不是再增加一套 Render/Shader 对与让位逻辑.
+ * <p>
  * 这里所有渲染回调都必须保证不抛异常:
  * Forge 是在 {@link RenderLivingBase#doRender} 里直接 post 这些事件的,
  * 那个位置没有 try/catch, 抛出去就是整帧渲染崩溃.
@@ -54,6 +60,17 @@ public final class RenderExtremeFreezingEffect
         return Configs.Client.enable_extreme_freezing_entity_shader;
     }
 
+    /**
+     * 墨染优先: 同时存在时不切换极寒着色器, 避免两个 program 嵌套打架.
+     * <p>
+     * 若将来改为统一 {@code EntityTintRenderer}, 本方法应随互斥方案一并删除,
+     * 改由 TintState 同时携带多种效果强度 (详见 {@link EntityTintShaderGuard}).
+     */
+    private static boolean yieldsToInky(EntityLivingBase entity)
+    {
+        return Configs.Client.enable_inky_entity_shader && RenderInkyEffect.hasInky(entity);
+    }
+
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onRenderLivingPre(RenderLivingEvent.Pre<?> event)
     {
@@ -64,6 +81,7 @@ public final class RenderExtremeFreezingEffect
 
             EntityLivingBase entity = event.getEntity();
             if (!hasExtremeFreezing(entity)) return;
+            if (yieldsToInky(entity)) return;
 
             if (!loggedFirstFrozenEntity)
             {
@@ -98,6 +116,7 @@ public final class RenderExtremeFreezingEffect
 
             EntityLivingBase entity = event.getEntity();
             if (!hasExtremeFreezing(entity)) return;
+            if (yieldsToInky(entity)) return;
 
             if (ShaderExtremeFreezingEntity.isAvailable())
             {
@@ -122,6 +141,7 @@ public final class RenderExtremeFreezingEffect
         {
             if (!entityShaderEnabled()) return;
             if (!hasExtremeFreezing(event.getEntity())) return;
+            if (yieldsToInky(event.getEntity())) return;
             ShaderExtremeFreezingEntity.suspend();
         }
         catch (Throwable e)
@@ -138,6 +158,7 @@ public final class RenderExtremeFreezingEffect
         {
             if (!entityShaderEnabled()) return;
             if (!hasExtremeFreezing(event.getEntity())) return;
+            if (yieldsToInky(event.getEntity())) return;
             ShaderExtremeFreezingEntity.resume();
         }
         catch (Throwable e)

@@ -21,6 +21,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * 墨滴粒子由 {@link firok.tiths.potion.PotionInky#performEffect} 在效果 tick 时生成,
  * 避免客户端每 tick 遍历全部实体.
  * <p>
+ * 与极寒同时存在时由本效果优先接管实体着色器
+ * (见 {@link RenderExtremeFreezingEffect}), 两种着色器不能叠用.
+ * 这是过渡期的互斥策略; 再增加同类整模染色效果前, 应按
+ * {@link EntityTintShaderGuard} 类注释中的"后续扩展结论"收成单一 program + TintState 调度器,
+ * 而不是继续复制本类 / 继续加 yieldsToXxx.
+ * <p>
  * 这里所有渲染回调都必须保证不抛异常:
  * Forge 是在 {@link RenderLivingBase#doRender} 里直接 post 这些事件的,
  * 那个位置没有 try/catch, 抛出去就是整帧渲染崩溃.

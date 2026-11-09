@@ -19,18 +19,24 @@ import java.nio.charset.StandardCharsets;
 /**
  * 极寒 - 生物实体染色着色器.
  * <p>
- * 结构与 {@link ShaderInkyEntity} 相同: 只接管片元阶段, 顶点仍走固定管线.
- * 片元着色器按 贴图 * 顶点色 * 光照 采样后, 往淡蓝色混合, 让生物看起来被寒气浸透.
+ * 结构与 {@link ShaderInkyEntity} 相同: 兼容剖面顶点 + 片元程序,
+ * 顶点复刻固定管线, 片元按 贴图 * 顶点色 * 光照 采样后往淡蓝色混合.
  * <p>
- * 按实体本地高度做从下往上的渐变, 需要自定义顶点阶段把模型空间 Y 传进片元着色器;
+ * 按实体本地高度做从下往上的渐变, 需要把模型空间 Y 传进片元着色器;
  * 在当前 1.12.2 实体渲染管线下冲突风险与成本都偏高, 因此改为整体发蓝.
+ * <p>
+ * 本类同样是过渡实现 (独立 program). 扩展更多整模染色效果前见
+ * {@link EntityTintShaderGuard} 的改造结论: 应与墨染合并为单一 program + TintState,
+ * 仅在顶点阶段显著不同或多 pass 需求时才保留独立 program.
  * <p>
  * 任何一步失败都只做降级处理, 绝不抛出异常.
  */
 @SideOnly(Side.CLIENT)
 public final class ShaderExtremeFreezingEntity
 {
-    private static final ResourceLocation RL_SHADER =
+    private static final ResourceLocation RL_VERT =
+            new ResourceLocation(TinkersThings.MOD_ID, "shaders/entity_passthrough.vert");
+    private static final ResourceLocation RL_FRAG =
             new ResourceLocation(TinkersThings.MOD_ID, "shaders/extreme_freezing_entity.frag");
 
     /**
@@ -86,29 +92,21 @@ public final class ShaderExtremeFreezingEntity
                 return;
             }
 
-            String source = readShaderSource();
-            if (source == null) return;
-
-            byte[] bytes = source.getBytes(StandardCharsets.UTF_8);
-            ByteBuffer sourceBuffer = BufferUtils.createByteBuffer(bytes.length);
-            sourceBuffer.put(bytes);
-            sourceBuffer.position(0);
-
-            int shader = OpenGlHelper.glCreateShader(OpenGlHelper.GL_FRAGMENT_SHADER);
-            OpenGlHelper.glShaderSource(shader, sourceBuffer);
-            OpenGlHelper.glCompileShader(shader);
-            if (OpenGlHelper.glGetShaderi(shader, OpenGlHelper.GL_COMPILE_STATUS) == 0)
+            int vert = compileShader(OpenGlHelper.GL_VERTEX_SHADER, RL_VERT);
+            if (vert == 0) return;
+            int frag = compileShader(OpenGlHelper.GL_FRAGMENT_SHADER, RL_FRAG);
+            if (frag == 0)
             {
-                TinkersThings.log("[extreme_freezing] failed to compile shader: "
-                        + OpenGlHelper.glGetShaderInfoLog(shader, 32768));
-                OpenGlHelper.glDeleteShader(shader);
+                OpenGlHelper.glDeleteShader(vert);
                 return;
             }
 
             int prog = OpenGlHelper.glCreateProgram();
-            OpenGlHelper.glAttachShader(prog, shader);
+            OpenGlHelper.glAttachShader(prog, vert);
+            OpenGlHelper.glAttachShader(prog, frag);
             OpenGlHelper.glLinkProgram(prog);
-            OpenGlHelper.glDeleteShader(shader);
+            OpenGlHelper.glDeleteShader(vert);
+            OpenGlHelper.glDeleteShader(frag);
 
             if (OpenGlHelper.glGetProgrami(prog, OpenGlHelper.GL_LINK_STATUS) == 0)
             {
@@ -143,6 +141,7 @@ public final class ShaderExtremeFreezingEntity
 
             program = prog;
             available = true;
+            EntityTintShaderGuard.registerFreezeProgram(program);
             TinkersThings.log("[extreme_freezing] freeze shader ready, program=" + program);
         }
         catch (Throwable e)
@@ -154,10 +153,33 @@ public final class ShaderExtremeFreezingEntity
         }
     }
 
-    private static String readShaderSource()
+    private static int compileShader(int type, ResourceLocation location)
+    {
+        String source = readShaderSource(location);
+        if (source == null) return 0;
+
+        byte[] bytes = source.getBytes(StandardCharsets.UTF_8);
+        ByteBuffer sourceBuffer = BufferUtils.createByteBuffer(bytes.length);
+        sourceBuffer.put(bytes);
+        sourceBuffer.position(0);
+
+        int shader = OpenGlHelper.glCreateShader(type);
+        OpenGlHelper.glShaderSource(shader, sourceBuffer);
+        OpenGlHelper.glCompileShader(shader);
+        if (OpenGlHelper.glGetShaderi(shader, OpenGlHelper.GL_COMPILE_STATUS) == 0)
+        {
+            TinkersThings.log("[extreme_freezing] failed to compile " + location + ": "
+                    + OpenGlHelper.glGetShaderInfoLog(shader, 32768));
+            OpenGlHelper.glDeleteShader(shader);
+            return 0;
+        }
+        return shader;
+    }
+
+    private static String readShaderSource(ResourceLocation location)
     {
         try (InputStream is = Minecraft.getMinecraft().getResourceManager()
-                .getResource(RL_SHADER).getInputStream())
+                .getResource(location).getInputStream())
         {
             ByteArrayOutputStream out = new ByteArrayOutputStream();
             byte[] chunk = new byte[4096];
@@ -167,7 +189,7 @@ public final class ShaderExtremeFreezingEntity
         }
         catch (Throwable e)
         {
-            TinkersThings.log("[extreme_freezing] failed to read shader source " + RL_SHADER);
+            TinkersThings.log("[extreme_freezing] failed to read shader source " + location);
             TinkersThings.log(e);
             return null;
         }
@@ -187,7 +209,8 @@ public final class ShaderExtremeFreezingEntity
         {
             if (depth == 0)
             {
-                savedProgram = GlStateManager.glGetInteger(GL_CURRENT_PROGRAM);
+                savedProgram = EntityTintShaderGuard.sanitizeOuterProgram(
+                        GlStateManager.glGetInteger(GL_CURRENT_PROGRAM), program);
                 suspended = false;
             }
             depth++;
@@ -215,7 +238,7 @@ public final class ShaderExtremeFreezingEntity
             TinkersThings.log(e);
             try
             {
-                OpenGlHelper.glUseProgram(savedProgram);
+                OpenGlHelper.glUseProgram(safeRestoreProgram());
             }
             catch (Throwable ignored) {}
         }
@@ -233,10 +256,12 @@ public final class ShaderExtremeFreezingEntity
 
         if (!fogEnabled) return;
 
+        // 同 ShaderInkyEntity: 不可把 16 槽的 glGet 缓冲区直接丢给 glUniform3
         BUF_GET.clear();
         GL11.glGetFloat(GL11.GL_FOG_COLOR, BUF_GET);
-        BUF_GET.rewind();
-        OpenGlHelper.glUniform3(locFogColor, BUF_GET);
+        BUF3.clear();
+        BUF3.put(BUF_GET.get(0)).put(BUF_GET.get(1)).put(BUF_GET.get(2)).flip();
+        OpenGlHelper.glUniform3(locFogColor, BUF3);
 
         int glMode = GL11.glGetInteger(GL11.GL_FOG_MODE);
         float shaderMode = glMode == GL11.GL_LINEAR ? 0f : (glMode == GL11.GL_EXP ? 1f : 2f);
@@ -266,7 +291,7 @@ public final class ShaderExtremeFreezingEntity
             if (--depth == 0)
             {
                 suspended = false;
-                OpenGlHelper.glUseProgram(savedProgram);
+                OpenGlHelper.glUseProgram(safeRestoreProgram());
             }
         }
         catch (Throwable e)
@@ -285,7 +310,7 @@ public final class ShaderExtremeFreezingEntity
         try
         {
             suspended = true;
-            OpenGlHelper.glUseProgram(savedProgram);
+            OpenGlHelper.glUseProgram(safeRestoreProgram());
         }
         catch (Throwable e)
         {
@@ -316,18 +341,29 @@ public final class ShaderExtremeFreezingEntity
         fogDirty = true;
 
         if (!available) return;
-        if (depth == 0 && !suspended) return;
 
+        boolean dirty = depth != 0 || suspended;
         depth = 0;
         suspended = false;
+
         try
         {
-            OpenGlHelper.glUseProgram(savedProgram);
+            if (dirty)
+            {
+                OpenGlHelper.glUseProgram(safeRestoreProgram());
+            }
+            EntityTintShaderGuard.forceUnbindIfTintBound();
         }
         catch (Throwable e)
         {
             available = false;
         }
+        savedProgram = 0;
+    }
+
+    private static int safeRestoreProgram()
+    {
+        return EntityTintShaderGuard.sanitizeOuterProgram(savedProgram, program);
     }
 
     private static float clamp01(float value)

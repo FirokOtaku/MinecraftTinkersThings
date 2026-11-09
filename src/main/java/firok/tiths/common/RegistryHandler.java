@@ -4,6 +4,7 @@ import firok.tiths.TinkersThings;
 import firok.tiths.potion.BasePotion;
 import firok.tiths.tile.TECrystallizer;
 import firok.tiths.tile.TELavaCrystalBrewingStand;
+import firok.tiths.tile.TEPalantir;
 import firok.tiths.tile.TEShackingDispenser;
 import firok.tiths.tile.logic.TEEnderInterferedBlock;
 import firok.tiths.util.conf.MaterialInfo;
@@ -181,7 +182,16 @@ public final class RegistryHandler
                         String tn = regValue.length() > 0 ? regValue : regTn;
                         String un = regValue.length() > 0 ? regValue : regUn;
 
-                        ItemBlock itemBlock = new ItemBlock(block);
+                        ItemBlock itemBlock;
+                        CustomItemBlock customItemBlock = field.getAnnotation(CustomItemBlock.class);
+                        if (customItemBlock != null)
+                        {
+                            itemBlock = customItemBlock.value().getConstructor(Block.class).newInstance(block);
+                        }
+                        else
+                        {
+                            itemBlock = new ItemBlock(block);
+                        }
                         itemBlock.setTranslationKey(modid + '.' + un);
                         itemBlock.setRegistryName(modid, tn);
 
@@ -224,6 +234,7 @@ public final class RegistryHandler
         GameRegistry.registerTileEntity(TELavaCrystalBrewingStand.class, new ResourceLocation(TinkersThings.MOD_ID, "lava_crystal_brewing_stand"));
         GameRegistry.registerTileEntity(TEEnderInterferedBlock.class, new ResourceLocation(TinkersThings.MOD_ID, "ender_interfered_block"));
         GameRegistry.registerTileEntity(TECrystallizer.class, new ResourceLocation(TinkersThings.MOD_ID, "crystallizer"));
+        GameRegistry.registerTileEntity(TEPalantir.class, new ResourceLocation(TinkersThings.MOD_ID, "palantir"));
 //		FieldStream.of(TileEntities.class,null,TileEntity.class)
 //				.whenFail(Throwable::printStackTrace)
 //				.forEach((field, anno, tileEntity) -> {

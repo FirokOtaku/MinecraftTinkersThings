@@ -200,6 +200,27 @@ public final class Configs
         @LangKey(pgg + "crystallizer_shard_drop_chance")
         @RangeDouble(min = 0, max = 1)
         public static double crystallizer_shard_drop_chance = 0.3D;
+
+        /**
+         * 真知晶球观测横向半径 (以标记坐标为中心, 格)
+         */
+        @LangKey(pgg + "palantir_range_horizontal")
+        @RangeInt(min = 0, max = 16)
+        public static int palantir_range_horizontal = 4;
+
+        /**
+         * 真知晶球观测纵向半径 (以标记坐标为中心, 格)
+         */
+        @LangKey(pgg + "palantir_range_vertical")
+        @RangeInt(min = 0, max = 16)
+        public static int palantir_range_vertical = 3;
+
+        /**
+         * 真知晶球每次触摸后持续显示的时间 (tick)
+         */
+        @LangKey(pgg + "palantir_display_duration")
+        @RangeInt(min = 1, max = 1200)
+        public static int palantir_display_duration = 120;
     }
 
     @Config(name = TinkersThings.MOD_ID + "_potion", modid = TinkersThings.MOD_ID, category = "potion")
