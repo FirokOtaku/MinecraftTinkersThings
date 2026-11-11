@@ -2,6 +2,22 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.41.0 _2026-11-11 22:00_
+
+* added traits
+  * light metal
+  * heavy metal
+  * soft metal (armor)
+  * hard meta (armor)
+
+## 0.3.40.0 _2026-11-09 23:30_
+
+* added palantir item
+
+## 0.3.39.0 _2026-11-09 22:30_
+
+* added extreme freezing potion effect
+
 ## 0.3.38.0 _2026-11-08 19:00_
 
 * added orystal item and block

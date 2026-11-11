@@ -28,6 +28,7 @@ public class ArmorTraits
     @Indev
     public static AbstractArmorTrait deadening; // 吸音
     public static AbstractArmorTrait deepParasitic; // 深触寄生
+    public static AbstractArmorTrait defiant; // 反抗
     public static AbstractArmorTrait devouring; // 吞噬
     public static AbstractArmorTrait dichroic; // 二色性
     public static AbstractArmorTrait diffuseReflecting; // 漫反射
@@ -39,6 +40,7 @@ public class ArmorTraits
     public static AbstractArmorTrait farmlandProtective; // 护田
     public static AbstractArmorTrait fishUpgraded; // 鱼腥
     public static AbstractArmorTrait gorgeous; // 斑斓
+    public static AbstractArmorTrait hardMetal; // 硬金属
     public static AbstractArmorTrait hemolytic; // 溶血
     public static AbstractArmorTrait hydrating; // 水合
     public static AbstractArmorTrait hiding; // 匿踪
@@ -58,13 +60,16 @@ public class ArmorTraits
     public static AbstractArmorTrait photosynthetic; // 光合作用
     public static AbstractArmorTrait quickFreezing; // 速冻
     public static AbstractArmorTrait radiant; // 辉耀
+    public static AbstractArmorTrait reactiveArmor; // 反应装甲
     public static AbstractArmorTrait recombining; // 重组
     public static AbstractArmorTrait seedUpgraded; // 种子升级
     public static AbstractArmorTrait sliding; // 软滑
     public static AbstractArmorTrait smooth; // 光滑
+    public static AbstractArmorTrait softMetal; // 软金属
     public static AbstractArmorTrait soluble; // 可溶
     public static AbstractArmorTrait staminaFocusing; // 精力汇聚
     public static AbstractArmorTrait starDashing; // 星绽
+    public static AbstractArmorTrait structuralWeakness; // 结构弱点
     public static AbstractArmorTrait sunPower; // 日之力量
     public static AbstractArmorTrait surging; // 浪涌
     public static AbstractArmorTrait switching; // 换位
@@ -101,6 +106,7 @@ public class ArmorTraits
         chemicalInstable = new TraitArmorChemicalInstable();
 //		deadening=new TraitArmorDeadening();
         deepParasitic = new TraitArmorDeepParasitic();
+        defiant = new TraitArmorDefiant();
         devouring = new TraitArmorDevouring();
         dichroic = new TraitArmorDichroic();
         diffuseReflecting = new TraitArmorDiffuseReflecting();
@@ -114,6 +120,7 @@ public class ArmorTraits
                 .always(player -> Datas.Server.instance().regFishTempt(player))
                 .toEntity(catAlive);
         gorgeous = new TraitArmorGorgeous();
+        hardMetal = new TraitArmorHardMetal();
         hemolytic = new TraitArmorHemolytic();
         hydrating = new TraitArmorHydrating();
         hiding = new TraitArmorHiding();
@@ -133,15 +140,18 @@ public class ArmorTraits
         photosynthetic = new TraitArmorPhotosynthetic();
         quickFreezing = new TraitArmorQuickFreezing();
         radiant = new TraitArmorRadiant();
+        reactiveArmor = new TraitArmorReactiveArmor();
         recombining = new TraitArmorRecombining();
         seedUpgraded = new TraitArmorTemptUpgraded(nameTraitSeedUpgraded, colorTraitSeedUpgraded, player -> Datas.Server.instance().hasSeedTempt(player))
                 .always(player -> Datas.Server.instance().regSeedTempt(player))
                 .toEntity(chickenAlive);
         sliding = new TraitArmorSliding();
         smooth = new TraitArmorSmooth();
+        softMetal = new TraitArmorSoftMetal();
         soluble = new TraitArmorSoluble();
         staminaFocusing = new TraitArmorStaminaFocusing();
         starDashing = new TraitArmorStarDashing();
+        structuralWeakness = new TraitArmorStructuralWeakness();
         sunPower = new TraitArmorSunPower();
         surging = new TraitArmorSurging();
         switching = new TraitArmorSwitching();

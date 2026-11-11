@@ -472,6 +472,7 @@ public interface Keys
     String nameTraitIcy = "icy";
     String nameTraitLuxurious = "luxurious";
     String nameTraitRadiant = "radiant";
+    String nameTraitReactiveArmor = "reactive";
     String nameTraitExtremeFreezing = "extreme_freezing";
     String nameTraitSwitching = "switching";
     String nameTraitClustering = "clustering";
@@ -479,6 +480,7 @@ public interface Keys
     String nameTraitPolished = "polished";
     String nameTraitBrittle = "brittle";
     String nameTraitStarDashing = "star_dashing";
+    String nameTraitStructuralWeakness = "structural_weakness";
     String nameTraitSoluble = "soluble";
     String nameTraitBirefringent = "birefringent";
     String nameTraitPyroelectric = "pyroelectric";
@@ -492,7 +494,10 @@ public interface Keys
     String nameTraitDrilled = "drilled";
     String nameTraitWrapping = "wrapping";
     String nameTraitPhantasmic = "phantasmic";
+    String nameTraitHardMetal = "hard_metal";
+    String nameTraitHeavyMetal = "heavy_metal";
     String nameTraitHemolytic = "hemolytic";
+    String nameTraitLightMetal = "light_metal";
     String nameTraitLionheart = "lionheart";
     String nameTraitTerrifying = "terrifying";
     String nameTraitThunderWaving = "thunder_waving";
@@ -523,6 +528,7 @@ public interface Keys
     String nameTraitChamping = "champing";
     String nameTraitFading = "fading";
     String nameTraitDeepParasitic = "deep_parasitic";
+    String nameTraitDefiant = "defiant";
     String nameTraitPanicking = "panicking";
     String nameTraitDiffuseReflecting = "diffuse_reflecting";
     String nameTraitWidening = "widening";
@@ -533,6 +539,7 @@ public interface Keys
     String nameTraitDeadening = "deadening";
     String nameTraitDevouring = "devouring";
     String nameTraitSmooth = "smooth";
+    String nameTraitSoftMetal = "soft_metal";
     String nameTraitMeshing = "meshing";
     String nameTraitBuoyant = "buoyant";
     String nameTraitSovereign = "sovereign";
@@ -602,6 +609,7 @@ public interface Keys
     int colorTraitIcy = Colors.DeepSkyBlue;
     int colorTraitLuxurious = Colors.Gold;
     int colorTraitRadiant = Colors.FireBrick;
+    int colorTraitReactiveArmor = 0xd4a017;
     int colorTraitExtremeFreezing = 0x2a61bc;
     int colorTraitSwitching = Colors.SeaGreen;
     int colorTraitClustering = Colors.DarkKhaki;
@@ -609,6 +617,7 @@ public interface Keys
     int colorTraitPolished = Colors.YellowGreen;
     int colorTraitBrittle = Colors.PaleTurquoise;
     int colorTraitStarDashing = 0xea7632;
+    int colorTraitStructuralWeakness = 0x7a6a58;
     int colorTraitSoluble = Colors.CadetBlue;
     int colorTraitBirefringent = Colors.Indigo;
     int colorTraitPyroelectric = Colors.Navy;
@@ -622,7 +631,10 @@ public interface Keys
     int colorTraitDrilled = Colors.PaleVioletRed;
     int colorTraitWrapping = 0x2d3d1c;
     int colorTraitPhantasmic = Colors.BlueViolet;
+    int colorTraitHardMetal = 0x8a8a9a;
+    int colorTraitHeavyMetal = 0x4a4a58;
     int colorTraitHemolytic = Colors.DarkRed;
+    int colorTraitLightMetal = 0xd4dce8;
     int colorTraitLionheart = 0x87143e;
     int colorTraitTerrifying = 0x2a135a;
     int colorTraitThunderWaving = 0x2b5c99;
@@ -652,6 +664,7 @@ public interface Keys
     int colorTraitChamping = 0xffa919;
     int colorTraitFading = 0x686868;
     int colorTraitDeepParasitic = 0xb8132a;
+    int colorTraitDefiant = 0xc43c2b;
     int colorTraitPanicking = 0x451d7f;
     int colorTraitDiffuseReflecting = 0x81dbc7;
     int colorTraitWidening = 0xba274c;
@@ -663,6 +676,7 @@ public interface Keys
     int colorTraitDeadening = 0x59a373;
     int colorTraitDevouring = 0x390664;
     int colorTraitSmooth = 0xe8f7f7;
+    int colorTraitSoftMetal = 0xc5b89a;
     int colorTraitMeshing = 0x072a5a;
     int colorTraitBuoyant = 0xe5d53a;
     int colorTraitSovereign = 0xf5d723;

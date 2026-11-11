@@ -43,6 +43,7 @@ public final class Traits
     public static AbstractTrait gluttonic; // 暴食
     public static AbstractTrait gorgeous; // 斑斓
     public static AbstractTrait green; // 绿意
+    public static AbstractTrait heavyMetal; // 重金属
     public static AbstractTrait hemolytic; // 溶血
     public static AbstractTrait hyper; // 振奋
     public static AbstractTrait icy; // 冰冷
@@ -51,6 +52,7 @@ public final class Traits
     public static AbstractTrait infiltrating; // 透蚀
     public static AbstractTrait inky; // 墨染
     public static AbstractTrait lifeInspiring; // 生命激发
+    public static AbstractTrait lightMetal; // 轻金属
     public static AbstractTrait lionheart; // 狮心
     public static AbstractTrait luxurious; // 奢华
     public static AbstractTrait maiming; // 致残
@@ -129,6 +131,7 @@ public final class Traits
         gluttonic = new TraitGluttonic();
         gorgeous = new TraitGorgeous();
         green = new TraitGreen();
+        heavyMetal = new TraitHeavyMetal();
         hemolytic = new TraitHemolytic();
         hyper = new TraitHyper();
         icy = new TraitIcy();
@@ -137,6 +140,7 @@ public final class Traits
         infiltrating = new TraitInfiltrating();
         inky = new TraitInky();
         lifeInspiring = new TraitLifeInspiring();
+        lightMetal = new TraitLightMetal();
         lionheart = new TraitLionheart();
         luxurious = new TraitLuxurious();
         maiming = new TraitMaiming();

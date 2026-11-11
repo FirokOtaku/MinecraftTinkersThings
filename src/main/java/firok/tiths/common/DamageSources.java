@@ -29,6 +29,8 @@ public final class DamageSources
     public static final String TypeDragonKiller = "dragon_killer";
     public static final String TypeDiffuseReflecting = "diffuse_reflecting";
     public static final String TypeEmpathic = "empathic";
+    // 反应爆炸伤害
+    public static final String TypeReactiveExplosion = "reactive_explosion";
     public static DamageSource TestDamage = new DamageSource(TypeTest);
     public static DamageSource PunjiDamage = new DamageSource(TypePunji);
     public static DamageSource ShadowFireDamage = new DamageSource(TypeShadowFire)
@@ -85,6 +87,15 @@ public final class DamageSources
     {
         EntityDamageSource ret = new EntityDamageSource(TypeEmpathic, source);
         ret.setDamageBypassesArmor();
+        return ret;
+    }
+
+    // 反应爆炸伤害
+    public static EntityDamageSource ReactiveExplosion(Entity source)
+    {
+        EntityDamageSource ret = new EntityDamageSource(TypeReactiveExplosion, source);
+        ret.setDifficultyScaled();
+        ret.setExplosion();
         return ret;
     }
 }
