@@ -32,15 +32,22 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.storage.loot.LootEntry;
+import net.minecraft.world.storage.loot.LootPool;
+import net.minecraft.world.storage.loot.RandomValueRange;
+import net.minecraft.world.storage.loot.conditions.LootCondition;
+import net.minecraft.world.storage.loot.conditions.RandomChance;
 import net.minecraftforge.client.event.sound.PlaySoundEvent;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
+import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.entity.EntityMobGriefingEvent;
 import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
 import net.minecraftforge.event.entity.living.*;
@@ -696,15 +703,29 @@ public class Events
         }
     }
 
-//	@SubscribeEvent
-//	public static void onLoot(LootTableLoadEvent event)
-//	{
-//		ResourceLocation name=event.getName();
-//		LootTableManager manager=event.getLootTableManager();
-//		LootTable table=event.getTable();
-//
-//		LootPool pool=new LootPool();
-//	}
+    @SubscribeEvent
+    public static void onLoot(LootTableLoadEvent event)
+    {
+        if (!Configs.Gameplay.enable_chest_random_loot) return;
+
+        ResourceLocation name = event.getName();
+        if (name == null) return;
+        if (!"minecraft".equals(name.getNamespace())) return;
+        if (!name.getPath().startsWith("chests/")) return;
+
+        LootPool pool = new LootPool(
+                new LootEntry[]{
+                        new firok.tiths.gen.LootEntryRandomGear(1, 0, new LootCondition[0], "tiths_random_gear")
+                },
+                new LootCondition[]{
+                        new RandomChance(0.085f)
+                },
+                new RandomValueRange(1),
+                new RandomValueRange(0),
+                "tiths_random_gear_pool"
+        );
+        event.getTable().addPool(pool);
+    }
 
     private static boolean has(String[] strs, String str)
     {

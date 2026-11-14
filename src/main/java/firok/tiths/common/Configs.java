@@ -221,6 +221,96 @@ public final class Configs
         @LangKey(pgg + "palantir_display_duration")
         @RangeInt(min = 1, max = 1200)
         public static int palantir_display_duration = 120;
+
+        /* ---- 随机生成器 / 袋子 / 村民 / 宝箱 ---- */
+
+        @LangKey(pgg + "enable_tool_tinker_villager")
+        @RequiresMcRestart
+        public static boolean enable_tool_tinker_villager = true;
+
+        /**
+         * 启用盔甲匠人村民 (仍需已加载 ConArm 且启用护甲联动)
+         */
+        @LangKey(pgg + "enable_armor_tinker_villager")
+        @RequiresMcRestart
+        public static boolean enable_armor_tinker_villager = true;
+
+        @LangKey(pgg + "enable_chest_random_loot")
+        public static boolean enable_chest_random_loot = true;
+
+        @LangKey(pgg + "enable_tier_low")
+        public static boolean enable_tier_low = true;
+        @LangKey(pgg + "enable_tier_mid")
+        public static boolean enable_tier_mid = true;
+        @LangKey(pgg + "enable_tier_high")
+        public static boolean enable_tier_high = true;
+        @LangKey(pgg + "enable_tier_top")
+        public static boolean enable_tier_top = true;
+
+        /**
+         * 品级生成模式: default | custom
+         */
+        @LangKey(pgg + "gen_mode_low")
+        public static String gen_mode_low = "default";
+        @LangKey(pgg + "gen_mode_mid")
+        public static String gen_mode_mid = "default";
+        @LangKey(pgg + "gen_mode_high")
+        public static String gen_mode_high = "default";
+        @LangKey(pgg + "gen_mode_top")
+        public static String gen_mode_top = "default";
+
+        @LangKey(pgg + "custom_materials_low")
+        public static String[] custom_materials_low = {};
+        @LangKey(pgg + "custom_materials_mid")
+        public static String[] custom_materials_mid = {};
+        @LangKey(pgg + "custom_materials_high")
+        public static String[] custom_materials_high = {};
+        @LangKey(pgg + "custom_materials_top")
+        public static String[] custom_materials_top = {};
+
+        /**
+         * 村民交易中本模组隐藏材料进入候选池的概率 (默认极低)
+         */
+        @LangKey(pgg + "hidden_material_chance_villager")
+        @RangeDouble(min = 0, max = 1)
+        public static double hidden_material_chance_villager = 0.02D;
+
+        /**
+         * 宝箱/袋子等掉落中本模组隐藏材料进入候选池的概率
+         */
+        @LangKey(pgg + "hidden_material_chance_loot")
+        @RangeDouble(min = 0, max = 1)
+        public static double hidden_material_chance_loot = 0.08D;
+
+        /**
+         * 允许外来模组 isHidden 材料进入生成池 (不建议启用)
+         */
+        @LangKey(pgg + "allow_foreign_hidden_materials")
+        public static boolean allow_foreign_hidden_materials = false;
+
+        @LangKey(pgg + "bonus_modifier_chance")
+        @RangeDouble(min = 0, max = 1)
+        public static double bonus_modifier_chance = 0.12D;
+
+        @LangKey(pgg + "bonus_modifier_ids_tool")
+        public static String[] bonus_modifier_ids_tool = {};
+        @LangKey(pgg + "bonus_modifier_ids_weapon")
+        public static String[] bonus_modifier_ids_weapon = {};
+        @LangKey(pgg + "bonus_modifier_ids_armor")
+        public static String[] bonus_modifier_ids_armor = {};
+
+        @LangKey(pgg + "tier_hl_low_max")
+        @RangeInt(min = 0, max = 16)
+        public static int tier_hl_low_max = 1;
+        @LangKey(pgg + "tier_hl_mid_max")
+        @RangeInt(min = 0, max = 16)
+        public static int tier_hl_mid_max = 2;
+        @LangKey(pgg + "tier_hl_high_max")
+        @RangeInt(min = 0, max = 16)
+        public static int tier_hl_high_max = 3;
+        @LangKey(pgg + "tier_hl_top_min")
+        @RangeInt(min = 0, max = 16)
+        public static int tier_hl_top_min = 4;
     }
 
     @Config(name = TinkersThings.MOD_ID + "_potion", modid = TinkersThings.MOD_ID, category = "potion")

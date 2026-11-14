@@ -471,6 +471,7 @@ public interface Keys
     String nameTraitRetrospective = "retrospective";
     String nameTraitIcy = "icy";
     String nameTraitLuxurious = "luxurious";
+    String nameTraitMasterwork = "masterwork";
     String nameTraitRadiant = "radiant";
     String nameTraitReactiveArmor = "reactive";
     String nameTraitExtremeFreezing = "extreme_freezing";
@@ -608,6 +609,7 @@ public interface Keys
     int colorTraitRetrospective = Colors.LightYellow;
     int colorTraitIcy = Colors.DeepSkyBlue;
     int colorTraitLuxurious = Colors.Gold;
+    int colorTraitMasterwork = Colors.Gold;
     int colorTraitRadiant = Colors.FireBrick;
     int colorTraitReactiveArmor = 0xd4a017;
     int colorTraitExtremeFreezing = 0x2a61bc;

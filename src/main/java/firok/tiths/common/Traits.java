@@ -55,6 +55,7 @@ public final class Traits
     public static AbstractTrait lightMetal; // 轻金属
     public static AbstractTrait lionheart; // 狮心
     public static AbstractTrait luxurious; // 奢华
+    public static AbstractTrait masterwork; // 大师之作 (渠道词条占位)
     public static AbstractTrait maiming; // 致残
     public static AbstractTrait midasDesiring; // 迈达斯之欲
     public static AbstractTrait moonPower; // 月之力量
@@ -143,6 +144,7 @@ public final class Traits
         lightMetal = new TraitLightMetal();
         lionheart = new TraitLionheart();
         luxurious = new TraitLuxurious();
+        masterwork = new TraitMasterwork();
         maiming = new TraitMaiming();
         midasDesiring = new TraitMidasDesiring();
         moonPower = new TraitMoonPower();
@@ -192,5 +194,9 @@ public final class Traits
         aquatic.addItem(new ItemStack(Blocks.blockSeaGrass), 1, 1);
         inky.addItem(Items.inkySlime);
 //		stonePhasing.addItem(Items.phasingGem);
+        if (Items.traitTokenMasterwork != null)
+        {
+            masterwork.addItem(Items.traitTokenMasterwork);
+        }
     }
 }

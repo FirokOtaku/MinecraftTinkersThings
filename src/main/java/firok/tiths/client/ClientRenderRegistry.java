@@ -7,6 +7,8 @@ import firok.tiths.common.Blocks;
 import firok.tiths.common.Fluids;
 import firok.tiths.common.Items;
 import firok.tiths.common.Potions;
+import firok.tiths.item.ItemLootBag;
+import firok.tiths.item.ItemTraitToken;
 import firok.tiths.entity.item.EntityItemSoul;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -159,6 +161,22 @@ public class ClientRenderRegistry
                     Item item = (Item) field.get(null);
                     // 液体球走动态液体模型, 不要用固定 inventory 模型覆盖
                     if (item == Items.fluidBall) continue;
+                    // 分级袋子共用袋身模型 + 稀有度染色
+                    if (item instanceof ItemLootBag)
+                    {
+                        ModelResourceLocation bag = new ModelResourceLocation(
+                                new ResourceLocation(TinkersThings.MOD_ID, "bag"), "inventory");
+                        ModelLoader.setCustomModelResourceLocation(item, 0, bag);
+                        continue;
+                    }
+                    // 词条道具共用灰度模型 + 词条色染色
+                    if (item instanceof ItemTraitToken)
+                    {
+                        ModelResourceLocation token = new ModelResourceLocation(
+                                new ResourceLocation(TinkersThings.MOD_ID, "trait_token"), "inventory");
+                        ModelLoader.setCustomModelResourceLocation(item, 0, token);
+                        continue;
+                    }
                     ModelResourceLocation mrl = new ModelResourceLocation(item.getRegistryName(), "inventory");
                     ModelLoader.setCustomModelResourceLocation(item, 0, mrl);
 //					TinkersThings.log("registered item texture: "+mrl.toString());

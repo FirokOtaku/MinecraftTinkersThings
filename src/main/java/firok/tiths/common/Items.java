@@ -2,6 +2,8 @@ package firok.tiths.common;
 
 import baubles.api.BaubleType;
 import firok.tiths.TinkersThings;
+import firok.tiths.gen.BagType;
+import firok.tiths.gen.ToolTier;
 import firok.tiths.item.*;
 import firok.tiths.item.bauble.*;
 import firok.tiths.util.reg.Reg;
@@ -12,6 +14,8 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
+
+import javax.annotation.Nullable;
 
 import static firok.tiths.common.Keys.*;
 
@@ -321,6 +325,103 @@ public final class Items
     public static final Item wheatStack = new ItemBait(Blocks.blockBaitWheat); // 小麦捆
     @Reg(nameWitheringEssence)
     public static final Item witheringEssence = new ItemCustom().setRarity(EnumRarity.UNCOMMON); // 凋零精华
+
+    /* ---- 渠道词条道具 (灰度共用贴图 + 词条色染色, CreativeOnly) ---- */
+    @Reg("trait_token_masterwork")
+    public static final Item traitTokenMasterwork = new ItemTraitToken(nameTraitMasterwork, colorTraitMasterwork);
+
+    /* ---- 分级掉落袋 (袋身共用贴图, 稀有度染色) ---- */
+    @Reg("bag_tool_low")
+    public static final Item bagToolLow = new ItemLootBag(BagType.TOOL, ToolTier.LOW);
+    @Reg("bag_tool_mid")
+    public static final Item bagToolMid = new ItemLootBag(BagType.TOOL, ToolTier.MID);
+    @Reg("bag_tool_high")
+    public static final Item bagToolHigh = new ItemLootBag(BagType.TOOL, ToolTier.HIGH);
+    @Reg("bag_tool_top")
+    public static final Item bagToolTop = new ItemLootBag(BagType.TOOL, ToolTier.TOP);
+
+    @Reg("bag_weapon_low")
+    public static final Item bagWeaponLow = new ItemLootBag(BagType.WEAPON, ToolTier.LOW);
+    @Reg("bag_weapon_mid")
+    public static final Item bagWeaponMid = new ItemLootBag(BagType.WEAPON, ToolTier.MID);
+    @Reg("bag_weapon_high")
+    public static final Item bagWeaponHigh = new ItemLootBag(BagType.WEAPON, ToolTier.HIGH);
+    @Reg("bag_weapon_top")
+    public static final Item bagWeaponTop = new ItemLootBag(BagType.WEAPON, ToolTier.TOP);
+
+    @Reg("bag_armor_low")
+    public static final Item bagArmorLow = new ItemLootBag(BagType.ARMOR, ToolTier.LOW);
+    @Reg("bag_armor_mid")
+    public static final Item bagArmorMid = new ItemLootBag(BagType.ARMOR, ToolTier.MID);
+    @Reg("bag_armor_high")
+    public static final Item bagArmorHigh = new ItemLootBag(BagType.ARMOR, ToolTier.HIGH);
+    @Reg("bag_armor_top")
+    public static final Item bagArmorTop = new ItemLootBag(BagType.ARMOR, ToolTier.TOP);
+
+    @Reg("bag_tinker_low")
+    public static final Item bagTinkerLow = new ItemLootBag(BagType.TINKER, ToolTier.LOW);
+    @Reg("bag_tinker_mid")
+    public static final Item bagTinkerMid = new ItemLootBag(BagType.TINKER, ToolTier.MID);
+    @Reg("bag_tinker_high")
+    public static final Item bagTinkerHigh = new ItemLootBag(BagType.TINKER, ToolTier.HIGH);
+    @Reg("bag_tinker_top")
+    public static final Item bagTinkerTop = new ItemLootBag(BagType.TINKER, ToolTier.TOP);
+
+    @Nullable
+    public static Item getLootBag(BagType type, ToolTier tier)
+    {
+        if (type == null || tier == null) return null;
+        switch (type)
+        {
+            case TOOL:
+                switch (tier)
+                {
+                    case LOW: return bagToolLow;
+                    case MID: return bagToolMid;
+                    case HIGH: return bagToolHigh;
+                    case TOP: return bagToolTop;
+                }
+                break;
+            case WEAPON:
+                switch (tier)
+                {
+                    case LOW: return bagWeaponLow;
+                    case MID: return bagWeaponMid;
+                    case HIGH: return bagWeaponHigh;
+                    case TOP: return bagWeaponTop;
+                }
+                break;
+            case ARMOR:
+                switch (tier)
+                {
+                    case LOW: return bagArmorLow;
+                    case MID: return bagArmorMid;
+                    case HIGH: return bagArmorHigh;
+                    case TOP: return bagArmorTop;
+                }
+                break;
+            case TINKER:
+                switch (tier)
+                {
+                    case LOW: return bagTinkerLow;
+                    case MID: return bagTinkerMid;
+                    case HIGH: return bagTinkerHigh;
+                    case TOP: return bagTinkerTop;
+                }
+                break;
+        }
+        return null;
+    }
+
+    public static Item[] allLootBags()
+    {
+        return new Item[]{
+                bagToolLow, bagToolMid, bagToolHigh, bagToolTop,
+                bagWeaponLow, bagWeaponMid, bagWeaponHigh, bagWeaponTop,
+                bagArmorLow, bagArmorMid, bagArmorHigh, bagArmorTop,
+                bagTinkerLow, bagTinkerMid, bagTinkerHigh, bagTinkerTop,
+        };
+    }
 
     static
     {
