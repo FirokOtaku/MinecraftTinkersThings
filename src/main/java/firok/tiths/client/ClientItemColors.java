@@ -3,6 +3,7 @@ package firok.tiths.client;
 import firok.tiths.TinkersThings;
 import firok.tiths.common.Items;
 import firok.tiths.item.ItemLootBag;
+import firok.tiths.item.ItemProfessionSpawnEgg;
 import firok.tiths.item.ItemTraitToken;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ColorHandlerEvent;
@@ -12,7 +13,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
- * 客户端物品染色: 袋子按品级稀有度; 词条道具按绑定词条色.
+ * 客户端物品染色: 袋子按品级稀有度; 词条道具按绑定词条色; 职业刷怪蛋主/副色.
  */
 @SideOnly(Side.CLIENT)
 @Mod.EventBusSubscriber(value = Side.CLIENT, modid = TinkersThings.MOD_ID)
@@ -42,5 +43,15 @@ public final class ClientItemColors
             }
             return 0xFFFFFF;
         }, Items.traitTokenMasterwork);
+
+        event.getItemColors().registerItemColorHandler((stack, tintIndex) -> {
+            Item item = stack.getItem();
+            if (!(item instanceof ItemProfessionSpawnEgg))
+            {
+                return 0xFFFFFF;
+            }
+            ItemProfessionSpawnEgg egg = (ItemProfessionSpawnEgg) item;
+            return tintIndex == 0 ? egg.getPrimaryColor() : egg.getSecondaryColor();
+        }, Items.spawnEggToolTinker, Items.spawnEggArmorTinker);
     }
 }

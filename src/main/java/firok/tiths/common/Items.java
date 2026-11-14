@@ -326,6 +326,20 @@ public final class Items
     @Reg(nameWitheringEssence)
     public static final Item witheringEssence = new ItemCustom().setRarity(EnumRarity.UNCOMMON); // 凋零精华
 
+    /* ---- 村民职业刷怪蛋 (创造模式, 匠魂通用页) ---- */
+    @Reg("spawn_egg_tool_tinker")
+    public static final Item spawnEggToolTinker = new ItemProfessionSpawnEgg(
+            () -> Villagers.professionToolTinker,
+            0xC69E3E,
+            0x5A4020
+    );
+    @Reg("spawn_egg_armor_tinker")
+    public static final Item spawnEggArmorTinker = new ItemProfessionSpawnEgg(
+            () -> Villagers.professionArmorTinker,
+            0x8A929A,
+            0x3A4048
+    );
+
     /* ---- 渠道词条道具 (灰度共用贴图 + 词条色染色, CreativeOnly) ---- */
     @Reg("trait_token_masterwork")
     public static final Item traitTokenMasterwork = new ItemTraitToken(nameTraitMasterwork, colorTraitMasterwork);

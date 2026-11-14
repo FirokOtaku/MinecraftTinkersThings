@@ -10,7 +10,8 @@ import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fluids.Fluid;
@@ -27,12 +28,15 @@ import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 import slimeknights.tconstruct.tools.TinkerTools;
 
 import javax.annotation.Nullable;
-import java.util.Random;
 
 /**
  * 工具匠人 / 盔甲匠人村民职业与五级交易.
  * <p>
  * 1.12 无独立工作站点方块绑定; 主题上对齐工具站 / 焦黑砖相关方块.
+ * <p>
+ * 交易注意: {@code populateBuyingList} 会把某一级里的全部 {@link EntityVillager.ITradeList}
+ * 都加入列表, 因此每级只应注册 2 条 (与常见原版职业升级节奏一致); 若同级有多种候选,
+ * 用 {@link #pickOne} 包成单个槽位.
  */
 @Mod.EventBusSubscriber(modid = TinkersThings.MOD_ID)
 public final class Villagers
@@ -49,12 +53,12 @@ public final class Villagers
 
         if (Configs.Gameplay.enable_tool_tinker_villager)
         {
+            // 构造函数首参即 registry name, 内部已 setRegistryName, 勿再调用
             professionToolTinker = new VillagerRegistry.VillagerProfession(
                     TinkersThings.MOD_ID + ":tool_tinker",
                     TinkersThings.MOD_ID + ":textures/entity/villager/tool_tinker.png",
                     TinkersThings.MOD_ID + ":textures/entity/villager/tool_tinker_zombie.png"
             );
-            professionToolTinker.setRegistryName(new ResourceLocation(TinkersThings.MOD_ID, "tool_tinker"));
             registry.register(professionToolTinker);
             buildToolCareer(professionToolTinker);
         }
@@ -68,42 +72,79 @@ public final class Villagers
                     TinkersThings.MOD_ID + ":textures/entity/villager/armor_tinker.png",
                     TinkersThings.MOD_ID + ":textures/entity/villager/armor_tinker_zombie.png"
             );
-            professionArmorTinker.setRegistryName(new ResourceLocation(TinkersThings.MOD_ID, "armor_tinker"));
             registry.register(professionArmorTinker);
             buildArmorCareer(professionArmorTinker);
         }
+    }
+
+    /**
+     * 强制写入职业并清空已有交易 / 生涯进度, 使下次打开交易时按新职业重新生成.
+     * {@code setProfession} 本身不会清 Offers / Career.
+     */
+    public static void applyProfessionFresh(EntityVillager villager, VillagerRegistry.VillagerProfession profession)
+    {
+        if (villager == null || profession == null) return;
+        villager.setProfession(profession);
+
+        NBTTagCompound tag = new NBTTagCompound();
+        villager.writeEntityToNBT(tag);
+        tag.setString("ProfessionName", profession.getRegistryName().toString());
+        tag.setInteger("Career", 0);
+        tag.setInteger("CareerLevel", 0);
+        // 空 Offers -> read 后 buyingList 为空表; Career 0/0 使下次 populate 走「初始级」分支
+        NBTTagCompound offers = new NBTTagCompound();
+        offers.setTag("Recipes", new NBTTagList());
+        tag.setTag("Offers", offers);
+        villager.readEntityFromNBT(tag);
+        villager.setProfession(profession);
     }
 
     private static void buildToolCareer(VillagerRegistry.VillagerProfession profession)
     {
         new VillagerRegistry.VillagerCareer(profession, "tool_tinker")
                 .addTrade(1,
-                        sell(stack(TinkerCommons.searedBrick, 4), 1, 2),
-                        buy(stack(TinkerCommons.searedBrick, 8), 1, 1),
-                        sell(new ItemStack(Items.SLIME_BALL, 4), 1, 2),
-                        buy(new ItemStack(Items.SLIME_BALL, 6), 1, 1)
+                        pickOne(
+                                sell(stack(TinkerCommons.searedBrick, 4), 1, 2),
+                                buy(stack(TinkerCommons.searedBrick, 8), 1, 1)
+                        ),
+                        pickOne(
+                                sell(new ItemStack(Items.SLIME_BALL, 4), 1, 2),
+                                buy(new ItemStack(Items.SLIME_BALL, 6), 1, 1)
+                        )
                 )
                 .addTrade(2,
-                        sell(new ItemStack(Item.getItemFromBlock(TinkerSmeltery.searedTank), 1), 4, 7),
-                        sell(new ItemStack(Item.getItemFromBlock(TinkerSmeltery.searedBlock), 4), 2, 4),
-                        fluidBucketTrade(TinkerFluids.iron, 5, 8),
-                        rareFluidBucketTrade(TinkerFluids.blueslime, 6, 10, 0.35f)
+                        pickOne(
+                                sell(new ItemStack(Item.getItemFromBlock(TinkerSmeltery.searedTank), 1), 4, 7),
+                                sell(new ItemStack(Item.getItemFromBlock(TinkerSmeltery.searedBlock), 4), 2, 4)
+                        ),
+                        pickOne(
+                                fluidBucketTrade(TinkerFluids.iron, 5, 8),
+                                fluidBucketTrade(TinkerFluids.blueslime, 6, 10)
+                        )
                 )
                 .addTrade(3,
-                        sell(new ItemStack(Items.REDSTONE, 8), 2, 4),
-                        sell(new ItemStack(Items.QUARTZ, 4), 2, 4),
-                        randomToolPartTrade(false),
-                        sell(new ItemStack(Item.getItemFromBlock(TinkerTools.toolTables), 1), 6, 10)
+                        pickOne(
+                                sell(new ItemStack(Items.REDSTONE, 8), 2, 4),
+                                sell(new ItemStack(Items.QUARTZ, 4), 2, 4)
+                        ),
+                        pickOne(
+                                randomToolPartTrade(false),
+                                sell(new ItemStack(Item.getItemFromBlock(TinkerTools.toolTables), 1), 6, 10)
+                        )
                 )
                 .addTrade(4,
                         generatedGearTrade(ToolTier.LOW, EquipKind.TOOL, 10, 16),
-                        bagTrade(BagType.TOOL, ToolTier.LOW, 12, 18, 0.45f)
+                        bagTrade(BagType.TOOL, ToolTier.LOW, 12, 18)
                 )
                 .addTrade(5,
-                        generatedGearTrade(ToolTier.MID, EquipKind.TOOL, 16, 24),
-                        generatedGearTrade(ToolTier.HIGH, EquipKind.TOOL, 22, 32, 0.35f),
-                        bagTrade(BagType.TOOL, ToolTier.MID, 18, 26, 0.40f),
-                        bagTrade(BagType.TINKER, ToolTier.HIGH, 20, 28, 0.25f)
+                        pickOne(
+                                generatedGearTrade(ToolTier.MID, EquipKind.TOOL, 16, 24),
+                                generatedGearTrade(ToolTier.HIGH, EquipKind.TOOL, 22, 32)
+                        ),
+                        pickOne(
+                                bagTrade(BagType.TOOL, ToolTier.MID, 18, 26),
+                                bagTrade(BagType.TINKER, ToolTier.HIGH, 20, 28)
+                        )
                 );
     }
 
@@ -111,32 +152,48 @@ public final class Villagers
     {
         new VillagerRegistry.VillagerCareer(profession, "armor_tinker")
                 .addTrade(1,
-                        sell(stack(TinkerCommons.searedBrick, 4), 1, 2),
-                        buy(stack(TinkerCommons.searedBrick, 8), 1, 1),
-                        sell(new ItemStack(Items.SLIME_BALL, 4), 1, 2),
-                        buy(new ItemStack(Items.LEATHER, 6), 1, 2)
+                        pickOne(
+                                sell(stack(TinkerCommons.searedBrick, 4), 1, 2),
+                                buy(stack(TinkerCommons.searedBrick, 8), 1, 1)
+                        ),
+                        pickOne(
+                                sell(new ItemStack(Items.SLIME_BALL, 4), 1, 2),
+                                buy(new ItemStack(Items.LEATHER, 6), 1, 2)
+                        )
                 )
                 .addTrade(2,
-                        sell(new ItemStack(Item.getItemFromBlock(TinkerSmeltery.searedTank), 1), 4, 7),
-                        sell(new ItemStack(Item.getItemFromBlock(TinkerSmeltery.searedBlock), 4), 2, 4),
-                        fluidBucketTrade(TinkerFluids.iron, 5, 8),
-                        rareFluidBucketTrade(TinkerFluids.blueslime, 6, 10, 0.35f)
+                        pickOne(
+                                sell(new ItemStack(Item.getItemFromBlock(TinkerSmeltery.searedTank), 1), 4, 7),
+                                sell(new ItemStack(Item.getItemFromBlock(TinkerSmeltery.searedBlock), 4), 2, 4)
+                        ),
+                        pickOne(
+                                fluidBucketTrade(TinkerFluids.iron, 5, 8),
+                                fluidBucketTrade(TinkerFluids.blueslime, 6, 10)
+                        )
                 )
                 .addTrade(3,
-                        sell(new ItemStack(Items.REDSTONE, 8), 2, 4),
-                        sell(new ItemStack(Items.DIAMOND, 1), 6, 10),
-                        randomToolPartTrade(true),
-                        sell(new ItemStack(Items.IRON_INGOT, 4), 2, 4)
+                        pickOne(
+                                sell(new ItemStack(Items.REDSTONE, 8), 2, 4),
+                                sell(new ItemStack(Items.DIAMOND, 1), 6, 10)
+                        ),
+                        pickOne(
+                                randomToolPartTrade(true),
+                                sell(new ItemStack(Items.IRON_INGOT, 4), 2, 4)
+                        )
                 )
                 .addTrade(4,
                         generatedGearTrade(ToolTier.LOW, EquipKind.ARMOR, 12, 18),
-                        bagTrade(BagType.ARMOR, ToolTier.LOW, 14, 20, 0.45f)
+                        bagTrade(BagType.ARMOR, ToolTier.LOW, 14, 20)
                 )
                 .addTrade(5,
-                        generatedGearTrade(ToolTier.MID, EquipKind.ARMOR, 18, 26),
-                        generatedGearTrade(ToolTier.HIGH, EquipKind.ARMOR, 24, 34, 0.35f),
-                        bagTrade(BagType.ARMOR, ToolTier.MID, 20, 28, 0.40f),
-                        bagTrade(BagType.TINKER, ToolTier.HIGH, 20, 28, 0.25f)
+                        pickOne(
+                                generatedGearTrade(ToolTier.MID, EquipKind.ARMOR, 18, 26),
+                                generatedGearTrade(ToolTier.HIGH, EquipKind.ARMOR, 24, 34)
+                        ),
+                        pickOne(
+                                bagTrade(BagType.ARMOR, ToolTier.MID, 20, 28),
+                                bagTrade(BagType.TINKER, ToolTier.HIGH, 20, 28)
+                        )
                 );
     }
 
@@ -145,6 +202,15 @@ public final class Villagers
         ItemStack copy = template.copy();
         copy.setCount(count);
         return copy;
+    }
+
+    /** 从候选中随机挑 1 条实际写入, 占交易槽位的一格. */
+    private static EntityVillager.ITradeList pickOne(EntityVillager.ITradeList... options)
+    {
+        return (merchant, recipeList, random) -> {
+            if (options == null || options.length == 0) return;
+            options[random.nextInt(options.length)].addMerchantRecipe(merchant, recipeList, random);
+        };
     }
 
     /** 村民出售物品给玩家 (玩家付绿宝石). */
@@ -175,17 +241,6 @@ public final class Villagers
         };
     }
 
-    private static EntityVillager.ITradeList rareFluidBucketTrade(Fluid fluid, int minE, int maxE, float chance)
-    {
-        return (merchant, recipeList, random) -> {
-            if (random.nextFloat() > chance) return;
-            ItemStack bucket = filledBucket(fluid);
-            if (bucket.isEmpty()) return;
-            int price = minE + random.nextInt(Math.max(1, maxE - minE + 1));
-            recipeList.add(new MerchantRecipe(new ItemStack(Items.EMERALD, price), bucket));
-        };
-    }
-
     private static ItemStack filledBucket(@Nullable Fluid fluid)
     {
         if (fluid == null) return ItemStack.EMPTY;
@@ -196,7 +251,6 @@ public final class Villagers
     private static EntityVillager.ITradeList randomToolPartTrade(boolean armorBias)
     {
         return (merchant, recipeList, random) -> {
-            // 用匠人袋内容代替复杂部件抽取, 保证总有可交易物
             ItemStack offer;
             if (armorBias)
             {
@@ -218,13 +272,7 @@ public final class Villagers
 
     private static EntityVillager.ITradeList generatedGearTrade(ToolTier tier, EquipKind kind, int minE, int maxE)
     {
-        return generatedGearTrade(tier, kind, minE, maxE, 1.0f);
-    }
-
-    private static EntityVillager.ITradeList generatedGearTrade(ToolTier tier, EquipKind kind, int minE, int maxE, float chance)
-    {
         return (merchant, recipeList, random) -> {
-            if (random.nextFloat() > chance) return;
             ItemStack gear = TinkerEquipmentGenerator.generateOne(GenContext.VILLAGER, tier, kind, random);
             if (gear.isEmpty()) return;
             int price = minE + random.nextInt(Math.max(1, maxE - minE + 1));
@@ -232,10 +280,9 @@ public final class Villagers
         };
     }
 
-    private static EntityVillager.ITradeList bagTrade(BagType type, ToolTier tier, int minE, int maxE, float chance)
+    private static EntityVillager.ITradeList bagTrade(BagType type, ToolTier tier, int minE, int maxE)
     {
         return (merchant, recipeList, random) -> {
-            if (random.nextFloat() > chance) return;
             Item bag = firok.tiths.common.Items.getLootBag(type, tier);
             if (bag == null) return;
             int price = minE + random.nextInt(Math.max(1, maxE - minE + 1));

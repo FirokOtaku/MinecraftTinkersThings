@@ -8,6 +8,7 @@ import firok.tiths.common.Fluids;
 import firok.tiths.common.Items;
 import firok.tiths.common.Potions;
 import firok.tiths.item.ItemLootBag;
+import firok.tiths.item.ItemProfessionSpawnEgg;
 import firok.tiths.item.ItemTraitToken;
 import firok.tiths.entity.item.EntityItemSoul;
 import net.minecraft.block.Block;
@@ -175,6 +176,14 @@ public class ClientRenderRegistry
                         ModelResourceLocation token = new ModelResourceLocation(
                                 new ResourceLocation(TinkersThings.MOD_ID, "trait_token"), "inventory");
                         ModelLoader.setCustomModelResourceLocation(item, 0, token);
+                        continue;
+                    }
+                    // 职业刷怪蛋共用原版刷怪蛋双层贴图 + 主/副色染色
+                    if (item instanceof ItemProfessionSpawnEgg)
+                    {
+                        ModelResourceLocation egg = new ModelResourceLocation(
+                                new ResourceLocation(TinkersThings.MOD_ID, "spawn_egg_profession"), "inventory");
+                        ModelLoader.setCustomModelResourceLocation(item, 0, egg);
                         continue;
                     }
                     ModelResourceLocation mrl = new ModelResourceLocation(item.getRegistryName(), "inventory");
