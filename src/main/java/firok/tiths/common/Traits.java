@@ -42,9 +42,11 @@ public final class Traits
     public static AbstractTrait farmer; // 农场主
     public static AbstractTrait gluttonic; // 暴食
     public static AbstractTrait gorgeous; // 斑斓
+    public static AbstractTrait gravitomagnetism; // 引力磁场
     public static AbstractTrait green; // 绿意
     public static AbstractTrait heavyMetal; // 重金属
     public static AbstractTrait hemolytic; // 溶血
+    public static AbstractTrait hotMeltMaterial; // 热熔材料
     public static AbstractTrait hyper; // 振奋
     public static AbstractTrait icy; // 冰冷
     public static AbstractTrait inductance; // 电感
@@ -131,9 +133,11 @@ public final class Traits
         farmer = new TraitFarmer();
         gluttonic = new TraitGluttonic();
         gorgeous = new TraitGorgeous();
+        gravitomagnetism = new TraitGravitomagnetism();
         green = new TraitGreen();
         heavyMetal = new TraitHeavyMetal();
         hemolytic = new TraitHemolytic();
+        hotMeltMaterial = new TraitHotMeltMaterial();
         hyper = new TraitHyper();
         icy = new TraitIcy();
         inductance = new TraitInductance();

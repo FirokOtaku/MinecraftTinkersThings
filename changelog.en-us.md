@@ -2,6 +2,17 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.45.0 _2026-11-15 22:30_
+
+* added traits
+  * hot melt material
+  * hot melt material (armor)
+  * gravitomagnetism
+  * gravitomagnetism (armor)
+* added potion effects
+  * hot glued
+  * staggering
+
 ## 0.3.44.0 _2026-11-15 17:00_
 
 * now the naturally generated monsters will randomly bring some randomly generated tinker equipments

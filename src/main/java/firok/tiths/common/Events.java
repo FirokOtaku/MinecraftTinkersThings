@@ -554,6 +554,36 @@ public class Events
         event.setStrength(event.getStrength() * 0.8f);
     }
 
+    /**
+     * 踉跄: 受到摔落伤害时伤害 ×2, 并降低一层踉跄等级
+     */
+    @SubscribeEvent
+    public static void onStaggeringFall(LivingHurtEvent event)
+    {
+        EntityLivingBase living = event.getEntityLiving();
+        if (living.world.isRemote) return;
+        if (!"fall".equals(event.getSource().getDamageType())) return;
+        if (event.getAmount() <= 0) return;
+
+        PotionEffect pe = living.getActivePotionEffect(Potions.staggering);
+        if (pe == null) return;
+
+        event.setAmount(event.getAmount() * 2);
+
+        int amplifier = pe.getAmplifier();
+        living.removePotionEffect(Potions.staggering);
+        if (amplifier > 0)
+        {
+            living.addPotionEffect(new PotionEffect(
+                    Potions.staggering,
+                    pe.getDuration(),
+                    amplifier - 1,
+                    pe.getIsAmbient(),
+                    pe.doesShowParticles()
+            ));
+        }
+    }
+
     @SubscribeEvent(priority = HIGHEST)
     public static void onLivingHurt(LivingHurtEvent event)
     {

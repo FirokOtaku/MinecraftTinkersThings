@@ -485,6 +485,18 @@ public final class Configs
         @RangeDouble(min = 1, max = 10)
         public static double factor_gorgeous_max = 1.2;
 
+        @LangKey(pgt + "max_level_gravitomagnetism")
+        @RangeInt(min = 1, max = 20)
+        public static int max_level_gravitomagnetism = 3;
+
+        @LangKey(pgt + "duration_gravitomagnetism")
+        @RangeInt(min = 1, max = 600)
+        public static int duration_gravitomagnetism = 60;
+
+        @LangKey(pgt + "duration_hot_melt_material")
+        @RangeInt(min = 1, max = 600)
+        public static int duration_hot_melt_material = 3;
+
         @LangKey(pgt + "factor_hemolytic_damage")
         @RangeDouble(min = 1, max = 10)
         public static double factor_hemolytic_damage = 1.15;

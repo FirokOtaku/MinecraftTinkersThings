@@ -40,8 +40,10 @@ public class ArmorTraits
     public static AbstractArmorTrait farmlandProtective; // 护田
     public static AbstractArmorTrait fishUpgraded; // 鱼腥
     public static AbstractArmorTrait gorgeous; // 斑斓
+    public static AbstractArmorTrait gravitomagnetism; // 引力磁场
     public static AbstractArmorTrait hardMetal; // 硬金属
     public static AbstractArmorTrait hemolytic; // 溶血
+    public static AbstractArmorTrait hotMeltMaterial; // 热熔材料
     public static AbstractArmorTrait hydrating; // 水合
     public static AbstractArmorTrait hiding; // 匿踪
     public static AbstractArmorTrait hyper; // 振奋
@@ -120,8 +122,10 @@ public class ArmorTraits
                 .always(player -> Datas.Server.instance().regFishTempt(player))
                 .toEntity(catAlive);
         gorgeous = new TraitArmorGorgeous();
+        gravitomagnetism = new TraitArmorGravitomagnetism();
         hardMetal = new TraitArmorHardMetal();
         hemolytic = new TraitArmorHemolytic();
+        hotMeltMaterial = new TraitArmorHotMeltMaterial();
         hydrating = new TraitArmorHydrating();
         hiding = new TraitArmorHiding();
         hyper = new TraitArmorHyper();

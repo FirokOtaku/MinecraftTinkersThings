@@ -44,10 +44,11 @@ public final class ClientRecordSoundPreload
                     SoundManager.class, manager, "field_148620_e"); // sndSystem
             if (sndSystem == null) return;
 
+            // 本环境 findMethod(Class, name, returnType, paramTypes...)
             Method getUrl = ObfuscationReflectionHelper.findMethod(
                     SoundManager.class,
                     "getURLForSoundResource",
-                    "func_148612_a",
+                    URL.class,
                     ResourceLocation.class);
             Method loadSound = sndSystem.getClass().getMethod("loadSound", URL.class, String.class);
 

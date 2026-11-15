@@ -59,5 +59,7 @@ public final class Potions
     public static BasePotion peaceful = new PotionPeaceful(); // 平和
     public static BasePotion inky = new PotionInky(); // 墨染
     public static BasePotion extreme_freezing = new PotionExtremeFreezing(); // 极寒
+    public static BasePotion staggering = new PotionStaggering(); // 踉跄
+    public static BasePotion hot_glued = new PotionHotGlued(); // 热熔胶
     private Potions() {}
 }

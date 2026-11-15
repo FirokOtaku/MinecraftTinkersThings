@@ -498,6 +498,7 @@ public interface Keys
     String nameTraitHardMetal = "hard_metal";
     String nameTraitHeavyMetal = "heavy_metal";
     String nameTraitHemolytic = "hemolytic";
+    String nameTraitHotMeltMaterial = "hot_melt_material";
     String nameTraitLightMetal = "light_metal";
     String nameTraitLionheart = "lionheart";
     String nameTraitTerrifying = "terrifying";
@@ -508,6 +509,7 @@ public interface Keys
     String nameTraitDragonKiller = "dragon_killer";
     String nameTraitMidasDesiring = "midas_desiring";
     String nameTraitGorgeous = "gorgeous";
+    String nameTraitGravitomagnetism = "gravitomagnetism";
     String nameTraitPeaceEnergetic = "peace_energetic";
     String nameTraitHyper = "hyper";
     String nameTraitDichroic = "dichroic";
@@ -636,6 +638,7 @@ public interface Keys
     int colorTraitHardMetal = 0x8a8a9a;
     int colorTraitHeavyMetal = 0x4a4a58;
     int colorTraitHemolytic = Colors.DarkRed;
+    int colorTraitHotMeltMaterial = colorCocoa;
     int colorTraitLightMetal = 0xd4dce8;
     int colorTraitLionheart = 0x87143e;
     int colorTraitTerrifying = 0x2a135a;
@@ -646,6 +649,7 @@ public interface Keys
     int colorTraitDragonKiller = 0x9100f3;
     int colorTraitMidasDesiring = 0xdc9113;
     int colorTraitGorgeous = 0x0a7dd6;
+    int colorTraitGravitomagnetism = 0x5a4a8c;
     int colorTraitPeaceEnergetic = 0xfff501;
     int colorTraitHyper = 0xa022ff;
     int colorTraitDichroic = 0x536f9e;
@@ -765,6 +769,8 @@ public interface Keys
     int colorPotionPeaceful = 0xADD8E6;
     int colorPotionInky = 0x1b1830;
     int colorPotionExtremeFreezing = 0x7eb6f0;
+    int colorPotionStaggering = 0x8a7a5c;
+    int colorPotionHotGlued = colorCocoa;
 
     // 状态效果属性修饰符uuid
     String uuidPotionAvatarSpeed = "258A83A5-A3BD-4CFD-842C-B2DF39343C91";
@@ -789,6 +795,7 @@ public interface Keys
     String uuidPotionInkyFollowRange = "3C1F7A62-9E4B-4D18-8A57-6B2C0D9E4F31";
     String uuidPotionInkyAttackSpeed = "7D2A4B19-0F83-4C6E-B5D2-8E1A93C74F02";
     String uuidPotionExtremeFreezingSpeed = "CC229BC4-D044-473A-ADE1-67AF84E55B28";
+    String uuidPotionHotGluedSpeed = "B8E41C2F-6D93-4A17-9F05-3C7E2A1D84B6";
     String uuidTraitSolubleSwimSpeed = "E42481C5-6AA3-4A74-A992-22AD533C88CC";
 
     // 燃料热值
