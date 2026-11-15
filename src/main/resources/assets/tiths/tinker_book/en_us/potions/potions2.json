@@ -2,18 +2,18 @@
     "title":"A little more effects",
     "text": [
         {
-            "text": "§lRooted§r\n被缠绕的生物无法行走."
+            "text": "§lRooted§r\nRooted creatures cannot walk."
         },
         {
-            "text": "§l护甲软化§r\n临时降低护甲和护甲韧性",
+            "text": "§lArmor Softened§r\nTemporarily reduces armor and armor toughness.",
             "paragraph": true
         },
         {
-            "text": "§l虚空侵蚀§r\n降低生命值上限",
+            "text": "§lVoid Infected§r\nReduces max health.",
             "paragraph": true
         },
         {
-            "text": "§l清凉§r\n扑灭身上的火焰",
+            "text": "§lIcy§r\nExtinguishes fire on the body.",
             "paragraph": true
         }
     ],

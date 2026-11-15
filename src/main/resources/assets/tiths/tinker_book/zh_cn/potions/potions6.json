@@ -1,0 +1,26 @@
+{
+    "title":"多一点状态",
+    "text": [
+        {
+            "text": "§l侵蚀§r\n一段时间内降低生命上限."
+        },
+        {
+            "text": "§l蔽叶§r\n树叶不再是障碍.",
+            "paragraph": true
+        },
+        {
+            "text": "§l云雾§r\n一定距离之外将无法被看见.",
+            "paragraph": true
+        },
+        {
+            "text": "§l镇定§r\n降低怪物追敌距离.",
+            "paragraph": true
+        }
+    ],
+    "potions": [
+        "tiths:eroded",
+        "tiths:leaves_hiding",
+        "tiths:bruming",
+        "tiths:tranquilized"
+    ]
+}

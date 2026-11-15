@@ -1,0 +1,26 @@
+{
+    "title":"A little more effects",
+    "text": [
+        {
+            "text": "§lPeaceful§r\nHostile mobs stop targeting, and attack damage and knockback are reduced."
+        },
+        {
+            "text": "§lInky§r\nReduces follow range and attack speed.",
+            "paragraph": true
+        },
+        {
+            "text": "§lExtreme Freezing§r\nReduces movement speed.",
+            "paragraph": true
+        },
+        {
+            "text": "§lHot Glued§r\nReduces movement speed.",
+            "paragraph": true
+        }
+    ],
+    "potions": [
+        "tiths:peaceful",
+        "tiths:inky",
+        "tiths:extreme_freezing",
+        "tiths:hot_glued"
+    ]
+}

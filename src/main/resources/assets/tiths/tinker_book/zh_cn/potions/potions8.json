@@ -1,0 +1,21 @@
+{
+    "title":"多一点状态",
+    "text": [
+        {
+            "text": "§l踉跄§r\n受到摔落伤害时伤害翻倍."
+        },
+        {
+            "text": "§l恐惧§r\n使怪物逃离.",
+            "paragraph": true
+        },
+        {
+            "text": "§l迈达斯之视§r\n破坏方块时有几率掉落金粒.",
+            "paragraph": true
+        }
+    ],
+    "potions": [
+        "tiths:staggering",
+        "tiths:fear",
+        "tiths:midas_vision"
+    ]
+}

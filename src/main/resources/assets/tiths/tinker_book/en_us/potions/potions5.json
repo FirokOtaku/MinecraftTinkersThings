@@ -2,16 +2,25 @@
     "title":"A little more effects",
     "text": [
         {
-            "text": "§l坚冰§r\n暂时提升护甲.",
-            "paragraph": true
+            "text": "§lHard Ice§r\nTemporarily increases armor."
         },
         {
             "text": "§lEstrous§r\nLove!",
+            "paragraph": true
+        },
+        {
+            "text": "§lAvatar§r\nGreatly boosts health, armor, attack and speed, and continuously regenerates health.",
+            "paragraph": true
+        },
+        {
+            "text": "§lLionheart§r\nBoosts defense.",
             "paragraph": true
         }
     ],
     "potions": [
         "tiths:hard_ice",
-        "tiths:estrous"
+        "tiths:estrous",
+        "tiths:avatar",
+        "tiths:lionheart"
     ]
 }

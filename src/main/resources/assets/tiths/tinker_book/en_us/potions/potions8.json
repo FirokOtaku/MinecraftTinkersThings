@@ -1,0 +1,21 @@
+{
+    "title":"A little more effects",
+    "text": [
+        {
+            "text": "§lStaggering§r\nFall damage is doubled."
+        },
+        {
+            "text": "§lFear§r\nMakes monsters flee.",
+            "paragraph": true
+        },
+        {
+            "text": "§lMidas Vision§r\nChance to drop gold nuggets when breaking blocks.",
+            "paragraph": true
+        }
+    ],
+    "potions": [
+        "tiths:staggering",
+        "tiths:fear",
+        "tiths:midas_vision"
+    ]
+}

@@ -2,18 +2,18 @@
     "title":"A little more effects",
     "text": [
         {
-            "text": "§l发泡§r\n获得浮力并缓慢恢复氧气."
+            "text": "§lBubbling§r\nProvides buoyancy and slowly restores air."
         },
         {
-            "text": "§l乱流§r\n处于水中的生物将会随机漂流.",
+            "text": "§lTurbulent§r\nCreatures in water drift randomly.",
             "paragraph": true
         },
         {
-            "text": "§l旋流§r\n处于水中的生物将会螺旋下沉.",
+            "text": "§lEddying§r\nCreatures in water spiral downward.",
             "paragraph": true
         },
         {
-            "text": "§l灯明§r\n在走过的路上留下一条光明轨迹, 一段时间后消失.",
+            "text": "§lIlluminating§r\nLeaves a trail of light that fades after a while.",
             "paragraph": true
         }
     ],

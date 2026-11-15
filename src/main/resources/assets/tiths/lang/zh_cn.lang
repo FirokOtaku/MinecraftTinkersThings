@@ -868,6 +868,12 @@ lingering_potion.effect.estrous=滞留型发情药水
 splash_potion.effect.estrous=喷溅型发情药水
 tipped_arrow.effect.estrous=发情之箭
 
+effect.fear=恐惧
+potion.effect.fear=恐惧药水
+lingering_potion.effect.fear=滞留型恐惧药水
+splash_potion.effect.fear=喷溅型恐惧药水
+tipped_arrow.effect.fear=恐惧之箭
+
 effect.hard_ice=坚冰
 potion.effect.hard_ice=坚冰药水
 lingering_potion.effect.hard_ice=滞留型坚冰药水
@@ -915,6 +921,12 @@ potion.effect.leaves_hiding=蔽叶药水
 lingering_potion.effect.leaves_hiding=滞留型蔽叶药水
 splash_potion.effect.leaves_hiding=喷溅型蔽叶药水
 tipped_arrow.effect.leaves_hiding=蔽叶之箭
+
+effect.midas_vision=迈达斯之视
+potion.effect.midas_vision=迈达斯之视药水
+lingering_potion.effect.midas_vision=滞留型迈达斯之视药水
+splash_potion.effect.midas_vision=喷溅型迈达斯之视药水
+tipped_arrow.effect.midas_vision=迈达斯之视之箭
 
 effect.lionheart=狮心
 potion.effect.lionheart=狮心药水

@@ -2,14 +2,14 @@
     "title":"A little more effects",
     "text": [
         {
-            "text": "§lHeavy§r\n大幅增加下落速度和摔落伤害."
+            "text": "§lHeavy§r\nGreatly increases falling speed and fall damage."
         },
         {
-            "text": "§l瘟疫|弱化瘟疫§r\n随机给予各种负面效果, 并且向附近的生物传播\n§o弱化瘟疫仅在怪物之间传播§r",
+            "text": "§lPestilential|Weakened Pestilential§r\nRandomly applies various debuffs and spreads to nearby creatures.\n§oWeakened Pestilential only spreads among monsters.§r",
             "paragraph": true
         },
         {
-            "text": "§lAcid wetted§r\n手持和身穿的装备会快速损失耐久",
+            "text": "§lAcid Wetted§r\nHeld and worn equipment rapidly loses durability.",
             "paragraph": true
         }
     ],

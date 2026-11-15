@@ -868,6 +868,12 @@ lingering_potion.effect.estrous=Lingering Potion of Estrous
 splash_potion.effect.estrous=Splash Potion of Estrous
 tipped_arrow.effect.estrous=Arrow of Estrous
 
+effect.fear=Fear
+potion.effect.fear=Potion of Fear
+lingering_potion.effect.fear=Lingering Potion of Fear
+splash_potion.effect.fear=Splash Potion of Fear
+tipped_arrow.effect.fear=Arrow of Fear
+
 effect.hard_ice=Hard Ice
 potion.effect.hard_ice=Potion of Hard Ice
 lingering_potion.effect.hard_ice=Lingering Potion of Hard Ice
@@ -915,6 +921,12 @@ potion.effect.leaves_hiding=Potion of Leaves Hiding
 lingering_potion.effect.leaves_hiding=Lingering Potion of Leaves Hiding
 splash_potion.effect.leaves_hiding=Splash Potion of Leaves Hiding
 tipped_arrow.effect.leaves_hiding=Arrow of Leaves Hiding
+
+effect.midas_vision=Midas Vision
+potion.effect.midas_vision=Potion of Midas Vision
+lingering_potion.effect.midas_vision=Lingering Potion of Midas Vision
+splash_potion.effect.midas_vision=Splash Potion of Midas Vision
+tipped_arrow.effect.midas_vision=Arrow of Midas Vision
 
 effect.lionheart=Lionheart
 potion.effect.lionheart=Potion of Lionheart

@@ -1,0 +1,26 @@
+{
+    "title":"A little more effects",
+    "text": [
+        {
+            "text": "§lEroded§r\nReduces max health for a period of time."
+        },
+        {
+            "text": "§lLeaves Hiding§r\nLeaves are no longer an obstacle.",
+            "paragraph": true
+        },
+        {
+            "text": "§lBruming§r\nCannot be seen from a distance.",
+            "paragraph": true
+        },
+        {
+            "text": "§lTranquilized§r\nReduces mob follow range.",
+            "paragraph": true
+        }
+    ],
+    "potions": [
+        "tiths:eroded",
+        "tiths:leaves_hiding",
+        "tiths:bruming",
+        "tiths:tranquilized"
+    ]
+}

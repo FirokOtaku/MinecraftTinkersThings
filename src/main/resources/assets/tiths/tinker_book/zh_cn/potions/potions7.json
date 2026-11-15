@@ -1,0 +1,26 @@
+{
+    "title":"多一点状态",
+    "text": [
+        {
+            "text": "§l平和§r\n使敌对生物停止索敌, 并降低攻击伤害与击退."
+        },
+        {
+            "text": "§l墨染§r\n降低索敌范围和攻击速度.",
+            "paragraph": true
+        },
+        {
+            "text": "§l极寒§r\n降低移动速度.",
+            "paragraph": true
+        },
+        {
+            "text": "§l热熔胶§r\n降低移动速度.",
+            "paragraph": true
+        }
+    ],
+    "potions": [
+        "tiths:peaceful",
+        "tiths:inky",
+        "tiths:extreme_freezing",
+        "tiths:hot_glued"
+    ]
+}

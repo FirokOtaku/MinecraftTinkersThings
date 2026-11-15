@@ -2,16 +2,25 @@
     "title":"多一点状态",
     "text": [
         {
-            "text": "§l坚冰§r\n暂时提升护甲.",
-            "paragraph": true
+            "text": "§l坚冰§r\n暂时提升护甲."
         },
         {
             "text": "§l发情§r\n爱心!",
+            "paragraph": true
+        },
+        {
+            "text": "§l天神下凡§r\n大幅提升生命、护甲、攻击与移速, 并持续回复生命.",
+            "paragraph": true
+        },
+        {
+            "text": "§l狮心§r\n提高防御力.",
             "paragraph": true
         }
     ],
     "potions": [
         "tiths:hard_ice",
-        "tiths:estrous"
+        "tiths:estrous",
+        "tiths:avatar",
+        "tiths:lionheart"
     ]
 }
