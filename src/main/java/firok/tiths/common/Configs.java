@@ -311,6 +311,68 @@ public final class Configs
         @LangKey(pgg + "tier_hl_top_min")
         @RangeInt(min = 0, max = 16)
         public static int tier_hl_top_min = 4;
+
+        /* ---- 怪物随机匠魂装备 ---- */
+
+        /**
+         * 需要尝试填充随机匠魂装备的生物 registry id 列表.
+         * 仅处理 EntityLiving, 且只填充当时仍为空的主手 / 护甲槽.
+         */
+        @LangKey(pgg + "mob_random_equip_entities")
+        public static String[] mob_random_equip_entities = {
+                "minecraft:zombie",
+                "minecraft:skeleton",
+                "minecraft:zombie_pigman",
+                "minecraft:husk",
+                "minecraft:stray",
+                "minecraft:wither_skeleton",
+                "minecraft:zombie_villager",
+        };
+
+        /**
+         * 怪物装备品级概率: 从顶级依次尝试, 未命中或生成失败再试下一级.
+         */
+        @LangKey(pgg + "mob_random_equip_tier_chance_low")
+        @RangeDouble(min = 0, max = 1)
+        public static double mob_random_equip_tier_chance_low = 0.04D;
+        @LangKey(pgg + "mob_random_equip_tier_chance_mid")
+        @RangeDouble(min = 0, max = 1)
+        public static double mob_random_equip_tier_chance_mid = 0.005D;
+        @LangKey(pgg + "mob_random_equip_tier_chance_high")
+        @RangeDouble(min = 0, max = 1)
+        public static double mob_random_equip_tier_chance_high = 0.001D;
+        @LangKey(pgg + "mob_random_equip_tier_chance_top")
+        @RangeDouble(min = 0, max = 1)
+        public static double mob_random_equip_tier_chance_top = 0.0001D;
+
+        /**
+         * 四个护甲槽各自独立的生成概率 (先掷槽位, 再掷品级).
+         */
+        @LangKey(pgg + "mob_random_equip_armor_chance_helmet")
+        @RangeDouble(min = 0, max = 1)
+        public static double mob_random_equip_armor_chance_helmet = 0.8D;
+        @LangKey(pgg + "mob_random_equip_armor_chance_chest")
+        @RangeDouble(min = 0, max = 1)
+        public static double mob_random_equip_armor_chance_chest = 0.6D;
+        @LangKey(pgg + "mob_random_equip_armor_chance_legs")
+        @RangeDouble(min = 0, max = 1)
+        public static double mob_random_equip_armor_chance_legs = 0.6D;
+        @LangKey(pgg + "mob_random_equip_armor_chance_boots")
+        @RangeDouble(min = 0, max = 1)
+        public static double mob_random_equip_armor_chance_boots = 0.9D;
+
+        /**
+         * 为本模组填入的主手匠魂工具/武器设置的掉落概率 (覆盖该槽原版掉落率).
+         */
+        @LangKey(pgg + "mob_random_equip_drop_chance_hand")
+        @RangeDouble(min = 0, max = 1)
+        public static double mob_random_equip_drop_chance_hand = 0.25D;
+        /**
+         * 为本模组填入的护甲设置的掉落概率 (覆盖该槽原版掉落率).
+         */
+        @LangKey(pgg + "mob_random_equip_drop_chance_armor")
+        @RangeDouble(min = 0, max = 1)
+        public static double mob_random_equip_drop_chance_armor = 0.15D;
     }
 
     @Config(name = TinkersThings.MOD_ID + "_potion", modid = TinkersThings.MOD_ID, category = "potion")

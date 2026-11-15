@@ -61,7 +61,7 @@ public final class Blocks
     @Reg(Keys.blockChloroplast)
     public static final Block blockChloroplast = new BlockCompressed().setBeaconBase(); // 叶绿块
     // 矿块
-    @Reg(Keys.blockCinnabar)
+    @Reg(value = Keys.blockCinnabar, od = {"blockCinnabar"})
     public static final Block blockCinnabar = new BlockCompressed(); // 辰砂块
     @Reg(Keys.blockCloud)
     public static final Block blockCloud = new BlockCloud(); // 云
@@ -73,7 +73,7 @@ public final class Blocks
     public static final Block blockCocoa = new BlockCompressed(Material.ROCK); // 可可块
     @Reg(Keys.blockColorfulGlass)
     public static final Block blockColorfulGlass = new BlockCompressed(Material.GLASS).enableTransparent().setHardness(0.2f); // 彩色玻璃
-    @Reg(Keys.blockConsolidatedGlass)
+    @Reg(value = Keys.blockConsolidatedGlass, od = {"blockGlass", "blockGlassColorless"})
     public static final Block blockConsolidatedGlass = new BlockCompressed(Material.GLASS)
     {
         {
@@ -149,11 +149,11 @@ public final class Blocks
     public static final BlockOre blockMeteorolite = new BlockOre().setEpicOre(); // 陨石
     @Reg(Keys.prefBlock + "moonlight_converging_table")
     public static final BlockMoonlightConvergingTable blockMoonlightConvergingTable = new BlockMoonlightConvergingTable(); // 月光汇聚平台
-    @Reg(Keys.blockMoonStone)
+    @Reg(value = Keys.blockMoonStone, od = {"blockMoonstone"})
     public static final Block blockMoonStone = new BlockCompressed(Material.ROCK).setBeaconBase();// 月光石块
     @Reg(Keys.blockNitre)
     public static final Block blockNitre = new BlockCompressed(Material.ROCK); // 硝石块
-    @Reg(Keys.blockOpal)
+    @Reg(value = Keys.blockOpal, od = {"blockOpal"})
     public static final Block blockOpal = new BlockCompressed(Material.ROCK).enableTransparent().setBeaconBase(); // 欧珀块
     @Reg(Keys.blockOrystal)
     public static final Block blockOrystal = new BlockCompressed(Material.GLASS).enableTransparent(); // 原晶块
@@ -198,7 +198,7 @@ public final class Blocks
     public static final BlockShadowFire blockShadowFire = new BlockShadowFire(); // 影炎
     @Reg(Keys.blockSolita)
     public static final Block blockSolita = new BlockCompressed().setBeaconBase(); // 坚金块
-    @Reg(Keys.blockSpinel)
+    @Reg(value = Keys.blockSpinel, od = {"blockSpinel"})
     public static final Block blockSpinel = new BlockCompressed(Material.ROCK).setBeaconBase(); // 尖晶石块
     @Reg(Keys.blockSteamium)
     public static final Block blockSteamium = new BlockCompressed().setBeaconBase(); // 气钢块
@@ -214,11 +214,11 @@ public final class Blocks
     public static final Block blockTanatonium = new BlockCompressed().setBeaconBase().setLightLevel(1); // 塔拉特妮姆块
     @Reg(Keys.blockTinkerDisintegrator)
     public static final Block blockTinkerDisintegrator = new BlockTinkerDisintegrator(); // 匠魂粉碎机
-    @Reg(Keys.blockTitanium)
+    @Reg(value = Keys.blockTitanium, od = {"blockTitanium"})
     public static final Block blockTitanium = new BlockCompressed().setBeaconBase(); // 钛块
     @Reg(Keys.blockTonium)
     public static final Block blockTonium = new BlockCompressed().setBeaconBase(); // 钝金块
-    @Reg(Keys.blockTopaz)
+    @Reg(value = Keys.blockTopaz, od = {"blockTopaz"})
     public static final Block blockTopaz = new BlockCompressed(Material.ROCK).setBeaconBase(); // 托帕石块
     @Reg(Keys.blockTorrentialCrystal)
     public static final Block blockTorrentialCrystal = new BlockCompressed(Material.ROCK).setBeaconBase(); // 激流水晶块
@@ -251,7 +251,7 @@ public final class Blocks
     @Reg(value = Keys.oreCinnabar, od = {"oreCinnabar", "oreQuicksilver", "oreMercury"})
     @GenConfig(Keys.nameCinnabar)
     public static final Block oreCinnabar = new BlockOre(Items.cinnabar, 1, 3, 2, 3, 5).setCommonOre(); // 辰砂矿石
-    @Reg(Keys.oreCordierite)
+    @Reg(value = Keys.oreCordierite, od = {"oreCordierite"})
     @GenOre(times = 2, timeRate = 0.5f, size = 2, minY = 10, maxY = 55, biome = Strategy.ONLY_WHITELIST, biomeWL = {"minecraft:taiga_cold", "minecraft:redwood_taiga", "minecraft:taiga", "minecraft:mutated_taiga_cold", "minecraft:mutated_redwood_taiga", "minecraft:mutated_taiga"})
     public static final Block oreCordierite = new BlockOre(Items.cordierite, 1, 1, 1, 4, 6).setRareOre(); // 堇青石矿
     //	@Reg(Keys.oreShell)
@@ -295,13 +295,13 @@ public final class Blocks
     public static final Block oreLizanite = new BlockOre(Items.lizanite, 1, 1, 1, 4, 6).setRareOre(); // 丽辰石矿
     @Reg(Keys.prefBlock + Keys.nameMesh)
     public static final Block blockMesh = new BlockMesh();
-    @Reg(Keys.oreMoonStone)
+    @Reg(value = Keys.oreMoonStone, od = {"oreMoonstone"})
     @GenConfig(Keys.nameMoonStone)
     public static final Block oreMoonStone = new BlockOre(Items.moonStone, 1, 1, 1, 4, 6).setRareOre(); // 月光石矿
     @Reg(Keys.oreNitre)
     @GenConfig(Keys.nameNitre)
     public static final Block oreNitre = new BlockOre(Items.nitre, 1, 3, 1, 3, 5).setCommonOre(); // 硝石矿
-    @Reg(Keys.oreOpal)
+    @Reg(value = Keys.oreOpal, od = {"oreOpal"})
     @GenConfig(Keys.nameOpal)
     public static final Block oreOpal = new BlockOre(Items.opal, 1, 1, 1, 4, 6).setRareOre(); // 欧泊
     @Reg(Keys.orePolarium)
@@ -339,7 +339,7 @@ public final class Blocks
     @Reg(Keys.oreStellarium)
     @GenConfig(Keys.nameStellarium)
     public static final Block oreStellarium = new BlockOre().setEpicOre(); // 恒星金属矿
-    @Reg(Keys.oreSunStone)
+    @Reg(value = Keys.oreSunStone, od = {"oreSunstone"})
     @GenConfig(Keys.nameSunStone)
     public static final Block oreSunStone = new BlockOre(Items.sunStone, 1, 1, 1, 4, 6).setRareOre(); // 日光石矿
     @Reg(Keys.oreTalcum)
@@ -348,18 +348,18 @@ public final class Blocks
     @Reg(Keys.oreTanatonium)
     @GenConfig(Keys.nameTanatonium)
     public static final Block oreTanatonium = new BlockOre().setEpicOre().setLightLevel(0.2f); // 塔拉特妮姆矿
-    @Reg(Keys.oreRutile)
+    @Reg(value = Keys.oreRutile, od = {"oreRutile", "oreTitanium"})
     @GenConfig(Keys.nameTitanium)
     public static final Block oreTitanium = new BlockOre().setEpicOre(); // 金红石矿
     @Reg(Keys.oreTonium)
     @GenConfig(Keys.nameTonium)
     public static final Block oreTonium = new BlockOre().setEpicOre(); // 钝金矿
-    @Reg(Keys.oreTopaz)
+    @Reg(value = Keys.oreTopaz, od = {"oreTopaz"})
     @GenConfig(Keys.nameTopaz)
     public static final Block oreTopaz = new BlockOre(Items.topaz, 1, 1, 1, 4, 6).setRareOre(); // 托帕石矿
     @Reg(Keys.oreTorrentialCrystal)
     public static final Block oreTorrentialCrystal = new BlockOre(Items.torrentialCrystal, 1, 1, 1, 4, 6).setRareOre(); // 激流水晶矿
-    @Reg(Keys.oreTourmaline)
+    @Reg(value = Keys.oreTourmaline, od = {"oreTourmaline"})
     @GenConfig(Keys.nameTourmaline)
     public static final Block oreTourmaline = new BlockOre(Items.tourmaline, 1, 2, 1, 2, 4).setRareOre(); // 电气石矿
     @Reg(Keys.oreTreeRoot)

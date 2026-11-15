@@ -40,7 +40,7 @@ public final class Items
     public static final Item ancientBookIrisia = new ItemXP(true, 20); // 艾瑞西亚古籍
     @Reg(nameBeetrootStack)
     public static final Item beetrootStack = new ItemBait(Blocks.blockBaitBeetrood); // 甜菜捆
-    @Reg(value = nameBrumeJade, od = {"gem", "jade"})
+    @Reg(value = nameBrumeJade, od = {"gem", "jade", "gemJade"})
     public static final Item brumeJade = new ItemCustom(); // 云玉
     @Reg(prefBelt + nameTraitHeavy)
     public static final Item beltHeavy = new ItemBaubleEffect(BaubleType.BELT, Potions.heavy); // 沉重腰带
@@ -82,11 +82,11 @@ public final class Items
     @Reg(nameCinder)
     public static final Item cinder = new ItemCustom(); // 煤屑
     // 原材料 - 各种
-    @Reg(value = nameCinnabar, od = {"cinnabar", "quicksilver", "mercury"})
+    @Reg(value = nameCinnabar, od = {"cinnabar", "quicksilver", "mercury", "gemCinnabar", "crystalCinnabar"})
     public static final Item cinnabar = new ItemCustom(); // 辰砂
     @Reg(value = nameCordierite, od = {"gem", "gemCordierite", "cordierite"})
     public static final Item cordierite = new ItemCustom(); // 堇青石
-    @Reg(nameCorundum)
+    @Reg(value = nameCorundum, od = {"gem"})
     public static final Item corundum = new ItemCustom(); // 钢玉
     @Reg("debug")
     public static final Item debug = new ItemDebug().setRarity(TithsRarity.CreativeOnly); // 调试工具
@@ -210,7 +210,7 @@ public final class Items
     public static final Item moonStone = new ItemCustom(); // 月光石
     @Reg(nameMesh)
     public static final Item net = new ItemCustom(); // 网
-    @Reg(value = nameNitre, od = {"dyeGray"})
+    @Reg(value = nameNitre, od = {"dyeGray", "dustSaltpeter", "dustNitre"})
     public static final Item nitre = new ItemCustom(); // 硝石
     @Reg(Keys.nuggetAltairium)
     public static final Item nuggetAltairium = new ItemCustom(); // 河鼓粒
@@ -301,7 +301,7 @@ public final class Items
     public static final Item spiderLeg = new ItemCustom(); // 蛛腿
     @Reg(value = nameSpinel, od = {"gem", "gemSpinel", "spinel"})
     public static final Item spinel = new ItemCustom(); // 尖晶石
-    @Reg(value = nameSunStone, od = {"gem", "gemSunstone", "suntone"})
+    @Reg(value = nameSunStone, od = {"gem", "gemSunstone", "sunstone", "suntone"})
     public static final Item sunStone = new ItemCustom(); // 日光石
     @Reg(nameTalcum)
     public static final Item talcum = new ItemCustom(); // 滑石
@@ -311,7 +311,7 @@ public final class Items
     public static final Item torrentialCrystal = new ItemCustom(); // 激流水晶
     @Reg(nameTorrentialThruster)
     public static final Item torrentialThruster = new ItemTorrentialThruster().setRarity(EnumRarity.RARE); // 激流推进器
-    @Reg(nameTourmaline)
+    @Reg(value = nameTourmaline, od = {"gem", "gemTourmaline", "tourmaline"})
     public static final Item tourmaline = new ItemCustom(); // 电气石
     @Reg(nameTreeRoot)
     public static final Item treeRoot = new ItemCustom(); // 树根

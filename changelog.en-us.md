@@ -2,6 +2,25 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.44.0 _2026-11-15 17:00_
+
+* now the naturally generated monsters will randomly bring some randomly generated tinker equipments
+* added more ore-dictionary registry content
+
+## 0.3.43.0 _2026-11-15 01:30_
+
+* added spawner egg items for tinker villager and armor tinker villager
+
+## 0.3.42.0 _2026-11-14 20:30_
+
+* added villager professions
+  * tinker villager
+  * armor tinker villager
+* added tinker item bag
+* added items used to add traits to tinker equipments
+* added tinker equipments random generator, used to fulfill villager trade list and chest and tinker item bag
+* added logic code to manage hidden materials
+
 ## 0.3.41.0 _2026-11-11 22:00_
 
 * added traits

@@ -23,9 +23,14 @@ public final class GenResult
         this.vanillaFallback = vanillaFallback;
     }
 
-    public static GenResult ofEquipment(ToolTier tier, ItemStack stack)
+    public static GenResult ofEquipment(@Nullable ToolTier tier, ItemStack stack)
     {
         return new GenResult(tier, Collections.singletonList(stack), false);
+    }
+
+    public static GenResult empty()
+    {
+        return new GenResult(null, Collections.emptyList(), false);
     }
 
     public static GenResult ofVanillaFallback(List<ItemStack> stacks)

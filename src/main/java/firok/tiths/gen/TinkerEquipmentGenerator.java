@@ -4,6 +4,7 @@ import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.lib.armor.ArmorCore;
 import firok.tiths.TinkersThings;
 import firok.tiths.common.Configs;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.Material;
@@ -55,7 +56,7 @@ public final class TinkerEquipmentGenerator
             }
             else
             {
-                ItemStack armor = buildRandomArmor(tier, context, random);
+                ItemStack armor = buildRandomArmor(tier, context, null, random);
                 if (!armor.isEmpty())
                 {
                     tryApplyBonusModifier(armor, EquipKind.ARMOR, random);
@@ -72,6 +73,35 @@ public final class TinkerEquipmentGenerator
             return GenResult.ofEquipment(tier, tool);
         }
         return GenResult.ofVanillaFallback(VanillaLootFallback.roll(random));
+    }
+
+    /**
+     * 生成指定装备槽位的 ConArm 护甲; 无护甲联动或生成失败时返回空结果 (不回退原版杂物).
+     */
+    public static GenResult generateArmorForSlot(GenContext context, ToolTier requestedTier, EntityEquipmentSlot slot, Random random)
+    {
+        if (slot == null || slot.getSlotType() != EntityEquipmentSlot.Type.ARMOR)
+        {
+            return GenResult.empty();
+        }
+        if (!TinkersThings.enableConarm())
+        {
+            return GenResult.empty();
+        }
+
+        ToolTier tier = TierGeneratorSelector.resolve(requestedTier);
+        if (tier == null)
+        {
+            return GenResult.empty();
+        }
+
+        ItemStack armor = buildRandomArmor(tier, context, slot, random);
+        if (!armor.isEmpty())
+        {
+            tryApplyBonusModifier(armor, EquipKind.ARMOR, random);
+            return GenResult.ofEquipment(tier, armor);
+        }
+        return GenResult.empty();
     }
 
     private static ItemStack buildRandomTool(ToolTier tier, GenContext context, EquipKind kind, Random random)
@@ -103,12 +133,12 @@ public final class TinkerEquipmentGenerator
         return ItemStack.EMPTY;
     }
 
-    private static ItemStack buildRandomArmor(ToolTier tier, GenContext context, Random random)
+    private static ItemStack buildRandomArmor(ToolTier tier, GenContext context, @Nullable EntityEquipmentSlot slot, Random random)
     {
-        List<ArmorCore> armors = new ArrayList<>(ArmoryRegistry.getArmor());
+        List<ArmorCore> armors = collectArmors(slot);
         if (armors.isEmpty())
         {
-            TinkersThings.log("No ArmorCore registered");
+            TinkersThings.log("No ArmorCore registered" + (slot == null ? "" : " for slot " + slot));
             return ItemStack.EMPTY;
         }
 
@@ -128,6 +158,18 @@ public final class TinkerEquipmentGenerator
             }
         }
         return ItemStack.EMPTY;
+    }
+
+    private static List<ArmorCore> collectArmors(@Nullable EntityEquipmentSlot slot)
+    {
+        List<ArmorCore> out = new ArrayList<>();
+        for (ArmorCore armor : ArmoryRegistry.getArmor())
+        {
+            if (armor == null) continue;
+            if (slot != null && armor.armorType != slot) continue;
+            out.add(armor);
+        }
+        return out;
     }
 
     private static ItemStack buildWithMaterials(ToolCore tool, List<Material> pool, Random random)
