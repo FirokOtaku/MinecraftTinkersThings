@@ -121,5 +121,31 @@
     "sounds": [
       "tiths:effects/igniting"
     ]
+  },
+  "entity.activated_clay_golem.step": {
+    "subtitle": "tiths.sound.activated_clay_golem.step",
+    "sounds": [
+      "tiths:entity/activated_clay_golem/step1",
+      "tiths:entity/activated_clay_golem/step2",
+      "tiths:entity/activated_clay_golem/step3",
+      "tiths:entity/activated_clay_golem/step4"
+    ]
+  },
+  "entity.activated_clay_golem.attack": {
+    "subtitle": "tiths.sound.activated_clay_golem.attack",
+    "sounds": ["tiths:entity/activated_clay_golem/attack"]
+  },
+  "entity.activated_clay_golem.hurt": {
+    "subtitle": "tiths.sound.activated_clay_golem.hurt",
+    "sounds": [
+      "tiths:entity/activated_clay_golem/hurt1",
+      "tiths:entity/activated_clay_golem/hurt2",
+      "tiths:entity/activated_clay_golem/hurt3",
+      "tiths:entity/activated_clay_golem/hurt4"
+    ]
+  },
+  "entity.activated_clay_golem.death": {
+    "subtitle": "tiths.sound.activated_clay_golem.death",
+    "sounds": ["tiths:entity/activated_clay_golem/death"]
   }
 }

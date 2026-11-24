@@ -1,0 +1,4 @@
+{
+  "parent": "block/cube_all",
+  "textures": { "all": "tiths:blocks/block_activated_clay" }
+}

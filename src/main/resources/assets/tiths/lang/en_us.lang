@@ -81,6 +81,10 @@ item.tiths.buoyant_light.desc=Right click to place into water
 item.tiths.carrot_stack.name=Carrot Stack
 item.tiths.chloroplast_dressing.desc=To provide photosynthetic trait to armor
 item.tiths.chloroplast_dressing.name=Chloroplast Dressing
+item.tiths.activated_clay.name=Activated Clay
+item.tiths.activated_clay.desc=A material brimming with life
+tile.tiths.block_activated_clay.name=Block of Activated Clay
+entity.activated_clay_golem.name=Activated Clay Golem
 item.tiths.chloroplast_light.name=Chloroplast Light
 item.tiths.chloroplast_light.desc=Aid to float or sink<br>Right click / sneak and right click to control speed
 item.tiths.chloroplast_light.factor=Assist speed level: %s
@@ -1004,6 +1008,10 @@ tiths.sound.bubble_effect=Bubbles
 tiths.sound.friction_effect=Friction scrapes
 tiths.sound.ice_crack_effect=Ice cracks
 tiths.sound.igniting_effect=Something ignites
+tiths.sound.activated_clay_golem.step=Activated Clay Golem steps
+tiths.sound.activated_clay_golem.attack=Activated Clay Golem attacks
+tiths.sound.activated_clay_golem.hurt=Activated Clay Golem takes damage
+tiths.sound.activated_clay_golem.death=Activated Clay Golem crumbles
 
 ## death
 

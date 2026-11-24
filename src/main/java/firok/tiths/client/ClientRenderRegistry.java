@@ -2,7 +2,9 @@ package firok.tiths.client;
 
 import firok.tiths.TinkersThings;
 import firok.tiths.client.particle.ParticleType;
+import firok.tiths.client.render.RenderActivatedClayGolem;
 import firok.tiths.client.render.item.RendererEntityItemSoul;
+import firok.tiths.entity.EntityActivatedClayGolem;
 import firok.tiths.common.Blocks;
 import firok.tiths.common.Fluids;
 import firok.tiths.common.Items;
@@ -149,6 +151,8 @@ public class ClientRenderRegistry
                 EntityItemSoul.class,
                 RendererEntityItemSoul::new
         );
+
+        RenderingRegistry.registerEntityRenderingHandler(EntityActivatedClayGolem.class, RenderActivatedClayGolem::new);
 
         registerFluidBallModels();
 

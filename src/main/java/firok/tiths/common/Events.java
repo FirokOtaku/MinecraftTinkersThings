@@ -3,6 +3,7 @@ package firok.tiths.common;
 
 import baubles.api.BaublesApi;
 import firok.tiths.TinkersThings;
+import firok.tiths.entity.EntityActivatedClayGolem;
 import firok.tiths.entity.special.EnderBeacon;
 import firok.tiths.intergration.conarm.ArmorEvents;
 import firok.tiths.item.IFluid;
@@ -537,6 +538,16 @@ public class Events
         if (entity instanceof EntityLiving)
         {
             ((EntityLiving) entity).setAttackTarget(null);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onActivatedClayGolemKnockBack(LivingKnockBackEvent event)
+    {
+        Entity attacker = event.getAttacker();
+        if (attacker instanceof EntityActivatedClayGolem && !attacker.world.isRemote)
+        {
+            event.setStrength(event.getStrength() * 0.5F);
         }
     }
 

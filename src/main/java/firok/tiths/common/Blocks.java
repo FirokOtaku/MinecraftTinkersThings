@@ -22,6 +22,8 @@ import static firok.tiths.util.Selectors.*;
 @SuppressWarnings("all")
 public final class Blocks
 {
+    @Reg(Keys.prefBlock + Keys.nameActivatedClay)
+    public static final Block blockActivatedClay = new BlockActivatedClay(); // 活化黏土块
     @Reg(Keys.blockAirPump)
     public static final Block blockAirPump = new BlockCompressed(); // 气泵
     @Reg(Keys.blockAltairium)

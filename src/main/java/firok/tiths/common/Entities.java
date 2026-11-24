@@ -1,5 +1,6 @@
 package firok.tiths.common;
 
+import firok.tiths.entity.EntityActivatedClayGolem;
 import firok.tiths.entity.item.EntityItemSoul;
 import firok.tiths.entity.projectile.ProjectileDashingStar;
 import firok.tiths.entity.projectile.ProjectileLightBall;
@@ -30,6 +31,9 @@ public final class Entities
     public static LogicSearing logic_searing;
     @RegEntity(network = 400, tracker = 24, updateFrequency = 5)
     public static EntityItemSoul entity_item_soul;
+
+    @RegEntity(network = 401, tracker = 80)
+    public static EntityActivatedClayGolem activated_clay_golem;
 
     private Entities() {}
 }

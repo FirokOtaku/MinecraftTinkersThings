@@ -83,6 +83,10 @@ item.tiths.charm_lapsing.name=回溯纹章
 item.tiths.charm_lapsing.desc=受到伤害时回到5秒之前的位置
 item.tiths.chloroplast_dressing.desc=为护甲提供光合作用特性
 item.tiths.chloroplast_dressing.name=叶绿敷料
+item.tiths.activated_clay.name=活化黏土
+item.tiths.activated_clay.desc=一种充满生命力的材料
+tile.tiths.block_activated_clay.name=活化黏土块
+entity.activated_clay_golem.name=活化黏土傀儡
 item.tiths.chloroplast_light.name=叶绿提灯
 item.tiths.chloroplast_light.desc=辅助上浮或下沉<br>右键/潜行右键控制速度
 item.tiths.chloroplast_light.factor=当前辅助速度等级: %s
@@ -1004,6 +1008,10 @@ tiths.sound.bubble_effect=气泡
 tiths.sound.friction_effect=摩擦
 tiths.sound.ice_crack_effect=冰块碎裂
 tiths.sound.igniting_effect=点燃
+tiths.sound.activated_clay_golem.step=活化黏土傀儡脚步声
+tiths.sound.activated_clay_golem.attack=活化黏土傀儡攻击
+tiths.sound.activated_clay_golem.hurt=活化黏土傀儡受伤
+tiths.sound.activated_clay_golem.death=活化黏土傀儡碎裂
 
 ## death
 

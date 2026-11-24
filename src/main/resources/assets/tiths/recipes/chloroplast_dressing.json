@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "result": { "item": "tiths:chloroplast_dressing" },
+  "ingredients": [
+    { "item": "tiths:activated_clay" },
+    { "item": "tiths:activated_clay" },
+    { "item": "tiths:activated_clay" },
+    { "item": "tiths:activated_clay" }
+  ]
+}

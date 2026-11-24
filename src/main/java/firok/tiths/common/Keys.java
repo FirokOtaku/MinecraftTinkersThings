@@ -125,6 +125,7 @@ public interface Keys
     String nameBeltLeather = prefBelt + "leather";
     String nameAirBomb = "air_bomb";
     String nameSoulBeacon = "soul_beacon";
+    String nameActivatedClay = "activated_clay";
     String nameChloroplastDressing = "chloroplast_dressing";
     String nameAmuletIron = prefAmulet + "iron";
     String nameCreepSoil = "creep_soil";

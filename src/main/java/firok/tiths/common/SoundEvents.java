@@ -29,6 +29,10 @@ public final class SoundEvents
     public static final SoundEvent effectFriction = $(Keys.soundFrictionEffect);
     public static final SoundEvent effectIceCrack = $(Keys.soundIceCrackEffect);
     public static final SoundEvent effectIgniting = $(Keys.soundIgnitingEffect);
+    public static final SoundEvent activatedClayGolemStep = $("entity.activated_clay_golem.step");
+    public static final SoundEvent activatedClayGolemAttack = $("entity.activated_clay_golem.attack");
+    public static final SoundEvent activatedClayGolemHurt = $("entity.activated_clay_golem.hurt");
+    public static final SoundEvent activatedClayGolemDeath = $("entity.activated_clay_golem.death");
     private SoundEvents() {}
 
     /**

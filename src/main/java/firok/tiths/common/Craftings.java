@@ -394,12 +394,12 @@ public final class Craftings
 //						RecipeMatch.of(new ItemStack(net.minecraft.init.Items.SUGAR)),
 //						new FluidStack(Fluids.moltenChloroplast,Material.VALUE_Nugget*1),
 //						true,false));
-        // 叶绿敷料
+        // 活化黏土：消耗浇筑台上的黏土
         registerTableCasting(
                 new CastingRecipe(
-                        new ItemStack(Items.chloroplastDressing),
+                        new ItemStack(Items.activatedClay),
                         RecipeMatch.of(new ItemStack(net.minecraft.init.Items.CLAY_BALL)),
-                        new FluidStack(Fluids.moltenChloroplast, Material.VALUE_Ingot * 2),
+                        new FluidStack(Fluids.moltenChloroplast, Material.VALUE_Ingot),
                         true, false));
     }
 

@@ -75,6 +75,8 @@ public final class Items
     public static final Item carrotStack = new ItemBait(Blocks.blockBaitCarrot); // 萝卜捆
     @Reg("charm_soul_watcher")
     public static final Item charmSoulWatcher = new ItemSoulWatchBauble(BaubleType.CHARM).setRarity(EnumRarity.UNCOMMON);
+    @Reg(nameActivatedClay)
+    public static final Item activatedClay = new ItemCustom(); // 活化黏土
     @Reg(nameChloroplastDressing)
     public static final Item chloroplastDressing = new ItemCustom(); // 叶绿敷料
     @Reg(nameChloroplastLight)
