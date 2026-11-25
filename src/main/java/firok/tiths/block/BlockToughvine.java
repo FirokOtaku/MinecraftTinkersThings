@@ -1,10 +1,12 @@
 package firok.tiths.block;
 
 import firok.tiths.common.Configs;
+import firok.tiths.util.Predicates;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemShears;
@@ -17,13 +19,16 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import javax.annotation.Nullable;
 import java.util.Random;
+
+import static firok.tiths.util.Predicates.canTrigger;
 
 /** A freestanding vine that spreads upward from any randomly ticked segment. */
 public class BlockToughvine extends Block
 {
     private static final AxisAlignedBB BOUNDS = new AxisAlignedBB(0.125, 0, 0.125, 0.875, 1, 0.875);
+    // A narrow core provides the horizontal collision needed to climb while the player's feet are in this block.
+    private static final AxisAlignedBB COLLISION_BOUNDS = new AxisAlignedBB(0.375, 0, 0.375, 0.625, 1, 0.625);
 
     public BlockToughvine()
     {
@@ -60,7 +65,7 @@ public class BlockToughvine extends Block
     @Override
     public void randomTick(World world, BlockPos pos, IBlockState state, Random random)
     {
-        if (world.isRemote) return;
+        if (world.isRemote || canTrigger(world.rand, 0.35f)) return;
 
         int maxHeight = Configs.Gameplay.toughvine_max_height;
         int height = 1;
@@ -107,11 +112,16 @@ public class BlockToughvine extends Block
         return BOUNDS;
     }
 
-    @Nullable
     @Override
     public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos)
     {
-        return NULL_AABB;
+        return COLLISION_BOUNDS;
+    }
+
+    @Override
+    public boolean isLadder(IBlockState state, IBlockAccess world, BlockPos pos, EntityLivingBase entity)
+    {
+        return true;
     }
 
     @Override

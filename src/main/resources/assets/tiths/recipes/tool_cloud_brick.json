@@ -1,13 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "tiths:tools",
-  "result": { "item": "tiths:block_cloud_brick", "count": 1 },
+  "result": { "item": "tiths:block_cloud_brick", "count": 4 },
   "pattern": [
-    "CC ",
-    "CC ",
-    "   "
+    "CC",
+    "CC"
   ],
   "key": {
-    "C": { "item": "tiths:block_cloud" }
+    "C": { "item": "tiths:block_solid_cloud" }
   }
 }
