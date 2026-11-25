@@ -24,6 +24,20 @@ public final class Blocks
 {
     @Reg(Keys.prefBlock + Keys.nameActivatedClay)
     public static final Block blockActivatedClay = new BlockActivatedClay(); // 活化黏土块
+    @Reg("block_activated_pumpkin")
+    public static final Block blockActivatedPumpkin = new BlockActivatedPumpkin();
+    @Reg("block_activated_farmland")
+    public static final Block blockActivatedFarmland = new BlockActivatedFarmland();
+    @Reg("block_solid_cloud")
+    public static final Block blockSolidCloud = new BlockSolidCloud();
+    @Reg("block_solid_cloud_passageway")
+    public static final Block blockSolidCloudPassageway = new BlockSolidCloudPassageway();
+    @Reg("block_silk_floss_grass")
+    public static final Block blockSilkFlossGrass = new BlockHarvestCrop(() -> Items.silkFlossSeed, () -> net.minecraft.init.Items.STRING);
+    @Reg("block_slime_corm")
+    public static final Block blockSlimeCorm = new BlockHarvestCrop(() -> Items.slimeCormSeed, () -> net.minecraft.init.Items.SLIME_BALL);
+    @Reg("block_toughvine")
+    public static final Block blockToughvine = new BlockToughvine();
     @Reg(Keys.blockAirPump)
     public static final Block blockAirPump = new BlockCompressed(); // 气泵
     @Reg(Keys.blockAltairium)

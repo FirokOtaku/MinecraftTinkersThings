@@ -18,6 +18,7 @@ import net.minecraft.util.ResourceLocation;
 import javax.annotation.Nullable;
 
 import static firok.tiths.common.Keys.*;
+import static net.minecraft.init.Blocks.FARMLAND;
 
 @SuppressWarnings("all")
 public final class Items
@@ -77,6 +78,22 @@ public final class Items
     public static final Item charmSoulWatcher = new ItemSoulWatchBauble(BaubleType.CHARM).setRarity(EnumRarity.UNCOMMON);
     @Reg(nameActivatedClay)
     public static final Item activatedClay = new ItemCustom(); // 活化黏土
+    @Reg("activated_crystal")
+    public static final Item activatedCrystal = new ItemActivatedCrystal();
+    @Reg("activated_slime_ball_green")
+    public static final Item activatedSlimeBallGreen = new ItemActivatedSlimeBall(ItemActivatedSlimeBall.Variant.GREEN);
+    @Reg("activated_slime_ball_blue")
+    public static final Item activatedSlimeBallBlue = new ItemActivatedSlimeBall(ItemActivatedSlimeBall.Variant.BLUE);
+    @Reg("activated_slime_ball_purple")
+    public static final Item activatedSlimeBallPurple = new ItemActivatedSlimeBall(ItemActivatedSlimeBall.Variant.PURPLE);
+    @Reg("activated_slime_ball_blood")
+    public static final Item activatedSlimeBallBlood = new ItemActivatedSlimeBall(ItemActivatedSlimeBall.Variant.BLOOD);
+    @Reg("origin_seed")
+    public static final Item originSeed = new ItemCustom();
+    @Reg("silk_floss_seed")
+    public static final Item silkFlossSeed = new net.minecraft.item.ItemSeeds(Blocks.blockSilkFlossGrass, FARMLAND);
+    @Reg("slime_corm_seed")
+    public static final Item slimeCormSeed = new net.minecraft.item.ItemSeeds(Blocks.blockSlimeCorm, FARMLAND);
     @Reg(nameChloroplastDressing)
     public static final Item chloroplastDressing = new ItemCustom(); // 叶绿敷料
     @Reg(nameChloroplastLight)

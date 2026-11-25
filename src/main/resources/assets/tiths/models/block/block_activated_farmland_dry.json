@@ -1,0 +1,8 @@
+{
+    "parent": "minecraft:block/farmland",
+    "textures": {
+        "particle": "minecraft:blocks/dirt",
+        "dirt": "minecraft:blocks/dirt",
+        "top": "tiths:blocks/block_activated_farmland_dry"
+    }
+}

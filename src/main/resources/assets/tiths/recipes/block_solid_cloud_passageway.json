@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "tiths:block_solid_cloud" },
+    { "item": "minecraft:redstone" }
+  ],
+  "result": { "item": "tiths:block_solid_cloud_passageway" }
+}

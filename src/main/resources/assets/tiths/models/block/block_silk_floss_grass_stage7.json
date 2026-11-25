@@ -1,0 +1,4 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": { "crop": "tiths:blocks/block_silk_floss_grass_stage7" }
+}

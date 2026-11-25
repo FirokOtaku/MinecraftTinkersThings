@@ -187,6 +187,10 @@ public final class Configs
         @LangKey(pgg + "enable_fulgurite_generation")
         public static boolean enable_fulgurite_generation = true;
 
+        @LangKey(pgg + "toughvine_max_height")
+        @RangeInt(min = 1, max = 64)
+        public static int toughvine_max_height = 5;
+
         /**
          * 结晶器单种流体存储上限 (mB), 默认 8 块熔融量
          */

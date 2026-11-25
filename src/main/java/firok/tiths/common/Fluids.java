@@ -44,6 +44,7 @@ public final class Fluids
     public static final FluidColored dirtyWater = $$(nameDirtyWater, colorDirtyWater);
     @FluidBlock(BlockShiningGel.class)
     public static final FluidColored shiningGel = $$(nameShiningGel, colorShiningGel);
+    public static final FluidColored greenSlime = $$("tiths_green_slime", 0x77bb45, 100, 0, 1500, 1200);
     private Fluids() {}
 
     static FluidMolten $(String name, int color)

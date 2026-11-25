@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "tiths:origin_seed" },
+    { "item": "minecraft:vine" },
+    { "item": "minecraft:vine" },
+    { "item": "minecraft:vine" },
+    { "item": "minecraft:vine" }
+  ],
+  "result": { "item": "tiths:block_toughvine" }
+}

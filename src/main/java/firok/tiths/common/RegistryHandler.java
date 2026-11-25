@@ -230,6 +230,7 @@ public final class RegistryHandler
 
     public static void registerTileEntities()
     {
+        GameRegistry.registerTileEntity(firok.tiths.tile.TESolidCloudPassageway.class, new ResourceLocation(TinkersThings.MOD_ID, "solid_cloud_passageway"));
         GameRegistry.registerTileEntity(TEShackingDispenser.class, new ResourceLocation(TinkersThings.MOD_ID, "shacking_dispenser"));
         GameRegistry.registerTileEntity(TELavaCrystalBrewingStand.class, new ResourceLocation(TinkersThings.MOD_ID, "lava_crystal_brewing_stand"));
         GameRegistry.registerTileEntity(TEEnderInterferedBlock.class, new ResourceLocation(TinkersThings.MOD_ID, "ender_interfered_block"));

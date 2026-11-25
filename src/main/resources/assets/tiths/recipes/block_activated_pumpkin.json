@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "tiths:activated_crystal" },
+    { "item": "minecraft:pumpkin" }
+  ],
+  "result": { "item": "tiths:block_activated_pumpkin" }
+}

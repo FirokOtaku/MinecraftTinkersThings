@@ -34,7 +34,7 @@ public final class ActivatedClayGolemSummoning
         {
             return FactoryBlockPattern.start()
                     .aisle("~^~", "###", "~#~")
-                    .where('^', BlockWorldState.hasState(withHead ? ActivatedClayGolemSummoning::isPumpkin
+                    .where('^', BlockWorldState.hasState(withHead ? ActivatedClayGolemSummoning::isActivatedPumpkin
                             : BlockMaterialMatcher.forMaterial(Material.AIR)))
                     .where('#', BlockWorldState.hasState(
                             BlockStateMatcher.forBlock(firok.tiths.common.Blocks.blockActivatedClay)))
@@ -46,9 +46,9 @@ public final class ActivatedClayGolemSummoning
         private static final BlockPattern BASE = build(false);
     }
 
-    private static boolean isPumpkin(IBlockState state)
+    private static boolean isActivatedPumpkin(IBlockState state)
     {
-        return state != null && (state.getBlock() == Blocks.PUMPKIN || state.getBlock() == Blocks.LIT_PUMPKIN);
+        return state != null && state.getBlock() == firok.tiths.common.Blocks.blockActivatedPumpkin;
     }
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
@@ -57,17 +57,15 @@ public final class ActivatedClayGolemSummoning
         World world = event.getWorld();
         BlockPos head = event.getPos();
         // Placement notifications arrive after Forge has accepted the block placement.
-        if (world.isRemote || !isPumpkin(event.getState()) || !isPumpkin(world.getBlockState(head))) return;
+        if (world.isRemote || !isActivatedPumpkin(event.getState()) || !isActivatedPumpkin(world.getBlockState(head))) return;
         BlockPattern.PatternHelper pattern = Patterns.COMPLETE.match(world, head);
         if (pattern != null && pattern.translateOffset(1, 0, 0).getPos().equals(head))
-        {
             summon(world, pattern, true);
-        }
     }
 
     public static void registerDispenserBehavior()
     {
-        Item pumpkin = Item.getItemFromBlock(Blocks.PUMPKIN);
+        Item pumpkin = Item.getItemFromBlock(firok.tiths.common.Blocks.blockActivatedPumpkin);
         IBehaviorDispenseItem previous = BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.getObject(pumpkin);
         BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(pumpkin, (source, stack) -> {
             World world = source.getWorld();
@@ -105,7 +103,7 @@ public final class ActivatedClayGolemSummoning
                 {
                     if (!withHead && x == 1 && y == 0)
                     {
-                        world.playEvent(2001, pos, Block.getStateId(Blocks.PUMPKIN.getDefaultState()));
+                        world.playEvent(2001, pos, Block.getStateId(firok.tiths.common.Blocks.blockActivatedPumpkin.getDefaultState()));
                     }
                     continue;
                 }

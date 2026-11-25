@@ -2,6 +2,18 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.47.0 _2026-11-25 22:00_
+
+* added items
+  * activated crystal
+  * activated slime ball
+  * origin seed
+  * silk floss seed
+  * slime corm seed
+  * toughvine
+* added block
+  * activated pumpkin
+
 ## 0.3.46.0 _2026-11-24 22:30_
 
 * added item

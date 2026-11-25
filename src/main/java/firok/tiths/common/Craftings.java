@@ -394,6 +394,17 @@ public final class Craftings
 //						RecipeMatch.of(new ItemStack(net.minecraft.init.Items.SUGAR)),
 //						new FluidStack(Fluids.moltenChloroplast,Material.VALUE_Nugget*1),
 //						true,false));
+        registerTableCasting(new CastingRecipe(new ItemStack(Items.activatedCrystal),
+                RecipeMatch.of(new ItemStack(Items.orystal)),
+                new FluidStack(Fluids.moltenChloroplast, Material.VALUE_Ingot), true, false));
+
+        final int slimeBallVolume = 250;
+        TinkerRegistry.registerMelting(new ItemStack(net.minecraft.init.Items.SLIME_BALL), Fluids.greenSlime, slimeBallVolume);
+        registerActivatedSlime(Items.activatedSlimeBallGreen, Fluids.greenSlime, slimeBallVolume);
+        registerActivatedSlime(Items.activatedSlimeBallBlue, TinkerFluids.blueslime, slimeBallVolume);
+        registerActivatedSlime(Items.activatedSlimeBallPurple, TinkerFluids.purpleSlime, slimeBallVolume);
+        registerActivatedSlime(Items.activatedSlimeBallBlood, TinkerFluids.blood, 160);
+
         // 活化黏土：消耗浇筑台上的黏土
         registerTableCasting(
                 new CastingRecipe(
@@ -401,6 +412,12 @@ public final class Craftings
                         RecipeMatch.of(new ItemStack(net.minecraft.init.Items.CLAY_BALL)),
                         new FluidStack(Fluids.moltenChloroplast, Material.VALUE_Ingot),
                         true, false));
+    }
+
+    private static void registerActivatedSlime(Item result, Fluid fluid, int amount)
+    {
+        registerTableCasting(new CastingRecipe(new ItemStack(result), RecipeMatch.of(new ItemStack(Items.activatedCrystal)),
+                new FluidStack(fluid, amount), true, false));
     }
 
     private static void createBinding(

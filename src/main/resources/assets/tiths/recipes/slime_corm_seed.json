@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "tiths:origin_seed" },
+    { "item": "minecraft:slime_ball" },
+    { "item": "minecraft:slime_ball" },
+    { "item": "minecraft:slime_ball" },
+    { "item": "minecraft:slime_ball" }
+  ],
+  "result": { "item": "tiths:slime_corm_seed" }
+}

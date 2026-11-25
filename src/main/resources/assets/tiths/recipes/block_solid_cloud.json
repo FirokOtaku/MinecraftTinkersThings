@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["CC", "CC"],
+  "key": { "C": { "item": "tiths:block_cloud" } },
+  "result": { "item": "tiths:block_solid_cloud" }
+}

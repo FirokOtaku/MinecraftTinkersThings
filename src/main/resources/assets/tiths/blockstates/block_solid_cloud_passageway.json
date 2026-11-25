@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "open=false": { "model": "tiths:block_solid_cloud" },
+    "open=true": { "model": "tiths:block_cloud" }
+  }
+}

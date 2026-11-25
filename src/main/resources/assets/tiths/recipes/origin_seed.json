@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "tiths:orystal" },
+    { "item": "minecraft:wheat_seeds" },
+    { "item": "minecraft:wheat_seeds" },
+    { "item": "minecraft:wheat_seeds" },
+    { "item": "minecraft:wheat_seeds" },
+    { "item": "minecraft:wheat_seeds" },
+    { "item": "minecraft:wheat_seeds" },
+    { "item": "minecraft:wheat_seeds" },
+    { "item": "minecraft:wheat_seeds" }
+  ],
+  "result": { "item": "tiths:origin_seed" }
+}
