@@ -1,0 +1,58 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "tconstruct:tank"
+  },
+  "variants": {
+    "type": {
+      "tank": {
+        "textures": {
+          "side": "tiths:blocks/seared_building/luminous/vessel_tank",
+          "top": "tiths:blocks/seared_building/luminous/vessel_top"
+        }
+      },
+      "gauge": {
+        "textures": {
+          "side": "tiths:blocks/seared_building/luminous/vessel_gauge",
+          "top": "tiths:blocks/seared_building/luminous/vessel_window_top"
+        }
+      },
+      "window": {
+        "textures": {
+          "side": "tiths:blocks/seared_building/luminous/vessel_window",
+          "top": "tiths:blocks/seared_building/luminous/vessel_window_top"
+        }
+      }
+    },
+    "has_knob": {
+      "true": {
+        "submodel": {
+          "knob": {
+            "model": "tconstruct:tank_knob",
+            "textures": {
+              "side": "tiths:blocks/seared_building/luminous/vessel_tank",
+              "top": "tiths:blocks/seared_building/luminous/vessel_top"
+            },
+            "transform": {
+              "translation": [
+                0,
+                1,
+                0
+              ]
+            }
+          }
+        }
+      },
+      "false": {}
+    },
+    "tank": {
+      "model": "tiths:seared_building/luminous/tank"
+    },
+    "gauge": {
+      "model": "tiths:seared_building/luminous/gauge"
+    },
+    "window": {
+      "model": "tiths:seared_building/luminous/window"
+    }
+  }
+}

@@ -1,0 +1,890 @@
+{
+  "schema_version": 5,
+  "provider_modid": "tiths",
+  "provider_revision": 2,
+  "ores": {
+    "tiths:legacy/altairium": {
+      "block": "tiths:ore_altairium",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 10,
+          "max_y": 69,
+          "frequency": 1.0,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "min_quantity": 1,
+          "max_quantity": 4,
+          "biome_ids": [
+            "minecraft:desert",
+            "minecraft:desert_hills",
+            "minecraft:mutated_desert"
+          ]
+        }
+      }
+    },
+    "tiths:legacy/chloroplast": {
+      "block": "tiths:ore_chloroplast",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 60,
+          "max_y": 69,
+          "frequency": 1.9,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "quantity": 1
+        }
+      }
+    },
+    "tiths:legacy/cinnabar": {
+      "block": "tiths:ore_cinnabar",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 18,
+          "max_y": 55,
+          "frequency": 3.5,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "min_quantity": 7,
+          "max_quantity": 10
+        }
+      }
+    },
+    "tiths:legacy/cordierite": {
+      "block": "tiths:ore_cordierite",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 10,
+          "max_y": 54,
+          "frequency": 5.5,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "min_quantity": 4,
+          "max_quantity": 9,
+          "biome_ids": [
+            "minecraft:taiga_cold",
+            "minecraft:redwood_taiga",
+            "minecraft:taiga",
+            "minecraft:mutated_taiga_cold",
+            "minecraft:mutated_redwood_taiga",
+            "minecraft:mutated_taiga"
+          ]
+        }
+      }
+    },
+    "tiths:legacy/corundum": {
+      "block": "tiths:ore_corundum",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 1,
+          "max_y": 27,
+          "frequency": 3.25,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "min_quantity": 2,
+          "max_quantity": 6,
+          "biome_ids": [
+            "minecraft:taiga_cold_hills",
+            "minecraft:forest_hills",
+            "minecraft:ice_mountains",
+            "minecraft:jungle_hills",
+            "minecraft:taiga_hills",
+            "minecraft:redwood_taiga_hills",
+            "minecraft:extreme_hills_with_trees",
+            "minecraft:extreme_hills",
+            "minecraft:smaller_extreme_hills",
+            "minecraft:mutated_extreme_hills",
+            "minecraft:mutated_redwood_taiga_hills",
+            "minecraft:mutated_extreme_hills_with_trees",
+            "minecraft:mutated_birch_forest_hills",
+            "minecraft:birch_forest_hills"
+          ]
+        }
+      }
+    },
+    "tiths:legacy/halleium": {
+      "block": "tiths:ore_halleium",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 15,
+          "max_y": 17,
+          "frequency": 1.4,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "min_quantity": 1,
+          "max_quantity": 3
+        }
+      }
+    },
+    "tiths:legacy/hothium": {
+      "block": "tiths:ore_hothium",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 1,
+          "max_y": 59,
+          "frequency": 2.4,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "quantity": 1,
+          "biome_ids": [
+            "minecraft:frozen_ocean",
+            "minecraft:frozen_river",
+            "minecraft:ice_flats",
+            "minecraft:ice_mountains",
+            "minecraft:cold_beach",
+            "minecraft:taiga_cold",
+            "minecraft:taiga_cold_hills",
+            "minecraft:mutated_ice_flats",
+            "minecraft:mutated_taiga_cold"
+          ]
+        }
+      }
+    },
+    "tiths:legacy/iceland_spar": {
+      "block": "tiths:ore_iceland_spar",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 1,
+          "max_y": 49,
+          "frequency": 3.75,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "quantity": 1,
+          "biome_ids": [
+            "minecraft:frozen_ocean",
+            "minecraft:frozen_river",
+            "minecraft:ice_flats",
+            "minecraft:ice_mountains",
+            "minecraft:cold_beach",
+            "minecraft:taiga_cold",
+            "minecraft:taiga_cold_hills",
+            "minecraft:mutated_ice_flats",
+            "minecraft:mutated_taiga_cold"
+          ]
+        }
+      }
+    },
+    "tiths:legacy/icelit": {
+      "block": "tiths:ore_icelit",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 5,
+          "max_y": 49,
+          "frequency": 5.5,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "min_quantity": 2,
+          "max_quantity": 5,
+          "biome_ids": [
+            "minecraft:frozen_ocean",
+            "minecraft:ocean",
+            "minecraft:deep_ocean",
+            "minecraft:cold_beach",
+            "minecraft:stone_beach",
+            "minecraft:beaches"
+          ]
+        }
+      }
+    },
+    "tiths:legacy/immersed_silver": {
+      "block": "tiths:ore_immersed_silver",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 1,
+          "max_y": 29,
+          "frequency": 7.25,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "min_quantity": 1,
+          "max_quantity": 4,
+          "biome_ids": [
+            "minecraft:frozen_ocean",
+            "minecraft:ocean",
+            "minecraft:deep_ocean",
+            "minecraft:cold_beach",
+            "minecraft:stone_beach",
+            "minecraft:beaches"
+          ]
+        }
+      }
+    },
+    "tiths:legacy/inert_witherium": {
+      "block": "tiths:ore_inert_witherium",
+      "enabled": true,
+      "retrogen": false,
+      "dimensions": {
+        "minecraft:the_nether": {
+          "enabled": true,
+          "min_y": 5,
+          "max_y": 127,
+          "frequency": 0.9,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:netherrack"
+          ],
+          "quantity": 1
+        }
+      }
+    },
+    "tiths:legacy/ink_powder": {
+      "block": "tiths:ore_ink_powder",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 40,
+          "max_y": 79,
+          "frequency": 1.0,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "min_quantity": 3,
+          "max_quantity": 6
+        }
+      }
+    },
+    "tiths:legacy/lava_crystal": {
+      "block": "tiths:ore_lava_crystal",
+      "enabled": true,
+      "retrogen": false,
+      "dimensions": {
+        "minecraft:the_nether": {
+          "enabled": true,
+          "min_y": 32,
+          "max_y": 32,
+          "frequency": 8.5,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:netherrack"
+          ],
+          "min_quantity": 1,
+          "max_quantity": 4
+        }
+      }
+    },
+    "tiths:legacy/lizanite": {
+      "block": "tiths:ore_lizanite",
+      "enabled": true,
+      "retrogen": false,
+      "dimensions": {
+        "minecraft:the_nether": {
+          "enabled": true,
+          "min_y": 6,
+          "max_y": 49,
+          "frequency": 3.6,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:netherrack"
+          ],
+          "min_quantity": 1,
+          "max_quantity": 2
+        }
+      }
+    },
+    "tiths:legacy/moon_stone": {
+      "block": "tiths:ore_moon_stone",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 5,
+          "max_y": 49,
+          "frequency": 2.75,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "min_quantity": 2,
+          "max_quantity": 5,
+          "biome_ids": [
+            "minecraft:frozen_ocean",
+            "minecraft:frozen_river",
+            "minecraft:ice_flats",
+            "minecraft:ice_mountains",
+            "minecraft:cold_beach",
+            "minecraft:taiga_cold",
+            "minecraft:taiga_cold_hills",
+            "minecraft:mutated_ice_flats",
+            "minecraft:mutated_taiga_cold"
+          ]
+        }
+      }
+    },
+    "tiths:legacy/nitre": {
+      "block": "tiths:ore_nitre",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 30,
+          "max_y": 49,
+          "frequency": 3.5,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "min_quantity": 6,
+          "max_quantity": 10,
+          "biome_ids": [
+            "minecraft:desert",
+            "minecraft:desert_hills",
+            "minecraft:mutated_desert"
+          ]
+        }
+      }
+    },
+    "tiths:legacy/opal": {
+      "block": "tiths:ore_opal",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 1,
+          "max_y": 23,
+          "frequency": 1,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "min_quantity": 3,
+          "max_quantity": 5,
+          "biome_ids": [
+            "minecraft:desert",
+            "minecraft:desert_hills",
+            "minecraft:mutated_desert"
+          ]
+        }
+      }
+    },
+    "tiths:legacy/polarium": {
+      "block": "tiths:ore_polarium",
+      "enabled": true,
+      "retrogen": false,
+      "dimensions": {
+        "minecraft:the_end": {
+          "enabled": true,
+          "min_y": 1,
+          "max_y": 179,
+          "frequency": 5.5,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:end_stone"
+          ],
+          "min_quantity": 3,
+          "max_quantity": 6
+        }
+      }
+    },
+    "tiths:legacy/prehnite": {
+      "block": "tiths:ore_prehnite",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 1,
+          "max_y": 10,
+          "frequency": 3.75,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "quantity": 1
+        }
+      }
+    },
+    "tiths:legacy/proustite": {
+      "block": "tiths:ore_proustite",
+      "enabled": true,
+      "retrogen": false,
+      "dimensions": {
+        "minecraft:the_nether": {
+          "enabled": true,
+          "min_y": 20,
+          "max_y": 99,
+          "frequency": 4.5,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:netherrack"
+          ],
+          "min_quantity": 6,
+          "max_quantity": 11
+        }
+      }
+    },
+    "tiths:legacy/pyrophyllite": {
+      "block": "tiths:ore_pyrophyllite",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 30,
+          "max_y": 79,
+          "frequency": 3.5,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "min_quantity": 4,
+          "max_quantity": 7,
+          "biome_ids": [
+            "minecraft:jungle",
+            "minecraft:jungle_edge",
+            "minecraft:forest",
+            "minecraft:birch_forest",
+            "minecraft:taiga_cold",
+            "minecraft:redwood_taiga",
+            "minecraft:taiga",
+            "minecraft:roofed_forest",
+            "minecraft:mutated_taiga_cold",
+            "minecraft:mutated_jungle_edge",
+            "minecraft:mutated_savanna_rock",
+            "minecraft:mutated_redwood_taiga",
+            "minecraft:mutated_forest",
+            "minecraft:mutated_taiga",
+            "minecraft:mutated_birch_forest",
+            "minecraft:mutated_roofed_forest",
+            "minecraft:mutated_jungle",
+            "minecraft:mutated_savanna"
+          ]
+        }
+      }
+    },
+    "tiths:legacy/redins": {
+      "block": "tiths:ore_redins",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 1,
+          "max_y": 39,
+          "frequency": 2.75,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "min_quantity": 2,
+          "max_quantity": 5
+        }
+      }
+    },
+    "tiths:legacy/solid_dirt": {
+      "block": "tiths:ore_solid_dirt",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 10,
+          "max_y": 127,
+          "frequency": 3.0,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "min_quantity": 1,
+          "max_quantity": 3
+        }
+      }
+    },
+    "tiths:legacy/solid_sand": {
+      "block": "tiths:ore_solid_sand",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 10,
+          "max_y": 127,
+          "frequency": 3.0,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "min_quantity": 1,
+          "max_quantity": 3
+        }
+      }
+    },
+    "tiths:legacy/solid_stone": {
+      "block": "tiths:ore_solid_stone",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 10,
+          "max_y": 127,
+          "frequency": 3.0,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "min_quantity": 1,
+          "max_quantity": 3
+        }
+      }
+    },
+    "tiths:legacy/spinel": {
+      "block": "tiths:ore_spinel",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 40,
+          "max_y": 99,
+          "frequency": 4.5,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "min_quantity": 1,
+          "max_quantity": 2,
+          "biome_ids": [
+            "minecraft:jungle",
+            "minecraft:jungle_edge",
+            "minecraft:forest",
+            "minecraft:birch_forest",
+            "minecraft:taiga_cold",
+            "minecraft:redwood_taiga",
+            "minecraft:taiga",
+            "minecraft:roofed_forest",
+            "minecraft:mutated_taiga_cold",
+            "minecraft:mutated_jungle_edge",
+            "minecraft:mutated_savanna_rock",
+            "minecraft:mutated_redwood_taiga",
+            "minecraft:mutated_forest",
+            "minecraft:mutated_taiga",
+            "minecraft:mutated_birch_forest",
+            "minecraft:mutated_roofed_forest",
+            "minecraft:mutated_jungle",
+            "minecraft:mutated_savanna",
+            "minecraft:mesa",
+            "minecraft:mesa_rock",
+            "minecraft:mesa_clear_rock",
+            "minecraft:mutated_mesa",
+            "minecraft:mutated_mesa_clear_rock",
+            "minecraft:mutated_mesa_rock",
+            "minecraft:taiga_cold_hills",
+            "minecraft:forest_hills",
+            "minecraft:ice_mountains",
+            "minecraft:jungle_hills",
+            "minecraft:taiga_hills",
+            "minecraft:redwood_taiga_hills",
+            "minecraft:extreme_hills_with_trees",
+            "minecraft:extreme_hills",
+            "minecraft:smaller_extreme_hills",
+            "minecraft:mutated_extreme_hills",
+            "minecraft:mutated_redwood_taiga_hills",
+            "minecraft:mutated_extreme_hills_with_trees",
+            "minecraft:mutated_birch_forest_hills",
+            "minecraft:birch_forest_hills"
+          ]
+        }
+      }
+    },
+    "tiths:legacy/steamium": {
+      "block": "tiths:ore_steamium",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 1,
+          "max_y": 59,
+          "frequency": 6,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "min_quantity": 4,
+          "max_quantity": 7
+        }
+      }
+    },
+    "tiths:legacy/stellarium": {
+      "block": "tiths:ore_stellarium",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 20,
+          "max_y": 59,
+          "frequency": 1.0,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "min_quantity": 1,
+          "max_quantity": 4,
+          "biome_ids": [
+            "minecraft:desert",
+            "minecraft:desert_hills",
+            "minecraft:mutated_desert"
+          ]
+        }
+      }
+    },
+    "tiths:legacy/sun_stone": {
+      "block": "tiths:ore_sun_stone",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 30,
+          "max_y": 99,
+          "frequency": 1.75,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "min_quantity": 1,
+          "max_quantity": 2,
+          "biome_ids": [
+            "minecraft:desert",
+            "minecraft:desert_hills",
+            "minecraft:mutated_savanna",
+            "minecraft:mutated_savanna_rock",
+            "minecraft:mesa",
+            "minecraft:mesa_rock",
+            "minecraft:mesa_clear_rock",
+            "minecraft:mutated_desert",
+            "minecraft:mutated_mesa",
+            "minecraft:mutated_mesa_clear_rock",
+            "minecraft:mutated_mesa_rock"
+          ]
+        }
+      }
+    },
+    "tiths:legacy/talcum": {
+      "block": "tiths:ore_talcum",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 20,
+          "max_y": 63,
+          "frequency": 9,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "min_quantity": 3,
+          "max_quantity": 8,
+          "biome_ids": [
+            "minecraft:swampland"
+          ]
+        }
+      }
+    },
+    "tiths:legacy/tanatonium": {
+      "block": "tiths:ore_tanatonium",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 5,
+          "max_y": 49,
+          "frequency": 5.5,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "min_quantity": 1,
+          "max_quantity": 4,
+          "biome_ids": [
+            "minecraft:frozen_ocean",
+            "minecraft:ocean",
+            "minecraft:deep_ocean",
+            "minecraft:cold_beach",
+            "minecraft:stone_beach",
+            "minecraft:beaches"
+          ]
+        }
+      }
+    },
+    "tiths:legacy/titanium": {
+      "block": "tiths:ore_titanium",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 1,
+          "max_y": 59,
+          "frequency": 2.75,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "min_quantity": 2,
+          "max_quantity": 5,
+          "biome_ids": [
+            "minecraft:plains",
+            "minecraft:savanna_rock",
+            "minecraft:savanna",
+            "minecraft:mutated_ice_flats",
+            "minecraft:ice_flats",
+            "minecraft:mutated_plains"
+          ]
+        }
+      }
+    },
+    "tiths:legacy/tonium": {
+      "block": "tiths:ore_tonium",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 1,
+          "max_y": 29,
+          "frequency": 1.8,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "min_quantity": 1,
+          "max_quantity": 4,
+          "biome_ids": [
+            "minecraft:deep_ocean"
+          ]
+        }
+      }
+    },
+    "tiths:legacy/topaz": {
+      "block": "tiths:ore_topaz",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 1,
+          "max_y": 63,
+          "frequency": 4.5,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "min_quantity": 1,
+          "max_quantity": 4,
+          "biome_ids": [
+            "minecraft:taiga_cold_hills",
+            "minecraft:forest_hills",
+            "minecraft:ice_mountains",
+            "minecraft:jungle_hills",
+            "minecraft:taiga_hills",
+            "minecraft:redwood_taiga_hills",
+            "minecraft:extreme_hills_with_trees",
+            "minecraft:extreme_hills",
+            "minecraft:smaller_extreme_hills",
+            "minecraft:mutated_extreme_hills",
+            "minecraft:mutated_redwood_taiga_hills",
+            "minecraft:mutated_extreme_hills_with_trees",
+            "minecraft:mutated_birch_forest_hills",
+            "minecraft:birch_forest_hills"
+          ]
+        }
+      }
+    },
+    "tiths:legacy/tourmaline": {
+      "block": "tiths:ore_tourmaline",
+      "enabled": true,
+      "retrogen": false,
+      "dimension_selectors": {
+        "orespawn:all_except_nether_end": {
+          "enabled": true,
+          "min_y": 10,
+          "max_y": 39,
+          "frequency": 1.8,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:stone"
+          ],
+          "min_quantity": 2,
+          "max_quantity": 5
+        }
+      }
+    },
+    "tiths:legacy/vibrating_crystal": {
+      "block": "tiths:ore_vibrating_crystal",
+      "enabled": true,
+      "retrogen": false,
+      "dimensions": {
+        "minecraft:the_end": {
+          "enabled": true,
+          "min_y": 5,
+          "max_y": 159,
+          "frequency": 6.25,
+          "pattern": "default",
+          "host_blocks": [
+            "minecraft:end_stone"
+          ],
+          "min_quantity": 1,
+          "max_quantity": 2
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "transform": "forge:default-block",
+    "model": "half_slab",
+    "textures": {
+      "bottom": "#all",
+      "top": "#all",
+      "side": "#all",
+      "particle": "#all"
+    }
+  },
+  "variants": {
+    "type": {
+      "brick_triangle": {
+        "textures": {
+          "all": "tiths:blocks/seared_building/ashen/brick_triangle"
+        }
+      },
+      "brick_small": {
+        "textures": {
+          "all": "tiths:blocks/seared_building/ashen/brick_small"
+        }
+      },
+      "tile": {
+        "textures": {
+          "all": "tiths:blocks/seared_building/ashen/tile"
+        }
+      },
+      "creeper": {
+        "textures": {
+          "side": "tiths:blocks/seared_building/ashen/creeper",
+          "particle": "#side",
+          "top": "tiths:blocks/seared_building/ashen/paver",
+          "bottom": "#top"
+        }
+      }
+    },
+    "half": {
+      "bottom": {},
+      "top": {
+        "model": "upper_slab"
+      }
+    }
+  }
+}

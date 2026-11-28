@@ -4,6 +4,9 @@ import firok.tiths.block.*;
 import firok.tiths.block.punji.BlockPunjiIron;
 import firok.tiths.block.punji.BlockPunjiSoft;
 import firok.tiths.block.table.BlockMoonlightConvergingTable;
+import firok.tiths.item.ItemBlockHothium;
+import firok.tiths.item.ItemBlockStellarium;
+import firok.tiths.item.ItemBlockTonium;
 import firok.tiths.item.ItemPalantir;
 import firok.tiths.util.reg.CustomItemBlock;
 import firok.tiths.util.reg.GenConfig;
@@ -133,6 +136,7 @@ public final class Blocks
     @Reg(Keys.blockHeavesand)
     public static final Block blockHeavesand = new BlockCompressed(Material.ROCK).setBeaconBase(); // 沉沙石块
     @Reg(Keys.blockHothium)
+    @CustomItemBlock(ItemBlockHothium.class)
     public static final Block blockHothium = new BlockCompressed().setBeaconBase(); // 霍斯块
     @Reg(Keys.blockIcelandSpar)
     public static final Block blockIcelandSpar = new BlockCompressed(Material.ROCK); // 冰洲石块
@@ -219,6 +223,7 @@ public final class Blocks
     @Reg(Keys.blockSteamium)
     public static final Block blockSteamium = new BlockCompressed().setBeaconBase(); // 气钢块
     @Reg(Keys.blockStellarium)
+    @CustomItemBlock(ItemBlockStellarium.class)
     public static final Block blockStellarium = new BlockCompressed().setBeaconBase().setLightLevel(1); // 恒星金属块
     @Reg(Keys.blockStellariumObsidian)
     public static final Block blockStellariumObsidian = new Block(Material.ROCK); // 恒星黑曜石
@@ -233,6 +238,7 @@ public final class Blocks
     @Reg(value = Keys.blockTitanium, od = {"blockTitanium"})
     public static final Block blockTitanium = new BlockCompressed().setBeaconBase(); // 钛块
     @Reg(Keys.blockTonium)
+    @CustomItemBlock(ItemBlockTonium.class)
     public static final Block blockTonium = new BlockCompressed().setBeaconBase(); // 钝金块
     @Reg(value = Keys.blockTopaz, od = {"blockTopaz"})
     public static final Block blockTopaz = new BlockCompressed(Material.ROCK).setBeaconBase(); // 托帕石块

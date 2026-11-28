@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "tiths:dust_stone"
+    },
+    {
+      "item": "tiths:dust_stone"
+    },
+    {
+      "item": "tiths:dust_stone_coal"
+    },
+    {
+      "item": "tiths:dust_stone_coal"
+    },
+    {
+      "item": "minecraft:glowstone_dust"
+    }
+  ],
+  "result": {
+    "item": "tiths:dust_stone_luminous",
+    "count": 4
+  }
+}

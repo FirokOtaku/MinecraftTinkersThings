@@ -1,0 +1,7 @@
+{
+  "parent": "tconstruct:block/tank/tank/1",
+  "textures": {
+    "side": "tiths:blocks/seared_building/ashen/vessel_tank",
+    "top": "tiths:blocks/seared_building/ashen/vessel_top"
+  }
+}

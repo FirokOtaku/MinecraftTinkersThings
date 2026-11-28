@@ -49,6 +49,7 @@ public interface Keys
     String nameStellariumObsidian = "stellarium_obsidian";
     String nameShell = "shell";
     String nameShellCooked = nameShell + "_cooked";
+    String nameSilverfishEggs = "silverfish_eggs";
     String nameRedins = "redins";
     String nameSpinel = "spinel";
     String nameTalcum = "talcum";

@@ -5,7 +5,6 @@ import com.mcmoddev.orespawn.api.FeatureBase;
 import com.mcmoddev.orespawn.api.IFeature;
 import com.mcmoddev.orespawn.api.os3.ISpawnEntry;
 import com.mcmoddev.orespawn.api.os3.OreSpawnBlockMatcher;
-import com.mcmoddev.orespawn.data.Constants;
 import firok.tiths.util.InnerActions;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -22,7 +21,7 @@ import static firok.tiths.util.Predicates.canTrigger;
 /**
  * 晶洞生成器
  *
- * @see com.mcmoddev.orespawn.impl.features.DefaultFeatureGenerator
+ * 使用 OreSpawn 的 OS3 兼容生成接口。
  * @since 0.3.29.0 第四次世界生成模块修改
  */
 public class CrystalCaveFeatureGenerator extends FeatureBase implements IFeature
@@ -52,9 +51,9 @@ public class CrystalCaveFeatureGenerator extends FeatureBase implements IFeature
         runCache(chunkX, chunkZ, world, spawnData);
 
         // now to ore spawn
-        final int minY = InnerActions.range(params.get(Constants.FormatBits.MIN_HEIGHT).getAsInt(), 0, 256);
-        final int maxY = InnerActions.range(params.get(Constants.FormatBits.MAX_HEIGHT).getAsInt(), 0, 256);
-        final float freq = InnerActions.range(params.get(Constants.FormatBits.FREQUENCY).getAsFloat(), 0, 256);
+        final int minY = InnerActions.range(params.get("minHeight").getAsInt(), 0, 256);
+        final int maxY = InnerActions.range(params.get("maxHeight").getAsInt(), 0, 256);
+        final float freq = InnerActions.range(params.get("frequency").getAsFloat(), 0, 256);
 
         final int radiusXZ = InnerActions.range(params.get("radiusXZ").getAsInt(), 5, 20);
         final int radiusY = InnerActions.range(params.get("radiusY").getAsInt(), 5, 20);
@@ -163,9 +162,9 @@ public class CrystalCaveFeatureGenerator extends FeatureBase implements IFeature
     public JsonObject getDefaultParameters()
     {
         final JsonObject defParams = new JsonObject();
-        defParams.addProperty(Constants.FormatBits.MIN_HEIGHT, 0);
-        defParams.addProperty(Constants.FormatBits.MAX_HEIGHT, 256);
-        defParams.addProperty(Constants.FormatBits.FREQUENCY, 0.5);
+        defParams.addProperty("minHeight", 0);
+        defParams.addProperty("maxHeight", 256);
+        defParams.addProperty("frequency", 0.5);
 
         defParams.addProperty("radiusXZ", 8);
         defParams.addProperty("radiusY", 6);

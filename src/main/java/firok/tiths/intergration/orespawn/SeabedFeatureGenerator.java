@@ -4,7 +4,6 @@ import com.google.gson.JsonObject;
 import com.mcmoddev.orespawn.api.FeatureBase;
 import com.mcmoddev.orespawn.api.IFeature;
 import com.mcmoddev.orespawn.api.os3.ISpawnEntry;
-import com.mcmoddev.orespawn.data.Constants;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -47,7 +46,7 @@ public class SeabedFeatureGenerator extends FeatureBase implements IFeature
 
         runCache(chunkX, chunkZ, world, spawn);
 
-        final float freq = params.get(Constants.FormatBits.FREQUENCY).getAsFloat();
+        final float freq = params.get("frequency").getAsFloat();
 
         if (!canTrigger(world.rand, freq)) return;
 
@@ -102,7 +101,7 @@ public class SeabedFeatureGenerator extends FeatureBase implements IFeature
     public JsonObject getDefaultParameters()
     {
         final JsonObject defParams = new JsonObject();
-        defParams.addProperty(Constants.FormatBits.FREQUENCY, 0.08);
+        defParams.addProperty("frequency", 0.08);
         return defParams;
     }
 }

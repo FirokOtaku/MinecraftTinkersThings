@@ -2,6 +2,19 @@
 
 > All Time Stamps: GMT+8
 
+## 0.3.48.0 _2026-11-29 01:00_
+
+* added multiple sets of Tinkers' Construct-style building materials
+  * gray-black series
+  * gray-white series
+  * fluorescent series
+* updated MMD Ore Spawn dependency version and configuration format
+* adjusted ore generation amounts
+* added inventory effects to some metal ingots and blocks
+* added item
+  * silverfish egg
+* adjusted ore dictionary properties of some items
+
 ## 0.3.47.0 _2026-11-25 22:00_
 
 * added items

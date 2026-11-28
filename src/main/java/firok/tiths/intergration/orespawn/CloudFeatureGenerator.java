@@ -4,7 +4,7 @@ import com.google.gson.JsonObject;
 import com.mcmoddev.orespawn.api.FeatureBase;
 import com.mcmoddev.orespawn.api.IFeature;
 import com.mcmoddev.orespawn.api.os3.ISpawnEntry;
-import com.mcmoddev.orespawn.data.Constants;
+import firok.tiths.common.Blocks;
 import firok.tiths.util.InnerActions;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
@@ -41,20 +41,14 @@ public class CloudFeatureGenerator extends FeatureBase implements IFeature
     {
         final JsonObject params = spawnData.getFeature().getFeatureParameters();
 
-        // First, load cached blocks for neighboring chunk ore spawns
-        final int chunkX = pos.x;
-        final int chunkZ = pos.z;
-
         mergeDefaults(params, getDefaultParameters());
 
-        runCache(chunkX, chunkZ, world, spawnData);
-
-        final float freq = params.get(Constants.FormatBits.FREQUENCY).getAsFloat();
+        final float freq = params.get("frequency").getAsFloat();
 
         if (!canTrigger(world.rand, freq)) return;
 
-        final int minY = InnerActions.range(params.get(Constants.FormatBits.MIN_HEIGHT).getAsInt(), 0, 256);
-        final int maxY = InnerActions.range(params.get(Constants.FormatBits.MAX_HEIGHT).getAsInt(), 0, 256);
+        final int minY = InnerActions.range(params.get("minHeight").getAsInt(), 0, 256);
+        final int maxY = InnerActions.range(params.get("maxHeight").getAsInt(), 0, 256);
 
         final int radiusX = InnerActions.range(params.get("radiusX").getAsInt(), 5, 20);
         final int variationX = InnerActions.range(params.get("variationX").getAsInt(), 0, 5);
@@ -65,6 +59,9 @@ public class CloudFeatureGenerator extends FeatureBase implements IFeature
 
         // now to ore spawn
         final Random rand = world.rand;
+        final boolean useDefaultBlocks = spawnData.getBlocks().count() == 0;
+        final IBlockState cloud = Blocks.blockCloud.getDefaultState();
+        final IBlockState ore = Blocks.oreBrumeJade.getDefaultState();
         final int posX = pos.getXStart() + 2 + rand.nextInt(12);
         final int posY = minY + (maxY > minY ? rand.nextInt(maxY - minY) : 0);
         final int posZ = pos.getZStart() + 2 + rand.nextInt(12);
@@ -93,8 +90,10 @@ public class CloudFeatureGenerator extends FeatureBase implements IFeature
                         BlockPos posTemp = new BlockPos(posX + ox, posY + oy, posZ + oz);
                         if (world.isAirBlock(posTemp))
                         {
-                            IBlockState stateTemp = spawnData.getBlocks().getRandomBlock(rand);
-                            world.setBlockState(posTemp, stateTemp);
+                            IBlockState state = useDefaultBlocks
+                                    ? (rand.nextInt(100) < 4 ? ore : cloud)
+                                    : spawnData.getBlocks().getRandomBlock(rand);
+                            world.setBlockState(posTemp, state);
                         }
                     }
                 }
@@ -106,9 +105,9 @@ public class CloudFeatureGenerator extends FeatureBase implements IFeature
     public JsonObject getDefaultParameters()
     {
         final JsonObject defParams = new JsonObject();
-        defParams.addProperty(Constants.FormatBits.MIN_HEIGHT, 160);
-        defParams.addProperty(Constants.FormatBits.MAX_HEIGHT, 180);
-        defParams.addProperty(Constants.FormatBits.FREQUENCY, 0.0185);
+        defParams.addProperty("minHeight", 160);
+        defParams.addProperty("maxHeight", 180);
+        defParams.addProperty("frequency", 0.0185);
         defParams.addProperty("radiusX", 6);
         defParams.addProperty("variationX", 2);
         defParams.addProperty("radiusY", 4);

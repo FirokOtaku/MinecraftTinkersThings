@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "tiths:cinder_stone",
+      "data": 3
+    }
+  ],
+  "result": {
+    "item": "tiths:cinder_brick",
+    "count": 4
+  }
+}

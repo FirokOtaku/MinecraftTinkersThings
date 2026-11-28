@@ -17,10 +17,9 @@
 > 如果需要自定义世界生成, 请查阅此模组提供的文档
 > (原文档为英文)
 
-> **MMD Ore Spawn**会在首次启动时, 将模组文件内置的世界生成配置输出至`.minecraft/config/orespawn/`目录
-> 此后, 当模组内世界生成配置文件发生变化时 (这常发生在更新模组版本时) 并**不会**再次导出
-> 更新本模组或其它模组时, 您可能需要删除这些文件以让 **MMD Ore Spawn** 重新导出配置, 否则新的世界生成 (如果有的话) **可能不会**生效
-> 大部分情况下, 可通过删除`.minecraft/config/orespawn/`目录然后重启游戏以触发重新导出
+> 当前版本需要 **MMD OreSpawn 4.1.6.112021** 或更新的 Minecraft 1.12.2 Forge 版本。新版直接加载模组内置的矿物规则。`config/tiths-orespawn.json` 中的整合包配置优先于内置规则。
+> 从 OreSpawn 3 升级时，模组会把识别到的旧默认 `config/orespawn3/tiths.json` 移到 `config/orespawn-migration/tiths-os3-default.json`。用户自定义的旧配置由 OreSpawn 迁移。若迁移结果含有 `tiths:legacy/test`，可移除该旧云层规则，雾玉云层现由兼容插件单独生成。
+> 新建世界会使用当前规则。已有世界保存了自己的规则，可在备份后调整 `<世界目录>/serverconfig/orespawn-worldgen.json` 中的矿物配置。默认生成仅作用于新生成的区块。
 
 ## 最近更新
 

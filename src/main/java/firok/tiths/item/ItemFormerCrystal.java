@@ -62,8 +62,15 @@ public class ItemFormerCrystal extends ItemCustom
                 assert nbtRoot != null;
                 if (FormerStatus.hasStatus(nbtRoot)) // 读取
                 {
-                    FormerStatus status = FormerStatus.fromNBT(nbtRoot.getCompoundTag("status"));
-                    if (status != null) status.toPlayer(player);
+                    NBTTagCompound nbtStatus = nbtRoot.getCompoundTag("status");
+                    FormerStatus status = FormerStatus.fromNBT(nbtStatus);
+                    if (status == null) return stack;
+                    boolean isOwner = nbtStatus.hasUniqueId("owner")
+                            ? player.getUniqueID().equals(nbtStatus.getUniqueId("owner"))
+                            : player.getName().equals(status.name);
+                    if (!isOwner) return stack;
+
+                    status.toPlayer(player);
                     if (!player.isCreative()) stack.shrink(1);
                 }
                 else // 储存
@@ -75,7 +82,9 @@ public class ItemFormerCrystal extends ItemCustom
                     player.setHealth(1);
                     player.clearActivePotions();
 
-                    nbtRoot.setTag("status", status.toNBT());
+                    NBTTagCompound nbtStatus = status.toNBT();
+                    nbtStatus.setUniqueId("owner", player.getUniqueID());
+                    nbtRoot.setTag("status", nbtStatus);
                     stack.setTagCompound(nbtRoot);
                 }
 

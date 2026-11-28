@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "key": {
+    "S": {
+      "item": "tiths:cinder_stone",
+      "data": 10
+    }
+  },
+  "result": {
+    "item": "tiths:cinder_stone",
+    "data": 11,
+    "count": 4
+  }
+}

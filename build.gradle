@@ -38,6 +38,10 @@ minecraft {
     accessTransformer = file("src/main/resources/META-INF/tiths_at.cfg")
 
     runs {
+        // The seared building materials core plugin is disabled for now.
+        // configureEach {
+        //     property "fml.coreMods.load", "firok.tiths.core.SearedStructurePlugin"
+        // }
         client {
             workingDirectory project.file("run")
             property "forge.logging.markers", "SCAN,REGISTRIES,REGISTRYDUMP"
@@ -105,8 +109,7 @@ dependencies {
     implementation fg.deobf("mezz.jei:jei_1.12.2:4.15.0.293")
     // Hwyla 1.8.26-B41_1.12.2 (CurseForge project 253449 / file 2568751)
     implementation fg.deobf("curse.maven:hwyla-253449:2568751")
-    // MMD maven TLS is broken; use CurseMaven (3.3.1.179 ≈ former 3.3.1.183)
-    implementation fg.deobf("curse.maven:mmd-orespawn-245586:2913786")
+    implementation fg.deobf("curse.maven:mmd-orespawn-245586:9527784") // OreSpawn 4.1.6.112021
 
     // Soft-integration targets that are still imported at compile time
     implementation fg.deobf("com.azanor.baubles:Baubles:1.12-1.5.2")
@@ -117,6 +120,7 @@ dependencies {
     atSource "slimeknights:TConstruct:1.12.2-2.13.0.183"
     atSource "mezz.jei:jei_1.12.2:4.15.0.293"
     atSource "curse.maven:hammer-lib-247401:5655067"
+    atSource "curse.maven:mmd-orespawn-245586:9527784"
 }
 
 task collectDependencyAts {
@@ -172,7 +176,18 @@ processResources {
 // Forge 1.12 expects resources in the same directory as classes (FG2 merged them).
 sourceSets.all { it.output.resourcesDir = it.output.classesDirs.getFiles().iterator().next() }
 
+tasks.register("generateOreSpawnProvider", JavaExec) {
+    group = "development"
+    description = "Regenerate the bundled OreSpawn provider from the historical ore rules"
+    dependsOn compileJava
+    classpath = files(sourceSets.main.output.classesDirs, sourceSets.main.compileClasspath)
+    mainClass.set('firok.tiths.$Ignore_OreSpawnProviderGenerator')
+    workingDir project.projectDir
+    args "--write"
+}
+
 jar {
+    exclude 'firok/tiths/$Ignore_OreSpawnProviderGenerator*.class'
     // Never ship Forge internals (e.g. accidental Side overrides) in the release jar.
     exclude "net/minecraftforge/**"
     manifest {
@@ -185,7 +200,9 @@ jar {
             "Implementation-Vendor"   : "Firok",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
             // Dev remapping uses accessTransformer above; FMLAT is for production consistency.
-            "FMLAT"                   : "tiths_at.cfg"
+            "FMLAT"                   : "tiths_at.cfg",
+            // "FMLCorePlugin"           : "firok.tiths.core.SearedStructurePlugin",
+            // "FMLCorePluginContainsFMLMod": "true"
         ])
     }
 }

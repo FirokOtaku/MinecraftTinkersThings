@@ -1,0 +1,46 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "transform": "forge:default-block",
+    "model": "half_slab",
+    "textures": {
+      "bottom": "#all",
+      "top": "#all",
+      "side": "#all",
+      "particle": "#all"
+    }
+  },
+  "variants": {
+    "type": {
+      "brick_triangle": {
+        "textures": {
+          "all": "tiths:blocks/seared_building/luminous/brick_triangle"
+        }
+      },
+      "brick_small": {
+        "textures": {
+          "all": "tiths:blocks/seared_building/luminous/brick_small"
+        }
+      },
+      "tile": {
+        "textures": {
+          "all": "tiths:blocks/seared_building/luminous/tile"
+        }
+      },
+      "creeper": {
+        "textures": {
+          "side": "tiths:blocks/seared_building/luminous/creeper",
+          "particle": "#side",
+          "top": "tiths:blocks/seared_building/luminous/paver",
+          "bottom": "#top"
+        }
+      }
+    },
+    "half": {
+      "bottom": {},
+      "top": {
+        "model": "upper_slab"
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "tiths:luminous_stone",
+      "data": 1
+    }
+  },
+  "result": {
+    "item": "tiths:luminous_slab",
+    "data": 1,
+    "count": 6
+  }
+}

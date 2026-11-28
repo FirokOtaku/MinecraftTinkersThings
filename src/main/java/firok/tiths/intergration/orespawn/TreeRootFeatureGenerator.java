@@ -5,7 +5,6 @@ import com.mcmoddev.orespawn.api.FeatureBase;
 import com.mcmoddev.orespawn.api.IFeature;
 import com.mcmoddev.orespawn.api.os3.ISpawnEntry;
 import com.mcmoddev.orespawn.api.os3.OreSpawnBlockMatcher;
-import com.mcmoddev.orespawn.data.Constants;
 import firok.tiths.util.InnerActions;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -51,7 +50,7 @@ public class TreeRootFeatureGenerator extends FeatureBase implements IFeature
 
         runCache(chunkX, chunkZ, world, spawn);
 
-        final float freq = params.get(Constants.FormatBits.FREQUENCY).getAsFloat();
+        final float freq = params.get("frequency").getAsFloat();
 
         if (!canTrigger(world.rand, freq)) return;
 
@@ -125,7 +124,7 @@ public class TreeRootFeatureGenerator extends FeatureBase implements IFeature
     public JsonObject getDefaultParameters()
     {
         final JsonObject defParams = new JsonObject();
-        defParams.addProperty(Constants.FormatBits.FREQUENCY, 0.08);
+        defParams.addProperty("frequency", 0.08);
         defParams.addProperty("depthBase", 3);
         defParams.addProperty("depthExtra", 3);
         return defParams;

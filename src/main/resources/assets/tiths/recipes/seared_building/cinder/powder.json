@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "tiths:dust_stone"
+    },
+    {
+      "item": "tiths:dust_stone"
+    },
+    {
+      "item": "tiths:dust_stone_coal"
+    },
+    {
+      "item": "tiths:dust_stone_coal"
+    },
+    {
+      "item": "tiths:ink_powder"
+    }
+  ],
+  "result": {
+    "item": "tiths:dust_stone_cinder",
+    "count": 4
+  }
+}

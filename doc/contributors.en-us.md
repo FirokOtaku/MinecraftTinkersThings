@@ -56,6 +56,10 @@ Friction Effect|dragging|caoimhe_s1|trimmed|CC 0|[Link](https://freesound.org/pe
 Icy Effect|ICEFric_Clean Ice Cracks 01_Slava Pogorelsky_CMI|Slava Pogorelsky|trimmed|ZapSplat - Standard License Agreement|[Link](https://www.zapsplat.com/license-type/standard-license/)
 Igniting Effect|zapsplat_sound_design_fire_whoosh_fast_heavy_flame_112137|ZapSplat|trimmed, speed changed, fade-out effected|ZapSplat - Standard License Agreement|[Link](https://www.zapsplat.com/sound-effect-packs/fire-whooshes/)
 
+## About building material assets
+
+Some building material textures in Tinkers' Things are recolored from Tinkers' Construct 1.12.2-2.13.0.183, and the corresponding models and blockstates are adapted from the same mod. These upstream assets are licensed under the MIT License (Copyright (c) 2022 SlimeKnights). See the [upstream project](https://github.com/SlimeKnights/TinkersConstruct/tree/1.12) and the [license notice included with this mod](../src/main/resources/META-INF/TConstruct-seared-textures-LICENSE.txt).
+
 ## About AI-generated content
 
 Since version 0.3.32.0, this project has been developed using AI-generated code complemented by manual code review.

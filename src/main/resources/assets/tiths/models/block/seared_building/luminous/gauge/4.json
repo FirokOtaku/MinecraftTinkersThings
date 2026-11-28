@@ -1,0 +1,7 @@
+{
+  "parent": "tconstruct:block/tank/gauge/4",
+  "textures": {
+    "side": "tiths:blocks/seared_building/luminous/vessel_gauge",
+    "top": "tiths:blocks/seared_building/luminous/vessel_window_top"
+  }
+}

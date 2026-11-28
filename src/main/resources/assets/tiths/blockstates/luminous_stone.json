@@ -1,0 +1,79 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "transform": "forge:default-block",
+    "model": "cube_all",
+    "textures": {
+      "all": "tiths:blocks/seared_building/luminous/stone",
+      "particle": "#all"
+    }
+  },
+  "variants": {
+    "type": {
+      "stone": {
+        "textures": {
+          "all": "tiths:blocks/seared_building/luminous/stone"
+        }
+      },
+      "cobble": {
+        "textures": {
+          "all": "tiths:blocks/seared_building/luminous/cobble"
+        }
+      },
+      "paver": {
+        "textures": {
+          "all": "tiths:blocks/seared_building/luminous/paver"
+        }
+      },
+      "brick": {
+        "textures": {
+          "all": "tiths:blocks/seared_building/luminous/brick"
+        }
+      },
+      "brick_cracked": {
+        "textures": {
+          "all": "tiths:blocks/seared_building/luminous/brick_cracked"
+        }
+      },
+      "brick_fancy": {
+        "textures": {
+          "all": "tiths:blocks/seared_building/luminous/brick_fancy"
+        }
+      },
+      "brick_square": {
+        "textures": {
+          "all": "tiths:blocks/seared_building/luminous/brick_square"
+        }
+      },
+      "brick_triangle": {
+        "textures": {
+          "all": "tiths:blocks/seared_building/luminous/brick_triangle"
+        }
+      },
+      "brick_small": {
+        "textures": {
+          "all": "tiths:blocks/seared_building/luminous/brick_small"
+        }
+      },
+      "road": {
+        "textures": {
+          "all": "tiths:blocks/seared_building/luminous/road"
+        }
+      },
+      "tile": {
+        "textures": {
+          "all": "tiths:blocks/seared_building/luminous/tile"
+        }
+      },
+      "creeper": {
+        "model": "cube_bottom_top",
+        "textures": {
+          "side": "tiths:blocks/seared_building/luminous/creeper",
+          "particle": "#side",
+          "top": "tiths:blocks/seared_building/luminous/paver",
+          "bottom": "#top"
+        }
+      }
+    }
+  }
+}

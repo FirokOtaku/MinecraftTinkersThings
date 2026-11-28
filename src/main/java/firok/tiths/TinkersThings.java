@@ -31,7 +31,7 @@ import java.util.Random;
                 "after:conarm@[1.2.5,);" +
                 "after:hammercore@[1.12.2-2.0.6.17,);" +
                 "after:lux@[1.12.2,);" +
-                "required-after:orespawn@[3.3.1,);" +
+                "required-after:orespawn@[4.1.6.112021,);" +
                 "after:jei;" +
                 "after:waila;"
 )
@@ -39,7 +39,7 @@ public class TinkersThings
 {
     public static final String MOD_ID = "tiths";
     public static final String MOD_NAME = "Tinkers' Things";
-    public static final String VERSION = "1.12.2-0.3.47.0";
+    public static final String VERSION = "1.12.2-0.3.48.0";
     public static final VersionPhase version = VersionPhase.Alpha;
 
     public static final String CONARM_ID = "conarm";
@@ -126,6 +126,7 @@ public class TinkersThings
         RegistryHandler.registerBlocks(Blocks.class, TinkersThings.MOD_ID);
         RegistryHandler.registerTileEntities();
         RegistryHandler.registerItems(Items.class, Blocks.class, TinkersThings.MOD_ID);
+        SearedBuildingMaterials.register();
         RegistryHandler.registerEntities();
 //		RegistryHandler.registerVillagers();
 
@@ -182,6 +183,7 @@ public class TinkersThings
         }
 
         IngredientFactories.trigger();
+        SearedBuildingMaterials.init();
         Craftings.registerAllCraftings();
         Alloys.registerAlloys();
         //  SmeltingRegistry.register(); // Registers smelting recipes

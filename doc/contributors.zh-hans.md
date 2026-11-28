@@ -56,6 +56,10 @@ Friction Effect|dragging|caoimhe_s1|裁剪|CC 0|[Link](https://freesound.org/peo
 Icy Effect|ICEFric_Clean Ice Cracks 01_Slava Pogorelsky_CMI|Slava Pogorelsky|裁剪|ZapSplat - Standard License Agreement|[Link](https://www.zapsplat.com/license-type/standard-license/)
 Igniting Effect|zapsplat_sound_design_fire_whoosh_fast_heavy_flame_112137|ZapSplat|裁剪 变速 淡出音效|ZapSplat - Standard License Agreement|[Link](https://www.zapsplat.com/sound-effect-packs/fire-whooshes/)
 
+## 关于建筑材料资源
+
+本模组的部分建筑材料贴图由匠魂 1.12.2-2.13.0.183 的贴图重新配色而来, 对应的模型和方块状态也改编自该模组. 这些上游资源采用 MIT 协议 (Copyright (c) 2022 SlimeKnights). 详见[上游项目](https://github.com/SlimeKnights/TinkersConstruct/tree/1.12)及[随本模组附带的许可证声明](../src/main/resources/META-INF/TConstruct-seared-textures-LICENSE.txt).
+
 ## 关于 AI 生成内容
 
 本项目自 0.3.32.0 后开始使用 AI 生成代码辅以人工 code review 方式开发.

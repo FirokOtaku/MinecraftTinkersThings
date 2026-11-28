@@ -22,6 +22,7 @@ import net.minecraft.entity.boss.EntityWither;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityCaveSpider;
+import net.minecraft.entity.monster.EntitySilverfish;
 import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.entity.monster.EntityWitherSkeleton;
 import net.minecraft.entity.player.EntityPlayer;
@@ -40,10 +41,13 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.storage.loot.LootEntry;
+import net.minecraft.world.storage.loot.LootEntryItem;
 import net.minecraft.world.storage.loot.LootPool;
+import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraft.world.storage.loot.RandomValueRange;
 import net.minecraft.world.storage.loot.conditions.LootCondition;
 import net.minecraft.world.storage.loot.conditions.RandomChance;
+import net.minecraft.world.storage.loot.functions.LootFunction;
 import net.minecraftforge.client.event.sound.PlaySoundEvent;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.config.Config;
@@ -84,6 +88,9 @@ import static net.minecraftforge.fml.common.eventhandler.EventPriority.HIGHEST;
 @Mod.EventBusSubscriber(modid = TinkersThings.MOD_ID)
 public class Events
 {
+    private static final String SILVERFISH_EGGS_POOL = Keys.prefRL + Keys.nameSilverfishEggs;
+    private static final String SILVERFISH_EGGS_ROLLED = SILVERFISH_EGGS_POOL + "_rolled";
+
     @SubscribeEvent(priority = HIGHEST)
     public static void onEnderInterferedBreak(BlockEvent.BreakEvent event)
     {
@@ -484,6 +491,18 @@ public class Events
         EntityLivingBase enlb = event.getEntityLiving();
         EntityLivingBase enlbRevTarget = enlb.getRevengeTarget();
         World world = enlb.world;
+        if (!world.isRemote && enlb.getClass() == EntitySilverfish.class)
+        {
+            // Loot generation can be skipped by doMobLoot or by a replacement death table.
+            boolean rolled = enlb.getEntityData().getBoolean(SILVERFISH_EGGS_ROLLED);
+            enlb.getEntityData().removeTag(SILVERFISH_EGGS_ROLLED);
+            if (!rolled && world.rand.nextBoolean())
+            {
+                EntityItem eggs = new EntityItem(world, enlb.posX, enlb.posY, enlb.posZ, new ItemStack(Items.silverfishEggs));
+                eggs.setDefaultPickupDelay();
+                event.getDrops().add(eggs);
+            }
+        }
         if (enlbRevTarget instanceof EntityPlayer && enlbRevTarget.isEntityAlive())
         {
             EntityPlayer player = (EntityPlayer) enlbRevTarget;
@@ -742,6 +761,33 @@ public class Events
 			温软 - 护甲
 			* */
         }
+    }
+
+    @SubscribeEvent
+    public static void onMobLootTableLoad(LootTableLoadEvent event)
+    {
+        if (!LootTableList.ENTITIES_SILVERFISH.equals(event.getName())) return;
+        if (event.getTable().getPool(SILVERFISH_EGGS_POOL) != null) return;
+
+        LootCondition rollEggs = (rand, context) -> {
+            Entity entity = context.getLootedEntity();
+            // Keep the exact vanilla class check and only roll during captured death drops.
+            if (entity == null || entity.getClass() != EntitySilverfish.class
+                    || entity.isEntityAlive() || !entity.captureDrops || entity.world.isRemote) return false;
+            if (entity.getEntityData().getBoolean(SILVERFISH_EGGS_ROLLED)) return false;
+            // Record misses as well so LivingDropsEvent never rolls a second time.
+            entity.getEntityData().setBoolean(SILVERFISH_EGGS_ROLLED, true);
+            return entity.world.rand.nextBoolean();
+        };
+        LootPool pool = new LootPool(
+                new LootEntry[]{new LootEntryItem(Items.silverfishEggs, 1, 0, new LootFunction[0],
+                        new LootCondition[0], SILVERFISH_EGGS_POOL)},
+                new LootCondition[]{rollEggs},
+                new RandomValueRange(1),
+                new RandomValueRange(0),
+                SILVERFISH_EGGS_POOL
+        );
+        event.getTable().addPool(pool);
     }
 
     @SubscribeEvent

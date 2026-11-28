@@ -16,10 +16,9 @@ An addon of Tinkers' Construct.
 > All world generations depend on **MMD Ore Spawn** after 0.3.25.0.
 > If you want to customize generations, please check the docs provided by this mod.
 
-> **MMD Ore Spawn** will export the bundled world generation configs to the `.minecraft/config/orespawn/` directory on first launch.
-> After that, when the world generation configs inside this mod change (which often happens when updating the mod), it **will not** export them again.
-> When updating this or some other mods, you may need to delete those files and make **MMD Ore Spawn** export configs again, or the new generations (if there are any) **may not** take effect.
-> In most cases, delete the `.minecraft/config/orespawn/` directory and restart the game to trigger a re-export.
+> This release requires **MMD OreSpawn 4.1.6.112021** or later for Minecraft 1.12.2 Forge. OreSpawn loads the bundled ore rules directly. Pack overrides in `config/tiths-orespawn.json` take precedence.
+> When upgrading from OreSpawn 3, the mod archives a recognized stock `config/orespawn3/tiths.json` to `config/orespawn-migration/tiths-os3-default.json`. OreSpawn migrates customized legacy files. If the migrated rules contain `tiths:legacy/test`, remove that old cloud rule. The compatibility plugin now generates Brume Jade clouds separately.
+> New worlds use the current rules. Existing worlds have their own saved rules. Back up the world before editing `<world>/serverconfig/orespawn-worldgen.json`. By default, generation applies to new chunks.
 
 ## Latest update
 

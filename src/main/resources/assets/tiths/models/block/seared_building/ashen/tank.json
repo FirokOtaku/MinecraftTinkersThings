@@ -1,0 +1,63 @@
+{
+  "parent": "tconstruct:block/tank/tank",
+  "textures": {
+    "side": "tiths:blocks/seared_building/ashen/vessel_tank",
+    "top": "tiths:blocks/seared_building/ashen/vessel_top"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "amount": 0.0001
+      },
+      "model": "tiths:block/seared_building/ashen/tank/0"
+    },
+    {
+      "predicate": {
+        "amount": 0.0625
+      },
+      "model": "tiths:block/seared_building/ashen/tank/1"
+    },
+    {
+      "predicate": {
+        "amount": 0.1875
+      },
+      "model": "tiths:block/seared_building/ashen/tank/2"
+    },
+    {
+      "predicate": {
+        "amount": 0.3125
+      },
+      "model": "tiths:block/seared_building/ashen/tank/3"
+    },
+    {
+      "predicate": {
+        "amount": 0.4375
+      },
+      "model": "tiths:block/seared_building/ashen/tank/4"
+    },
+    {
+      "predicate": {
+        "amount": 0.5625
+      },
+      "model": "tiths:block/seared_building/ashen/tank/5"
+    },
+    {
+      "predicate": {
+        "amount": 0.6875
+      },
+      "model": "tiths:block/seared_building/ashen/tank/6"
+    },
+    {
+      "predicate": {
+        "amount": 0.8125
+      },
+      "model": "tiths:block/seared_building/ashen/tank/7"
+    },
+    {
+      "predicate": {
+        "amount": 0.9375
+      },
+      "model": "tiths:block/seared_building/ashen/tank/8"
+    }
+  ]
+}

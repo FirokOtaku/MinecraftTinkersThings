@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "tiths:infested_blocks",
+  "ingredients": [
+    { "item": "tiths:silverfish_eggs" },
+    { "item": "minecraft:stonebrick", "data": 2 }
+  ],
+  "result": { "item": "minecraft:monster_egg", "data": 4 }
+}

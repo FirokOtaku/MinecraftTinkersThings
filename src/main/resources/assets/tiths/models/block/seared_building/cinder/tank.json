@@ -1,0 +1,63 @@
+{
+  "parent": "tconstruct:block/tank/tank",
+  "textures": {
+    "side": "tiths:blocks/seared_building/cinder/vessel_tank",
+    "top": "tiths:blocks/seared_building/cinder/vessel_top"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "amount": 0.0001
+      },
+      "model": "tiths:block/seared_building/cinder/tank/0"
+    },
+    {
+      "predicate": {
+        "amount": 0.0625
+      },
+      "model": "tiths:block/seared_building/cinder/tank/1"
+    },
+    {
+      "predicate": {
+        "amount": 0.1875
+      },
+      "model": "tiths:block/seared_building/cinder/tank/2"
+    },
+    {
+      "predicate": {
+        "amount": 0.3125
+      },
+      "model": "tiths:block/seared_building/cinder/tank/3"
+    },
+    {
+      "predicate": {
+        "amount": 0.4375
+      },
+      "model": "tiths:block/seared_building/cinder/tank/4"
+    },
+    {
+      "predicate": {
+        "amount": 0.5625
+      },
+      "model": "tiths:block/seared_building/cinder/tank/5"
+    },
+    {
+      "predicate": {
+        "amount": 0.6875
+      },
+      "model": "tiths:block/seared_building/cinder/tank/6"
+    },
+    {
+      "predicate": {
+        "amount": 0.8125
+      },
+      "model": "tiths:block/seared_building/cinder/tank/7"
+    },
+    {
+      "predicate": {
+        "amount": 0.9375
+      },
+      "model": "tiths:block/seared_building/cinder/tank/8"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "tiths:luminous_stone",
+      "data": 3
+    }
+  ],
+  "result": {
+    "item": "tiths:luminous_brick",
+    "count": 4
+  }
+}

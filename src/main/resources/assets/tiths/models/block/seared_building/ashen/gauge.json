@@ -1,0 +1,63 @@
+{
+  "parent": "tconstruct:block/tank/gauge",
+  "textures": {
+    "side": "tiths:blocks/seared_building/ashen/vessel_gauge",
+    "top": "tiths:blocks/seared_building/ashen/vessel_window_top"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "amount": 0.0001
+      },
+      "model": "tiths:block/seared_building/ashen/gauge/0"
+    },
+    {
+      "predicate": {
+        "amount": 0.0625
+      },
+      "model": "tiths:block/seared_building/ashen/gauge/1"
+    },
+    {
+      "predicate": {
+        "amount": 0.1875
+      },
+      "model": "tiths:block/seared_building/ashen/gauge/2"
+    },
+    {
+      "predicate": {
+        "amount": 0.3125
+      },
+      "model": "tiths:block/seared_building/ashen/gauge/3"
+    },
+    {
+      "predicate": {
+        "amount": 0.4375
+      },
+      "model": "tiths:block/seared_building/ashen/gauge/4"
+    },
+    {
+      "predicate": {
+        "amount": 0.5625
+      },
+      "model": "tiths:block/seared_building/ashen/gauge/5"
+    },
+    {
+      "predicate": {
+        "amount": 0.6875
+      },
+      "model": "tiths:block/seared_building/ashen/gauge/6"
+    },
+    {
+      "predicate": {
+        "amount": 0.8125
+      },
+      "model": "tiths:block/seared_building/ashen/gauge/7"
+    },
+    {
+      "predicate": {
+        "amount": 0.9375
+      },
+      "model": "tiths:block/seared_building/ashen/gauge/8"
+    }
+  ]
+}

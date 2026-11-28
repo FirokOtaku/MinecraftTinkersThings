@@ -1,0 +1,63 @@
+{
+  "parent": "tconstruct:block/tank/window",
+  "textures": {
+    "side": "tiths:blocks/seared_building/luminous/vessel_window",
+    "top": "tiths:blocks/seared_building/luminous/vessel_window_top"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "amount": 0.0001
+      },
+      "model": "tiths:block/seared_building/luminous/window/0"
+    },
+    {
+      "predicate": {
+        "amount": 0.0625
+      },
+      "model": "tiths:block/seared_building/luminous/window/1"
+    },
+    {
+      "predicate": {
+        "amount": 0.1875
+      },
+      "model": "tiths:block/seared_building/luminous/window/2"
+    },
+    {
+      "predicate": {
+        "amount": 0.3125
+      },
+      "model": "tiths:block/seared_building/luminous/window/3"
+    },
+    {
+      "predicate": {
+        "amount": 0.4375
+      },
+      "model": "tiths:block/seared_building/luminous/window/4"
+    },
+    {
+      "predicate": {
+        "amount": 0.5625
+      },
+      "model": "tiths:block/seared_building/luminous/window/5"
+    },
+    {
+      "predicate": {
+        "amount": 0.6875
+      },
+      "model": "tiths:block/seared_building/luminous/window/6"
+    },
+    {
+      "predicate": {
+        "amount": 0.8125
+      },
+      "model": "tiths:block/seared_building/luminous/window/7"
+    },
+    {
+      "predicate": {
+        "amount": 0.9375
+      },
+      "model": "tiths:block/seared_building/luminous/window/8"
+    }
+  ]
+}

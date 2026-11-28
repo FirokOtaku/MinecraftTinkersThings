@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "tiths:ashen_stone",
+      "data": 11
+    }
+  },
+  "result": {
+    "item": "tiths:ashen_slab2",
+    "data": 3,
+    "count": 6
+  }
+}

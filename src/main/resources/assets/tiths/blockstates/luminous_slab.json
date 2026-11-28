@@ -1,0 +1,63 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "transform": "forge:default-block",
+    "model": "half_slab",
+    "textures": {
+      "bottom": "#all",
+      "top": "#all",
+      "side": "#all",
+      "particle": "#all"
+    }
+  },
+  "variants": {
+    "type": {
+      "stone": {
+        "textures": {
+          "all": "tiths:blocks/seared_building/luminous/stone"
+        }
+      },
+      "cobble": {
+        "textures": {
+          "all": "tiths:blocks/seared_building/luminous/cobble"
+        }
+      },
+      "paver": {
+        "textures": {
+          "all": "tiths:blocks/seared_building/luminous/paver"
+        }
+      },
+      "brick": {
+        "textures": {
+          "all": "tiths:blocks/seared_building/luminous/brick"
+        }
+      },
+      "brick_cracked": {
+        "textures": {
+          "all": "tiths:blocks/seared_building/luminous/brick_cracked"
+        }
+      },
+      "brick_fancy": {
+        "textures": {
+          "all": "tiths:blocks/seared_building/luminous/brick_fancy"
+        }
+      },
+      "brick_square": {
+        "textures": {
+          "all": "tiths:blocks/seared_building/luminous/brick_square"
+        }
+      },
+      "road": {
+        "textures": {
+          "all": "tiths:blocks/seared_building/luminous/road"
+        }
+      }
+    },
+    "half": {
+      "bottom": {},
+      "top": {
+        "model": "upper_slab"
+      }
+    }
+  }
+}

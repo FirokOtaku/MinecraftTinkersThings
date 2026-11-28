@@ -6,6 +6,7 @@ import firok.tiths.gen.BagType;
 import firok.tiths.gen.ToolTier;
 import firok.tiths.item.*;
 import firok.tiths.item.bauble.*;
+import firok.tiths.traits.TraitRadiant;
 import firok.tiths.util.reg.Reg;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.EnumRarity;
@@ -98,7 +99,7 @@ public final class Items
     public static final Item chloroplastDressing = new ItemCustom(); // 叶绿敷料
     @Reg(nameChloroplastLight)
     public static final Item chloroplastLight = new ItemChloroplastLight(); // 叶绿提灯
-    @Reg(nameCinder)
+    @Reg(value = nameCinder, od = {"dyeBlack"})
     public static final Item cinder = new ItemCustom(); // 煤屑
     // 原材料 - 各种
     @Reg(value = nameCinnabar, od = {"cinnabar", "quicksilver", "mercury", "gemCinnabar", "crystalCinnabar"})
@@ -180,7 +181,7 @@ public final class Items
     @Reg(Keys.ingotHalleium)
     public static final Item ingotHalleium = new ItemCustom(); // 哈雷锭
     @Reg(Keys.ingotHothium)
-    public static final Item ingotHothium = new ItemCustom(); // 霍斯锭
+    public static final Item ingotHothium = new ItemInventoryEffector(new PotionEffect(Potions.extreme_freezing, 40, 0)); // 霍斯锭
     @Reg(Keys.ingotImitatium)
     public static final Item ingotImitatium = new ItemCustom(); // 拟素锭
     @Reg(Keys.ingotImmersedSilver)
@@ -202,13 +203,13 @@ public final class Items
     @Reg(Keys.ingotSteamium)
     public static final Item ingotSteamium = new ItemCustom(); // 气钢锭
     @Reg(Keys.ingotStellarium)
-    public static final Item ingotStellarium = new ItemCustom(); // 恒星金属锭
+    public static final Item ingotStellarium = new ItemInventoryEffector(carrier -> TraitRadiant.ignite(carrier, 2)); // 恒星金属锭
     @Reg(Keys.ingotTanatonium)
     public static final Item ingotTanatonium = new ItemCustom(); // 塔拉特妮姆锭
     @Reg(value = Keys.ingotTitanium, od = {"ingotTitanium"})
     public static final Item ingotTitanium = new ItemCustom(); // 钛锭
     @Reg(Keys.ingotTonium)
-    public static final Item ingotTonium = new ItemCustom(); // 钝金锭
+    public static final Item ingotTonium = new ItemInventoryEffector(new PotionEffect(Potions.heavy, 80, 0)); // 钝金锭
     @Reg(Keys.ingotWitherium)
     public static final Item ingotWitherium = new ItemCustom(); // 凋零锭
     @Reg(value = nameInkPowder, od = {"dye", "dyeBlack"})
@@ -311,6 +312,8 @@ public final class Items
     public static final Item shell = new ItemCustomFood(1, 0.2f, false); // 贝壳
     @Reg(nameShellCooked)
     public static final Item shellCooked = new ItemCustomFood(2, 0.2f, false); // 熟贝壳
+    @Reg(nameSilverfishEggs)
+    public static final Item silverfishEggs = new ItemCustom(); // 蠹虫卵
     @Reg(nameSoul)
     public static final Item soul = new ItemSoul().setRarity(TithsRarity.Special); // 灵魂
     @Reg(nameSoulBeacon)

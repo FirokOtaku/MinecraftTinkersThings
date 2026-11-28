@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "tiths:ashen_stone",
+      "data": 3
+    }
+  ],
+  "result": {
+    "item": "tiths:ashen_brick",
+    "count": 4
+  }
+}

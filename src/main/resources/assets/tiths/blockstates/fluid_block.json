@@ -27,6 +27,9 @@
     "dirty_water": [ { "custom": { "fluid": "dirty_water" } } ],
     "shining_gel": [ { "custom": { "fluid": "shining_gel" } } ],
     "tanatonium": [ { "custom": { "fluid": "tanatonium" } } ],
-    "decurrium": [ { "custom": { "fluid": "decurrium" } } ]
+    "decurrium": [ { "custom": { "fluid": "decurrium" } } ],
+    "tiths_ashen_stone": [ { "custom": { "fluid": "tiths_ashen_stone" } } ],
+    "tiths_cinder_stone": [ { "custom": { "fluid": "tiths_cinder_stone" } } ],
+    "tiths_luminous_stone": [ { "custom": { "fluid": "tiths_luminous_stone" } } ]
   }
 }

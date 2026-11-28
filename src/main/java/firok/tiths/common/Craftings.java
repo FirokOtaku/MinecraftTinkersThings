@@ -314,6 +314,19 @@ public final class Craftings
                         RecipeMatch.of(new ItemStack(net.minecraft.init.Items.DYE, 1, EnumDyeColor.BLACK.getDyeDamage())),
                         new FluidStack(TinkerFluids.purpleSlime, Material.VALUE_Ingot * 2),
                         true, false));
+        registerTableCasting(
+                new CastingRecipe(
+                        new ItemStack(Items.inkySlime),
+                        RecipeMatch.of(new ItemStack(Items.inkPowder)),
+                        new FluidStack(TinkerFluids.purpleSlime, Material.VALUE_Ingot * 2),
+                        true, false));
+        // 岩浆结晶：用熔岩浇筑原晶
+        registerTableCasting(
+                new CastingRecipe(
+                        new ItemStack(Items.lavaCrystal),
+                        RecipeMatch.of(new ItemStack(Items.orystal)),
+                        new FluidStack(FluidRegistry.LAVA, Material.VALUE_Shard),
+                        true, false));
         // 末影之石
 //		registerTableCasting(
 //				new CastingRecipe(

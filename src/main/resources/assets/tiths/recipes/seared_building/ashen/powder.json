@@ -1,0 +1,25 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "tiths:dust_stone"
+    },
+    {
+      "item": "tiths:dust_stone"
+    },
+    {
+      "item": "tiths:dust_stone_coal"
+    },
+    {
+      "item": "tiths:dust_stone_coal"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "dyeWhite"
+    }
+  ],
+  "result": {
+    "item": "tiths:dust_stone_ashen",
+    "count": 4
+  }
+}

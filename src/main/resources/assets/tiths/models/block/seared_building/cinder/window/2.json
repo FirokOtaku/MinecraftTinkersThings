@@ -1,0 +1,7 @@
+{
+  "parent": "tconstruct:block/tank/window/2",
+  "textures": {
+    "side": "tiths:blocks/seared_building/cinder/vessel_window",
+    "top": "tiths:blocks/seared_building/cinder/vessel_window_top"
+  }
+}

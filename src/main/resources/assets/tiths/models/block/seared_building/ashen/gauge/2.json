@@ -1,0 +1,7 @@
+{
+  "parent": "tconstruct:block/tank/gauge/2",
+  "textures": {
+    "side": "tiths:blocks/seared_building/ashen/vessel_gauge",
+    "top": "tiths:blocks/seared_building/ashen/vessel_window_top"
+  }
+}
